@@ -12,7 +12,8 @@ CANONICAL = DATA_DIR / "current.json.gz.b64"
 
 ORDERED_CHUNKS = [
     "current.part01a.b64",
-    "current.part01b.b64",
+    "current.part01b1.b64",
+    "current.part01b2.b64",
     "current.part02.b64",
     "current.part03.b64",
     "current.part04.b64",
