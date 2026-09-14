@@ -1,77 +1,107 @@
 #!/usr/bin/env python3
-import base64
-import gzip
+from __future__ import annotations
+
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "current.json"
-SEED = ROOT / "seed" / "current.json.gz.b64"
+REPORTS = ROOT / "reports"
+
+REQUIRED_RECORD_KEYS = {"name", "origin", "evidence", "business", "type", "search_query"}
+ALLOWED_TYPES = {"destination", "executive", "both"}
 
 
-def load_payload():
-    if DATA.exists():
-        return json.loads(DATA.read_text(encoding="utf-8"))
-    raw = gzip.decompress(base64.b64decode(SEED.read_text(encoding="ascii").strip()))
-    return json.loads(raw.decode("utf-8"))
+def pct(num: int, den: int) -> float:
+    return round(num / den, 4) if den else 0.0
 
 
-def fail(msg):
-    print(f"FAIL: {msg}")
-    return 1
+def main() -> None:
+    from data_io import load_payload
+    payload = load_payload()
+    meta = payload.get("meta", {})
+    records = payload.get("records", [])
+    errors: list[str] = []
+    warnings: list[str] = []
 
+    if not isinstance(records, list) or not records:
+        errors.append("records must be a non-empty list")
 
-def main():
-    p = load_payload()
-    records = p.get("records")
-    if not isinstance(records, list) or len(records) < 50:
-        return fail("records missing or unexpectedly small")
+    keys_seen = Counter()
+    missing_address = 0
+    unknown_category = 0
+    bad_evidence = 0
 
-    seen = set()
-    origins = set()
-    problems = []
-    for i, r in enumerate(records):
-        name = str(r.get("name") or "").strip()
-        origin = str(r.get("origin") or "").strip()
-        if not name or not origin:
-            problems.append(f"row {i}: missing name/origin")
+    for idx, r in enumerate(records, start=1):
+        missing = sorted(REQUIRED_RECORD_KEYS - set(r))
+        if missing:
+            errors.append(f"record {idx} missing keys: {', '.join(missing)}")
             continue
-        k = (name, origin)
-        if k in seen:
-            problems.append(f"duplicate key: {name} / {origin}")
-        seen.add(k)
-        origins.add(origin)
 
-        if r.get("type") not in {"destination", "executive", "both"}:
-            problems.append(f"{name}: invalid type")
+        name = str(r.get("name", "")).strip()
+        origin = str(r.get("origin", "")).strip()
+        if not name or not origin:
+            errors.append(f"record {idx} has empty name/origin")
+        keys_seen[(name, origin)] += 1
+
+        if r.get("type") not in ALLOWED_TYPES:
+            errors.append(f"record {idx} has invalid type: {r.get('type')!r}")
+        if r.get("type") in {"destination", "both"} and not r.get("destination"):
+            errors.append(f"record {idx} type requires destination data")
+        if r.get("type") in {"executive", "both"} and not r.get("executive"):
+            errors.append(f"record {idx} type requires executive data")
+
+        if not str(r.get("address", "")).strip():
+            missing_address += 1
+        category = str((r.get("business") or {}).get("category", "")).strip()
+        if not category or "확인 필요" in category:
+            unknown_category += 1
+
         ev = r.get("evidence") or {}
-        for f in ("visits", "spend", "people"):
-            v = ev.get(f, 0)
-            if not isinstance(v, (int, float)) or v < 0:
-                problems.append(f"{name}: invalid evidence.{f}")
-        if not isinstance(r.get("business"), dict):
-            problems.append(f"{name}: missing business object")
-        if r.get("destination"):
-            s = r["destination"].get("score")
-            if not isinstance(s, (int, float)) or not 0 <= s <= 100:
-                problems.append(f"{name}: invalid destination score")
-        if r.get("executive"):
-            s = r["executive"].get("score")
-            if not isinstance(s, (int, float)) or not 0 <= s <= 100:
-                problems.append(f"{name}: invalid executive score")
+        for field in ("visits", "spend", "people", "months", "evening"):
+            val = ev.get(field, 0)
+            if not isinstance(val, (int, float)) or val < 0:
+                bad_evidence += 1
+                errors.append(f"record {idx} invalid evidence.{field}: {val!r}")
+                break
+        recent = ev.get("recent", [])
+        if recent and not isinstance(recent, list):
+            errors.append(f"record {idx} evidence.recent must be list")
 
-    if len(origins) < 20:
-        problems.append(f"origin coverage too small: {len(origins)}")
-    if problems:
-        print("\n".join("FAIL: " + x for x in problems[:50]))
-        if len(problems) > 50:
-            print(f"... and {len(problems)-50} more")
-        return 1
+    duplicates = [f"{name} / {origin}" for (name, origin), c in keys_seen.items() if c > 1]
+    if duplicates:
+        errors.append("duplicate name+origin records: " + "; ".join(duplicates[:20]))
 
-    print(f"PASS: {len(records)} records / {len(origins)} origins / {len(seen)} unique keys")
-    return 0
+    total = len(records)
+    if total:
+        if pct(missing_address, total) > 0.50:
+            warnings.append(f"address coverage is low: {total-missing_address}/{total}")
+        if pct(unknown_category, total) > 0.50:
+            warnings.append(f"category coverage is low: {total-unknown_category}/{total}")
+
+    result = {
+        "passed": not errors,
+        "meta": meta,
+        "record_count": total,
+        "checks": {
+            "duplicate_count": len(duplicates),
+            "missing_address_count": missing_address,
+            "unknown_category_count": unknown_category,
+            "bad_evidence_count": bad_evidence,
+            "address_coverage": pct(total - missing_address, total),
+            "known_category_coverage": pct(total - unknown_category, total),
+        },
+        "errors": errors,
+        "warnings": warnings,
+    }
+    REPORTS.mkdir(exist_ok=True)
+    (REPORTS / "quality.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    if errors:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
