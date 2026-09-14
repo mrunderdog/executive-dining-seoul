@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "notes": "Official source registry. verified=true means the listing URL was manually checked. Monthly ingestion adapters must only consume verified official sources.",
+  "sources": [
+    {"district":"강남구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"강동구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"강북구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"강서구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"관악구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"광진구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"구로구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"금천구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"노원구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"도봉구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"동대문구","verified":false,"url":null,"adapter":"discovery_required","note":"seed period source had no public data"},
+    {"district":"동작구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"마포구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"서대문구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"서초구","verified":true,"url":"https://www.sdc.seoul.kr/kr/news/bbsBusiness.do","adapter":"listing_month_regex","note":"Official council expense listing; 2026-07 post visible as of 2026-09-14"},
+    {"district":"성동구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"성북구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"송파구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"양천구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"영등포구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"용산구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"은평구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"종로구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"중구","verified":false,"url":null,"adapter":"discovery_required"},
+    {"district":"중랑구","verified":false,"url":null,"adapter":"discovery_required"}
+  ],
+  "auxiliary": [
+    {"name":"구정감시서울네트워크","url":"https://areawatch.tistory.com/9","role":"historical cross-check only"},
+    {"name":"그냥여기","url":"https://justhere.kr/목록/","role":"restaurant/entity cross-check only; not authoritative expense source"}
+  ]
+}
