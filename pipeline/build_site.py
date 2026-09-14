@@ -1,21 +1,12 @@
 #!/usr/bin/env python3
 import argparse
-import base64
-import gzip
 import json
 from pathlib import Path
 
+from data_io import load_payload
+
 ROOT = Path(__file__).resolve().parents[1]
-SEED = ROOT / "seed" / "current.json.gz.b64"
-DATA = ROOT / "data" / "current.json"
 TEMPLATE = ROOT / "site" / "template.html"
-
-
-def load_data():
-    if DATA.exists():
-        return json.loads(DATA.read_text(encoding="utf-8"))
-    raw = base64.b64decode(SEED.read_text(encoding="ascii").strip())
-    return json.loads(gzip.decompress(raw).decode("utf-8"))
 
 
 def main():
@@ -23,8 +14,11 @@ def main():
     ap.add_argument("--output", default=str(ROOT / "index.html"))
     args = ap.parse_args()
 
-    payload = load_data()
-    records = payload["records"]
+    payload = load_payload()
+    records = payload.get("records", [])
+    if not records:
+        raise SystemExit("canonical dataset has no records")
+
     stats = payload.get("stats") or {
         "total": len(records),
         "destination": sum(bool(r.get("destination")) for r in records),
