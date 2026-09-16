@@ -1,25 +1,82 @@
 {
   "meta": {
+    "failed_count": 41,
+    "geocoder_version": 2,
     "policy": "https://operations.osmfoundation.org/policies/nominatim/",
     "provider": "OpenStreetMap Nominatim",
-    "record_count": 187,
-    "updated_at": "2026-09-16T05:11:43+00:00"
+    "record_count": 244,
+    "success_count": 203,
+    "updated_at": "2026-09-16T07:21:31+00:00"
   },
   "records": {
     "(주)보림로지틱스천안|강남구": {
       "failed": true,
-      "query": "충남 전안시 구성동 171]",
-      "source": "nominatim"
+      "fingerprint": "f1937455d9ac2a73",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "충남 전안시 구성동 171]",
+        "충남 전안시 구성동 171",
+        "(주)보림로지틱스천안 충남 전안시 구성동 171",
+        "(주)보림로지틱스천안 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:24+00:00"
+    },
+    "(주)전한 강강술래상|노원구": {
+      "failed": true,
+      "fingerprint": "7ec53f2ae40ec9cd",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "(주)전한 강강술래상 노원구 서울",
+        "(주)전한 강강술래상 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:48+00:00"
     },
     "(주)하이그라운드제|도봉구": {
-      "failed": true,
-      "query": "서울 강북구 삼양로181길 161-0@ 1층 (우이동)",
-      "source": "nominatim"
+      "display_name": "삼양로181길, 우이동, 강북구, 서울특별시, 01002, 대한민국",
+      "fingerprint": "e2069386dbda7214",
+      "geocoder_version": 2,
+      "lat": 37.6650091,
+      "lon": 127.0114709,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 강북구 삼양로181길 161",
+      "result_name": "삼양로181길",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 삼양로181길 161-0@ 1층 (우이동)",
+        "서울 강북구 삼양로181길 161"
+      ],
+      "updated_at": "2026-09-16T07:18:46+00:00"
+    },
+    "㈜장군갈비|광진구": {
+      "display_name": "(주)장군갈비, 11, 용마산로, 중곡동, 중곡4동, 광진구, 서울특별시, 04935, 대한민국",
+      "fingerprint": "edab6919dd3c04b4",
+      "geocoder_version": 2,
+      "lat": 37.5635008,
+      "lon": 127.086939,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "㈜장군갈비 광진구 서울",
+      "result_name": "(주)장군갈비",
+      "source": "nominatim",
+      "tried_queries": [
+        "㈜장군갈비 광진구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:48+00:00"
     },
     "가마솥순대|마포구": {
       "failed": true,
-      "query": "서울 마포구 성산동 279-17",
-      "source": "nominatim"
+      "fingerprint": "e707b7b37defa34d",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 마포구 성산동 279-17",
+        "가마솥순대 서울 마포구 성산동 279-17",
+        "가마솥순대 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:00+00:00"
     },
     "갈비사랑|서초구": {
       "display_name": "강남대로, 양재동, 양재2동, 서초구, 서울특별시, 06774, 대한민국",
@@ -29,9 +86,22 @@
       "source": "nominatim"
     },
     "감포|도봉구": {
-      "failed": true,
-      "query": "서울 도봉구 쌍문동 85-5",
-      "source": "nominatim"
+      "display_name": "감포, 감포읍, 경주시, 경상북도, 38125, 대한민국",
+      "fingerprint": "d649735671a713b4",
+      "geocoder_version": 2,
+      "lat": 35.8070891,
+      "lon": 129.5019276,
+      "match_mode": "name",
+      "osm_type": "hamlet",
+      "query": "감포 대한민국",
+      "result_name": "감포",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 도봉구 쌍문동 85-5",
+        "감포 서울 도봉구 쌍문동 85-5",
+        "감포 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:55+00:00"
     },
     "강강술래 시흥점|금천구": {
       "display_name": "시흥대로, 시흥1동, 금천구, 서울특별시, 08638, 대한민국",
@@ -48,19 +118,85 @@
       "source": "nominatim"
     },
     "강변식당|관악구": {
-      "failed": true,
-      "query": "경남 산청군 산청읍 꽃봉산로 30-5",
-      "source": "nominatim"
+      "display_name": "강변식당, 674, 노들로, 노량진동, 노량진2동, 동작구, 서울특별시, 06900, 대한민국",
+      "fingerprint": "18ab3ff31163c182",
+      "geocoder_version": 2,
+      "lat": 37.5148189,
+      "lon": 126.9366695,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "강변식당 대한민국",
+      "result_name": "강변식당",
+      "source": "nominatim",
+      "tried_queries": [
+        "경남 산청군 산청읍 꽃봉산로 30-5",
+        "강변식당 경남 산청군 산청읍 꽃봉산로 30-5",
+        "강변식당 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:28+00:00"
     },
     "강산에 민물매운탕|관악구": {
       "failed": true,
-      "query": "경기 안양시 만안구 삼막로 17",
-      "source": "nominatim"
+      "fingerprint": "7e97940da782fe19",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 만안구 삼막로 17",
+        "강산에 민물매운탕 경기 안양시 만안구 삼막로 17",
+        "강산에 민물매운탕 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:03+00:00"
+    },
+    "강순자김치찌개|마포구": {
+      "display_name": "강순자김치찌개, 7, 영신로19길, 영등포동, 영등포본동, 영등포구, 서울특별시, 07366, 대한민국",
+      "fingerprint": "59450746526b6ab1",
+      "geocoder_version": 2,
+      "lat": 37.5142673,
+      "lon": 126.906924,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "강순자김치찌개 대한민국",
+      "result_name": "강순자김치찌개",
+      "source": "nominatim",
+      "tried_queries": [
+        "강순자김치찌개 마포구 서울",
+        "강순자김치찌개 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:45+00:00"
     },
     "강짬뽕락궁|강북구": {
-      "failed": true,
-      "query": "서울 강북구 한천로 1115, 강원석",
-      "source": "nominatim"
+      "display_name": "강짬뽕락궁, 1115, 한천로, 수유2동, 강북구, 서울특별시, 01043, 대한민국",
+      "fingerprint": "af7dbcd4707fd394",
+      "geocoder_version": 2,
+      "lat": 37.6445548,
+      "lon": 127.0200957,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "서울 강북구 한천로 1115",
+      "result_name": "강짬뽕락궁",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 한천로 1115, 강원석",
+        "서울 강북구 한천로 1115"
+      ],
+      "updated_at": "2026-09-16T07:20:07+00:00"
+    },
+    "고기명가|양천구": {
+      "display_name": "고기명가, 168-1, 영등포로, 당산동1가, 당산1동, 영등포구, 서울특별시, 07292, 대한민국",
+      "fingerprint": "988c6ffeb4bf979e",
+      "geocoder_version": 2,
+      "lat": 37.5205187,
+      "lon": 126.9001781,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "고기명가 대한민국",
+      "result_name": "고기명가",
+      "source": "nominatim",
+      "tried_queries": [
+        "고기명가 양천구 서울",
+        "고기명가 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:40+00:00"
     },
     "고기식당도야지|마포구": {
       "display_name": "모래내로1길, 성산동, 성산2동, 마포구, 서울특별시, 03938, 대한민국",
@@ -70,9 +206,21 @@
       "source": "nominatim"
     },
     "고수2호점|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 평화로 252-0@ 1층 108호 (호원동@미소프라자)",
-      "source": "nominatim"
+      "display_name": "고수, 252, 평화로, 호원동, 호원1동, 의정부시, 경기도, 11710, 대한민국",
+      "fingerprint": "94631bdcb356ba26",
+      "geocoder_version": 2,
+      "lat": 37.7141686,
+      "lon": 127.047866,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 평화로 252",
+      "result_name": "고수",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 평화로 252-0@ 1층 108호 (호원동@미소프라자)",
+        "경기 의정부시 평화로 252"
+      ],
+      "updated_at": "2026-09-16T07:17:08+00:00"
     },
     "고창복낙지|금천구": {
       "display_name": "범안로, 노온사동, 학온동, 광명시, 경기도, 14335, 대한민국",
@@ -80,6 +228,22 @@
       "lon": 126.8411849,
       "query": "경기 광명시 범안로 893",
       "source": "nominatim"
+    },
+    "공리|서초구": {
+      "display_name": "공리, 반포대로1길, 서초3동, 서초구, 서울특별시, 06711, 대한민국",
+      "fingerprint": "fb86009ee8f0d906",
+      "geocoder_version": 2,
+      "lat": 37.4822716,
+      "lon": 127.0115705,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "공리 서초구 서울",
+      "result_name": "공리",
+      "source": "nominatim",
+      "tried_queries": [
+        "공리 서초구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:48+00:00"
     },
     "광명대창집 성신여대|성북구": {
       "display_name": "손정보쌈 성신여대점, 36, 보문로30길, 안암동1가, 안암동, 성북구, 서울특별시, 02849, 대한민국",
@@ -89,9 +253,21 @@
       "source": "nominatim"
     },
     "광주국밥|강서구": {
-      "failed": true,
-      "query": "양천구 목동중앙북로 7 1층(목동, 신한이모르젠)",
-      "source": "nominatim"
+      "display_name": "7, 목동중앙북로, 목3동, 양천구, 서울특별시, 07946, 대한민국",
+      "fingerprint": "ab3615acd3fb18f2",
+      "geocoder_version": 2,
+      "lat": 37.5490245,
+      "lon": 126.8644961,
+      "match_mode": "address",
+      "osm_type": "apartments",
+      "query": "양천구 목동중앙북로 7",
+      "result_name": "",
+      "source": "nominatim",
+      "tried_queries": [
+        "양천구 목동중앙북로 7 1층(목동, 신한이모르젠)",
+        "양천구 목동중앙북로 7"
+      ],
+      "updated_at": "2026-09-16T07:18:38+00:00"
     },
     "광주식당|성북구": {
       "display_name": "흑염소요리전문점 광주집, 69, 1층 (청량리동), 제기로, 청량리동, 동대문구, 서울특별시, 02480, 대한민국",
@@ -114,6 +290,22 @@
       "query": "경기 안양시 만안구 석천로171번길 20",
       "source": "nominatim"
     },
+    "굴국밥|강동구": {
+      "display_name": "굴국밥, 72, 천중로43길, 천호1동, 강동구, 서울특별시, 05315, 대한민국",
+      "fingerprint": "7d14e8ba32d748ae",
+      "geocoder_version": 2,
+      "lat": 37.5441696,
+      "lon": 127.1418003,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "굴국밥 강동구 서울",
+      "result_name": "굴국밥",
+      "source": "nominatim",
+      "tried_queries": [
+        "굴국밥 강동구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:15+00:00"
+    },
     "금하|광진구": {
       "display_name": "금하, 5, 아차산로36길, 자양동, 자양3동, 광진구, 서울특별시, 05027, 대한민국",
       "lat": 37.5383388,
@@ -129,9 +321,33 @@
       "source": "nominatim"
     },
     "까치|금천구": {
+      "display_name": "까치, 112, 까치섬길, 분지천마을, 대부동, 단원구, 안산시, 경기도, 15645, 대한민국",
+      "fingerprint": "e135b8d574c2fa4a",
+      "geocoder_version": 2,
+      "lat": 37.2346091,
+      "lon": 126.596495,
+      "match_mode": "name",
+      "osm_type": "guest_house",
+      "query": "까치 대한민국",
+      "result_name": "까치",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 광명시 오리로619번길 32",
+        "까치 경기 광명시 오리로619번길 32",
+        "까치 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:11+00:00"
+    },
+    "남도마루|용산구": {
       "failed": true,
-      "query": "경기 광명시 오리로619번길 32",
-      "source": "nominatim"
+      "fingerprint": "ec5597921264eb49",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "남도마루 용산구 서울",
+        "남도마루 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:51+00:00"
     },
     "남춘네 숯불닭갈비 염창직영점|강서구": {
       "display_name": "100, 목동중앙북로, 목2동, 양천구, 서울특별시, 07971, 대한민국",
@@ -141,9 +357,32 @@
       "source": "nominatim"
     },
     "남해매운탕횟집|강북구": {
+      "display_name": "밥사랑 고기사랑, 104, 삼각산로, 인수동, 강북구, 서울특별시, 01041, 대한민국",
+      "fingerprint": "2154a3a01607887c",
+      "geocoder_version": 2,
+      "lat": 37.6405387,
+      "lon": 127.0156792,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "서울 강북구 삼각산로 104",
+      "result_name": "밥사랑 고기사랑",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 삼각산로 104, 이정복",
+        "서울 강북구 삼각산로 104"
+      ],
+      "updated_at": "2026-09-16T07:20:50+00:00"
+    },
+    "낭낭김밥|송파구": {
       "failed": true,
-      "query": "서울 강북구 삼각산로 104, 이정복",
-      "source": "nominatim"
+      "fingerprint": "1680aeee48e7a7b8",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "낭낭김밥 송파구 서울",
+        "낭낭김밥 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:13+00:00"
     },
     "노량진 생고기|동작구": {
       "display_name": "동작구, 서울특별시, 대한민국",
@@ -180,6 +419,17 @@
       "query": "서울 금천구 시흥대로123길 24",
       "source": "nominatim"
     },
+    "다정이네민물매운탕|강동구": {
+      "failed": true,
+      "fingerprint": "551f63858e90b81a",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "다정이네민물매운탕 강동구 서울",
+        "다정이네민물매운탕 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:11+00:00"
+    },
     "담원두부마을|금천구": {
       "display_name": "밤일로, 하안동, 하안1동, 광명시, 경기도, 14261, 대한민국",
       "lat": 37.4523806,
@@ -208,6 +458,50 @@
       "query": "서울 중랑구 신내동",
       "source": "nominatim"
     },
+    "대산집|마포구": {
+      "display_name": "대산집, 18, 월드컵로21길, 21통, 망원1동, 마포구, 서울특별시, 04011, 대한민국",
+      "fingerprint": "cb9d73262bfc5dd7",
+      "geocoder_version": 2,
+      "lat": 37.5568363,
+      "lon": 126.9080445,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "대산집 마포구 서울",
+      "result_name": "대산집",
+      "source": "nominatim",
+      "tried_queries": [
+        "대산집 마포구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:50+00:00"
+    },
+    "대성축산|송파구": {
+      "display_name": "대성축산, 6, 양재대로55길, 일원1동, 강남구, 서울특별시, 06341, 대한민국",
+      "fingerprint": "9eeb8c2a65989997",
+      "geocoder_version": 2,
+      "lat": 37.4913156,
+      "lon": 127.0883004,
+      "match_mode": "name",
+      "osm_type": "butcher",
+      "query": "대성축산 대한민국",
+      "result_name": "대성축산",
+      "source": "nominatim",
+      "tried_queries": [
+        "대성축산 송파구 서울",
+        "대성축산 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:35+00:00"
+    },
+    "대진수산|서대문구": {
+      "failed": true,
+      "fingerprint": "2898775e6b827692",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "대진수산 서대문구 서울",
+        "대진수산 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:35+00:00"
+    },
     "더라운드 삼성점|성북구": {
       "display_name": "더원, 648, 영동대로, 삼성동, 삼성1동, 강남구, 서울특별시, 06080, 대한민국",
       "lat": 37.5199951,
@@ -223,9 +517,33 @@
       "source": "nominatim"
     },
     "더푸짐|관악구": {
+      "display_name": "더푸짐, 72, 봉담과천로, 과천지식정보타운, 과천시, 경기도, 13825, 대한민국",
+      "fingerprint": "405ad2e3ea4b270e",
+      "geocoder_version": 2,
+      "lat": 37.4112595,
+      "lon": 126.9991348,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "더푸짐 대한민국",
+      "result_name": "더푸짐",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 과천시 매봉로 72",
+        "더푸짐 경기 과천시 매봉로 72",
+        "더푸짐 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:37+00:00"
+    },
+    "덕순네 장어랑 메기|중구": {
       "failed": true,
-      "query": "경기 과천시 매봉로 72",
-      "source": "nominatim"
+      "fingerprint": "d8b3e9c93005dbcb",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "덕순네 장어랑 메기 중구 서울",
+        "덕순네 장어랑 메기 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:12+00:00"
     },
     "도토리 소반|성북구": {
       "display_name": "대학로9길, 명륜4가, 혜화동, 종로구, 서울특별시, 03079, 대한민국",
@@ -235,9 +553,21 @@
       "source": "nominatim"
     },
     "돈미화로|도봉구": {
-      "failed": true,
-      "query": "서울 도봉구 도당로 142-0@ 1층 (방학동)",
-      "source": "nominatim"
+      "display_name": "도당로, 방학1동, 도봉구, 서울특별시, 01346, 대한민국",
+      "fingerprint": "35d531f28aab9a98",
+      "geocoder_version": 2,
+      "lat": 37.666585,
+      "lon": 127.0402029,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 도봉구 도당로 142",
+      "result_name": "도당로",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 도봉구 도당로 142-0@ 1층 (방학동)",
+        "서울 도봉구 도당로 142"
+      ],
+      "updated_at": "2026-09-16T07:19:30+00:00"
     },
     "동해아구찜해물탕|영등포구": {
       "display_name": "동해아구찜해물탕, 13, 당산로32길, 당산동3가, 당산1동, 영등포구, 서울특별시, 07257, 대한민국",
@@ -255,8 +585,15 @@
     },
     "동흥관|금천구": {
       "failed": true,
-      "query": "경기도 성남시 분당구 분당로 55",
-      "source": "nominatim"
+      "fingerprint": "c621af65bcfa4331",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기도 성남시 분당구 분당로 55",
+        "동흥관 경기도 성남시 분당구 분당로 55",
+        "동흥관 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:51+00:00"
     },
     "동흥관수타짜장|관악구": {
       "display_name": "동흥관수타짜장, 20, 삼막로39번길, 석수동, 만안구, 안양시, 경기도, 13910, 대한민국",
@@ -273,9 +610,21 @@
       "source": "nominatim"
     },
     "락천수타|금천구": {
-      "failed": true,
-      "query": "경기 안양시 만안구 삼막로 85",
-      "source": "nominatim"
+      "display_name": "락천수타, 85, 삼막로, 석수동, 만안구, 안양시, 경기도, 13910, 대한민국",
+      "fingerprint": "6c750f96d57c1ce4",
+      "geocoder_version": 2,
+      "lat": 37.4268238,
+      "lon": 126.914275,
+      "match_mode": "name_address",
+      "osm_type": "restaurant",
+      "query": "락천수타 경기 안양시 만안구 삼막로 85",
+      "result_name": "락천수타",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 만안구 삼막로 85",
+        "락천수타 경기 안양시 만안구 삼막로 85"
+      ],
+      "updated_at": "2026-09-16T07:17:06+00:00"
     },
     "마당쇠|관악구": {
       "display_name": "신림동, 관악구, 서울특별시, 대한민국",
@@ -285,9 +634,38 @@
       "source": "nominatim"
     },
     "마포숯불갈비|송파구": {
-      "failed": true,
-      "query": "서울 송파구 마천동 158-2",
-      "source": "nominatim"
+      "display_name": "마포숯불갈비, 42 (전농동,(배봉로 42)), 서울시립대로, 전농2동, 동대문구, 서울특별시, 02505, 대한민국",
+      "fingerprint": "366d64397971edc3",
+      "geocoder_version": 2,
+      "lat": 37.5783189,
+      "lon": 127.0582851,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "마포숯불갈비 대한민국",
+      "result_name": "마포숯불갈비",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 송파구 마천동 158-2",
+        "마포숯불갈비 서울 송파구 마천동 158-2",
+        "마포숯불갈비 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:56+00:00"
+    },
+    "만가|종로구": {
+      "display_name": "만가, 자하문로1길, 내자동, 사직동, 종로구, 서울특별시, 03041, 대한민국",
+      "fingerprint": "71892c9ef21d7a11",
+      "geocoder_version": 2,
+      "lat": 37.5763551,
+      "lon": 126.9703863,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "만가 종로구 서울",
+      "result_name": "만가",
+      "source": "nominatim",
+      "tried_queries": [
+        "만가 종로구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:18+00:00"
     },
     "만나본가|구로구": {
       "display_name": "GS25 구로중앙로점, 12,, 중앙로3길, 현대우성아파트, 고척동, 고척1동, 구로구, 서울특별시, 08225, 대한민국",
@@ -305,8 +683,16 @@
     },
     "만진루|은평구": {
       "failed": true,
-      "query": "서울 은평구 응암로 307-1,",
-      "source": "nominatim"
+      "fingerprint": "7b59dd3e912bd6b1",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 은평구 응암로 307-1,",
+        "서울 은평구 응암로 307-1",
+        "만진루 서울 은평구 응암로 307-1",
+        "만진루 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:24+00:00"
     },
     "메밀이 생각날때|은평구": {
       "display_name": "녹번로, 녹번동, 은평구, 서울특별시, 03380, 대한민국",
@@ -314,6 +700,44 @@
       "lon": 126.9277014,
       "query": "은평구 녹번로 12",
       "source": "nominatim"
+    },
+    "명륜진사갈비 하계점|노원구": {
+      "failed": true,
+      "fingerprint": "1000d3b627d3fb6c",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "명륜진사갈비 하계점 노원구 서울",
+        "명륜진사갈비 하계점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:42+00:00"
+    },
+    "명신반점|중랑구": {
+      "failed": true,
+      "fingerprint": "425db83648c1d3e0",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "명신반점 중랑구 서울",
+        "명신반점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:15+00:00"
+    },
+    "바다마을|송파구": {
+      "display_name": "바다마을, 12, 강동대로9길, 풍납동, 풍납2동, 송파구, 서울특별시, 05537, 대한민국",
+      "fingerprint": "e33e4b837a3e0e3f",
+      "geocoder_version": 2,
+      "lat": 37.5274635,
+      "lon": 127.1164839,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "바다마을 송파구 서울",
+      "result_name": "바다마을",
+      "source": "nominatim",
+      "tried_queries": [
+        "바다마을 송파구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:08+00:00"
     },
     "박가네해신탕|관악구": {
       "display_name": "박가네해신탕, 14, 평촌대로476번길, 비산3동, 동안구, 안양시, 경기도, 13915, 대한민국",
@@ -357,6 +781,44 @@
       "query": "경기 과천시 향나무로 5",
       "source": "nominatim"
     },
+    "본가생고기|서대문구": {
+      "failed": true,
+      "fingerprint": "85c57150c1c9317b",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "본가생고기 서대문구 서울",
+        "본가생고기 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:27+00:00"
+    },
+    "본전회관|서대문구": {
+      "display_name": "본전회관, 15, 수색로2길, DMC 파크뷰자이 1단지아파트, 남가좌1동, 서대문구, 서울특별시, 03712, 대한민국",
+      "fingerprint": "4838f69a2add870f",
+      "geocoder_version": 2,
+      "lat": 37.5696293,
+      "lon": 126.9159576,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "본전회관 서대문구 서울",
+      "result_name": "본전회관",
+      "source": "nominatim",
+      "tried_queries": [
+        "본전회관 서대문구 서울"
+      ],
+      "updated_at": "2026-09-16T07:21:02+00:00"
+    },
+    "본죽앤비빔밥마포구청역점|마포구": {
+      "failed": true,
+      "fingerprint": "a016bea085b8cd5a",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "본죽앤비빔밥마포구청역점 마포구 서울",
+        "본죽앤비빔밥마포구청역점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:48+00:00"
+    },
     "부림식당|동작구": {
       "display_name": "관악구, 서울특별시, 대한민국",
       "lat": 37.4782,
@@ -379,9 +841,21 @@
       "source": "nominatim"
     },
     "북한산숯불갈비|강북구": {
-      "failed": true,
-      "query": "서울 강북구 삼각산로 42-1, 이정기",
-      "source": "nominatim"
+      "display_name": "삼각산로, 수유3동, 강북구, 서울특별시, 01076, 대한민국",
+      "fingerprint": "15fde09e60c03acb",
+      "geocoder_version": 2,
+      "lat": 37.6408362,
+      "lon": 127.0201939,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 강북구 삼각산로 42-1",
+      "result_name": "삼각산로",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 삼각산로 42-1, 이정기",
+        "서울 강북구 삼각산로 42-1"
+      ],
+      "updated_at": "2026-09-16T07:19:28+00:00"
     },
     "브이아이피참치 종로|종로구": {
       "display_name": "삼일대로15길, 종로2가, 관철동, 종로1·2·3·4가동, 종로구, 서울특별시, 03190, 대한민국",
@@ -389,6 +863,17 @@
       "lon": 126.9866641,
       "query": "서울 종로구 삼일대로15길 25",
       "source": "nominatim"
+    },
+    "비비큐 석촌점|송파구": {
+      "failed": true,
+      "fingerprint": "ea22211c4c5d5589",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "비비큐 석촌점 송파구 서울",
+        "비비큐 석촌점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:53+00:00"
     },
     "비산누룽지백숙|관악구": {
       "display_name": "본가비산누릉지백숙, 474, 평촌대로, 비산3동, 동안구, 안양시, 경기도, 13915, 대한민국",
@@ -399,8 +884,15 @@
     },
     "빈티지204|은평구": {
       "failed": true,
-      "query": "서울 은평구 은평로 193-1",
-      "source": "nominatim"
+      "fingerprint": "769c5994b6071eaa",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 은평구 은평로 193-1",
+        "빈티지204 서울 은평구 은평로 193-1",
+        "빈티지204 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:22+00:00"
     },
     "사또집|중구": {
       "display_name": "레스토랑 시무크, 28, 을지로44길, 광희동, 중구, 서울특별시, 04561, 대한민국",
@@ -415,6 +907,17 @@
       "lon": 127.0348468,
       "query": "서울 서초구 강남대로 213",
       "source": "nominatim"
+    },
+    "산마루돌구이|용산구": {
+      "failed": true,
+      "fingerprint": "f78b7f2a00d4daa2",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "산마루돌구이 용산구 서울",
+        "산마루돌구이 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:27+00:00"
     },
     "산마을|금천구": {
       "display_name": "산마울우물가, 30, 평촌대로476번길, 비산3동, 동안구, 안양시, 경기도, 13915, 대한민국",
@@ -444,6 +947,23 @@
       "query": "서울특별시 관악구",
       "source": "nominatim"
     },
+    "삼호복집|중구": {
+      "display_name": "삼호복집, 5, 강남대로51길, 서초2동, 서초구, 서울특별시, 06628, 대한민국",
+      "fingerprint": "a576a8af8134e6ee",
+      "geocoder_version": 2,
+      "lat": 37.4911469,
+      "lon": 127.0298969,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "삼호복집 대한민국",
+      "result_name": "삼호복집",
+      "source": "nominatim",
+      "tried_queries": [
+        "삼호복집 중구 서울",
+        "삼호복집 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:08+00:00"
+    },
     "삼홍생고기전문점|성북구": {
       "display_name": "삼선교로, 삼선동4가, 삼선동, 성북구, 서울특별시, 02847, 대한민국",
       "lat": 37.5895931,
@@ -452,9 +972,22 @@
       "source": "nominatim"
     },
     "상다리기사식당|도봉구": {
-      "failed": true,
-      "query": "서울 강북구 수유로 18-1@ (수유동)",
-      "source": "nominatim"
+      "display_name": "상다리기사식당, 18-1, 수유로, 수유1동, 강북구, 서울특별시, 01115, 대한민국",
+      "fingerprint": "088a8d04f82e919f",
+      "geocoder_version": 2,
+      "lat": 37.6325595,
+      "lon": 127.0189017,
+      "match_mode": "name_address",
+      "osm_type": "restaurant",
+      "query": "상다리기사식당 서울 강북구 수유로 18-1",
+      "result_name": "상다리기사식당",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 수유로 18-1@ (수유동)",
+        "서울 강북구 수유로 18-1",
+        "상다리기사식당 서울 강북구 수유로 18-1"
+      ],
+      "updated_at": "2026-09-16T07:18:41+00:00"
     },
     "상무초밥 왕십리점|성동구": {
       "display_name": "중구, 서울특별시, 대한민국",
@@ -477,6 +1010,22 @@
       "query": "서울 은평구 연서로 171",
       "source": "nominatim"
     },
+    "색동저고리|양천구": {
+      "display_name": "색동저고리, 411, 목동동로, 목동, 목5동, 양천구, 서울특별시, 07983, 대한민국",
+      "fingerprint": "f202707a5a384dea",
+      "geocoder_version": 2,
+      "lat": 37.5367262,
+      "lon": 126.8822136,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "색동저고리 양천구 서울",
+      "result_name": "색동저고리",
+      "source": "nominatim",
+      "tried_queries": [
+        "색동저고리 양천구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:01+00:00"
+    },
     "생선명가거북명태|금천구": {
       "display_name": "범안로, 노온사동, 학온동, 광명시, 경기도, 14335, 대한민국",
       "lat": 37.4416781,
@@ -485,14 +1034,33 @@
       "source": "nominatim"
     },
     "샤브올데이 의정부민|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 천보로 56-0@ 301호@ 302호@ 303호@ 304호@ 305호 (민락동)",
-      "source": "nominatim"
+      "display_name": "스푼더마켓, 56, 천보로, 민락동, 의정부시, 경기도, 11813, 대한민국",
+      "fingerprint": "e6e4ba745c19ad80",
+      "geocoder_version": 2,
+      "lat": 37.7448653,
+      "lon": 127.0952365,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 천보로 56",
+      "result_name": "스푼더마켓",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 천보로 56-0@ 301호@ 302호@ 303호@ 304호@ 305호 (민락동)",
+        "경기 의정부시 천보로 56"
+      ],
+      "updated_at": "2026-09-16T07:18:05+00:00"
     },
     "샤브향광명밤일점／샤|금천구": {
       "failed": true,
-      "query": "경기 광명시 밤일안로 27",
-      "source": "nominatim"
+      "fingerprint": "9d34d6cc523db3c2",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 광명시 밤일안로 27",
+        "샤브향광명밤일점／샤 경기 광명시 밤일안로 27",
+        "샤브향광명밤일점／샤 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:32+00:00"
     },
     "샤오롱|양천구": {
       "display_name": "신정동, 신정3동, 양천구, 서울특별시, 08076, 대한민국",
@@ -501,12 +1069,44 @@
       "query": "서울 양천구 신정동 1190-17",
       "source": "nominatim"
     },
+    "서강추어탕|강동구": {
+      "display_name": "서강추어탕, 26, 올림픽로71길, 천호동, 천호2동, 강동구, 서울특별시, 05247, 대한민국",
+      "fingerprint": "5c2b8de00141fe65",
+      "geocoder_version": 2,
+      "lat": 37.5402638,
+      "lon": 127.1223968,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "서강추어탕 강동구 서울",
+      "result_name": "서강추어탕",
+      "source": "nominatim",
+      "tried_queries": [
+        "서강추어탕 강동구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:01+00:00"
+    },
     "서귀포흑돈|금천구": {
       "display_name": "가산로, 가산동, 금천구, 서울특별시, 08533, 대한민국",
       "lat": 37.4748185,
       "lon": 126.8938093,
       "query": "서울 금천구 가산로 49",
       "source": "nominatim"
+    },
+    "서대문영양족발|서대문구": {
+      "display_name": "서대문영양족발, 377, 통일로, 홍제동, 홍제1동, 서대문구, 서울특별시, 03730, 대한민국",
+      "fingerprint": "c21b985a21431179",
+      "geocoder_version": 2,
+      "lat": 37.5837221,
+      "lon": 126.9490928,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "서대문영양족발 서대문구 서울",
+      "result_name": "서대문영양족발",
+      "source": "nominatim",
+      "tried_queries": [
+        "서대문영양족발 서대문구 서울"
+      ],
+      "updated_at": "2026-09-16T07:21:02+00:00"
     },
     "서오릉 돼지집|은평구": {
       "display_name": "서오릉로, 창릉동, 덕양구, 고양시, 경기도, 10547, 대한민국",
@@ -522,6 +1122,22 @@
       "query": "서울 성북구 삼선교로 40",
       "source": "nominatim"
     },
+    "성호각|서대문구": {
+      "display_name": "성호각, 29, 가좌로, 연희동, 서대문구, 서울특별시, 03661, 대한민국",
+      "fingerprint": "49369ea444d9ef11",
+      "geocoder_version": 2,
+      "lat": 37.5771968,
+      "lon": 126.9322764,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "성호각 서대문구 서울",
+      "result_name": "성호각",
+      "source": "nominatim",
+      "tried_queries": [
+        "성호각 서대문구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:35+00:00"
+    },
     "세꼬시회|구로구": {
       "display_name": "신목로5길, 신정2동, 양천구, 서울특별시, 08014, 대한민국",
       "lat": 37.5177938,
@@ -529,10 +1145,34 @@
       "query": "서울 양천구 신목로5길 6-2",
       "source": "nominatim"
     },
+    "세참연회|중구": {
+      "display_name": "세참연회, 12, 을지로38길, 광희동1가, 광희동, 중구, 서울특별시, 04560, 대한민국",
+      "fingerprint": "5f6b401bf61ebaad",
+      "geocoder_version": 2,
+      "lat": 37.5655085,
+      "lon": 127.0035005,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "세참연회 중구 서울",
+      "result_name": "세참연회",
+      "source": "nominatim",
+      "tried_queries": [
+        "세참연회 중구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:23+00:00"
+    },
     "소꿉당 별내점|도봉구": {
       "failed": true,
-      "query": "경기 남양주시 별내중앙로57번길 19-1@ 1층 (별내동)",
-      "source": "nominatim"
+      "fingerprint": "6118034c08455872",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 별내중앙로57번길 19-1@ 1층 (별내동)",
+        "경기 남양주시 별내중앙로57번길 19-1",
+        "소꿉당 별내점 경기 남양주시 별내중앙로57번길 19-1",
+        "소꿉당 별내점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:11+00:00"
     },
     "소담정과|동작구": {
       "display_name": "성남시, 경기도, 대한민국",
@@ -577,9 +1217,21 @@
       "source": "nominatim"
     },
     "수유리우동집 별내별|도봉구": {
-      "failed": true,
-      "query": "경기 남양주시 별내3로 326-0@ 1층 103호 (별내동@불암타워)",
-      "source": "nominatim"
+      "display_name": "별내3로, 별내동, 퇴계원리, 남양주시, 경기도, 12105, 대한민국",
+      "fingerprint": "43dbf29260d4d612",
+      "geocoder_version": 2,
+      "lat": 37.6578762,
+      "lon": 127.122494,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "경기 남양주시 별내3로 326",
+      "result_name": "별내3로",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 별내3로 326-0@ 1층 103호 (별내동@불암타워)",
+        "경기 남양주시 별내3로 326"
+      ],
+      "updated_at": "2026-09-16T07:18:13+00:00"
     },
     "순수치킨 석관점|성북구": {
       "display_name": "온담, 18, 돌곶이로22가길, 석관동, 성북구, 서울특별시, 02783, 대한민국",
@@ -590,8 +1242,16 @@
     },
     "스시린|마포구": {
       "failed": true,
-      "query": "서울 마포구 성산동 590-5 2층",
-      "source": "nominatim"
+      "fingerprint": "03a2197254cb7670",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 마포구 성산동 590-5 2층",
+        "서울 마포구 성산동 590-5",
+        "스시린 서울 마포구 성산동 590-5",
+        "스시린 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:52+00:00"
     },
     "스시준|동작구": {
       "display_name": "동작구, 서울특별시, 대한민국",
@@ -600,10 +1260,49 @@
       "query": "서울특별시 동작구",
       "source": "nominatim"
     },
-    "승원이네|도봉구": {
+    "스시텐|광진구": {
+      "display_name": "스시텐, 214-6, 광나루로54길, 구의현대2단지아파트, 구의3동, 광진구, 서울특별시, 05117, 대한민국",
+      "fingerprint": "4312348b936174b9",
+      "geocoder_version": 2,
+      "lat": 37.5381393,
+      "lon": 127.0939328,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "스시텐 광진구 서울",
+      "result_name": "스시텐",
+      "source": "nominatim",
+      "tried_queries": [
+        "스시텐 광진구 서울"
+      ],
+      "updated_at": "2026-09-16T07:21:17+00:00"
+    },
+    "스카이가든|송파구": {
       "failed": true,
-      "query": "서울 도봉구 도당로 145-0@ 1층 (방학동)",
-      "source": "nominatim"
+      "fingerprint": "a40aa6d1c4bb3b62",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "스카이가든 송파구 서울",
+        "스카이가든 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:05+00:00"
+    },
+    "승원이네|도봉구": {
+      "display_name": "도당로, 방학1동, 도봉구, 서울특별시, 01356, 대한민국",
+      "fingerprint": "6827c6b5104ed6c3",
+      "geocoder_version": 2,
+      "lat": 37.6657089,
+      "lon": 127.0375174,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 도봉구 도당로 145",
+      "result_name": "도당로",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 도봉구 도당로 145-0@ 1층 (방학동)",
+        "서울 도봉구 도당로 145"
+      ],
+      "updated_at": "2026-09-16T07:20:55+00:00"
     },
     "시드니램１９０１|금천구": {
       "display_name": "시드니램1901광명, 8, 밤일로, 하안동, 하안1동, 광명시, 경기도, 14261, 대한민국",
@@ -620,9 +1319,23 @@
       "source": "nominatim"
     },
     "신선설농탕|강북구": {
-      "failed": true,
-      "query": "경기 부천시 원미구 옥산로 104, 오청",
-      "source": "nominatim"
+      "display_name": "신선설농탕, 도산대로, 청담동, 강남구, 서울특별시, 06012, 대한민국",
+      "fingerprint": "1536a81dce4047a7",
+      "geocoder_version": 2,
+      "lat": 37.5248213,
+      "lon": 127.0497229,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "신선설농탕 대한민국",
+      "result_name": "신선설농탕",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 부천시 원미구 옥산로 104, 오청",
+        "경기 부천시 원미구 옥산로 104",
+        "신선설농탕 경기 부천시 원미구 옥산로 104",
+        "신선설농탕 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:56+00:00"
     },
     "신선한우촌|중랑구": {
       "display_name": "용마산로, 망우동, 망우본동, 중랑구, 서울특별시, 02072, 대한민국",
@@ -632,9 +1345,32 @@
       "source": "nominatim"
     },
     "신의주찹쌀순대|도봉구": {
+      "display_name": "별내5로, 별내동, 퇴계원리, 남양주시, 경기도, 12105, 대한민국",
+      "fingerprint": "1ff16d75fcc023c8",
+      "geocoder_version": 2,
+      "lat": 37.6593835,
+      "lon": 127.1253006,
+      "match_mode": "address",
+      "osm_type": "tertiary",
+      "query": "경기 남양주시 별내동 별내5로 7",
+      "result_name": "별내5로",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 별내동 별내5로 7(별내동@1층)",
+        "경기 남양주시 별내동 별내5로 7"
+      ],
+      "updated_at": "2026-09-16T07:17:13+00:00"
+    },
+    "신일식당|양천구": {
       "failed": true,
-      "query": "경기 남양주시 별내동 별내5로 7(별내동@1층)",
-      "source": "nominatim"
+      "fingerprint": "036320ad6291ec74",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "신일식당 양천구 서울",
+        "신일식당 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:38+00:00"
     },
     "신풍낙지（주）|영등포구": {
       "display_name": "대림로, 대림동, 대림3동, 영등포구, 서울특별시, 07377, 대한민국",
@@ -673,8 +1409,26 @@
     },
     "얄미운푸줏간|관악구": {
       "failed": true,
-      "query": "경기 안양시 만안구 삼막로 57-1",
-      "source": "nominatim"
+      "fingerprint": "26a0c4e4dae67c34",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 만안구 삼막로 57-1",
+        "얄미운푸줏간 경기 안양시 만안구 삼막로 57-1",
+        "얄미운푸줏간 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:18+00:00"
+    },
+    "양재 샤브샤브 퀸즈가든|서초구": {
+      "failed": true,
+      "fingerprint": "6280407b2ef29a73",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "양재 샤브샤브 퀸즈가든 서초구 서울",
+        "양재 샤브샤브 퀸즈가든 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:17+00:00"
     },
     "양천옥설렁탕|강서구": {
       "display_name": "등촌로, 목3동, 양천구, 서울특별시, 07957, 대한민국",
@@ -684,9 +1438,23 @@
       "source": "nominatim"
     },
     "양탄집|도봉구": {
-      "failed": true,
-      "query": "경기 남양주시 별내중앙로58번길 22-9@ 1층 (별내동)",
-      "source": "nominatim"
+      "display_name": "양탄집, 자하문로1가길, 내자동, 사직동, 종로구, 서울특별시, 03044, 대한민국",
+      "fingerprint": "d740fb7b79001d3b",
+      "geocoder_version": 2,
+      "lat": 37.5766891,
+      "lon": 126.9720346,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "양탄집 대한민국",
+      "result_name": "양탄집",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 별내중앙로58번길 22-9@ 1층 (별내동)",
+        "경기 남양주시 별내중앙로58번길 22-9",
+        "양탄집 경기 남양주시 별내중앙로58번길 22-9",
+        "양탄집 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:18+00:00"
     },
     "어가초밥|은평구": {
       "display_name": "어가초밥, 3, 녹번로, 녹번동, 은평구, 서울특별시, 03380, 대한민국",
@@ -697,8 +1465,26 @@
     },
     "열해|용산구": {
       "failed": true,
-      "query": "서울 용산구 이촌동 300-26",
-      "source": "nominatim"
+      "fingerprint": "4f2626517c5df584",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 용산구 이촌동 300-26",
+        "열해 서울 용산구 이촌동 300-26",
+        "열해 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:05+00:00"
+    },
+    "영덕집|서초구": {
+      "failed": true,
+      "fingerprint": "23cd5f71daa0c593",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "영덕집 서초구 서울",
+        "영덕집 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:08+00:00"
     },
     "옛집|영등포구": {
       "display_name": "CU 구로우림1차점, 28,, 디지털로33길, 서울디지털국가산업단지 1단지, 구로3동, 구로구, 서울특별시, 08377, 대한민국",
@@ -722,9 +1508,21 @@
       "source": "nominatim"
     },
     "오병이어|강북구": {
-      "failed": true,
-      "query": "서울 강북구 한천로155길 38, 박환준",
-      "source": "nominatim"
+      "display_name": "한천로155길, 수유2동, 강북구, 서울특별시, 01043, 대한민국",
+      "fingerprint": "f5854cb94c38bacf",
+      "geocoder_version": 2,
+      "lat": 37.6436948,
+      "lon": 127.0201201,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 강북구 한천로155길 38",
+      "result_name": "한천로155길",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 한천로155길 38, 박환준",
+        "서울 강북구 한천로155길 38"
+      ],
+      "updated_at": "2026-09-16T07:19:20+00:00"
     },
     "온누리 장작구이|관악구": {
       "display_name": "중앙로, 과천동, 과천시, 경기도, 13815, 대한민국",
@@ -740,6 +1538,33 @@
       "query": "경기도 고양시 덕양구 서오릉로 334-91",
       "source": "nominatim"
     },
+    "왕벌집|중구": {
+      "failed": true,
+      "fingerprint": "a31a4d5447f1f9ca",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "왕벌집 중구 서울",
+        "왕벌집 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:18+00:00"
+    },
+    "왕십리야채곱창닭발|서대문구": {
+      "display_name": "왕십리야채곱창닭발, 4, 연희로41길, 홍은동, 홍은2동, 서대문구, 서울특별시, 03648, 대한민국",
+      "fingerprint": "b0ea19dfe2633231",
+      "geocoder_version": 2,
+      "lat": 37.5893378,
+      "lon": 126.9363369,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "왕십리야채곱창닭발 서대문구 서울",
+      "result_name": "왕십리야채곱창닭발",
+      "source": "nominatim",
+      "tried_queries": [
+        "왕십리야채곱창닭발 서대문구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:30+00:00"
+    },
     "외계인키친|구로구, 은평구": {
       "display_name": "국회의사당, 1, 의사당대로, 여의도동, 여의동, 영등포구, 서울특별시, 07233, 대한민국",
       "lat": 37.5318657,
@@ -748,9 +1573,21 @@
       "source": "nominatim"
     },
     "외양간한우|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 고산로 177-0@ (고산동)",
-      "source": "nominatim"
+      "display_name": "외양간한우, 177, 고산로, 고산동, 의정부시, 경기도, 11801, 대한민국",
+      "fingerprint": "62b2687aa52e000f",
+      "geocoder_version": 2,
+      "lat": 37.7349062,
+      "lon": 127.1087507,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 고산로 177",
+      "result_name": "외양간한우",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 고산로 177-0@ (고산동)",
+        "경기 의정부시 고산로 177"
+      ],
+      "updated_at": "2026-09-16T07:18:20+00:00"
     },
     "용두동복집|성북구": {
       "display_name": "임오네 쭈꾸미 4, 9, 왕산로16길, 용두동, 용신동, 동대문구, 서울특별시, 02584, 대한민국",
@@ -758,6 +1595,22 @@
       "lon": 127.031247,
       "query": "서울 동대문구 왕산로16길 9",
       "source": "nominatim"
+    },
+    "우래옥|중구": {
+      "display_name": "우래옥(Woo Lae Oak), 62-29, 창경궁로, 주교동, 을지로동, 중구, 서울특별시, 04546, 대한민국",
+      "fingerprint": "20ba13c14868f3a0",
+      "geocoder_version": 2,
+      "lat": 37.5680711,
+      "lon": 126.9987424,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "우래옥 중구 서울",
+      "result_name": "우래옥(Woo Lae Oak)",
+      "source": "nominatim",
+      "tried_queries": [
+        "우래옥 중구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:24+00:00"
     },
     "우량아|광진구": {
       "display_name": "우량아, 51, 뚝섬로36길, 자양동, 자양3동, 광진구, 서울특별시, 05094, 대한민국",
@@ -767,9 +1620,21 @@
       "source": "nominatim"
     },
     "우리나라|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 동일로128번길 11-0@ (장암동)",
-      "source": "nominatim"
+      "display_name": "우리나라, 11, 동일로128번길, 장암동, 의정부시, 경기도, 11725, 대한민국",
+      "fingerprint": "14e7b3d87f99ad12",
+      "geocoder_version": 2,
+      "lat": 37.7006217,
+      "lon": 127.0558758,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 동일로128번길 11",
+      "result_name": "우리나라",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 동일로128번길 11-0@ (장암동)",
+        "경기 의정부시 동일로128번길 11"
+      ],
+      "updated_at": "2026-09-16T07:17:04+00:00"
     },
     "우리네코다리|양천구": {
       "display_name": "목동서로, 신정6동, 양천구, 서울특별시, 08095, 대한민국",
@@ -806,12 +1671,67 @@
       "query": "서울 영등포구 당산로32길 5",
       "source": "nominatim"
     },
+    "유명한목동갈비|양천구": {
+      "display_name": "유명한목동갈비, 57, 목동서로, 목동, 목5동, 양천구, 서울특별시, 07983, 대한민국",
+      "fingerprint": "9869a8a3387fdfb0",
+      "geocoder_version": 2,
+      "lat": 37.5366321,
+      "lon": 126.8798634,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "유명한목동갈비 양천구 서울",
+      "result_name": "유명한목동갈비",
+      "source": "nominatim",
+      "tried_queries": [
+        "유명한목동갈비 양천구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:08+00:00"
+    },
+    "유진식당|서대문구": {
+      "display_name": "유진식당, 종로17길, 종로2가, 낙원동, 종로1·2·3·4가동, 종로구, 서울특별시, 03163, 대한민국",
+      "fingerprint": "8cd751efd4b3dc7f",
+      "geocoder_version": 2,
+      "lat": 37.5720697,
+      "lon": 126.9882413,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "유진식당 대한민국",
+      "result_name": "유진식당",
+      "source": "nominatim",
+      "tried_queries": [
+        "유진식당 서대문구 서울",
+        "유진식당 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:57+00:00"
+    },
+    "육방고기집|종로구": {
+      "failed": true,
+      "fingerprint": "06edeb76e27fda1a",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "육방고기집 종로구 서울",
+        "육방고기집 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:09+00:00"
+    },
     "육칠이광명하안점|금천구": {
       "display_name": "금하로527번길, 독산1동, 금천구, 서울특별시, 경기도, 08599, 대한민국",
       "lat": 37.4541678,
       "lon": 126.8890873,
       "query": "경기 광명시 금하로527번길 25",
       "source": "nominatim"
+    },
+    "은행나무갈매기|서대문구": {
+      "failed": true,
+      "fingerprint": "05124f0b43004edf",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "은행나무갈매기 서대문구 서울",
+        "은행나무갈매기 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:23+00:00"
     },
     "이태원숯불구이|용산구": {
       "display_name": "녹사평대로32길, 이태원, 이태원1동, 용산구, 서울특별시, 04390, 대한민국",
@@ -827,6 +1747,22 @@
       "query": "서울 금천구 시흥대로 291",
       "source": "nominatim"
     },
+    "일등갈비|서대문구": {
+      "display_name": "일등갈비, 20, 통일로36가길, 홍제동, 홍제2동, 서대문구, 서울특별시, 03630, 대한민국",
+      "fingerprint": "4313ac5f6ae790e2",
+      "geocoder_version": 2,
+      "lat": 37.588455,
+      "lon": 126.9461966,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "일등갈비 서대문구 서울",
+      "result_name": "일등갈비",
+      "source": "nominatim",
+      "tried_queries": [
+        "일등갈비 서대문구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:51+00:00"
+    },
     "일월담|도봉구": {
       "display_name": "장암동, 의정부시, 경기도, 대한민국",
       "lat": 37.7069742,
@@ -836,8 +1772,16 @@
     },
     "일품양평해장국종로3|도봉구": {
       "failed": true,
-      "query": "서울 종로구 수표로 107-1@ 1층 (낙원동)",
-      "source": "nominatim"
+      "fingerprint": "bd6879dfc1b4b2ab",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 종로구 수표로 107-1@ 1층 (낙원동)",
+        "서울 종로구 수표로 107-1",
+        "일품양평해장국종로3 서울 종로구 수표로 107-1",
+        "일품양평해장국종로3 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:47+00:00"
     },
     "자매네|영등포구": {
       "display_name": "국회대로30길, 당산동3가, 당산1동, 영등포구, 서울특별시, 07256, 대한민국",
@@ -847,9 +1791,22 @@
       "source": "nominatim"
     },
     "자연농원|강남구": {
-      "failed": true,
-      "query": "경북 상주시 외남면 지사3길 46-28",
-      "source": "nominatim"
+      "display_name": "자연농원, 능원로, 소우리, 모현읍, 처인구, 용인시, 경기도, 16886, 대한민국",
+      "fingerprint": "be098173d46f9fe4",
+      "geocoder_version": 2,
+      "lat": 37.3280431,
+      "lon": 127.1726723,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "자연농원 대한민국",
+      "result_name": "자연농원",
+      "source": "nominatim",
+      "tried_queries": [
+        "경북 상주시 외남면 지사3길 46-28",
+        "자연농원 경북 상주시 외남면 지사3길 46-28",
+        "자연농원 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:59+00:00"
     },
     "자연에서왔소|성북구": {
       "display_name": "자연에서왔소, 36, 성북로, 성북동1가, 성북동, 성북구, 서울특별시, 02834, 대한민국",
@@ -859,19 +1816,50 @@
       "source": "nominatim"
     },
     "장위동유성집|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 범골로 117-0@ 2층 (의정부동)",
-      "source": "nominatim"
+      "display_name": "장위동유성집 의정부점, 117, 범골로, 의정부2동, 의정부시, 경기도, 11624, 대한민국",
+      "fingerprint": "257141370e6efdab",
+      "geocoder_version": 2,
+      "lat": 37.7352464,
+      "lon": 127.038339,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 범골로 117",
+      "result_name": "장위동유성집 의정부점",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 범골로 117-0@ 2층 (의정부동)",
+        "경기 의정부시 범골로 117"
+      ],
+      "updated_at": "2026-09-16T07:18:22+00:00"
     },
     "전라도옛맛손칼국수|관악구": {
       "failed": true,
-      "query": "경기 안양시 만안구 삼막로 42",
-      "source": "nominatim"
+      "fingerprint": "44d2cb8bbc0949cf",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 만안구 삼막로 42",
+        "전라도옛맛손칼국수 경기 안양시 만안구 삼막로 42",
+        "전라도옛맛손칼국수 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:26+00:00"
     },
     "전북콩나물국밥|강북구": {
-      "failed": true,
-      "query": "서울 강북구 한천로139가길 12, 하정희",
-      "source": "nominatim"
+      "display_name": "한천로139가길, 수유3동, 강북구, 서울특별시, 01072, 대한민국",
+      "fingerprint": "ca851d294320e13c",
+      "geocoder_version": 2,
+      "lat": 37.6408519,
+      "lon": 127.0244439,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "서울 강북구 한천로139가길 12",
+      "result_name": "한천로139가길",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 한천로139가길 12, 하정희",
+        "서울 강북구 한천로139가길 12"
+      ],
+      "updated_at": "2026-09-16T07:21:14+00:00"
     },
     "정가|관악구": {
       "display_name": "남부순환로, 조원동, 관악구, 서울특별시, 08771, 대한민국",
@@ -881,9 +1869,40 @@
       "source": "nominatim"
     },
     "정가네|은평구": {
-      "failed": true,
-      "query": "서울 은평구 은평로 203-5,",
-      "source": "nominatim"
+      "display_name": "정가네, 7, 세무서7길, 홍제3동, 서대문구, 서울특별시, 03624, 대한민국",
+      "fingerprint": "a73dee94abfe885b",
+      "geocoder_version": 2,
+      "lat": 37.5914094,
+      "lon": 126.9460403,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "정가네 대한민국",
+      "result_name": "정가네",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 은평구 은평로 203-5,",
+        "서울 은평구 은평로 203-5",
+        "정가네 서울 은평구 은평로 203-5",
+        "정가네 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:05+00:00"
+    },
+    "정통삼계탕|종로구": {
+      "display_name": "정통삼계탕, 72, 무학로, 용두동, 용신동, 동대문구, 서울특별시, 02589, 대한민국",
+      "fingerprint": "9173a87d7ea41350",
+      "geocoder_version": 2,
+      "lat": 37.5704909,
+      "lon": 127.030518,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "정통삼계탕 대한민국",
+      "result_name": "정통삼계탕",
+      "source": "nominatim",
+      "tried_queries": [
+        "정통삼계탕 종로구 서울",
+        "정통삼계탕 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:09+00:00"
     },
     "제주은갈치|관악구": {
       "display_name": "관악로, 성현동, 관악구, 서울특별시, 08727, 대한민국",
@@ -898,6 +1917,22 @@
       "lon": 126.8940485,
       "query": "서울 금천구 벚꽃로 30",
       "source": "nominatim"
+    },
+    "주문진|강동구": {
+      "display_name": "주문진, 27, 성안로3길, 성내동, 성내1동, 강동구, 서울특별시, 05402, 대한민국",
+      "fingerprint": "2d1a93d8d5580f0e",
+      "geocoder_version": 2,
+      "lat": 37.5259544,
+      "lon": 127.128121,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "주문진 강동구 서울",
+      "result_name": "주문진",
+      "source": "nominatim",
+      "tried_queries": [
+        "주문진 강동구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:06+00:00"
     },
     "주식회사 성호푸드 메이탄|은평구": {
       "display_name": "경교장1길, 교남동, 종로구, 서울특별시, 03735, 대한민국",
@@ -948,10 +1983,42 @@
       "query": "서울특별시 관악구",
       "source": "nominatim"
     },
+    "지혜식당|용산구": {
+      "display_name": "지혜식당, 47-2, 1층 5호 (장안동), 한천로6길, 장안동, 장안1동, 동대문구, 서울특별시, 02634, 대한민국",
+      "fingerprint": "b34402f24c78d0b0",
+      "geocoder_version": 2,
+      "lat": 37.5632734,
+      "lon": 127.0620862,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "지혜식당 대한민국",
+      "result_name": "지혜식당",
+      "source": "nominatim",
+      "tried_queries": [
+        "지혜식당 용산구 서울",
+        "지혜식당 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:59+00:00"
+    },
     "지호한방삼계탕|중랑구": {
-      "failed": true,
-      "query": "서울 중랑구 면목동 412-1",
-      "source": "nominatim"
+      "display_name": "지호한방삼계탕(성수점), 88, 동일로, 송정동, 성동구, 서울특별시, 05000, 대한민국",
+      "fingerprint": "e59e7486564d06c2",
+      "geocoder_version": 2,
+      "lat": 37.557942,
+      "lon": 127.068284,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "지호한방삼계탕 대한민국",
+      "result_name": "지호한방삼계탕(성수점)",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 중랑구 면목동 412-1",
+        "지호한방삼계탕 면목역점 서울 중랑구 면목동 412-1",
+        "지호한방삼계탕 서울 중랑구 면목동 412-1",
+        "지호한방삼계탕 면목역점 대한민국",
+        "지호한방삼계탕 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:18+00:00"
     },
     "진1926 보라매|동작구": {
       "display_name": "동작구, 서울특별시, 대한민국",
@@ -967,6 +2034,22 @@
       "query": "경기 광명시 밤일로 35",
       "source": "nominatim"
     },
+    "진평９２５|마포구": {
+      "display_name": "진평925, 87, 망원로, 1통, 망원2동, 마포구, 서울특별시, 03964, 대한민국",
+      "fingerprint": "4119c41355589ff2",
+      "geocoder_version": 2,
+      "lat": 37.5579439,
+      "lon": 126.9063819,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "진평９２５ 마포구 서울",
+      "result_name": "진평925",
+      "source": "nominatim",
+      "tried_queries": [
+        "진평９２５ 마포구 서울"
+      ],
+      "updated_at": "2026-09-16T07:20:39+00:00"
+    },
     "짬뽕지존 서오릉점|은평구": {
       "display_name": "서오릉로, 용두동, 창릉동, 덕양구, 고양시, 경기도, 10549, 대한민국",
       "lat": 37.6285222,
@@ -974,10 +2057,33 @@
       "query": "경기도 고양시 덕양구 서오릉로 424",
       "source": "nominatim"
     },
-    "철원오대쌀 갓지은솥|도봉구": {
+    "참한우본가|노원구": {
       "failed": true,
-      "query": "경기 의정부시 동일로 858-0@ 1층 (녹양동)",
-      "source": "nominatim"
+      "fingerprint": "15d8cd47e67f2dd6",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "참한우본가 노원구 서울",
+        "참한우본가 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:26+00:00"
+    },
+    "철원오대쌀 갓지은솥|도봉구": {
+      "display_name": "방태막국수, 858, 동일로, 녹양동, 의정부시, 경기도, 11758, 대한민국",
+      "fingerprint": "196e900c148afc2a",
+      "geocoder_version": 2,
+      "lat": 37.7618821,
+      "lon": 127.0457347,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 동일로 858",
+      "result_name": "방태막국수",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 동일로 858-0@ 1층 (녹양동)",
+        "경기 의정부시 동일로 858"
+      ],
+      "updated_at": "2026-09-16T07:18:28+00:00"
     },
     "청담본갈비 광명점|금천구": {
       "display_name": "광명청담본갈비, 4, 밤일로, 하안동, 하안1동, 광명시, 경기도, 14261, 대한민국",
@@ -987,14 +2093,38 @@
       "source": "nominatim"
     },
     "청담진 양평해장국|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 동일로 131-0@ 1층 (장암동)",
-      "source": "nominatim"
+      "display_name": "동일로, 신곡동, 신곡2동, 의정부시, 경기도, 11743, 대한민국",
+      "fingerprint": "adae348545676ea3",
+      "geocoder_version": 2,
+      "lat": 37.7385831,
+      "lon": 127.0575118,
+      "match_mode": "address",
+      "osm_type": "tertiary",
+      "query": "경기 의정부시 동일로 131",
+      "result_name": "동일로",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 동일로 131-0@ 1층 (장암동)",
+        "경기 의정부시 동일로 131"
+      ],
+      "updated_at": "2026-09-16T07:17:34+00:00"
     },
     "청해수산영어조합법|도봉구": {
-      "failed": true,
-      "query": "경기 남양주시 순화궁로 492-4@ (별내동)",
-      "source": "nominatim"
+      "display_name": "순화궁로, 별내면, 남양주시, 경기도, 12078, 대한민국",
+      "fingerprint": "3975c0cdcb7af906",
+      "geocoder_version": 2,
+      "lat": 37.7029668,
+      "lon": 127.1055448,
+      "match_mode": "address",
+      "osm_type": "tertiary",
+      "query": "경기 남양주시 순화궁로 492-4",
+      "result_name": "순화궁로",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 순화궁로 492-4@ (별내동)",
+        "경기 남양주시 순화궁로 492-4"
+      ],
+      "updated_at": "2026-09-16T07:18:30+00:00"
     },
     "촌장골 주식회사|금천구": {
       "display_name": "16, 소하로109번길, 소하1동, 광명시, 경기도, 14316, 대한민국",
@@ -1024,6 +2154,23 @@
       "query": "서울특별시 동작구",
       "source": "nominatim"
     },
+    "콩두|서초구": {
+      "display_name": "콩두, 116-1, 덕수궁길, 정동, 소공동, 중구, 서울특별시, 03184, 대한민국",
+      "fingerprint": "738ca772d45a660b",
+      "geocoder_version": 2,
+      "lat": 37.5677077,
+      "lon": 126.9740319,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "콩두 대한민국",
+      "result_name": "콩두",
+      "source": "nominatim",
+      "tried_queries": [
+        "콩두 서초구 서울",
+        "콩두 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:32+00:00"
+    },
     "크라운호프 미아사거|성북구": {
       "display_name": "도봉로10길, 송중동, 강북구, 서울특별시, 01215, 대한민국",
       "lat": 37.6129081,
@@ -1032,9 +2179,21 @@
       "source": "nominatim"
     },
     "태능맥갈비|도봉구": {
-      "failed": true,
-      "query": "경기 남양주시 별내면 송산로 489-1@ 1층 (광전리)",
-      "source": "nominatim"
+      "display_name": "송산로, 별내동, 별내면, 남양주시, 경기도, 12095, 대한민국",
+      "fingerprint": "9048b9f8e4e84ca2",
+      "geocoder_version": 2,
+      "lat": 37.6792501,
+      "lon": 127.1346971,
+      "match_mode": "address",
+      "osm_type": "tertiary",
+      "query": "경기 남양주시 별내면 송산로 489-1",
+      "result_name": "송산로",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 남양주시 별내면 송산로 489-1@ 1층 (광전리)",
+        "경기 남양주시 별내면 송산로 489-1"
+      ],
+      "updated_at": "2026-09-16T07:17:41+00:00"
     },
     "탱글낙지마당|강서구": {
       "display_name": "등촌로, 목3동, 양천구, 서울특별시, 07564, 대한민국",
@@ -1043,10 +2202,49 @@
       "query": "서울 양천구 등촌로 186",
       "source": "nominatim"
     },
-    "파크프리베|도봉구": {
+    "탱글낙지마당|양천구": {
       "failed": true,
-      "query": "경기 의정부시 동일로192번길 28-41@ (장암동)",
-      "source": "nominatim"
+      "fingerprint": "cd4b6951e6effe9d",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "탱글낙지마당 양천구 서울",
+        "탱글낙지마당 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:43+00:00"
+    },
+    "토리키치 자양역점|광진구": {
+      "display_name": "토리키치 자양역점, 39, 뚝섬로32길, 자양4동, 광진구, 서울특별시, 05085, 대한민국",
+      "fingerprint": "6e352be70267d47b",
+      "geocoder_version": 2,
+      "lat": 37.5338493,
+      "lon": 127.0667236,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "토리키치 자양역점 광진구 서울",
+      "result_name": "토리키치 자양역점",
+      "source": "nominatim",
+      "tried_queries": [
+        "토리키치 자양역점 광진구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:29+00:00"
+    },
+    "파크프리베|도봉구": {
+      "display_name": "동일로192번길, 장암동, 의정부시, 경기도, 11724, 대한민국",
+      "fingerprint": "0562ad723cadab0d",
+      "geocoder_version": 2,
+      "lat": 37.7056188,
+      "lon": 127.0619098,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "경기 의정부시 동일로192번길 28-41",
+      "result_name": "동일로192번길",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 동일로192번길 28-41@ (장암동)",
+        "경기 의정부시 동일로192번길 28-41"
+      ],
+      "updated_at": "2026-09-16T07:17:02+00:00"
     },
     "파티오（ＰＡＴＩＯ）|금천구": {
       "display_name": "공원로, 구로5동, 구로구, 서울특별시, 08299, 대한민국",
@@ -1062,10 +2260,33 @@
       "query": "서울 구로구 구로중앙로 51",
       "source": "nominatim"
     },
-    "풍천민물장어이억집(|도봉구": {
+    "풍천가 서초|서초구": {
       "failed": true,
-      "query": "경기 의정부시 동일로 156-0@ 1층 (장암동)",
-      "source": "nominatim"
+      "fingerprint": "b9a9cb4cf02760d0",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "풍천가 서초 서초구 서울",
+        "풍천가 서초 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:45+00:00"
+    },
+    "풍천민물장어이억집(|도봉구": {
+      "display_name": "풍천장어이억집, 156, 동일로, 장암동, 의정부시, 경기도, 11724, 대한민국",
+      "fingerprint": "ed1d32775e80f734",
+      "geocoder_version": 2,
+      "lat": 37.7028679,
+      "lon": 127.0563843,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "경기 의정부시 동일로 156",
+      "result_name": "풍천장어이억집",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 동일로 156-0@ 1층 (장암동)",
+        "경기 의정부시 동일로 156"
+      ],
+      "updated_at": "2026-09-16T07:17:39+00:00"
     },
     "풍천셀프장어|금천구": {
       "display_name": "범안로, 노온사동, 학온동, 광명시, 경기도, 14335, 대한민국",
@@ -1081,10 +2302,44 @@
       "query": "서울 구로구 구로동로 184,",
       "source": "nominatim"
     },
-    "하오런|강북구": {
+    "플라이팬|광진구": {
       "failed": true,
-      "query": "서울 강북구 오현로 137, 엄정익",
-      "source": "nominatim"
+      "fingerprint": "f5787a89f955bb28",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "플라이팬 광진구 서울",
+        "플라이팬 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:30+00:00"
+    },
+    "하오런|강북구": {
+      "display_name": "하오런, 137, 오현로, 번2동, 강북구, 서울특별시, 01228, 대한민국",
+      "fingerprint": "4bb7fb9cac5b4ccf",
+      "geocoder_version": 2,
+      "lat": 37.6247342,
+      "lon": 127.0370723,
+      "match_mode": "address",
+      "osm_type": "restaurant",
+      "query": "서울 강북구 오현로 137",
+      "result_name": "하오런",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 강북구 오현로 137, 엄정익",
+        "서울 강북구 오현로 137"
+      ],
+      "updated_at": "2026-09-16T07:19:57+00:00"
+    },
+    "한남동한방통닭|용산구": {
+      "failed": true,
+      "fingerprint": "8b31b7e5d3e570ae",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "한남동한방통닭 용산구 서울",
+        "한남동한방통닭 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:38+00:00"
     },
     "한도니|중랑구": {
       "display_name": "봉화산로54길, 신내1동, 중랑구, 서울특별시, 02067, 대한민국",
@@ -1092,6 +2347,23 @@
       "lon": 127.0979119,
       "query": "서울 중랑구 봉화산로54길 32",
       "source": "nominatim"
+    },
+    "한성관|강동구": {
+      "display_name": "한성관, 수영로293번길, 대연3동, 남구, 부산광역시, 48434, 대한민국",
+      "fingerprint": "e212a9a5564e5112",
+      "geocoder_version": 2,
+      "lat": 35.1380179,
+      "lon": 129.0985407,
+      "match_mode": "name",
+      "osm_type": "school",
+      "query": "한성관 대한민국",
+      "result_name": "한성관",
+      "source": "nominatim",
+      "tried_queries": [
+        "한성관 강동구 서울",
+        "한성관 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:01+00:00"
     },
     "한양갈비|관악구": {
       "display_name": "한양갈비, 115, 삼막로24번길, 석수동, 만안구, 안양시, 경기도, 13910, 대한민국",
@@ -1108,9 +2380,33 @@
       "source": "nominatim"
     },
     "함박|강서구": {
+      "display_name": "함박, 진주대로, 명석면, 진주시, 경상남도, 52642, 대한민국",
+      "fingerprint": "4a1f14d2e957b486",
+      "geocoder_version": 2,
+      "lat": 35.2256393,
+      "lon": 128.0230068,
+      "match_mode": "name",
+      "osm_type": "bus_stop",
+      "query": "함박 대한민국",
+      "result_name": "함박",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울 양천구 목동 621-11",
+        "함박 서울 양천구 목동 621-11",
+        "함박 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:44+00:00"
+    },
+    "해물신의한수|종로구": {
       "failed": true,
-      "query": "서울 양천구 목동 621-11",
-      "source": "nominatim"
+      "fingerprint": "b7ff16022556a91d",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "해물신의한수 종로구 서울",
+        "해물신의한수 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:25+00:00"
     },
     "홍어전문|구로구": {
       "display_name": "구로중앙로, 구로동, 구로2동, 구로구, 서울특별시, 08291, 대한민국",
@@ -1141,9 +2437,21 @@
       "source": "nominatim"
     },
     "황금코다리|도봉구": {
-      "failed": true,
-      "query": "경기 의정부시 평화로168번길 69-0@ 1층 (호원동)",
-      "source": "nominatim"
+      "display_name": "평화로168번길, 호원1동, 의정부시, 경기도, 11712, 대한민국",
+      "fingerprint": "c96b262cb322cae7",
+      "geocoder_version": 2,
+      "lat": 37.7077788,
+      "lon": 127.0497427,
+      "match_mode": "address",
+      "osm_type": "residential",
+      "query": "경기 의정부시 평화로168번길 69",
+      "result_name": "평화로168번길",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 의정부시 평화로168번길 69-0@ 1층 (호원동)",
+        "경기 의정부시 평화로168번길 69"
+      ],
+      "updated_at": "2026-09-16T07:18:32+00:00"
     },
     "황씨네대가추어탕|종로구": {
       "display_name": "두산위브파빌리온오피스텔, 81, 삼봉로, 종로1가, 공평동, 종로1·2·3·4가동, 종로구, 서울특별시, 03150, 대한민국",
@@ -1153,9 +2461,22 @@
       "source": "nominatim"
     },
     "훈장골영등포신길점|영등포구": {
-      "failed": true,
-      "query": "서울특별시 영등포구 도신로49길 3",
-      "source": "nominatim"
+      "display_name": "훈장골영등포신길점, 3, 도신로47길, 영등포동1가, 영등포본동, 영등포구, 서울특별시, 07313, 대한민국",
+      "fingerprint": "6347d09d7a0ff148",
+      "geocoder_version": 2,
+      "lat": 37.511766,
+      "lon": 126.9133038,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "훈장골영등포신길점 대한민국",
+      "result_name": "훈장골영등포신길점",
+      "source": "nominatim",
+      "tried_queries": [
+        "서울특별시 영등포구 도신로49길 3",
+        "훈장골영등포신길점 서울특별시 영등포구 도신로49길 3",
+        "훈장골영등포신길점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:21:31+00:00"
     },
     "흑대장피알오|관악구": {
       "display_name": "평촌대로476번길, 비산3동, 동안구, 안양시, 경기도, 13915, 대한민국",
@@ -1172,9 +2493,38 @@
       "source": "nominatim"
     },
     "흥부가|관악구": {
-      "failed": true,
-      "query": "경기 안양시 만안구 삼막로 34-15",
-      "source": "nominatim"
+      "display_name": "흥부가, 136, 마른내로, 광희동1가, 광희동, 중구, 서울특별시, 04561, 대한민국",
+      "fingerprint": "c3008858dd80f763",
+      "geocoder_version": 2,
+      "lat": 37.5635282,
+      "lon": 127.0042432,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "흥부가 대한민국",
+      "result_name": "흥부가",
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 만안구 삼막로 34-15",
+        "흥부가 경기 안양시 만안구 삼막로 34-15",
+        "흥부가 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:17:00+00:00"
+    },
+    "힘찬낙지|광진구": {
+      "display_name": "힘찬낙지, 34, 동일로60길, 군자동, 광진구, 서울특별시, 04995, 대한민국",
+      "fingerprint": "60cf856fad397f11",
+      "geocoder_version": 2,
+      "lat": 37.55335,
+      "lon": 127.07346,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "query": "힘찬낙지 광진구 서울",
+      "result_name": "힘찬낙지",
+      "source": "nominatim",
+      "tried_queries": [
+        "힘찬낙지 광진구 서울"
+      ],
+      "updated_at": "2026-09-16T07:19:09+00:00"
     },
     "（주）신화아이푸드|금천구": {
       "display_name": "75, 새마을로, 서현동, 분당, 분당구, 성남시, 경기도, 13573, 대한민국",
@@ -1197,10 +2547,28 @@
       "query": "서울 성동구 홍익동 357",
       "source": "nominatim"
     },
+    "（주）파리크라상 이|용산구": {
+      "failed": true,
+      "fingerprint": "3495356dc3ff5fd1",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "（주）파리크라상 이 용산구 서울",
+        "（주）파리크라상 이 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:19:33+00:00"
+    },
     "６０계안양관양점|관악구": {
       "failed": true,
-      "query": "경기 안양시 동안구 동편로 22",
-      "source": "nominatim"
+      "fingerprint": "4c248aa65ab39a3c",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "경기 안양시 동안구 동편로 22",
+        "６０계안양관양점 경기 안양시 동안구 동편로 22",
+        "６０계안양관양점 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:18:36+00:00"
     },
     "Ｇａｕｄｉ|금천구": {
       "display_name": "광장프라자, 13-8, 소하로109번길, 소하1동, 광명시, 경기도, 14316, 대한민국",
@@ -1208,6 +2576,17 @@
       "lon": 126.8845469,
       "query": "경기 광명시 소하로109번길 8",
       "source": "nominatim"
+    },
+    "ＳＳＧ．ＣＯＭ|용산구": {
+      "failed": true,
+      "fingerprint": "a314855130a00e8b",
+      "geocoder_version": 2,
+      "source": "nominatim",
+      "tried_queries": [
+        "ＳＳＧ．ＣＯＭ 용산구 서울",
+        "ＳＳＧ．ＣＯＭ 대한민국"
+      ],
+      "updated_at": "2026-09-16T07:20:00+00:00"
     }
   }
 }
