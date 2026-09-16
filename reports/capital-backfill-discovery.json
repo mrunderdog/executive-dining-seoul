@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-09-16T05:08:47",
+  "since": "2024-12",
+  "until": "2026-09",
+  "sources": [
+    "suwon",
+    "goyang",
+    "bupyeong"
+  ],
+  "posts": [
+    {
+      "source": "suwon",
+      "listing_url": "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1",
+      "error": "listing URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(26년 2분기)",
+      "period": [
+        2026,
+        null,
+        2
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=78A3B14524D8A816D543C3987E58FDF4&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(26년 1분기)",
+      "period": [
+        2026,
+        null,
+        1
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=A26F31BA24D6295A0EEF2CA7E2A33DD7&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(25년 4분기)",
+      "period": [
+        2025,
+        null,
+        4
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=FCC9BBC635EBF83B1589291BBC8ED897&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(25년 3분기)",
+      "period": [
+        2025,
+        null,
+        3
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=6CD60F6A8EBB4155E8778E0CFD4C6E24&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(25년 2분기)",
+      "period": [
+        2025,
+        null,
+        2
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=D8FE8B711E8FF8C948048BDE2C07AAE2&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(25년 1분기)",
+      "period": [
+        2025,
+        null,
+        1
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=98E1148F220A5BC12C44126D38EEB0B3&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "goyang",
+      "region": "경기",
+      "jurisdiction": "고양시",
+      "institution": "고양특례시의회",
+      "title": "고양시의회 의장단 및 상임위원장 업무추진비 사용내역(24년 4분기)",
+      "period": [
+        2024,
+        null,
+        4
+      ],
+      "post_url": "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=482EAB646834A21D79118059141453FF&schwrd=&flag=all&page=1&list_style=",
+      "attachments": []
+    },
+    {
+      "source": "bupyeong",
+      "listing_url": "https://council.icbp.go.kr/kr/data/bbs?bbs_id=expense&page=1",
+      "error": "listing URLError: <urlopen error timed out>"
+    }
+  ]
+}
