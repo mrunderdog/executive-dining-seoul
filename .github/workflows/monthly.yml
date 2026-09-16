@@ -59,6 +59,9 @@ jobs:
       - name: Repair legacy XLS serial dates
         run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
 
+      - name: Build publishable executive candidates
+        run: python pipeline/build_source_candidates.py --source goyang --top 100
+
       - name: Sanity gate staged raw data
         shell: bash
         run: |
@@ -79,6 +82,9 @@ jobs:
                   raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}, date={date:.1%}')
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
           PY
+
+      - name: Refresh static coordinates for published dataset
+        run: python pipeline/geocode_cache.py --mode auto
 
       - name: Quality gate published dataset
         run: python pipeline/quality_gate.py
