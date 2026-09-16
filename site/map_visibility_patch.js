@@ -84,8 +84,6 @@
     }
   }
 
-  // Replace the old custom style-layer renderer with DOM markers.
-  // These are outside MapLibre's style graph and survive setStyle().
   addLayers=function(){
     cleanupLegacyLayers();
     renderDomMarkers();
@@ -108,40 +106,57 @@
     if(fit) fitMap();
   };
 
-  // Now the tone button can perform a real basemap switch again.
-  // DOM markers remain mounted while Positron/Liberty is replaced underneath them.
+  const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
+    .find(btn=>btn.textContent.trim().startsWith('지도톤'));
+  let styleSwitchSeq=0;
+
+  function updateStyleButton(){
+    if(!styleButton) return;
+    const colorMode=styleMode==='liberty';
+    styleButton.textContent=colorMode?'지도톤 · 컬러':'지도톤 · 라이트';
+    styleButton.setAttribute('aria-pressed',colorMode?'true':'false');
+  }
+
+  // Register style.load BEFORE setStyle(). The previous implementation did the
+  // opposite, so a cached/fast style could finish before the listener existed,
+  // leaving the button permanently disabled after the first click.
   switchStyle=function(){
-    styleMode=styleMode==='positron'?'liberty':'positron';
+    const nextMode=styleMode==='positron'?'liberty':'positron';
+    const seq=++styleSwitchSeq;
     if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
-    map.setStyle(STYLES[styleMode]);
-    if(styleButton){
-      styleButton.disabled=true;
-      styleButton.textContent=styleMode==='liberty'?'지도톤 · 컬러':'지도톤 · 라이트';
-      styleButton.setAttribute('aria-pressed',styleMode==='liberty'?'true':'false');
-    }
-    map.once('style.load',()=>{
+    if(styleButton) styleButton.disabled=true;
+
+    let finished=false;
+    const finish=()=>{
+      if(finished||seq!==styleSwitchSeq) return;
+      finished=true;
       mapReady=true;
       cleanupLegacyLayers();
       renderDomMarkers();
       updateMap(false);
+      updateStyleButton();
       if(styleButton) styleButton.disabled=false;
-    });
+    };
+
+    map.once('style.load',finish);
+    styleMode=nextMode;
+    updateStyleButton();
+    map.setStyle(STYLES[styleMode]);
+
+    // Network/style errors must never strand the toggle in a disabled state.
+    setTimeout(finish,2500);
   };
 
-  // maplibre.js creates the button before this patch executes; replace its handler directly.
-  const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
-    .find(btn=>btn.textContent.trim().startsWith('지도톤'));
   if(styleButton){
     styleButton.onclick=event=>{
       event.preventDefault();
+      if(styleButton.disabled) return;
       switchStyle();
     };
-    styleButton.textContent='지도톤 · 라이트';
     styleButton.title='라이트/컬러 지도 전환';
-    styleButton.setAttribute('aria-pressed','false');
+    updateStyleButton();
   }
 
-  // If the map has already loaded before this patch executes, migrate immediately.
   if(map.loaded()){
     mapReady=true;
     cleanupLegacyLayers();
