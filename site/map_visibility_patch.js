@@ -1,94 +1,96 @@
-// Visibility patch for the MapLibre renderer.
-// Keep all geocoded restaurants visible at overview zoom instead of hiding them in clusters.
+// Stable MapLibre marker renderer.
+// Restaurant markers are DOM overlays, so swapping the basemap style cannot remove them.
 (function(){
-  function installLayers(){
-    if(!map.isStyleLoaded()) return;
-    ['place-labels','places','cluster-count','clusters'].forEach(id=>{ if(map.getLayer(id)) map.removeLayer(id); });
-    if(map.getSource('places')) map.removeSource('places');
+  const domMarkers=new Map();
 
-    map.addSource('places',{type:'geojson',data:geojson()});
-    map.addLayer({
-      id:'places',type:'circle',source:'places',
-      paint:{
-        'circle-radius':['interpolate',['linear'],['zoom'],8,4.4,10,5.3,12,6.3,15,7.8],
-        'circle-color':['match',['get','kind'],'executive','#ac4f98','destination','#f4ed36','both','#c94245','#61609a'],
-        'circle-opacity':.96,
-        'circle-stroke-color':'#1a1a1a',
-        'circle-stroke-width':['case',['==',['get','selected'],1],4,1.5]
-      }
-    });
-    map.addLayer({
-      id:'place-labels',type:'symbol',source:'places',minzoom:11.3,
-      layout:{
-        'text-field':['get','display'],'text-size':['interpolate',['linear'],['zoom'],11.3,9.5,14,11.8],
-        'text-offset':[0,1.25],'text-anchor':'top','text-allow-overlap':false,'text-optional':true
-      },
-      paint:{'text-color':'#1a1a1a','text-halo-color':'#f9f5f2','text-halo-width':1.8}
-    });
-    installInteractions();
+  function markerColors(r){
+    if(r.type==='both') return {bg:'#c94245',border:'#1a1a1a'};
+    if(r.type==='destination') return {bg:'#f4ed36',border:'#1a1a1a'};
+    if(r.type==='executive') return {bg:'#ac4f98',border:'#1a1a1a'};
+    return {bg:'#61609a',border:'#1a1a1a'};
   }
 
-  function installInteractions(){
-    if(window.__execDiningVisibilityBound) return;
-    window.__execDiningVisibilityBound=true;
-    map.on('mouseenter','places',e=>{
-      map.getCanvas().style.cursor='pointer';
-      const f=e.features?.[0],r=f&&recordByKey(f.properties.id);
-      if(!r) return;
+  function styleMarker(el,r){
+    const active=key(r)===selected;
+    const c=markerColors(r);
+    el.style.width=active?'16px':'11px';
+    el.style.height=active?'16px':'11px';
+    el.style.borderRadius='999px';
+    el.style.background=c.bg;
+    el.style.border=`${active?3:2}px solid ${active?'#fff':c.border}`;
+    el.style.boxShadow=active?'0 0 0 3px #1a1a1a,0 2px 8px rgba(0,0,0,.28)':'0 1px 5px rgba(0,0,0,.34)';
+    el.style.cursor='pointer';
+    el.style.padding='0';
+    el.style.margin='0';
+    el.style.outline='0';
+  }
+
+  function createDomMarker(r){
+    const el=document.createElement('button');
+    el.type='button';
+    el.setAttribute('aria-label',`${r.business?.display||r.name} 지도 마커`);
+    el.title=r.business?.display||r.name;
+    styleMarker(el,r);
+
+    el.addEventListener('mouseenter',()=>{
       if(hoverPopup) hoverPopup.remove();
       hoverPopup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12})
-        .setLngLat(f.geometry.coordinates)
-        .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#61609a;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`).addTo(map);
+        .setLngLat([r.lon,r.lat])
+        .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#61609a;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`)
+        .addTo(map);
     });
-    map.on('mouseleave','places',()=>{
-      map.getCanvas().style.cursor='';
+    el.addEventListener('mouseleave',()=>{
       if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
     });
-    map.on('click','places',e=>{
-      const f=e.features?.[0],r=f&&recordByKey(f.properties.id);
-      if(r) selectRecord(r,false,true);
-    });
-  }
-
-  addLayers=installLayers;
-  bindInteractions=installInteractions;
-
-  // Do NOT call map.setStyle() for the tone button. setStyle replaces the whole
-  // style graph and therefore destroys custom restaurant sources/layers before
-  // they can be restored reliably on every browser. Tone is now purely visual:
-  // the MapLibre canvas stays intact, so markers, labels, selection and popups
-  // survive every click without a style reload.
-  let alternateTone=false;
-  switchStyle=function(){
-    alternateTone=!alternateTone;
-    styleMode=alternateTone?'tone-alt':'positron';
-    const canvas=map.getCanvas();
-    canvas.style.transition='filter 160ms ease';
-    canvas.style.filter=alternateTone
-      ? 'saturate(.72) contrast(1.09) brightness(.94)'
-      : '';
-    const r=recordByKey(selected);
-    if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)&&selectedPopup){
-      selectedPopup.setLngLat([r.lon,r.lat]);
-    }
-    updateMap(false);
-  };
-
-  // maplibre.js creates the button before this patch loads. Intercept the click
-  // in the capture phase and stop the original onclick from ever reaching
-  // map.setStyle(), even if a browser retained the old function reference.
-  const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
-    .find(btn=>btn.textContent.trim()==='지도톤');
-  if(styleButton){
-    styleButton.setAttribute('aria-pressed','false');
-    styleButton.title='지도 톤 전환 (마커 유지)';
-    styleButton.addEventListener('click',event=>{
+    el.addEventListener('click',event=>{
       event.preventDefault();
-      event.stopImmediatePropagation();
-      switchStyle();
-      styleButton.setAttribute('aria-pressed',alternateTone?'true':'false');
-    },true);
+      event.stopPropagation();
+      selectRecord(r,false,true);
+    });
+
+    const marker=new maplibregl.Marker({element:el,anchor:'center'})
+      .setLngLat([r.lon,r.lat])
+      .addTo(map);
+    return {marker,el};
   }
+
+  function cleanupLegacyLayers(){
+    if(!map.isStyleLoaded()) return;
+    ['place-labels','places','cluster-count','clusters'].forEach(id=>{
+      if(map.getLayer(id)) map.removeLayer(id);
+    });
+    if(map.getSource('places')) map.removeSource('places');
+  }
+
+  function renderDomMarkers(){
+    const wanted=new Set();
+    for(const r of current){
+      if(!Number.isFinite(r.lat)||!Number.isFinite(r.lon)) continue;
+      const k=key(r); wanted.add(k);
+      let item=domMarkers.get(k);
+      if(!item){
+        item=createDomMarker(r);
+        domMarkers.set(k,item);
+      }else{
+        item.marker.setLngLat([r.lon,r.lat]);
+        styleMarker(item.el,r);
+      }
+    }
+    for(const [k,item] of domMarkers){
+      if(!wanted.has(k)){
+        item.marker.remove();
+        domMarkers.delete(k);
+      }
+    }
+  }
+
+  // Replace the old custom style-layer renderer with DOM markers.
+  // These are outside MapLibre's style graph and survive setStyle().
+  addLayers=function(){
+    cleanupLegacyLayers();
+    renderDomMarkers();
+  };
+  bindInteractions=function(){};
 
   fitMap=function(){
     const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
@@ -99,11 +101,51 @@
   };
 
   updateMap=function(fit=false){
-    if(!mapReady||!map.getSource('places')) return;
-    map.getSource('places').setData(geojson());
+    renderDomMarkers();
     const n=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;
     const missing=current.length-n;
     prog.textContent=`지도 표시 ${n}/${current.length}곳${missing?` · 좌표 보강 필요 ${missing}곳`:''} · 접속 시 지오코딩 0건`;
     if(fit) fitMap();
   };
+
+  // Now the tone button can perform a real basemap switch again.
+  // DOM markers remain mounted while Positron/Liberty is replaced underneath them.
+  switchStyle=function(){
+    styleMode=styleMode==='positron'?'liberty':'positron';
+    if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
+    map.setStyle(STYLES[styleMode]);
+    if(styleButton){
+      styleButton.disabled=true;
+      styleButton.textContent=styleMode==='liberty'?'지도톤 · 컬러':'지도톤 · 라이트';
+      styleButton.setAttribute('aria-pressed',styleMode==='liberty'?'true':'false');
+    }
+    map.once('style.load',()=>{
+      mapReady=true;
+      cleanupLegacyLayers();
+      renderDomMarkers();
+      updateMap(false);
+      if(styleButton) styleButton.disabled=false;
+    });
+  };
+
+  // maplibre.js creates the button before this patch executes; replace its handler directly.
+  const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
+    .find(btn=>btn.textContent.trim().startsWith('지도톤'));
+  if(styleButton){
+    styleButton.onclick=event=>{
+      event.preventDefault();
+      switchStyle();
+    };
+    styleButton.textContent='지도톤 · 라이트';
+    styleButton.title='라이트/컬러 지도 전환';
+    styleButton.setAttribute('aria-pressed','false');
+  }
+
+  // If the map has already loaded before this patch executes, migrate immediately.
+  if(map.loaded()){
+    mapReady=true;
+    cleanupLegacyLayers();
+    renderDomMarkers();
+    updateMap(false);
+  }
 })();
