@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 29,
+    "failed_count": 15,
     "geocoder_version": 3,
     "policy_version": 2,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 265,
-    "success_count": 236,
-    "updated_at": "2026-09-16T16:09:31+00:00"
+    "record_count": 268,
+    "success_count": 253,
+    "updated_at": "2026-09-16T16:13:21+00:00"
   },
   "records": {
     "(주)보림로지틱스천안|강남구": {
@@ -276,15 +276,22 @@
       "updated_at": "2026-09-16T07:49:01+00:00"
     },
     "고봉산한우터|고양시": {
-      "failed": true,
-      "fingerprint": "26d5e2ef460566af",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산동구 중산동 성석로 17",
+      "fingerprint": "bd0b7dabb9740434",
       "geocoder_version": 3,
+      "lat": 37.682225637921,
+      "lon": 126.789442769619,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산동구 성석로 17",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:고봉산한우터 고양특례시",
-        "nominatim:고봉산한우터 고양특례시"
+        "arcgis:경기도 고양시 일산동구 성석로 17"
       ],
-      "updated_at": "2026-09-16T16:08:06+00:00"
+      "updated_at": "2026-09-16T16:13:10+00:00"
     },
     "고수2호점|도봉구": {
       "addr_type": "PointAddress",
@@ -304,15 +311,22 @@
       "updated_at": "2026-09-16T07:47:17+00:00"
     },
     "고양회관|고양시": {
-      "failed": true,
-      "fingerprint": "68a94554c979785b",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 덕양구 주교동 고양시청로 16-5",
+      "fingerprint": "beb6b5bc7f5dfbf1",
       "geocoder_version": 3,
+      "lat": 37.657677893367,
+      "lon": 126.831492095642,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 덕양구 고양시청로 16-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:고양회관 고양특례시",
-        "nominatim:고양회관 고양특례시"
+        "arcgis:경기도 고양시 덕양구 고양시청로 16-5"
       ],
-      "updated_at": "2026-09-16T16:08:46+00:00"
+      "updated_at": "2026-09-16T16:13:16+00:00"
     },
     "고창복낙지|금천구": {
       "addr_type": "PointAddress",
@@ -400,15 +414,22 @@
       "updated_at": "2026-09-16T07:47:22+00:00"
     },
     "교촌치킨(강선점)|고양시": {
-      "failed": true,
-      "fingerprint": "4b32ac51ac72a41b",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산동구 정발산동 687-5",
+      "fingerprint": "6e5148d24cf46ea6",
       "geocoder_version": 3,
+      "lat": 37.668727043862,
+      "lon": 126.774230369727,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산동구 정발산동 687-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:교촌치킨(강선점) 고양특례시",
-        "nominatim:교촌치킨(강선점) 고양특례시"
+        "arcgis:경기도 고양시 일산동구 정발산동 687-5"
       ],
-      "updated_at": "2026-09-16T16:09:03+00:00"
+      "updated_at": "2026-09-16T16:13:20+00:00"
     },
     "구름산추어탕|금천구": {
       "addr_type": "StreetName",
@@ -524,15 +545,22 @@
       "updated_at": "2026-09-16T07:47:20+00:00"
     },
     "남궁|고양시": {
-      "failed": true,
-      "fingerprint": "70d23ba65d37c2b8",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 2101",
+      "fingerprint": "e482000a96d16dd0",
       "geocoder_version": 3,
+      "lat": 37.682116966547,
+      "lon": 126.753591609538,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 대화동 2101",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:남궁 고양특례시",
-        "nominatim:남궁 고양특례시"
+        "arcgis:경기도 고양시 일산서구 대화동 2101"
       ],
-      "updated_at": "2026-09-16T16:08:48+00:00"
+      "updated_at": "2026-09-16T16:13:17+00:00"
     },
     "남도마루|용산구": {
       "addr_type": "POI",
@@ -1133,15 +1161,22 @@
       "updated_at": "2026-09-16T07:48:51+00:00"
     },
     "맛있는정원|고양시": {
-      "failed": true,
-      "fingerprint": "7ec7c97e760b9518",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 덕양구 성사동 338-20",
+      "fingerprint": "9164af8f25079e1b",
       "geocoder_version": 3,
+      "lat": 37.650458685891,
+      "lon": 126.843410156129,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 덕양구 성사동 338-20",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:맛있는정원 고양특례시",
-        "nominatim:맛있는정원 고양특례시"
+        "arcgis:경기도 고양시 덕양구 성사동 338-20"
       ],
-      "updated_at": "2026-09-16T16:08:11+00:00"
+      "updated_at": "2026-09-16T16:13:12+00:00"
     },
     "메밀이 생각날때|은평구": {
       "addr_type": "PointAddress",
@@ -1258,15 +1293,22 @@
       "updated_at": "2026-09-16T07:49:21+00:00"
     },
     "보양삼계탕|고양시": {
-      "failed": true,
-      "fingerprint": "a333e9bfea2d70b4",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 주화로 180",
+      "fingerprint": "388860961e9e9ed9",
       "geocoder_version": 3,
+      "lat": 37.674522375536,
+      "lon": 126.749361346825,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 주화로 180",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:보양삼계탕 고양특례시",
-        "nominatim:보양삼계탕 고양특례시"
+        "arcgis:경기도 고양시 일산서구 주화로 180"
       ],
-      "updated_at": "2026-09-16T16:08:58+00:00"
+      "updated_at": "2026-09-16T16:13:19+00:00"
     },
     "복돈이부추삼겹살|관악구": {
       "addr_type": "PointAddress",
@@ -1492,15 +1534,22 @@
       "updated_at": "2026-09-16T07:49:39+00:00"
     },
     "사계절어촌|고양시": {
-      "failed": true,
-      "fingerprint": "e074231bb4e4ba44",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 주엽로 80",
+      "fingerprint": "173eef6db525f054",
       "geocoder_version": 3,
+      "lat": 37.666062520661,
+      "lon": 126.756435840743,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 주엽로 80",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:사계절어촌 고양특례시",
-        "nominatim:사계절어촌 고양특례시"
+        "arcgis:경기도 고양시 일산서구 주엽로 80"
       ],
-      "updated_at": "2026-09-16T16:08:14+00:00"
+      "updated_at": "2026-09-16T16:13:12+00:00"
     },
     "사또집|중구": {
       "addr_type": "PointAddress",
@@ -2029,6 +2078,24 @@
       ],
       "updated_at": "2026-09-16T07:47:38+00:00"
     },
+    "송포털레기 추어탕|고양시": {
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 강성로214번길 8-22",
+      "fingerprint": "e51d2adeab696b9c",
+      "geocoder_version": 3,
+      "lat": 37.674745250342,
+      "lon": 126.75447355339,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "경기도 고양시 일산서구 강성로214번길 8-22",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:경기도 고양시 일산서구 강성로214번길 8-22"
+      ],
+      "updated_at": "2026-09-16T16:13:20+00:00"
+    },
     "송포털레기.추어탕|고양시": {
       "failed": true,
       "fingerprint": "6ea7a93fec58efa1",
@@ -2467,15 +2534,22 @@
       "updated_at": "2026-09-16T07:48:21+00:00"
     },
     "엄선 엄마의 생선찜 구이|고양시": {
-      "failed": true,
-      "fingerprint": "4e9ab8963c9f697d",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 대산로212번길 7-6",
+      "fingerprint": "85d56c350484e94e",
       "geocoder_version": 3,
+      "lat": 37.678839558586,
+      "lon": 126.75515231991,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 대산로212번길 7-6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:엄선 엄마의 생선찜 구이 고양특례시",
-        "nominatim:엄선 엄마의 생선찜 구이 고양특례시"
+        "arcgis:경기도 고양시 일산서구 대산로212번길 7-6"
       ],
-      "updated_at": "2026-09-16T16:08:43+00:00"
+      "updated_at": "2026-09-16T16:13:14+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -2529,15 +2603,22 @@
       "updated_at": "2026-09-16T07:47:08+00:00"
     },
     "오대돌솥추어탕|고양시": {
-      "failed": true,
-      "fingerprint": "d5b7aa01f45e54a4",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 대화로 150-3",
+      "fingerprint": "fabb7270545c48f6",
       "geocoder_version": 3,
+      "lat": 37.67129048131,
+      "lon": 126.736666200094,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 대화로 150-3",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:오대돌솥추어탕 고양특례시",
-        "nominatim:오대돌솥추어탕 고양특례시"
+        "arcgis:경기도 고양시 일산서구 대화로 150-3"
       ],
-      "updated_at": "2026-09-16T16:08:44+00:00"
+      "updated_at": "2026-09-16T16:13:15+00:00"
     },
     "오리오리|관악구": {
       "addr_type": "PointAddress",
@@ -2823,6 +2904,24 @@
       ],
       "updated_at": "2026-09-16T07:49:08+00:00"
     },
+    "우설화 일산점|고양시": {
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산동구 식사동 833-14",
+      "fingerprint": "856c189357e079d9",
+      "geocoder_version": 3,
+      "lat": 37.677961973323,
+      "lon": 126.799101488106,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "경기도 고양시 일산동구 식사동 833-14",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:경기도 고양시 일산동구 식사동 833-14"
+      ],
+      "updated_at": "2026-09-16T16:13:18+00:00"
+    },
     "우설화|고양시": {
       "failed": true,
       "fingerprint": "67dadf8f10ae515f",
@@ -2869,15 +2968,22 @@
       "updated_at": "2026-09-16T07:48:08+00:00"
     },
     "원주추옥|고양시": {
-      "failed": true,
-      "fingerprint": "58b7b68303bff21b",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 덕양구 주교동 원당로33번길 58",
+      "fingerprint": "4205c2c9522820c9",
       "geocoder_version": 3,
+      "lat": 37.657923860316,
+      "lon": 126.829493514648,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 덕양구 원당로33번길 58",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:원주추옥 고양특례시",
-        "nominatim:원주추옥 고양특례시"
+        "arcgis:경기도 고양시 덕양구 원당로33번길 58"
       ],
-      "updated_at": "2026-09-16T16:08:08+00:00"
+      "updated_at": "2026-09-16T16:13:11+00:00"
     },
     "유명한목동갈비|양천구": {
       "addr_type": "POI",
@@ -3016,26 +3122,40 @@
       "updated_at": "2026-09-16T07:48:40+00:00"
     },
     "일산긴자|고양시": {
-      "failed": true,
-      "fingerprint": "3190f31ede5723d7",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산동구 식사동 무궁화로 359",
+      "fingerprint": "0325618a6f485ece",
       "geocoder_version": 3,
+      "lat": 37.677818810417,
+      "lon": 126.799128310196,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산동구 무궁화로 359",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:일산긴자 고양특례시",
-        "nominatim:일산긴자 고양특례시"
+        "arcgis:경기도 고양시 일산동구 무궁화로 359"
       ],
-      "updated_at": "2026-09-16T16:08:34+00:00"
+      "updated_at": "2026-09-16T16:13:13+00:00"
     },
     "일산들밥|고양시": {
-      "failed": true,
-      "fingerprint": "8e1eb14087390596",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산서구 대화동 중앙로 1581",
+      "fingerprint": "5425dfdf06b8d933",
       "geocoder_version": 3,
+      "lat": 37.676145111991,
+      "lon": 126.746101373223,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 일산서구 중앙로 1581",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:일산들밥 고양특례시",
-        "nominatim:일산들밥 고양특례시"
+        "arcgis:경기도 고양시 일산서구 중앙로 1581"
       ],
-      "updated_at": "2026-09-16T16:08:36+00:00"
+      "updated_at": "2026-09-16T16:13:13+00:00"
     },
     "일산하인선생|고양시": {
       "failed": true,
@@ -3457,15 +3577,22 @@
       "updated_at": "2026-09-16T07:48:18+00:00"
     },
     "진국한식부페|고양시": {
-      "failed": true,
-      "fingerprint": "c6bbdad8fc405520",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 덕양구 주교동 고양시청로 5",
+      "fingerprint": "513692dcb1daaa8d",
       "geocoder_version": 3,
+      "lat": 37.657379497614,
+      "lon": 126.83305389566,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 덕양구 고양시청로 5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:진국한식부페 고양특례시",
-        "nominatim:진국한식부페 고양특례시"
+        "arcgis:경기도 고양시 덕양구 고양시청로 5"
       ],
-      "updated_at": "2026-09-16T16:09:31+00:00"
+      "updated_at": "2026-09-16T16:13:21+00:00"
     },
     "진두강 한방민물장어|금천구": {
       "addr_type": "PointAddress",
@@ -3927,6 +4054,24 @@
       ],
       "updated_at": "2026-09-16T07:48:41+00:00"
     },
+    "하인선생 일산점|고양시": {
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 일산동구 식사동 833-14",
+      "fingerprint": "365176191e60adea",
+      "geocoder_version": 3,
+      "lat": 37.677961973323,
+      "lon": 126.799101488106,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "경기도 고양시 일산동구 식사동 833-14",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:경기도 고양시 일산동구 식사동 833-14"
+      ],
+      "updated_at": "2026-09-16T16:13:17+00:00"
+    },
     "하인선생|고양시": {
       "failed": true,
       "fingerprint": "94cbd77c83db5a6a",
@@ -4121,15 +4266,22 @@
       "updated_at": "2026-09-16T07:47:52+00:00"
     },
     "화정가든|고양시": {
-      "failed": true,
-      "fingerprint": "4fdd2c366f001490",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 고양시 덕양구 행주내동 행주로15번길 49-12",
+      "fingerprint": "3d32ed4fba4e5c66",
       "geocoder_version": 3,
+      "lat": 37.599436951615,
+      "lon": 126.826220549096,
+      "match_mode": "address",
       "policy_version": 2,
+      "query": "경기도 고양시 덕양구 행주로15번길 49-12",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:화정가든 고양특례시",
-        "nominatim:화정가든 고양특례시"
+        "arcgis:경기도 고양시 덕양구 행주로15번길 49-12"
       ],
-      "updated_at": "2026-09-16T16:08:32+00:00"
+      "updated_at": "2026-09-16T16:13:13+00:00"
     },
     "황금코다리|도봉구": {
       "addr_type": "PointAddress",
