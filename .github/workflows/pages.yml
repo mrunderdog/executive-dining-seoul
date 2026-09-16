@@ -3,6 +3,11 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows:
+      - Build static coordinate cache
+      - Monthly data refresh
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -16,10 +21,13 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -41,6 +49,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
