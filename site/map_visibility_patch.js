@@ -53,6 +53,27 @@
   addLayers=installLayers;
   bindInteractions=installInteractions;
 
+  // MapLibre setStyle() destroys all custom sources/layers. Register the
+  // style.load listener BEFORE changing style so a fast/cached style load
+  // cannot race past the re-install callback and leave an empty map.
+  switchStyle=function(){
+    styleMode=styleMode==='positron'?'liberty':'positron';
+    mapReady=false;
+    map.once('style.load',()=>{
+      mapReady=true;
+      installLayers();
+      updateMap(false);
+      if(selectedPopup){
+        const r=recordByKey(selected);
+        if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
+          selectedPopup.remove();
+          selectedPopup=new maplibregl.Popup({offset:14}).setLngLat([r.lon,r.lat]).setHTML(popupHtml(r)).addTo(map);
+        }
+      }
+    });
+    map.setStyle(STYLES[styleMode]);
+  };
+
   fitMap=function(){
     const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
     if(!a.length) return;
