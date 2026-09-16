@@ -102,9 +102,30 @@ def locality_tokens(address: str) -> list[str]:
     return tokens
 
 
+def expected_locality_tokens(r: dict) -> list[str]:
+    # Prefer the actual source address. Destination records may correctly be outside
+    # their originating council, so origin must never override a known address.
+    tokens = locality_tokens(clean_text(r.get("address")))
+    if tokens:
+        return tokens
+    # Staged capital-area candidates often lack an address in the source spreadsheet.
+    # In that case only accept a POI match inside the source jurisdiction; otherwise a
+    # generic name such as '길목식당' can silently jump to another province.
+    if r.get("published_source"):
+        out = []
+        for raw in (r.get("origin"), r.get("jurisdiction")):
+            s = clean_text(raw).replace("특례", "")
+            if s and s not in out:
+                out.append(s)
+            stem = re.sub(r"(?:특별시|광역시|특별자치시|특별자치도|도|시|군|구)$", "", s)
+            if len(stem) >= 2 and stem not in out:
+                out.append(stem)
+        return out
+    return []
+
+
 def locality_matches(r: dict, display: str) -> bool:
-    address = clean_text(r.get("address"))
-    tokens = locality_tokens(address)
+    tokens = expected_locality_tokens(r)
     if not tokens:
         return True
     return any(t in display for t in tokens)
@@ -123,7 +144,7 @@ def query_plan(r: dict) -> list[tuple[str, str]]:
     if name and cleaned: plan.append((f"{name} {cleaned}", "name_address"))
     if raw_name and raw_name != name and cleaned: plan.append((f"{raw_name} {cleaned}", "name_address"))
     if search_query: plan.append((search_query, "name_address" if address else "name"))
-    if name: plan.append((f"{name} 대한민국", "name"))
+    if name and not r.get("published_source"): plan.append((f"{name} 대한민국", "name"))
     out, seen = [], set()
     for q, mode in plan:
         q = clean_text(q)
