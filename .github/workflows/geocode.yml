@@ -41,12 +41,12 @@ jobs:
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
 
-      - name: Commit coordinate cache and generated quality report
+      - name: Commit coordinate cache
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/geocode_cache.json reports/quality.json
+          git add data/geocode_cache.json
           if git diff --cached --quiet; then
             echo "Coordinate cache already current."
             exit 0
