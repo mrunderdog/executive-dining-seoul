@@ -1,0 +1,47 @@
+name: Build static coordinate cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/chunks/**'
+      - 'pipeline/geocode_cache.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geocode-cache
+  cancel-in-progress: false
+
+jobs:
+  geocode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Populate only uncached coordinates
+        run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Commit coordinate cache
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/geocode_cache.json
+          if git diff --cached --quiet; then
+            echo "Coordinate cache already current."
+            exit 0
+          fi
+          git commit -m "data: refresh static coordinate cache"
+          git pull --rebase origin main
+          git push origin HEAD:main
