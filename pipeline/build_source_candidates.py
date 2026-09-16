@@ -12,12 +12,14 @@ RAW=ROOT/'data'/'raw'
 REPORTS=ROOT/'reports'
 
 MEAL_WORDS=('간담','식사','오찬','만찬','업무','협의','논의','의정','관계자','현안','의견','격려','소통')
-EXCLUDE_WORDS=('마트','편의점','문구','주유','주차','택시','철도','고속도로','온라인','네이버','쿠팡','다이소','꽃','화원','기념품','구입','물품')
+EXCLUDE_WORDS=('마트','편의점','문구','주유','주차','택시','철도','고속도로','온라인','네이버','쿠팡','다이소','꽃','화원','기념품','구입','물품','카페','커피','스타벅스','이디야','베이커리','빵','사무실')
+AMBIGUOUS_MERCHANTS=('(주)신화푸드','신화푸드')
 
 
 def looks_meal(r):
     purpose=str(r.get('purpose') or '')
     merchant=str(r.get('merchant') or '')
+    if merchant in AMBIGUOUS_MERCHANTS: return False
     if any(x in purpose+merchant for x in EXCLUDE_WORDS): return False
     return any(x in purpose for x in MEAL_WORDS) or bool(merchant)
 
@@ -51,7 +53,6 @@ def main():
         for _,r in items:
             m=re.match(r'(\d{1,2})[:시]',str(r.get('used_time') or ''))
             if m and int(m.group(1))>=17: evenings+=1
-        # Comparable Executive-repeat heuristic: repeated chair/vice use, persistence and role diversity.
         score=min(100, round(35*min(visits/10,1)+25*min(len(months)/5,1)+20*min(len(roles)/2,1)+10*(evenings/visits if visits else 0)+10*min(spend/3_000_000,1),1))
         out.append({'merchant':name,'visits':visits,'roles':roles,'months':len(months),'spend':spend,'people':people,'evening_ratio':round(evenings/visits,3) if visits else 0,'score':score})
     out.sort(key=lambda x:(x['score'],x['visits'],x['spend']),reverse=True)
