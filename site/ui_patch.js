@@ -1,4 +1,12 @@
 (function(){
+  document.title='Executive Dining 수도권';
+  const h1=document.querySelector('.brand h1');
+  if(h1) h1.textContent='Executive Dining 수도권';
+  const brandP=document.querySelector('.brand p');
+  if(brandP) brandP.innerHTML='서울·경기·인천 기초의회 업무추진비 공개자료에서 반복 선택·고위직 방문·관외 이동 패턴을 찾아 식당 단위로 탐색합니다. 점수는 맛 평가가 아니라 <b>선택 패턴의 강도</b>입니다.';
+  const originLabel=document.querySelector('label[for="origin"]');
+  if(originLabel) originLabel.textContent='출발 지역';
+
   const workspace=document.querySelector('.workspace');
   const sidebar=document.querySelector('.sidebar');
   if(!workspace||!sidebar) return;

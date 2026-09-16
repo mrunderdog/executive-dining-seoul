@@ -5,6 +5,7 @@ import re
 from pathlib import Path
 
 from data_io import load_payload
+from published_sources import merge_published_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
@@ -61,10 +62,10 @@ def main():
     ap.add_argument("--output", default=str(ROOT / "index.html"))
     args = ap.parse_args()
 
-    payload = load_payload()
+    payload = merge_published_sources(load_payload())
     records = payload.get("records", [])
     if not records:
-        raise SystemExit("canonical dataset has no records")
+        raise SystemExit("published dataset has no records")
 
     geo = load_geo_cache()
     coord_count = 0
@@ -76,13 +77,11 @@ def main():
             r["lon"] = float(g["lon"])
             coord_count += 1
 
-    stats = payload.get("stats") or {
-        "total": len(records),
-        "destination": sum(bool(r.get("destination")) for r in records),
-        "executive": sum(bool(r.get("executive")) for r in records),
-        "both": sum(bool(r.get("destination")) and bool(r.get("executive")) for r in records),
-    }
-    stats = dict(stats)
+    stats = dict(payload.get("stats") or {})
+    stats.setdefault("total", len(records))
+    stats.setdefault("destination", sum(bool(r.get("destination")) for r in records))
+    stats.setdefault("executive", sum(bool(r.get("executive")) for r in records))
+    stats.setdefault("both", sum(bool(r.get("destination")) and bool(r.get("executive")) for r in records))
     stats["coordinates"] = coord_count
     stats["coordinates_missing"] = len(records) - coord_count
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
@@ -95,7 +94,8 @@ def main():
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
-    print(f"built {out} with {len(records)} records; static coordinates={coord_count}/{len(records)}")
+    supplements = stats.get("supplemental", 0)
+    print(f"built {out} with {len(records)} records (+{supplements} staged capital-area); static coordinates={coord_count}/{len(records)}")
 
 
 if __name__ == "__main__":

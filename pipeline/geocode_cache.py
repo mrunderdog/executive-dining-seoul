@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from data_io import load_payload
+from published_sources import merge_published_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "geocode_cache.json"
@@ -95,7 +96,6 @@ def locality_tokens(address: str) -> list[str]:
     for x in re.findall(r"[가-힣]{2,}(?:특별시|광역시|특별자치시|특별자치도|도|시|군|구)", s):
         if x not in {"대한민국"} and x not in tokens:
             tokens.append(x)
-    # Also retain common abbreviated province/city prefixes found in source data.
     for x in ("서울", "경기", "인천", "충남", "충북", "경남", "경북", "강원", "전남", "전북", "제주"):
         if x in s and x not in tokens:
             tokens.append(x)
@@ -107,8 +107,6 @@ def locality_matches(r: dict, display: str) -> bool:
     tokens = locality_tokens(address)
     if not tokens:
         return True
-    # One matching jurisdiction token is enough; this protects against obviously wrong
-    # same-name POIs while allowing standardized vs abbreviated address forms.
     return any(t in display for t in tokens)
 
 
@@ -202,7 +200,6 @@ def resolve(r: dict, plan: list[tuple[str,str]]) -> tuple[dict|None,list[str],in
         except Exception:
             pass
         time.sleep(.12)
-    # Conservative OSM fallback. Address-oriented forms only unless there is no address.
     for query, mode in plan:
         if mode == "name" and clean_text(r.get("address")):
             continue
@@ -223,12 +220,11 @@ def main() -> None:
     ap.add_argument("--max-new", type=int, default=0)
     ap.add_argument("--retry-all", action="store_true")
     args = ap.parse_args()
-    payload = load_payload(); records = payload.get("records", [])
+    payload = merge_published_sources(load_payload()); records = payload.get("records", [])
     cache = load_cache(); items = cache.setdefault("records", {})
     candidates = []
     for r in records:
         key = f"{r.get('name', '')}|{r.get('origin', '')}"; old = items.get(key) if isinstance(items.get(key), dict) else {}; fp = fingerprint(r)
-        # Re-run all pre-v3 successes once because v2 allowed unsafe same-name fallbacks.
         if isinstance(old.get("lat"), (int,float)) and isinstance(old.get("lon"), (int,float)) and old.get("geocoder_version") == GEOCODER_VERSION and old.get("fingerprint") == fp:
             continue
         if not args.retry_all and old.get("failed") and old.get("geocoder_version") == GEOCODER_VERSION and old.get("fingerprint") == fp:

@@ -19,7 +19,8 @@ def pct(num: int, den: int) -> float:
 
 def main() -> None:
     from data_io import load_payload
-    payload = load_payload()
+    from published_sources import merge_published_sources
+    payload = merge_published_sources(load_payload())
     meta = payload.get("meta", {})
     records = payload.get("records", [])
     errors: list[str] = []
@@ -80,10 +81,12 @@ def main() -> None:
         if pct(unknown_category, total) > 0.50:
             warnings.append(f"category coverage is low: {total-unknown_category}/{total}")
 
+    supplements = sum(1 for r in records if r.get("published_source"))
     result = {
         "passed": not errors,
         "meta": meta,
         "record_count": total,
+        "supplemental_record_count": supplements,
         "checks": {
             "duplicate_count": len(duplicates),
             "missing_address_count": missing_address,
