@@ -1,14 +1,14 @@
 {
   "meta": {
-    "failed_count": 8,
+    "failed_count": 29,
     "geocoder_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 244,
+    "record_count": 265,
     "success_count": 236,
-    "updated_at": "2026-09-16T07:49:45+00:00"
+    "updated_at": "2026-09-16T16:04:54+00:00"
   },
   "records": {
     "(주)보림로지틱스천안|강남구": {
@@ -229,6 +229,16 @@
       ],
       "updated_at": "2026-09-16T07:48:45+00:00"
     },
+    "고궁|고양시": {
+      "failed": true,
+      "fingerprint": "8cf48564323238cd",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:고궁 고양특례시",
+        "nominatim:고궁 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:24+00:00"
+    },
     "고기명가|양천구": {
       "addr_type": "POI",
       "display_name": "고기명가",
@@ -263,6 +273,16 @@
       ],
       "updated_at": "2026-09-16T07:49:01+00:00"
     },
+    "고봉산한우터|고양시": {
+      "failed": true,
+      "fingerprint": "26d5e2ef460566af",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:고봉산한우터 고양특례시",
+        "nominatim:고봉산한우터 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:04+00:00"
+    },
     "고수2호점|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 호원동 평화로 252",
@@ -279,6 +299,16 @@
         "arcgis:경기 의정부시 평화로 252-0@ 1층 108호 (호원동@미소프라자)"
       ],
       "updated_at": "2026-09-16T07:47:17+00:00"
+    },
+    "고양회관|고양시": {
+      "failed": true,
+      "fingerprint": "68a94554c979785b",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:고양회관 고양특례시",
+        "nominatim:고양회관 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:30+00:00"
     },
     "고창복낙지|금천구": {
       "addr_type": "PointAddress",
@@ -365,6 +395,16 @@
       ],
       "updated_at": "2026-09-16T07:47:22+00:00"
     },
+    "교촌치킨(강선점)|고양시": {
+      "failed": true,
+      "fingerprint": "4b32ac51ac72a41b",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:교촌치킨(강선점) 고양특례시",
+        "nominatim:교촌치킨(강선점) 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:44+00:00"
+    },
     "구름산추어탕|금천구": {
       "addr_type": "StreetName",
       "display_name": "경기 광명시 노온사동 범안로",
@@ -433,6 +473,16 @@
       ],
       "updated_at": "2026-09-16T07:48:25+00:00"
     },
+    "길목식당|고양시": {
+      "failed": true,
+      "fingerprint": "8b43387d1e75911b",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:길목식당 고양특례시",
+        "nominatim:길목식당 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:22+00:00"
+    },
     "김영희동태찜앤코다리|관악구": {
       "addr_type": "PointAddress",
       "display_name": "경기 안양시 만안구 석수동 삼막로39번길 24",
@@ -466,6 +516,16 @@
         "arcgis:경기 광명시 오리로619번길 32"
       ],
       "updated_at": "2026-09-16T07:47:20+00:00"
+    },
+    "남궁|고양시": {
+      "failed": true,
+      "fingerprint": "70d23ba65d37c2b8",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:남궁 고양특례시",
+        "nominatim:남궁 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:32+00:00"
     },
     "남도마루|용산구": {
       "addr_type": "POI",
@@ -1065,6 +1125,16 @@
       ],
       "updated_at": "2026-09-16T07:48:51+00:00"
     },
+    "맛있는정원|고양시": {
+      "failed": true,
+      "fingerprint": "7ec7c97e760b9518",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:맛있는정원 고양특례시",
+        "nominatim:맛있는정원 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:09+00:00"
+    },
     "메밀이 생각날때|은평구": {
       "addr_type": "PointAddress",
       "display_name": "서울특별시 은평구 녹번동 녹번로 12",
@@ -1178,6 +1248,16 @@
         "arcgis:서초구 강남대로"
       ],
       "updated_at": "2026-09-16T07:49:21+00:00"
+    },
+    "보양삼계탕|고양시": {
+      "failed": true,
+      "fingerprint": "a333e9bfea2d70b4",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:보양삼계탕 고양특례시",
+        "nominatim:보양삼계탕 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:39+00:00"
     },
     "복돈이부추삼겹살|관악구": {
       "addr_type": "PointAddress",
@@ -1401,6 +1481,16 @@
         "arcgis:서울 은평구 은평로 193-1"
       ],
       "updated_at": "2026-09-16T07:49:39+00:00"
+    },
+    "사계절어촌|고양시": {
+      "failed": true,
+      "fingerprint": "e074231bb4e4ba44",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:사계절어촌 고양특례시",
+        "nominatim:사계절어촌 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:12+00:00"
     },
     "사또집|중구": {
       "addr_type": "PointAddress",
@@ -1929,6 +2019,16 @@
       ],
       "updated_at": "2026-09-16T07:47:38+00:00"
     },
+    "송포털레기.추어탕|고양시": {
+      "failed": true,
+      "fingerprint": "6ea7a93fec58efa1",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:송포털레기.추어탕 고양특례시",
+        "nominatim:송포털레기.추어탕 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:52+00:00"
+    },
     "수산회관|동작구": {
       "addr_type": "Locality",
       "display_name": "서울특별시 동작구",
@@ -2355,6 +2455,16 @@
       ],
       "updated_at": "2026-09-16T07:48:21+00:00"
     },
+    "엄선 엄마의 생선찜 구이|고양시": {
+      "failed": true,
+      "fingerprint": "4e9ab8963c9f697d",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:엄선 엄마의 생선찜 구이 고양특례시",
+        "nominatim:엄선 엄마의 생선찜 구이 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:26+00:00"
+    },
     "열해|용산구": {
       "addr_type": "PointAddress",
       "display_name": "서울 용산구 이촌동 300-26",
@@ -2405,6 +2515,16 @@
         "arcgis:서울 구로구 디지털로33길 28"
       ],
       "updated_at": "2026-09-16T07:47:08+00:00"
+    },
+    "오대돌솥추어탕|고양시": {
+      "failed": true,
+      "fingerprint": "d5b7aa01f45e54a4",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:오대돌솥추어탕 고양특례시",
+        "nominatim:오대돌솥추어탕 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:28+00:00"
     },
     "오리오리|관악구": {
       "addr_type": "PointAddress",
@@ -2628,6 +2748,16 @@
       ],
       "updated_at": "2026-09-16T07:47:10+00:00"
     },
+    "우리네코다리|고양시": {
+      "failed": true,
+      "fingerprint": "9f825cc50ac83e30",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:우리네코다리 고양특례시",
+        "nominatim:우리네코다리 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:42+00:00"
+    },
     "우리네코다리|양천구": {
       "addr_type": "StreetName",
       "display_name": "서울특별시 양천구 목동 목동서로",
@@ -2679,6 +2809,16 @@
       ],
       "updated_at": "2026-09-16T07:49:08+00:00"
     },
+    "우설화|고양시": {
+      "failed": true,
+      "fingerprint": "67dadf8f10ae515f",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:우설화 고양특례시",
+        "nominatim:우설화 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:37+00:00"
+    },
     "우의정한우전문점|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 대림동 대림로 180",
@@ -2712,6 +2852,16 @@
         "arcgis:서울 영등포구 당산로32길 5"
       ],
       "updated_at": "2026-09-16T07:48:08+00:00"
+    },
+    "원주추옥|고양시": {
+      "failed": true,
+      "fingerprint": "58b7b68303bff21b",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:원주추옥 고양특례시",
+        "nominatim:원주추옥 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:07+00:00"
     },
     "유명한목동갈비|양천구": {
       "addr_type": "POI",
@@ -2848,6 +2998,36 @@
         "arcgis:일등갈비 서대문구 서울"
       ],
       "updated_at": "2026-09-16T07:48:40+00:00"
+    },
+    "일산긴자|고양시": {
+      "failed": true,
+      "fingerprint": "3190f31ede5723d7",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:일산긴자 고양특례시",
+        "nominatim:일산긴자 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:17+00:00"
+    },
+    "일산들밥|고양시": {
+      "failed": true,
+      "fingerprint": "8e1eb14087390596",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:일산들밥 고양특례시",
+        "nominatim:일산들밥 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:19+00:00"
+    },
+    "일산하인선생|고양시": {
+      "failed": true,
+      "fingerprint": "a1e3e7e0a82fd563",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:일산하인선생 고양특례시",
+        "nominatim:일산하인선생 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:34+00:00"
     },
     "일월담|도봉구": {
       "addr_type": "PointAddress",
@@ -3256,6 +3436,16 @@
         "arcgis:서울특별시 동작구"
       ],
       "updated_at": "2026-09-16T07:48:18+00:00"
+    },
+    "진국한식부페|고양시": {
+      "failed": true,
+      "fingerprint": "c6bbdad8fc405520",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:진국한식부페 고양특례시",
+        "nominatim:진국한식부페 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:54+00:00"
     },
     "진두강 한방민물장어|금천구": {
       "addr_type": "PointAddress",
@@ -3717,6 +3907,16 @@
       ],
       "updated_at": "2026-09-16T07:48:41+00:00"
     },
+    "하인선생|고양시": {
+      "failed": true,
+      "fingerprint": "94cbd77c83db5a6a",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:하인선생 고양특례시",
+        "nominatim:하인선생 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:46+00:00"
+    },
     "한남동한방통닭|용산구": {
       "addr_type": "POI",
       "display_name": "한남동한방통닭",
@@ -3898,6 +4098,16 @@
         "arcgis:경기도 부천시 길주로 700"
       ],
       "updated_at": "2026-09-16T07:47:52+00:00"
+    },
+    "화정가든|고양시": {
+      "failed": true,
+      "fingerprint": "4fdd2c366f001490",
+      "geocoder_version": 3,
+      "tried_queries": [
+        "arcgis:화정가든 고양특례시",
+        "nominatim:화정가든 고양특례시"
+      ],
+      "updated_at": "2026-09-16T16:04:14+00:00"
     },
     "황금코다리|도봉구": {
       "addr_type": "PointAddress",
