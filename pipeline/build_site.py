@@ -9,6 +9,7 @@ from data_io import load_payload
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
 MAP_JS = ROOT / "site" / "maplibre.js"
+MAP_PATCH_JS = ROOT / "site" / "map_visibility_patch.js"
 MAP_CSS = ROOT / "site" / "maplibre.css"
 GEO_CACHE = ROOT / "data" / "geocode_cache.json"
 
@@ -26,6 +27,7 @@ def load_geo_cache():
 def inject_maplibre(html: str) -> str:
     css = MAP_CSS.read_text(encoding="utf-8")
     js = MAP_JS.read_text(encoding="utf-8")
+    patch_js = MAP_PATCH_JS.read_text(encoding="utf-8") if MAP_PATCH_JS.exists() else ""
 
     # Remove the previous Leaflet/markercluster dependencies. The template's layout CSS is kept.
     html = re.sub(r'<link[^>]+leaflet[^>]+>\s*', '', html, flags=re.I)
@@ -39,7 +41,11 @@ def inject_maplibre(html: str) -> str:
     end = html.rfind('</body>')
     if end < start:
         raise RuntimeError('body terminator not found')
-    replacement = '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n<script>\n' + js + '\n</script>\n'
+    replacement = (
+        '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n'
+        '<script>\n' + js + '\n</script>\n'
+        '<script>\n' + patch_js + '\n</script>\n'
+    )
     return html[:start] + replacement + html[end:]
 
 
