@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import re
 from pathlib import Path
 
 from data_io import load_payload
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
+MAP_JS = ROOT / "site" / "maplibre.js"
+MAP_CSS = ROOT / "site" / "maplibre.css"
 GEO_CACHE = ROOT / "data" / "geocode_cache.json"
 
 
@@ -18,6 +21,26 @@ def load_geo_cache():
     except (OSError, json.JSONDecodeError):
         return {}
     return obj.get("records", obj if isinstance(obj, dict) else {})
+
+
+def inject_maplibre(html: str) -> str:
+    css = MAP_CSS.read_text(encoding="utf-8")
+    js = MAP_JS.read_text(encoding="utf-8")
+
+    # Remove the previous Leaflet/markercluster dependencies. The template's layout CSS is kept.
+    html = re.sub(r'<link[^>]+leaflet[^>]+>\s*', '', html, flags=re.I)
+    html = re.sub(r'<link[^>]+MarkerCluster[^>]+>\s*', '', html, flags=re.I)
+    html = html.replace('</head>', '<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css">\n<style>\n' + css + '\n</style>\n</head>')
+
+    # Replace the old Leaflet script block with MapLibre. The dashboard HTML stays unchanged.
+    start = html.find('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>')
+    if start < 0:
+        raise RuntimeError('Leaflet script marker not found in template')
+    end = html.rfind('</body>')
+    if end < start:
+        raise RuntimeError('body terminator not found')
+    replacement = '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n<script>\n' + js + '\n</script>\n'
+    return html[:start] + replacement + html[end:]
 
 
 def main():
@@ -49,10 +72,9 @@ def main():
     stats = dict(stats)
     stats["coordinates"] = coord_count
     stats["coordinates_missing"] = len(records) - coord_count
-
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
 
-    html = TEMPLATE.read_text(encoding="utf-8")
+    html = inject_maplibre(TEMPLATE.read_text(encoding="utf-8"))
     html = html.replace("__DATA__", json.dumps(records, ensure_ascii=False, separators=(",", ":")))
     html = html.replace("__STATS__", json.dumps(stats, ensure_ascii=False, separators=(",", ":")))
     html = html.replace("__ORIGINS__", json.dumps(origins, ensure_ascii=False, separators=(",", ":")))
