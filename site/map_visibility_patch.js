@@ -53,40 +53,41 @@
   addLayers=installLayers;
   bindInteractions=installInteractions;
 
-  // MapLibre setStyle() destroys all custom sources/layers. Register the
-  // style.load listener BEFORE changing style so a fast/cached style load
-  // cannot race past the re-install callback and leave an empty map.
+  // Do NOT call map.setStyle() for the tone button. setStyle replaces the whole
+  // style graph and therefore destroys custom restaurant sources/layers before
+  // they can be restored reliably on every browser. Tone is now purely visual:
+  // the MapLibre canvas stays intact, so markers, labels, selection and popups
+  // survive every click without a style reload.
+  let alternateTone=false;
   switchStyle=function(){
-    styleMode=styleMode==='positron'?'liberty':'positron';
-    mapReady=false;
-    if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
-    if(selectedPopup){selectedPopup.remove();selectedPopup=null;}
-    map.once('style.load',()=>{
-      mapReady=true;
-      installLayers();
-      updateMap(false);
-      const r=recordByKey(selected);
-      if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
-        selectedPopup=new maplibregl.Popup({offset:14})
-          .setLngLat([r.lon,r.lat])
-          .setHTML(popupHtml(r))
-          .addTo(map);
-      }
-    });
-    map.setStyle(STYLES[styleMode]);
+    alternateTone=!alternateTone;
+    styleMode=alternateTone?'tone-alt':'positron';
+    const canvas=map.getCanvas();
+    canvas.style.transition='filter 160ms ease';
+    canvas.style.filter=alternateTone
+      ? 'saturate(.72) contrast(1.09) brightness(.94)'
+      : '';
+    const r=recordByKey(selected);
+    if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)&&selectedPopup){
+      selectedPopup.setLngLat([r.lon,r.lat]);
+    }
+    updateMap(false);
   };
 
-  // IMPORTANT: maplibre.js creates the button and assigns onclick to the
-  // original switchStyle function before this patch loads. Reassigning the
-  // variable above does not change that stored function reference, so the
-  // old buggy handler was still running in production. Rebind it explicitly.
+  // maplibre.js creates the button before this patch loads. Intercept the click
+  // in the capture phase and stop the original onclick from ever reaching
+  // map.setStyle(), even if a browser retained the old function reference.
   const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
     .find(btn=>btn.textContent.trim()==='지도톤');
   if(styleButton){
-    styleButton.onclick=(event)=>{
+    styleButton.setAttribute('aria-pressed','false');
+    styleButton.title='지도 톤 전환 (마커 유지)';
+    styleButton.addEventListener('click',event=>{
       event.preventDefault();
+      event.stopImmediatePropagation();
       switchStyle();
-    };
+      styleButton.setAttribute('aria-pressed',alternateTone?'true':'false');
+    },true);
   }
 
   fitMap=function(){
