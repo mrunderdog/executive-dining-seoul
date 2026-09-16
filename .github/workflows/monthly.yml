@@ -54,11 +54,10 @@ jobs:
         run: python pipeline/capital_backfill.py --since 2024-12
 
       - name: Ingest supported official spreadsheets
-        shell: bash
-        run: |
-          # Goyang is the first row-level adapter. Additional councils join this block only
-          # after their parser passes the same raw-data sanity gate.
-          python pipeline/ingest_council_expense.py --source goyang
+        run: python pipeline/ingest_council_expense.py --source goyang
+
+      - name: Repair legacy XLS serial dates
+        run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
 
       - name: Sanity gate staged raw data
         shell: bash
@@ -75,9 +74,10 @@ jobs:
                   raise SystemExit(f'{source}: no normalized rows')
               merchant=sum(bool(str(r.get('merchant') or '').strip()) for r in rows)/len(rows)
               amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in rows)/len(rows)
-              if merchant < .70 or amount < .70:
-                  raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}')
-              print(source, {'rows':len(rows),'merchant':merchant,'amount':amount})
+              date=d.get('raw_quality',{}).get('valid_date_coverage',0)
+              if merchant < .70 or amount < .70 or date < .95:
+                  raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}, date={date:.1%}')
+              print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
           PY
 
       - name: Quality gate published dataset
@@ -86,9 +86,6 @@ jobs:
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
 
-      # Generated source reports/raw layers are committed only after all gates pass.
-      # Published rankings remain a separate curated output until entity matching/scoring
-      # for the newly ingested council has its own quality gate.
       - name: Commit generated monthly data and reports
         shell: bash
         run: |

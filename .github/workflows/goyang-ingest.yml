@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/repair_raw_dates.py'
       - 'pipeline/capital_backfill.py'
   workflow_dispatch:
 
@@ -27,6 +28,8 @@ jobs:
         run: python pipeline/capital_backfill.py --since 2024-12 --source goyang
       - name: Download and normalize Goyang expense rows
         run: python pipeline/ingest_council_expense.py --source goyang
+      - name: Repair legacy XLS serial dates
+        run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
       - name: Sanity check normalized rows
         shell: bash
         run: |
@@ -37,9 +40,13 @@ jobs:
           d=json.loads(p.read_text(encoding='utf-8'))
           rows=d.get('rows',[])
           assert rows, 'no normalized rows'
-          assert sum(1 for r in rows if r.get('merchant')) >= max(1, int(len(rows)*0.7)), 'merchant coverage too low'
-          assert sum(1 for r in rows if isinstance(r.get('amount'), int) and r['amount']>=0) >= max(1, int(len(rows)*0.7)), 'amount coverage too low'
-          print({'rows':len(rows),'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
+          merchant=sum(1 for r in rows if r.get('merchant'))/len(rows)
+          amount=sum(1 for r in rows if isinstance(r.get('amount'), int) and r['amount']>=0)/len(rows)
+          date=d.get('raw_quality',{}).get('valid_date_coverage',0)
+          assert merchant >= .70, f'merchant coverage too low: {merchant:.1%}'
+          assert amount >= .70, f'amount coverage too low: {amount:.1%}'
+          assert date >= .95, f'date coverage too low: {date:.1%}'
+          print({'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
           PY
       - name: Commit staged raw dataset and report
         shell: bash
