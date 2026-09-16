@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
-UA = "ExecutiveDiningSeoul/1.0 (+https://github.com/mrunderdog/executive-dining-seoul)"
+UA = "ExecutiveDiningSeoul/1.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
 
 
 @dataclass
@@ -36,7 +36,7 @@ class Source:
 SOURCES = [
     Source("suwon", "경기", "수원시", "수원특례시의회", "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page={page}", 20, "monthly"),
     Source("goyang", "경기", "고양시", "고양특례시의회", "https://www.goyangcouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 10, "quarterly"),
-    Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/data/bbs?bbs_id=expense&page={page}", 15, "monthly"),
+    Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
 ]
 
 
@@ -47,10 +47,19 @@ class AnchorParser(HTMLParser):
         self.anchors = []
 
     def handle_starttag(self, tag, attrs):
-        if tag.lower() != "a":
+        attrs = dict(attrs)
+        if tag.lower() == "a":
+            self.stack.append({
+                "href": attrs.get("href", ""),
+                "onclick": attrs.get("onclick", ""),
+                "title": attrs.get("title", ""),
+                "text": [],
+            })
             return
-        a = dict(attrs)
-        self.stack.append({"href": a.get("href", ""), "text": []})
+        if self.stack and tag.lower() == "img":
+            for field in ("alt", "title"):
+                if attrs.get(field):
+                    self.stack[-1]["text"].append(attrs[field])
 
     def handle_data(self, data):
         if self.stack:
@@ -59,19 +68,56 @@ class AnchorParser(HTMLParser):
     def handle_endtag(self, tag):
         if tag.lower() == "a" and self.stack:
             x = self.stack.pop()
-            x["text"] = " ".join("".join(x["text"]).split())
+            pieces = [x.get("title", ""), *x["text"]]
+            x["text"] = " ".join(" ".join(pieces).split())
             self.anchors.append(x)
+
+
+def decode_html(raw: bytes, header_charset: str | None) -> str:
+    candidates = []
+    if header_charset:
+        candidates.append(header_charset)
+    head = raw[:10000].decode("ascii", errors="ignore")
+    m = re.search(r"charset\s*=\s*['\"]?([A-Za-z0-9._-]+)", head, flags=re.I)
+    if m:
+        candidates.append(m.group(1))
+    candidates += ["utf-8", "cp949", "euc-kr"]
+    seen = set()
+    best = None
+    for charset in candidates:
+        c = charset.lower()
+        if c in seen:
+            continue
+        seen.add(c)
+        try:
+            text = raw.decode(charset)
+        except (LookupError, UnicodeDecodeError):
+            continue
+        # Prefer a clean Korean decode when the page contains expected public-board words.
+        score = sum(text.count(k) for k in ("업무추진비", "의회", "첨부", "파일"))
+        if best is None or score > best[0]:
+            best = (score, text)
+    if best:
+        return best[1]
+    return raw.decode("utf-8", errors="replace")
 
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read()
-        charset = r.headers.get_content_charset() or "utf-8"
-    try:
-        return raw.decode(charset, errors="replace")
-    except LookupError:
-        return raw.decode("utf-8", errors="replace")
+        charset = r.headers.get_content_charset()
+    return decode_html(raw, charset)
+
+
+def onclick_url(base: str, onclick: str) -> str | None:
+    if not onclick:
+        return None
+    # Capture a URL/string used by location.href, window.open, fn_view('...') etc.
+    candidates = re.findall(r"['\"]([^'\"]+(?:\.do|/bbs|download|file)[^'\"]*)['\"]", html.unescape(onclick), flags=re.I)
+    if not candidates:
+        return None
+    return urllib.parse.urljoin(base, candidates[0])
 
 
 def anchors(url: str, text: str):
@@ -79,17 +125,23 @@ def anchors(url: str, text: str):
     out = []
     for a in p.anchors:
         href = html.unescape(a.get("href", "")).strip()
-        if not href or href.startswith("javascript:") or href == "#":
+        resolved = None
+        if href and href != "#" and not href.lower().startswith("javascript:"):
+            resolved = urllib.parse.urljoin(url, href)
+        else:
+            resolved = onclick_url(url, a.get("onclick", ""))
+        if not resolved:
             continue
-        out.append({"text": a.get("text", ""), "url": urllib.parse.urljoin(url, href)})
+        out.append({"text": a.get("text", ""), "url": resolved, "onclick": a.get("onclick", "")})
     return out
 
 
 def title_period(title: str):
-    m = re.search(r"(20\d{2})\s*년\s*(\d{1,2})\s*월", title)
+    normalized = title.replace("년", " ").replace(".", " ").replace("-", " ").replace("/", " ")
+    m = re.search(r"(20\d{2})\s+(\d{1,2})\s*월", normalized)
     if m:
         return int(m.group(1)), int(m.group(2)), None
-    m = re.search(r"(?:(20)?(\d{2}))\s*년\s*([1-4])\s*분기", title)
+    m = re.search(r"(?:(20)?(\d{2}))\s*년?\s*([1-4])\s*분기", title)
     if m:
         year = int((m.group(1) or "20") + m.group(2))
         return year, None, int(m.group(3))
@@ -112,15 +164,36 @@ def post_like(a, src: Source):
     if "업무추진비" not in t:
         return False
     if src.key in {"suwon", "goyang"}:
-        return "costBBSview" in u
+        return "costBBSview" in u or "costbbsview" in u.lower()
     if src.key == "bupyeong":
-        return "expense" in u and ("reform=view" in u or "bbs" in u)
+        return "expense" in u and ("reform=view" in u.lower() or "bbs" in u.lower())
     return True
 
 
 def attachment_like(a):
+    # Expense attachment filenames themselves normally contain '업무추진비', so never exclude on that word.
     t, u = a["text"].lower(), a["url"].lower()
-    return (".xlsx" in t or ".xls" in t or ".xlsx" in u or ".xls" in u or "download" in u) and "업무추진비" not in t
+    file_ext = any(ext in t or ext in u for ext in (".xlsx", ".xls", ".csv", ".pdf"))
+    file_route = any(token in u for token in ("download", "filedown", "attach", "atchfile", "bbsfile"))
+    return file_ext or file_route
+
+
+def regex_attachment_fallback(base: str, text: str):
+    results = []
+    seen = set()
+    # Recover download URLs embedded in onclick/script attributes.
+    for m in re.finditer(r"['\"]([^'\"]*(?:download|filedown|attach|atchfile|bbsfile)[^'\"]*)['\"]", text, flags=re.I):
+        raw = html.unescape(m.group(1))
+        url = urllib.parse.urljoin(base, raw)
+        if url not in seen:
+            seen.add(url); results.append({"text": "attachment", "url": url})
+    # At minimum preserve visible XLS/XLSX filenames for lineage even if the board hides the URL in JS.
+    for m in re.finditer(r"([^<>\"']+\.(?:xlsx?|csv|pdf))", text, flags=re.I):
+        filename = " ".join(html.unescape(m.group(1)).split())[-220:]
+        marker = "name:" + filename
+        if marker not in seen:
+            seen.add(marker); results.append({"text": filename, "url": ""})
+    return results
 
 
 def discover_source(src: Source, since, until):
@@ -146,7 +219,10 @@ def discover_source(src: Source, since, until):
             }
             try:
                 detail = fetch_text(a["url"])
-                row["attachments"] = [x for x in anchors(a["url"], detail) if attachment_like(x)]
+                found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
+                if not found:
+                    found = regex_attachment_fallback(a["url"], detail)
+                row["attachments"] = found
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
@@ -181,7 +257,8 @@ def main():
         rr = [x for x in rows if x.get("source") == src.key]
         good = [x for x in rr if x.get("post_url")]
         attachments = sum(len(x.get("attachments", [])) for x in good)
-        lines += [f"## {src.institution}", "", f"- Posts: {len(good)}", f"- Attachment links: {attachments}", ""]
+        downloadable = sum(1 for x in good for a in x.get("attachments", []) if a.get("url"))
+        lines += [f"## {src.institution}", "", f"- Posts: {len(good)}", f"- Attachment records: {attachments}", f"- Downloadable attachment URLs: {downloadable}", ""]
         for x in good[:30]:
             lines.append(f"- [{x['title']}]({x['post_url']}) — attachments {len(x.get('attachments', []))}")
         lines.append("")
