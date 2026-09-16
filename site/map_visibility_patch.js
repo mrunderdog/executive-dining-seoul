@@ -59,20 +59,35 @@
   switchStyle=function(){
     styleMode=styleMode==='positron'?'liberty':'positron';
     mapReady=false;
+    if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
+    if(selectedPopup){selectedPopup.remove();selectedPopup=null;}
     map.once('style.load',()=>{
       mapReady=true;
       installLayers();
       updateMap(false);
-      if(selectedPopup){
-        const r=recordByKey(selected);
-        if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
-          selectedPopup.remove();
-          selectedPopup=new maplibregl.Popup({offset:14}).setLngLat([r.lon,r.lat]).setHTML(popupHtml(r)).addTo(map);
-        }
+      const r=recordByKey(selected);
+      if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
+        selectedPopup=new maplibregl.Popup({offset:14})
+          .setLngLat([r.lon,r.lat])
+          .setHTML(popupHtml(r))
+          .addTo(map);
       }
     });
     map.setStyle(STYLES[styleMode]);
   };
+
+  // IMPORTANT: maplibre.js creates the button and assigns onclick to the
+  // original switchStyle function before this patch loads. Reassigning the
+  // variable above does not change that stored function reference, so the
+  // old buggy handler was still running in production. Rebind it explicitly.
+  const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
+    .find(btn=>btn.textContent.trim()==='지도톤');
+  if(styleButton){
+    styleButton.onclick=(event)=>{
+      event.preventDefault();
+      switchStyle();
+    };
+  }
 
   fitMap=function(){
     const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
