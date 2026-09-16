@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Build a persistent restaurant coordinate cache for the static site.
 
-Coordinates are resolved during CI, never in the visitor's browser.
-The public Nominatim endpoint is used conservatively and every successful result is cached.
+Geocoding happens in CI only. ArcGIS is used as the primary Korean address/POI
+resolver and Nominatim as a conservative fallback. Results are cached, versioned,
+and locality-checked so a same-name restaurant in another city is not silently used.
 """
 from __future__ import annotations
 
@@ -20,9 +21,10 @@ from data_io import load_payload
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "geocode_cache.json"
-USER_AGENT = "ExecutiveDiningSeoul/1.2 (+https://github.com/mrunderdog/executive-dining-seoul)"
+USER_AGENT = "ExecutiveDiningSeoul/1.3 (+https://github.com/mrunderdog/executive-dining-seoul)"
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
-GEOCODER_VERSION = 2
+ARCGIS = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
+GEOCODER_VERSION = 3
 
 
 def load_cache() -> dict:
@@ -42,8 +44,7 @@ def save_cache(cache: dict) -> None:
     success = sum(1 for v in records.values() if isinstance(v, dict) and isinstance(v.get("lat"), (int, float)))
     failed = sum(1 for v in records.values() if isinstance(v, dict) and v.get("failed"))
     cache["meta"] = {
-        "provider": "OpenStreetMap Nominatim",
-        "policy": "https://operations.osmfoundation.org/policies/nominatim/",
+        "providers": ["ArcGIS World Geocoding Service", "OpenStreetMap Nominatim"],
         "geocoder_version": GEOCODER_VERSION,
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "record_count": len(records),
@@ -70,214 +71,185 @@ def clean_address(address: str) -> str:
         return ""
     s = s.replace("@", " ").replace("]", " ").replace("[", " ")
     s = re.sub(r"\([^)]*\)", " ", s)
-    # A surprising number of source rows append a proprietor/person name after a comma.
     s = s.split(",", 1)[0]
-    # Normalize artifacts such as '161-0 1층' that frequently fail exact geocoding.
     s = re.sub(r"(?<=\d)-0(?=\s|$)", "", s)
     s = re.sub(r"\b(?:지하\s*)?\d+층\b.*$", "", s)
     s = re.sub(r"\b\d+호\b.*$", "", s)
     return " ".join(s.split()).strip(" ,")
 
 
-def coarse_address(address: str) -> str:
-    s = clean_address(address)
-    if not s:
-        return ""
-    # Keep through the first road/building number and discard unit-level noise.
-    m = re.search(r"^(.*?(?:로|길|대로|번길|동|읍|면)\s*\d+(?:-\d+)?)\b", s)
-    return m.group(1).strip() if m else s
-
-
 def fingerprint(r: dict) -> str:
     b = r.get("business") or {}
     raw = "|".join([
-        clean_text(r.get("name")),
-        clean_text(b.get("display")),
-        clean_text(r.get("address")),
-        clean_text(r.get("search_query")),
+        clean_text(r.get("name")), clean_text(b.get("display")),
+        clean_text(r.get("address")), clean_text(r.get("search_query")),
     ])
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
 
 
+def locality_tokens(address: str) -> list[str]:
+    s = clean_address(address)
+    if not s:
+        return []
+    tokens = []
+    for x in re.findall(r"[가-힣]{2,}(?:특별시|광역시|특별자치시|특별자치도|도|시|군|구)", s):
+        if x not in {"대한민국"} and x not in tokens:
+            tokens.append(x)
+    # Also retain common abbreviated province/city prefixes found in source data.
+    for x in ("서울", "경기", "인천", "충남", "충북", "경남", "경북", "강원", "전남", "전북", "제주"):
+        if x in s and x not in tokens:
+            tokens.append(x)
+    return tokens
+
+
+def locality_matches(r: dict, display: str) -> bool:
+    address = clean_text(r.get("address"))
+    tokens = locality_tokens(address)
+    if not tokens:
+        return True
+    # One matching jurisdiction token is enough; this protects against obviously wrong
+    # same-name POIs while allowing standardized vs abbreviated address forms.
+    return any(t in display for t in tokens)
+
+
 def query_plan(r: dict) -> list[tuple[str, str]]:
-    """Return (query, confidence-mode) pairs, de-duplicated in priority order."""
     b = r.get("business") or {}
     name = clean_text(b.get("display") or r.get("name"))
     raw_name = clean_text(r.get("name"))
     address = clean_text(r.get("address"))
     cleaned = clean_address(address)
-    coarse = coarse_address(address)
     search_query = clean_text(r.get("search_query"))
-
-    plan: list[tuple[str, str]] = []
-    if address:
-        plan.append((address, "address"))
-    if cleaned and cleaned != address:
-        plan.append((cleaned, "address"))
-    if coarse and coarse not in {address, cleaned}:
-        plan.append((coarse, "address"))
-    if name and cleaned:
-        plan.append((f"{name} {cleaned}", "name_address"))
-    if raw_name and raw_name != name and cleaned:
-        plan.append((f"{raw_name} {cleaned}", "name_address"))
-    if search_query:
-        plan.append((search_query, "name_address" if address else "name"))
-    # For missing/broken addresses, a unique POI name can still be resolved safely if
-    # Nominatim returns a matching named feature. Do not append the source district, since
-    # Destination records may intentionally be outside that district.
-    if name:
-        plan.append((f"{name} 대한민국", "name"))
-    if raw_name and raw_name != name:
-        plan.append((f"{raw_name} 대한민국", "name"))
-
-    out: list[tuple[str, str]] = []
-    seen = set()
+    plan = []
+    if address: plan.append((address, "address"))
+    if cleaned and cleaned != address: plan.append((cleaned, "address"))
+    if name and cleaned: plan.append((f"{name} {cleaned}", "name_address"))
+    if raw_name and raw_name != name and cleaned: plan.append((f"{raw_name} {cleaned}", "name_address"))
+    if search_query: plan.append((search_query, "name_address" if address else "name"))
+    if name: plan.append((f"{name} 대한민국", "name"))
+    out, seen = [], set()
     for q, mode in plan:
         q = clean_text(q)
-        k = q.lower()
-        if q and k not in seen:
-            seen.add(k)
-            out.append((q, mode))
+        if q and q.lower() not in seen:
+            seen.add(q.lower()); out.append((q, mode))
     return out
 
 
-def lookup(query: str) -> dict | None:
+def arcgis_lookup(query: str) -> dict | None:
     params = urllib.parse.urlencode({
-        "q": query,
-        "format": "jsonv2",
-        "countrycodes": "kr",
-        "limit": 1,
-        "addressdetails": 1,
-        "namedetails": 1,
+        "SingleLine": query, "f": "json", "countryCode": "KOR",
+        "maxLocations": "1", "outFields": "Match_addr,Addr_type,PlaceName",
     })
-    req = urllib.request.Request(
-        f"{NOMINATIM}?{params}",
-        headers={"User-Agent": USER_AGENT, "Referer": "https://github.com/mrunderdog/executive-dining-seoul"},
-    )
+    req = urllib.request.Request(f"{ARCGIS}?{params}", headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
-    if not data:
+        obj = json.loads(resp.read().decode("utf-8"))
+    c = (obj.get("candidates") or [None])[0]
+    if not c or not c.get("location"):
         return None
-    x = data[0]
-    lat, lon = float(x["lat"]), float(x["lon"])
+    lat, lon = float(c["location"]["y"]), float(c["location"]["x"])
     if not (32.0 <= lat <= 40.0 and 123.0 <= lon <= 133.5):
         return None
-    namedetails = x.get("namedetails") or {}
-    result_name = namedetails.get("name") or x.get("name") or ""
+    attrs = c.get("attributes") or {}
     return {
-        "lat": lat,
-        "lon": lon,
-        "display_name": x.get("display_name", ""),
-        "result_name": result_name,
-        "query": query,
-        "source": "nominatim",
-        "osm_type": x.get("type", ""),
+        "lat": lat, "lon": lon, "display_name": c.get("address") or query,
+        "result_name": attrs.get("PlaceName") or "", "query": query,
+        "source": "arcgis", "score": float(c.get("score") or 0),
+        "addr_type": attrs.get("Addr_type") or "",
     }
 
 
-def name_result_matches(r: dict, result: dict) -> bool:
+def nominatim_lookup(query: str) -> dict | None:
+    params = urllib.parse.urlencode({"q": query, "format": "jsonv2", "countrycodes": "kr", "limit": 1, "addressdetails": 1, "namedetails": 1})
+    req = urllib.request.Request(f"{NOMINATIM}?{params}", headers={"User-Agent": USER_AGENT, "Referer": "https://github.com/mrunderdog/executive-dining-seoul"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+    if not data: return None
+    x = data[0]; lat, lon = float(x["lat"]), float(x["lon"])
+    if not (32.0 <= lat <= 40.0 and 123.0 <= lon <= 133.5): return None
+    nd = x.get("namedetails") or {}
+    return {"lat":lat,"lon":lon,"display_name":x.get("display_name", ""),"result_name":nd.get("name") or x.get("name") or "","query":query,"source":"nominatim","osm_type":x.get("type", "")}
+
+
+def name_matches(r: dict, result: dict) -> bool:
     b = r.get("business") or {}
-    candidates = [normalize_name(b.get("display")), normalize_name(r.get("name"))]
-    candidates = [x for x in candidates if len(x) >= 2]
+    names = [normalize_name(b.get("display")), normalize_name(r.get("name"))]
+    names = [x for x in names if len(x) >= 2]
     hay = normalize_name((result.get("result_name") or "") + " " + (result.get("display_name") or ""))
-    return bool(hay and any(x in hay or hay in x for x in candidates))
+    return bool(hay and any(x in hay or hay in x for x in names))
+
+
+def acceptable(r: dict, result: dict, mode: str) -> bool:
+    if not result: return False
+    if not locality_matches(r, result.get("display_name") or ""):
+        return False
+    if result.get("source") == "arcgis":
+        score = result.get("score", 0)
+        if mode == "address": return score >= 80
+        if mode == "name_address": return score >= 85 and name_matches(r, result)
+        return score >= 94 and name_matches(r, result)
+    if mode == "name":
+        return result.get("osm_type") in {"restaurant","cafe","fast_food","pub","bar","food_court"} and name_matches(r, result)
+    return True
+
+
+def resolve(r: dict, plan: list[tuple[str,str]]) -> tuple[dict|None,list[str],int]:
+    tried, requests = [], 0
+    for query, mode in plan:
+        tried.append(f"arcgis:{query}")
+        try:
+            result = arcgis_lookup(query); requests += 1
+            if acceptable(r, result, mode):
+                result["match_mode"] = mode; return result, tried, requests
+        except Exception:
+            pass
+        time.sleep(.12)
+    # Conservative OSM fallback. Address-oriented forms only unless there is no address.
+    for query, mode in plan:
+        if mode == "name" and clean_text(r.get("address")):
+            continue
+        tried.append(f"nominatim:{query}")
+        try:
+            result = nominatim_lookup(query); requests += 1
+            if acceptable(r, result, mode):
+                result["match_mode"] = mode; return result, tried, requests
+        except Exception:
+            pass
+        time.sleep(1.05)
+    return None, tried, requests
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["auto", "initial", "regular"], default="auto")
-    ap.add_argument("--max-new", type=int, default=0, help="0 means no explicit cap")
-    ap.add_argument("--retry-all", action="store_true", help="retry failed entries even when fingerprint/version did not change")
+    ap.add_argument("--mode", choices=["auto","initial","regular"], default="auto")
+    ap.add_argument("--max-new", type=int, default=0)
+    ap.add_argument("--retry-all", action="store_true")
     args = ap.parse_args()
-
-    payload = load_payload()
-    records = payload.get("records", [])
-    cache = load_cache()
-    items = cache.setdefault("records", {})
+    payload = load_payload(); records = payload.get("records", [])
+    cache = load_cache(); items = cache.setdefault("records", {})
     candidates = []
-
     for r in records:
-        key = f"{r.get('name', '')}|{r.get('origin', '')}"
-        old = items.get(key) if isinstance(items.get(key), dict) else {}
-        fp = fingerprint(r)
-        if isinstance(old.get("lat"), (int, float)) and isinstance(old.get("lon"), (int, float)):
+        key = f"{r.get('name', '')}|{r.get('origin', '')}"; old = items.get(key) if isinstance(items.get(key), dict) else {}; fp = fingerprint(r)
+        # Re-run all pre-v3 successes once because v2 allowed unsafe same-name fallbacks.
+        if isinstance(old.get("lat"), (int,float)) and isinstance(old.get("lon"), (int,float)) and old.get("geocoder_version") == GEOCODER_VERSION and old.get("fingerprint") == fp:
             continue
-        if (
-            not args.retry_all
-            and old.get("failed")
-            and old.get("geocoder_version") == GEOCODER_VERSION
-            and old.get("fingerprint") == fp
-        ):
+        if not args.retry_all and old.get("failed") and old.get("geocoder_version") == GEOCODER_VERSION and old.get("fingerprint") == fp:
             continue
         plan = query_plan(r)
-        if plan:
-            candidates.append((key, r, fp, plan))
-
-    if args.max_new > 0:
-        candidates = candidates[: args.max_new]
-
-    existing = sum(1 for v in items.values() if isinstance(v, dict) and isinstance(v.get("lat"), (int, float)))
-    mode = args.mode
-    if mode == "auto":
-        mode = "initial" if existing == 0 and len(candidates) >= 20 else "regular"
-    # Nominatim's public service asks clients to stay at or below one request per second.
-    # CI is single-threaded and persistent cache means subsequent monthly work is tiny.
-    delay = 1.15
-    print(f"geocode mode={mode}; existing={existing}; records={len(records)}; candidates={len(candidates)}; delay={delay}s")
-
-    ok = failed = requests = 0
-    for idx, (key, r, fp, plan) in enumerate(candidates, start=1):
-        accepted = None
-        tried = []
-        for query, confidence_mode in plan:
-            tried.append(query)
-            try:
-                result = lookup(query)
-                requests += 1
-                if result and (confidence_mode != "name" or name_result_matches(r, result)):
-                    result["match_mode"] = confidence_mode
-                    accepted = result
-                    break
-            except Exception as e:
-                print(f"[{idx}/{len(candidates)}] QUERY_ERROR {key}: {type(e).__name__}: {e}")
-            time.sleep(delay)
-
-        if accepted:
-            accepted.update({
-                "fingerprint": fp,
-                "geocoder_version": GEOCODER_VERSION,
-                "tried_queries": tried,
-                "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            })
-            items[key] = accepted
-            ok += 1
-            print(f"[{idx}/{len(candidates)}] OK {key} -> {accepted['lat']:.6f},{accepted['lon']:.6f} ({accepted['match_mode']})")
+        if plan: candidates.append((key,r,fp,plan))
+    if args.max_new > 0: candidates = candidates[:args.max_new]
+    ok=failed=requests=0
+    print(f"geocoder v{GEOCODER_VERSION}; records={len(records)}; candidates={len(candidates)}")
+    for idx,(key,r,fp,plan) in enumerate(candidates,1):
+        result,tried,nreq = resolve(r,plan); requests += nreq
+        if result:
+            result.update({"fingerprint":fp,"geocoder_version":GEOCODER_VERSION,"tried_queries":tried,"updated_at":datetime.now(timezone.utc).isoformat(timespec="seconds")})
+            items[key]=result; ok+=1
+            print(f"[{idx}/{len(candidates)}] OK {key} -> {result['lat']:.6f},{result['lon']:.6f} ({result['source']}/{result['match_mode']})")
         else:
-            items[key] = {
-                "failed": True,
-                "fingerprint": fp,
-                "geocoder_version": GEOCODER_VERSION,
-                "tried_queries": tried,
-                "source": "nominatim",
-                "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            }
-            failed += 1
+            items[key]={"failed":True,"fingerprint":fp,"geocoder_version":GEOCODER_VERSION,"tried_queries":tried,"updated_at":datetime.now(timezone.utc).isoformat(timespec="seconds")}; failed+=1
             print(f"[{idx}/{len(candidates)}] NO_MATCH {key}")
         save_cache(cache)
-
+    success_total=sum(1 for v in items.values() if isinstance(v,dict) and isinstance(v.get("lat"),(int,float)))
     save_cache(cache)
-    success_total = sum(1 for v in items.values() if isinstance(v, dict) and isinstance(v.get("lat"), (int, float)))
-    print(json.dumps({
-        "mode": mode,
-        "records": len(records),
-        "processed": len(candidates),
-        "requests": requests,
-        "ok": ok,
-        "failed": failed,
-        "success_total": success_total,
-        "coverage": round(success_total / len(records), 4) if records else 0,
-    }, ensure_ascii=False))
+    print(json.dumps({"records":len(records),"processed":len(candidates),"requests":requests,"ok":ok,"failed":failed,"success_total":success_total,"coverage":round(success_total/len(records),4) if records else 0},ensure_ascii=False))
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
