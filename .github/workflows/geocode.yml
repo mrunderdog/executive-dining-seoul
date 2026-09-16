@@ -5,7 +5,10 @@ on:
     branches: [main]
     paths:
       - 'data/chunks/**'
+      - 'data/raw/**'
+      - 'reports/*-executive-candidates.json'
       - 'pipeline/geocode_cache.py'
+      - 'pipeline/published_sources.py'
   workflow_dispatch:
 
 permissions:
@@ -32,12 +35,18 @@ jobs:
       - name: Populate only uncached coordinates
         run: python pipeline/geocode_cache.py --mode auto
 
-      - name: Commit coordinate cache
+      - name: Verify published dataset quality
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit coordinate cache and generated quality report
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/geocode_cache.json
+          git add data/geocode_cache.json reports/quality.json
           if git diff --cached --quiet; then
             echo "Coordinate cache already current."
             exit 0
