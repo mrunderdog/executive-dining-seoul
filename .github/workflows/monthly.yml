@@ -34,6 +34,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install spreadsheet parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+
       - name: Build target arguments
         id: target
         shell: bash
@@ -47,8 +50,35 @@ jobs:
       - name: Check official monthly sources
         run: python pipeline/monthly_update.py ${{ steps.target.outputs.args }}
 
-      - name: Discover first Capital Area backfill sources
+      - name: Discover Capital Area source posts and attachments
         run: python pipeline/capital_backfill.py --since 2024-12
+
+      - name: Ingest supported official spreadsheets
+        shell: bash
+        run: |
+          # Goyang is the first row-level adapter. Additional councils join this block only
+          # after their parser passes the same raw-data sanity gate.
+          python pipeline/ingest_council_expense.py --source goyang
+
+      - name: Sanity gate staged raw data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          sources=['goyang']
+          for source in sources:
+              p=Path(f'data/raw/{source}_expense.json')
+              d=json.loads(p.read_text(encoding='utf-8'))
+              rows=d.get('rows',[])
+              if not rows:
+                  raise SystemExit(f'{source}: no normalized rows')
+              merchant=sum(bool(str(r.get('merchant') or '').strip()) for r in rows)/len(rows)
+              amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in rows)/len(rows)
+              if merchant < .70 or amount < .70:
+                  raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}')
+              print(source, {'rows':len(rows),'merchant':merchant,'amount':amount})
+          PY
 
       - name: Quality gate published dataset
         run: python pipeline/quality_gate.py
@@ -56,9 +86,9 @@ jobs:
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
 
-      # The old job failed because repository policy blocked GITHUB_TOKEN from creating PRs.
-      # Monthly refresh no longer depends on that setting: generated, quality-gated files are
-      # committed directly to main. Pages then deploys the new main commit automatically.
+      # Generated source reports/raw layers are committed only after all gates pass.
+      # Published rankings remain a separate curated output until entity matching/scoring
+      # for the newly ingested council has its own quality gate.
       - name: Commit generated monthly data and reports
         shell: bash
         run: |
