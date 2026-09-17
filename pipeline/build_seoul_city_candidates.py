@@ -22,16 +22,65 @@ EXCLUDE_WORDS = (
     "다과", "차류", "커피", "카페", "스타벅스", "이디야", "베이커리", "빵",
     "상품권", "소속 상근직원",
 )
+SEOUL_DISTRICTS = (
+    "종로구", "중구", "용산구", "성동구", "광진구", "동대문구", "중랑구", "성북구",
+    "강북구", "도봉구", "노원구", "은평구", "서대문구", "마포구", "양천구", "강서구",
+    "구로구", "금천구", "영등포구", "동작구", "관악구", "서초구", "강남구", "송파구", "강동구",
+)
+CENTRAL_ADJACENT = {"종로구", "서대문구", "용산구"}
 
 
 def txt(v) -> str:
-    return " ".join(str(v or "").split()).strip()
+    return " ".join(str(v or "").replace("\n", " ").split()).strip()
+
+
+def canonical_name(v: str) -> str:
+    return txt(v).strip(" ,")
+
+
+def canonical_address(v: str) -> str:
+    s = txt(v).strip(" ,")
+    if not s:
+        return ""
+    s = s.replace("서울특별시", "서울").replace("서울시", "서울")
+    s = re.sub(r"\s*,\s*", " ", s)
+    s = re.sub(r"\s+", " ", s).strip(" ,")
+    if any(s.startswith(d + " ") or s == d for d in SEOUL_DISTRICTS):
+        s = "서울 " + s
+    s = re.sub(r"^서울\s+서울\s+", "서울 ", s)
+    return s
+
+
+def district_from_address(address: str) -> str:
+    a = canonical_address(address)
+    for d in SEOUL_DISTRICTS:
+        if re.search(rf"(?:^|\s){re.escape(d)}(?:\s|$)", a):
+            return d
+    return ""
+
+
+def location_bucket(address: str) -> tuple[str, float]:
+    a = canonical_address(address)
+    if not a:
+        return "unknown", 0.0
+    district = district_from_address(a)
+    if district == "중구":
+        return "city_hall_home", 0.0
+    if district in CENTRAL_ADJACENT:
+        return "central_adjacent", 0.2
+    if district:
+        return "seoul_cross_district", 0.65
+    if any(x in a for x in ("경기", "인천")):
+        return "capital_region_destination", 0.85
+    if any(x in a for x in ("부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주")):
+        return "national_destination", 1.0
+    return "unknown", 0.0
 
 
 def merchant_key(row: dict) -> str:
-    name = txt(row.get("merchant"))
-    address = txt(row.get("address"))
-    return f"{name}||{address}" if address else name
+    name = canonical_name(row.get("merchant"))
+    address = canonical_address(row.get("address"))
+    return f"{name}||{address}" if address else f"{name}||UNKNOWN"
 
 
 def looks_like_meal(row: dict) -> bool:
@@ -48,24 +97,19 @@ def evening(row: dict) -> bool:
     return bool(m and int(m.group(1)) >= 17)
 
 
-def outside_seoul(address: str) -> bool | None:
-    a = txt(address)
-    if not a:
-        return None
-    if "서울" in a or re.search(r"(종로|중|용산|성동|광진|동대문|중랑|성북|강북|도봉|노원|은평|서대문|마포|양천|강서|구로|금천|영등포|동작|관악|서초|강남|송파|강동)구", a):
-        return False
-    if any(x in a for x in ("경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주")):
-        return True
-    return None
-
-
-def score(visits: int, departments: int, months: int, spend: int, evening_ratio: float, outside_ratio: float) -> float:
+def executive_score(visits: int, departments: int, months: int, spend: int, evening_ratio: float) -> float:
     repeat = min(math.log1p(visits) / math.log1p(15), 1.0)
     dept = min(math.log1p(departments) / math.log1p(8), 1.0)
     month = min(months / 8, 1.0)
     spend_norm = min(math.log1p(max(spend, 0)) / math.log1p(5_000_000), 1.0)
-    outside = min(max(outside_ratio, 0.0), 1.0)
-    return round(100 * (0.30 * repeat + 0.25 * dept + 0.15 * month + 0.10 * spend_norm + 0.10 * evening_ratio + 0.10 * outside), 1)
+    return round(100 * (0.35 * repeat + 0.30 * dept + 0.15 * month + 0.10 * spend_norm + 0.10 * evening_ratio), 1)
+
+
+def destination_score(visits: int, departments: int, months: int, evening_ratio: float, destination_weight: float) -> float:
+    repeat = min(math.log1p(visits) / math.log1p(8), 1.0)
+    dept = min(math.log1p(departments) / math.log1p(6), 1.0)
+    month = min(months / 6, 1.0)
+    return round(100 * (0.50 * destination_weight + 0.20 * repeat + 0.15 * dept + 0.10 * month + 0.05 * evening_ratio), 1)
 
 
 def main() -> None:
@@ -85,10 +129,11 @@ def main() -> None:
         groups[merchant_key(r)].append(r)
 
     out = []
-    for key, items in groups.items():
-        name = txt(items[0].get("merchant"))
-        address = Counter(txt(r.get("address")) for r in items if txt(r.get("address"))).most_common(1)
-        address = address[0][0] if address else ""
+    for _, items in groups.items():
+        name = canonical_name(items[0].get("merchant"))
+        address_variants = [txt(r.get("address")) for r in items if txt(r.get("address"))]
+        canonical_variants = [canonical_address(x) for x in address_variants if canonical_address(x)]
+        address = Counter(canonical_variants).most_common(1)[0][0] if canonical_variants else ""
         visits = len(items)
         months_set = sorted({(r.get("used_date") or "")[:7] for r in items if re.match(r"20\d{2}-\d{2}", r.get("used_date") or "")})
         departments = sorted({txt(r.get("department")) for r in items if txt(r.get("department"))})
@@ -96,40 +141,90 @@ def main() -> None:
         people_known = [int(r.get("people")) for r in items if isinstance(r.get("people"), int) and r.get("people") >= 0]
         evening_count = sum(evening(r) for r in items)
         evening_ratio = evening_count / visits if visits else 0
+        bucket, destination_weight = location_bucket(address)
+        ex_score = executive_score(visits, len(departments), len(months_set), spend, evening_ratio)
+        dest_score = destination_score(visits, len(departments), len(months_set), evening_ratio, destination_weight)
 
-        outside_values = [outside_seoul(r.get("address") or "") for r in items]
-        outside_known = [x for x in outside_values if x is not None]
-        outside_ratio = (sum(1 for x in outside_known if x) / len(outside_known)) if outside_known else 0.0
+        dept_counter = Counter(txt(r.get("department")) for r in items if txt(r.get("department")))
+        dept_spend = defaultdict(int)
+        for r in items:
+            d = txt(r.get("department"))
+            if d:
+                dept_spend[d] += int(r.get("amount") or 0)
+        department_stats = [
+            {"department": d, "visits": n, "spend": dept_spend[d]}
+            for d, n in dept_counter.most_common(12)
+        ]
+        purpose_counter = Counter(txt(r.get("purpose")) for r in items if txt(r.get("purpose")))
+        purpose_stats = [{"text": p, "count": n} for p, n in purpose_counter.most_common(8)]
+        recent = [
+            {
+                "date": txt(r.get("used_date")),
+                "time": txt(r.get("used_time")),
+                "department": txt(r.get("department")),
+                "people": int(r.get("people") or 0),
+                "amount": int(r.get("amount") or 0),
+                "purpose": txt(r.get("purpose")),
+                "source": txt(r.get("source_document_url")) or txt(r.get("source_dataset_url")),
+            }
+            for r in sorted(items, key=lambda x: (x.get("used_date") or "", x.get("used_time") or ""), reverse=True)[:8]
+        ]
+        dates = sorted(r.get("used_date") for r in items if r.get("used_date"))
 
-        s = score(visits, len(departments), len(months_set), spend, evening_ratio, outside_ratio)
         out.append({
             "merchant": name,
             "address": address,
-            "score": s,
+            "address_variants": list(dict.fromkeys(address_variants))[:6],
+            "district": district_from_address(address),
+            "location_bucket": bucket,
+            "destination_weight": destination_weight,
+            "score": ex_score,
+            "executive_score": ex_score,
+            "destination_score": dest_score,
             "visits": visits,
             "departments": departments,
             "department_count": len(departments),
+            "department_stats": department_stats,
             "months": len(months_set),
             "spend": spend,
             "known_people": sum(people_known),
             "evening_ratio": round(evening_ratio, 3),
-            "outside_seoul_ratio": round(outside_ratio, 3),
-            "sample_purposes": list(dict.fromkeys(txt(r.get("purpose")) for r in items if txt(r.get("purpose"))))[:5],
-            "sample_source_urls": list(dict.fromkeys(txt(r.get("source_document_url")) for r in items if txt(r.get("source_document_url"))))[:3],
+            "date_min": dates[0] if dates else "",
+            "date_max": dates[-1] if dates else "",
+            "purpose_stats": purpose_stats,
+            "recent": recent,
         })
 
-    out.sort(key=lambda x: (x["score"], x["department_count"], x["visits"], x["spend"]), reverse=True)
-    eligible = [x for x in out if x["visits"] >= args.min_visits and x["months"] >= args.min_months]
+    executive_eligible = [x for x in out if x["visits"] >= args.min_visits and x["months"] >= args.min_months]
+    executive_eligible.sort(key=lambda x: (x["executive_score"], x["department_count"], x["visits"], x["spend"]), reverse=True)
+
+    destination_eligible = [
+        x for x in out
+        if x["destination_weight"] >= 0.65 and x["visits"] >= 2 and x["months"] >= 2
+    ]
+    destination_eligible.sort(key=lambda x: (x["destination_score"], x["visits"], x["department_count"]), reverse=True)
+
+    # One merchant name may still have multiple branches. Keep branch evidence separate in analysis,
+    # but publish only the strongest branch per merchant name to avoid UI duplicate-name collisions.
+    union = []
+    seen = set()
+    for x in executive_eligible[:args.top] + destination_eligible[:args.top]:
+        key = (x["merchant"], x["address"])
+        if key in seen:
+            continue
+        seen.add(key)
+        union.append(x)
 
     REPORTS.mkdir(parents=True, exist_ok=True)
     js = REPORTS / "seoul-city-hall-executive-candidates.json"
     js.write_text(json.dumps({
         "source": "seoul_city_hall",
         "cohort": "regional_executive",
-        "candidate_count": len(out),
-        "eligible_count": len(eligible),
+        "entity_count": len(out),
+        "executive_eligible_count": len(executive_eligible),
+        "destination_eligible_count": len(destination_eligible),
         "publication_status": "staged_not_published",
-        "candidates": eligible[:args.top],
+        "candidates": union,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
     md = REPORTS / "seoul-city-hall-executive-candidates.md"
@@ -137,20 +232,34 @@ def main() -> None:
         "# Seoul City Hall Executive Dining candidates",
         "",
         f"- Meal-like rows considered: **{len(rows)}**",
-        f"- Merchant/address entities: **{len(out)}**",
-        f"- Eligible (visits ≥ {args.min_visits}, months ≥ {args.min_months}): **{len(eligible)}**",
+        f"- Canonical merchant/address entities: **{len(out)}**",
+        f"- Executive eligible: **{len(executive_eligible)}**",
+        f"- Destination eligible: **{len(destination_eligible)}**",
         "",
-        "> Exploratory signal only. Score measures repeated executive-branch selection, department diversity, persistence, spend, evening use and out-of-Seoul destination evidence. It is not a food-quality rating.",
-        "> Candidates remain staged until entity/branch matching and geocoding pass.",
+        "> Executive score measures repeated selection, department diversity, persistence, spend and evening use.",
+        "> Destination score separately rewards addresses outside Seoul City Hall's home district. It is an exploration signal, not a food-quality rating.",
         "",
-        "| # | Merchant | Address | Score | Visits | Departments | Months | Spend | Evening | Outside Seoul |",
-        "|---:|---|---|---:|---:|---:|---:|---:|---:|---:|",
+        "## Executive Repeat",
+        "",
+        "| # | Merchant | Address | Score | Visits | Departments | Months | Spend | Evening |",
+        "|---:|---|---|---:|---:|---:|---:|---:|---:|",
     ]
-    for i, x in enumerate(eligible[:args.top], 1):
+    for i, x in enumerate(executive_eligible[:args.top], 1):
         lines.append(
-            f"| {i} | {x['merchant'].replace('|','/')} | {x['address'].replace('|','/')} | {x['score']:.1f} | "
-            f"{x['visits']} | {x['department_count']} | {x['months']} | {x['spend']:,} | "
-            f"{x['evening_ratio']:.0%} | {x['outside_seoul_ratio']:.0%} |"
+            f"| {i} | {x['merchant'].replace('|','/')} | {x['address'].replace('|','/')} | {x['executive_score']:.1f} | "
+            f"{x['visits']} | {x['department_count']} | {x['months']} | {x['spend']:,} | {x['evening_ratio']:.0%} |"
+        )
+    lines += [
+        "",
+        "## Destination VIP",
+        "",
+        "| # | Merchant | Address | Score | Zone | Visits | Departments | Months | Spend |",
+        "|---:|---|---|---:|---|---:|---:|---:|---:|",
+    ]
+    for i, x in enumerate(destination_eligible[:args.top], 1):
+        lines.append(
+            f"| {i} | {x['merchant'].replace('|','/')} | {x['address'].replace('|','/')} | {x['destination_score']:.1f} | "
+            f"{x['location_bucket']} | {x['visits']} | {x['department_count']} | {x['months']} | {x['spend']:,} |"
         )
     md.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -158,8 +267,10 @@ def main() -> None:
         "source": "seoul_city_hall",
         "meal_rows": len(rows),
         "entities": len(out),
-        "eligible": len(eligible),
-        "top": eligible[:5],
+        "executive_eligible": len(executive_eligible),
+        "destination_eligible": len(destination_eligible),
+        "top_executive": executive_eligible[:5],
+        "top_destination": destination_eligible[:5],
     }, ensure_ascii=False))
 
 
