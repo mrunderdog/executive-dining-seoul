@@ -28,6 +28,14 @@ SEOUL_DISTRICTS = (
     "구로구", "금천구", "영등포구", "동작구", "관악구", "서초구", "강남구", "송파구", "강동구",
 )
 CENTRAL_ADJACENT = {"종로구", "서대문구", "용산구"}
+CAPITAL_PREFIXES = ("경기 ", "경기도 ", "인천 ", "인천광역시 ")
+NATIONAL_PREFIXES = (
+    "부산 ", "부산광역시 ", "대구 ", "대구광역시 ", "대전 ", "대전광역시 ",
+    "광주 ", "광주광역시 ", "울산 ", "울산광역시 ", "세종 ", "세종특별자치시 ",
+    "강원 ", "강원특별자치도 ", "충북 ", "충청북도 ", "충남 ", "충청남도 ",
+    "전북 ", "전북특별자치도 ", "전남 ", "전라남도 ", "경북 ", "경상북도 ",
+    "경남 ", "경상남도 ", "제주 ", "제주특별자치도 ",
+)
 
 
 def txt(v) -> str:
@@ -70,9 +78,11 @@ def location_bucket(address: str) -> tuple[str, float]:
         return "central_adjacent", 0.2
     if district:
         return "seoul_cross_district", 0.65
-    if any(x in a for x in ("경기", "인천")):
+    # Only treat an explicit administrative-area prefix as evidence of travel.
+    # This avoids false positives such as '세종대로' being interpreted as Sejong City.
+    if a.startswith(CAPITAL_PREFIXES):
         return "capital_region_destination", 0.85
-    if any(x in a for x in ("부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주")):
+    if a.startswith(NATIONAL_PREFIXES):
         return "national_destination", 1.0
     return "unknown", 0.0
 
@@ -204,16 +214,20 @@ def main() -> None:
     ]
     destination_eligible.sort(key=lambda x: (x["destination_score"], x["visits"], x["department_count"]), reverse=True)
 
-    # One merchant name may still have multiple branches. Keep branch evidence separate in analysis,
-    # but publish only the strongest branch per merchant name to avoid UI duplicate-name collisions.
-    union = []
-    seen = set()
+    # Current public schema uses name+origin as the entity key, so keep only the strongest
+    # branch for a repeated merchant name. Branch evidence remains available in the raw analysis.
+    best_by_name: dict[str, dict] = {}
     for x in executive_eligible[:args.top] + destination_eligible[:args.top]:
-        key = (x["merchant"], x["address"])
-        if key in seen:
-            continue
-        seen.add(key)
-        union.append(x)
+        strength = max(float(x.get("executive_score") or 0), float(x.get("destination_score") or 0))
+        old = best_by_name.get(x["merchant"])
+        old_strength = max(float(old.get("executive_score") or 0), float(old.get("destination_score") or 0)) if old else -1
+        if old is None or strength > old_strength or (strength == old_strength and x["visits"] > old["visits"]):
+            best_by_name[x["merchant"]] = x
+    union = sorted(
+        best_by_name.values(),
+        key=lambda x: (max(x["executive_score"], x["destination_score"]), x["visits"], x["department_count"]),
+        reverse=True,
+    )
 
     REPORTS.mkdir(parents=True, exist_ok=True)
     js = REPORTS / "seoul-city-hall-executive-candidates.json"
