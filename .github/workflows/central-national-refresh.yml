@@ -1,0 +1,71 @@
+name: Central + National refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Central-government target year'
+        required: false
+        default: '2026'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: central-national-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install spreadsheet parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+
+      - name: Discover central-government expense sources
+        run: python pipeline/central_executive_discovery.py --year "${{ inputs.year }}"
+
+      - name: Ingest central-government spreadsheets
+        run: python pipeline/ingest_central_executive_expense.py --year "${{ inputs.year }}"
+
+      - name: Build central-government dining candidates
+        run: python pipeline/build_central_executive_candidates.py
+
+      - name: Ingest 2024 National Assembly political-fund spending
+        run: python pipeline/ingest_national_legislator_expense.py
+
+      - name: Build National Assembly dining candidates
+        run: python pipeline/build_national_legislator_candidates.py
+
+      - name: Quality gate public dataset
+        run: python pipeline/quality_gate.py
+
+      - name: Refresh static coordinates for new public candidates
+        run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit generated reports and coordinate cache
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports data/geocode_cache.json || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to publish."
+            exit 0
+          fi
+          git commit -m "chore: refresh central and National Assembly data"
+          git pull --rebase origin main
+          git push origin HEAD:main
