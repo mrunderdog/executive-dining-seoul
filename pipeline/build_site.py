@@ -6,6 +6,7 @@ from pathlib import Path
 
 from data_io import load_payload
 from published_sources import merge_published_sources
+from extra_published import merge_extra_published
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
@@ -62,7 +63,7 @@ def main():
     ap.add_argument("--output", default=str(ROOT / "index.html"))
     args = ap.parse_args()
 
-    payload = merge_published_sources(load_payload())
+    payload = merge_extra_published(merge_published_sources(load_payload()))
     records = payload.get("records", [])
     if not records:
         raise SystemExit("published dataset has no records")
@@ -95,7 +96,7 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
     supplements = stats.get("supplemental", 0)
-    print(f"built {out} with {len(records)} records (+{supplements} staged capital-area); static coordinates={coord_count}/{len(records)}")
+    print(f"built {out} with {len(records)} records (+{supplements} staged public-sector); static coordinates={coord_count}/{len(records)}")
 
 
 if __name__ == "__main__":
