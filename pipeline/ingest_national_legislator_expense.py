@@ -6,19 +6,28 @@ import io
 import json
 import re
 import urllib.request
+from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = ROOT / "data" / "raw"
 REPORTS = ROOT / "reports"
-UA = "ExecutiveDiningSeoul/2.3 (+https://github.com/mrunderdog/executive-dining-seoul)"
+UA = "ExecutiveDiningSeoul/2.4 (+https://github.com/mrunderdog/executive-dining-seoul)"
 
 # OhmyNews documents the legacy 2024 exports as:
 # 총연번, 의원번호, 의원명, 당, 당ID, 지역명, 연월일, 내역, 지출액, 사용처, 분류 항목
 FILES = [
     ("21대", "2024_KAPF-21.xlsx", "https://raw.githubusercontent.com/OhmyNews/KA-money/master/2024_KAPF-21.xlsx", 64_391),
     ("22대", "2024_KAPF-22.xlsx", "https://raw.githubusercontent.com/OhmyNews/KA-money/master/2024_KAPF-22.xlsx", 70_652),
+]
+
+# Detailed 2024 workbooks are probed only for merchant metadata such as an address.
+# Their layout is not assumed: headers are detected conservatively and diagnostics are
+# written even when no usable merchant-address columns exist.
+RICH_FILES = [
+    ("21대", "2024_KAPF-21_수입지출.xlsx", "https://raw.githubusercontent.com/OhmyNews/KA-money/master/2024_KAPF-21_%E1%84%89%E1%85%AE%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%8C%E1%85%B5%E1%84%8E%E1%85%AE%E1%86%AF.xlsx"),
+    ("22대", "2024_KAPF-22_수입지출.xlsx", "https://raw.githubusercontent.com/OhmyNews/KA-money/master/2024_KAPF-22_%E1%84%89%E1%85%AE%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%8C%E1%85%B5%E1%84%8E%E1%85%AE%E1%86%AF.xlsx"),
 ]
 EXPECTED_MIN_TOTAL = 130_000
 
@@ -41,6 +50,16 @@ def clean(v) -> str:
     return " ".join(str(v or "").replace("\n", " ").split()).strip()
 
 
+def header_norm(v) -> str:
+    return re.sub(r"[^0-9a-z가-힣]", "", clean(v).lower())
+
+
+def merchant_norm(v) -> str:
+    s = clean(v).lower()
+    s = re.sub(r"^(?:주식회사|\(주\)|㈜|유한회사)\s*", "", s)
+    return re.sub(r"[^0-9a-z가-힣]", "", s)
+
+
 def fetch(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     with urllib.request.urlopen(req, timeout=120) as r:
@@ -60,7 +79,6 @@ def parse_date(v) -> str:
     s = clean(v)
     m = re.search(r"(20\d{2})[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})", s)
     if not m:
-        # Some OCR exports use YYYYMMDD.
         m = re.search(r"\b(20\d{2})(\d{2})(\d{2})\b", s)
     if m:
         try:
@@ -94,8 +112,6 @@ def parse_sheet(ws, assembly: str, source_name: str, source_url: str):
         if not any(x not in (None, "") for x in row):
             continue
         nonempty += 1
-
-        # Public spreadsheets sometimes visually merge/repeat 의원 metadata.
         for k in carry:
             x = clean(val(row, k))
             if x and x not in {"의원번호", "의원명", "당", "당ID", "지역명"}:
@@ -106,9 +122,6 @@ def parse_sheet(ws, assembly: str, source_name: str, source_url: str):
         merchant = clean(val(row, "merchant"))
         purpose = clean(val(row, "purpose"))
         category = clean(val(row, "category"))
-
-        # This dataset is a 2024 export. Requiring a 2024 date avoids titles/totals
-        # and lets us safely use positional parsing instead of fragile header inference.
         if not used_date.startswith("2024-"):
             continue
         valid_2024 += 1
@@ -128,6 +141,7 @@ def parse_sheet(ws, assembly: str, source_name: str, source_url: str):
             "purpose": purpose,
             "amount": amt,
             "merchant": merchant,
+            "address": "",
             "category": category,
             "cohort": "national_legislator",
             "source_url": source_url,
@@ -141,6 +155,64 @@ def parse_sheet(ws, assembly: str, source_name: str, source_url: str):
         out.append(r)
 
     return out, {"sheet": ws.title, "max_row": ws.max_row, "max_column": ws.max_column, "nonempty_rows": nonempty, "date_2024_rows": valid_2024, "parsed_rows": len(out)}
+
+
+def find_rich_header(ws):
+    merchant_terms = ("사용처", "지출받은자", "성명법인단체명", "법인단체명", "성명")
+    address_terms = ("주소", "소재지", "사무소소재지")
+    best = None
+    for ri, row in enumerate(ws.iter_rows(min_row=1, max_row=min(ws.max_row or 80, 80), values_only=True), start=1):
+        vals = [header_norm(x) for x in row]
+        m = next((i for i, h in enumerate(vals) if any(term in h for term in merchant_terms)), None)
+        a = next((i for i, h in enumerate(vals) if any(term in h for term in address_terms)), None)
+        if m is not None and a is not None and m != a:
+            score = sum(bool(x) for x in vals)
+            if best is None or score > best[0]:
+                best = (score, ri, m, a, [clean(x) for x in row])
+    return best
+
+
+def rich_address_map(openpyxl):
+    addresses: dict[str, Counter] = defaultdict(Counter)
+    diagnostics = []
+    for assembly, name, url in RICH_FILES:
+        try:
+            blob = fetch(url)
+            wb = openpyxl.load_workbook(io.BytesIO(blob), read_only=True, data_only=True)
+            file_diag = {"assembly": assembly, "name": name, "bytes": len(blob), "sheets": []}
+            for ws in wb.worksheets:
+                found = find_rich_header(ws)
+                if not found:
+                    file_diag["sheets"].append({"sheet": ws.title, "status": "NO_MERCHANT_ADDRESS_HEADER", "rows": ws.max_row, "cols": ws.max_column})
+                    continue
+                _, header_row, merchant_col, address_col, headers = found
+                matched = 0
+                for row in ws.iter_rows(min_row=header_row + 1, values_only=True):
+                    merchant = clean(row[merchant_col] if merchant_col < len(row) else None)
+                    address = clean(row[address_col] if address_col < len(row) else None)
+                    key = merchant_norm(merchant)
+                    if len(key) < 2 or len(address) < 5:
+                        continue
+                    # Require an address-looking token to avoid treating another free-text field as an address.
+                    if not re.search(r"(?:서울|경기|인천|부산|대구|대전|광주|울산|세종|강원|충북|충남|전북|전남|경북|경남|제주|\b\S+[시군구]\b|로\s*\d|길\s*\d|동\s*\d)", address):
+                        continue
+                    addresses[key][address] += 1
+                    matched += 1
+                file_diag["sheets"].append({
+                    "sheet": ws.title,
+                    "status": "OK",
+                    "rows": ws.max_row,
+                    "cols": ws.max_column,
+                    "header_row": header_row,
+                    "merchant_col": merchant_col + 1,
+                    "address_col": address_col + 1,
+                    "headers": headers[:30],
+                    "address_rows": matched,
+                })
+            diagnostics.append(file_diag)
+        except Exception as e:
+            diagnostics.append({"assembly": assembly, "name": name, "error": f"{type(e).__name__}: {e}"})
+    return addresses, diagnostics
 
 
 def main():
@@ -175,17 +247,28 @@ def main():
         except Exception as e:
             errors.append({"assembly": assembly, "name": name, "url": url, "error": f"{type(e).__name__}: {e}"})
 
+    address_map, rich_diagnostics = rich_address_map(openpyxl)
+    enriched = 0
+    for r in all_rows:
+        choices = address_map.get(merchant_norm(r.get("merchant")))
+        if choices:
+            r["address"] = choices.most_common(1)[0][0]
+            enriched += 1
+
     unique = {r["row_id"]: r for r in all_rows}
     rows = sorted(unique.values(), key=lambda r: (r.get("used_date") or "", r.get("member") or "", r["row_id"]))
 
     payload = {
-        "schema_version": 3,
+        "schema_version": 4,
         "source": "OhmyNews/KA-money",
         "upstream": "Central Election Commission political-fund accounting reports obtained via information disclosure",
         "year": 2024,
         "row_count": len(rows),
+        "address_enriched_rows": enriched,
+        "address_merchant_count": len(address_map),
         "rows": rows,
         "files": files,
+        "rich_files": rich_diagnostics,
         "errors": errors,
     }
     (RAW_DIR / "national_legislator_2024_expense.json").write_text(
@@ -199,6 +282,8 @@ def main():
         "",
         f"- Rows: **{len(rows):,}**",
         f"- Workbooks: **{len(files)}**",
+        f"- Merchant keys with address metadata from detailed workbooks: **{len(address_map):,}**",
+        f"- Legacy spending rows enriched with an address: **{enriched:,}**",
         f"- Errors: **{len(errors)}**",
         "",
         "## Workbook diagnostics",
@@ -207,17 +292,24 @@ def main():
     for f in files:
         md.append(f"- {f['assembly']} `{f['name']}`: parsed **{f['parsed_rows']:,}** / documented **{f['documented_count']:,}**")
         for s in f.get("sheets", []):
-            md.append(
-                f"  - `{s['sheet']}` rows={s['max_row']:,}, cols={s['max_column']}, "
-                f"2024-date={s['date_2024_rows']:,}, parsed={s['parsed_rows']:,}"
-            )
+            md.append(f"  - `{s['sheet']}` rows={s['max_row']:,}, cols={s['max_column']}, 2024-date={s['date_2024_rows']:,}, parsed={s['parsed_rows']:,}")
+    md += ["", "## Detailed workbook address probe", ""]
+    for f in rich_diagnostics:
+        if f.get("error"):
+            md.append(f"- {f.get('assembly')} `{f.get('name')}`: ERROR {f.get('error')}")
+            continue
+        md.append(f"- {f.get('assembly')} `{f.get('name')}`")
+        for s in f.get("sheets", []):
+            md.append(f"  - `{s.get('sheet')}`: {s.get('status')} / address rows={s.get('address_rows', 0):,} / cols={s.get('cols', 0)}")
+            if s.get('status') == 'OK':
+                md.append(f"    - header row {s.get('header_row')}, merchant col {s.get('merchant_col')}, address col {s.get('address_col')}: {s.get('headers')}")
     if errors:
         md += ["", "## Errors", ""]
         for e in errors:
             md.append(f"- {e}")
     (REPORTS / "national-legislator-ingestion.md").write_text("\n".join(md) + "\n", encoding="utf-8")
 
-    print(json.dumps({"rows": len(rows), "files": len(files), "errors": len(errors)}, ensure_ascii=False))
+    print(json.dumps({"rows": len(rows), "files": len(files), "errors": len(errors), "address_merchants": len(address_map), "address_rows": enriched}, ensure_ascii=False))
     if len(rows) < EXPECTED_MIN_TOTAL:
         raise SystemExit(
             f"Legislator ingestion sanity gate failed: parsed {len(rows):,} rows; "
