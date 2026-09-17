@@ -47,8 +47,11 @@ jobs:
           fi
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
 
-      - name: Check official monthly sources
+      - name: Check official monthly council sources
         run: python pipeline/monthly_update.py ${{ steps.target.outputs.args }}
+
+      - name: Check supplemental executive and legislator sources
+        run: python pipeline/supplemental_source_status.py ${{ steps.target.outputs.args }}
 
       - name: Discover Capital Area source posts and attachments
         run: python pipeline/capital_backfill.py --since 2024-12
