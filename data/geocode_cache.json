@@ -7,11 +7,47 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 268,
-    "success_count": 253,
-    "updated_at": "2026-09-17T05:21:03+00:00"
+    "record_count": 367,
+    "success_count": 352,
+    "updated_at": "2026-09-17T05:28:37+00:00"
   },
   "records": {
+    "(주) 뚜리삼|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 청계천로 8",
+      "fingerprint": "14214668a86f5d5f",
+      "geocoder_version": 3,
+      "lat": 37.568826241218,
+      "lon": 126.978223261879,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 청계천로 8",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 청계천로 8"
+      ],
+      "updated_at": "2026-09-17T05:28:24+00:00"
+    },
+    "(주)미진|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 종로1가 종로 19",
+      "fingerprint": "66d5dc6ad95dc93e",
+      "geocoder_version": 3,
+      "lat": 37.570844519684,
+      "lon": 126.979923614757,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 종로 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 종로 19"
+      ],
+      "updated_at": "2026-09-17T05:28:29+00:00"
+    },
     "(주)보림로지틱스천안|강남구": {
       "addr_type": "PointAddress",
       "display_name": "충남 천안시 동남구 구성동 17-1",
@@ -40,6 +76,42 @@
         "nominatim:(주)전한 강강술래상 대한민국"
       ],
       "updated_at": "2026-09-16T07:49:18+00:00"
+    },
+    "(주)태맥을지점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 34",
+      "fingerprint": "f04d933dc6326fac",
+      "geocoder_version": 3,
+      "lat": 37.567605668478,
+      "lon": 126.981541992622,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 34",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 34"
+      ],
+      "updated_at": "2026-09-17T05:27:40+00:00"
+    },
+    "(주)파리크라상 리나스 무교점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 무교로 19",
+      "fingerprint": "79dbcc194cb81210",
+      "geocoder_version": 3,
+      "lat": 37.567634711772,
+      "lon": 126.978984841601,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교로 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교로 19"
+      ],
+      "updated_at": "2026-09-17T05:28:33+00:00"
     },
     "(주)하이그라운드제|도봉구": {
       "addr_type": "PointAddress",
@@ -75,6 +147,24 @@
         "nominatim:㈜장군갈비 광진구 서울"
       ],
       "updated_at": "2026-09-16T07:49:19+00:00"
+    },
+    "㈜태맥을지점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 34",
+      "fingerprint": "79204e332bae8c6b",
+      "geocoder_version": 3,
+      "lat": 37.567605668478,
+      "lon": 126.981541992622,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 34",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 34"
+      ],
+      "updated_at": "2026-09-17T05:28:13+00:00"
     },
     "가마솥순대|마포구": {
       "addr_type": "PointAddress",
@@ -230,6 +320,24 @@
       ],
       "updated_at": "2026-09-16T07:48:45+00:00"
     },
+    "경성치킨 광화문스퀘어점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 신문로1가 새문안로 96",
+      "fingerprint": "e3627550bd5d3aec",
+      "geocoder_version": 3,
+      "lat": 37.569942417354,
+      "lon": 126.975433345407,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 새문안로 96",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 새문안로 96"
+      ],
+      "updated_at": "2026-09-17T05:27:49+00:00"
+    },
     "고궁|고양시": {
       "failed": true,
       "fingerprint": "8cf48564323238cd",
@@ -274,6 +382,24 @@
         "arcgis:마포구 모래내로1길"
       ],
       "updated_at": "2026-09-16T07:49:01+00:00"
+    },
+    "고려보쌈|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 세종대로20길 23",
+      "fingerprint": "5f994f47a54ccf2d",
+      "geocoder_version": 3,
+      "lat": 37.567151788421,
+      "lon": 126.978729528831,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로20길 23",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로20길 23"
+      ],
+      "updated_at": "2026-09-17T05:28:16+00:00"
     },
     "고봉산한우터|고양시": {
       "addr_type": "PointAddress",
@@ -345,6 +471,42 @@
       ],
       "updated_at": "2026-09-16T07:47:24+00:00"
     },
+    "고향식당|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 22-9",
+      "fingerprint": "dbd7008bc6e1d43a",
+      "geocoder_version": 3,
+      "lat": 37.562462113594,
+      "lon": 126.97813055803,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 22-9",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 22-9"
+      ],
+      "updated_at": "2026-09-17T05:28:08+00:00"
+    },
+    "곰솔|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 통의동 자하문로8길 9",
+      "fingerprint": "1c23fbc16e3d3dcc",
+      "geocoder_version": 3,
+      "lat": 37.578774093454,
+      "lon": 126.972099778695,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 자하문로8길 9",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 자하문로8길 9"
+      ],
+      "updated_at": "2026-09-17T05:27:47+00:00"
+    },
     "공리|서초구": {
       "addr_type": "POI",
       "display_name": "공리",
@@ -361,6 +523,24 @@
         "arcgis:공리 서초구 서울"
       ],
       "updated_at": "2026-09-16T07:49:19+00:00"
+    },
+    "관호 광화문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로 135-7",
+      "fingerprint": "73725735b6f874a2",
+      "geocoder_version": 3,
+      "lat": 37.568423197404,
+      "lon": 126.976246725291,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로 135-7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로 135-7"
+      ],
+      "updated_at": "2026-09-17T05:27:54+00:00"
     },
     "광명대창집 성신여대|성북구": {
       "addr_type": "PointAddress",
@@ -412,6 +592,42 @@
         "arcgis:서울 동대문구 제기로 69"
       ],
       "updated_at": "2026-09-16T07:47:22+00:00"
+    },
+    "광화문 양갈비|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로21길 48",
+      "fingerprint": "f48230d2bc7048b3",
+      "geocoder_version": 3,
+      "lat": 37.568569587343,
+      "lon": 126.975979677856,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로21길 48",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로21길 48"
+      ],
+      "updated_at": "2026-09-17T05:27:41+00:00"
+    },
+    "교촌치킨 서울시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 세종대로18길 6",
+      "fingerprint": "2fb690847c4e2df7",
+      "geocoder_version": 3,
+      "lat": 37.563743916137,
+      "lon": 126.977345592797,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 6"
+      ],
+      "updated_at": "2026-09-17T05:28:00+00:00"
     },
     "교촌치킨(강선점)|고양시": {
       "addr_type": "PointAddress",
@@ -482,6 +698,42 @@
       ],
       "updated_at": "2026-09-16T07:48:47+00:00"
     },
+    "굽돌집서울시청본점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 18",
+      "fingerprint": "5bbace206836272f",
+      "geocoder_version": 3,
+      "lat": 37.562782092748,
+      "lon": 126.977736943857,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 18"
+      ],
+      "updated_at": "2026-09-17T05:28:05+00:00"
+    },
+    "금돼지|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 26-10",
+      "fingerprint": "9b4374115072134d",
+      "geocoder_version": 3,
+      "lat": 37.562086688151,
+      "lon": 126.977996447579,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 26-10",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 26-10"
+      ],
+      "updated_at": "2026-09-17T05:28:03+00:00"
+    },
     "금하|광진구": {
       "addr_type": "PointAddress",
       "display_name": "서울 광진구 자양동 아차산로36길 5",
@@ -509,6 +761,24 @@
         "nominatim:길목식당 고양특례시"
       ],
       "updated_at": "2026-09-16T16:08:38+00:00"
+    },
+    "김명자굴국밥 서소문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 세종대로9길 42",
+      "fingerprint": "9e785abd56ed9805",
+      "geocoder_version": 3,
+      "lat": 37.561656445061,
+      "lon": 126.973833910643,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로9길 42",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로9길 42"
+      ],
+      "updated_at": "2026-09-17T05:28:34+00:00"
     },
     "김영희동태찜앤코다리|관악구": {
       "addr_type": "PointAddress",
@@ -543,6 +813,42 @@
         "arcgis:경기 광명시 오리로619번길 32"
       ],
       "updated_at": "2026-09-16T07:47:20+00:00"
+    },
+    "깐부치킨 북창동점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 68-7",
+      "fingerprint": "45c214c2be683508",
+      "geocoder_version": 3,
+      "lat": 37.563095827384,
+      "lon": 126.977059937537,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 태평로2가 68-7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 태평로2가 68-7"
+      ],
+      "updated_at": "2026-09-17T05:27:52+00:00"
+    },
+    "깡돈|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 남대문로3가 남대문로 17",
+      "fingerprint": "2ec9c86e744f5c81",
+      "geocoder_version": 3,
+      "lat": 37.561166187544,
+      "lon": 126.977646503121,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 17",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 17"
+      ],
+      "updated_at": "2026-09-17T05:27:42+00:00"
     },
     "남궁|고양시": {
       "addr_type": "PointAddress",
@@ -579,6 +885,24 @@
         "arcgis:남도마루 대한민국"
       ],
       "updated_at": "2026-09-16T07:48:39+00:00"
+    },
+    "남촌회관|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로20길 19",
+      "fingerprint": "42229b06a50937a1",
+      "geocoder_version": 3,
+      "lat": 37.567146717369,
+      "lon": 126.978457619892,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로20길 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로20길 19"
+      ],
+      "updated_at": "2026-09-17T05:28:17+00:00"
     },
     "남춘네 숯불닭갈비 염창직영점|강서구": {
       "addr_type": "PointAddress",
@@ -818,6 +1142,24 @@
       ],
       "updated_at": "2026-09-16T07:49:20+00:00"
     },
+    "대성골뱅이|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 을지로1길 47",
+      "fingerprint": "0cb06c0a9770eed5",
+      "geocoder_version": 3,
+      "lat": 37.568271317318,
+      "lon": 126.979682551222,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로1길 47",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로1길 47"
+      ],
+      "updated_at": "2026-09-17T05:28:08+00:00"
+    },
     "대성축산|송파구": {
       "addr_type": "POI",
       "display_name": "대성축산",
@@ -869,6 +1211,42 @@
         "arcgis:서울 강남구 영동대로 648"
       ],
       "updated_at": "2026-09-16T07:47:55+00:00"
+    },
+    "더미 을지로점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 155",
+      "fingerprint": "f21dc8c0f1c5b358",
+      "geocoder_version": 3,
+      "lat": 37.567141059585,
+      "lon": 126.980340446802,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 다동 155",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 다동 155"
+      ],
+      "updated_at": "2026-09-17T05:28:11+00:00"
+    },
+    "더미|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 청진동 146",
+      "fingerprint": "1a920081c1be8d6f",
+      "geocoder_version": 3,
+      "lat": 37.570868072831,
+      "lon": 126.979816410216,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 청진동 146",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 청진동 146"
+      ],
+      "updated_at": "2026-09-17T05:27:56+00:00"
     },
     "더존정육센타|금천구": {
       "addr_type": "PointAddress",
@@ -922,6 +1300,42 @@
       ],
       "updated_at": "2026-09-16T07:49:37+00:00"
     },
+    "덕후선생 광화문|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 청진동 종로3길 17",
+      "fingerprint": "6767c791d0ac17c6",
+      "geocoder_version": 3,
+      "lat": 37.570995896855,
+      "lon": 126.978914517434,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 종로3길 17",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 종로3길 17"
+      ],
+      "updated_at": "2026-09-17T05:28:20+00:00"
+    },
+    "도누가|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 18",
+      "fingerprint": "c788a879efccd259",
+      "geocoder_version": 3,
+      "lat": 37.561920055916,
+      "lon": 126.977566036851,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 18"
+      ],
+      "updated_at": "2026-09-17T05:28:01+00:00"
+    },
     "도토리 소반|성북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 명륜4가 대학로9길 12",
@@ -938,6 +1352,24 @@
         "arcgis:서울 종로구 대학로9길 12"
       ],
       "updated_at": "2026-09-16T07:47:56+00:00"
+    },
+    "도틔대가|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 세종대로 72-1",
+      "fingerprint": "f261f362bbc03f35",
+      "geocoder_version": 3,
+      "lat": 37.562573467178,
+      "lon": 126.9768518987,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로 72-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로 72-1"
+      ],
+      "updated_at": "2026-09-17T05:28:04+00:00"
     },
     "돈미화로|도봉구": {
       "addr_type": "PointAddress",
@@ -956,6 +1388,24 @@
       ],
       "updated_at": "2026-09-16T07:48:23+00:00"
     },
+    "돈우가식당|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로 25-15",
+      "fingerprint": "fd77530c63d7409a",
+      "geocoder_version": 3,
+      "lat": 37.56195601428,
+      "lon": 126.978176155583,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 25-15",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 25-15"
+      ],
+      "updated_at": "2026-09-17T05:28:07+00:00"
+    },
     "동해아구찜해물탕|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 당산동3가 당산로32길 13",
@@ -972,6 +1422,24 @@
         "arcgis:서울 영등포구 당산로32길 13"
       ],
       "updated_at": "2026-09-16T07:48:13+00:00"
+    },
+    "동호민물장어|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 세종대로18길 6-1",
+      "fingerprint": "2925596aa71e75b8",
+      "geocoder_version": 3,
+      "lat": 37.563725224493,
+      "lon": 126.977439973027,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 6-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 6-1"
+      ],
+      "updated_at": "2026-09-17T05:28:19+00:00"
     },
     "동화반점|동작구": {
       "addr_type": "Locality",
@@ -1024,6 +1492,24 @@
       ],
       "updated_at": "2026-09-16T07:47:12+00:00"
     },
+    "둘둘치킨|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 서소문로 134-5",
+      "fingerprint": "7a4db06ec67b5b2e",
+      "geocoder_version": 3,
+      "lat": 37.56347439604,
+      "lon": 126.976126109704,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 134-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 134-5"
+      ],
+      "updated_at": "2026-09-17T05:28:06+00:00"
+    },
     "등나무집|관악구": {
       "addr_type": "PointAddress",
       "display_name": "서울 동작구 신대방동 대림로 52",
@@ -1074,6 +1560,24 @@
         "arcgis:서울 관악구 신림동"
       ],
       "updated_at": "2026-09-16T07:48:33+00:00"
+    },
+    "마케집 서울시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 다동길 33",
+      "fingerprint": "a20a77a0fec6680a",
+      "geocoder_version": 3,
+      "lat": 37.567991277933,
+      "lon": 126.981133793938,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 다동길 33",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 다동길 33"
+      ],
+      "updated_at": "2026-09-17T05:27:53+00:00"
     },
     "마포숯불갈비|송파구": {
       "addr_type": "PointAddress",
@@ -1143,6 +1647,24 @@
       ],
       "updated_at": "2026-09-16T07:48:23+00:00"
     },
+    "만족오향족발|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 서소문로 134-7",
+      "fingerprint": "f8f0554902fc3a3f",
+      "geocoder_version": 3,
+      "lat": 37.563257598115,
+      "lon": 126.976014127478,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 134-7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 134-7"
+      ],
+      "updated_at": "2026-09-17T05:28:15+00:00"
+    },
     "만진루|은평구": {
       "addr_type": "PointAddress",
       "display_name": "서울 은평구 응암동 응암로 307-1",
@@ -1195,6 +1717,24 @@
       ],
       "updated_at": "2026-09-16T07:48:06+00:00"
     },
+    "멘츠루 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 서소문로11길 2",
+      "fingerprint": "2ddea982a5a6e6fd",
+      "geocoder_version": 3,
+      "lat": 37.56301909106,
+      "lon": 126.973116084455,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로11길 2",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로11길 2"
+      ],
+      "updated_at": "2026-09-17T05:28:18+00:00"
+    },
     "명륜진사갈비 하계점|노원구": {
       "failed": true,
       "fingerprint": "1000d3b627d3fb6c",
@@ -1224,6 +1764,114 @@
       ],
       "updated_at": "2026-09-16T07:48:46+00:00"
     },
+    "모두|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 서소문로 109-6",
+      "fingerprint": "477efcabcf4adae3",
+      "geocoder_version": 3,
+      "lat": 37.563233625872,
+      "lon": 126.973379611491,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 109-6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 109-6"
+      ],
+      "updated_at": "2026-09-17T05:28:28+00:00"
+    },
+    "목포세발낙지|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로9길 20",
+      "fingerprint": "172b67245963f17e",
+      "geocoder_version": 3,
+      "lat": 37.566860643014,
+      "lon": 126.981407211619,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 20",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 20"
+      ],
+      "updated_at": "2026-09-17T05:28:22+00:00"
+    },
+    "몽중헌 페럼타워|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 수하동 을지로5길 19",
+      "fingerprint": "598b287d27aa5b9c",
+      "geocoder_version": 3,
+      "lat": 37.566939432904,
+      "lon": 126.984140466426,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로5길 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로5길 19"
+      ],
+      "updated_at": "2026-09-17T05:28:02+00:00"
+    },
+    "미시령너머|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 세종대로9길 41",
+      "fingerprint": "42f235df471fc6e3",
+      "geocoder_version": 3,
+      "lat": 37.561358258855,
+      "lon": 126.972996307059,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로9길 41",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로9길 41"
+      ],
+      "updated_at": "2026-09-17T05:27:58+00:00"
+    },
+    "미자네닭전문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 서소문로 129-1",
+      "fingerprint": "b71202cd3a36fec0",
+      "geocoder_version": 3,
+      "lat": 37.563978148421,
+      "lon": 126.975250536099,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 129-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 129-1"
+      ],
+      "updated_at": "2026-09-17T05:28:23+00:00"
+    },
+    "민소한우(서린점)|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 서린동 종로 22",
+      "fingerprint": "a88b60415f80b813",
+      "geocoder_version": 3,
+      "lat": 37.569876787052,
+      "lon": 126.979674336957,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 종로 22",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 종로 22"
+      ],
+      "updated_at": "2026-09-17T05:28:31+00:00"
+    },
     "바다마을|송파구": {
       "addr_type": "POI",
       "display_name": "바다마을",
@@ -1241,6 +1889,24 @@
       ],
       "updated_at": "2026-09-16T07:48:13+00:00"
     },
+    "바스버거 광화문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 다동길 5",
+      "fingerprint": "fa48e4f0404e2fce",
+      "geocoder_version": 3,
+      "lat": 37.568111097239,
+      "lon": 126.979704511808,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 다동길 5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 다동길 5"
+      ],
+      "updated_at": "2026-09-17T05:28:34+00:00"
+    },
     "박가네해신탕|관악구": {
       "addr_type": "PointAddress",
       "display_name": "경기 안양시 동안구 비산동 평촌대로476번길 14",
@@ -1257,6 +1923,60 @@
         "arcgis:경기 안양시 동안구 평촌대로476번길 14"
       ],
       "updated_at": "2026-09-16T07:47:44+00:00"
+    },
+    "박씨화로숯불구이|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 26-13",
+      "fingerprint": "a5f91cfb5c711160",
+      "geocoder_version": 3,
+      "lat": 37.562348957901,
+      "lon": 126.978078422592,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 26-13",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 26-13"
+      ],
+      "updated_at": "2026-09-17T05:27:58+00:00"
+    },
+    "반갑다 하대포|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 26",
+      "fingerprint": "baa537bf01b5532c",
+      "geocoder_version": 3,
+      "lat": 37.567206061244,
+      "lon": 126.981590775299,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 26",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 26"
+      ],
+      "updated_at": "2026-09-17T05:27:43+00:00"
+    },
+    "반포식스 서울시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 무교로 13",
+      "fingerprint": "0dc46a760af511dc",
+      "geocoder_version": 3,
+      "lat": 37.567148812845,
+      "lon": 126.979021638156,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교로 13",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교로 13"
+      ],
+      "updated_at": "2026-09-17T05:28:35+00:00"
     },
     "버터램|금천구": {
       "addr_type": "PointAddress",
@@ -1373,6 +2093,24 @@
       ],
       "updated_at": "2026-09-16T07:48:57+00:00"
     },
+    "본뼈감자탕|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 세종대로11길 30",
+      "fingerprint": "7967c32cbda120c1",
+      "geocoder_version": 3,
+      "lat": 37.562347616797,
+      "lon": 126.974220735475,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로11길 30",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로11길 30"
+      ],
+      "updated_at": "2026-09-17T05:28:23+00:00"
+    },
     "본전회관|서대문구": {
       "addr_type": "POI",
       "display_name": "본전회관",
@@ -1452,6 +2190,60 @@
         "arcgis:서울특별시 영등포구"
       ],
       "updated_at": "2026-09-16T07:47:32+00:00"
+    },
+    "북창동 황소곱창|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로 25-9",
+      "fingerprint": "baadd6d7b91546c9",
+      "geocoder_version": 3,
+      "lat": 37.561704808642,
+      "lon": 126.978271793098,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 25-9",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 25-9"
+      ],
+      "updated_at": "2026-09-17T05:27:37+00:00"
+    },
+    "북창치킨|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 세종대로16길 6",
+      "fingerprint": "bd52362eb286b93e",
+      "geocoder_version": 3,
+      "lat": 37.563362791,
+      "lon": 126.977196562559,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로16길 6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로16길 6"
+      ],
+      "updated_at": "2026-09-17T05:27:42+00:00"
+    },
+    "북촌순두부|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로 25-18",
+      "fingerprint": "b9450fb59abd1e68",
+      "geocoder_version": 3,
+      "lat": 37.561998342891,
+      "lon": 126.978429456697,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 25-18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 25-18"
+      ],
+      "updated_at": "2026-09-17T05:28:01+00:00"
     },
     "북한산숯불갈비|강북구": {
       "addr_type": "PointAddress",
@@ -1567,6 +2359,24 @@
         "arcgis:서울 중구 을지로44길 28"
       ],
       "updated_at": "2026-09-16T07:48:10+00:00"
+    },
+    "사조미가|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 서대문구 충정로2가 통일로 107-39",
+      "fingerprint": "e26505b979269f45",
+      "geocoder_version": 3,
+      "lat": 37.564200939408,
+      "lon": 126.966119542236,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 서대문구 통일로 107-39",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 서대문구 통일로 107-39"
+      ],
+      "updated_at": "2026-09-17T05:27:48+00:00"
     },
     "산들해|서초구": {
       "addr_type": "PointAddress",
@@ -1908,6 +2718,24 @@
       ],
       "updated_at": "2026-09-16T07:49:30+00:00"
     },
+    "서민갈비살|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로18길 16-3",
+      "fingerprint": "3c18b6743829bff1",
+      "geocoder_version": 3,
+      "lat": 37.563514838723,
+      "lon": 126.978270703451,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 16-3",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 16-3"
+      ],
+      "updated_at": "2026-09-17T05:27:46+00:00"
+    },
     "서오릉 돼지집|은평구": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 덕양구 용두동 서오릉로 466",
@@ -1924,6 +2752,78 @@
         "arcgis:경기도 고양시 덕양구 서오릉로 466"
       ],
       "updated_at": "2026-09-16T07:47:46+00:00"
+    },
+    "서울고기집|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로9길 12",
+      "fingerprint": "30dd9452058d0fe8",
+      "geocoder_version": 3,
+      "lat": 37.56686617507,
+      "lon": 126.98174475086,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 12",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 12"
+      ],
+      "updated_at": "2026-09-17T05:28:06+00:00"
+    },
+    "서울의 달|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 28-6",
+      "fingerprint": "018e5ae6aae8b1f1",
+      "geocoder_version": 3,
+      "lat": 37.562421167997,
+      "lon": 126.978343039275,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 28-6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 28-6"
+      ],
+      "updated_at": "2026-09-17T05:27:32+00:00"
+    },
+    "서화|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 서소문로 109",
+      "fingerprint": "559340ca8d90f890",
+      "geocoder_version": 3,
+      "lat": 37.563031915372,
+      "lon": 126.973215745284,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 109",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 109"
+      ],
+      "updated_at": "2026-09-17T05:27:33+00:00"
+    },
+    "선영이네|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 30",
+      "fingerprint": "18800bb480683512",
+      "geocoder_version": 3,
+      "lat": 37.567423487812,
+      "lon": 126.981504441696,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 30",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 30"
+      ],
+      "updated_at": "2026-09-17T05:27:50+00:00"
     },
     "성한가든|성북구": {
       "addr_type": "PointAddress",
@@ -1959,6 +2859,24 @@
       ],
       "updated_at": "2026-09-16T07:49:03+00:00"
     },
+    "세광양대창 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 37",
+      "fingerprint": "e366861506ae04cd",
+      "geocoder_version": 3,
+      "lat": 37.562699531001,
+      "lon": 126.977221205354,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 37",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 37"
+      ],
+      "updated_at": "2026-09-17T05:27:43+00:00"
+    },
     "세꼬시회|구로구": {
       "addr_type": "PointAddress",
       "display_name": "서울 양천구 신정동 신목로5길 6-2",
@@ -1992,6 +2910,24 @@
         "arcgis:세참연회 중구 서울"
       ],
       "updated_at": "2026-09-16T07:48:20+00:00"
+    },
+    "소공소공|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로18길 16-5",
+      "fingerprint": "142ca338bd555f95",
+      "geocoder_version": 3,
+      "lat": 37.563590024395,
+      "lon": 126.978262237729,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 16-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 16-5"
+      ],
+      "updated_at": "2026-09-17T05:28:31+00:00"
     },
     "소꿉당 별내점|도봉구": {
       "addr_type": "PointAddress",
@@ -2175,6 +3111,24 @@
       ],
       "updated_at": "2026-09-16T07:48:21+00:00"
     },
+    "순이네|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로9길 40",
+      "fingerprint": "6cdcc1dbd6195ea5",
+      "geocoder_version": 3,
+      "lat": 37.567142065413,
+      "lon": 126.980368861454,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 40",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 40"
+      ],
+      "updated_at": "2026-09-17T05:28:03+00:00"
+    },
     "스시린|마포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 마포구 성산동 590-5",
@@ -2278,6 +3232,24 @@
       ],
       "updated_at": "2026-09-16T07:47:14+00:00"
     },
+    "식껍 다동|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로9길 40",
+      "fingerprint": "a82742dc80009029",
+      "geocoder_version": 3,
+      "lat": 37.567142065413,
+      "lon": 126.980368861454,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 40",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 40"
+      ],
+      "updated_at": "2026-09-17T05:27:56+00:00"
+    },
     "신림홍미닭발|동작구": {
       "addr_type": "Locality",
       "display_name": "서울특별시 관악구",
@@ -2329,6 +3301,42 @@
       ],
       "updated_at": "2026-09-16T07:48:05+00:00"
     },
+    "신성식당|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 22-3",
+      "fingerprint": "b2d78a7ea6843e87",
+      "geocoder_version": 3,
+      "lat": 37.56262090875,
+      "lon": 126.978064089538,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 22-3",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 22-3"
+      ],
+      "updated_at": "2026-09-17T05:27:53+00:00"
+    },
+    "신의주부대찌개 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로18길 20",
+      "fingerprint": "ad165434e26ccb5d",
+      "geocoder_version": 3,
+      "lat": 37.563668185642,
+      "lon": 126.978196858884,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 20",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 20"
+      ],
+      "updated_at": "2026-09-17T05:28:34+00:00"
+    },
     "신의주찹쌀순대|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 남양주시 별내동 별내5로 7",
@@ -2363,6 +3371,24 @@
       ],
       "updated_at": "2026-09-16T07:48:29+00:00"
     },
+    "신촌서서갈비 다동점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 30-18",
+      "fingerprint": "dad8f11f725efff7",
+      "geocoder_version": 3,
+      "lat": 37.567248515583,
+      "lon": 126.981947006184,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 30-18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 30-18"
+      ],
+      "updated_at": "2026-09-17T05:27:57+00:00"
+    },
     "신풍낙지（주）|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 대림동 대림로 220",
@@ -2379,6 +3405,42 @@
         "arcgis:서울 영등포구 대림로 220"
       ],
       "updated_at": "2026-09-16T07:49:38+00:00"
+    },
+    "신호 북창동점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로18길 16-7",
+      "fingerprint": "4984cd6f1ae7b493",
+      "geocoder_version": 3,
+      "lat": 37.563448076864,
+      "lon": 126.97827338566,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 16-7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 16-7"
+      ],
+      "updated_at": "2026-09-17T05:28:28+00:00"
+    },
+    "신호|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로18길 16-7",
+      "fingerprint": "36f512b41401d111",
+      "geocoder_version": 3,
+      "lat": 37.563448076864,
+      "lon": 126.97827338566,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로18길 16-7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로18길 16-7"
+      ],
+      "updated_at": "2026-09-17T05:28:00+00:00"
     },
     "실크로드.송림가|구로구": {
       "addr_type": "PointAddress",
@@ -2448,6 +3510,24 @@
       ],
       "updated_at": "2026-09-16T07:47:16+00:00"
     },
+    "안동국시|서울시청": {
+      "addr_type": "Locality",
+      "display_name": "서울 종로구 서린동",
+      "fingerprint": "11a5f44e6751a052",
+      "geocoder_version": 3,
+      "lat": 37.569522035961,
+      "lon": 126.980420390562,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 서린동",
+      "result_name": "서린동",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 서린동"
+      ],
+      "updated_at": "2026-09-17T05:28:14+00:00"
+    },
     "얄미운푸줏간|관악구": {
       "addr_type": "PointAddress",
       "display_name": "경기 안양시 만안구 석수동 삼막로 57-1",
@@ -2464,6 +3544,24 @@
         "arcgis:경기 안양시 만안구 삼막로 57-1"
       ],
       "updated_at": "2026-09-16T07:47:47+00:00"
+    },
+    "양꼬치구이 촨|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 서린동 무교로 39",
+      "fingerprint": "7902779d465950cf",
+      "geocoder_version": 3,
+      "lat": 37.56948916594,
+      "lon": 126.979140158267,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 무교로 39",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 무교로 39"
+      ],
+      "updated_at": "2026-09-17T05:27:34+00:00"
     },
     "양재 샤브샤브 퀸즈가든|서초구": {
       "addr_type": "POI",
@@ -2533,6 +3631,24 @@
       ],
       "updated_at": "2026-09-16T07:48:21+00:00"
     },
+    "어도횟집|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 서대문구 미근동 충정로6안길 4",
+      "fingerprint": "ba2d044f6e52cca4",
+      "geocoder_version": 3,
+      "lat": 37.562487510761,
+      "lon": 126.967611856278,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 서대문구 충정로6안길 4",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 서대문구 충정로6안길 4"
+      ],
+      "updated_at": "2026-09-17T05:28:13+00:00"
+    },
     "엄선 엄마의 생선찜 구이|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산서구 대화동 대산로212번길 7-6",
@@ -2568,6 +3684,24 @@
       ],
       "updated_at": "2026-09-16T07:48:11+00:00"
     },
+    "영덕막회|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 33",
+      "fingerprint": "85a37ccad9ff83d2",
+      "geocoder_version": 3,
+      "lat": 37.567515269652,
+      "lon": 126.981263126704,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 33",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 33"
+      ],
+      "updated_at": "2026-09-17T05:27:35+00:00"
+    },
     "영덕집|서초구": {
       "addr_type": "POI",
       "display_name": "영덕집",
@@ -2584,6 +3718,24 @@
         "arcgis:영덕집 서초구 서울"
       ],
       "updated_at": "2026-09-16T07:49:32+00:00"
+    },
+    "영덕회식당 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 무교로 32",
+      "fingerprint": "7bce9797186942c5",
+      "geocoder_version": 3,
+      "lat": 37.568766017244,
+      "lon": 126.979561600359,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교로 32",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교로 32"
+      ],
+      "updated_at": "2026-09-17T05:28:36+00:00"
     },
     "옛집|영등포구": {
       "addr_type": "PointAddress",
@@ -2671,6 +3823,42 @@
       ],
       "updated_at": "2026-09-16T07:48:16+00:00"
     },
+    "오징어이야기|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 30-5",
+      "fingerprint": "20721776351463ec",
+      "geocoder_version": 3,
+      "lat": 37.562538053637,
+      "lon": 126.9777349322,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 30-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 30-5"
+      ],
+      "updated_at": "2026-09-17T05:28:27+00:00"
+    },
+    "오징어풍경|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 다동길 5",
+      "fingerprint": "244b25b4ca2cccec",
+      "geocoder_version": 3,
+      "lat": 37.568111097239,
+      "lon": 126.979704511808,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 다동길 5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 다동길 5"
+      ],
+      "updated_at": "2026-09-17T05:28:30+00:00"
+    },
     "온누리 장작구이|관악구": {
       "addr_type": "PointAddress",
       "display_name": "경기 과천시 과천동 중앙로 499",
@@ -2687,6 +3875,24 @@
         "arcgis:경기 과천시 중앙로 499"
       ],
       "updated_at": "2026-09-16T07:47:48+00:00"
+    },
+    "완백부대찌개삼겹살|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 서소문동 서소문로 124",
+      "fingerprint": "ade3131b6fa9756f",
+      "geocoder_version": 3,
+      "lat": 37.563106179034,
+      "lon": 126.97522363019,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 124",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 124"
+      ],
+      "updated_at": "2026-09-17T05:28:25+00:00"
     },
     "왕릉일가|은평구": {
       "addr_type": "PointAddress",
@@ -2950,6 +4156,42 @@
       ],
       "updated_at": "2026-09-16T07:48:02+00:00"
     },
+    "우정육|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 21",
+      "fingerprint": "5d5b79d59e6d8cde",
+      "geocoder_version": 3,
+      "lat": 37.567017887517,
+      "lon": 126.981503603506,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 21",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 21"
+      ],
+      "updated_at": "2026-09-17T05:28:36+00:00"
+    },
+    "우주맥주|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 세종대로 76",
+      "fingerprint": "98b22d24a97a03c8",
+      "geocoder_version": 3,
+      "lat": 37.56291088069,
+      "lon": 126.976878050238,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로 76",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로 76"
+      ],
+      "updated_at": "2026-09-17T05:27:55+00:00"
+    },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 당산동3가 당산로32길 5",
@@ -3036,6 +4278,24 @@
       ],
       "updated_at": "2026-09-16T07:48:46+00:00"
     },
+    "육시리|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 31",
+      "fingerprint": "9ebbdb4330ff15da",
+      "geocoder_version": 3,
+      "lat": 37.562408720871,
+      "lon": 126.977255738795,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 31",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 31"
+      ],
+      "updated_at": "2026-09-17T05:27:38+00:00"
+    },
     "육칠이광명하안점|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 소하동 금하로527번길 25",
@@ -3070,6 +4330,42 @@
       ],
       "updated_at": "2026-09-16T07:48:17+00:00"
     },
+    "이가네양꼬치,양갈비무교점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 17",
+      "fingerprint": "7d09188751811119",
+      "geocoder_version": 3,
+      "lat": 37.566905737653,
+      "lon": 126.98152397153,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 17",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 17"
+      ],
+      "updated_at": "2026-09-17T05:27:44+00:00"
+    },
+    "이가네양꼬치|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 26-10",
+      "fingerprint": "255ced6728f5622b",
+      "geocoder_version": 3,
+      "lat": 37.562086688151,
+      "lon": 126.977996447579,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 26-10",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 26-10"
+      ],
+      "updated_at": "2026-09-17T05:27:46+00:00"
+    },
     "이태원숯불구이|용산구": {
       "addr_type": "StreetName",
       "display_name": "서울특별시 용산구 이태원동 녹사평대로32길",
@@ -3103,6 +4399,24 @@
         "arcgis:서울 금천구 시흥대로 291"
       ],
       "updated_at": "2026-09-16T07:49:32+00:00"
+    },
+    "인천집|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 다동길 36",
+      "fingerprint": "2196c5115ce1a0d7",
+      "geocoder_version": 3,
+      "lat": 37.567819784194,
+      "lon": 126.98125130822,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 다동길 36",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 다동길 36"
+      ],
+      "updated_at": "2026-09-17T05:28:27+00:00"
     },
     "일등갈비|서대문구": {
       "addr_type": "POI",
@@ -3185,6 +4499,42 @@
       ],
       "updated_at": "2026-09-16T07:47:13+00:00"
     },
+    "일일향 명동점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로 125",
+      "fingerprint": "df00900c85f1fcd8",
+      "geocoder_version": 3,
+      "lat": 37.568374372818,
+      "lon": 126.982291586223,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 125",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 125"
+      ],
+      "updated_at": "2026-09-17T05:28:13+00:00"
+    },
+    "일품당 프리미엄|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 내수동 새문안로5가길 7",
+      "fingerprint": "2968f90a845d1cf7",
+      "geocoder_version": 3,
+      "lat": 37.572771142038,
+      "lon": 126.974038177623,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 새문안로5가길 7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 새문안로5가길 7"
+      ],
+      "updated_at": "2026-09-17T05:28:25+00:00"
+    },
     "일품양평해장국종로3|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 낙원동 수표로 107-1",
@@ -3253,6 +4603,42 @@
       ],
       "updated_at": "2026-09-16T07:49:34+00:00"
     },
+    "잘차려진바다|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 남대문로9길 8",
+      "fingerprint": "36883bf830fbb7dc",
+      "geocoder_version": 3,
+      "lat": 37.566810016319,
+      "lon": 126.982034513253,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 8",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 8"
+      ],
+      "updated_at": "2026-09-17T05:28:17+00:00"
+    },
+    "장군보쌈|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 19",
+      "fingerprint": "5297f6a138ce5837",
+      "geocoder_version": 3,
+      "lat": 37.567322485879,
+      "lon": 126.979552296446,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교동 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교동 19"
+      ],
+      "updated_at": "2026-09-17T05:28:06+00:00"
+    },
     "장위동유성집|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 의정부동 범골로 117",
@@ -3269,6 +4655,24 @@
         "arcgis:경기 의정부시 범골로 117-0@ 2층 (의정부동)"
       ],
       "updated_at": "2026-09-16T07:47:49+00:00"
+    },
+    "전가곱창|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 30-5",
+      "fingerprint": "19106bc5daf42d22",
+      "geocoder_version": 3,
+      "lat": 37.567679177768,
+      "lon": 126.981772997874,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 30-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 30-5"
+      ],
+      "updated_at": "2026-09-17T05:28:27+00:00"
     },
     "전라도옛맛손칼국수|관악구": {
       "addr_type": "PointAddress",
@@ -3287,6 +4691,24 @@
       ],
       "updated_at": "2026-09-16T07:47:50+00:00"
     },
+    "전북집|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 30-5",
+      "fingerprint": "733e047f85ade252",
+      "geocoder_version": 3,
+      "lat": 37.562538053637,
+      "lon": 126.9777349322,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 30-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 30-5"
+      ],
+      "updated_at": "2026-09-17T05:27:50+00:00"
+    },
     "전북콩나물국밥|강북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강북구 수유동 한천로139가길 12",
@@ -3303,6 +4725,24 @@
         "arcgis:서울 강북구 한천로139가길 12, 하정희"
       ],
       "updated_at": "2026-09-16T07:49:37+00:00"
+    },
+    "전주회관|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 32-1",
+      "fingerprint": "d9aa377439f010a4",
+      "geocoder_version": 3,
+      "lat": 37.562651754153,
+      "lon": 126.978530542449,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 32-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 32-1"
+      ],
+      "updated_at": "2026-09-17T05:28:37+00:00"
     },
     "정가|관악구": {
       "addr_type": "PointAddress",
@@ -3406,6 +4846,24 @@
       ],
       "updated_at": "2026-09-16T07:48:11+00:00"
     },
+    "주식회사 고려보쌈|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 세종대로20길 23",
+      "fingerprint": "892b33b40e268bc1",
+      "geocoder_version": 3,
+      "lat": 37.567151788421,
+      "lon": 126.978729528831,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로20길 23",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로20길 23"
+      ],
+      "updated_at": "2026-09-17T05:28:07+00:00"
+    },
     "주식회사 성호푸드 메이탄|은평구": {
       "addr_type": "StreetAddress",
       "display_name": "서울 종로구 교남동 경교장1길 17",
@@ -3439,6 +4897,60 @@
         "arcgis:서울 동작구 노량진로 26"
       ],
       "updated_at": "2026-09-16T07:48:00+00:00"
+    },
+    "주식회사 양미옥|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 남대문로3가 남대문로 27-2",
+      "fingerprint": "f643c15c6c7e9f9c",
+      "geocoder_version": 3,
+      "lat": 37.561421165039,
+      "lon": 126.978778814421,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 27-2",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 27-2"
+      ],
+      "updated_at": "2026-09-17T05:27:55+00:00"
+    },
+    "주식회사 엔엠에프 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로1길 37",
+      "fingerprint": "a4296b0785a510fd",
+      "geocoder_version": 3,
+      "lat": 37.562699531001,
+      "lon": 126.977221205354,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로1길 37",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로1길 37"
+      ],
+      "updated_at": "2026-09-17T05:28:19+00:00"
+    },
+    "주식회사 온센 광화문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로 136",
+      "fingerprint": "b413c03588ac6e8c",
+      "geocoder_version": 3,
+      "lat": 37.568423155494,
+      "lon": 126.978256538035,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로 136",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로 136"
+      ],
+      "updated_at": "2026-09-17T05:28:36+00:00"
     },
     "주식회사 포시즌어데이|은평구": {
       "addr_type": "PointAddress",
@@ -3662,6 +5174,24 @@
       ],
       "updated_at": "2026-09-16T07:48:22+00:00"
     },
+    "천복|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 세종대로14길 27-4",
+      "fingerprint": "51e130cff59dd06c",
+      "geocoder_version": 3,
+      "lat": 37.562978522649,
+      "lon": 126.978293837504,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로14길 27-4",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로14길 27-4"
+      ],
+      "updated_at": "2026-09-17T05:27:37+00:00"
+    },
     "철원오대쌀 갓지은솥|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 녹양동 동일로 858",
@@ -3764,6 +5294,24 @@
       ],
       "updated_at": "2026-09-16T07:49:07+00:00"
     },
+    "춘천명가닭갈비전문점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로 25-15",
+      "fingerprint": "32755b388d864f50",
+      "geocoder_version": 3,
+      "lat": 37.56195601428,
+      "lon": 126.978176155583,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 25-15",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 25-15"
+      ],
+      "updated_at": "2026-09-17T05:28:18+00:00"
+    },
     "충남집|동작구": {
       "addr_type": "Locality",
       "display_name": "서울특별시 동작구",
@@ -3780,6 +5328,24 @@
         "arcgis:서울특별시 동작구"
       ],
       "updated_at": "2026-09-16T07:48:33+00:00"
+    },
+    "취홍|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 순화동 세종대로7길 43",
+      "fingerprint": "48a625f73f94248b",
+      "geocoder_version": 3,
+      "lat": 37.561065017973,
+      "lon": 126.972258196665,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 세종대로7길 43",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로7길 43"
+      ],
+      "updated_at": "2026-09-17T05:28:12+00:00"
     },
     "치킨마루|동작구": {
       "addr_type": "Locality",
@@ -3833,6 +5399,24 @@
       ],
       "updated_at": "2026-09-16T07:47:32+00:00"
     },
+    "크레프트 맥코어|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 을지로1가 남대문로9길 51",
+      "fingerprint": "ba346a5926df44a2",
+      "geocoder_version": 3,
+      "lat": 37.566813662446,
+      "lon": 126.979502340303,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로9길 51",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로9길 51"
+      ],
+      "updated_at": "2026-09-17T05:27:44+00:00"
+    },
     "태능맥갈비|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 남양주시 별내면 광전리 송산로 489-1",
@@ -3849,6 +5433,60 @@
         "arcgis:경기 남양주시 별내면 송산로 489-1@ 1층 (광전리)"
       ],
       "updated_at": "2026-09-16T07:47:31+00:00"
+    },
+    "태성닭갈비&곱선생|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 35",
+      "fingerprint": "a4b331e0f74d6347",
+      "geocoder_version": 3,
+      "lat": 37.5676634617,
+      "lon": 126.981267150017,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 35",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 35"
+      ],
+      "updated_at": "2026-09-17T05:27:47+00:00"
+    },
+    "태성한우회관|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 을지로3길 35",
+      "fingerprint": "db4711a1f564925b",
+      "geocoder_version": 3,
+      "lat": 37.5676634617,
+      "lon": 126.981267150017,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 을지로3길 35",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 을지로3길 35"
+      ],
+      "updated_at": "2026-09-17T05:27:36+00:00"
+    },
+    "태진옥|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 무교로 17-25",
+      "fingerprint": "acb29275f70a5195",
+      "geocoder_version": 3,
+      "lat": 37.567431115344,
+      "lon": 126.978548731179,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교로 17-25",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교로 17-25"
+      ],
+      "updated_at": "2026-09-17T05:28:10+00:00"
     },
     "탱글낙지마당|강서구": {
       "addr_type": "PointAddress",
@@ -3901,6 +5539,24 @@
       ],
       "updated_at": "2026-09-16T07:48:22+00:00"
     },
+    "토속정|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 관철동 우정국로 4-1",
+      "fingerprint": "09b80f16283093ec",
+      "geocoder_version": 3,
+      "lat": 37.56919399722,
+      "lon": 126.983278052408,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 우정국로 4-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 우정국로 4-1"
+      ],
+      "updated_at": "2026-09-17T05:27:59+00:00"
+    },
     "파크프리베|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 장암동 동일로192번길 28-41",
@@ -3934,6 +5590,24 @@
         "arcgis:서울 구로구 공원로 83"
       ],
       "updated_at": "2026-09-16T07:47:29+00:00"
+    },
+    "포도나무|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 내자동 사직로 108-1",
+      "fingerprint": "72952fdb91eb2c76",
+      "geocoder_version": 3,
+      "lat": 37.575831081521,
+      "lon": 126.970811396358,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 사직로 108-1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 사직로 108-1"
+      ],
+      "updated_at": "2026-09-17T05:28:09+00:00"
     },
     "풍년갈비|구로구": {
       "addr_type": "PointAddress",
@@ -4037,6 +5711,24 @@
       ],
       "updated_at": "2026-09-16T07:48:59+00:00"
     },
+    "하나노마이|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 남대문로4가 남대문로 7",
+      "fingerprint": "56f80df2f4bdc391",
+      "geocoder_version": 3,
+      "lat": 37.560848136228,
+      "lon": 126.976570518211,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로 7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로 7"
+      ],
+      "updated_at": "2026-09-17T05:27:31+00:00"
+    },
     "하오런|강북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강북구 번동 오현로 137",
@@ -4082,6 +5774,24 @@
         "nominatim:하인선생 고양특례시"
       ],
       "updated_at": "2026-09-16T16:09:05+00:00"
+    },
+    "하피덕 시청점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로2가 서소문로 134-5",
+      "fingerprint": "c94172ae9929b8fb",
+      "geocoder_version": 3,
+      "lat": 37.56347439604,
+      "lon": 126.976126109704,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 서소문로 134-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 서소문로 134-5"
+      ],
+      "updated_at": "2026-09-17T05:28:02+00:00"
     },
     "한남동한방통닭|용산구": {
       "addr_type": "POI",
@@ -4168,6 +5878,24 @@
       ],
       "updated_at": "2026-09-16T07:47:09+00:00"
     },
+    "한우마당|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 북창동 남대문로5길 7",
+      "fingerprint": "e59ac69b2717972e",
+      "geocoder_version": 3,
+      "lat": 37.561674382333,
+      "lon": 126.978851401703,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 남대문로5길 7",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 남대문로5길 7"
+      ],
+      "updated_at": "2026-09-17T05:27:49+00:00"
+    },
     "함박|강서구": {
       "addr_type": "PointAddress",
       "display_name": "서울 양천구 목동 621-11",
@@ -4185,6 +5913,24 @@
       ],
       "updated_at": "2026-09-16T07:47:59+00:00"
     },
+    "항구네|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 무교동 무교로 28",
+      "fingerprint": "ec7e65c172c51539",
+      "geocoder_version": 3,
+      "lat": 37.568468585409,
+      "lon": 126.979583560945,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 무교로 28",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 무교로 28"
+      ],
+      "updated_at": "2026-09-17T05:28:21+00:00"
+    },
     "해물신의한수|종로구": {
       "failed": true,
       "fingerprint": "b7ff16022556a91d",
@@ -4196,6 +5942,24 @@
         "nominatim:해물신의한수 대한민국"
       ],
       "updated_at": "2026-09-16T07:49:44+00:00"
+    },
+    "해봉정육 무교점|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 다동 청계천로 24",
+      "fingerprint": "14b7cdbb59d9b3dc",
+      "geocoder_version": 3,
+      "lat": 37.568515985072,
+      "lon": 126.980209605293,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 중구 청계천로 24",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 청계천로 24"
+      ],
+      "updated_at": "2026-09-17T05:28:10+00:00"
     },
     "홍어전문|구로구": {
       "addr_type": "PointAddress",
@@ -4316,6 +6080,24 @@
         "arcgis:서울 종로구 삼봉로 81"
       ],
       "updated_at": "2026-09-16T07:48:03+00:00"
+    },
+    "회포|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 당주동 새문안로5길 10",
+      "fingerprint": "42455b54d093086a",
+      "geocoder_version": 3,
+      "lat": 37.571068945141,
+      "lon": 126.975069319352,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 종로구 새문안로5길 10",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 새문안로5길 10"
+      ],
+      "updated_at": "2026-09-17T05:27:39+00:00"
     },
     "훈장골영등포신길점|영등포구": {
       "addr_type": "PointAddress",
