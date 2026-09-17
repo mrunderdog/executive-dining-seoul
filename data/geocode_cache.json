@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 367,
-    "success_count": 352,
-    "updated_at": "2026-09-17T05:28:37+00:00"
+    "record_count": 368,
+    "success_count": 353,
+    "updated_at": "2026-09-17T05:37:54+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -5960,6 +5960,24 @@
         "arcgis:서울 중구 청계천로 24"
       ],
       "updated_at": "2026-09-17T05:28:10+00:00"
+    },
+    "헥토_비버웍스(비)|서울시청": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 강남구 역삼동 테헤란로34길 6",
+      "fingerprint": "dbf8b7dd63aafcc7",
+      "geocoder_version": 3,
+      "lat": 37.501063206001,
+      "lon": 127.039885906056,
+      "match_mode": "address",
+      "policy_version": 2,
+      "query": "서울 강남구 테헤란로34길 6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 강남구 테헤란로34길 6"
+      ],
+      "updated_at": "2026-09-17T05:37:54+00:00"
     },
     "홍어전문|구로구": {
       "addr_type": "PointAddress",

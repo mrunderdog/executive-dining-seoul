@@ -1,13 +1,12 @@
 # Capital Region monthly source status — 2026-08
 
-Generated: 2026-09-17T14:11:57+09:00
+Generated: 2026-09-17T14:28:52+09:00
 
 ## Summary
 
 - **DISCOVERY_REQUIRED**: 63
-- **FETCH_FAILED**: 3
 - **SOURCE_OK_TARGET_PERIOD_NOT_FOUND**: 1
-- **TARGET_PERIOD_VISIBLE**: 2
+- **TARGET_PERIOD_VISIBLE**: 5
 
 ## By region
 
@@ -17,13 +16,12 @@ Generated: 2026-09-17T14:11:57+09:00
 
 ### 경기
 - DISCOVERY_REQUIRED: 28
-- FETCH_FAILED: 2
 - SOURCE_OK_TARGET_PERIOD_NOT_FOUND: 1
-- TARGET_PERIOD_VISIBLE: 1
+- TARGET_PERIOD_VISIBLE: 3
 
 ### 인천
 - DISCOVERY_REQUIRED: 10
-- FETCH_FAILED: 1
+- TARGET_PERIOD_VISIBLE: 1
 
 > This report is a source-discovery gate. A source being visible does **not** mean its PDF/XLSX rows were automatically ingested yet.
 > Quarterly sources are treated as visible when the target month's quarter marker is present.
@@ -58,7 +56,7 @@ Generated: 2026-09-17T14:11:57+09:00
 | 서울 | 강남구 | 강남구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 서울 | 송파구 | 송파구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 서울 | 강동구 | 강동구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
-| 경기 | 수원시 | 수원특례시의회 | basic_council | FETCH_FAILED | <urlopen error timed out> | [official](https://council.suwon.go.kr/kr/costBBS.do) |
+| 경기 | 수원시 | 수원특례시의회 | basic_council | TARGET_PERIOD_VISIBLE | HTTP 200; markers=2026년 8월,2026년8월,2026.08,2026-08,2026/08,2026년 3분기,2026년3분기,26년 3분기,26년3분기 | [official](https://council.suwon.go.kr/kr/costBBS.do) |
 | 경기 | 용인시 | 용인특례시의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 경기 | 고양시 | 고양특례시의회 | basic_council | SOURCE_OK_TARGET_PERIOD_NOT_FOUND | HTTP 200; markers=2026년 8월,2026년8월,2026.08,2026-08,2026/08,2026년 3분기,2026년3분기,26년 3분기,26년3분기 | [official](https://www.goyangcouncil.go.kr/kr/costBBS.do) |
 | 경기 | 화성시 | 화성특례시의회 | basic_council | TARGET_PERIOD_VISIBLE | HTTP 200; markers=2026년 8월,2026년8월,2026.08,2026-08,2026/08,2026년 3분기,2026년3분기,26년 3분기,26년3분기 | [official](https://council.hscity.go.kr/cnts/bbs/boardList.php?bbsCd=cns&bbsSubCd=cns08) |
@@ -94,13 +92,13 @@ Generated: 2026-09-17T14:11:57+09:00
 | 인천 | 미추홀구 | 미추홀구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 인천 | 연수구 | 연수구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 인천 | 남동구 | 남동구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
-| 인천 | 부평구 | 부평구의회 | basic_council | FETCH_FAILED | <urlopen error timed out> | [official](https://council.icbp.go.kr/kr/data/bbs?bbs_id=expense) |
+| 인천 | 부평구 | 부평구의회 | basic_council | TARGET_PERIOD_VISIBLE | HTTP 200; markers=2026년 8월,2026년8월,2026.08,2026-08,2026/08,2026년 3분기,2026년3분기,26년 3분기,26년3분기 | [official](https://council.icbp.go.kr/kr/data/bbs?bbs_id=expense) |
 | 인천 | 계양구 | 계양구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 인천 | 서구 | 서구의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 인천 | 강화군 | 강화군의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 인천 | 옹진군 | 옹진군의회 | basic_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 | 서울 | 서울특별시 | 서울특별시의회 | regional_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
-| 경기 | 경기도 | 경기도의회 | regional_council | FETCH_FAILED | <urlopen error timed out> | [official](https://www.ggc.go.kr/site/main/duty/list) |
+| 경기 | 경기도 | 경기도의회 | regional_council | TARGET_PERIOD_VISIBLE | HTTP 200; markers=2026년 8월,2026년8월,2026.08,2026-08,2026/08,2026년 3분기,2026년3분기,26년 3분기,26년3분기 | [official](https://www.ggc.go.kr/site/main/duty/list) |
 | 인천 | 인천광역시 | 인천광역시의회 | regional_council | DISCOVERY_REQUIRED | official listing URL not verified | - |
 
 ## Publish gate

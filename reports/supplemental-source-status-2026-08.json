@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T14:13:19+09:00",
+  "generated_at": "2026-09-17T14:29:06+09:00",
   "rows": [
     {
       "key": "seoul_city_hall",
@@ -20,8 +20,8 @@
       "adapter": "gyeonggi_expense_boards",
       "verified": true,
       "url": "https://www.gg.go.kr/bbs/board.do?bsIdx=803&menuId=1768",
-      "status": "FETCH_FAILED",
-      "detail": "<urlopen error timed out>"
+      "status": "SOURCE_OK_TARGET_PERIOD_NOT_FOUND",
+      "detail": "HTTP 200; adapter=gyeonggi_expense_boards"
     },
     {
       "key": "incheon_metropolitan_government",
