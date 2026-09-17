@@ -1,6 +1,17 @@
 name: Central + National refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/ingest_national_legislator_expense.py'
+      - 'pipeline/build_national_legislator_candidates.py'
+      - 'pipeline/central_executive_discovery.py'
+      - 'pipeline/ingest_central_executive_expense.py'
+      - 'pipeline/build_central_executive_candidates.py'
+      - 'pipeline/extra_published.py'
+      - 'sources/central_executive_registry.json'
+      - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
     inputs:
       year:
@@ -32,11 +43,19 @@ jobs:
       - name: Install spreadsheet parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
 
+      - name: Resolve target year
+        id: target
+        shell: bash
+        run: |
+          YEAR="${{ github.event.inputs.year }}"
+          if [[ -z "$YEAR" ]]; then YEAR="2026"; fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+
       - name: Discover central-government expense sources
-        run: python pipeline/central_executive_discovery.py --year "${{ inputs.year }}"
+        run: python pipeline/central_executive_discovery.py --year "${{ steps.target.outputs.year }}"
 
       - name: Ingest central-government spreadsheets
-        run: python pipeline/ingest_central_executive_expense.py --year "${{ inputs.year }}"
+        run: python pipeline/ingest_central_executive_expense.py --year "${{ steps.target.outputs.year }}"
 
       - name: Build central-government dining candidates
         run: python pipeline/build_central_executive_candidates.py
