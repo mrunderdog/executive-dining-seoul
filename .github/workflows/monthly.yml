@@ -23,6 +23,9 @@ concurrency:
 jobs:
   monthly:
     runs-on: ubuntu-latest
+    env:
+      SEOUL_API_KEY: ${{ secrets.SEOUL_API_KEY }}
+      SEOUL_SERVICE_NAME: odExpense
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -66,18 +69,15 @@ jobs:
         run: python pipeline/build_source_candidates.py --source goyang --top 100
 
       - name: Ingest Seoul City Hall official OpenAPI
-        if: ${{ secrets.SEOUL_API_KEY != '' }}
-        env:
-          SEOUL_API_KEY: ${{ secrets.SEOUL_API_KEY }}
-          SEOUL_SERVICE_NAME: odExpense
+        if: ${{ env.SEOUL_API_KEY != '' }}
         run: python pipeline/ingest_seoul_city_expense.py --since 2024-12
 
       - name: Build Seoul City Hall executive candidates
-        if: ${{ secrets.SEOUL_API_KEY != '' }}
+        if: ${{ env.SEOUL_API_KEY != '' }}
         run: python pipeline/build_seoul_city_candidates.py --top 100
 
       - name: Note Seoul API key status
-        if: ${{ secrets.SEOUL_API_KEY == '' }}
+        if: ${{ env.SEOUL_API_KEY == '' }}
         run: echo "SEOUL_API_KEY is not configured; Seoul City Hall raw ingestion is skipped."
 
       - name: Sanity gate staged raw data
