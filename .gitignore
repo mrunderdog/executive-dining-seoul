@@ -5,5 +5,7 @@ __pycache__/
 index.html
 reports/quality.json
 
-# Large API working files are regenerated inside GitHub Actions and must never be committed.
+# Large API / public-data working files are regenerated inside GitHub Actions and must never be committed.
 data/raw/seoul_city_hall_expense.json
+data/raw/central_executive_expense.json
+data/raw/national_legislator_2024_expense.json
