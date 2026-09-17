@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: geocode-cache
+  group: published-data-writer
   cancel-in-progress: false
 
 jobs:
@@ -34,6 +34,10 @@ jobs:
 
       - name: Populate only uncached coordinates
         run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Verify legislator map QA
+        if: hashFiles('reports/national-legislator-candidates.json') != ''
+        run: python pipeline/qa_national_legislator_map.py
 
       - name: Verify published dataset quality
         run: python pipeline/quality_gate.py
