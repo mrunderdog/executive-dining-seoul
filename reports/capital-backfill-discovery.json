@@ -1,11 +1,18 @@
 {
-  "generated_at": "2026-09-16T05:43:50",
+  "generated_at": "2026-09-17T05:02:28",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
-    "goyang"
+    "suwon",
+    "goyang",
+    "bupyeong"
   ],
   "posts": [
+    {
+      "source": "suwon",
+      "listing_url": "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1",
+      "error": "listing URLError: <urlopen error timed out>"
+    },
     {
       "source": "goyang",
       "region": "경기",
@@ -145,6 +152,11 @@
           "onclick": ""
         }
       ]
+    },
+    {
+      "source": "bupyeong",
+      "listing_url": "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page=1",
+      "error": "listing URLError: <urlopen error timed out>"
     }
   ]
 }
