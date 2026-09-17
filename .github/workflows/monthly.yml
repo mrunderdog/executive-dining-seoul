@@ -23,7 +23,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: monthly-data-refresh
+  group: published-data-writer
   cancel-in-progress: false
 
 jobs:
@@ -151,13 +151,17 @@ jobs:
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
           PY
 
-      - name: Refresh static coordinates for existing published dataset
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/geocode_cache.py --mode auto
-
-      - name: Refresh coordinates for central and National Assembly cohorts
+      - name: Geocode central and National Assembly pre-QA candidates
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/geocode_extra_cache.py
+
+      - name: QA National Assembly restaurant entities and map coordinates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/qa_national_legislator_map.py
+
+      - name: Refresh static coordinates for QA-approved public dataset
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/geocode_cache.py --mode auto
 
       - name: Fast-mode note
         if: steps.mode.outputs.full != 'true'
@@ -181,5 +185,4 @@ jobs:
             exit 0
           fi
           git commit -m "chore: monthly data refresh"
-          git pull --rebase origin main
           git push origin HEAD:main

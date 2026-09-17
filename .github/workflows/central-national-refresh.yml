@@ -11,6 +11,9 @@ on:
       - 'pipeline/build_central_executive_candidates.py'
       - 'pipeline/extra_published.py'
       - 'pipeline/geocode_cache.py'
+      - 'pipeline/geocode_extra_cache.py'
+      - 'pipeline/qa_national_legislator_map.py'
+      - 'pipeline/quality_gate.py'
       - 'sources/central_executive_registry.json'
       - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
@@ -24,8 +27,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: central-national-refresh
-  cancel-in-progress: true
+  group: published-data-writer
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -67,11 +70,17 @@ jobs:
       - name: Build National Assembly dining candidates
         run: python pipeline/build_national_legislator_candidates.py
 
+      - name: Geocode central and National Assembly pre-QA candidates
+        run: python pipeline/geocode_extra_cache.py
+
+      - name: QA National Assembly restaurant entities and map coordinates
+        run: python pipeline/qa_national_legislator_map.py
+
+      - name: Refresh static coordinates for QA-approved public dataset
+        run: python pipeline/geocode_cache.py --mode auto
+
       - name: Quality gate public dataset
         run: python pipeline/quality_gate.py
-
-      - name: Refresh static coordinates for new public candidates
-        run: python pipeline/geocode_cache.py --mode auto
 
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
@@ -87,5 +96,4 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh central and National Assembly data"
-          git pull --rebase origin main
           git push origin HEAD:main
