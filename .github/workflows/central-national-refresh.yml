@@ -10,6 +10,7 @@ on:
       - 'pipeline/ingest_central_executive_expense.py'
       - 'pipeline/build_central_executive_candidates.py'
       - 'pipeline/extra_published.py'
+      - 'pipeline/geocode_cache.py'
       - 'sources/central_executive_registry.json'
       - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
@@ -24,7 +25,7 @@ permissions:
 
 concurrency:
   group: central-national-refresh
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh:
