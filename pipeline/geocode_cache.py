@@ -2,7 +2,8 @@
 """Persistent build-time geocoding for the public restaurant map.
 
 Published capital-area rows without a source address are resolved only inside their
-origin jurisdiction. This prevents generic names from being pinned in another city.
+origin jurisdiction. Central-government and National Assembly supplements are also
+included in the same published-record merge used by the site build.
 """
 from __future__ import annotations
 
@@ -18,17 +19,16 @@ from pathlib import Path
 
 from data_io import load_payload
 from published_sources import merge_published_sources
+from extra_published import merge_extra_published
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "data" / "geocode_cache.json"
-USER_AGENT = "ExecutiveDiningSeoul/1.4 (+https://github.com/mrunderdog/executive-dining-seoul)"
+USER_AGENT = "ExecutiveDiningSeoul/1.5 (+https://github.com/mrunderdog/executive-dining-seoul)"
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
 ARCGIS = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
-GEOCODER_VERSION = 3
-POLICY_VERSION = 2
+GEOCODER_VERSION = 4
+POLICY_VERSION = 3
 
-# xmin, ymin, xmax, ymax in WGS84. Deliberately a little wider than administrative
-# borders so edge-of-city restaurants are not rejected by rounding/geocoder offsets.
 JURISDICTION_BOUNDS = {
     "고양시": (126.65, 37.48, 126.98, 37.80),
     "고양특례시": (126.65, 37.48, 126.98, 37.80),
@@ -93,6 +93,10 @@ def save_cache(cache: dict) -> None:
 def source_bounds(r: dict):
     if not r.get("published_source") or clean(r.get("address")):
         return None
+    # National-level records must not inherit a false local bound. They are resolved
+    # by source address when available, otherwise by business name in Korea.
+    if clean(r.get("cohort")) in {"national_legislator", "central_executive"}:
+        return None
     for k in (clean(r.get("origin")), clean(r.get("jurisdiction"))):
         if k in JURISDICTION_BOUNDS:
             return JURISDICTION_BOUNDS[k]
@@ -142,17 +146,28 @@ def query_plan(r: dict) -> list[tuple[str, str]]:
     caddr = clean_address(addr)
     q = clean(r.get("search_query"))
     plan = []
-    if addr: plan.append((addr, "address"))
-    if caddr and caddr != addr: plan.append((caddr, "address"))
-    if name and caddr: plan.append((f"{name} {caddr}", "name_address"))
-    if raw and raw != name and caddr: plan.append((f"{raw} {caddr}", "name_address"))
-    if q: plan.append((q, "name_address" if addr else "name"))
-    if name and not r.get("published_source"): plan.append((f"{name} 대한민국", "name"))
+    if addr:
+        plan.append((addr, "address"))
+    if caddr and caddr != addr:
+        plan.append((caddr, "address"))
+    if name and caddr:
+        plan.append((f"{name} {caddr}", "name_address"))
+    if raw and raw != name and caddr:
+        plan.append((f"{raw} {caddr}", "name_address"))
+    if q:
+        plan.append((q, "name_address" if addr else "name"))
+    # National supplements often lack a source address. Name-only geocoding is allowed,
+    # but still requires a strong exact-name match before coordinates are accepted.
+    if name and (not r.get("published_source") or clean(r.get("cohort")) in {"national_legislator", "central_executive"}):
+        plan.append((f"{name} 대한민국", "name"))
+        if clean(r.get("cohort")) == "national_legislator":
+            plan.append((f"{name} 여의도 서울", "name"))
     out, seen = [], set()
     for text, mode in plan:
         text = clean(text)
         if text and text.lower() not in seen:
-            seen.add(text.lower()); out.append((text, mode))
+            seen.add(text.lower())
+            out.append((text, mode))
     return out
 
 
@@ -207,12 +222,14 @@ def acceptable(r: dict, result: dict, mode: str) -> bool:
         return False
     if result.get("source") == "arcgis":
         score = result.get("score", 0)
-        if mode == "address": return score >= 80
-        if mode == "name_address": return score >= 82 and name_ok(r, result)
-        return score >= 90 and name_ok(r, result)
+        if mode == "address":
+            return score >= 80
+        if mode == "name_address":
+            return score >= 82 and name_ok(r, result)
+        # Name-only national matching is intentionally stricter.
+        threshold = 94 if clean(r.get("cohort")) in {"national_legislator", "central_executive"} else 90
+        return score >= threshold and name_ok(r, result)
     if mode == "name":
-        # A bounded exact-name result is acceptable even when OSM's feature type is
-        # generic; some Korean POIs are tagged as shops rather than restaurants.
         return name_ok(r, result)
     return True
 
@@ -260,14 +277,17 @@ def cache_current(old: dict, r: dict, fp: str, retry_all: bool) -> bool:
 
 def main() -> None:
     ap=argparse.ArgumentParser(); ap.add_argument("--mode",choices=["auto","initial","regular"],default="auto"); ap.add_argument("--max-new",type=int,default=0); ap.add_argument("--retry-all",action="store_true"); args=ap.parse_args()
-    records=merge_published_sources(load_payload()).get("records",[])
+    records=merge_extra_published(merge_published_sources(load_payload())).get("records",[])
     cache=load_cache(); items=cache.setdefault("records",{}); todo=[]
     for r in records:
         key=f"{r.get('name','')}|{r.get('origin','')}"; old=items.get(key) if isinstance(items.get(key),dict) else {}; fp=fingerprint(r)
-        if cache_current(old,r,fp,args.retry_all): continue
+        if cache_current(old,r,fp,args.retry_all):
+            continue
         plan=query_plan(r)
-        if plan: todo.append((key,r,fp,plan))
-    if args.max_new>0: todo=todo[:args.max_new]
+        if plan:
+            todo.append((key,r,fp,plan))
+    if args.max_new>0:
+        todo=todo[:args.max_new]
     ok=failed=requests=0
     print(f"geocoder v{GEOCODER_VERSION}/policy{POLICY_VERSION}; records={len(records)}; candidates={len(todo)}")
     for i,(key,r,fp,plan) in enumerate(todo,1):
@@ -285,4 +305,5 @@ def main() -> None:
     print(json.dumps({"records":len(records),"processed":len(todo),"requests":requests,"ok":ok,"failed":failed,"success_total":success,"coverage":round(success/len(records),4) if records else 0},ensure_ascii=False))
 
 
-if __name__=="__main__": main()
+if __name__=="__main__":
+    main()
