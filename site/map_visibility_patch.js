@@ -110,11 +110,23 @@
     .find(btn=>btn.textContent.trim().startsWith('지도톤'));
   let styleSwitchSeq=0;
 
-  function updateStyleButton(){
+  function updateStyleButton(loading=false){
     if(!styleButton) return;
+    if(loading){
+      styleButton.textContent='지도톤 · 전환 중…';
+      styleButton.setAttribute('aria-busy','true');
+      styleButton.title='지도 스타일을 불러오는 중입니다';
+      styleButton.style.cursor='wait';
+      styleButton.style.opacity='.72';
+      return;
+    }
     const colorMode=styleMode==='liberty';
     styleButton.textContent=colorMode?'지도톤 · 컬러':'지도톤 · 라이트';
     styleButton.setAttribute('aria-pressed',colorMode?'true':'false');
+    styleButton.setAttribute('aria-busy','false');
+    styleButton.title='라이트/컬러 지도 전환';
+    styleButton.style.cursor='pointer';
+    styleButton.style.opacity='1';
   }
 
   // Register style.load BEFORE setStyle(). The previous implementation did the
@@ -124,7 +136,10 @@
     const nextMode=styleMode==='positron'?'liberty':'positron';
     const seq=++styleSwitchSeq;
     if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
-    if(styleButton) styleButton.disabled=true;
+    if(styleButton){
+      styleButton.disabled=true;
+      updateStyleButton(true);
+    }
 
     let finished=false;
     const finish=()=>{
@@ -134,13 +149,12 @@
       cleanupLegacyLayers();
       renderDomMarkers();
       updateMap(false);
-      updateStyleButton();
+      updateStyleButton(false);
       if(styleButton) styleButton.disabled=false;
     };
 
     map.once('style.load',finish);
     styleMode=nextMode;
-    updateStyleButton();
     map.setStyle(STYLES[styleMode]);
 
     // Network/style errors must never strand the toggle in a disabled state.
@@ -153,8 +167,7 @@
       if(styleButton.disabled) return;
       switchStyle();
     };
-    styleButton.title='라이트/컬러 지도 전환';
-    updateStyleButton();
+    updateStyleButton(false);
   }
 
   if(map.loaded()){
