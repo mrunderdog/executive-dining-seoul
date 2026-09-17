@@ -33,8 +33,6 @@ FIELD_ALIASES = {
     "budget_item": ("EXPENSE_TYPE", "BUDGET_NM", "BUDGET_ITEM"),
     "document_url": ("DOC_URL", "DOCUMENT_URL", "URL"),
     "document_id": ("DOC_ID", "DOC_NO", "DOC_SEQ"),
-    "year": ("EXEC_YEAR", "YEAR"),
-    "month": ("EXEC_MONTH", "MONTH"),
 }
 
 
@@ -99,9 +97,11 @@ def split_place(v: str) -> tuple[str, str]:
     if not m:
         return s, ""
     name, hint = text(m.group(1)), text(m.group(2))
-    address_tokens = ("서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산",
-                      "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주",
-                      "구 ", "시 ", "군 ", "로 ", "길 ", "동 ", "대로")
+    address_tokens = (
+        "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산",
+        "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주",
+        "구 ", "시 ", "군 ", "로 ", "길 ", "동 ", "대로",
+    )
     if any(tok in hint for tok in address_tokens):
         return name or s, hint
     return s, ""
@@ -126,7 +126,7 @@ def fetch_page(api_key: str, start: int, end: int, service_name: str) -> tuple[l
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "ExecutiveDiningSeoul/2.0 (+https://github.com/mrunderdog/executive-dining-seoul)",
+            "User-Agent": "ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)",
             "Accept": "application/json",
         },
     )
@@ -141,7 +141,7 @@ def fetch_page(api_key: str, start: int, end: int, service_name: str) -> tuple[l
     return rows, int(total) if isinstance(total, (int, float, str)) and str(total).isdigit() else None
 
 
-def normalize_row(row: dict, since: tuple[int, int], until: tuple[int, int]) -> dict:
+def normalize_row(row: dict) -> dict:
     used_date, used_time = parse_datetime(row_get(row, "used_at"))
     merchant, address = split_place(row_get(row, "merchant"))
     amount = parse_amount(row_get(row, "amount"))
@@ -173,7 +173,7 @@ def normalize_row(row: dict, since: tuple[int, int], until: tuple[int, int]) -> 
         "amount": amount,
         "payment_method": row_get(row, "payment_method"),
         "budget_item": row_get(row, "budget_item"),
-        "date_quality": "in_period" if month_in_range(used_date, since, until) else ("parsed_outside_period" if used_date else "unparsed"),
+        "date_quality": "parsed" if used_date else "unparsed",
     }
     identity = "|".join(
         str(normalized.get(k) or "")
@@ -201,19 +201,32 @@ def main() -> None:
     since, until = ym_value(args.since), ym_value(args.until)
     all_rows: list[dict] = []
     total_count = None
+    scanned_rows = 0
+    unparsed_dates = 0
     start = 1
     page_no = 0
 
     while True:
         end = start + PAGE_SIZE - 1
-        rows, total = fetch_page(api_key, start, end, args.service)
+        api_rows, total = fetch_page(api_key, start, end, args.service)
         page_no += 1
         if total_count is None and total is not None:
             total_count = total
-        if not rows:
+        if not api_rows:
             break
-        all_rows.extend(normalize_row(r, since, until) for r in rows)
-        if len(rows) < PAGE_SIZE:
+
+        scanned_rows += len(api_rows)
+        for raw in api_rows:
+            normalized = normalize_row(raw)
+            if not normalized["used_date"]:
+                unparsed_dates += 1
+                continue
+            if not month_in_range(normalized["used_date"], since, until):
+                continue
+            normalized["date_quality"] = "in_period"
+            all_rows.append(normalized)
+
+        if len(api_rows) < PAGE_SIZE:
             break
         if args.max_pages and page_no >= args.max_pages:
             break
@@ -222,13 +235,11 @@ def main() -> None:
     unique = {r["row_id"]: r for r in all_rows}
     rows = sorted(unique.values(), key=lambda r: (r.get("used_date") or "", r.get("department") or "", r["row_id"]))
 
-    valid_dates = [r for r in rows if r.get("used_date")]
-    in_period = [r for r in rows if r.get("date_quality") == "in_period"]
-    merchant_rows = [r for r in in_period if r.get("merchant")]
-    amount_rows = [r for r in in_period if isinstance(r.get("amount"), int) and r["amount"] >= 0]
+    merchant_rows = [r for r in rows if r.get("merchant")]
+    amount_rows = [r for r in rows if isinstance(r.get("amount"), int) and r["amount"] >= 0]
 
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "source": "seoul_city_hall",
         "service_name": args.service,
         "dataset": "OA-22156",
@@ -236,12 +247,13 @@ def main() -> None:
         "since": args.since,
         "until": args.until,
         "api_total_count": total_count,
+        "api_rows_scanned": scanned_rows,
         "row_count": len(rows),
         "raw_quality": {
-            "valid_date_coverage": round(len(valid_dates) / len(rows), 4) if rows else 0,
-            "in_period_rows": len(in_period),
-            "merchant_coverage_in_period": round(len(merchant_rows) / len(in_period), 4) if in_period else 0,
-            "amount_coverage_in_period": round(len(amount_rows) / len(in_period), 4) if in_period else 0,
+            "unparsed_date_rows_scanned": unparsed_dates,
+            "in_period_rows": len(rows),
+            "merchant_coverage_in_period": round(len(merchant_rows) / len(rows), 4) if rows else 0,
+            "amount_coverage_in_period": round(len(amount_rows) / len(rows), 4) if rows else 0,
         },
         "rows": rows,
     }
@@ -249,10 +261,10 @@ def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     REPORTS.mkdir(parents=True, exist_ok=True)
     out = RAW_DIR / "seoul_city_hall_expense.json"
-    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    out.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    by_month = Counter((r.get("used_date") or "")[:7] for r in in_period if r.get("used_date"))
-    by_department = Counter(r.get("department") or "(unknown)" for r in in_period)
+    by_month = Counter((r.get("used_date") or "")[:7] for r in rows if r.get("used_date"))
+    by_department = Counter(r.get("department") or "(unknown)" for r in rows)
     report = REPORTS / "seoul-city-hall-ingestion.md"
     lines = [
         "# Seoul City Hall expense ingestion",
@@ -260,11 +272,11 @@ def main() -> None:
         f"- Dataset: OA-22156 / `{args.service}`",
         f"- Requested period: **{args.since} ~ {args.until}**",
         f"- API total count: **{total_count if total_count is not None else 'unknown'}**",
-        f"- Normalized rows: **{len(rows)}**",
-        f"- In-period rows: **{len(in_period)}**",
-        f"- Valid-date coverage: **{payload['raw_quality']['valid_date_coverage']:.1%}**",
-        f"- Merchant coverage (in period): **{payload['raw_quality']['merchant_coverage_in_period']:.1%}**",
-        f"- Amount coverage (in period): **{payload['raw_quality']['amount_coverage_in_period']:.1%}**",
+        f"- API rows scanned: **{scanned_rows}**",
+        f"- Rows retained for requested period: **{len(rows)}**",
+        f"- Unparsed-date rows skipped: **{unparsed_dates}**",
+        f"- Merchant coverage: **{payload['raw_quality']['merchant_coverage_in_period']:.1%}**",
+        f"- Amount coverage: **{payload['raw_quality']['amount_coverage_in_period']:.1%}**",
         "",
         "## Rows by month",
         "",
@@ -276,15 +288,16 @@ def main() -> None:
         lines.append(f"- {k}: {v}")
     lines += [
         "",
-        "> Raw ingestion only. Restaurants are not published until meal filtering, entity matching, geocoding and the publication gate pass.",
+        "> The raw JSON is a temporary working file and is intentionally gitignored. Only compact reports/candidates are committed.",
+        "> Restaurants are not published until meal filtering, entity matching, geocoding and the publication gate pass.",
         "",
     ]
     report.write_text("\n".join(lines), encoding="utf-8")
 
     print(json.dumps({
         "source": "seoul_city_hall",
-        "rows": len(rows),
-        "in_period": len(in_period),
+        "api_rows_scanned": scanned_rows,
+        "rows_retained": len(rows),
         "api_total_count": total_count,
         "quality": payload["raw_quality"],
     }, ensure_ascii=False))
