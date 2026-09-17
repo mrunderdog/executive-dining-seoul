@@ -2,15 +2,21 @@ name: Monthly data refresh
 
 on:
   schedule:
-    # 03:00 UTC = 12:00 KST on the 15th of every month
+    # 03:00 UTC = 12:00 KST on the 15th of every month.
+    # Scheduled runs are always FULL refreshes.
     - cron: '0 3 15 * *'
   workflow_dispatch:
     inputs:
+      full_refresh:
+        description: 'FULL refresh: re-fetch all official sources (takes ~9 min)'
+        required: false
+        type: boolean
+        default: false
       year:
-        description: 'Target year (optional)'
+        description: 'Target year (optional, FULL refresh only)'
         required: false
       month:
-        description: 'Target month 1-12 (optional)'
+        description: 'Target month 1-12 (optional, FULL refresh only)'
         required: false
 
 permissions:
@@ -37,10 +43,27 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Decide refresh mode
+        id: mode
+        shell: bash
+        run: |
+          FULL=false
+          if [[ "${{ github.event_name }}" == "schedule" || "${{ inputs.full_refresh }}" == "true" ]]; then
+            FULL=true
+          fi
+          echo "full=$FULL" >> "$GITHUB_OUTPUT"
+          if [[ "$FULL" == "true" ]]; then
+            echo "FULL refresh: official sources will be re-fetched."
+          else
+            echo "FAST validation: source crawling/API ingestion is skipped."
+          fi
+
       - name: Install spreadsheet parsers
+        if: steps.mode.outputs.full == 'true'
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
 
       - name: Build target arguments
+        if: steps.mode.outputs.full == 'true'
         id: target
         shell: bash
         run: |
@@ -51,36 +74,43 @@ jobs:
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
 
       - name: Check official monthly council sources
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/monthly_update.py ${{ steps.target.outputs.args }}
 
       - name: Check supplemental executive and legislator sources
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/supplemental_source_status.py ${{ steps.target.outputs.args }}
 
       - name: Discover Capital Area source posts and attachments
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/capital_backfill.py --since 2024-12
 
       - name: Ingest supported official spreadsheets
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/ingest_council_expense.py --source goyang
 
       - name: Repair legacy XLS serial dates
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
 
       - name: Build publishable executive candidates
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_source_candidates.py --source goyang --top 100
 
       - name: Ingest Seoul City Hall official OpenAPI
-        if: ${{ env.SEOUL_API_KEY != '' }}
+        if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY != ''
         run: python pipeline/ingest_seoul_city_expense.py --since 2024-12
 
       - name: Build Seoul City Hall executive candidates
-        if: ${{ env.SEOUL_API_KEY != '' }}
+        if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY != ''
         run: python pipeline/build_seoul_city_candidates.py --top 100
 
       - name: Note Seoul API key status
-        if: ${{ env.SEOUL_API_KEY == '' }}
+        if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY == ''
         run: echo "SEOUL_API_KEY is not configured; Seoul City Hall raw ingestion is skipped."
 
       - name: Sanity gate staged raw data
+        if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
           python - <<'PY'
@@ -102,7 +132,12 @@ jobs:
           PY
 
       - name: Refresh static coordinates for published dataset
+        if: steps.mode.outputs.full == 'true'
         run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Fast-mode note
+        if: steps.mode.outputs.full != 'true'
+        run: echo "FAST mode uses committed reports/data and only validates the publish pipeline."
 
       - name: Quality gate published dataset
         run: python pipeline/quality_gate.py
@@ -111,6 +146,7 @@ jobs:
         run: python pipeline/build_site.py --output /tmp/index.html
 
       - name: Commit generated monthly data and reports
+        if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
