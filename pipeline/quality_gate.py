@@ -82,6 +82,51 @@ def main() -> None:
         if pct(unknown_category, total) > 0.60:
             warnings.append(f"category coverage is low: {total-unknown_category}/{total}")
 
+    # National-legislator publication is governed by a dedicated entity/map QA report.
+    legislator_candidates = REPORTS / "national-legislator-candidates.json"
+    legislator_qa = REPORTS / "national-legislator-map-qa.json"
+    legislator_records = [r for r in records if r.get("published_source") == "national_legislator_2024"]
+    if legislator_candidates.exists():
+        if not legislator_qa.exists():
+            errors.append("national legislator candidates exist but map QA report is missing")
+        else:
+            try:
+                qdoc = json.loads(legislator_qa.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                errors.append(f"national legislator QA report is unreadable: {exc}")
+                qdoc = {}
+            if qdoc and not qdoc.get("passed"):
+                errors.append("national legislator map QA gate did not pass")
+            approved = qdoc.get("approved") or []
+            expected = min(80, len(approved))
+            if len(legislator_records) != expected:
+                errors.append(
+                    f"national legislator published count mismatch: records={len(legislator_records)}, approved={expected}"
+                )
+            approved_names = {str(x.get("merchant", "")).strip() for x in approved[:80]}
+            leaked = [str(r.get("name", "")).strip() for r in legislator_records if str(r.get("name", "")).strip() not in approved_names]
+            if leaked:
+                errors.append("non-QA legislator records leaked into publication: " + "; ".join(leaked[:20]))
+
+            geo_path = ROOT / "data" / "geocode_cache.json"
+            if geo_path.exists():
+                try:
+                    geo_obj = json.loads(geo_path.read_text(encoding="utf-8"))
+                    geo_records = geo_obj.get("records", geo_obj if isinstance(geo_obj, dict) else {})
+                except (OSError, json.JSONDecodeError):
+                    geo_records = {}
+                missing_leg_coords = []
+                for r in legislator_records:
+                    key = f"{r.get('name','')}|{r.get('origin','')}"
+                    g = geo_records.get(key) or {}
+                    if not isinstance(g.get("lat"), (int, float)) or not isinstance(g.get("lon"), (int, float)):
+                        missing_leg_coords.append(str(r.get("name", "")))
+                if missing_leg_coords:
+                    errors.append(
+                        "QA-approved legislator records missing static coordinates: "
+                        + "; ".join(missing_leg_coords[:20])
+                    )
+
     supplements = sum(1 for r in records if r.get("published_source"))
     result = {
         "passed": not errors,
