@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       full_refresh:
-        description: 'FULL refresh: re-fetch all official sources (takes ~9 min)'
+        description: 'FULL refresh: re-fetch all official/public sources (may take 10-20 min)'
         required: false
         type: boolean
         default: false
@@ -53,7 +53,7 @@ jobs:
           fi
           echo "full=$FULL" >> "$GITHUB_OUTPUT"
           if [[ "$FULL" == "true" ]]; then
-            echo "FULL refresh: official sources will be re-fetched."
+            echo "FULL refresh: official/public sources will be re-fetched."
           else
             echo "FAST validation: source crawling/API ingestion is skipped."
           fi
@@ -93,7 +93,7 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
 
-      - name: Build publishable executive candidates
+      - name: Build publishable council candidates
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_source_candidates.py --source goyang --top 100
 
@@ -109,7 +109,27 @@ jobs:
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY == ''
         run: echo "SEOUL_API_KEY is not configured; Seoul City Hall raw ingestion is skipped."
 
-      - name: Sanity gate staged raw data
+      - name: Discover central-government executive expense files
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/central_executive_discovery.py
+
+      - name: Ingest parseable central-government expense files
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/ingest_central_executive_expense.py
+
+      - name: Build central-government executive candidates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/build_central_executive_candidates.py
+
+      - name: Ingest 2024 National Assembly political-fund spending
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/ingest_national_legislator_expense.py
+
+      - name: Build National Assembly dining candidates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/build_national_legislator_candidates.py
+
+      - name: Sanity gate staged council raw data
         if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
@@ -131,9 +151,13 @@ jobs:
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
           PY
 
-      - name: Refresh static coordinates for published dataset
+      - name: Refresh static coordinates for existing published dataset
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Refresh coordinates for central and National Assembly cohorts
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/geocode_extra_cache.py
 
       - name: Fast-mode note
         if: steps.mode.outputs.full != 'true'
