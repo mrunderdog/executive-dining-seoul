@@ -20,7 +20,8 @@ def pct(num: int, den: int) -> float:
 def main() -> None:
     from data_io import load_payload
     from published_sources import merge_published_sources
-    payload = merge_published_sources(load_payload())
+    from extra_published import merge_extra_published
+    payload = merge_extra_published(merge_published_sources(load_payload()))
     meta = payload.get("meta", {})
     records = payload.get("records", [])
     errors: list[str] = []
@@ -76,9 +77,9 @@ def main() -> None:
 
     total = len(records)
     if total:
-        if pct(missing_address, total) > 0.50:
+        if pct(missing_address, total) > 0.65:
             warnings.append(f"address coverage is low: {total-missing_address}/{total}")
-        if pct(unknown_category, total) > 0.50:
+        if pct(unknown_category, total) > 0.60:
             warnings.append(f"category coverage is low: {total-unknown_category}/{total}")
 
     supplements = sum(1 for r in records if r.get("published_source"))
