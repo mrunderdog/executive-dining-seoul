@@ -4,3 +4,6 @@ __pycache__/
 .env
 index.html
 reports/quality.json
+
+# Large API working files are regenerated inside GitHub Actions and must never be committed.
+data/raw/seoul_city_hall_expense.json
