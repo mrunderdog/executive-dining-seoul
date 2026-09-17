@@ -1,6 +1,6 @@
 # Capital Region monthly source status — 2026-08
 
-Generated: 2026-09-17T14:28:52+09:00
+Generated: 2026-09-17T16:26:54+09:00
 
 ## Summary
 
