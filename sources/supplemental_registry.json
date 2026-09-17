@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "notes": "Supplemental high-level public-spending sources that are intentionally kept separate from the 66 basic-council registry. verified=true means the official disclosure surface was manually checked; it does not imply row ingestion is implemented.",
+  "scope": {
+    "executive_governments": 3,
+    "national_legislator_collections": 1,
+    "comparison_policy": "separate_cohorts"
+  },
+  "sources": [
+    {
+      "key": "seoul_city_hall",
+      "region": "서울",
+      "jurisdiction": "서울특별시",
+      "institution": "서울특별시 본청",
+      "jurisdiction_level": "regional_executive",
+      "source_family": "executive_government",
+      "cohort": "regional_executive",
+      "verified": true,
+      "url": "https://data.seoul.go.kr/dataList/OA-22156/S/1/datasetView.do",
+      "adapter": "seoul_open_data_dataset",
+      "cadence": "monthly_or_more_frequent",
+      "actor_scope": "시장단 및 4급 부서장 이상",
+      "note": "Official Seoul Open Data dataset; exposes department, use datetime, merchant/place, payment method, amount, purpose, target and budget item. API access requires a Seoul Open Data authentication key, so ingestion should support API-key and file-download modes."
+    },
+    {
+      "key": "gyeonggi_provincial_government",
+      "region": "경기",
+      "jurisdiction": "경기도",
+      "institution": "경기도청",
+      "jurisdiction_level": "regional_executive",
+      "source_family": "executive_government",
+      "cohort": "regional_executive",
+      "verified": true,
+      "url": "https://www.gg.go.kr/bbs/board.do?bsIdx=803&menuId=1768",
+      "adapter": "gyeonggi_expense_boards",
+      "cadence": "monthly_and_quarterly",
+      "actor_scope": "도지사 및 공개 대상 부서/직위",
+      "secondary_urls": [
+        "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bcIdx=536&bsIdx=535&menuId=1778"
+      ],
+      "note": "Official Gyeonggi disclosure pages. Governor and department-level monthly pages plus a quarterly headquarters board should be normalized into the same event schema while retaining actor/department lineage."
+    },
+    {
+      "key": "incheon_metropolitan_government",
+      "region": "인천",
+      "jurisdiction": "인천광역시",
+      "institution": "인천광역시청",
+      "jurisdiction_level": "regional_executive",
+      "source_family": "executive_government",
+      "cohort": "regional_executive",
+      "verified": false,
+      "url": null,
+      "adapter": "discovery_required",
+      "cadence": "unknown",
+      "actor_scope": "시장단 및 공개 대상 고위직",
+      "note": "Keep in target scope; verify the official disclosure listing and attachment/API pattern before enabling ingestion."
+    },
+    {
+      "key": "national_assembly_members",
+      "region": "국회",
+      "jurisdiction": "대한민국 국회",
+      "institution": "국회의원",
+      "jurisdiction_level": "national_legislator",
+      "source_family": "legislator_public_spending",
+      "cohort": "national_legislator",
+      "verified": false,
+      "url": null,
+      "adapter": "discovery_required",
+      "cadence": "annual_or_disclosure_cycle",
+      "actor_scope": "개별 국회의원",
+      "note": "Do not treat parliamentary/political-fund spending as directly comparable with local-government business-promotion expenses. Register only an official disclosure source that exposes merchant-level expenditure with sufficient purpose/date/amount lineage; otherwise keep this cohort disabled from publication."
+    }
+  ]
+}
