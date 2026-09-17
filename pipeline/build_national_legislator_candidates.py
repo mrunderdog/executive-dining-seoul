@@ -11,9 +11,6 @@ ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / 'data/raw/national_legislator_2024_expense.json'
 REPORTS = ROOT / 'reports'
 
-# A row must have an explicit dining/refreshment purpose. Generic words such as
-# '정책', '의원', '회의', or '의정활동' are intentionally NOT sufficient: they
-# previously admitted car rental, party dues, printing and other non-dining spend.
 MEAL_WORDS = (
     '식사', '식대', '간담', '오찬', '만찬', '조찬', '회식', '음식', '다과',
     '급식', '도시락', '케이터링', '식음',
@@ -25,9 +22,6 @@ ROW_EXCLUDE_WORDS = (
     '꽃', '후원금', '인건비', '급여', '자동차', '보험료', '수수료', '통행료',
 )
 
-# Merchant-name vetoes. These are deliberately structural/category words rather
-# than a list of politically selected entities. They remove merchants that are
-# evidently not restaurants even when the purpose text happens to mention a meal.
 MERCHANT_BLOCK_WORDS = (
     '캐피탈', '렌탈', '렌터카', '렌트카', '하이플러스', '보험', '생명', '손해보험',
     '카드', '은행', '증권', '투자증권', '저축은행', '항공', '철도', '코레일',
@@ -36,7 +30,7 @@ MERCHANT_BLOCK_WORDS = (
     '통신', '문구', '사무용', '꽃집', '화원', '정육', '마트', '슈퍼', '편의점',
     '백화점', '면세점', '호텔', '리조트', '여행사', '법무', '세무', '회계',
     '노무', '후원회', '의원연맹', '연구소', '포럼', '위원회', '의원실',
-    '정당', '당사', '선거사무소', '캠프',
+    '정당', '당사', '선거사무소', '캠프', '스타벅스', '커피', '카페',
 )
 
 POLITICAL_ORG_NAMES = (
@@ -49,6 +43,7 @@ EXACT_BLOCK = {
     '상호없음', '사용처없음', '미상', '알수없음', '알 수 없음',
     '우아한형제들', '국회후생복지위원회', '한국아동인구환경의원연맹',
     '국회아프리카새시대포럼', '더좋은미래', '엘에스씨푸드', '엘에스씨푸드(국회의사당)',
+    '엘에스씨푸드(국회의사당)2층', '현대그린푸드국회의원식당',
 }
 
 
@@ -77,10 +72,8 @@ def merchant_block_reason(name: str) -> str:
         return 'political_org'
     if any(compact(x) in c for x in MERCHANT_BLOCK_WORDS):
         return 'non_dining_category'
-    # OCR/private-person artefacts such as '김', '이', '박' should not become a restaurant.
     if re.fullmatch(r'[가-힣]', n):
         return 'single_person_token'
-    # Card/terminal-style merchant strings that are mostly digits are not useful entities.
     if sum(ch.isdigit() for ch in n) >= max(4, len(n) // 2):
         return 'numeric_or_terminal'
     return ''
@@ -109,7 +102,6 @@ def row_is_meal_candidate(r: dict) -> tuple[bool, str]:
 
 
 def score(visits: int, members: int, months: int, spend: int) -> float:
-    # Avoid the old score saturating nearly every popular merchant at 100.
     repeat = min(math.log1p(visits) / math.log1p(200), 1.0)
     breadth = min(math.log1p(members) / math.log1p(80), 1.0)
     persistence = min(months / 12, 1.0)
@@ -146,8 +138,12 @@ def main():
         spend = sum(int(r.get('amount') or 0) for r in items if isinstance(r.get('amount'), (int, float)))
         s = score(visits, len(members), len(months), spend)
         pc = Counter(t(r.get('purpose')) for r in items if t(r.get('purpose')))
+        addr_counter = Counter(t(r.get('address')) for r in items if t(r.get('address')))
+        address = addr_counter.most_common(1)[0][0] if addr_counter else ''
         out.append({
             'merchant': name,
+            'address': address,
+            'address_coverage': round(sum(bool(t(r.get('address'))) for r in items) / visits, 3) if visits else 0,
             'score': s,
             'visits': visits,
             'member_count': len(members),
@@ -185,6 +181,7 @@ def main():
         'explicit_meal_rows': len(accepted),
         'rejected_rows': dict(rejected.most_common()),
         'eligible_count': len(eligible),
+        'eligible_with_address_count': sum(bool(x.get('address')) for x in eligible),
         'candidates': eligible[:200],
     }
     (REPORTS / 'national-legislator-candidates.json').write_text(
@@ -200,6 +197,7 @@ def main():
         f"- Raw spending rows: **{len(d.get('rows', [])):,}**",
         f'- Explicit meal rows after merchant veto: **{len(accepted):,}**',
         f'- Eligible restaurant candidates: **{len(eligible):,}**',
+        f"- Eligible candidates with a source-derived address: **{sum(bool(x.get('address')) for x in eligible):,}**",
         '',
         '## Filtered row reasons',
         '',
@@ -208,12 +206,12 @@ def main():
         md.append(f'- {reason}: {count:,}')
     md += [
         '',
-        '| # | Merchant | Score | Visits | Members | Months | Spend |',
-        '|---:|---|---:|---:|---:|---:|---:|',
+        '| # | Merchant | Address | Score | Visits | Members | Months | Spend |',
+        '|---:|---|---|---:|---:|---:|---:|---:|',
     ]
     for i, x in enumerate(eligible[:100], 1):
         md.append(
-            f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | "
+            f"| {i} | {x['merchant'].replace('|','/')} | {x.get('address','').replace('|','/')} | {x['score']:.1f} | "
             f"{x['visits']} | {x['member_count']} | {x['months']} | {x['spend']:,} |"
         )
     (REPORTS / 'national-legislator-candidates.md').write_text('\n'.join(md) + '\n', encoding='utf-8')
@@ -221,6 +219,7 @@ def main():
         'raw_rows': len(d.get('rows', [])),
         'meal_rows': len(accepted),
         'eligible': len(eligible),
+        'eligible_with_address': sum(bool(x.get('address')) for x in eligible),
         'top10': [x['merchant'] for x in eligible[:10]],
         'rejected': dict(rejected.most_common(8)),
     }, ensure_ascii=False))
