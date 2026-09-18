@@ -44,6 +44,17 @@ SOURCE_SPECS = {
         "max_records": 30,
         "home_tokens": ("화성",),
     },
+    "michuhol": {
+        "origin": "미추홀구",
+        "region": "인천",
+        "jurisdiction": "인천광역시 미추홀구",
+        "institution": "미추홀구의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("미추홀", "인천"),
+    },
     "bupyeong": {
         "origin": "부평구",
         "region": "인천",
