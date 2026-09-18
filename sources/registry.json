@@ -602,9 +602,10 @@
       "institution": "미추홀구의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=1&keyfield=&keyword=",
+      "adapter": "legacy_listing_month_regex",
+      "note": "Official council leadership expense listing; monthly chair-group disclosure."
     },
     {
       "region": "인천",
