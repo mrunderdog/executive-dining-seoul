@@ -16,8 +16,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: published-data-writer
-  cancel-in-progress: false
+  group: capital-council-ingest
+  cancel-in-progress: true
 
 jobs:
   ingest:
@@ -68,10 +68,7 @@ jobs:
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
           PY
 
-      - name: Refresh static coordinates
-        run: python pipeline/geocode_cache.py --mode auto
-
-      - name: Quality gate public dataset
+       - name: Quality gate public dataset
         run: python pipeline/quality_gate.py
 
       - name: Verify site build
@@ -83,10 +80,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/raw/goyang_expense.json data/raw/suwon_expense.json data/raw/bupyeong_expense.json
-          git add data/geocode_cache.json reports/goyang-* reports/suwon-* reports/bupyeong-* reports/capital-backfill-discovery.*
+          git add reports/goyang-* reports/suwon-* reports/bupyeong-* reports/capital-backfill-discovery.*
           if git diff --cached --quiet; then
             echo "No council data changes."
             exit 0
           fi
           git commit -m "data: ingest Capital Area council expenses"
+          git pull --rebase origin main
           git push origin HEAD:main
