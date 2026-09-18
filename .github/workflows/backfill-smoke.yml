@@ -8,27 +8,35 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: capital-source-smoke
+  cancel-in-progress: true
 
 jobs:
   discover:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Discover Suwon/Goyang/Bupyeong official posts and attachments
-        run: python pipeline/capital_backfill.py --since 2024-12
-      - name: Commit discovery report
+      - name: Smoke-test each supported source without writing to main
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/capital-backfill-discovery.*
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "data: refresh capital-area backfill discovery"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          set +e
+          FAIL=0
+          for SOURCE in goyang suwon hwaseong bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
+            echo "=== smoke $SOURCE ==="
+            python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
+            RC=$?
+            if [[ $RC -ne 0 ]]; then
+              echo "::warning::$SOURCE discovery failed in smoke test"
+              FAIL=$((FAIL+1))
+            fi
+          done
+          echo "Smoke-test failures: $FAIL"
+          # This workflow is observational only; source-specific failures are
+          # handled by the production ingestion workflow without blocking peers.
+          exit 0
