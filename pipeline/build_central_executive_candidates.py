@@ -13,6 +13,11 @@ MEAL_WORDS=("간담","오찬","만찬","식사","회의","협의","논의","격�
 EXCLUDE=("경조","축의","조의","화환","꽃","주유","주차","택시","교통","온라인","쿠팡","문구","물품","기념품","사무용","상품권","커피","카페","다과","간식","스타벅스","이디야","파리크라상","편의점","구내식당","정부청사","상호없음","해외출장")
 SENIOR=("장관","차관","처장","차장","청장","부청장","실장","국장","본부장","총리","비서실장")
 GENERIC_MERCHANTS={"상호없음","상호 없음","신화케이푸드","제이제이홈","제이티알"}
+NON_DINING_MERCHANT_WORDS=(
+    "구내식당","정부청사","국회본관식당","현대그린푸드","풀무원푸드앤컬처",
+    "한화푸드테크","두레에프엔씨","푸드앤컬처","케이터링","급식",
+    "은행","카드","캐피탈","보험","증권","렌터카","주유소","마트","편의점",
+)
 
 def t(v):return " ".join(str(v or "").split()).strip()
 def canon_name(v):
@@ -21,6 +26,7 @@ def canon_addr(v):return re.sub(r"\s+"," ",t(v).replace("서울특별시","서�
 def meal(r):
     p=t(r.get("purpose"));m=t(r.get("merchant"));c=p+" "+m
     if not m or canon_name(m) in GENERIC_MERCHANTS:return False
+    if any(x in m for x in NON_DINING_MERCHANT_WORDS):return False
     if any(x in c for x in EXCLUDE):return False
     return any(x in p for x in MEAL_WORDS) or any(x in t(r.get("role")) for x in SENIOR)
 def senior_weight(role):
