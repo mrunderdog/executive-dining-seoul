@@ -21,7 +21,8 @@ def main() -> None:
     from data_io import load_payload
     from published_sources import merge_published_sources
     from extra_published import merge_extra_published
-    payload = merge_extra_published(merge_published_sources(load_payload()))
+    from global_entities import merge_global_entities
+    payload = merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
     meta = payload.get("meta", {})
     records = payload.get("records", [])
     errors: list[str] = []
@@ -31,6 +32,8 @@ def main() -> None:
         errors.append("records must be a non-empty list")
 
     keys_seen = Counter()
+    entity_ids = Counter()
+    cross_entities = 0
     missing_address = 0
     unknown_category = 0
     bad_evidence = 0
@@ -46,6 +49,10 @@ def main() -> None:
         if not name or not origin:
             errors.append(f"record {idx} has empty name/origin")
         keys_seen[(name, origin)] += 1
+        if r.get("entity_id"):
+            entity_ids[str(r.get("entity_id"))] += 1
+        if (r.get("cross_institution") or {}).get("is_cross"):
+            cross_entities += 1
 
         if r.get("type") not in ALLOWED_TYPES:
             errors.append(f"record {idx} has invalid type: {r.get('type')!r}")
@@ -74,6 +81,9 @@ def main() -> None:
     duplicates = [f"{name} / {origin}" for (name, origin), c in keys_seen.items() if c > 1]
     if duplicates:
         errors.append("duplicate name+origin records: " + "; ".join(duplicates[:20]))
+    duplicate_entity_ids = [eid for eid, count in entity_ids.items() if count > 1]
+    if duplicate_entity_ids:
+        errors.append("duplicate global entity_id values: " + "; ".join(duplicate_entity_ids[:20]))
 
     total = len(records)
     if total:
@@ -138,6 +148,8 @@ def main() -> None:
             "missing_address_count": missing_address,
             "unknown_category_count": unknown_category,
             "bad_evidence_count": bad_evidence,
+            "cross_institution_entity_count": cross_entities,
+            "duplicate_entity_id_count": len(duplicate_entity_ids),
             "address_coverage": pct(total - missing_address, total),
             "known_category_coverage": pct(total - unknown_category, total),
         },
