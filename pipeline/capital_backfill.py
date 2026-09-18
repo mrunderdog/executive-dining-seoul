@@ -37,6 +37,10 @@ SOURCES = [
     Source("suwon", "경기", "수원시", "수원특례시의회", "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page={page}", 20, "monthly"),
     Source("goyang", "경기", "고양시", "고양특례시의회", "https://www.goyangcouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 10, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
+    Source("yeonsu", "인천", "연수구", "연수구의회", "https://council.yeonsu.go.kr/kr/businessBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("gyeyang", "인천", "계양구", "계양구의회", "https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("ganghwa", "인천", "강화군", "강화군의회", "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("ongjin", "인천", "옹진군", "옹진군의회", "https://council.ongjin.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
 ]
 
 
@@ -167,6 +171,12 @@ def post_like(a, src: Source):
         return "costBBSview" in u or "costbbsview" in u.lower()
     if src.key == "bupyeong":
         return "expense" in u and ("reform=view" in u.lower() or "bbs" in u.lower())
+    if src.key == "yeonsu":
+        return "businessbbsview" in u.lower()
+    if src.key in {"gyeyang", "ongjin"}:
+        return "costbbsview" in u.lower()
+    if src.key == "ganghwa":
+        return "workbbsview" in u.lower()
     return True
 
 
