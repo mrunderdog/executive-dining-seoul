@@ -151,6 +151,12 @@ def cell(row, mapping, field):
     return row[idx] if idx is not None and idx < len(row) else None
 
 
+def infer_leadership_role(title):
+    s=clean_text(title)
+    if re.search(r"\(의장\)",s): return "의장"
+    if re.search(r"\((?:1|2)부의장\)",s): return "부의장"
+    return ""
+
 def normalize_sheet(rows, sheet_name, source_meta):
     found = find_header(rows)
     if not found:
@@ -192,7 +198,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "source_row": ri,
             "used_date": used_date,
             "used_time": clean_text(cell(row, mapping, "time")),
-            "role": clean_text(cell(row, mapping, "role")) or sheet_name,
+            "role": clean_text(cell(row, mapping, "role")) or source_meta.get("default_role") or sheet_name,
             "merchant": merchant,
             "address": clean_text(cell(row, mapping, "address")),
             "purpose": clean_text(cell(row, mapping, "purpose")),
@@ -232,6 +238,7 @@ def main():
                     meta = {
                         "source": post["source"], "region": post["region"], "jurisdiction": post["jurisdiction"], "institution": post["institution"],
                         "post_url": post["post_url"], "attachment_url": url, "attachment_name": name, "period": post.get("period"),
+                        "default_role": infer_leadership_role(post.get("title")),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
                     per_file["sheets"].append(info)

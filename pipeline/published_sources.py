@@ -88,6 +88,17 @@ SOURCE_SPECS = {
         "max_records": 30,
         "home_tokens": ("옹진", "인천"),
     },
+    "gyeonggi_council": {
+        "origin": "경기도의회",
+        "region": "경기",
+        "jurisdiction": "경기도",
+        "institution": "경기도의회",
+        "min_visits": 3,
+        "min_months": 2,
+        "min_score": 50.0,
+        "max_records": 40,
+        "home_tokens": ("경기", "수원"),
+    },
 }
 
 ENTITY_ALIASES = {
