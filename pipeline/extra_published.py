@@ -43,6 +43,9 @@ def central_records(max_records: int = 120) -> list[dict]:
         months = int(c.get("months") or 0)
         score = float(c.get("score") or 0)
         spend = int(c.get("spend") or 0)
+        top_role_tier = t(c.get("top_role_tier"))
+        top_role_label = t(c.get("top_role_label"))
+        top_official_visits = int(c.get("top_official_visits") or 0)
         roles = [
             {"role": t(x.get("role")), "visits": int(x.get("visits") or 0), "people": 0, "spend": 0}
             for x in (c.get("role_stats") or []) if t(x.get("role"))
@@ -75,6 +78,11 @@ def central_records(max_records: int = 120) -> list[dict]:
                 "months": months,
                 "evening_ratio": 0,
                 "source": "central_executive",
+                "top_role_tier": top_role_tier,
+                "top_role_label": top_role_label,
+                "top_official_visits": top_official_visits,
+                "minister_visits": int(c.get("minister_visits") or 0),
+                "vice_minister_visits": int(c.get("vice_minister_visits") or 0),
             },
             "address": address,
             "search_query": f"{name} {address or '대한민국'}",
@@ -102,7 +110,10 @@ def central_records(max_records: int = 120) -> list[dict]:
                 "recent": recent,
                 "source_rows": [],
             },
-            "why": f"중앙행정기관 공식 업무추진비에서 {visits}회, {len(inst)}개 기관/공개 직위군에 걸쳐 확인된 사용처입니다.",
+            "why": (
+                f"중앙행정기관 공식 업무추진비에서 {visits}회, {len(inst)}개 기관/공개 직위군에 걸쳐 확인된 사용처입니다."
+                + (f" 이 중 총리·장·차관급 공개 직위 사용 {top_official_visits}회가 확인됩니다." if top_official_visits else "")
+            ),
             "published_source": "central_executive",
             "cohort": "central_executive",
         })

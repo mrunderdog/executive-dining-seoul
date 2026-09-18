@@ -219,7 +219,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", default="goyang")
     args = ap.parse_args()
-    discovery = json.loads(DISCOVERY.read_text(encoding="utf-8"))
+    source_discovery = REPORTS / f"capital-backfill-discovery-{args.source}.json"
+    discovery_path = source_discovery if source_discovery.exists() else DISCOVERY
+    discovery = json.loads(discovery_path.read_text(encoding="utf-8"))
     posts = [p for p in discovery.get("posts", []) if p.get("source") == args.source and p.get("post_url")]
     if not posts:
         raise SystemExit(f"no discovered posts for source={args.source}")

@@ -28,7 +28,14 @@ These are stored separately as `regional_council` because their geography and sp
 
 These use `jurisdiction_level=regional_executive` and `source_family=executive_government`. Mayor/governor offices and senior-department spending are especially valuable Executive Dining signals, but should be scored within an executive-government cohort rather than mixed directly into local-council rankings.
 
-### National legislators (P1.5)
+### Central executive government (P1.5)
+
+- Prime Minister / Deputy Prime Minister / ministers / vice ministers and other disclosed senior central-government roles, only from official business-expense disclosure surfaces.
+- Preserve role tiers separately: `prime_minister`, `deputy_prime_minister`, `minister`, `vice_minister`, `agency_head`, `senior_official`, `director_general`.
+- The UI should support a dedicated top-official signal/filter so users can distinguish minister/vice-minister usage from broader senior-official usage.
+- Restaurants are the ranked entities; public officials themselves are not scored or ranked.
+
+### National legislators (P2)
 
 - Members of the National Assembly, only where an official disclosure source exposes merchant-level spending with sufficient date, amount, purpose and source lineage.
 

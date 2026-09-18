@@ -38,6 +38,38 @@ def senior_weight(role):
     if "국장" in s:return .65
     return .5
 
+ROLE_TIER_ORDER={
+    "other":0,
+    "director_general":1,
+    "senior_official":2,
+    "agency_head":3,
+    "vice_minister":4,
+    "minister":5,
+    "deputy_prime_minister":6,
+    "prime_minister":7,
+}
+ROLE_TIER_LABEL={
+    "other":"기타 공개 직위",
+    "director_general":"국장급",
+    "senior_official":"실장급",
+    "agency_head":"기관장·본부장급",
+    "vice_minister":"차관급",
+    "minister":"장관급",
+    "deputy_prime_minister":"부총리급",
+    "prime_minister":"국무총리급",
+}
+
+def role_tier(role):
+    s=t(role)
+    if "국무총리" in s or s=="총리":return "prime_minister"
+    if "부총리" in s:return "deputy_prime_minister"
+    if "장관" in s:return "minister"
+    if "차관" in s:return "vice_minister"
+    if any(x in s for x in ("처장","청장","본부장")):return "agency_head"
+    if "실장" in s:return "senior_official"
+    if "국장" in s:return "director_general"
+    return "other"
+
 def score(visits,roles,months,institutions,weight,senior_ratio,spend):
     return round(100*(
         .22*min(math.log1p(visits)/math.log1p(10),1)
@@ -66,10 +98,13 @@ def main():
         weight=max(weights or [.5])
         senior_visits=sum(1 for w in weights if w>=.65)
         senior_ratio=senior_visits/visits if visits else 0
+        tier_counts=Counter(role_tier(r.get("role")) for r in items)
+        top_role_tier=max(tier_counts,key=lambda x:ROLE_TIER_ORDER.get(x,0)) if tier_counts else "other"
+        top_official_visits=sum(tier_counts.get(x,0) for x in ("prime_minister","deputy_prime_minister","minister","vice_minister"))
         s=score(visits,len(roles),len(months),len(institutions),weight,senior_ratio,spend)
         rc=Counter(t(r.get("role")) or t(r.get("department")) or "직위 미상" for r in items);pc=Counter(t(r.get("purpose")) for r in items if t(r.get("purpose")))
         dates=sorted(t(r.get("used_date")) for r in items if t(r.get("used_date")))
-        out.append({"merchant":name,"address":address,"score":s,"visits":visits,"senior_visits":senior_visits,"senior_ratio":round(senior_ratio,3),"role_count":len(roles),"institution_count":len(institutions),"months":len(months),"spend":spend,"senior_weight":weight,"institutions":institutions,"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common(10)],"purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(6)],"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","recent":[{"date":t(r.get("used_date")),"time":t(r.get("used_time")),"institution":t(r.get("institution")),"role":t(r.get("role")) or t(r.get("department")),"amount":int(r.get("amount") or 0),"people":int(r.get("people") or 0),"purpose":t(r.get("purpose")),"source":t(r.get("source_url"))} for r in sorted(items,key=lambda x:(t(x.get("used_date")),t(x.get("used_time"))),reverse=True)[:8]]})
+        out.append({"merchant":name,"address":address,"score":s,"visits":visits,"senior_visits":senior_visits,"senior_ratio":round(senior_ratio,3),"role_count":len(roles),"institution_count":len(institutions),"months":len(months),"spend":spend,"senior_weight":weight,"top_role_tier":top_role_tier,"top_role_label":ROLE_TIER_LABEL.get(top_role_tier,top_role_tier),"top_official_visits":top_official_visits,"prime_minister_visits":tier_counts.get("prime_minister",0),"deputy_prime_minister_visits":tier_counts.get("deputy_prime_minister",0),"minister_visits":tier_counts.get("minister",0),"vice_minister_visits":tier_counts.get("vice_minister",0),"role_tier_stats":[{"tier":k,"label":ROLE_TIER_LABEL.get(k,k),"visits":v} for k,v in sorted(tier_counts.items(),key=lambda kv:ROLE_TIER_ORDER.get(kv[0],0),reverse=True)],"institutions":institutions,"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common(10)],"purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(6)],"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","recent":[{"date":t(r.get("used_date")),"time":t(r.get("used_time")),"institution":t(r.get("institution")),"role":t(r.get("role")) or t(r.get("department")),"amount":int(r.get("amount") or 0),"people":int(r.get("people") or 0),"purpose":t(r.get("purpose")),"source":t(r.get("source_url"))} for r in sorted(items,key=lambda x:(t(x.get("used_date")),t(x.get("used_time"))),reverse=True)[:8]]})
     eligible=[x for x in out if x["visits"]>=2 and x["months"]>=1 and x["score"]>=45 and (x["senior_weight"]>=.65 or x["institution_count"]>=2)]
     eligible.sort(key=lambda x:(x["score"],x["institution_count"],x["visits"],x["spend"]),reverse=True)
     REPORTS.mkdir(exist_ok=True)
