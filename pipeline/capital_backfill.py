@@ -35,6 +35,7 @@ class Source:
 
 SOURCES = [
     Source("suwon", "경기", "수원시", "수원특례시의회", "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page={page}", 20, "monthly"),
+    Source("hwaseong", "경기", "화성시", "화성특례시의회", "https://council.hscity.go.kr/cnts/bbs/boardList.php?bbsCd=cns&bbsSubCd=cns08&pageNo={page}", 12, "monthly"),
     Source("goyang", "경기", "고양시", "고양특례시의회", "https://www.goyangcouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 10, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
     Source("yeonsu", "인천", "연수구", "연수구의회", "https://council.yeonsu.go.kr/kr/businessBBS.do?flag=all&page={page}", 12, "monthly"),
