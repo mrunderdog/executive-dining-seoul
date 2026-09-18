@@ -297,6 +297,35 @@ def main():
     suffix = f"-{args.source}" if args.source else ""
     out_json = REPORTS / f"capital-backfill-discovery{suffix}.json"
     out_md = REPORTS / f"capital-backfill-discovery{suffix}.md"
+
+    # Public boards can transiently time out or change markup. Never replace a
+    # previously usable source map with a zero-result discovery.
+    fresh_posts = [x for x in rows if x.get("post_url")]
+    fresh_downloadable = sum(
+        1 for x in fresh_posts for a in x.get("attachments", []) if a.get("url")
+    )
+    if args.source and out_json.exists() and (not fresh_posts or fresh_downloadable == 0):
+        try:
+            previous = json.loads(out_json.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+        previous_posts = [x for x in previous.get("posts", []) if x.get("post_url")]
+        previous_downloadable = sum(
+            1 for x in previous_posts for a in x.get("attachments", []) if a.get("url")
+        )
+        if previous_posts and previous_downloadable:
+            print(json.dumps({
+                "source": args.source,
+                "status": "STALE_OK",
+                "reason": "fresh discovery returned no usable downloadable posts",
+                "fresh_posts": len(fresh_posts),
+                "fresh_downloadable": fresh_downloadable,
+                "preserved_posts": len(previous_posts),
+                "preserved_downloadable": previous_downloadable,
+            }, ensure_ascii=False))
+            print(out_json)
+            return
+
     result = {"generated_at": datetime.now().isoformat(timespec="seconds"), "since": args.since, "until": args.until, "sources": [s.key for s in selected], "posts": rows}
     out_json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
