@@ -1,0 +1,61 @@
+name: Signal intelligence reports
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/build_signal_reports.py'
+      - 'pipeline/global_entities.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/published_sources.py'
+      - 'reports/*-executive-candidates.json'
+      - 'reports/*-province-candidates.json'
+      - 'reports/national-legislator-map-qa.json'
+  workflow_run:
+    workflows:
+      - Capital council expense ingestion
+      - Central + National refresh
+      - Regional executive refresh
+      - Monthly data refresh
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: signal-intelligence-reports
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Build signal intelligence reports
+        run: python pipeline/build_signal_reports.py
+
+      - name: Commit reports
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/signal-intelligence.json reports/signal-intelligence.md
+          if git diff --cached --quiet; then
+            echo "Signal reports unchanged."
+            exit 0
+          fi
+          git commit -m "data: refresh signal intelligence reports"
+          git pull --rebase origin main
+          git push origin HEAD:main

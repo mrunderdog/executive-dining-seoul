@@ -1,74 +1,78 @@
-# Executive Dining Seoul
+# Executive Dining 수도권
 
-서울 공공기관 업무추진비 공개자료에서 **단순히 많이 간 식당**이 아니라 `고위직 반복 선택(Executive Repeat)`과 `관외/원정 선택(Destination VIP)` 신호를 뽑아 지도에서 탐색하는 프로젝트입니다.
+공공기관의 **공식 업무추진비·공개 지출자료**에서 식당 선택 패턴을 정규화해 탐색하는 지도 프로젝트입니다. 식당의 맛을 평가하거나 공직자를 평가하는 서비스가 아니라, 반복 선택·기관 간 교차 선택·고위직 사용·관외 이동 같은 **공개 지출의 선택 신호**를 식당 단위로 보여줍니다.
 
-## 현재 상태
+## 현재 범위
 
-- UI: v5 지도 기반 정적 웹앱
-- 초기 데이터: 2024-12 ~ 2025-04 서울 자치구의회 의장단 업무추진비 seed
-- 공개 업소: 244곳
-- canonical data: `data/current.json.gz.b64` (gzip+base64)
-- 사이트 빌드: `pipeline/build_site.py`
-- 품질검사: `pipeline/quality_gate.py`
-- 월간 실행: 매월 15일 12:00 KST
+- 수도권 기초의회: 서울·경기·인천
+- 광역의회: 경기도의회·인천광역시의회 등 공식 소스가 검증된 범위
+- 광역 집행부: 서울시청·경기도청·인천시청
+- 중앙정부: 국무총리·부총리·장관·차관·기관장·실국장급 공개 업무추진비
+- 국회의원: 공개 가능한 과거 지출자료를 별도 historical cohort로 관리
 
-> 월간 workflow는 **review-before-publish** 방식입니다. 자동 식별이 확실하지 않은 업소는 본 데이터에 조용히 합치지 않습니다. 현재 V1은 배포/품질검사/source monitoring/PR 생성 골격을 먼저 고정했고, 25개 자치구별 ingestion adapter는 순차 활성화합니다.
+기관별 공개 방식이 달라 **지원됨 / 마지막 정상자료 유지(STALE_OK) / 탐색 필요** 상태를 구분합니다. 일시적인 공식 사이트 장애나 파서 실패가 정상 데이터를 0건으로 덮어쓰지 않도록 last-good 보존 정책을 사용합니다.
 
-## 데이터 원칙
+## 핵심 신호
 
-1. 원자료와 업체정보를 분리합니다.
-2. 직책/사용일/장소/금액/인원/집행목적을 가능한 한 원자료에서 유지합니다.
-3. 업체명만 같은 경우 자동 병합하지 않습니다. 주소/지점/출발기관을 함께 봅니다.
-4. 미확인 업종·주소를 임의 확정하지 않습니다.
-5. quality gate를 통과한 변경만 월간 PR로 제안합니다.
-6. 사람이 PR을 확인해 merge해야 공개 사이트가 갱신됩니다.
+- **Executive Repeat**: 동일 기관·고위직에서 반복 선택되는 식당
+- **Destination VIP**: 관외·원정 선택이 반복되는 식당
+- **Cross-Institution Consensus**: 서로 다른 기관이 독립적으로 선택한 동일 물리 식당
+- **Top Official**: 중앙정부 총리·부총리·장관·차관급 공개분에서 확인되는 식당
+- **Regional Executive**: 시장·부시장 등 광역 집행부 공개분에서 확인되는 식당
 
-## 구조
+공직자·정당·기관 자체에는 점수나 순위를 부여하지 않습니다. 점수는 오직 식당 선택 패턴의 탐색 우선순위를 위한 값입니다.
+
+## 데이터 모델
+
+동일 식당 병합은 보수적으로 처리합니다. 기본적으로 **정규화된 상호 + 주소**가 일치해야 전역 식당 entity로 병합하며, 주소가 없는 동명이 식당은 기관 간 자동 병합하지 않습니다.
 
 ```text
-site/template.html             # 지도 UI
-data/current.json.gz.b64       # canonical dataset
-sources/registry.json          # source registry
-pipeline/data_io.py            # dataset codec
-pipeline/build_site.py         # template -> index.html
-pipeline/quality_gate.py       # 데이터 품질검사
-pipeline/monthly_update.py     # 월간 source status/report
-.github/workflows/pages.yml     # GitHub Pages 배포
-.github/workflows/monthly.yml   # 월간 review PR
+official sources
+  -> discovery
+  -> raw ingestion
+  -> date/schema QA
+  -> source-level candidates
+  -> publication gates
+  -> global restaurant entity merge
+  -> cross-institution / top-official signals
+  -> static geocode cache
+  -> MapLibre site
 ```
 
-## 로컬 실행
+주요 파일:
+
+```text
+sources/registry.json                     # 수도권 의회 source registry
+sources/central_executive_registry.json   # 중앙정부 source registry
+pipeline/capital_backfill.py              # 수도권 의회 discovery
+pipeline/ingest_council_expense.py        # 의회 원자료 정규화
+pipeline/global_entities.py               # 전역 식당 entity + 교차기관 신호
+pipeline/build_signal_reports.py          # 교차기관/장차관/광역집행부 QA
+pipeline/build_site.py                    # 정적 사이트 생성
+pipeline/quality_gate.py                  # 공개 데이터 품질검사
+reports/signal-intelligence.md            # 신호 QA 요약
+```
+
+## 자동 갱신
+
+- 수도권 의회: 지원 가능한 공식 게시판을 개별적으로 갱신
+- 중앙정부: 공식 업무추진비 공개면에서 다운로드 가능한 자료를 정규화
+- 광역 집행부: 서울·경기·인천을 별도 cohort로 수집
+- 신호 QA: 원자료/후보 갱신 후 교차기관·장차관급 신호 리포트를 재생성
+- 사이트: quality gate 통과 후 GitHub Pages 배포
+
+공식 사이트가 일시적으로 응답하지 않거나 0건을 반환하면 기존 정상 데이터는 유지하고 상태만 stale로 처리합니다.
+
+## 로컬 검증
 
 ```bash
 python pipeline/quality_gate.py
-python pipeline/build_site.py
-# 배포 artifact와 같은 plain JSON을 만들고 싶다면 data_io.py를 사용
-python -m http.server 8000
+python pipeline/build_signal_reports.py
+python pipeline/build_site.py --output /tmp/index.html
 ```
-
-`index.html`은 `file://`로 직접 열지 말고 HTTP server에서 확인합니다.
 
 ## GitHub Pages
 
-Repository **Settings → Pages → Build and deployment → Source: GitHub Actions** 를 한 번 선택합니다. 이후 `main` push마다 `pages.yml`이 quality gate → site build → dataset decode → Pages deploy를 수행합니다.
+`main`의 검증된 데이터로 GitHub Actions가 정적 사이트를 빌드·배포합니다.
 
-예상 URL: `https://mrunderdog.github.io/executive-dining-seoul/`
-
-## 월간 업데이트
-
-- 매월 15일 12:00 KST
-- 직전월을 target month로 사용
-- source 상태와 데이터 품질을 검사
-- 변경사항이 있으면 `bot/monthly-YYYY-MM` branch와 PR 생성
-- merge 후 Pages 자동 배포
-
-### 아직 남은 핵심 작업
-
-월 1회 **실제 신규 지출내역까지 완전 자동 반영**하려면 각 구의회/구청의 서로 다른 PDF/XLSX/게시판 형식을 읽는 source adapter가 필요합니다. V1에서는 잘못된 식당/지점 매칭을 피하기 위해 이 부분을 억지로 자동화하지 않았습니다.
-
-## Scoring
-
-점수는 맛 평점이 아니라 선택 패턴 탐색용입니다.
-
-- **Destination VIP**: 관외 강도, 반복 방문, 의장/부의장 방문, 직책 다양성, 지속성, 저녁 비중
-- **Executive Repeat**: 의장/부의장 반복 선택, 직책 다양성, 지속성, 기관 다양성, 저녁 비중
+예상 URL: https://mrunderdog.github.io/executive-dining-seoul/
