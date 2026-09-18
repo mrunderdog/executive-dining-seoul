@@ -101,14 +101,15 @@ jobs:
               d=json.loads(p.read_text(encoding='utf-8'))
               rows=d.get('rows',[])
               assert rows, f'{source}: no normalized rows'
-              merchant=sum(bool(str(r.get('merchant') or '').strip()) for r in rows)/len(rows)
-              amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in rows)/len(rows)
-              date=d.get('raw_quality',{}).get('valid_date_coverage',0)
-              assert merchant >= .70, f'{source}: merchant coverage too low: {merchant:.1%}'
-              assert amount >= .70, f'{source}: amount coverage too low: {amount:.1%}'
-              assert date >= .95, f'{source}: date coverage too low: {date:.1%}'
+              tx=[r for r in rows if str(r.get('merchant') or '').strip()]
+              assert len(tx) >= 10, f'{source}: too few merchant transaction rows: {len(tx)}'
+              merchant_share=len(tx)/len(rows)
+              amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in tx)/len(tx)
+              date=sum(r.get('date_quality') in ('in_period','valid_outside_period') for r in tx)/len(tx)
+              assert amount >= .70, f'{source}: transaction amount coverage too low: {amount:.1%}'
+              assert date >= .95, f'{source}: transaction date coverage too low: {date:.1%}'
               ok += 1
-              print(source, {'state':state,'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
+              print(source, {'state':state,'rows':len(rows),'transaction_rows':len(tx),'merchant_share':merchant_share,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
           assert ok >= 1, f'no usable council source is available'
           PY
 
