@@ -148,13 +148,13 @@ def merge_global_entities(payload: dict) -> dict:
         origins = sorted({
             t(o)
             for r in rows
-            for o in ((r.get("origins") or []) + ([r.get("origin")] if r.get("origin") else []))
+            for o in (r.get("origins") or ([r.get("origin")] if r.get("origin") else []))
             if t(o)
         })
         institutions = sorted({
             t(i)
             for r in rows
-            for i in ((r.get("institutions") or []) + ([r.get("institution")] if r.get("institution") else []))
+            for i in (r.get("institutions") or ([r.get("institution")] if r.get("institution") else []))
             if t(i)
         })
         multi = len(origins) > 1

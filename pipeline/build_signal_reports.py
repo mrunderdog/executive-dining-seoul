@@ -94,6 +94,7 @@ def main():
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "dataset_records": len(records),
         "cross_institution_count": len(cross),
+        "cross_origin_count": sum(1 for x in cross if x["source_count"] >= 2),
         "top_official_count": len(top_official),
         "regional_head_count": len(regional_heads),
         "entity_merges": int(stats.get("entity_merges") or 0),
@@ -112,6 +113,7 @@ def main():
         f"- Generated: {doc['generated_at']}",
         f"- Published restaurant entities: **{len(records)}**",
         f"- Cross-institution restaurants: **{len(cross)}**",
+        f"- Cross-origin restaurants: **{doc['cross_origin_count']}**",
         f"- Central top-official restaurants: **{len(top_official)}**",
         f"- Regional mayor/vice-mayor restaurants: **{len(regional_heads)}**",
         f"- Entity merges: **{doc['entity_merges']}**",
@@ -161,6 +163,7 @@ def main():
     print(json.dumps({
         "records": len(records),
         "cross_institution": len(cross),
+        "cross_origin": doc["cross_origin_count"],
         "top_official": len(top_official),
         "regional_heads": len(regional_heads),
         "entity_merges": doc["entity_merges"],
