@@ -90,7 +90,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for SOURCE in goyang suwon bupyeong; do
+          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin; do
             echo "=== ingest $SOURCE ==="
             python pipeline/ingest_council_expense.py --source "$SOURCE"
           done
@@ -100,7 +100,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for SOURCE in goyang suwon bupyeong; do
+          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin; do
             echo "=== dates $SOURCE ==="
             python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
           done
@@ -110,7 +110,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for SOURCE in goyang suwon bupyeong; do
+          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin; do
             echo "=== candidates $SOURCE ==="
             python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
           done
@@ -170,7 +170,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          sources=['goyang','suwon','bupyeong']
+          sources=['goyang','suwon','bupyeong','yeonsu','gyeyang','ganghwa','ongjin']
           for source in sources:
               p=Path(f'data/raw/{source}_expense.json')
               d=json.loads(p.read_text(encoding='utf-8'))
