@@ -581,7 +581,7 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
             if top:
                 why += f" 시장·부시장 공개분 사용 {top}회가 포함됩니다."
         out.append({
-            "name": name, "origin": spec["origin"], "region": spec["region"],
+            "name": display_name, "origin": spec["origin"], "region": spec["region"],
             "jurisdiction": spec["jurisdiction"], "institution": spec["institution"],
             "type": "executive", "destination": None, "executive": executive,
             "address": address,

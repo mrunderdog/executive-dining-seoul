@@ -54,12 +54,43 @@ def family_name(v) -> str:
     return compact(s)
 
 
+def locality_key(r: dict) -> str:
+    """Conservative city/county/district hint for no-address entity matching.
+
+    Exact street addresses remain the primary key. This fallback is only used
+    when the source itself gives a locality (for example "인천 연수구 소재")
+    or the origin is a concrete 시/군/구. Broad origins such as 중앙정부,
+    서울시청, 경기도청 are deliberately excluded.
+    """
+    raw = t(r.get("location_hint"))
+    if not raw:
+        origin = t(r.get("origin"))
+        if re.search(r"(?:시|군|구)$", origin) and origin not in {
+            "서울시청", "경기도청", "인천시청", "중앙정부",
+        }:
+            raw = origin
+    if not raw:
+        return ""
+    m = re.search(r"([가-힣0-9]+(?:시|군|구))\b", raw)
+    if not m:
+        return ""
+    return compact(m.group(1))
+
+
 def entity_key(r: dict) -> str:
     name = family_name(r.get("name"))
     address = canonical_address(r.get("address"))
-    # Never merge uncertain/no-address records across sources.
     if name and address:
         return f"{name}||{address}"
+
+    # When a street address is unavailable, allow a narrowly scoped fallback:
+    # exact normalized merchant family + exact 시/군/구. This is useful for
+    # official disclosures that publish "OO구 소재" instead of a street
+    # address, while still avoiding broad cross-source name-only merges.
+    locality = locality_key(r)
+    if name and locality and len(name) >= 4:
+        return f"{name}||locality:{locality}"
+
     return f"single||{compact(r.get('name'))}||{compact(r.get('origin'))}"
 
 
