@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          SOURCES="goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
+          SOURCES="goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
           refresh_one() {
             SOURCE="$1"
             LOG="/tmp/council-$SOURCE.log"

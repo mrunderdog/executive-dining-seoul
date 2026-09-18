@@ -43,6 +43,9 @@ SOURCES = [
     Source("namyangju", "경기", "남양주시", "남양주시의회", "https://nyjc.go.kr/content/dataroom/propelclosed.html", 1, "quarterly"),
     Source("uijeongbu", "경기", "의정부시", "의정부시의회", "https://www.ujbcl.go.kr/svc/bbs/BusinessList.do?bbsMnuCd=MNU002300000650400000666&pageNo={page}", 8, "quarterly"),
     Source("gwangmyeong", "경기", "광명시", "광명시의회", "https://council.gm.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
+    Source("gimpo", "경기", "김포시", "김포시의회", "https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702", 1, "quarterly"),
+    Source("ansan", "경기", "안산시", "안산시의회", "https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406", 1, "quarterly"),
+    Source("paju", "경기", "파주시", "파주시의회", "https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page={page}", 4, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
     Source("jemulpo", "인천", "제물포구", "제물포구의회", "https://council.jemulpo.go.kr/kr/costBBS.do?flag=all&page={page}", 4, "monthly", (2026, 7)),
     Source("yeongjong", "인천", "영종구", "영종구의회", "https://www.yeongjong.go.kr/council/pst/list.do?pst_id=cncl_ofcl_exp", 1, "monthly", (2026, 7)),
@@ -161,7 +164,7 @@ def title_period(title: str):
     m = re.search(r"(20\d{2})\s*년?\s*([1-4])\s*/\s*4\s*분기", title)
     if m:
         return int(m.group(1)), None, int(m.group(2))
-    m = re.search(r"(?:(20)?(\d{2}))\s*년?\s*([1-4])\s*분기", title)
+    m = re.search(r"(?:(20)?(\d{2}))\s*년(?:도)?\s*([1-4])\s*분기", title)
     if m:
         year = int((m.group(1) or "20") + m.group(2))
         return year, None, int(m.group(3))
@@ -239,6 +242,32 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+
+        if src.key == "gimpo":
+            for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I|re.S):
+                plain = " ".join(re.sub(r"<[^>]+>", " ", html.unescape(tr)).split())
+                if "업무추진비" not in plain:
+                    continue
+                period = title_period(plain)
+                if not period_overlaps(period, effective_since, until):
+                    continue
+                row_links = anchors(url, tr)
+                found = [x for x in row_links if attachment_like(x)]
+                if not found:
+                    found = regex_attachment_fallback(url, tr)
+                found = [x for x in found if x.get("url")]
+                if not found:
+                    continue
+                post_key = f"{period}|{plain[:120]}"
+                if post_key in seen_posts:
+                    continue
+                seen_posts.add(post_key)
+                posts.append({
+                    "source":src.key,"region":src.region,"jurisdiction":src.jurisdiction,
+                    "institution":src.institution,"title":plain,"period":period,
+                    "post_url":url,"attachments":found,
+                })
+
         for a in page_anchors:
             if src.key == "gyeonggi_council":
                 title=a.get("text","")

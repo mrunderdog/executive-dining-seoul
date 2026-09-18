@@ -346,9 +346,10 @@
       "institution": "안산시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406",
+      "adapter": "ansan_quarterly_bbs",
+      "note": "Official council quarterly business-promotion expense disclosure."
     },
     {
       "region": "경기",
@@ -386,9 +387,10 @@
       "institution": "파주시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.pajucouncil.go.kr/content/data/operatingExpense.html",
+      "adapter": "paju_quarterly_board",
+      "note": "Official council quarterly business-promotion expense disclosure."
     },
     {
       "region": "경기",
@@ -396,9 +398,10 @@
       "institution": "김포시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702",
+      "adapter": "gimpo_quarterly_table",
+      "note": "Official council quarterly chair-group business-promotion expense disclosure."
     },
     {
       "region": "경기",
@@ -803,5 +806,6 @@
       "url": "https://justhere.kr/목록/",
       "role": "restaurant/entity cross-check only; not authoritative expense source"
     }
-  ]
+  ],
+  "as_of": "2026-09-18"
 }
