@@ -367,6 +367,68 @@ def _category(name: str) -> str:
     return "업종 확인 필요"
 
 
+def _merchant_family(name: str) -> str:
+    """Conservative merchant-family key for cross-source corroboration."""
+    s = _txt(name)
+    s = re.sub(r"^(?:주식회사|유한회사|\(주\)|㈜)\s*", "", s, flags=re.I)
+    s = re.sub(r"\([^()]*(?:시|군|구)[^()]*?\s*소재\)", "", s)
+    return re.sub(r"[^0-9a-z가-힣]", "", s.lower())
+
+
+def _regional_locality(name: str) -> str:
+    m = re.search(r"\(([^()]*(?:시|군|구)[^()]*?)\s*소재\)", _txt(name))
+    if not m:
+        return ""
+    tokens = re.findall(r"([가-힣0-9]+(?:시|군|구))\b", m.group(1))
+    return _txt(tokens[-1]) if tokens else ""
+
+
+def _local_corroborators(region: str, locality: str, merchant: str) -> list[dict]:
+    """Find strong, independently published council evidence for one local entity.
+
+    This is intentionally stricter than simple name matching: same normalized
+    merchant family, same exact 시/군/구, and the council candidate itself must
+    satisfy that source's normal publication thresholds.
+    """
+    family = _merchant_family(merchant)
+    if not family or len(family) < 4 or not locality:
+        return []
+    out = []
+    for source, spec in SOURCE_SPECS.items():
+        if _txt(spec.get("region")) != _txt(region):
+            continue
+        if _txt(spec.get("origin")) != _txt(locality):
+            continue
+        p = REPORTS / f"{source}-executive-candidates.json"
+        if not p.exists():
+            continue
+        try:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        for row in doc.get("candidates") or []:
+            if _merchant_family(row.get("merchant")) != family:
+                continue
+            visits = int(row.get("visits") or 0)
+            months = int(row.get("months") or 0)
+            score = float(row.get("score") or 0)
+            if (
+                visits >= int(spec.get("min_visits") or 0)
+                and months >= int(spec.get("min_months") or 0)
+                and score >= float(spec.get("min_score") or 0)
+            ):
+                out.append({
+                    "source": source,
+                    "origin": spec["origin"],
+                    "institution": spec["institution"],
+                    "visits": visits,
+                    "months": months,
+                    "score": score,
+                })
+                break
+    return out
+
+
 def _role_bucket(role: str, include_committees: bool = False) -> str | None:
     s = re.sub(r"\s+", "", _txt(role))
     if s == "의장":
@@ -525,19 +587,33 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
         return []
     doc = json.loads(path.read_text(encoding="utf-8"))
     candidates = doc.get("candidates") or []
-    publishable = [
-        x for x in candidates
-        if int(x.get("visits") or 0) >= 3
-        and int(x.get("months") or 0) >= 2
-        and float(x.get("score") or 0) >= 50
-        and (
-            _txt(x.get("address"))
-            or (
-                source == "incheon_province"
-                and int(x.get("mayor_visits") or 0) + int(x.get("vice_mayor_visits") or 0) >= 3
+    publishable = []
+    for x in candidates:
+        visits = int(x.get("visits") or 0)
+        months = int(x.get("months") or 0)
+        score = float(x.get("score") or 0)
+        head_visits = int(x.get("mayor_visits") or 0) + int(x.get("vice_mayor_visits") or 0)
+        locality = _regional_locality(x.get("merchant"))
+        display_name = re.sub(r"\([^()]*\s*소재\)", "", _txt(x.get("merchant"))).strip()
+        corroborators = (
+            _local_corroborators(spec["region"], locality, display_name)
+            if source == "incheon_province" and visits >= 2 and months >= 2 and score >= 50 and head_visits >= 2
+            else []
+        )
+        normal_gate = (
+            visits >= 3
+            and months >= 2
+            and score >= 50
+            and (
+                _txt(x.get("address"))
+                or (source == "incheon_province" and head_visits >= 3)
             )
         )
-    ]
+        corroborated_gate = bool(corroborators)
+        if normal_gate or corroborated_gate:
+            row = dict(x)
+            row["_cross_source_corroborators"] = corroborators
+            publishable.append(row)
     publishable.sort(
         key=lambda x: (float(x.get("score") or 0), int(x.get("visits") or 0), int(x.get("spend") or 0)),
         reverse=True,
@@ -572,14 +648,21 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
             "exec_events": visits, "roles": int(x.get("role_count") or x.get("department_count") or len(roles)),
             "months": months, "evening_ratio": 0, "source": source,
         }
+        corroborators = x.get("_cross_source_corroborators") or []
         if source == "incheon_province":
             executive["mayor_visits"] = int(x.get("mayor_visits") or 0)
             executive["vice_mayor_visits"] = int(x.get("vice_mayor_visits") or 0)
+        if corroborators:
+            executive["cross_source_corroborated"] = True
+            executive["corroborating_institutions"] = [r["institution"] for r in corroborators]
         why = f"{spec['label']} 공식 업무추진비에서 {visits}회, {months}개월에 걸쳐 반복 확인된 사용처입니다."
         if source == "incheon_province":
             top = int(x.get("mayor_visits") or 0) + int(x.get("vice_mayor_visits") or 0)
             if top:
                 why += f" 시장·부시장 공개분 사용 {top}회가 포함됩니다."
+        if corroborators:
+            labels = "·".join(r["institution"] for r in corroborators)
+            why += f" 동일 지역의 {labels}에서도 독립적으로 반복 선택되어 교차 검증되었습니다."
         out.append({
             "name": display_name, "origin": spec["origin"], "region": spec["region"],
             "jurisdiction": spec["jurisdiction"], "institution": spec["institution"],
