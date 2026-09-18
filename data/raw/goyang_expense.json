@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "goyang",
-  "generated_at": "2026-09-17T07:30:54",
+  "generated_at": "2026-09-18T03:49:46",
   "row_count": 2470,
   "rows": [
     {
@@ -103,7 +103,7 @@
       ],
       "source_sheet": "부의장",
       "source_row": 29,
-      "used_date": "2024-1126",
+      "used_date": "2024-11-26",
       "used_time": "0.5618171296296296",
       "role": "신현철",
       "merchant": "카페모퉁이",
@@ -114,7 +114,7 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "cec87767c21a5436b9ca",
-      "date_quality": "invalid"
+      "date_quality": "in_period"
     },
     {
       "region": "경기",
@@ -21579,7 +21579,7 @@
       ],
       "source_sheet": "교섭단체 대표의원(국민의힘)",
       "source_row": 39,
-      "used_date": "202502-25",
+      "used_date": "2025-02-25",
       "used_time": "0.6916666666666668",
       "role": "교섭단체 대표의원",
       "merchant": "태능숯불갈비",
@@ -21590,7 +21590,7 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "28f69e81f34661b61152",
-      "date_quality": "invalid"
+      "date_quality": "in_period"
     },
     {
       "region": "경기",
@@ -71097,8 +71097,9 @@
   "raw_quality": {
     "rows": 2470,
     "repaired_excel_serial_dates": 945,
-    "valid_date_coverage": 0.9992,
-    "in_period_date_coverage": 0.9968,
+    "normalized_text_dates": 2,
+    "valid_date_coverage": 1.0,
+    "in_period_date_coverage": 0.9976,
     "invalid_examples": [
       {
         "used_date": "2015-12-04",
@@ -71132,28 +71133,6 @@
         "sheet": "의회운영위원장",
         "row": 34,
         "merchant": "이경양식당"
-      },
-      {
-        "used_date": "2024-1126",
-        "period": [
-          2024,
-          null,
-          4
-        ],
-        "sheet": "부의장",
-        "row": 29,
-        "merchant": "카페모퉁이"
-      },
-      {
-        "used_date": "202502-25",
-        "period": [
-          2025,
-          null,
-          1
-        ],
-        "sheet": "교섭단체 대표의원(국민의힘)",
-        "row": 39,
-        "merchant": "태능숯불갈비"
       },
       {
         "used_date": "2015-01-20",
