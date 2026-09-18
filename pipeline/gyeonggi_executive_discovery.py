@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
 UA = "ExecutiveDiningSeoul/3.0 (+https://github.com/mrunderdog/executive-dining-seoul)"
 
-LISTING = "https://www.gg.go.kr/bbs/board.do?bcIdx=536&bsIdx=535&menuId=1778&page={page}"
+LISTING = "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page={page}"
 FILE_EXTS = (".xlsx", ".xls", ".csv")
 
 
