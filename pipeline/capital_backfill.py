@@ -40,6 +40,8 @@ SOURCES = [
     Source("seongnam", "경기", "성남시", "성남시의회", "https://www.sncouncil.go.kr/kr/news/bbsCost.do?pageNum={page}", 10, "quarterly"),
     Source("bucheon", "경기", "부천시", "부천시의회", "https://council.bucheon.go.kr/kr/intro/bbsInfo.do?pageNum={page}", 15, "monthly"),
     Source("namyangju", "경기", "남양주시", "남양주시의회", "https://nyjc.go.kr/content/dataroom/propelclosed.html", 1, "quarterly"),
+    Source("uijeongbu", "경기", "의정부시", "의정부시의회", "https://www.ujbcl.go.kr/svc/bbs/BusinessList.do?bbsMnuCd=MNU002300000650400000666&pageNo={page}", 8, "quarterly"),
+    Source("gwangmyeong", "경기", "광명시", "광명시의회", "https://council.gm.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
     Source("michuhol", "인천", "미추홀구", "미추홀구의회", "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage={page}&keyfield=&keyword=", 8, "monthly"),
     Source("yeonsu", "인천", "연수구", "연수구의회", "https://council.yeonsu.go.kr/kr/businessBBS.do?flag=all&page={page}", 12, "monthly"),

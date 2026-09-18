@@ -406,9 +406,10 @@
       "institution": "의정부시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.ujbcl.go.kr/svc/bbs/BusinessList.do?bbsMnuCd=MNU002300000650400000666",
+      "adapter": "listing_quarter_regex",
+      "note": "Official quarterly council business-expense disclosure; XLS/XLSX/PDF attachments."
     },
     {
       "region": "경기",
@@ -436,9 +437,10 @@
       "institution": "광명시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.gm.go.kr/kr/costBBS.do",
+      "adapter": "listing_quarter_regex",
+      "note": "Official quarterly council business-expense disclosure; PDF attachments."
     },
     {
       "region": "경기",
