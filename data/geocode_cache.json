@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 85,
+    "failed_count": 88,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 781,
-    "success_count": 696,
-    "updated_at": "2026-09-18T05:24:41+00:00"
+    "record_count": 796,
+    "success_count": 708,
+    "updated_at": "2026-09-18T09:48:24+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -65,6 +65,17 @@
         "arcgis:충남 전안시 구성동 171]"
       ],
       "updated_at": "2026-09-17T23:00:55+00:00"
+    },
+    "(주)안스|연수구": {
+      "failed": true,
+      "fingerprint": "379932aa20dcd327",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:(주)안스 인천광역시 연수구",
+        "nominatim:(주)안스 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:21+00:00"
     },
     "(주)전한 강강술래상|노원구": {
       "failed": true,
@@ -132,6 +143,17 @@
         "arcgis:서울 강북구 삼양로181길 161-0@ 1층 (우이동)"
       ],
       "updated_at": "2026-09-17T23:01:36+00:00"
+    },
+    "(주)해량 260도|연수구": {
+      "failed": true,
+      "fingerprint": "4308ba7f33824ff3",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:(주)해량 260도 인천광역시 연수구",
+        "nominatim:(주)해량 260도 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:14+00:00"
     },
     "25도씨|중앙정부": {
       "failed": true,
@@ -527,6 +549,24 @@
         "arcgis:서울 강북구 한천로 1115, 강원석"
       ],
       "updated_at": "2026-09-17T23:02:30+00:00"
+    },
+    "강촌|연수구": {
+      "addr_type": "POI",
+      "display_name": "강촌",
+      "fingerprint": "679fc1472c69ad0e",
+      "geocoder_version": 4,
+      "lat": 37.426882417,
+      "lon": 126.667553016,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "강촌 인천광역시 연수구",
+      "result_name": "강촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:강촌 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:14+00:00"
     },
     "경복궁관훈점|중앙정부": {
       "failed": true,
@@ -1576,6 +1616,24 @@
         "arcgis:서울 중구 남대문로 17"
       ],
       "updated_at": "2026-09-17T23:04:03+00:00"
+    },
+    "꾸덕해|연수구": {
+      "addr_type": "POI",
+      "display_name": "꾸덕해",
+      "fingerprint": "21e001d496e26d2b",
+      "geocoder_version": 4,
+      "lat": 37.424476341,
+      "lon": 126.696479685,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "꾸덕해 인천광역시 연수구",
+      "result_name": "꾸덕해",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:꾸덕해 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:15+00:00"
     },
     "낙원|중앙정부": {
       "addr_type": "POI",
@@ -3885,6 +3943,24 @@
       ],
       "updated_at": "2026-09-18T05:23:54+00:00"
     },
+    "무쇠고기 송도역점|연수구": {
+      "addr_type": "POI",
+      "display_name": "무쇠고기 송도역점",
+      "fingerprint": "b0687f149fe94b31",
+      "geocoder_version": 4,
+      "lat": 37.427197723,
+      "lon": 126.65680478,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "무쇠고기 송도역점 인천광역시 연수구",
+      "result_name": "무쇠고기 송도역점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:무쇠고기 송도역점 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:16+00:00"
+    },
     "미르|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 용산구 한강로2가 한강대로 92",
@@ -5577,6 +5653,24 @@
       ],
       "updated_at": "2026-09-17T23:01:52+00:00"
     },
+    "생선나라|연수구": {
+      "addr_type": "POI",
+      "display_name": "생선나라",
+      "fingerprint": "5fc1d36fa6cc7be9",
+      "geocoder_version": 4,
+      "lat": 37.424210908,
+      "lon": 126.696494135,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "생선나라 인천광역시 연수구",
+      "result_name": "생선나라",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:생선나라 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:24+00:00"
+    },
     "생선명가거북명태|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 하안동 범안로 856",
@@ -6536,6 +6630,24 @@
       ],
       "updated_at": "2026-09-18T00:07:31+00:00"
     },
+    "송도식당|연수구": {
+      "addr_type": "POI",
+      "display_name": "송도식당",
+      "fingerprint": "be8601f4ce39e19f",
+      "geocoder_version": 4,
+      "lat": 37.426523437,
+      "lon": 126.657476716,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "송도식당 인천광역시 연수구",
+      "result_name": "송도식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:송도식당 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:18+00:00"
+    },
     "송림|중앙정부": {
       "addr_type": "Locality",
       "display_name": "경기 송림",
@@ -6856,6 +6968,24 @@
         "arcgis:서울특별시 동작구"
       ],
       "updated_at": "2026-09-17T23:02:49+00:00"
+    },
+    "스시초이스|연수구": {
+      "addr_type": "POI",
+      "display_name": "스시초이스",
+      "fingerprint": "e7dca979185e0df9",
+      "geocoder_version": 4,
+      "lat": 37.394882874,
+      "lon": 126.650100754,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "스시초이스 인천광역시 연수구",
+      "result_name": "스시초이스",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:스시초이스 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:21+00:00"
     },
     "스시텐|광진구": {
       "addr_type": "POI",
@@ -7980,6 +8110,24 @@
       ],
       "updated_at": "2026-09-18T00:07:58+00:00"
     },
+    "연수횟집 연수게장|연수구": {
+      "addr_type": "POI",
+      "display_name": "연수횟집 연수게장",
+      "fingerprint": "e4f3124a741e09f3",
+      "geocoder_version": 4,
+      "lat": 37.427328514,
+      "lon": 126.697466816,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "연수횟집 연수게장 인천광역시 연수구",
+      "result_name": "연수횟집 연수게장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:연수횟집 연수게장 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:16+00:00"
+    },
     "연이꼬마김밥|중앙정부": {
       "failed": true,
       "fingerprint": "2bd11d5d4fa9afa3",
@@ -8744,6 +8892,24 @@
       ],
       "updated_at": "2026-09-17T23:03:14+00:00"
     },
+    "우림한방삼계탕|연수구": {
+      "addr_type": "POI",
+      "display_name": "우림한방삼계탕",
+      "fingerprint": "e61e19ec13dc2618",
+      "geocoder_version": 4,
+      "lat": 37.426233814,
+      "lon": 126.696587893,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우림한방삼계탕 인천광역시 연수구",
+      "result_name": "우림한방삼계탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우림한방삼계탕 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:17+00:00"
+    },
     "우밀가 상록점|중앙정부": {
       "addr_type": "POI",
       "display_name": "우밀가 상록점",
@@ -8761,6 +8927,24 @@
         "arcgis:우밀가 상록점 대한민국"
       ],
       "updated_at": "2026-09-17T07:48:08+00:00"
+    },
+    "우사(송도점)|연수구": {
+      "addr_type": "POI",
+      "display_name": "우사(송도점)",
+      "fingerprint": "9d965521f34d389b",
+      "geocoder_version": 4,
+      "lat": 37.414052599,
+      "lon": 126.656809778,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우사(송도점) 인천광역시 연수구",
+      "result_name": "우사(송도점)",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우사(송도점) 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:22+00:00"
     },
     "우사기|서초구": {
       "addr_type": "StreetName",
@@ -9885,6 +10069,24 @@
       ],
       "updated_at": "2026-09-17T23:01:26+00:00"
     },
+    "장터|연수구": {
+      "addr_type": "POI",
+      "display_name": "장터",
+      "fingerprint": "1d7b966f816abde7",
+      "geocoder_version": 4,
+      "lat": 37.411618445,
+      "lon": 126.678870458,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "장터 인천광역시 연수구",
+      "result_name": "장터",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:장터 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:17+00:00"
+    },
     "잼배옥|중앙정부": {
       "addr_type": "POI",
       "display_name": "잼배옥",
@@ -10083,6 +10285,24 @@
       ],
       "updated_at": "2026-09-18T00:07:35+00:00"
     },
+    "정윤기 황칠낙지|연수구": {
+      "addr_type": "POI",
+      "display_name": "정윤기 황칠낙지",
+      "fingerprint": "8ed60d01daa79c15",
+      "geocoder_version": 4,
+      "lat": 37.413841116,
+      "lon": 126.654238372,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "정윤기 황칠낙지 인천광역시 연수구",
+      "result_name": "정윤기 황칠낙지",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:정윤기 황칠낙지 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:23+00:00"
+    },
     "정인면옥|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로76길 10",
@@ -10262,6 +10482,24 @@
         "arcgis:서울 금천구 벚꽃로 30"
       ],
       "updated_at": "2026-09-17T23:02:36+00:00"
+    },
+    "종로순대국|연수구": {
+      "addr_type": "POI",
+      "display_name": "종로순대국",
+      "fingerprint": "8261da9d8e641de7",
+      "geocoder_version": 4,
+      "lat": 37.425388966,
+      "lon": 126.698183931,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "종로순대국 인천광역시 연수구",
+      "result_name": "종로순대국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:종로순대국 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:14+00:00"
     },
     "종로은행나무집|중앙정부": {
       "addr_type": "POI",
@@ -12677,6 +12915,17 @@
         "arcgis:서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층"
       ],
       "updated_at": "2026-09-18T00:08:10+00:00"
+    },
+    "해량 260도|연수구": {
+      "failed": true,
+      "fingerprint": "be8b8e04789c01e3",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:해량 260도 인천광역시 연수구",
+        "nominatim:해량 260도 인천광역시 연수구"
+      ],
+      "updated_at": "2026-09-18T09:48:11+00:00"
     },
     "해물신의한수|종로구": {
       "failed": true,
