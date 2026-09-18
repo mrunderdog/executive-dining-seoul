@@ -100,26 +100,44 @@ def hwpx_tables(blob):
 
 def rows_from(blob,name):
     lower=name.lower()
-    if blob.startswith(b"PK") or ".xlsx" in lower:
-        import openpyxl
-        wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
-        for ws in wb.worksheets: yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
-        return
-    if blob.startswith(bytes.fromhex("D0CF11E0A1B11AE1")) or ".xls" in lower:
-        import xlrd
-        book=xlrd.open_workbook(file_contents=blob)
-        for sh in book.sheets(): yield sh.name,[sh.row_values(i) for i in range(sh.nrows)]
-        return
-    if ".csv" in lower:
-        text=blob.decode("utf-8-sig",errors="replace")
-        import csv
-        yield "csv",list(csv.reader(io.StringIO(text))); return
-    if ".hwpx" in lower or (blob.startswith(b"PK") and b"mimetype" in blob[:4096]):
+    if ".hwpx" in lower:
         tables=hwpx_tables(blob)
         if not tables:
             raise ValueError("HWPX contained no parseable tables")
         for item in tables:
             yield item
+        return
+    if ".xlsx" in lower:
+        import openpyxl
+        wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
+        for ws in wb.worksheets:
+            yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
+        return
+    if blob.startswith(bytes.fromhex("D0CF11E0A1B11AE1")) or ".xls" in lower:
+        import xlrd
+        book=xlrd.open_workbook(file_contents=blob)
+        for sh in book.sheets():
+            yield sh.name,[sh.row_values(i) for i in range(sh.nrows)]
+        return
+    if ".csv" in lower:
+        text=blob.decode("utf-8-sig",errors="replace")
+        import csv
+        yield "csv",list(csv.reader(io.StringIO(text)))
+        return
+    if blob.startswith(b"PK"):
+        # Unknown ZIP container: try HWPX first, then XLSX.
+        try:
+            tables=hwpx_tables(blob)
+            if tables:
+                for item in tables:
+                    yield item
+                return
+        except Exception:
+            pass
+        import openpyxl
+        wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
+        for ws in wb.worksheets:
+            yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
         return
     raise ValueError("unsupported spreadsheet/document")
 
