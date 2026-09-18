@@ -2,13 +2,14 @@
   "schema_version": 2,
   "notes": "Official source registry for Seoul Capital Area. verified=true means the listing URL was manually checked. Source discovery never implies row ingestion.",
   "scope": {
-    "basic_councils": 66,
+    "basic_councils": 67,
     "regions": [
       "서울",
       "경기",
       "인천"
     ],
-    "regional_councils": 3
+    "regional_councils": 3,
+    "basic_councils_as_of": "2026-07-01"
   },
   "sources": [
     {
@@ -584,7 +585,10 @@
       "source_family": "council_leadership",
       "verified": false,
       "url": null,
-      "adapter": "discovery_required"
+      "adapter": "discovery_required",
+      "active_to": "2026-06-30",
+      "historical": true,
+      "note": "Historical jurisdiction retained for pre-2026-07-01 lineage."
     },
     {
       "region": "인천",
@@ -594,7 +598,10 @@
       "source_family": "council_leadership",
       "verified": false,
       "url": null,
-      "adapter": "discovery_required"
+      "adapter": "discovery_required",
+      "active_to": "2026-06-30",
+      "historical": true,
+      "note": "Historical jurisdiction retained for pre-2026-07-01 lineage."
     },
     {
       "region": "인천",
@@ -658,7 +665,10 @@
       "source_family": "council_leadership",
       "verified": false,
       "url": null,
-      "adapter": "discovery_required"
+      "adapter": "discovery_required",
+      "active_to": "2026-06-30",
+      "historical": true,
+      "note": "Historical jurisdiction retained for pre-2026-07-01 lineage."
     },
     {
       "region": "인천",
@@ -681,6 +691,58 @@
       "url": "https://council.ongjin.go.kr/kr/costBBS.do",
       "adapter": "listing_quarter_regex",
       "note": "Quarterly council expense listing"
+    },
+    {
+      "region": "인천",
+      "jurisdiction": "검단구",
+      "institution": "검단구의회",
+      "jurisdiction_level": "basic_council",
+      "source_family": "council_leadership",
+      "verified": false,
+      "url": null,
+      "homepage": "https://council.geomdan.go.kr",
+      "adapter": "discovery_required",
+      "active_from": "2026-07-01",
+      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+    },
+    {
+      "region": "인천",
+      "jurisdiction": "서해구",
+      "institution": "서해구의회",
+      "jurisdiction_level": "basic_council",
+      "source_family": "council_leadership",
+      "verified": false,
+      "url": null,
+      "homepage": "https://www.seohae.go.kr",
+      "adapter": "discovery_required",
+      "active_from": "2026-07-01",
+      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+    },
+    {
+      "region": "인천",
+      "jurisdiction": "영종구",
+      "institution": "영종구의회",
+      "jurisdiction_level": "basic_council",
+      "source_family": "council_leadership",
+      "verified": false,
+      "url": null,
+      "homepage": "https://www.yeongjong.go.kr",
+      "adapter": "discovery_required",
+      "active_from": "2026-07-01",
+      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+    },
+    {
+      "region": "인천",
+      "jurisdiction": "제물포구",
+      "institution": "제물포구의회",
+      "jurisdiction_level": "basic_council",
+      "source_family": "council_leadership",
+      "verified": false,
+      "url": null,
+      "homepage": "https://council.jemulpo.go.kr",
+      "adapter": "discovery_required",
+      "active_from": "2026-07-01",
+      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
     },
     {
       "region": "서울",
