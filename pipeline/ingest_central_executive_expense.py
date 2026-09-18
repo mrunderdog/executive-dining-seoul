@@ -52,10 +52,15 @@ def people(v):
 def pdate(v):
     if isinstance(v,datetime): return v.date().isoformat()
     if isinstance(v,date): return v.isoformat()
-    s=clean(v); m=re.search(r"(20\d{2})[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})",s)
+    s=clean(v)
+    m=re.fullmatch(r"(20\d{2})(\d{2})(\d{2})",s)
     if m:
         try:return date(int(m.group(1)),int(m.group(2)),int(m.group(3))).isoformat()
-        except:pass
+        except ValueError:pass
+    m=re.search(r"(20\d{2})[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})",s)
+    if m:
+        try:return date(int(m.group(1)),int(m.group(2)),int(m.group(3))).isoformat()
+        except ValueError:pass
     return s
 
 def fetch(url):
@@ -225,7 +230,15 @@ def normalize(rows,sheet,meta):
         if any(k in joined for k in ("합계","총계","누계")) and not d:continue
         role=clean(cell(row,m,"role")) or clean(meta.get("default_role"))
         dept=clean(cell(row,m,"department"))
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":clean(cell(row,m,"time")),"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        used_time=clean(cell(row,m,"time"))
+        # Some PDF table extractors shift [date, time, role] one column to the
+        # right. Repair the unambiguous case where the "date" is a clock time
+        # and the role cell is actually a calendar date.
+        if re.fullmatch(r"\d{1,2}:\d{2}(?::\d{2})?", d or "") and re.fullmatch(r"20\d{2}[-./]\d{1,2}[-./]\d{1,2}", role or ""):
+            used_time=d
+            d=pdate(role)
+            role=clean(meta.get("default_role"))
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}

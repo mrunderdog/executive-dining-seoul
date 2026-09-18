@@ -84,7 +84,10 @@ def score(visits,roles,months,institutions,weight,senior_ratio,spend):
 def main():
     if not RAW.exists():
         print("central executive raw missing; no candidates built");return
-    d=json.loads(RAW.read_text(encoding="utf-8"));rows=[r for r in d.get("rows",[]) if meal(r)]
+    d=json.loads(RAW.read_text(encoding="utf-8"));rows=[
+        r for r in d.get("rows",[])
+        if meal(r) and re.fullmatch(r"20\d{2}-\d{2}-\d{2}",t(r.get("used_date")))
+    ]
     if not rows:
         previous=REPORTS/"central-executive-candidates.json"
         if previous.exists():
@@ -118,7 +121,7 @@ def main():
         top_official_visits=sum(tier_counts.get(x,0) for x in ("prime_minister","deputy_prime_minister","minister","vice_minister"))
         s=score(visits,len(roles),len(months),len(institutions),weight,senior_ratio,spend)
         rc=Counter(t(r.get("role")) or t(r.get("department")) or "직위 미상" for r in items);pc=Counter(t(r.get("purpose")) for r in items if t(r.get("purpose")))
-        dates=sorted(t(r.get("used_date")) for r in items if t(r.get("used_date")))
+        dates=sorted(t(r.get("used_date")) for r in items if re.fullmatch(r"20\d{2}-\d{2}-\d{2}",t(r.get("used_date"))))
         out.append({"merchant":name,"address":address,"score":s,"visits":visits,"senior_visits":senior_visits,"senior_ratio":round(senior_ratio,3),"role_count":len(roles),"institution_count":len(institutions),"months":len(months),"spend":spend,"senior_weight":weight,"top_role_tier":top_role_tier,"top_role_label":ROLE_TIER_LABEL.get(top_role_tier,top_role_tier),"top_official_visits":top_official_visits,"prime_minister_visits":tier_counts.get("prime_minister",0),"deputy_prime_minister_visits":tier_counts.get("deputy_prime_minister",0),"minister_visits":tier_counts.get("minister",0),"vice_minister_visits":tier_counts.get("vice_minister",0),"role_tier_stats":[{"tier":k,"label":ROLE_TIER_LABEL.get(k,k),"visits":v} for k,v in sorted(tier_counts.items(),key=lambda kv:ROLE_TIER_ORDER.get(kv[0],0),reverse=True)],"institutions":institutions,"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common(10)],"purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(6)],"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","recent":[{"date":t(r.get("used_date")),"time":t(r.get("used_time")),"institution":t(r.get("institution")),"role":t(r.get("role")) or t(r.get("department")),"amount":int(r.get("amount") or 0),"people":int(r.get("people") or 0),"purpose":t(r.get("purpose")),"source":t(r.get("source_url"))} for r in sorted(items,key=lambda x:(t(x.get("used_date")),t(x.get("used_time"))),reverse=True)[:8]]})
     eligible=[x for x in out if x["visits"]>=2 and x["months"]>=1 and x["score"]>=45 and (x["senior_weight"]>=.65 or x["institution_count"]>=2)]
     eligible.sort(key=lambda x:(x["score"],x["institution_count"],x["visits"],x["spend"]),reverse=True)

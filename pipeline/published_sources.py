@@ -464,10 +464,16 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
     candidates = doc.get("candidates") or []
     publishable = [
         x for x in candidates
-        if _txt(x.get("address"))
-        and int(x.get("visits") or 0) >= 3
+        if int(x.get("visits") or 0) >= 3
         and int(x.get("months") or 0) >= 2
         and float(x.get("score") or 0) >= 50
+        and (
+            _txt(x.get("address"))
+            or (
+                source == "incheon_province"
+                and int(x.get("mayor_visits") or 0) + int(x.get("vice_mayor_visits") or 0) >= 3
+            )
+        )
     ]
     publishable.sort(
         key=lambda x: (float(x.get("score") or 0), int(x.get("visits") or 0), int(x.get("spend") or 0)),
@@ -476,6 +482,11 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
     out = []
     for rank, x in enumerate(publishable[:max_records], 1):
         name = _txt(x.get("merchant")); address = _txt(x.get("address"))
+        location_hint = ""
+        m = re.search(r"\(([^()]*(?:시|군|구)[^()]*?)\s*소재\)", name)
+        if m:
+            location_hint = _txt(m.group(1))
+        display_name = re.sub(r"\([^()]*\s*소재\)", "", name).strip() or name
         visits = int(x.get("visits") or 0); months = int(x.get("months") or 0); spend = int(x.get("spend") or 0)
         raw_roles = x.get("role_stats") or x.get("department_stats") or []
         roles = []
@@ -506,9 +517,11 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
             "name": name, "origin": spec["origin"], "region": spec["region"],
             "jurisdiction": spec["jurisdiction"], "institution": spec["institution"],
             "type": "executive", "destination": None, "executive": executive,
-            "address": address, "search_query": f"{name} {address}",
+            "address": address,
+            "location_hint": location_hint,
+            "search_query": " ".join(x for x in (display_name, address or location_hint or spec["jurisdiction"]) if x),
             "business": {
-                "display": name, "category": _category(name), "phone": "",
+                "display": display_name, "category": _category(display_name), "phone": "",
                 "status": f"{spec['label']} 공식 업무추진비 원자료상 사용처",
                 "rating": "",
                 "note": "공식 업무추진비 공개자료 기반. 식당 품질 평가가 아니라 공개 지출에서 확인되는 선택 패턴 신호입니다.",
