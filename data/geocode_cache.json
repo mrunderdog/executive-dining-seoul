@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 54,
+    "failed_count": 42,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 536,
-    "success_count": 482,
-    "updated_at": "2026-09-17T23:07:59+00:00"
+    "record_count": 665,
+    "success_count": 623,
+    "updated_at": "2026-09-18T00:09:18+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -207,58 +207,94 @@
       "updated_at": "2026-09-17T23:05:46+00:00"
     },
     "가시리|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "제주특별자치도 서귀포시 표선면 가시리",
-      "fingerprint": "e0ed7e0186401901",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 16",
+      "fingerprint": "967b7a97e30597a6",
       "geocoder_version": 4,
-      "lat": 33.382827297695,
-      "lon": 126.731370794455,
-      "match_mode": "name",
+      "lat": 37.530537372236,
+      "lon": 126.921734598894,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "가시리 대한민국",
-      "result_name": "가시리",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층",
+      "result_name": "",
+      "score": 96.33,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:가시리 대한민국"
+        "arcgis:서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층"
       ],
-      "updated_at": "2026-09-17T23:06:03+00:00"
+      "updated_at": "2026-09-18T00:07:12+00:00"
+    },
+    "가시리여의도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 19",
+      "fingerprint": "b20e628b1f548039",
+      "geocoder_version": 4,
+      "lat": 37.529823527452,
+      "lon": 126.92197046565,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길 19 (여의도동, 익스콘벤처빌딩) 201호",
+      "result_name": "",
+      "score": 97.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길 19 (여의도동, 익스콘벤처빌딩) 201호"
+      ],
+      "updated_at": "2026-09-18T00:08:19+00:00"
     },
     "가시리여의도점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "가시리 여의도점",
-      "fingerprint": "5a725535a33d7c28",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13-4",
+      "fingerprint": "281771f59e469d2a",
       "geocoder_version": 4,
-      "lat": 37.530290356,
-      "lon": 126.921962988,
-      "match_mode": "name",
+      "lat": 37.529804793899,
+      "lon": 126.921973483135,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "가시리여의도점 대한민국",
-      "result_name": "가시리 여의도점",
-      "score": 100.0,
+      "query": "서울 영등포구 여의도동 13-4 2층",
+      "result_name": "",
+      "score": 98.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:가시리여의도점 대한민국"
+        "arcgis:서울 영등포구 여의도동 13-4 2층"
       ],
-      "updated_at": "2026-09-17T23:06:12+00:00"
+      "updated_at": "2026-09-18T00:07:18+00:00"
     },
     "가야한정식|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "가야한정식",
-      "fingerprint": "8b9062e8b7eaadc3",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 23",
+      "fingerprint": "192902f1cb342abb",
       "geocoder_version": 4,
-      "lat": 37.462069511,
-      "lon": 127.155525808,
-      "match_mode": "name",
+      "lat": 37.528475214508,
+      "lon": 126.920419813562,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "가야한정식 대한민국",
-      "result_name": "가야한정식",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로68길 23(여의도동,정원빌딩)2층",
+      "result_name": "",
+      "score": 97.6,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:가야한정식 대한민국"
+        "arcgis:서울 영등포구 국회대로68길 23(여의도동,정원빌딩)2층"
       ],
-      "updated_at": "2026-09-17T23:06:22+00:00"
+      "updated_at": "2026-09-18T00:07:22+00:00"
+    },
+    "가양|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 9",
+      "fingerprint": "8b3cd68272fdd503",
+      "geocoder_version": 4,
+      "lat": 37.530520440792,
+      "lon": 126.921308714394,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길9(여의도동, 삼보빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.92,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길9(여의도동, 삼보빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:04+00:00"
     },
     "갈비사랑|서초구": {
       "addr_type": "PointAddress",
@@ -295,6 +331,24 @@
         "arcgis:서울 도봉구 쌍문동 85-5"
       ],
       "updated_at": "2026-09-17T23:02:24+00:00"
+    },
+    "강가(여의도점)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로2길 7",
+      "fingerprint": "73889c85493b946d",
+      "geocoder_version": 4,
+      "lat": 37.524649085256,
+      "lon": 126.926838591195,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로2길 7(여의도동, 한주빌딩)2층",
+      "result_name": "",
+      "score": 97.5,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로2길 7(여의도동, 한주빌딩)2층"
+      ],
+      "updated_at": "2026-09-18T00:08:14+00:00"
     },
     "강강술래 시흥점|금천구": {
       "addr_type": "StreetAddress",
@@ -441,6 +495,24 @@
       ],
       "updated_at": "2026-09-17T23:05:04+00:00"
     },
+    "경복궁여의도아이에프씨점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 10",
+      "fingerprint": "e8c7689afa834c90",
+      "geocoder_version": 4,
+      "lat": 37.525050326961,
+      "lon": 126.925931753091,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 10 (여의도동, IFC) 지하 101호",
+      "result_name": "",
+      "score": 98.46,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 10 (여의도동, IFC) 지하 101호"
+      ],
+      "updated_at": "2026-09-18T00:07:56+00:00"
+    },
     "경성치킨 광화문스퀘어점|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 신문로1가 새문안로 96",
@@ -476,6 +548,24 @@
         "arcgis:경성한우국밥 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:07+00:00"
+    },
+    "경희면옥여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 21",
+      "fingerprint": "09b51521d5ef3db1",
+      "geocoder_version": 4,
+      "lat": 37.529326773961,
+      "lon": 126.921480208133,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔) 1층",
+      "result_name": "",
+      "score": 96.13,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔) 1층"
+      ],
+      "updated_at": "2026-09-18T00:09:10+00:00"
     },
     "고궁|고양시": {
       "failed": true,
@@ -561,35 +651,40 @@
       "updated_at": "2026-09-17T23:06:20+00:00"
     },
     "고방채서여의도3호점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "고방채 서여의도3호점",
-      "fingerprint": "f77e8f76dfffe052",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 25",
+      "fingerprint": "cbfd2e7e319a3628",
       "geocoder_version": 4,
-      "lat": 37.526342597,
-      "lon": 126.91769607,
-      "match_mode": "name",
+      "lat": 37.526319724287,
+      "lon": 126.91771740416,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "고방채서여의도3호점 대한민국",
-      "result_name": "고방채 서여의도3호점",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 1층",
+      "result_name": "",
+      "score": 97.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:고방채서여의도3호점 대한민국"
+        "arcgis:서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 1층"
       ],
-      "updated_at": "2026-09-17T23:06:29+00:00"
+      "updated_at": "2026-09-18T00:07:30+00:00"
     },
     "고방채서여의도점|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "3181c6c0f7f70bce",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "f4139045a6b5cc41",
       "geocoder_version": 4,
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 1층 113호",
+      "result_name": "",
+      "score": 97.59,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:고방채서여의도점 대한민국",
-        "arcgis:고방채서여의도점 여의도 서울",
-        "nominatim:고방채서여의도점 대한민국",
-        "nominatim:고방채서여의도점 여의도 서울"
+        "arcgis:서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 1층 113호"
       ],
-      "updated_at": "2026-09-17T23:06:16+00:00"
+      "updated_at": "2026-09-18T00:07:04+00:00"
     },
     "고봉산한우터|고양시": {
       "addr_type": "PointAddress",
@@ -610,22 +705,22 @@
       "updated_at": "2026-09-17T23:03:38+00:00"
     },
     "고봉삼계탕|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "고봉삼계탕",
-      "fingerprint": "5401fc7bf77b08f6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 5",
+      "fingerprint": "686209c494290d86",
       "geocoder_version": 4,
-      "lat": 37.272491669,
-      "lon": 127.150227076,
-      "match_mode": "name",
+      "lat": 37.530513190446,
+      "lon": 126.920305568222,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "고봉삼계탕 대한민국",
-      "result_name": "고봉삼계탕",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로72길5(여의도동, 여의도 플렉시움 오피스텔) 102,103호",
+      "result_name": "",
+      "score": 96.11,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:고봉삼계탕 대한민국"
+        "arcgis:서울 영등포구 국회대로72길5(여의도동, 여의도 플렉시움 오피스텔) 102,103호"
       ],
-      "updated_at": "2026-09-17T23:06:43+00:00"
+      "updated_at": "2026-09-18T00:07:33+00:00"
     },
     "고수2호점|도봉구": {
       "addr_type": "PointAddress",
@@ -663,6 +758,24 @@
       ],
       "updated_at": "2026-09-17T23:03:49+00:00"
     },
+    "고우가|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 24",
+      "fingerprint": "87b0d10d5cda4642",
+      "geocoder_version": 4,
+      "lat": 37.521693207101,
+      "lon": 126.920045310129,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의대로 24 (여의도동, FKI타워) 비127-1",
+      "result_name": "",
+      "score": 96.15,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의대로 24 (여의도동, FKI타워) 비127-1"
+      ],
+      "updated_at": "2026-09-18T00:08:42+00:00"
+    },
     "고창복낙지|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 하안동 범안로 893",
@@ -680,6 +793,24 @@
         "arcgis:경기 광명시 범안로 893"
       ],
       "updated_at": "2026-09-17T23:00:57+00:00"
+    },
+    "고청담여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 39",
+      "fingerprint": "d57bfb2e064156db",
+      "geocoder_version": 4,
+      "lat": 37.52452490736,
+      "lon": 126.929866972812,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도) 지하1층",
+      "result_name": "",
+      "score": 96.07,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:09:12+00:00"
     },
     "고향식당|서울시청": {
       "addr_type": "PointAddress",
@@ -700,22 +831,22 @@
       "updated_at": "2026-09-17T23:04:28+00:00"
     },
     "고향정|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "고향정",
-      "fingerprint": "6eb19d97a329e7d6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "76ded04d76f5e6d6",
       "geocoder_version": 4,
-      "lat": 37.329703864,
-      "lon": 126.951968843,
-      "match_mode": "name",
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "고향정 대한민국",
-      "result_name": "고향정",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 15-1(여의도동,극동브이아이피빌딩)2층",
+      "result_name": "",
+      "score": 96.45,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:고향정 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 15-1(여의도동,극동브이아이피빌딩)2층"
       ],
-      "updated_at": "2026-09-17T23:06:26+00:00"
+      "updated_at": "2026-09-18T00:07:25+00:00"
     },
     "곰솔|서울시청": {
       "addr_type": "PointAddress",
@@ -752,6 +883,24 @@
         "arcgis:공리 서초구 서울"
       ],
       "updated_at": "2026-09-17T23:03:06+00:00"
+    },
+    "곽수산|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 19",
+      "fingerprint": "bfe9bd3cdccf56ec",
+      "geocoder_version": 4,
+      "lat": 37.529823527452,
+      "lon": 126.92197046565,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길 19(여의도동,동우국제빌딩)",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길 19(여의도동,동우국제빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:51+00:00"
     },
     "관산성한우 세종나성점|중앙정부": {
       "addr_type": "POI",
@@ -916,22 +1065,58 @@
       "updated_at": "2026-09-17T23:01:11+00:00"
     },
     "구마산|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "구마산",
-      "fingerprint": "019e217ef1c28a74",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 70",
+      "fingerprint": "b2268ec1a2f75de5",
       "geocoder_version": 4,
-      "lat": 37.521507574,
-      "lon": 126.930666816,
-      "match_mode": "name",
+      "lat": 37.521494681724,
+      "lon": 126.930677754307,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "구마산 대한민국",
-      "result_name": "구마산",
+      "query": "서울 영등포구 국제금융로 70",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:구마산 대한민국"
+        "arcgis:서울 영등포구 국제금융로 70"
       ],
-      "updated_at": "2026-09-17T23:07:24+00:00"
+      "updated_at": "2026-09-18T00:07:47+00:00"
+    },
+    "구이구이|국회의원(정치자금 2024)": {
+      "addr_type": "Subaddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 38 101동",
+      "fingerprint": "c5c61bd335ec1710",
+      "geocoder_version": 4,
+      "lat": 37.525484509545,
+      "lon": 126.918988687414,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 38 101",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 38 101"
+      ],
+      "updated_at": "2026-09-18T00:08:06+00:00"
+    },
+    "국회의사당파리바게뜨|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 1",
+      "fingerprint": "5e3611203c0d093b",
+      "geocoder_version": 4,
+      "lat": 37.531892181156,
+      "lon": 126.914137325675,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "result_name": "",
+      "score": 96.4,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:15+00:00"
     },
     "군산아구동태찜탕전문|관악구": {
       "addr_type": "PointAddress",
@@ -1005,6 +1190,42 @@
       ],
       "updated_at": "2026-09-17T23:05:58+00:00"
     },
+    "글로벌봉피양|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 한강로2가 한강대로40길 31",
+      "fingerprint": "1f54ec91b287ed20",
+      "geocoder_version": 4,
+      "lat": 37.530336751384,
+      "lon": 126.970921283109,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 한강대로40길 31 (한강로2가, 용수정) 1층",
+      "result_name": "",
+      "score": 95.83,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 한강대로40길 31 (한강로2가, 용수정) 1층"
+      ],
+      "updated_at": "2026-09-18T00:09:13+00:00"
+    },
+    "금각도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 16",
+      "fingerprint": "fb62c7e5b4c98414",
+      "geocoder_version": 4,
+      "lat": 37.530537372236,
+      "lon": 126.921734598894,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로76길 16 (여의도동) 별관 C동 2층",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로76길 16 (여의도동) 별관 C동 2층"
+      ],
+      "updated_at": "2026-09-18T00:08:38+00:00"
+    },
     "금돼지|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 남대문로1길 26-10",
@@ -1024,22 +1245,22 @@
       "updated_at": "2026-09-17T23:04:23+00:00"
     },
     "금산생대구|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "금산생대구",
-      "fingerprint": "08916054fe1a081e",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "090d60f171ef3483",
       "geocoder_version": 4,
-      "lat": 37.528269923,
-      "lon": 126.916436634,
-      "match_mode": "name",
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "금산생대구 대한민국",
-      "result_name": "금산생대구",
+      "query": "서울 영등포구 국회대로 750",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:금산생대구 대한민국"
+        "arcgis:서울 영등포구 국회대로 750"
       ],
-      "updated_at": "2026-09-17T23:07:54+00:00"
+      "updated_at": "2026-09-18T00:07:54+00:00"
     },
     "금하|광진구": {
       "addr_type": "PointAddress",
@@ -1088,23 +1309,41 @@
       ],
       "updated_at": "2026-09-17T23:04:52+00:00"
     },
-    "김삼보|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "김삼보",
-      "fingerprint": "c91802defa5b8ae5",
+    "김명자굴국밥전문점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "9e2bce732c0a7d7e",
       "geocoder_version": 4,
-      "lat": 37.484345943,
-      "lon": 126.899285087,
-      "match_mode": "name",
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "김삼보 대한민국",
-      "result_name": "김삼보",
+      "query": "서울 영등포구 국회대로70길15-1",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:김삼보 대한민국"
+        "arcgis:서울 영등포구 국회대로70길15-1"
       ],
-      "updated_at": "2026-09-17T23:07:19+00:00"
+      "updated_at": "2026-09-18T00:08:44+00:00"
+    },
+    "김삼보|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 780",
+      "fingerprint": "a785129cf89ecf22",
+      "geocoder_version": 4,
+      "lat": 37.529830861618,
+      "lon": 126.919265625495,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층",
+      "result_name": "",
+      "score": 95.86,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층"
+      ],
+      "updated_at": "2026-09-18T00:07:45+00:00"
     },
     "김영희동태찜앤코다리|관악구": {
       "addr_type": "PointAddress",
@@ -1196,6 +1435,24 @@
       ],
       "updated_at": "2026-09-17T23:05:07+00:00"
     },
+    "낙지한마리수제비서여의도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13-20",
+      "fingerprint": "6b0fca8e26f821fb",
+      "geocoder_version": 4,
+      "lat": 37.529919332606,
+      "lon": 126.920855588708,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의도동 13-20 (프린스텔)",
+      "result_name": "",
+      "score": 97.78,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의도동 13-20 (프린스텔)"
+      ],
+      "updated_at": "2026-09-18T00:08:18+00:00"
+    },
     "남궁|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산서구 대화동 2101",
@@ -1215,22 +1472,22 @@
       "updated_at": "2026-09-17T23:03:50+00:00"
     },
     "남도마루|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "남도마루",
-      "fingerprint": "6c4f32501b6cae28",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 3",
+      "fingerprint": "b3ebff6e92e24587",
       "geocoder_version": 4,
-      "lat": 37.527516094,
-      "lon": 126.919664722,
-      "match_mode": "name",
+      "lat": 37.527511714738,
+      "lon": 126.919665861372,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "남도마루 대한민국",
-      "result_name": "남도마루",
-      "score": 100.0,
+      "query": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "result_name": "",
+      "score": 96.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:남도마루 대한민국"
+        "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
       ],
-      "updated_at": "2026-09-17T23:05:58+00:00"
+      "updated_at": "2026-09-18T00:07:03+00:00"
     },
     "남도마루|용산구": {
       "addr_type": "POI",
@@ -1323,6 +1580,24 @@
       ],
       "updated_at": "2026-09-17T23:03:06+00:00"
     },
+    "남해바다|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 토정로37길 46",
+      "fingerprint": "874ab00b9a77dda8",
+      "geocoder_version": 4,
+      "lat": 37.542556895661,
+      "lon": 126.947372158499,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울마포구토정로37길46(도화동,정우빌딩)",
+      "result_name": "",
+      "score": 98.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울마포구토정로37길46(도화동,정우빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:03+00:00"
+    },
     "낭낭김밥|송파구": {
       "addr_type": "POI",
       "display_name": "낭낭김밥",
@@ -1342,22 +1617,40 @@
       "updated_at": "2026-09-17T23:02:31+00:00"
     },
     "너섬|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "너섬",
-      "fingerprint": "245e7c8f3a9663ab",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "60d9b4bb14fefc9a",
       "geocoder_version": 4,
-      "lat": 37.528269923,
-      "lon": 126.916436634,
-      "match_mode": "name",
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "너섬 대한민국",
-      "result_name": "너섬",
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:24+00:00"
+    },
+    "노독일처|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 용강동 토정로37길 17",
+      "fingerprint": "d7db3b116b0cc4ae",
+      "geocoder_version": 4,
+      "lat": 37.541150579947,
+      "lon": 126.944833112389,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울마포구토정로37길17",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:너섬 대한민국"
+        "arcgis:서울마포구토정로37길17"
       ],
-      "updated_at": "2026-09-17T23:06:25+00:00"
+      "updated_at": "2026-09-18T00:08:40+00:00"
     },
     "노량진 생고기|동작구": {
       "addr_type": "Locality",
@@ -1377,23 +1670,77 @@
       ],
       "updated_at": "2026-09-17T23:03:18+00:00"
     },
-    "노조미|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "노조미",
-      "fingerprint": "d59378326c475923",
+    "노스폴(오묘)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 22",
+      "fingerprint": "50c0a57bdf6f27ff",
       "geocoder_version": 4,
-      "lat": 37.205383032,
-      "lon": 127.074339381,
-      "match_mode": "name",
+      "lat": 37.528604337726,
+      "lon": 126.920622655619,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "노조미 대한민국",
-      "result_name": "노조미",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 22 (여의도동, 금강빌딩) 2층 206호",
+      "result_name": "",
+      "score": 98.28,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:노조미 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 22 (여의도동, 금강빌딩) 2층 206호"
       ],
-      "updated_at": "2026-09-17T23:06:19+00:00"
+      "updated_at": "2026-09-18T00:08:47+00:00"
+    },
+    "노조미|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 3",
+      "fingerprint": "5c6d737bc568a53a",
+      "geocoder_version": 4,
+      "lat": 37.527511714738,
+      "lon": 126.919665861372,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "result_name": "",
+      "score": 96.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
+      ],
+      "updated_at": "2026-09-18T00:07:20+00:00"
+    },
+    "노조미여의도본점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 3",
+      "fingerprint": "f8c8807ca84739df",
+      "geocoder_version": 4,
+      "lat": 37.527511714738,
+      "lon": 126.919665861372,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) 비113호",
+      "result_name": "",
+      "score": 95.38,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) 비113호"
+      ],
+      "updated_at": "2026-09-18T00:08:28+00:00"
+    },
+    "농농|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "aa5609a31e39a7f6",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 7(여의도동,동아빌딩)지하1층",
+      "result_name": "",
+      "score": 96.92,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 7(여의도동,동아빌딩)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:09:06+00:00"
     },
     "농실가|동작구": {
       "addr_type": "Locality",
@@ -1413,6 +1760,24 @@
       ],
       "updated_at": "2026-09-17T23:02:48+00:00"
     },
+    "농협유통국회점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 1",
+      "fingerprint": "cd04ceb59fb44cbb",
+      "geocoder_version": 4,
+      "lat": 37.531892181156,
+      "lon": 126.914137325675,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "result_name": "",
+      "score": 96.4,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:35+00:00"
+    },
     "늘곰탕 금천구청역점|금천구": {
       "addr_type": "PointAddress",
       "display_name": "서울 금천구 시흥동 시흥대로73길 67",
@@ -1430,6 +1795,24 @@
         "arcgis:서울 금천구 시흥대로73길 67"
       ],
       "updated_at": "2026-09-17T23:01:39+00:00"
+    },
+    "능라도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 마포동 마포대로 25",
+      "fingerprint": "8a7c190dcdb035c7",
+      "geocoder_version": 4,
+      "lat": 37.539378813253,
+      "lon": 126.944833615303,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울마포구마포대로25(마포동,대농B/D)101호",
+      "result_name": "",
+      "score": 98.64,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울마포구마포대로25(마포동,대농B/D)101호"
+      ],
+      "updated_at": "2026-09-18T00:09:11+00:00"
     },
     "능원숯불갈비|은평구": {
       "addr_type": "PointAddress",
@@ -1467,23 +1850,41 @@
       ],
       "updated_at": "2026-09-17T23:03:25+00:00"
     },
-    "다원|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "다원",
-      "fingerprint": "4426aaf3640cd913",
+    "다옴|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 12",
+      "fingerprint": "7d56194e778ad9a7",
       "geocoder_version": 4,
-      "lat": 37.228599388,
-      "lon": 128.086697832,
-      "match_mode": "name",
+      "lat": 37.529366252725,
+      "lon": 126.919872642923,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "다원 대한민국",
-      "result_name": "다원",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 12 (여의도동, 대산빌딩) 지하1층",
+      "result_name": "",
+      "score": 97.04,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:다원 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 12 (여의도동, 대산빌딩) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:06:09+00:00"
+      "updated_at": "2026-09-18T00:09:00+00:00"
+    },
+    "다원|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 21",
+      "fingerprint": "2cc782896446ff3f",
+      "geocoder_version": 4,
+      "lat": 37.527781737748,
+      "lon": 126.919397724289,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 21 (여의도동, 대한주택보증주식회사)",
+      "result_name": "",
+      "score": 97.02,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 21 (여의도동, 대한주택보증주식회사)"
+      ],
+      "updated_at": "2026-09-18T00:07:15+00:00"
     },
     "다정이네민물매운탕|강동구": {
       "addr_type": "POI",
@@ -1503,23 +1904,41 @@
       ],
       "updated_at": "2026-09-17T23:01:57+00:00"
     },
-    "달구지|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "강원 달구지",
-      "fingerprint": "12caebb7c11df121",
+    "달개비|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 정동 세종대로21길 15",
+      "fingerprint": "10f13d3cc4a5f1c3",
       "geocoder_version": 4,
-      "lat": 37.4833,
-      "lon": 128.0716,
-      "match_mode": "name",
+      "lat": 37.567247258298,
+      "lon": 126.975558319583,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "달구지 대한민국",
-      "result_name": "달구지",
-      "score": 100.0,
+      "query": "서울 중구 세종대로21길 15(정동, 대한성공회서울대성당)",
+      "result_name": "",
+      "score": 96.8,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:달구지 대한민국"
+        "arcgis:서울 중구 세종대로21길 15(정동, 대한성공회서울대성당)"
       ],
-      "updated_at": "2026-09-17T23:06:30+00:00"
+      "updated_at": "2026-09-18T00:09:16+00:00"
+    },
+    "달구지|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 7",
+      "fingerprint": "759adb9b76c61883",
+      "geocoder_version": 4,
+      "lat": 37.52946360853,
+      "lon": 126.91949369708,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 7 지하1층",
+      "result_name": "",
+      "score": 97.78,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 7 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:29+00:00"
     },
     "담원두부마을|금천구": {
       "addr_type": "PointAddress",
@@ -1612,22 +2031,22 @@
       "updated_at": "2026-09-17T23:02:33+00:00"
     },
     "대방골|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "경남 대방골",
-      "fingerprint": "05f05fd557314a4b",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "79d30c84e1765f9f",
       "geocoder_version": 4,
-      "lat": 35.57587,
-      "lon": 128.45847,
-      "match_mode": "name",
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "대방골 대한민국",
-      "result_name": "대방골",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "result_name": "",
+      "score": 96.3,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:대방골 대한민국"
+        "arcgis:서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:06:03+00:00"
+      "updated_at": "2026-09-18T00:07:09+00:00"
     },
     "대산집|마포구": {
       "addr_type": "POI",
@@ -1646,6 +2065,24 @@
         "arcgis:대산집 마포구 서울"
       ],
       "updated_at": "2026-09-17T23:03:07+00:00"
+    },
+    "대상해|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로 135",
+      "fingerprint": "71c19d3474da4c4c",
+      "geocoder_version": 4,
+      "lat": 37.56810409835,
+      "lon": 126.976657606185,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 중구 세종대로135",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로135"
+      ],
+      "updated_at": "2026-09-18T00:08:05+00:00"
     },
     "대선칼국수|중앙정부": {
       "addr_type": "POI",
@@ -1774,6 +2211,21 @@
       ],
       "updated_at": "2026-09-17T23:04:15+00:00"
     },
+    "더센다이|국회의원(정치자금 2024)": {
+      "failed": true,
+      "fingerprint": "4d3451fa43b28402",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:서울 마포구 큰우물 로 75",
+        "arcgis:더센다이 서울 마포구 큰우물 로 75",
+        "arcgis:더센다이 대한민국",
+        "arcgis:더센다이 여의도 서울",
+        "nominatim:서울 마포구 큰우물 로 75",
+        "nominatim:더센다이 서울 마포구 큰우물 로 75"
+      ],
+      "updated_at": "2026-09-18T00:08:59+00:00"
+    },
     "더존정육센타|금천구": {
       "addr_type": "PointAddress",
       "display_name": "서울 금천구 독산동 독산로85길 21",
@@ -1876,6 +2328,42 @@
       ],
       "updated_at": "2026-09-17T07:48:02+00:00"
     },
+    "도림|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 송파구 잠실동 올림픽로 240",
+      "fingerprint": "ffef435d8bfca0c8",
+      "geocoder_version": 4,
+      "lat": 37.511309579719,
+      "lon": 127.098141725686,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 송파구올림픽로240",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 송파구올림픽로240"
+      ],
+      "updated_at": "2026-09-18T00:09:09+00:00"
+    },
+    "도쿄등심여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의나루로 50",
+      "fingerprint": "2e87770f2ccf4921",
+      "geocoder_version": 4,
+      "lat": 37.521805231237,
+      "lon": 126.925651210791,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의나루로 50(여의도동,한국교직원공제회관)지하 1층",
+      "result_name": "",
+      "score": 96.33,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의나루로 50(여의도동,한국교직원공제회관)지하 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:52+00:00"
+    },
     "도토리 소반|성북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 명륜4가 대학로9길 12",
@@ -1911,6 +2399,24 @@
         "arcgis:서울 중구 세종대로 72-1"
       ],
       "updated_at": "2026-09-17T23:04:23+00:00"
+    },
+    "독토|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "5eebde73b848d319",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울영등포구국회대로70길7(여의도동,동아빌딩)지하1층",
+      "result_name": "",
+      "score": 96.92,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울영등포구국회대로70길7(여의도동,동아빌딩)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:56+00:00"
     },
     "돈미화로|도봉구": {
       "addr_type": "PointAddress",
@@ -1966,23 +2472,41 @@
       ],
       "updated_at": "2026-09-17T23:05:51+00:00"
     },
-    "동남집|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "동남집",
-      "fingerprint": "1fa22291c660b76d",
+    "동경식당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 8",
+      "fingerprint": "b8172133d1e5ffd5",
       "geocoder_version": 4,
-      "lat": 37.500802566,
-      "lon": 126.774608984,
-      "match_mode": "name",
+      "lat": 37.521217743643,
+      "lon": 126.918583673853,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "동남집 대한민국",
-      "result_name": "동남집",
-      "score": 100.0,
+      "query": "서울 영등포구 여의대로 8(여의도동, 여의도파크센터)",
+      "result_name": "",
+      "score": 96.82,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:동남집 대한민국"
+        "arcgis:서울 영등포구 여의대로 8(여의도동, 여의도파크센터)"
       ],
-      "updated_at": "2026-09-17T23:07:24+00:00"
+      "updated_at": "2026-09-18T00:08:05+00:00"
+    },
+    "동남집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "5b10b8d66aeaf6e5",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 106-107호",
+      "result_name": "",
+      "score": 96.07,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 106-107호"
+      ],
+      "updated_at": "2026-09-18T00:07:47+00:00"
     },
     "동심|중앙정부": {
       "addr_type": "Locality",
@@ -2020,18 +2544,59 @@
       ],
       "updated_at": "2026-09-17T07:48:14+00:00"
     },
-    "동해도제이알에스|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "03aa752e584f04f7",
+    "동해도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 25",
+      "fingerprint": "c14a4d570c8b7226",
       "geocoder_version": 4,
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 은행로 25 (여의도동, 안원빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.52,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:동해도제이알에스 대한민국",
-        "arcgis:동해도제이알에스 여의도 서울",
-        "nominatim:동해도제이알에스 대한민국",
-        "nominatim:동해도제이알에스 여의도 서울"
+        "arcgis:서울 영등포구 은행로 25 (여의도동, 안원빌딩) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:07:13+00:00"
+      "updated_at": "2026-09-18T00:08:01+00:00"
+    },
+    "동해도제이알에스|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 25",
+      "fingerprint": "524915b29ed355f0",
+      "geocoder_version": 4,
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로25(여의도동, 안원빌딩)지하1층",
+      "result_name": "",
+      "score": 96.52,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로25(여의도동, 안원빌딩)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:23+00:00"
+    },
+    "동해도한한|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 25",
+      "fingerprint": "77fe8d7666e9019e",
+      "geocoder_version": 4,
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로25(여의도동, 안원빌딩)지하1층",
+      "result_name": "",
+      "score": 96.52,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로25(여의도동, 안원빌딩)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:52+00:00"
     },
     "동해아구찜해물탕|영등포구": {
       "addr_type": "PointAddress",
@@ -2159,6 +2724,24 @@
       ],
       "updated_at": "2026-09-17T23:01:02+00:00"
     },
+    "또순이집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 양평동4가 선유로47길 16",
+      "fingerprint": "1d26f55b61dbaf20",
+      "geocoder_version": 4,
+      "lat": 37.535868514113,
+      "lon": 126.895386170082,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 선유로47길 16 (양평동4가, 오오1004빌딩)",
+      "result_name": "",
+      "score": 96.3,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 선유로47길 16 (양평동4가, 오오1004빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:07:56+00:00"
+    },
     "라티에|중앙정부": {
       "addr_type": "POI",
       "display_name": "라티에",
@@ -2212,6 +2795,24 @@
         "arcgis:로씨니 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:05+00:00"
+    },
+    "리샨여의도|국회의원(정치자금 2024)": {
+      "addr_type": "StreetAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 38",
+      "fingerprint": "592c7f5ab4e0e03e",
+      "geocoder_version": 4,
+      "lat": 37.526364848381,
+      "lon": 126.919448947192,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 38 (여의도동, 여의도더샵아일랜드파크) 112호",
+      "result_name": "",
+      "score": 96.88,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 38 (여의도동, 여의도더샵아일랜드파크) 112호"
+      ],
+      "updated_at": "2026-09-18T00:08:49+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -2303,6 +2904,42 @@
       ],
       "updated_at": "2026-09-17T23:01:42+00:00"
     },
+    "마포옥|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 용강동 토정로 312",
+      "fingerprint": "c288e5f574563aff",
+      "geocoder_version": 4,
+      "lat": 37.539874225641,
+      "lon": 126.943351191908,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로 312 (용강동, 마포옥)",
+      "result_name": "",
+      "score": 98.24,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로 312 (용강동, 마포옥)"
+      ],
+      "updated_at": "2026-09-18T00:09:00+00:00"
+    },
+    "마포점경복궁|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 67",
+      "fingerprint": "9bdb9ac89c557d3b",
+      "geocoder_version": 4,
+      "lat": 37.541849463033,
+      "lon": 126.948300454276,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로 67 (도화동, 에비뉴67)",
+      "result_name": "",
+      "score": 97.37,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로 67 (도화동, 에비뉴67)"
+      ],
+      "updated_at": "2026-09-18T00:08:45+00:00"
+    },
     "만가|종로구": {
       "addr_type": "POI",
       "display_name": "만가",
@@ -2320,6 +2957,24 @@
         "arcgis:만가 종로구 서울"
       ],
       "updated_at": "2026-09-17T23:01:58+00:00"
+    },
+    "만나|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 19",
+      "fingerprint": "09e37e2e6b982f10",
+      "geocoder_version": 4,
+      "lat": 37.529823527452,
+      "lon": 126.92197046565,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길19.",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길19."
+      ],
+      "updated_at": "2026-09-18T00:08:32+00:00"
     },
     "만나본가|구로구": {
       "addr_type": "PointAddress",
@@ -2550,6 +3205,24 @@
       ],
       "updated_at": "2026-09-17T23:02:32+00:00"
     },
+    "모도우여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 23-8",
+      "fingerprint": "d0a50a69976273e3",
+      "geocoder_version": 4,
+      "lat": 37.523818815837,
+      "lon": 126.924179516232,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의도동 23-8 (여의도파이낸스타워) 405-406호",
+      "result_name": "",
+      "score": 95.86,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의도동 23-8 (여의도파이낸스타워) 405-406호"
+      ],
+      "updated_at": "2026-09-18T00:08:13+00:00"
+    },
     "모두|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 서소문동 서소문로 109-6",
@@ -2567,6 +3240,24 @@
         "arcgis:서울 중구 서소문로 109-6"
       ],
       "updated_at": "2026-09-17T23:04:47+00:00"
+    },
+    "모연|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 용강동 토정로 318",
+      "fingerprint": "3e0cae4a562c7339",
+      "geocoder_version": 4,
+      "lat": 37.539432373615,
+      "lon": 126.943764503553,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로 318 (용강동) 영우빌딩 1층",
+      "result_name": "",
+      "score": 97.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로 318 (용강동) 영우빌딩 1층"
+      ],
+      "updated_at": "2026-09-18T00:09:04+00:00"
     },
     "목포세발낙지|서울시청": {
       "addr_type": "PointAddress",
@@ -2603,6 +3294,78 @@
         "arcgis:서울 중구 을지로5길 19"
       ],
       "updated_at": "2026-09-17T23:04:21+00:00"
+    },
+    "몽중헌(공덕)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 92",
+      "fingerprint": "46645b7e05c6858b",
+      "geocoder_version": 4,
+      "lat": 37.542369224849,
+      "lon": 126.952414292354,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로 92 (도화동, 효성해링턴스퀘어)",
+      "result_name": "",
+      "score": 96.36,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로 92 (도화동, 효성해링턴스퀘어)"
+      ],
+      "updated_at": "2026-09-18T00:08:12+00:00"
+    },
+    "몽중헌|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 92",
+      "fingerprint": "86c3fb7d27c68401",
+      "geocoder_version": 4,
+      "lat": 37.542369224849,
+      "lon": 126.952414292354,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로 92(도화동)A동 2층",
+      "result_name": "",
+      "score": 97.78,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로 92(도화동)A동 2층"
+      ],
+      "updated_at": "2026-09-18T00:08:11+00:00"
+    },
+    "몽중헌공덕점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 92",
+      "fingerprint": "1be99b34870a9bbf",
+      "geocoder_version": 4,
+      "lat": 37.542369224849,
+      "lon": 126.952414292354,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로92",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로92"
+      ],
+      "updated_at": "2026-09-18T00:08:49+00:00"
+    },
+    "미르|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 한강로2가 한강대로 92",
+      "fingerprint": "073835d6a7895dcd",
+      "geocoder_version": 4,
+      "lat": 37.52761711717,
+      "lon": 126.967566258725,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 한강대로 92 (한강로2가, LS용산타워) 지하1층",
+      "result_name": "",
+      "score": 94.23,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 한강대로 92 (한강로2가, LS용산타워) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:43+00:00"
     },
     "미르|중앙정부": {
       "addr_type": "POI",
@@ -2688,40 +3451,58 @@
       "updated_at": "2026-09-17T23:04:50+00:00"
     },
     "민소한우(서여의도점)|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "민소한우(서여의도점)",
-      "fingerprint": "58237569a90076e6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 17",
+      "fingerprint": "0a9a6ed13986fc7b",
       "geocoder_version": 4,
-      "lat": 37.528763863,
-      "lon": 126.920127591,
-      "match_mode": "name",
+      "lat": 37.52878488392,
+      "lon": 126.920109347869,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "민소한우(서여의도점) 대한민국",
-      "result_name": "민소한우(서여의도점)",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) 지하1층",
+      "result_name": "",
+      "score": 97.04,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:민소한우(서여의도점) 대한민국"
+        "arcgis:서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:07:34+00:00"
+      "updated_at": "2026-09-18T00:07:50+00:00"
     },
     "민소한우|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "민소한우",
-      "fingerprint": "4e60cc04604b119a",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 17",
+      "fingerprint": "cf48fc6eac68ef5a",
       "geocoder_version": 4,
-      "lat": 37.505062652,
-      "lon": 127.055338352,
-      "match_mode": "name",
+      "lat": 37.52878488392,
+      "lon": 126.920109347869,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "민소한우 대한민국",
-      "result_name": "민소한우",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩)",
+      "result_name": "",
+      "score": 98.26,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:민소한우 대한민국"
+        "arcgis:서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩)"
       ],
-      "updated_at": "2026-09-17T23:07:13+00:00"
+      "updated_at": "2026-09-18T00:07:41+00:00"
+    },
+    "밀밭정원|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 아현동 마포대로16길 13",
+      "fingerprint": "4632fb3a25578d1f",
+      "geocoder_version": 4,
+      "lat": 37.550795929297,
+      "lon": 126.957141769564,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로16길 13(아현동)1,2층",
+      "result_name": "",
+      "score": 98.5,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로16길 13(아현동)1,2층"
+      ],
+      "updated_at": "2026-09-18T00:08:31+00:00"
     },
     "바다마을|송파구": {
       "addr_type": "POI",
@@ -2867,23 +3648,41 @@
       ],
       "updated_at": "2026-09-17T23:05:29+00:00"
     },
-    "백원|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "백원",
-      "fingerprint": "2227ce2c92d70a24",
+    "백리향|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 63로 40",
+      "fingerprint": "b94d9868a68cba44",
       "geocoder_version": 4,
-      "lat": 35.873337693,
-      "lon": 128.600292508,
-      "match_mode": "name",
+      "lat": 37.519635198414,
+      "lon": 126.939136435715,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "백원 대한민국",
-      "result_name": "백원",
-      "score": 100.0,
+      "query": "서울 영등포구 63로 40 (여의도동, 라이프오피스텔)",
+      "result_name": "",
+      "score": 96.82,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:백원 대한민국"
+        "arcgis:서울 영등포구 63로 40 (여의도동, 라이프오피스텔)"
       ],
-      "updated_at": "2026-09-17T23:06:34+00:00"
+      "updated_at": "2026-09-18T00:09:13+00:00"
+    },
+    "백원|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의공원로 101",
+      "fingerprint": "76e23716dd6c83a7",
+      "geocoder_version": 4,
+      "lat": 37.529271956314,
+      "lon": 126.924892732373,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 12층",
+      "result_name": "",
+      "score": 96.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 12층"
+      ],
+      "updated_at": "2026-09-18T00:07:33+00:00"
     },
     "버거드조선|중앙정부": {
       "failed": true,
@@ -2897,22 +3696,22 @@
       "updated_at": "2026-09-17T07:47:52+00:00"
     },
     "버드나무집|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "버드나무집",
-      "fingerprint": "88a719eb985d59c9",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "d8d2ae1614480997",
       "geocoder_version": 4,
-      "lat": 37.534553939,
-      "lon": 127.965718979,
-      "match_mode": "name",
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "버드나무집 대한민국",
-      "result_name": "버드나무집",
+      "query": "서울 영등포구 국회대로70길 7",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:버드나무집 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 7"
       ],
-      "updated_at": "2026-09-17T23:07:00+00:00"
+      "updated_at": "2026-09-18T00:07:38+00:00"
     },
     "버터램|금천구": {
       "addr_type": "PointAddress",
@@ -2932,6 +3731,24 @@
       ],
       "updated_at": "2026-09-17T23:01:05+00:00"
     },
+    "베이징코야|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 수송동 율곡로2길 25",
+      "fingerprint": "9fd46fcfa40ab37b",
+      "geocoder_version": 4,
+      "lat": 37.574364206555,
+      "lon": 126.98051722114,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 종로구 율곡로2길25(수송동, 연합뉴스빌딩)",
+      "result_name": "",
+      "score": 97.14,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 율곡로2길25(수송동, 연합뉴스빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:05+00:00"
+    },
     "별난횟집|서초구": {
       "addr_type": "StreetName",
       "display_name": "서울특별시 서초구 반포동 강남대로",
@@ -2949,6 +3766,24 @@
         "arcgis:서초구 강남대로"
       ],
       "updated_at": "2026-09-17T23:03:09+00:00"
+    },
+    "보돌미역서여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 24",
+      "fingerprint": "efa511c31a92c4d3",
+      "geocoder_version": 4,
+      "lat": 37.528249112669,
+      "lon": 126.920128207151,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 24(여의도동,호텔더디자이너스여의도)",
+      "result_name": "",
+      "score": 96.33,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 24(여의도동,호텔더디자이너스여의도)"
+      ],
+      "updated_at": "2026-09-18T00:08:18+00:00"
     },
     "보양삼계탕|고양시": {
       "addr_type": "PointAddress",
@@ -2986,6 +3821,24 @@
       ],
       "updated_at": "2026-09-17T23:01:47+00:00"
     },
+    "복먹고복받고|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 당산동3가 양산로19길 8",
+      "fingerprint": "326b6b8619025cc6",
+      "geocoder_version": 4,
+      "lat": 37.524870032223,
+      "lon": 126.895145777098,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 양산로19길8 (당산동3가) 1층",
+      "result_name": "",
+      "score": 98.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 양산로19길8 (당산동3가) 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:45+00:00"
+    },
     "복먹고복받고|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 당산동3가 양산로19길 8",
@@ -3003,6 +3856,24 @@
         "arcgis:서울 영등포구 양산로19길 8"
       ],
       "updated_at": "2026-09-17T23:02:34+00:00"
+    },
+    "복성각|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 63-8",
+      "fingerprint": "e759e3958860a017",
+      "geocoder_version": 4,
+      "lat": 37.542259715284,
+      "lon": 126.947815477358,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울마포구마포대로63-8(도화동,삼창주택)지하",
+      "result_name": "",
+      "score": 97.14,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울마포구마포대로63-8(도화동,삼창주택)지하"
+      ],
+      "updated_at": "2026-09-18T00:08:38+00:00"
     },
     "본 수원갈비 과천점|관악구": {
       "addr_type": "PointAddress",
@@ -3035,23 +3906,41 @@
       ],
       "updated_at": "2026-09-17T23:02:41+00:00"
     },
-    "본도시락서여의도점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "본도시락서여의도점",
-      "fingerprint": "1d0223fe890dd0cc",
+    "본도시락|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 21",
+      "fingerprint": "07e9d6a82dbba6ab",
       "geocoder_version": 4,
-      "lat": 37.529325413,
-      "lon": 126.921480324,
-      "match_mode": "name",
+      "lat": 37.529326773961,
+      "lon": 126.921480208133,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "본도시락서여의도점 대한민국",
-      "result_name": "본도시락서여의도점",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔)",
+      "result_name": "",
+      "score": 96.55,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:본도시락서여의도점 대한민국"
+        "arcgis:서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔)"
       ],
-      "updated_at": "2026-09-17T23:06:17+00:00"
+      "updated_at": "2026-09-18T00:08:51+00:00"
+    },
+    "본도시락서여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 21",
+      "fingerprint": "bcc8d2e4630e0b25",
+      "geocoder_version": 4,
+      "lat": 37.529326773961,
+      "lon": 126.921480208133,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔) 지하1층 비102호",
+      "result_name": "",
+      "score": 95.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔) 지하1층 비102호"
+      ],
+      "updated_at": "2026-09-18T00:07:19+00:00"
     },
     "본뼈감자탕|서울시청": {
       "addr_type": "PointAddress",
@@ -3101,6 +3990,24 @@
         "nominatim:본죽앤비빔밥마포구청역점 대한민국"
       ],
       "updated_at": "2026-09-17T23:02:22+00:00"
+    },
+    "봉피양(마포점)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 용강동 토정로 308",
+      "fingerprint": "d335c3906c293417",
+      "geocoder_version": 4,
+      "lat": 37.540089011909,
+      "lon": 126.942905945211,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로 308 (용강동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로 308 (용강동)"
+      ],
+      "updated_at": "2026-09-18T00:07:55+00:00"
     },
     "부림식당|동작구": {
       "addr_type": "Locality",
@@ -3264,6 +4171,24 @@
       ],
       "updated_at": "2026-09-17T23:01:46+00:00"
     },
+    "브이아이피참치(주)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 태평로1가 세종대로 135",
+      "fingerprint": "4a81972e0574f2e3",
+      "geocoder_version": 4,
+      "lat": 37.56810409835,
+      "lon": 126.976657606185,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 중구 세종대로135(태평로1가,코리아나호텔)3층",
+      "result_name": "",
+      "score": 95.83,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로135(태평로1가,코리아나호텔)3층"
+      ],
+      "updated_at": "2026-09-18T00:09:07+00:00"
+    },
     "브이아이피참치(주)|중앙정부": {
       "addr_type": "POI",
       "display_name": "브이아이피참치(주)",
@@ -3330,6 +4255,24 @@
         "arcgis:경기 안양시 동안구 평촌대로 474"
       ],
       "updated_at": "2026-09-17T23:01:20+00:00"
+    },
+    "비스테까|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 이태원동 회나무로 49",
+      "fingerprint": "10af88584154a0c9",
+      "geocoder_version": 4,
+      "lat": 37.540079079354,
+      "lon": 126.992093299978,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 회나무로 49 (이태원동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 회나무로 49 (이태원동)"
+      ],
+      "updated_at": "2026-09-18T00:07:58+00:00"
     },
     "비프다이닝 온도|중앙정부": {
       "addr_type": "POI",
@@ -3422,22 +4365,22 @@
       "updated_at": "2026-09-17T23:04:08+00:00"
     },
     "사조참치|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "사조참치",
-      "fingerprint": "40fc955d6546d036",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 9",
+      "fingerprint": "a88019aae5ac073f",
       "geocoder_version": 4,
-      "lat": 37.475298985,
-      "lon": 126.870196267,
-      "match_mode": "name",
+      "lat": 37.527538955923,
+      "lon": 126.916525665166,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "사조참치 대한민국",
-      "result_name": "사조참치",
+      "query": "서울 영등포구 국회대로62길9(여의도동)",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:사조참치 대한민국"
+        "arcgis:서울 영등포구 국회대로62길9(여의도동)"
       ],
-      "updated_at": "2026-09-17T23:07:25+00:00"
+      "updated_at": "2026-09-18T00:07:48+00:00"
     },
     "산들해|서초구": {
       "addr_type": "PointAddress",
@@ -3512,17 +4455,22 @@
       "updated_at": "2026-09-17T23:02:49+00:00"
     },
     "삼도일식|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "bf7f412b0f01081c",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "98ea40f9949945ad",
       "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:삼도일식 대한민국",
-        "arcgis:삼도일식 여의도 서울",
-        "nominatim:삼도일식 대한민국",
-        "nominatim:삼도일식 여의도 서울"
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:07:08+00:00"
+      "updated_at": "2026-09-18T00:07:42+00:00"
     },
     "삼동소바 안양평촌점|관악구": {
       "addr_type": "PointAddress",
@@ -3541,6 +4489,24 @@
         "arcgis:경기 안양시 동안구 평촌대로 474"
       ],
       "updated_at": "2026-09-17T23:00:44+00:00"
+    },
+    "삼씨오화|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 83",
+      "fingerprint": "f820f53f6796cbcb",
+      "geocoder_version": 4,
+      "lat": 37.523366737889,
+      "lon": 126.923450877389,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 83 (여의도동, 오투타워) 301호",
+      "result_name": "",
+      "score": 98.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 83 (여의도동, 오투타워) 301호"
+      ],
+      "updated_at": "2026-09-18T00:08:34+00:00"
     },
     "삼오집|동작구": {
       "addr_type": "Locality",
@@ -3614,18 +4580,41 @@
       ],
       "updated_at": "2026-09-17T23:02:51+00:00"
     },
-    "삿뽀로여의도아이에프씨점|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "093edf43cd4a3df5",
+    "삿뽀로여의도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 10",
+      "fingerprint": "33a8b1dc447d38be",
       "geocoder_version": 4,
+      "lat": 37.525050326961,
+      "lon": 126.925931753091,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 10 (여의도동, IFC) 102호",
+      "result_name": "",
+      "score": 98.75,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:삿뽀로여의도아이에프씨점 대한민국",
-        "arcgis:삿뽀로여의도아이에프씨점 여의도 서울",
-        "nominatim:삿뽀로여의도아이에프씨점 대한민국",
-        "nominatim:삿뽀로여의도아이에프씨점 여의도 서울"
+        "arcgis:서울 영등포구 국제금융로 10 (여의도동, IFC) 102호"
       ],
-      "updated_at": "2026-09-17T23:07:38+00:00"
+      "updated_at": "2026-09-18T00:09:07+00:00"
+    },
+    "삿뽀로여의도아이에프씨점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 10",
+      "fingerprint": "040799a4cb6569eb",
+      "geocoder_version": 4,
+      "lat": 37.525050326961,
+      "lon": 126.925931753091,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 10 (여의도동, IFC) 지하층 102호",
+      "result_name": "",
+      "score": 98.15,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 10 (여의도동, IFC) 지하층 102호"
+      ],
+      "updated_at": "2026-09-18T00:07:51+00:00"
     },
     "상다리기사식당|도봉구": {
       "addr_type": "PointAddress",
@@ -3728,6 +4717,42 @@
       ],
       "updated_at": "2026-09-17T23:03:37+00:00"
     },
+    "색동저고리(마포)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "강원특별자치도 춘천시 효자동 도화길 27",
+      "fingerprint": "e292c6362fca5c5f",
+      "geocoder_version": 4,
+      "lat": 37.873750574828,
+      "lon": 127.73774958576,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "강원특별자치도 춘천시 도화길27(효자동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:강원특별자치도 춘천시 도화길27(효자동)"
+      ],
+      "updated_at": "2026-09-18T00:08:51+00:00"
+    },
+    "색동저고리|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 도화길 27",
+      "fingerprint": "d9790c6f433621a8",
+      "geocoder_version": 4,
+      "lat": 37.540878251912,
+      "lon": 126.948973269644,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 도화길 27 (도화동) 2층",
+      "result_name": "",
+      "score": 98.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 도화길 27 (도화동) 2층"
+      ],
+      "updated_at": "2026-09-18T00:08:39+00:00"
+    },
     "색동저고리|양천구": {
       "addr_type": "POI",
       "display_name": "색동저고리",
@@ -3765,22 +4790,22 @@
       "updated_at": "2026-09-17T23:01:13+00:00"
     },
     "생태명가|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "생태명가",
-      "fingerprint": "51f0e91bf3d3b470",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 22",
+      "fingerprint": "29739ba742e92f4e",
       "geocoder_version": 4,
-      "lat": 37.393749366,
-      "lon": 126.962945349,
-      "match_mode": "name",
+      "lat": 37.528994808685,
+      "lon": 126.921233025808,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "생태명가 대한민국",
-      "result_name": "생태명가",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층",
+      "result_name": "",
+      "score": 97.6,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:생태명가 대한민국"
+        "arcgis:서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층"
       ],
-      "updated_at": "2026-09-17T23:07:18+00:00"
+      "updated_at": "2026-09-18T00:07:43+00:00"
     },
     "샤브올데이 의정부민|도봉구": {
       "addr_type": "PointAddress",
@@ -3836,6 +4861,24 @@
       ],
       "updated_at": "2026-09-17T23:02:06+00:00"
     },
+    "서강8경율도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 상수동 토정로 128",
+      "fingerprint": "37ddccdbd8a76c35",
+      "geocoder_version": 4,
+      "lat": 37.544937314254,
+      "lon": 126.925338314346,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로 128(상수동, 서강8경빌딩) 6층(상수동)",
+      "result_name": "",
+      "score": 95.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로 128(상수동, 서강8경빌딩) 6층(상수동)"
+      ],
+      "updated_at": "2026-09-18T00:07:59+00:00"
+    },
     "서강추어탕|강동구": {
       "addr_type": "POI",
       "display_name": "서강추어탕",
@@ -3853,6 +4896,24 @@
         "arcgis:서강추어탕 강동구 서울"
       ],
       "updated_at": "2026-09-17T23:01:52+00:00"
+    },
+    "서강팔경|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 상수동 토정로 128",
+      "fingerprint": "1b9689c45cd0e117",
+      "geocoder_version": 4,
+      "lat": 37.544937314254,
+      "lon": 126.925338314346,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로 128 (상수동, 서강8경빌딩)",
+      "result_name": "",
+      "score": 97.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로 128 (상수동, 서강8경빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:12+00:00"
     },
     "서귀포흑돈|금천구": {
       "addr_type": "PointAddress",
@@ -3889,6 +4950,24 @@
         "arcgis:서대문영양족발 서대문구 서울"
       ],
       "updated_at": "2026-09-17T23:03:20+00:00"
+    },
+    "서리원|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 공덕동 마포대로 173",
+      "fingerprint": "ec1f7da9c4f94c07",
+      "geocoder_version": 4,
+      "lat": 37.549901538319,
+      "lon": 126.954455621054,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로 173(공덕동, 마포현대하이엘) B123",
+      "result_name": "",
+      "score": 95.77,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로 173(공덕동, 마포현대하이엘) B123"
+      ],
+      "updated_at": "2026-09-18T00:08:02+00:00"
     },
     "서민갈비살|서울시청": {
       "addr_type": "PointAddress",
@@ -3944,6 +5023,24 @@
       ],
       "updated_at": "2026-09-17T23:04:26+00:00"
     },
+    "서울미라마|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 한남동 소월로 322",
+      "fingerprint": "96e5b65c07f18cd4",
+      "geocoder_version": 4,
+      "lat": 37.539260963695,
+      "lon": 126.996183081994,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 소월로 322 (한남동, 하얏트호텔)",
+      "result_name": "",
+      "score": 97.89,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 소월로 322 (한남동, 하얏트호텔)"
+      ],
+      "updated_at": "2026-09-18T00:09:18+00:00"
+    },
     "서울의 달|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 세종대로14길 28-6",
@@ -3991,18 +5088,41 @@
       ],
       "updated_at": "2026-09-17T23:05:39+00:00"
     },
-    "선영소|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "2868231fd148a977",
+    "선영소(소호정)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "6581eb7cbbaba0e5",
       "geocoder_version": 4,
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로800(여의도동, 여의도파라곤)",
+      "result_name": "",
+      "score": 97.39,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:선영소 대한민국",
-        "arcgis:선영소 여의도 서울",
-        "nominatim:선영소 대한민국",
-        "nominatim:선영소 여의도 서울"
+        "arcgis:서울 영등포구 국회대로800(여의도동, 여의도파라곤)"
       ],
-      "updated_at": "2026-09-17T23:06:33+00:00"
+      "updated_at": "2026-09-18T00:08:05+00:00"
+    },
+    "선영소|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "d3d9658bc60baf6f",
+      "geocoder_version": 4,
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤)",
+      "result_name": "",
+      "score": 97.39,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 800 (여의도동, 여의도파라곤)"
+      ],
+      "updated_at": "2026-09-18T00:07:31+00:00"
     },
     "선영이네|서울시청": {
       "addr_type": "PointAddress",
@@ -4094,6 +5214,24 @@
       ],
       "updated_at": "2026-09-17T23:00:32+00:00"
     },
+    "세상의모든아침여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 24",
+      "fingerprint": "abf235a0c31b50d6",
+      "geocoder_version": 4,
+      "lat": 37.521693207101,
+      "lon": 126.920045310129,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의대로24(여의도동,에프케이아이타워)50층",
+      "result_name": "",
+      "score": 95.89,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의대로24(여의도동,에프케이아이타워)50층"
+      ],
+      "updated_at": "2026-09-18T00:08:32+00:00"
+    },
     "세종 오이시|중앙정부": {
       "addr_type": "POI",
       "display_name": "세종 오이시",
@@ -4166,6 +5304,24 @@
       ],
       "updated_at": "2026-09-17T23:02:01+00:00"
     },
+    "셰프테이너|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 한남동 이태원로27길 101",
+      "fingerprint": "d3f449404e9b8c7d",
+      "geocoder_version": 4,
+      "lat": 37.537703270809,
+      "lon": 126.994913307482,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 이태원로27길 101 (한남동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 이태원로27길 101 (한남동)"
+      ],
+      "updated_at": "2026-09-18T00:09:08+00:00"
+    },
     "소공소공|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 세종대로18길 16-5",
@@ -4221,22 +5377,22 @@
       "updated_at": "2026-09-17T23:01:14+00:00"
     },
     "소도수사|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "소도수사",
-      "fingerprint": "81d310d96f50db89",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 45-5",
+      "fingerprint": "c33fe16c50d646c1",
       "geocoder_version": 4,
-      "lat": 37.519196916,
-      "lon": 126.928562142,
-      "match_mode": "name",
+      "lat": 37.519210403561,
+      "lon": 126.928583032884,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "소도수사 대한민국",
-      "result_name": "소도수사",
-      "score": 100.0,
+      "query": "서울 영등포구 여의도동45-5 2층",
+      "result_name": "",
+      "score": 98.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:소도수사 대한민국"
+        "arcgis:서울 영등포구 여의도동45-5 2층"
       ],
-      "updated_at": "2026-09-17T23:06:55+00:00"
+      "updated_at": "2026-09-18T00:07:37+00:00"
     },
     "소문/(주)을정|중앙정부": {
       "failed": true,
@@ -4340,53 +5496,58 @@
       "updated_at": "2026-09-17T23:01:14+00:00"
     },
     "소호명가|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "85120569bbe17ea4",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "de0644e3386f7a14",
       "geocoder_version": 4,
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)",
+      "result_name": "",
+      "score": 96.9,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:소호명가 대한민국",
-        "arcgis:소호명가 여의도 서울",
-        "nominatim:소호명가 대한민국",
-        "nominatim:소호명가 여의도 서울"
+        "arcgis:서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)"
       ],
-      "updated_at": "2026-09-17T23:06:08+00:00"
+      "updated_at": "2026-09-18T00:07:14+00:00"
     },
     "소호정|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "소호정",
-      "fingerprint": "55588cc6e2baaf1c",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13",
+      "fingerprint": "38f95c33e4ff99f0",
       "geocoder_version": 4,
-      "lat": 37.421489283,
-      "lon": 127.115521632,
-      "match_mode": "name",
+      "lat": 37.530956132119,
+      "lon": 126.921132694427,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "소호정 대한민국",
-      "result_name": "소호정",
-      "score": 100.0,
+      "query": "서울 영등포구 여의도동 13 (진미파라곤)",
+      "result_name": "",
+      "score": 97.06,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:소호정 대한민국"
+        "arcgis:서울 영등포구 여의도동 13 (진미파라곤)"
       ],
-      "updated_at": "2026-09-17T23:07:09+00:00"
+      "updated_at": "2026-09-18T00:07:40+00:00"
     },
     "속초해물탕|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "속초해물탕",
-      "fingerprint": "2885b7c3cadb1154",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "9f2575198953b341",
       "geocoder_version": 4,
-      "lat": 37.529995027,
-      "lon": 126.919907007,
-      "match_mode": "name",
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "속초해물탕 대한민국",
-      "result_name": "속초해물탕",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩) 2층",
+      "result_name": "",
+      "score": 97.5,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:속초해물탕 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩) 2층"
       ],
-      "updated_at": "2026-09-17T23:06:29+00:00"
+      "updated_at": "2026-09-18T00:07:31+00:00"
     },
     "송쉐프 숭례문점|중앙정부": {
       "addr_type": "POI",
@@ -4446,6 +5607,24 @@
       ],
       "updated_at": "2026-09-16T16:09:28+00:00"
     },
+    "수라간|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 동대문구 청량리동 제기로38길 55-9",
+      "fingerprint": "197da83237909079",
+      "geocoder_version": 4,
+      "lat": 37.58370445463,
+      "lon": 127.049167271261,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 동대문구 제기로38길 55-9(청량리동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 동대문구 제기로38길 55-9(청량리동)"
+      ],
+      "updated_at": "2026-09-18T00:08:08+00:00"
+    },
     "수산회관|동작구": {
       "addr_type": "Locality",
       "display_name": "서울특별시 동작구",
@@ -4499,6 +5678,24 @@
         "arcgis:경기 남양주시 별내3로 326-0@ 1층 103호 (별내동@불암타워)"
       ],
       "updated_at": "2026-09-17T23:01:23+00:00"
+    },
+    "순대실록|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 9",
+      "fingerprint": "a7ecda72f0611ef0",
+      "geocoder_version": 4,
+      "lat": 37.530520440792,
+      "lon": 126.921308714394,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길 9 (여의도동, 삼보빌딩) 2층",
+      "result_name": "",
+      "score": 97.5,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길 9 (여의도동, 삼보빌딩) 2층"
+      ],
+      "updated_at": "2026-09-18T00:08:50+00:00"
     },
     "순수치킨 석관점|성북구": {
       "addr_type": "PointAddress",
@@ -4554,6 +5751,24 @@
       ],
       "updated_at": "2026-09-17T23:01:39+00:00"
     },
+    "스시아이|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 18",
+      "fingerprint": "ffd97cdb0ac409ee",
+      "geocoder_version": 4,
+      "lat": 37.529980897685,
+      "lon": 126.922228292992,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로76길 18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로76길 18"
+      ],
+      "updated_at": "2026-09-18T00:08:33+00:00"
+    },
     "스시와|중앙정부": {
       "addr_type": "POI",
       "display_name": "스시와",
@@ -4571,6 +5786,24 @@
         "arcgis:스시와 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:53+00:00"
+    },
+    "스시유여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 39",
+      "fingerprint": "30eda4c08561cd4a",
+      "geocoder_version": 4,
+      "lat": 37.52452490736,
+      "lon": 126.929866972812,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로39",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로39"
+      ],
+      "updated_at": "2026-09-18T00:08:40+00:00"
     },
     "스시준|동작구": {
       "addr_type": "Locality",
@@ -4705,6 +5938,24 @@
       ],
       "updated_at": "2026-09-17T23:00:44+00:00"
     },
+    "시원재|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "6c0f0bd86812b424",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750"
+      ],
+      "updated_at": "2026-09-18T00:08:35+00:00"
+    },
     "시청해우리|중앙정부": {
       "addr_type": "POI",
       "display_name": "시청해우리",
@@ -4758,6 +6009,24 @@
         "arcgis:식원 대한민국"
       ],
       "updated_at": "2026-09-17T23:04:58+00:00"
+    },
+    "신당양곱창|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13-20",
+      "fingerprint": "dcf86d82c730b227",
+      "geocoder_version": 4,
+      "lat": 37.529919332606,
+      "lon": 126.920855588708,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의도동13-20 프린스텔빌딩 지하1,2호",
+      "result_name": "",
+      "score": 95.58,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의도동13-20 프린스텔빌딩 지하1,2호"
+      ],
+      "updated_at": "2026-09-18T00:09:01+00:00"
     },
     "신림홍미닭발|동작구": {
       "addr_type": "Locality",
@@ -4986,6 +6255,24 @@
       ],
       "updated_at": "2026-09-17T23:04:18+00:00"
     },
+    "신홍러우여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 39",
+      "fingerprint": "b53b4e2c818646a2",
+      "geocoder_version": 4,
+      "lat": 37.52452490736,
+      "lon": 126.929866972812,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 39(여의도동,브라이튼 여의도)지하1층",
+      "result_name": "",
+      "score": 96.07,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 39(여의도동,브라이튼 여의도)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:14+00:00"
+    },
     "신화케이푸드|중앙정부": {
       "display_name": "긴자 올림픽점 (주)신화케이푸드, 223, 강동대로, 성내3동, 강동구, 서울특별시, 05407, 대한민국",
       "fingerprint": "036e16644b8a693b",
@@ -5023,41 +6310,40 @@
       "updated_at": "2026-09-17T23:03:23+00:00"
     },
     "싱카이|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "싱카이 여의도",
-      "fingerprint": "6aebe7be070c94f1",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 128",
+      "fingerprint": "0b6c58bd8a765976",
       "geocoder_version": 4,
-      "lat": 37.527885477,
-      "lon": 126.929139246,
-      "match_mode": "name",
+      "lat": 37.527927121859,
+      "lon": 126.929241096102,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "싱카이 여의도 서울",
-      "result_name": "싱카이 여의도",
-      "score": 100.0,
+      "query": "서울 영등포구 여의대로 128 (여의도동, LG트윈타워)",
+      "result_name": "",
+      "score": 97.39,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:싱카이 대한민국",
-        "arcgis:싱카이 여의도 서울"
+        "arcgis:서울 영등포구 여의대로 128 (여의도동, LG트윈타워)"
       ],
-      "updated_at": "2026-09-17T23:06:27+00:00"
+      "updated_at": "2026-09-18T00:07:28+00:00"
     },
     "싱카이여의도|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "싱카이 여의도",
-      "fingerprint": "ea6387d74b907b57",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 5",
+      "fingerprint": "ff7ebced0f211be7",
       "geocoder_version": 4,
-      "lat": 37.527885477,
-      "lon": 126.929139246,
-      "match_mode": "name",
+      "lat": 37.519919973575,
+      "lon": 126.932984034965,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "싱카이여의도 대한민국",
-      "result_name": "싱카이 여의도",
-      "score": 100.0,
+      "query": "서울 영등포구 여의도동 LG트윈타워 동관5층",
+      "result_name": "",
+      "score": 82.5,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:싱카이여의도 대한민국"
+        "arcgis:서울 영등포구 여의도동 LG트윈타워 동관5층"
       ],
-      "updated_at": "2026-09-17T23:06:43+00:00"
+      "updated_at": "2026-09-18T00:07:26+00:00"
     },
     "쌈도둑 대패 4900|동작구": {
       "addr_type": "Locality",
@@ -5076,6 +6362,24 @@
         "arcgis:서울특별시 관악구"
       ],
       "updated_at": "2026-09-17T23:01:10+00:00"
+    },
+    "쏘울에프엔비|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 삼개로 16",
+      "fingerprint": "fc78a7df6700fa5c",
+      "geocoder_version": 4,
+      "lat": 37.538971955673,
+      "lon": 126.947128496574,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 삼개로 16(도화동, 근신빌딩)",
+      "result_name": "",
+      "score": 97.65,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 삼개로 16(도화동, 근신빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:04+00:00"
     },
     "아리연|중앙정부": {
       "addr_type": "POI",
@@ -5113,6 +6417,24 @@
       ],
       "updated_at": "2026-09-17T23:01:43+00:00"
     },
+    "아이오유|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 용산구 청암동 원효로1길 16",
+      "fingerprint": "e57bb3e29942724f",
+      "geocoder_version": 4,
+      "lat": 37.535164057061,
+      "lon": 126.945624531687,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 용산구 원효로1길 16(청암동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 용산구 원효로1길 16(청암동)"
+      ],
+      "updated_at": "2026-09-18T00:08:42+00:00"
+    },
     "아카|성북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강북구 미아동 월계로7길 34",
@@ -5132,17 +6454,22 @@
       "updated_at": "2026-09-17T23:00:47+00:00"
     },
     "아크여의도점|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "814db72b3c9761f5",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 11",
+      "fingerprint": "5badd1d58572e858",
       "geocoder_version": 4,
+      "lat": 37.529974234072,
+      "lon": 126.920825916771,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 11 (여의도동, 프린스텔) 2층",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:아크여의도점 대한민국",
-        "arcgis:아크여의도점 여의도 서울",
-        "nominatim:아크여의도점 대한민국",
-        "nominatim:아크여의도점 여의도 서울"
+        "arcgis:서울 영등포구 국회대로72길 11 (여의도동, 프린스텔) 2층"
       ],
-      "updated_at": "2026-09-17T23:06:50+00:00"
+      "updated_at": "2026-09-18T00:07:33+00:00"
     },
     "안동국시|서울시청": {
       "addr_type": "Locality",
@@ -5161,6 +6488,24 @@
         "arcgis:서울 종로구 서린동"
       ],
       "updated_at": "2026-09-17T23:04:34+00:00"
+    },
+    "알아차림여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 39",
+      "fingerprint": "77915f4c10fe439e",
+      "geocoder_version": 4,
+      "lat": 37.52452490736,
+      "lon": 126.929866972812,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도)201.202호",
+      "result_name": "",
+      "score": 95.48,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도)201.202호"
+      ],
+      "updated_at": "2026-09-18T00:08:46+00:00"
     },
     "얄미운푸줏간|관악구": {
       "addr_type": "PointAddress",
@@ -5317,6 +6662,24 @@
       ],
       "updated_at": "2026-09-17T23:04:33+00:00"
     },
+    "어펜딕스여의도본점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 8",
+      "fingerprint": "62a66eb0bca046b2",
+      "geocoder_version": 4,
+      "lat": 37.527870837379,
+      "lon": 126.916895139458,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 8 지하 1층",
+      "result_name": "",
+      "score": 97.5,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 8 지하 1층"
+      ],
+      "updated_at": "2026-09-18T00:09:03+00:00"
+    },
     "엄선 엄마의 생선찜 구이|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산서구 대화동 대산로212번길 7-6",
@@ -5335,6 +6698,24 @@
       ],
       "updated_at": "2026-09-17T23:03:48+00:00"
     },
+    "엔엠에프서여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 22",
+      "fingerprint": "2e4df277a73a522d",
+      "geocoder_version": 4,
+      "lat": 37.528994808685,
+      "lon": 126.921233025808,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩)2층",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩)2층"
+      ],
+      "updated_at": "2026-09-18T00:09:10+00:00"
+    },
     "엘에스씨푸드(국회의사당)2층|국회의원(정치자금 2024)": {
       "failed": true,
       "fingerprint": "9ca8746bbade748f",
@@ -5348,23 +6729,128 @@
       ],
       "updated_at": "2026-09-17T23:07:29+00:00"
     },
-    "여의도장어|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "여의도장어",
-      "fingerprint": "47aa993210f6e3e3",
+    "여운관|국회의원(정치자금 2024)": {
+      "failed": true,
+      "fingerprint": "ffdd6728a6805098",
       "geocoder_version": 4,
-      "lat": 37.528269923,
-      "lon": 126.916436634,
-      "match_mode": "name",
       "policy_version": 3,
-      "query": "여의도장어 대한민국",
-      "result_name": "여의도장어",
+      "tried_queries": [
+        "arcgis:서울 국제금융로NH증권)",
+        "arcgis:여운관 서울 국제금융로NH증권)",
+        "arcgis:여운관 대한민국",
+        "arcgis:여운관 여의도 서울",
+        "nominatim:서울 국제금융로NH증권)",
+        "nominatim:여운관 서울 국제금융로NH증권)"
+      ],
+      "updated_at": "2026-09-18T00:08:26+00:00"
+    },
+    "여의도내장탕|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "77aaa2532cb4301f",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 7(여의도동,동아빌딩)",
+      "result_name": "",
+      "score": 98.18,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 7(여의도동,동아빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:50+00:00"
+    },
+    "여의도내장탕신관|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "690002acd76644c6",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 7(여의도동,동아빌딩)",
+      "result_name": "",
+      "score": 98.18,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 7(여의도동,동아빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:21+00:00"
+    },
+    "여의도식당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "3149b49002c63f71",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)",
+      "result_name": "",
+      "score": 98.1,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:02+00:00"
+    },
+    "여의도장어|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "da2887ae24a8ded8",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:23+00:00"
+    },
+    "여의도장어본점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "614dc29173ac5f2c",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:32+00:00"
+    },
+    "여의도진진|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 11",
+      "fingerprint": "1851bd1896ba95d6",
+      "geocoder_version": 4,
+      "lat": 37.529974234072,
+      "lon": 126.920825916771,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길11 101호",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:여의도장어 대한민국"
+        "arcgis:서울 영등포구 국회대로72길11 101호"
       ],
-      "updated_at": "2026-09-17T23:06:24+00:00"
+      "updated_at": "2026-09-18T00:07:58+00:00"
     },
     "연이꼬마김밥|중앙정부": {
       "failed": true,
@@ -5378,22 +6864,22 @@
       "updated_at": "2026-09-17T23:05:31+00:00"
     },
     "연타발|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "연타발",
-      "fingerprint": "6b64bf2ad81ad4bb",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 18",
+      "fingerprint": "ee66bf2fad54b183",
       "geocoder_version": 4,
-      "lat": 35.842275159,
-      "lon": 128.530375152,
-      "match_mode": "name",
+      "lat": 37.528892004643,
+      "lon": 126.920347561557,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "연타발 대한민국",
-      "result_name": "연타발",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 18 (여의도동, 한양빌딩) 1층",
+      "result_name": "",
+      "score": 97.6,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:연타발 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 18 (여의도동, 한양빌딩) 1층"
       ],
-      "updated_at": "2026-09-17T23:06:19+00:00"
+      "updated_at": "2026-09-18T00:07:15+00:00"
     },
     "연타발여의도점|국회의원(정치자금 2024)": {
       "failed": true,
@@ -5497,6 +6983,24 @@
         "arcgis:영빈루블랙 그랜드센트럴점 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:04+00:00"
+    },
+    "예당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로66길 17",
+      "fingerprint": "b88e442890793059",
+      "geocoder_version": 4,
+      "lat": 37.528529319693,
+      "lon": 126.919441310186,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로66길 17 (여의도동, 성우빌딩) 지하 1층",
+      "result_name": "",
+      "score": 97.04,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로66길 17 (여의도동, 성우빌딩) 지하 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:48+00:00"
     },
     "옛집|영등포구": {
       "addr_type": "PointAddress",
@@ -5617,6 +7121,24 @@
       ],
       "updated_at": "2026-09-17T23:01:58+00:00"
     },
+    "오성해물탕|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 18",
+      "fingerprint": "bf582a84e31a6ac8",
+      "geocoder_version": 4,
+      "lat": 37.529980897685,
+      "lon": 126.922228292992,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로76길 18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로76길 18"
+      ],
+      "updated_at": "2026-09-18T00:09:07+00:00"
+    },
     "오징어이야기|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 남대문로1길 30-5",
@@ -5670,6 +7192,24 @@
         "arcgis:경기 과천시 중앙로 499"
       ],
       "updated_at": "2026-09-17T23:01:24+00:00"
+    },
+    "올라|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 8",
+      "fingerprint": "7807749e6c70d377",
+      "geocoder_version": 4,
+      "lat": 37.521217743643,
+      "lon": 126.918583673853,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의대로 8 (여의도동, 여의도파크센터) 지하1층 105호",
+      "result_name": "",
+      "score": 96.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의대로 8 (여의도동, 여의도파크센터) 지하1층 105호"
+      ],
+      "updated_at": "2026-09-18T00:09:04+00:00"
     },
     "완백부대찌개삼겹살|서울시청": {
       "addr_type": "PointAddress",
@@ -5763,40 +7303,40 @@
       "updated_at": "2026-09-17T23:01:34+00:00"
     },
     "외계인키친|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "외계인키친",
-      "fingerprint": "0c7bfdad418f8d5a",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 1",
+      "fingerprint": "a53b470f29ccf541",
       "geocoder_version": 4,
-      "lat": 37.531891721,
-      "lon": 126.914137286,
-      "match_mode": "name",
+      "lat": 37.531892181156,
+      "lon": 126.914137325675,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "외계인키친 대한민국",
-      "result_name": "외계인키친",
-      "score": 100.0,
+      "query": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "result_name": "",
+      "score": 96.4,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:외계인키친 대한민국"
+        "arcgis:서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층"
       ],
-      "updated_at": "2026-09-17T23:06:16+00:00"
+      "updated_at": "2026-09-18T00:07:20+00:00"
     },
     "외백|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "경북 외백",
-      "fingerprint": "958974315172541a",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13-22",
+      "fingerprint": "1feebd161c03a679",
       "geocoder_version": 4,
-      "lat": 36.1261,
-      "lon": 129.31968,
-      "match_mode": "name",
+      "lat": 37.529548014295,
+      "lon": 126.921225565915,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "외백 대한민국",
-      "result_name": "외백",
+      "query": "서울 영등포구 여의도동 13-22",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:외백 대한민국"
+        "arcgis:서울 영등포구 여의도동 13-22"
       ],
-      "updated_at": "2026-09-17T23:06:00+00:00"
+      "updated_at": "2026-09-18T00:07:06+00:00"
     },
     "외양간한우|도봉구": {
       "addr_type": "PointAddress",
@@ -5833,6 +7373,24 @@
         "arcgis:서울 동대문구 왕산로16길 9"
       ],
       "updated_at": "2026-09-17T23:01:35+00:00"
+    },
+    "우담가해담가|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 서교동 양화로 45",
+      "fingerprint": "767c7663502635b3",
+      "geocoder_version": 4,
+      "lat": 37.550166657916,
+      "lon": 126.913677913562,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 양화로 45 (서교동, 메세나폴리스) 101호",
+      "result_name": "",
+      "score": 97.83,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 양화로 45 (서교동, 메세나폴리스) 101호"
+      ],
+      "updated_at": "2026-09-18T00:08:46+00:00"
     },
     "우래옥|중구": {
       "addr_type": "POI",
@@ -6055,22 +7613,22 @@
       "updated_at": "2026-09-17T23:04:14+00:00"
     },
     "운산|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "강원 운산",
-      "fingerprint": "1bdf84d7a1627803",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의공원로 101",
+      "fingerprint": "cd327f01fd172cb2",
       "geocoder_version": 4,
-      "lat": 37.73163,
-      "lon": 128.93633,
-      "match_mode": "name",
+      "lat": 37.529271956314,
+      "lon": 126.924892732373,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "운산 대한민국",
-      "result_name": "운산",
-      "score": 100.0,
+      "query": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
+      "result_name": "",
+      "score": 97.19,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:운산 대한민국"
+        "arcgis:서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호"
       ],
-      "updated_at": "2026-09-17T23:06:04+00:00"
+      "updated_at": "2026-09-18T00:07:11+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -6198,6 +7756,24 @@
       ],
       "updated_at": "2026-09-17T23:01:25+00:00"
     },
+    "은성순대국|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "5ca776765bad4363",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)",
+      "result_name": "",
+      "score": 98.1,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:13+00:00"
+    },
     "은성한정식 주식회사|중앙정부": {
       "failed": true,
       "fingerprint": "69129f3f9ffd4363",
@@ -6210,22 +7786,22 @@
       "updated_at": "2026-09-17T07:48:05+00:00"
     },
     "은주식당|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "은주식당",
-      "fingerprint": "3ccc7d6ecf55e8e6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "999bf6f86955ebc9",
       "geocoder_version": 4,
-      "lat": 37.874904709,
-      "lon": 127.734400817,
-      "match_mode": "name",
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "은주식당 대한민국",
-      "result_name": "은주식당",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)",
+      "result_name": "",
+      "score": 98.1,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:은주식당 대한민국"
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
       ],
-      "updated_at": "2026-09-17T23:06:11+00:00"
+      "updated_at": "2026-09-18T00:07:17+00:00"
     },
     "은주식당|중앙정부": {
       "addr_type": "POI",
@@ -6263,6 +7839,24 @@
       ],
       "updated_at": "2026-09-17T23:01:59+00:00"
     },
+    "을밀대|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 염리동 숭문길 24",
+      "fingerprint": "65aedc61d73ccb68",
+      "geocoder_version": 4,
+      "lat": 37.547492705075,
+      "lon": 126.9455316602,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 숭문길 24(염리동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 숭문길 24(염리동)"
+      ],
+      "updated_at": "2026-09-18T00:08:09+00:00"
+    },
     "이가네양꼬치,양갈비무교점|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 다동 을지로3길 17",
@@ -6299,23 +7893,59 @@
       ],
       "updated_at": "2026-09-17T23:04:07+00:00"
     },
-    "이도식당|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "이도식당",
-      "fingerprint": "a3b0d6c5a4bfa08b",
+    "이단아|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대방로67길 21",
+      "fingerprint": "8c9d9485bc9d84d1",
       "geocoder_version": 4,
-      "lat": 37.52923337,
-      "lon": 126.919670088,
-      "match_mode": "name",
+      "lat": 37.520551675707,
+      "lon": 126.929475370296,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "이도식당 대한민국",
-      "result_name": "이도식당",
+      "query": "서울 영등포구 여의대방로67길 21 (여의도동, 정곡빌딩) 지하1층",
+      "result_name": "",
+      "score": 97.14,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의대방로67길 21 (여의도동, 정곡빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:27+00:00"
+    },
+    "이도맨숀|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 794",
+      "fingerprint": "30bd105274b6bbdd",
+      "geocoder_version": 4,
+      "lat": 37.530739292284,
+      "lon": 126.920299449433,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 794 (여의도동)",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:이도식당 대한민국"
+        "arcgis:서울 영등포구 국회대로 794 (여의도동)"
       ],
-      "updated_at": "2026-09-17T23:06:00+00:00"
+      "updated_at": "2026-09-18T00:07:56+00:00"
+    },
+    "이도식당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 11",
+      "fingerprint": "ccaed1b159741404",
+      "geocoder_version": 4,
+      "lat": 37.529234279659,
+      "lon": 126.919669968504,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 11 (여의도동, 삼보호정빌딩)",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 11 (여의도동, 삼보호정빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:07:06+00:00"
     },
     "이랜드파크켄싱턴여의도|국회의원(정치자금 2024)": {
       "failed": true,
@@ -6367,22 +7997,22 @@
       "updated_at": "2026-09-17T23:05:42+00:00"
     },
     "이즈미|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "이즈미",
-      "fingerprint": "ab1b625aa6f91dfa",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 4",
+      "fingerprint": "9a1e9ea45f69cc15",
       "geocoder_version": 4,
-      "lat": 37.5270211,
-      "lon": 127.032982155,
-      "match_mode": "name",
+      "lat": 37.53033360817,
+      "lon": 126.919916396458,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "이즈미 대한민국",
-      "result_name": "이즈미",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로72길4(여의도동, 아이비피아빌딩)",
+      "result_name": "",
+      "score": 97.2,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:이즈미 대한민국"
+        "arcgis:서울 영등포구 국회대로72길4(여의도동, 아이비피아빌딩)"
       ],
-      "updated_at": "2026-09-17T23:06:01+00:00"
+      "updated_at": "2026-09-18T00:07:09+00:00"
     },
     "이태원숯불구이|용산구": {
       "addr_type": "StreetName",
@@ -6402,36 +8032,59 @@
       ],
       "updated_at": "2026-09-17T23:02:07+00:00"
     },
-    "이태원천상|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "8359c9ad4127e014",
+    "이태원천상(여의도점)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 17",
+      "fingerprint": "2616e792dc1b7740",
       "geocoder_version": 4,
+      "lat": 37.52878488392,
+      "lon": 126.920109347869,
+      "match_mode": "address",
       "policy_version": 3,
-      "tried_queries": [
-        "arcgis:이태원천상 대한민국",
-        "arcgis:이태원천상 여의도 서울",
-        "nominatim:이태원천상 대한민국",
-        "nominatim:이태원천상 여의도 서울"
-      ],
-      "updated_at": "2026-09-17T23:06:59+00:00"
-    },
-    "이태원천상여의도점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "이태원천상여의도점",
-      "fingerprint": "02872ee2b007b294",
-      "geocoder_version": 4,
-      "lat": 37.528763863,
-      "lon": 126.920127591,
-      "match_mode": "name",
-      "policy_version": 3,
-      "query": "이태원천상여의도점 대한민국",
-      "result_name": "이태원천상여의도점",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로68길 17(여의도동,해운빌딩)",
+      "result_name": "",
+      "score": 98.26,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:이태원천상여의도점 대한민국"
+        "arcgis:서울 영등포구 국회대로68길 17(여의도동,해운빌딩)"
       ],
-      "updated_at": "2026-09-17T23:07:59+00:00"
+      "updated_at": "2026-09-18T00:08:13+00:00"
+    },
+    "이태원천상|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 17",
+      "fingerprint": "b60a296bcea73ad4",
+      "geocoder_version": 4,
+      "lat": 37.52878488392,
+      "lon": 126.920109347869,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) 지하1층",
+      "result_name": "",
+      "score": 97.04,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:37+00:00"
+    },
+    "이태원천상여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 17",
+      "fingerprint": "65b760ac91c95949",
+      "geocoder_version": 4,
+      "lat": 37.52878488392,
+      "lon": 126.920109347869,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 17(여의도동,해운빌딩)",
+      "result_name": "",
+      "score": 98.26,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 17(여의도동,해운빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:07:58+00:00"
     },
     "인생감자탕 금천점|금천구": {
       "addr_type": "PointAddress",
@@ -6488,22 +8141,22 @@
       "updated_at": "2026-09-17T23:02:24+00:00"
     },
     "일미|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "일미",
-      "fingerprint": "4217c60931923f1d",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 5",
+      "fingerprint": "e01666fa9dc1dccf",
       "geocoder_version": 4,
-      "lat": 34.336354879,
-      "lon": 126.737607968,
-      "match_mode": "name",
+      "lat": 37.527845188755,
+      "lon": 126.916281835603,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "일미 대한민국",
-      "result_name": "일미",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로62길 5 (여의도동) 지하",
+      "result_name": "",
+      "score": 99.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:일미 대한민국"
+        "arcgis:서울 영등포구 국회대로62길 5 (여의도동) 지하"
       ],
-      "updated_at": "2026-09-17T23:06:11+00:00"
+      "updated_at": "2026-09-18T00:07:16+00:00"
     },
     "일산긴자|고양시": {
       "addr_type": "PointAddress",
@@ -6605,6 +8258,24 @@
         "arcgis:서울 종로구 새문안로5가길 7"
       ],
       "updated_at": "2026-09-17T23:04:43+00:00"
+    },
+    "일품당프리미엄|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 내수동 새문안로5가길 7",
+      "fingerprint": "c421052920b2fec3",
+      "geocoder_version": 4,
+      "lat": 37.572771142038,
+      "lon": 126.974038177623,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 종로구 새문안로5가길 7(내수동,세종클럽)",
+      "result_name": "",
+      "score": 98.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 새문안로5가길 7(내수동,세종클럽)"
+      ],
+      "updated_at": "2026-09-18T00:09:15+00:00"
     },
     "일품당프리미엄|중앙정부": {
       "addr_type": "POI",
@@ -6732,6 +8403,42 @@
       ],
       "updated_at": "2026-09-17T23:04:25+00:00"
     },
+    "장독대김치찌개|국회의원(정치자금 2024)": {
+      "addr_type": "Subaddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 38 101동",
+      "fingerprint": "6b945ad34cfe9f3d",
+      "geocoder_version": 4,
+      "lat": 37.525484509545,
+      "lon": 126.918988687414,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로38,101-104",
+      "result_name": "",
+      "score": 99.68,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로38,101-104"
+      ],
+      "updated_at": "2026-09-18T00:08:53+00:00"
+    },
+    "장수집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "90d0f47026a169c3",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 7(여의도동,동아빌딩)지하1층",
+      "result_name": "",
+      "score": 96.92,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 7(여의도동,동아빌딩)지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:26+00:00"
+    },
     "장위동유성집|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 의정부동 범골로 117",
@@ -6840,6 +8547,24 @@
       ],
       "updated_at": "2026-09-17T23:03:26+00:00"
     },
+    "전주집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "dc4ccae2a57f0a90",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)",
+      "result_name": "",
+      "score": 98.1,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:12+00:00"
+    },
     "전주회관|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 세종대로14길 32-1",
@@ -6895,22 +8620,40 @@
       "updated_at": "2026-09-17T23:02:29+00:00"
     },
     "정동각|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "정동각",
-      "fingerprint": "2181b32a8e784857",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 14",
+      "fingerprint": "437de88b50ba32d0",
       "geocoder_version": 4,
-      "lat": 37.52670387,
-      "lon": 126.916475568,
-      "match_mode": "name",
+      "lat": 37.526703783091,
+      "lon": 126.916475625204,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "정동각 대한민국",
-      "result_name": "정동각",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로62길 14(여의도동,한국보이스카우트연맹회관)",
+      "result_name": "",
+      "score": 96.77,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:정동각 대한민국"
+        "arcgis:서울 영등포구 국회대로62길 14(여의도동,한국보이스카우트연맹회관)"
       ],
-      "updated_at": "2026-09-17T23:06:45+00:00"
+      "updated_at": "2026-09-18T00:07:35+00:00"
+    },
+    "정인면옥|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 10",
+      "fingerprint": "400dc1ffe3f5edea",
+      "geocoder_version": 4,
+      "lat": 37.530656143804,
+      "lon": 126.921557573099,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로76길 10(여의도동, 기독교한국침례회총회빌딩)",
+      "result_name": "",
+      "score": 96.77,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로76길 10(여의도동, 기독교한국침례회총회빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:00+00:00"
     },
     "정통삼계탕|종로구": {
       "addr_type": "POI",
@@ -7001,6 +8744,42 @@
         "arcgis:서울 관악구 관악로 139"
       ],
       "updated_at": "2026-09-17T23:01:48+00:00"
+    },
+    "조피디(PD)키친|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 780",
+      "fingerprint": "bddbf0e98047dd80",
+      "geocoder_version": 4,
+      "lat": 37.529830861618,
+      "lon": 126.919265625495,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 지하 16호",
+      "result_name": "",
+      "score": 96.56,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 지하 16호"
+      ],
+      "updated_at": "2026-09-18T00:08:59+00:00"
+    },
+    "족발일번지|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 14-5",
+      "fingerprint": "7eca2e3b65398979",
+      "geocoder_version": 4,
+      "lat": 37.530134789427,
+      "lon": 126.920129632074,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의도동 14-5 (여의도아크로폴리스)",
+      "result_name": "",
+      "score": 95.91,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의도동 14-5 (여의도아크로폴리스)"
+      ],
+      "updated_at": "2026-09-18T00:09:05+00:00"
     },
     "종가집 양반 김밥|금천구": {
       "addr_type": "PointAddress",
@@ -7337,6 +9116,24 @@
       ],
       "updated_at": "2026-09-17T23:00:36+00:00"
     },
+    "진주식당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로6길 33",
+      "fingerprint": "93f2b8c009721819",
+      "geocoder_version": 4,
+      "lat": 37.520790853314,
+      "lon": 126.926912016667,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구국제금융로6길 33",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구국제금융로6길 33"
+      ],
+      "updated_at": "2026-09-18T00:09:12+00:00"
+    },
     "진주회관|중앙정부": {
       "addr_type": "POI",
       "display_name": "진주회관",
@@ -7354,6 +9151,24 @@
         "arcgis:진주회관 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:57+00:00"
+    },
+    "진진서여의도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 11",
+      "fingerprint": "c8a8e5be6d3e9e32",
+      "geocoder_version": 4,
+      "lat": 37.529974234072,
+      "lon": 126.920825916771,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 11 (여의도동, 프린스텔) 101호",
+      "result_name": "",
+      "score": 98.89,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로72길 11 (여의도동, 프린스텔) 101호"
+      ],
+      "updated_at": "2026-09-18T00:08:30+00:00"
     },
     "진평９２５|마포구": {
       "addr_type": "POI",
@@ -7421,17 +9236,40 @@
       "updated_at": "2026-09-17T23:05:15+00:00"
     },
     "차이나프로|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "c82ccab7f16c8721",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 20",
+      "fingerprint": "496ec2162c492c93",
       "geocoder_version": 4,
+      "lat": 37.529605765608,
+      "lon": 126.921553046872,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길 20(여의도동,맨하탄21 리빙텔)1층",
+      "result_name": "",
+      "score": 96.55,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:차이나프로 대한민국",
-        "arcgis:차이나프로 여의도 서울",
-        "nominatim:차이나프로 대한민국",
-        "nominatim:차이나프로 여의도 서울"
+        "arcgis:서울 영등포구 국회대로74길 20(여의도동,맨하탄21 리빙텔)1층"
       ],
-      "updated_at": "2026-09-17T23:07:04+00:00"
+      "updated_at": "2026-09-18T00:07:39+00:00"
+    },
+    "차이나플레인전경련점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 24",
+      "fingerprint": "b6700949aa5fc7e6",
+      "geocoder_version": 4,
+      "lat": 37.521693207101,
+      "lon": 126.920045310129,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의대로 24(전경련회관)",
+      "result_name": "",
+      "score": 97.06,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의대로 24(전경련회관)"
+      ],
+      "updated_at": "2026-09-18T00:08:35+00:00"
     },
     "차이킹|중앙정부": {
       "addr_type": "POI",
@@ -7451,36 +9289,77 @@
       ],
       "updated_at": "2026-09-17T07:48:17+00:00"
     },
-    "참배나무골여의도|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "2a334af25a515072",
+    "참배나무골|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 25",
+      "fingerprint": "92550fe50b4da5a6",
       "geocoder_version": 4,
+      "lat": 37.526319724287,
+      "lon": 126.91771740416,
+      "match_mode": "address",
       "policy_version": 3,
-      "tried_queries": [
-        "arcgis:참배나무골여의도 대한민국",
-        "arcgis:참배나무골여의도 여의도 서울",
-        "nominatim:참배나무골여의도 대한민국",
-        "nominatim:참배나무골여의도 여의도 서울"
-      ],
-      "updated_at": "2026-09-17T23:06:54+00:00"
-    },
-    "참복집|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "참복집",
-      "fingerprint": "e9ed034ea974a19f",
-      "geocoder_version": 4,
-      "lat": 37.551469989,
-      "lon": 126.848455767,
-      "match_mode": "name",
-      "policy_version": 3,
-      "query": "참복집 대한민국",
-      "result_name": "참복집",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 지하1층",
+      "result_name": "",
+      "score": 96.56,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:참복집 대한민국"
+        "arcgis:서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:06:04+00:00"
+      "updated_at": "2026-09-18T00:07:58+00:00"
+    },
+    "참배나무골여의도|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 25",
+      "fingerprint": "d60bec95206b91ca",
+      "geocoder_version": 4,
+      "lat": 37.526319724287,
+      "lon": 126.91771740416,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) B1",
+      "result_name": "",
+      "score": 97.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) B1"
+      ],
+      "updated_at": "2026-09-18T00:07:37+00:00"
+    },
+    "참배나무골오리집여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 25",
+      "fingerprint": "869ca7ec12ab03f2",
+      "geocoder_version": 4,
+      "lat": 37.526319724287,
+      "lon": 126.91771740416,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 지하1층",
+      "result_name": "",
+      "score": 96.56,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:07+00:00"
+    },
+    "참복집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "3f3ca0084d6a8115",
+      "geocoder_version": 4,
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:13+00:00"
     },
     "참한우본가|노원구": {
       "addr_type": "POI",
@@ -7500,41 +9379,59 @@
       ],
       "updated_at": "2026-09-17T23:02:03+00:00"
     },
-    "창고43여의강변점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "창고43여의강변점",
-      "fingerprint": "6c7866489f8f4484",
+    "창고43|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "b41ae45ec0c5dbb8",
       "geocoder_version": 4,
-      "lat": 37.53070683,
-      "lon": 126.924920142,
-      "match_mode": "name",
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "창고43여의강변점 대한민국",
-      "result_name": "창고43여의강변점",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 15-1(여의도동,극동브이아이피빌딩)2층",
+      "result_name": "",
+      "score": 96.45,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:창고43여의강변점 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 15-1(여의도동,극동브이아이피빌딩)2층"
       ],
-      "updated_at": "2026-09-17T23:07:44+00:00"
+      "updated_at": "2026-09-18T00:09:09+00:00"
+    },
+    "창고43여의강변점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의서로 43",
+      "fingerprint": "bbae4a1aca49a5c5",
+      "geocoder_version": 4,
+      "lat": 37.530729611186,
+      "lon": 126.924843195325,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의서로 43 (여의도동, 한서리버파크) 3층",
+      "result_name": "",
+      "score": 96.67,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의서로 43 (여의도동, 한서리버파크) 3층"
+      ],
+      "updated_at": "2026-09-18T00:07:51+00:00"
     },
     "챠이나프로|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "챠이나프로",
-      "fingerprint": "30c29f16f15f1cca",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 20",
+      "fingerprint": "1f85c8632b899520",
       "geocoder_version": 4,
-      "lat": 37.529635735,
-      "lon": 126.921529793,
-      "match_mode": "name",
+      "lat": 37.529605765608,
+      "lon": 126.921553046872,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "챠이나프로 대한민국",
-      "result_name": "챠이나프로",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
+      "result_name": "",
+      "score": 96.55,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:챠이나프로 대한민국"
+        "arcgis:서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층"
       ],
-      "updated_at": "2026-09-17T23:06:26+00:00"
+      "updated_at": "2026-09-18T00:07:27+00:00"
     },
     "천복|서울시청": {
       "addr_type": "PointAddress",
@@ -7555,40 +9452,40 @@
       "updated_at": "2026-09-17T23:04:00+00:00"
     },
     "천지면옥|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "천지면옥",
-      "fingerprint": "c5ebe4203b41d746",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "3ca49bce10de77e2",
       "geocoder_version": 4,
-      "lat": 35.058534676,
-      "lon": 126.517894727,
-      "match_mode": "name",
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "천지면옥 대한민국",
-      "result_name": "천지면옥",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 1층",
+      "result_name": "",
+      "score": 96.8,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:천지면옥 대한민국"
+        "arcgis:서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 1층"
       ],
-      "updated_at": "2026-09-17T23:06:28+00:00"
+      "updated_at": "2026-09-18T00:07:27+00:00"
     },
     "천지명|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "천지명",
-      "fingerprint": "1dd28bd55f2c48fa",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 3",
+      "fingerprint": "00ddfe2317b7d687",
       "geocoder_version": 4,
-      "lat": 37.527516094,
-      "lon": 126.919664722,
-      "match_mode": "name",
+      "lat": 37.527511714738,
+      "lon": 126.919665861372,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "천지명 대한민국",
-      "result_name": "천지명",
-      "score": 100.0,
+      "query": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "result_name": "",
+      "score": 96.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:천지명 대한민국"
+        "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
       ],
-      "updated_at": "2026-09-17T23:06:23+00:00"
+      "updated_at": "2026-09-18T00:07:22+00:00"
     },
     "철원오대쌀 갓지은솥|도봉구": {
       "addr_type": "PointAddress",
@@ -7607,6 +9504,24 @@
         "arcgis:경기 의정부시 동일로 858-0@ 1층 (녹양동)"
       ],
       "updated_at": "2026-09-17T23:01:27+00:00"
+    },
+    "청기와타운|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 용강동 토정로 296",
+      "fingerprint": "d61ab3d9e5ef2366",
+      "geocoder_version": 4,
+      "lat": 37.540695149238,
+      "lon": 126.942041854813,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 토정로296(용강동, 이연빌딩)",
+      "result_name": "",
+      "score": 97.78,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 토정로296(용강동, 이연빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:09:16+00:00"
     },
     "청담본갈비 광명점|금천구": {
       "addr_type": "PointAddress",
@@ -7643,6 +9558,24 @@
         "arcgis:경기 의정부시 동일로 131-0@ 1층 (장암동)"
       ],
       "updated_at": "2026-09-17T23:01:00+00:00"
+    },
+    "청수|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국제금융로 112",
+      "fingerprint": "d3edcde89a5f94fc",
+      "geocoder_version": 4,
+      "lat": 37.51839681413,
+      "lon": 126.933905792858,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국제금융로 112 (여의도동, 상아빌딩) 103호",
+      "result_name": "",
+      "score": 98.85,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국제금융로 112 (여의도동, 상아빌딩) 103호"
+      ],
+      "updated_at": "2026-09-18T00:08:15+00:00"
     },
     "청해수산영어조합법|도봉구": {
       "addr_type": "StreetAddress",
@@ -7781,6 +9714,42 @@
       ],
       "updated_at": "2026-09-17T23:05:12+00:00"
     },
+    "컨퍼런스하우스달개비|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 정동 세종대로21길 15",
+      "fingerprint": "d1e9f9fc1c0203fa",
+      "geocoder_version": 4,
+      "lat": 37.567247258298,
+      "lon": 126.975558319583,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 중구 세종대로21길 15 (정동, 대한성공회서울대성당)",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로21길 15 (정동, 대한성공회서울대성당)"
+      ],
+      "updated_at": "2026-09-18T00:08:41+00:00"
+    },
+    "컨퍼런스하우스달개비정동점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 중구 정동 세종대로21길 15",
+      "fingerprint": "45f8533007209df9",
+      "geocoder_version": 4,
+      "lat": 37.567247258298,
+      "lon": 126.975558319583,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 중구 세종대로21길 15 (정동, 대한성공회서울대성당)",
+      "result_name": "",
+      "score": 96.8,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 중구 세종대로21길 15 (정동, 대한성공회서울대성당)"
+      ],
+      "updated_at": "2026-09-18T00:08:08+00:00"
+    },
     "콩두|서초구": {
       "addr_type": "POI",
       "display_name": "콩두",
@@ -7819,22 +9788,40 @@
       "updated_at": "2026-09-17T07:48:21+00:00"
     },
     "쿠치나후|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "쿠치나후",
-      "fingerprint": "f0475aa6a2f8d5a2",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 1",
+      "fingerprint": "dbdd5feac16f3a84",
       "geocoder_version": 4,
-      "lat": 36.882870142,
-      "lon": 127.154360271,
-      "match_mode": "name",
+      "lat": 37.531892181156,
+      "lon": 126.914137325675,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "쿠치나후 대한민국",
-      "result_name": "쿠치나후",
+      "query": "서울 영등포구 의사당대로 1 (여의도동, 국회) 의정관 6층",
+      "result_name": "",
+      "score": 96.96,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 1 (여의도동, 국회) 의정관 6층"
+      ],
+      "updated_at": "2026-09-18T00:07:05+00:00"
+    },
+    "쿠팡(주)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 송파구 신천동 송파대로 570",
+      "fingerprint": "9a3e50927d533e0b",
+      "geocoder_version": 4,
+      "lat": 37.515787318123,
+      "lon": 127.099112350074,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 송파구 송파대로 570 (신천동)",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:쿠치나후 대한민국"
+        "arcgis:서울 송파구 송파대로 570 (신천동)"
       ],
-      "updated_at": "2026-09-17T23:05:59+00:00"
+      "updated_at": "2026-09-18T00:08:35+00:00"
     },
     "크라운호프 미아사거|성북구": {
       "addr_type": "PointAddress",
@@ -7891,30 +9878,58 @@
       "updated_at": "2026-09-17T23:05:04+00:00"
     },
     "키사라|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "11b3f7d6587c8c6f",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 128",
+      "fingerprint": "956aed056c6669ca",
       "geocoder_version": 4,
+      "lat": 37.527927121859,
+      "lon": 126.929241096102,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 여의대로 128",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:키사라 대한민국",
-        "arcgis:키사라 여의도 서울",
-        "nominatim:키사라 대한민국",
-        "nominatim:키사라 여의도 서울"
+        "arcgis:서울 영등포구 여의대로 128"
       ],
-      "updated_at": "2026-09-17T23:06:43+00:00"
+      "updated_at": "2026-09-18T00:07:34+00:00"
     },
     "키사라여의도|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "fd935173c25e8c93",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 여의대로 128",
+      "fingerprint": "8ea8997153d49bbc",
       "geocoder_version": 4,
+      "lat": 37.527927121859,
+      "lon": 126.929241096102,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 여의대로 128(여의도동, LG트윈타워)동관 5층",
+      "result_name": "",
+      "score": 96.3,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:키사라여의도 대한민국",
-        "arcgis:키사라여의도 여의도 서울",
-        "nominatim:키사라여의도 대한민국",
-        "nominatim:키사라여의도 여의도 서울"
+        "arcgis:서울 영등포구 여의대로 128(여의도동, LG트윈타워)동관 5층"
       ],
-      "updated_at": "2026-09-17T23:07:53+00:00"
+      "updated_at": "2026-09-18T00:07:26+00:00"
+    },
+    "타마스시|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 30",
+      "fingerprint": "0c726a3bead7f74c",
+      "geocoder_version": 4,
+      "lat": 37.528199575622,
+      "lon": 126.922656021511,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 30(여의도동, 중소기업중앙회) 1층",
+      "result_name": "",
+      "score": 96.25,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 30(여의도동, 중소기업중앙회) 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:43+00:00"
     },
     "태능맥갈비|도봉구": {
       "addr_type": "PointAddress",
@@ -8096,6 +10111,78 @@
       ],
       "updated_at": "2026-09-17T23:05:20+00:00"
     },
+    "투썸플레이스국회의사당역점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 21",
+      "fingerprint": "70981eb27eee3f1f",
+      "geocoder_version": 4,
+      "lat": 37.527781737748,
+      "lon": 126.919397724289,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로21 (여의도동, 대한주택보증주식회사)",
+      "result_name": "",
+      "score": 97.02,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로21 (여의도동, 대한주택보증주식회사)"
+      ],
+      "updated_at": "2026-09-18T00:08:47+00:00"
+    },
+    "투썸플레이스서여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "93ec35e759310b4c",
+      "geocoder_version": 4,
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울영등포구국회대로70길15-1(여의도동,극동브이아이피빌딩)",
+      "result_name": "",
+      "score": 96.86,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울영등포구국회대로70길15-1(여의도동,극동브이아이피빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:08:39+00:00"
+    },
+    "파리바게뜨국회의사당점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 의사당대로 1",
+      "fingerprint": "5a37d3d5296078c6",
+      "geocoder_version": 4,
+      "lat": 37.531892181156,
+      "lon": 126.914137325675,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 의사당대로 1 (여의도동, 국회)",
+      "result_name": "",
+      "score": 98.89,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 의사당대로 1 (여의도동, 국회)"
+      ],
+      "updated_at": "2026-09-18T00:09:10+00:00"
+    },
+    "파리크라상|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 13-19",
+      "fingerprint": "88f1989da58153ad",
+      "geocoder_version": 4,
+      "lat": 37.53007393681,
+      "lon": 126.921097993348,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 여의도동13-19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 여의도동13-19"
+      ],
+      "updated_at": "2026-09-18T00:08:20+00:00"
+    },
     "파리크라상리나스 숭례문점|중앙정부": {
       "failed": true,
       "fingerprint": "92484e426817ce23",
@@ -8143,6 +10230,24 @@
       ],
       "updated_at": "2026-09-17T23:01:02+00:00"
     },
+    "판동면옥|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 37",
+      "fingerprint": "b4f432944a09710a",
+      "geocoder_version": 4,
+      "lat": 37.529453382608,
+      "lon": 126.922617464756,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 37 (여의도동, 기계산업진흥회) 1층",
+      "result_name": "",
+      "score": 96.25,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 37 (여의도동, 기계산업진흥회) 1층"
+      ],
+      "updated_at": "2026-09-18T00:07:40+00:00"
+    },
     "팔당반점|국회의원(정치자금 2024)": {
       "addr_type": "POI",
       "display_name": "팔당반점",
@@ -8162,22 +10267,22 @@
       "updated_at": "2026-09-17T23:06:18+00:00"
     },
     "팔당반점서여의도점|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "팔당반점 서여의도점",
-      "fingerprint": "83445ea52ca8eb6d",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 37",
+      "fingerprint": "6ef7f28220d21b22",
       "geocoder_version": 4,
-      "lat": 37.529453344,
-      "lon": 126.922617514,
-      "match_mode": "name",
+      "lat": 37.529453382608,
+      "lon": 126.922617464756,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "팔당반점서여의도점 대한민국",
-      "result_name": "팔당반점 서여의도점",
-      "score": 100.0,
+      "query": "서울 영등포구 은행로 37 (여의도동, 기계산업진흥회) 지하1층",
+      "result_name": "",
+      "score": 95.77,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:팔당반점서여의도점 대한민국"
+        "arcgis:서울 영등포구 은행로 37 (여의도동, 기계산업진흥회) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:06:10+00:00"
+      "updated_at": "2026-09-18T00:07:05+00:00"
     },
     "포도나무|서울시청": {
       "addr_type": "PointAddress",
@@ -8329,6 +10434,24 @@
       ],
       "updated_at": "2026-09-17T23:07:43+00:00"
     },
+    "프라임한우|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 25",
+      "fingerprint": "51d77c57fe0e5167",
+      "geocoder_version": 4,
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 25 (여의도동, 안원빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.52,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 25 (여의도동, 안원빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:31+00:00"
+    },
     "플라이팬|광진구": {
       "addr_type": "POI",
       "display_name": "플라이팬",
@@ -8347,41 +10470,59 @@
       ],
       "updated_at": "2026-09-17T23:02:43+00:00"
     },
-    "피오레|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "피오레",
-      "fingerprint": "6aee719647768b12",
+    "플레이팅김해공항점|국회의원(정치자금 2024)": {
+      "addr_type": "StreetAddress",
+      "display_name": "부산광역시 강서구 대저2동 공항진입로 108",
+      "fingerprint": "d9a272fb72826332",
       "geocoder_version": 4,
-      "lat": 35.111664179,
-      "lon": 129.020329539,
-      "match_mode": "name",
+      "lat": 35.17667714243,
+      "lon": 128.949285786688,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "피오레 대한민국",
-      "result_name": "피오레",
-      "score": 100.0,
+      "query": "부산광역시 강서구 공항진입로 108 (대저2동) 국내선 3층",
+      "result_name": "",
+      "score": 96.4,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:피오레 대한민국"
+        "arcgis:부산광역시 강서구 공항진입로 108 (대저2동) 국내선 3층"
       ],
-      "updated_at": "2026-09-17T23:06:45+00:00"
+      "updated_at": "2026-09-18T00:08:45+00:00"
+    },
+    "피오레|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 30",
+      "fingerprint": "9e035d34936c6f0d",
+      "geocoder_version": 4,
+      "lat": 37.528199575622,
+      "lon": 126.922656021511,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 1층",
+      "result_name": "",
+      "score": 96.25,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 1층"
+      ],
+      "updated_at": "2026-09-18T00:07:35+00:00"
     },
     "핑하오|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "핑하오",
-      "fingerprint": "aa806987bf25bdf2",
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 도화동 마포대로 45",
+      "fingerprint": "35f168fa15527f84",
       "geocoder_version": 4,
-      "lat": 37.540474215,
-      "lon": 126.946373273,
-      "match_mode": "name",
+      "lat": 37.540473405989,
+      "lon": 126.946373203279,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "핑하오 대한민국",
-      "result_name": "핑하오",
+      "query": "서울 마포구 마포대로45",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:핑하오 대한민국"
+        "arcgis:서울 마포구 마포대로45"
       ],
-      "updated_at": "2026-09-17T23:07:39+00:00"
+      "updated_at": "2026-09-18T00:07:50+00:00"
     },
     "하나노마이|서울시청": {
       "addr_type": "PointAddress",
@@ -8402,22 +10543,22 @@
       "updated_at": "2026-09-17T23:03:57+00:00"
     },
     "하동관|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "하동관",
-      "fingerprint": "0e64e75318c0fd3b",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 3",
+      "fingerprint": "b085e724d733c20b",
       "geocoder_version": 4,
-      "lat": 37.527516094,
-      "lon": 126.919664722,
-      "match_mode": "name",
+      "lat": 37.527511714738,
+      "lon": 126.919665861372,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "하동관 대한민국",
-      "result_name": "하동관",
-      "score": 100.0,
+      "query": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) 1층",
+      "result_name": "",
+      "score": 96.09,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:하동관 대한민국"
+        "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) 1층"
       ],
-      "updated_at": "2026-09-17T23:07:24+00:00"
+      "updated_at": "2026-09-18T00:07:46+00:00"
     },
     "하동관|중앙정부": {
       "addr_type": "POI",
@@ -8502,23 +10643,41 @@
       ],
       "updated_at": "2026-09-17T23:04:20+00:00"
     },
-    "한국의밥상|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "한국의밥상",
-      "fingerprint": "b0dc2bf236e657da",
+    "한국의밥상(영등포)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "df59626c581a29b5",
       "geocoder_version": 4,
-      "lat": 37.529661753,
-      "lon": 126.92039591,
-      "match_mode": "name",
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "한국의밥상 대한민국",
-      "result_name": "한국의밥상",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)2층",
+      "result_name": "",
+      "score": 96.45,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:한국의밥상 대한민국"
+        "arcgis:서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)2층"
       ],
-      "updated_at": "2026-09-17T23:06:02+00:00"
+      "updated_at": "2026-09-18T00:08:01+00:00"
+    },
+    "한국의밥상|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
+      "fingerprint": "c441bcc9b349fe06",
+      "geocoder_version": 4,
+      "lat": 37.529662594911,
+      "lon": 126.920396428053,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)2층",
+      "result_name": "",
+      "score": 96.45,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 15-1 (여의도동, 극동브이아이피빌딩)2층"
+      ],
+      "updated_at": "2026-09-18T00:07:09+00:00"
     },
     "한남동한방통닭|용산구": {
       "addr_type": "POI",
@@ -8557,22 +10716,22 @@
       "updated_at": "2026-09-17T23:01:41+00:00"
     },
     "한류관|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "한류관",
-      "fingerprint": "aca106c799b99e96",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 750",
+      "fingerprint": "dd564ba68ef35340",
       "geocoder_version": 4,
-      "lat": 37.528269923,
-      "lon": 126.916436634,
-      "match_mode": "name",
+      "lat": 37.528270067427,
+      "lon": 126.91643698463,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "한류관 대한민국",
-      "result_name": "한류관",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)지하15,16,17호",
+      "result_name": "",
+      "score": 96.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:한류관 대한민국"
+        "arcgis:서울 영등포구 국회대로 750 (여의도동, 금산빌딩)지하15,16,17호"
       ],
-      "updated_at": "2026-09-17T23:06:01+00:00"
+      "updated_at": "2026-09-18T00:07:07+00:00"
     },
     "한마음정육식당 도담점|중앙정부": {
       "addr_type": "POI",
@@ -8591,6 +10750,24 @@
         "arcgis:한마음정육식당 도담점 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:03+00:00"
+    },
+    "한방대가삼계탕|국회의원(정치자금 2024)": {
+      "addr_type": "StreetAddress",
+      "display_name": "서울 강서구 화곡동 국회대로 72",
+      "fingerprint": "63ea755f4428b6c5",
+      "geocoder_version": 4,
+      "lat": 37.526782476268,
+      "lon": 126.842695774405,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로72길 22105,106,107호",
+      "result_name": "",
+      "score": 94.28,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로72길 22105,106,107호"
+      ],
+      "updated_at": "2026-09-18T00:08:42+00:00"
     },
     "한성관|강동구": {
       "addr_type": "POI",
@@ -8682,6 +10859,24 @@
       ],
       "updated_at": "2026-09-17T23:05:09+00:00"
     },
+    "한화푸드테크(주)|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 63로 40",
+      "fingerprint": "6f9d2656489f7be7",
+      "geocoder_version": 4,
+      "lat": 37.519635198414,
+      "lon": 126.939136435715,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 63로 40 (여의도동, 라이프오피스텔)",
+      "result_name": "",
+      "score": 96.82,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 63로 40 (여의도동, 라이프오피스텔)"
+      ],
+      "updated_at": "2026-09-18T00:09:01+00:00"
+    },
     "함박|강서구": {
       "addr_type": "PointAddress",
       "display_name": "서울 양천구 목동 621-11",
@@ -8718,6 +10913,24 @@
       ],
       "updated_at": "2026-09-17T23:04:40+00:00"
     },
+    "항아리갈비탕여의도점|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 25",
+      "fingerprint": "d8c72a349212ade5",
+      "geocoder_version": 4,
+      "lat": 37.526319724287,
+      "lon": 126.91771740416,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원)B1",
+      "result_name": "",
+      "score": 97.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로62길 25 (여의도동, 한국교육시설안전원)B1"
+      ],
+      "updated_at": "2026-09-18T00:08:29+00:00"
+    },
     "해담채|국회의원(정치자금 2024)": {
       "addr_type": "POI",
       "display_name": "해담채",
@@ -8748,23 +10961,40 @@
       "updated_at": "2026-09-17T23:05:28+00:00"
     },
     "해담채여의도|국회의원(정치자금 2024)": {
-      "display_name": "해담채여의도, 30, 은행로, 여의도동, 여의동, 영등포구, 서울특별시, 07242, 대한민국",
-      "fingerprint": "ad83f26df3a010d6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 은행로 30",
+      "fingerprint": "36d17df4ccf83074",
       "geocoder_version": 4,
-      "lat": 37.5281996,
-      "lon": 126.9226561,
-      "match_mode": "name",
-      "osm_type": "restaurant",
+      "lat": 37.528199575622,
+      "lon": 126.922656021511,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "해담채여의도 대한민국",
-      "result_name": "해담채여의도",
-      "source": "nominatim",
+      "query": "서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 15호",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:해담채여의도 대한민국",
-        "arcgis:해담채여의도 여의도 서울",
-        "nominatim:해담채여의도 대한민국"
+        "arcgis:서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 15호"
       ],
-      "updated_at": "2026-09-17T23:06:22+00:00"
+      "updated_at": "2026-09-18T00:07:11+00:00"
+    },
+    "해동복국|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로74길 20",
+      "fingerprint": "7354ae215417ddd5",
+      "geocoder_version": 4,
+      "lat": 37.529605765608,
+      "lon": 126.921553046872,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
+      "result_name": "",
+      "score": 96.55,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층"
+      ],
+      "updated_at": "2026-09-18T00:08:10+00:00"
     },
     "해물신의한수|종로구": {
       "failed": true,
@@ -8798,35 +11028,76 @@
       "updated_at": "2026-09-17T23:04:30+00:00"
     },
     "해초가|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "해초가",
-      "fingerprint": "564936673e24f17e",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 10",
+      "fingerprint": "df1de071d9c3b259",
       "geocoder_version": 4,
-      "lat": 37.530658111,
-      "lon": 126.92155559,
-      "match_mode": "name",
+      "lat": 37.530656143804,
+      "lon": 126.921557573099,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "해초가 대한민국",
-      "result_name": "해초가",
+      "query": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
+      "result_name": "",
+      "score": 96.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:07:48+00:00"
+    },
+    "해초록|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 강남구 대치동 영동대로 336",
+      "fingerprint": "bf814402b97ee2c9",
+      "geocoder_version": 4,
+      "lat": 37.504783220359,
+      "lon": 127.065919762042,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 강남구 영동대로 336 (대치동)",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:해초가 대한민국"
+        "arcgis:서울 강남구 영동대로 336 (대치동)"
       ],
-      "updated_at": "2026-09-17T23:07:23+00:00"
+      "updated_at": "2026-09-18T00:08:30+00:00"
     },
     "해초연|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "3e1d90ca8fca6cdd",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로76길 10",
+      "fingerprint": "d7a78232ccfa39a3",
       "geocoder_version": 4,
+      "lat": 37.530656143804,
+      "lon": 126.921557573099,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로76길 10(여의도동,기독교한국침례회총회빌딩)",
+      "result_name": "",
+      "score": 96.77,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:해초연 대한민국",
-        "arcgis:해초연 여의도 서울",
-        "nominatim:해초연 대한민국",
-        "nominatim:해초연 여의도 서울"
+        "arcgis:서울 영등포구 국회대로76길 10(여의도동,기독교한국침례회총회빌딩)"
       ],
-      "updated_at": "2026-09-17T23:07:18+00:00"
+      "updated_at": "2026-09-18T00:07:42+00:00"
+    },
+    "향연|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 종로구 내자동 사직로10길 9-6",
+      "fingerprint": "858d9a3f8544b1e0",
+      "geocoder_version": 4,
+      "lat": 37.575336926419,
+      "lon": 126.970711484072,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 종로구 사직로10길 9-6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 종로구 사직로10길 9-6"
+      ],
+      "updated_at": "2026-09-18T00:09:02+00:00"
     },
     "헥토_비버웍스(비)|서울시청": {
       "addr_type": "PointAddress",
@@ -8859,23 +11130,95 @@
       ],
       "updated_at": "2026-09-17T23:07:33+00:00"
     },
-    "홈레스토랑|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "홈레스토랑",
-      "fingerprint": "b55afe9e3f6e0a64",
+    "현래장|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 마포동 마포대로 20",
+      "fingerprint": "1833a4cb8a2bea2f",
       "geocoder_version": 4,
-      "lat": 36.666220554,
-      "lon": 127.488280814,
-      "match_mode": "name",
+      "lat": 37.538425204129,
+      "lon": 126.944985579208,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "홈레스토랑 대한민국",
-      "result_name": "홈레스토랑",
+      "query": "서울 마포구 마포대로20(마포동, 다보빌딩)1층",
+      "result_name": "",
+      "score": 97.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로20(마포동, 다보빌딩)1층"
+      ],
+      "updated_at": "2026-09-18T00:08:16+00:00"
+    },
+    "호정|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 공덕동 마포대로14길 12-19",
+      "fingerprint": "4fdc1cb2a7f324b5",
+      "geocoder_version": 4,
+      "lat": 37.548002743883,
+      "lon": 126.955901750809,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로14길 12-19 (공덕동)",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:홈레스토랑 대한민국"
+        "arcgis:서울 마포구 마포대로14길 12-19 (공덕동)"
       ],
-      "updated_at": "2026-09-17T23:06:55+00:00"
+      "updated_at": "2026-09-18T00:08:37+00:00"
+    },
+    "혼복집|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 19",
+      "fingerprint": "159fd245880c260b",
+      "geocoder_version": 4,
+      "lat": 37.529224347104,
+      "lon": 126.92083899254,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 19 (여의도동, 대하빌딩) 지하1층",
+      "result_name": "",
+      "score": 97.04,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 19 (여의도동, 대하빌딩) 지하1층"
+      ],
+      "updated_at": "2026-09-18T00:08:04+00:00"
+    },
+    "홈레스토랑|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로68길 23",
+      "fingerprint": "07c13b439d82ba51",
+      "geocoder_version": 4,
+      "lat": 37.528475214508,
+      "lon": 126.920419813562,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로68길 23 (여의도동, 정원빌딩)",
+      "result_name": "",
+      "score": 98.26,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로68길 23 (여의도동, 정원빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:07:44+00:00"
+    },
+    "홍보석|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 37",
+      "fingerprint": "d9cb1a2aeac02106",
+      "geocoder_version": 4,
+      "lat": 37.520482147821,
+      "lon": 126.923972064128,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "영등포구 여의도동37 아일렉스 504",
+      "result_name": "",
+      "score": 95.88,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:영등포구 여의도동37 아일렉스 504"
+      ],
+      "updated_at": "2026-09-18T00:08:15+00:00"
     },
     "홍어전문|구로구": {
       "addr_type": "PointAddress",
@@ -8932,22 +11275,22 @@
       "updated_at": "2026-09-17T23:03:18+00:00"
     },
     "화담|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "대구 화담",
-      "fingerprint": "879af8bd2018a145",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로 800",
+      "fingerprint": "cfe5c675bb32a46e",
       "geocoder_version": 4,
-      "lat": 35.92755,
-      "lon": 128.61902,
-      "match_mode": "name",
+      "lat": 37.530929351938,
+      "lon": 126.921083492656,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "화담 대한민국",
-      "result_name": "화담",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "result_name": "",
+      "score": 96.3,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:화담 대한민국"
+        "arcgis:서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층"
       ],
-      "updated_at": "2026-09-17T23:05:59+00:00"
+      "updated_at": "2026-09-18T00:07:02+00:00"
     },
     "화담|중앙정부": {
       "addr_type": "Locality",
@@ -8968,22 +11311,22 @@
       "updated_at": "2026-09-17T23:04:58+00:00"
     },
     "화수목|국회의원(정치자금 2024)": {
-      "addr_type": "POI",
-      "display_name": "화수목",
-      "fingerprint": "d0f4f0ec6e4e1bc8",
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 창전동 서강로 60",
+      "fingerprint": "9c57472251403989",
       "geocoder_version": 4,
-      "lat": 37.982343542,
-      "lon": 128.095598387,
-      "match_mode": "name",
+      "lat": 37.548525229817,
+      "lon": 126.932182305927,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "화수목 대한민국",
-      "result_name": "화수목",
-      "score": 100.0,
+      "query": "서울 마포구 서강로 60(창전동, 미지빌딩)",
+      "result_name": "",
+      "score": 97.65,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:화수목 대한민국"
+        "arcgis:서울 마포구 서강로 60(창전동, 미지빌딩)"
       ],
-      "updated_at": "2026-09-17T23:07:44+00:00"
+      "updated_at": "2026-09-18T00:07:54+00:00"
     },
     "화우|구로구": {
       "addr_type": "PointAddress",
@@ -9021,18 +11364,41 @@
       ],
       "updated_at": "2026-09-17T23:03:41+00:00"
     },
-    "황금복국|국회의원(정치자금 2024)": {
-      "failed": true,
-      "fingerprint": "362cc82797bb16d7",
+    "화해당|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로62길 15",
+      "fingerprint": "7de03a0d394bec86",
       "geocoder_version": 4,
+      "lat": 37.527087045613,
+      "lon": 126.916930594908,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울 영등포구 국회대로62길 15 (여의도동) 1층 3호",
+      "result_name": "",
+      "score": 98.7,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:황금복국 대한민국",
-        "arcgis:황금복국 여의도 서울",
-        "nominatim:황금복국 대한민국",
-        "nominatim:황금복국 여의도 서울"
+        "arcgis:서울 영등포구 국회대로62길 15 (여의도동) 1층 3호"
       ],
-      "updated_at": "2026-09-17T23:06:38+00:00"
+      "updated_at": "2026-09-18T00:09:17+00:00"
+    },
+    "황금복국|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로70길 7",
+      "fingerprint": "459699537d28d397",
+      "geocoder_version": 4,
+      "lat": 37.529994895463,
+      "lon": 126.919907176364,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "result_name": "",
+      "score": 98.18,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)"
+      ],
+      "updated_at": "2026-09-18T00:07:21+00:00"
     },
     "황금정|중앙정부": {
       "addr_type": "POI",
@@ -9070,6 +11436,24 @@
       ],
       "updated_at": "2026-09-17T23:01:29+00:00"
     },
+    "황금콩밭|국회의원(정치자금 2024)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울 마포구 아현동 마포대로16길 9",
+      "fingerprint": "17747e684c591527",
+      "geocoder_version": 4,
+      "lat": 37.550965620927,
+      "lon": 126.956732062137,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울 마포구 마포대로16길 9(아현동)",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울 마포구 마포대로16길 9(아현동)"
+      ],
+      "updated_at": "2026-09-18T00:09:14+00:00"
+    },
     "황씨네대가추어탕|종로구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 수송동 삼봉로 81",
@@ -9089,22 +11473,22 @@
       "updated_at": "2026-09-17T23:01:42+00:00"
     },
     "회동|국회의원(정치자금 2024)": {
-      "addr_type": "Locality",
-      "display_name": "강원 회동",
-      "fingerprint": "05f919f5db567ea6",
+      "addr_type": "PointAddress",
+      "display_name": "서울 영등포구 여의도동 국회대로72길 21",
+      "fingerprint": "1090de312aebccfe",
       "geocoder_version": 4,
-      "lat": 37.4193,
-      "lon": 128.5801,
-      "match_mode": "name",
+      "lat": 37.529326773961,
+      "lon": 126.921480208133,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "회동 대한민국",
-      "result_name": "회동",
-      "score": 100.0,
+      "query": "서울 영등포구 국회대로72길21 (여의도동, 민족통일대통령리빙텔)",
+      "result_name": "",
+      "score": 96.55,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:회동 대한민국"
+        "arcgis:서울 영등포구 국회대로72길21 (여의도동, 민족통일대통령리빙텔)"
       ],
-      "updated_at": "2026-09-17T23:06:59+00:00"
+      "updated_at": "2026-09-18T00:07:40+00:00"
     },
     "회포|서울시청": {
       "addr_type": "PointAddress",

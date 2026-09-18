@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-17T16:02:10",
+  "generated_at": "2026-09-18T00:06:24",
   "source": "central_executive",
   "cohort": "central_executive",
-  "entity_count": 629,
-  "eligible_count": 67,
+  "entity_count": 558,
+  "eligible_count": 60,
   "candidates": [
     {
       "merchant": "오롯이",
@@ -129,11 +129,11 @@
       "merchant": "마키노차야 더가우",
       "address": "",
       "score": 73.0,
-      "visits": 32,
+      "visits": 25,
       "role_count": 1,
       "institution_count": 2,
-      "months": 15,
-      "spend": 11779000,
+      "months": 12,
+      "spend": 8848000,
       "senior_weight": 0.9,
       "institutions": [
         "농림축산식품부",
@@ -142,7 +142,7 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 31
+          "visits": 24
         },
         {
           "role": "차관",
@@ -156,14 +156,6 @@
         },
         {
           "text": "1차관실 간부 오찬",
-          "count": 3
-        },
-        {
-          "text": "부내 직원 격려",
-          "count": 2
-        },
-        {
-          "text": "2차관실 직원 격려",
           "count": 2
         },
         {
@@ -171,11 +163,19 @@
           "count": 2
         },
         {
-          "text": "전력 관련 전문가 간담회",
+          "text": "FTA 정책관실 직원 오찬",
+          "count": 1
+        },
+        {
+          "text": "부내 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "자원국 직원 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-01-02",
+      "date_min": "2024-07-01",
       "date_max": "2026-07-22",
       "recent": [
         {
@@ -263,12 +263,12 @@
     {
       "merchant": "식원",
       "address": "",
-      "score": 71.5,
-      "visits": 15,
+      "score": 71.4,
+      "visits": 12,
       "role_count": 1,
       "institution_count": 2,
-      "months": 10,
-      "spend": 4851000,
+      "months": 8,
+      "spend": 3958000,
       "senior_weight": 0.75,
       "institutions": [
         "농림축산식품부",
@@ -277,7 +277,7 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 14
+          "visits": 11
         },
         {
           "role": "식량정책실장",
@@ -294,23 +294,23 @@
           "count": 2
         },
         {
-          "text": "산업 현안 언론 간담회",
-          "count": 1
-        },
-        {
-          "text": "상무관 만찬",
-          "count": 1
-        },
-        {
-          "text": "에너지현안 언론사 간담회",
-          "count": 1
-        },
-        {
           "text": "출입기자 간담회",
+          "count": 1
+        },
+        {
+          "text": "2차관실 직급별 간담회",
+          "count": 1
+        },
+        {
+          "text": "국정감사 대응 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "에너지 현안 언론 간담회",
           "count": 1
         }
       ],
-      "date_min": "2024-02-26",
+      "date_min": "2024-07-22",
       "date_max": "2026-08-24",
       "recent": [
         {
@@ -398,12 +398,12 @@
     {
       "merchant": "화담",
       "address": "",
-      "score": 67.9,
-      "visits": 7,
+      "score": 63.1,
+      "visits": 6,
       "role_count": 1,
       "institution_count": 2,
-      "months": 6,
-      "spend": 2096000,
+      "months": 5,
+      "spend": 1879000,
       "senior_weight": 0.75,
       "institutions": [
         "농림축산식품부",
@@ -412,7 +412,7 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 6
+          "visits": 5
         },
         {
           "role": "식량정책실장",
@@ -420,10 +420,6 @@
         }
       ],
       "purpose_stats": [
-        {
-          "text": "국회 현안 점검회의",
-          "count": 1
-        },
         {
           "text": "부내직원 격려",
           "count": 1
@@ -443,9 +439,13 @@
         {
           "text": "부처간 업무협의",
           "count": 1
+        },
+        {
+          "text": "국회 업무협의",
+          "count": 1
         }
       ],
-      "date_min": "2024-02-20",
+      "date_min": "2024-08-19",
       "date_max": "2026-08-24",
       "recent": [
         {
@@ -507,16 +507,6 @@
           "people": 14,
           "purpose": "부내직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-02-20",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 217000,
-          "people": 6,
-          "purpose": "국회 현안 점검회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -524,11 +514,11 @@
       "merchant": "신안촌",
       "address": "",
       "score": 60.0,
-      "visits": 36,
+      "visits": 34,
       "role_count": 0,
       "institution_count": 1,
-      "months": 17,
-      "spend": 10053000,
+      "months": 15,
+      "spend": 9342000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -536,7 +526,7 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 36
+          "visits": 34
         }
       ],
       "purpose_stats": [
@@ -553,19 +543,19 @@
           "count": 2
         },
         {
-          "text": "2차관실 업무보고 국과장 간담회",
-          "count": 1
-        },
-        {
-          "text": "산업 민간 전문가 간담회",
-          "count": 1
-        },
-        {
           "text": "언론사 간담회",
+          "count": 1
+        },
+        {
+          "text": "부내직원 간담회",
+          "count": 1
+        },
+        {
+          "text": "회의 참석자 격려 도시락",
           "count": 1
         }
       ],
-      "date_min": "2024-01-12",
+      "date_min": "2024-07-02",
       "date_max": "2026-05-26",
       "recent": [
         {
@@ -654,11 +644,11 @@
       "merchant": "일품당프리미엄",
       "address": "",
       "score": 60.0,
-      "visits": 22,
+      "visits": 20,
       "role_count": 0,
       "institution_count": 1,
-      "months": 12,
-      "spend": 6169000,
+      "months": 10,
+      "spend": 5886000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -666,13 +656,13 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 22
+          "visits": 20
         }
       ],
       "purpose_stats": [
         {
           "text": "관계기관 업무협의",
-          "count": 5
+          "count": 4
         },
         {
           "text": "부내 직원격려",
@@ -687,15 +677,15 @@
           "count": 2
         },
         {
-          "text": "산업 전문가 간담회",
+          "text": "정책보좌관 오찬",
           "count": 1
         },
         {
-          "text": "정책보좌관 오찬",
+          "text": "국회 담당 직원 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-01-19",
+      "date_min": "2024-08-06",
       "date_max": "2026-01-09",
       "recent": [
         {
@@ -784,11 +774,11 @@
       "merchant": "오디푸드시스템 오발탄 세종점",
       "address": "",
       "score": 60.0,
-      "visits": 19,
+      "visits": 16,
       "role_count": 0,
       "institution_count": 1,
-      "months": 15,
-      "spend": 6544000,
+      "months": 12,
+      "spend": 5573000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -796,22 +786,10 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 19
+          "visits": 16
         }
       ],
       "purpose_stats": [
-        {
-          "text": "통상차관보실 서기관 격려",
-          "count": 1
-        },
-        {
-          "text": "원전산업정책과 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "첨단국 직원 오찬",
-          "count": 1
-        },
         {
           "text": "소부장 전문가 간담회",
           "count": 1
@@ -823,9 +801,21 @@
         {
           "text": "2차관실 사무관 오찬 간담회",
           "count": 1
+        },
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        },
+        {
+          "text": "서기관 승진자 격려",
+          "count": 1
+        },
+        {
+          "text": "석유산업과 오찬 간담회",
+          "count": 1
         }
       ],
-      "date_min": "2024-01-30",
+      "date_min": "2024-07-01",
       "date_max": "2026-06-15",
       "recent": [
         {
@@ -1044,11 +1034,11 @@
       "merchant": "크리스탈제이드 서머셋점",
       "address": "",
       "score": 59.9,
-      "visits": 16,
+      "visits": 15,
       "role_count": 0,
       "institution_count": 1,
-      "months": 11,
-      "spend": 4101700,
+      "months": 10,
+      "spend": 3866700,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -1056,7 +1046,7 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 16
+          "visits": 15
         }
       ],
       "purpose_stats": [
@@ -1069,10 +1059,6 @@
           "count": 2
         },
         {
-          "text": "공급망 관련 언론 간담회",
-          "count": 1
-        },
-        {
           "text": "관계기관 업무협의",
           "count": 1
         },
@@ -1083,9 +1069,13 @@
         {
           "text": "전문가 간담회",
           "count": 1
+        },
+        {
+          "text": "조직 운영 관련 회의",
+          "count": 1
         }
       ],
-      "date_min": "2024-03-27",
+      "date_min": "2024-08-23",
       "date_max": "2026-05-22",
       "recent": [
         {
@@ -1167,266 +1157,6 @@
           "people": 4,
           "purpose": "5극3특 전략 관련 회의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        }
-      ]
-    },
-    {
-      "merchant": "경복궁남도식탁",
-      "address": "",
-      "score": 59.9,
-      "visits": 15,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 9,
-      "spend": 3237000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 15
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "지역산업 전문가 간담회",
-          "count": 2
-        },
-        {
-          "text": "차관실 오찬",
-          "count": 2
-        },
-        {
-          "text": "직원 간담회",
-          "count": 2
-        },
-        {
-          "text": "에너지현안 정책점검 회의",
-          "count": 1
-        },
-        {
-          "text": "부담금 담당 직원 오찬",
-          "count": 1
-        },
-        {
-          "text": "공학 전문가 간담회",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-01-10",
-      "date_max": "2025-03-25",
-      "recent": [
-        {
-          "date": "2025-03-25",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 220000,
-          "people": 6,
-          "purpose": "에너지현안 전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-02-27",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 180000,
-          "people": 6,
-          "purpose": "직원 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-02-17",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 60000,
-          "people": 4,
-          "purpose": "차관실 오찬",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-31",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 120000,
-          "people": 4,
-          "purpose": "직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-17",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 90000,
-          "people": 4,
-          "purpose": "직원 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 60000,
-          "people": 3,
-          "purpose": "차관실 오찬",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-04",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 255000,
-          "people": 10,
-          "purpose": "국감 대비 주요 현안 국과장 회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-07-30",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 90000,
-          "people": 4,
-          "purpose": "지역산업 전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        }
-      ]
-    },
-    {
-      "merchant": "영빈루블랙 그랜드센트럴점",
-      "address": "",
-      "score": 59.9,
-      "visits": 11,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 6,
-      "spend": 3973000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 11
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "관계기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "부내 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "정책 전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "산업부 유관기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "에너지 전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "주요 현안 언론사 업무협의",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-01-03",
-      "date_max": "2025-03-28",
-      "recent": [
-        {
-          "date": "2025-03-28",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 455000,
-          "people": 9,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-03-13",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 485000,
-          "people": 6,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-18",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 193000,
-          "people": 5,
-          "purpose": "주요 현안 언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-12-06",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 380000,
-          "people": 6,
-          "purpose": "관계부처 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-11-21",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 249000,
-          "people": 7,
-          "purpose": "에너지현안 언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-11-06",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 270000,
-          "people": 4,
-          "purpose": "주요 현안 언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-07-15",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 240000,
-          "people": 6,
-          "purpose": "에너지 전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-10",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 447000,
-          "people": 9,
-          "purpose": "산업부 유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -1691,136 +1421,6 @@
       ]
     },
     {
-      "merchant": "브이아이피참치프레지던트호텔점",
-      "address": "",
-      "score": 59.8,
-      "visits": 14,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 8,
-      "spend": 2723000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 14
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무협의",
-          "count": 5
-        },
-        {
-          "text": "전문가 업무협의",
-          "count": 2
-        },
-        {
-          "text": "부내 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "국제비즈학회 참석자 업무협의",
-          "count": 1
-        },
-        {
-          "text": "산업부 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "통상교섭본부 직원 격려",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-03-19",
-      "date_max": "2025-02-20",
-      "recent": [
-        {
-          "date": "2025-02-20",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 96000,
-          "people": 3,
-          "purpose": "전문가 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-16",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 255000,
-          "people": 4,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-09",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 126000,
-          "people": 3,
-          "purpose": "전문가 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-19",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 156000,
-          "people": 4,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-16",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 108000,
-          "people": 3,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-09-06",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 54000,
-          "people": 2,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-08-29",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 358000,
-          "people": 6,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-08-28",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 480000,
-          "people": 10,
-          "purpose": "수출지역담당관 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        }
-      ]
-    },
-    {
       "merchant": "낙원",
       "address": "",
       "score": 59.8,
@@ -1951,14 +1551,14 @@
       ]
     },
     {
-      "merchant": "경성한우국밥",
+      "merchant": "브이아이피참치프레지던트호텔점",
       "address": "",
       "score": 59.8,
-      "visits": 11,
+      "visits": 13,
       "role_count": 0,
       "institution_count": 1,
-      "months": 9,
-      "spend": 2840500,
+      "months": 7,
+      "spend": 2669000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -1966,117 +1566,117 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 11
+          "visits": 13
         }
       ],
       "purpose_stats": [
         {
-          "text": "부내직원 간담회",
-          "count": 3
+          "text": "유관기관 업무협의",
+          "count": 5
         },
         {
-          "text": "부내 현안 점검회의",
+          "text": "전문가 업무협의",
+          "count": 2
+        },
+        {
+          "text": "국제비즈학회 참석자 업무협의",
           "count": 1
         },
         {
-          "text": "직원 격려",
+          "text": "산업부 직원 격려",
           "count": 1
         },
         {
-          "text": "NDC 담당 직원들 격려",
+          "text": "통상교섭본부 직원 격려",
           "count": 1
         },
         {
-          "text": "실무 현안점검 회의 참석자 격려",
-          "count": 1
-        },
-        {
-          "text": "배터리 관련 회의 참석자 격려",
+          "text": "수출지역담당관 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-01-29",
-      "date_max": "2026-05-13",
+      "date_min": "2024-07-01",
+      "date_max": "2025-02-20",
       "recent": [
         {
-          "date": "2026-05-13",
+          "date": "2025-02-20",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 175000,
-          "people": 10,
-          "purpose": "산정국 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2026-03-23",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 235000,
-          "people": 10,
-          "purpose": "중동 상황 관련 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2026-03-03",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 242000,
-          "people": 12,
-          "purpose": "대미특위 법안소위 담당자 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2026-02-26",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 175000,
-          "people": 8,
-          "purpose": "배터리 관련 회의 참석자 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2026-02-23",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 310000,
-          "people": 11,
-          "purpose": "실무 현안점검 회의 참석자 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2025-11-05",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 187000,
-          "people": 8,
-          "purpose": "NDC 담당 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-02-18",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 378000,
-          "people": 10,
-          "purpose": "직원 격려",
+          "amount": 96000,
+          "people": 3,
+          "purpose": "전문가 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2025-01-10",
+          "date": "2025-01-16",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 227000,
-          "people": 8,
-          "purpose": "부내직원 간담회",
+          "amount": 255000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-09",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 126000,
+          "people": 3,
+          "purpose": "전문가 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-12-19",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 156000,
+          "people": 4,
+          "purpose": "언론사 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-10-16",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 108000,
+          "people": 3,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-09-06",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 54000,
+          "people": 2,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        },
+        {
+          "date": "2024-08-29",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 358000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        },
+        {
+          "date": "2024-08-28",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 480000,
+          "people": 10,
+          "purpose": "수출지역담당관 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -2211,14 +1811,14 @@
       ]
     },
     {
-      "merchant": "한일관",
+      "merchant": "경성한우국밥",
       "address": "",
       "score": 59.8,
       "visits": 10,
       "role_count": 0,
       "institution_count": 1,
-      "months": 7,
-      "spend": 2775000,
+      "months": 8,
+      "spend": 2793000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -2231,112 +1831,112 @@
       ],
       "purpose_stats": [
         {
-          "text": "언론사 간담회",
+          "text": "부내직원 간담회",
           "count": 3
         },
         {
-          "text": "에너지 현장방문 준비회의",
+          "text": "직원 격려",
           "count": 1
         },
         {
-          "text": "부내 현안 점검회의",
+          "text": "NDC 담당 직원들 격려",
           "count": 1
         },
         {
-          "text": "운영지원과 직원 격려",
+          "text": "실무 현안점검 회의 참석자 격려",
           "count": 1
         },
         {
-          "text": "전문가 간담회",
+          "text": "배터리 관련 회의 참석자 격려",
           "count": 1
         },
         {
-          "text": "언론사 업무협의",
+          "text": "대미특위 법안소위 담당자 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-02-16",
-      "date_max": "2025-11-14",
+      "date_min": "2024-11-18",
+      "date_max": "2026-05-13",
       "recent": [
         {
-          "date": "2025-11-14",
+          "date": "2026-05-13",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 480000,
-          "people": 12,
-          "purpose": "법안 소위 관련 도시락 회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-10-30",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 264000,
-          "people": 6,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-10-23",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 172000,
-          "people": 4,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-01-22",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 414000,
+          "amount": 175000,
           "people": 10,
-          "purpose": "부내 직원격려",
+          "purpose": "산정국 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+        },
+        {
+          "date": "2026-03-23",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 235000,
+          "people": 10,
+          "purpose": "중동 상황 관련 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2026-03-03",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 242000,
+          "people": 12,
+          "purpose": "대미특위 법안소위 담당자 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2026-02-26",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 175000,
+          "people": 8,
+          "purpose": "배터리 관련 회의 참석자 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2026-02-23",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 310000,
+          "people": 11,
+          "purpose": "실무 현안점검 회의 참석자 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2025-11-05",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 187000,
+          "people": 8,
+          "purpose": "NDC 담당 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-02-18",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 378000,
+          "people": 10,
+          "purpose": "직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-10-17",
+          "date": "2025-01-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 166000,
-          "people": 4,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-16",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 260000,
+          "amount": 227000,
           "people": 8,
-          "purpose": "전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-07-10",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 193000,
-          "people": 6,
-          "purpose": "운영지원과 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-04",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 373000,
-          "people": 6,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+          "purpose": "부내직원 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         }
       ]
     },
@@ -2471,14 +2071,14 @@
       ]
     },
     {
-      "merchant": "컨퍼런스하우스달개비 정동점",
+      "merchant": "경복궁남도식탁",
       "address": "",
       "score": 59.7,
       "visits": 11,
       "role_count": 0,
       "institution_count": 1,
-      "months": 8,
-      "spend": 2104400,
+      "months": 6,
+      "spend": 1748000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -2491,112 +2091,112 @@
       ],
       "purpose_stats": [
         {
-          "text": "주요 협단체 오찬 업무협의",
+          "text": "지역산업 전문가 간담회",
+          "count": 2
+        },
+        {
+          "text": "차관실 오찬",
+          "count": 2
+        },
+        {
+          "text": "직원 간담회",
+          "count": 2
+        },
+        {
+          "text": "산업정책실 직원 격려",
           "count": 1
         },
         {
-          "text": "국제기구 실사단 업무협의",
+          "text": "자동차, 배터리 담당 직원 격려",
           "count": 1
         },
         {
-          "text": "유관기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "간담회",
-          "count": 1
-        },
-        {
-          "text": "전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "반도체 기업 간담회",
+          "text": "국감 대비 주요 현안 국과장 회의",
           "count": 1
         }
       ],
-      "date_min": "2024-03-21",
-      "date_max": "2026-05-28",
+      "date_min": "2024-07-08",
+      "date_max": "2025-03-25",
       "recent": [
         {
-          "date": "2026-05-28",
+          "date": "2025-03-25",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 76000,
-          "people": 2,
-          "purpose": "관계기관 조찬 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2026-02-27",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 139000,
-          "people": 3,
-          "purpose": "통상 전문가 조찬 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2026-02-20",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 158400,
-          "people": 3,
-          "purpose": "관계부처 통상현안 점검회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2025-12-26",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 56000,
-          "people": 3,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-11-13",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 156000,
-          "people": 3,
-          "purpose": "전문가 조찬간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-10-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 346500,
-          "people": 7,
-          "purpose": "반도체 기업 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-03-18",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 346500,
+          "amount": 220000,
           "people": 6,
-          "purpose": "전문가 간담회",
+          "purpose": "에너지현안 전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-11-27",
+          "date": "2025-02-27",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 198000,
+          "amount": 180000,
           "people": 6,
-          "purpose": "간담회",
+          "purpose": "직원 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-02-17",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 60000,
+          "people": 4,
+          "purpose": "차관실 오찬",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-31",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 120000,
+          "people": 4,
+          "purpose": "직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-17",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 90000,
+          "people": 4,
+          "purpose": "직원 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-12-12",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 60000,
+          "people": 3,
+          "purpose": "차관실 오찬",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-10-04",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 255000,
+          "people": 10,
+          "purpose": "국감 대비 주요 현안 국과장 회의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-07-30",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 90000,
+          "people": 4,
+          "purpose": "지역산업 전문가 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -2845,14 +2445,14 @@
       ]
     },
     {
-      "merchant": "송추가마골인어반/동경（주）광화문지점",
+      "merchant": "컨퍼런스하우스달개비 정동점",
       "address": "",
-      "score": 58.9,
+      "score": 58.6,
       "visits": 9,
       "role_count": 0,
       "institution_count": 1,
-      "months": 6,
-      "spend": 3817400,
+      "months": 7,
+      "spend": 1534400,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -2865,81 +2465,101 @@
       ],
       "purpose_stats": [
         {
-          "text": "관계기관 업무협의",
-          "count": 2
-        },
-        {
-          "text": "교섭본부 직원 격려",
-          "count": 2
-        },
-        {
-          "text": "부내직원 간담회",
+          "text": "유관기관 업무협의",
           "count": 1
         },
         {
-          "text": "원전 전문가 간담회",
+          "text": "간담회",
           "count": 1
         },
         {
-          "text": "국정감사 준비 직원 격려 오찬",
+          "text": "전문가 간담회",
           "count": 1
         },
         {
-          "text": "미국 출장직원 격려",
+          "text": "반도체 기업 간담회",
+          "count": 1
+        },
+        {
+          "text": "전문가 조찬간담회",
+          "count": 1
+        },
+        {
+          "text": "언론사 간담회",
           "count": 1
         }
       ],
-      "date_min": "2024-02-02",
-      "date_max": "2026-06-29",
+      "date_min": "2024-11-18",
+      "date_max": "2026-05-28",
       "recent": [
         {
-          "date": "2026-06-29",
+          "date": "2026-05-28",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 355000,
-          "people": 8,
-          "purpose": "부내 직원들 격려",
+          "amount": 76000,
+          "people": 2,
+          "purpose": "관계기관 조찬 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
         },
         {
-          "date": "2026-02-10",
+          "date": "2026-02-27",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 489000,
-          "people": 14,
-          "purpose": "미국 출장직원 격려",
+          "amount": 139000,
+          "people": 3,
+          "purpose": "통상 전문가 조찬 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
         },
         {
-          "date": "2025-10-24",
+          "date": "2026-02-20",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 495600,
-          "people": 10,
-          "purpose": "국정감사 준비 직원 격려 오찬",
+          "amount": 158400,
+          "people": 3,
+          "purpose": "관계부처 통상현안 점검회의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2025-12-26",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 56000,
+          "people": 3,
+          "purpose": "언론사 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
         },
         {
-          "date": "2025-01-21",
+          "date": "2025-11-13",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 470000,
-          "people": 12,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+          "amount": 156000,
+          "people": 3,
+          "purpose": "전문가 조찬간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
         },
         {
-          "date": "2025-01-14",
+          "date": "2025-10-02",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 490000,
+          "amount": 346500,
           "people": 7,
-          "purpose": "교섭본부 직원 격려",
+          "purpose": "반도체 기업 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-03-18",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 346500,
+          "people": 6,
+          "purpose": "전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
@@ -2947,290 +2567,10 @@
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 274000,
-          "people": 9,
-          "purpose": "원전 전문가 간담회",
+          "amount": 198000,
+          "people": 6,
+          "purpose": "간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-11-26",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 387000,
-          "people": 8,
-          "purpose": "부내직원 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-02-20",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 366800,
-          "people": 7,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "차이(chai)797 광화문점",
-      "address": "",
-      "score": 58.9,
-      "visits": 9,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 7,
-      "spend": 3551000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 9
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "언론사 간담회",
-          "count": 4
-        },
-        {
-          "text": "에너지전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "산업전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "관계기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "출입기자 간담회",
-          "count": 1
-        },
-        {
-          "text": "부내 직원격려",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-01-12",
-      "date_max": "2025-03-10",
-      "recent": [
-        {
-          "date": "2025-03-10",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 281000,
-          "people": 10,
-          "purpose": "부내 직원격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-02-25",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 320000,
-          "people": 8,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-22",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 434000,
-          "people": 11,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-11-05",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 475000,
-          "people": 10,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-23",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 471000,
-          "people": 10,
-          "purpose": "출입기자 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-09-25",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 491000,
-          "people": 16,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-09-03",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 372000,
-          "people": 13,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-01-19",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 315000,
-          "people": 7,
-          "purpose": "산업전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "잼배옥",
-      "address": "",
-      "score": 58.7,
-      "visits": 9,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 8,
-      "spend": 2179000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 9
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "교섭본부 직원 격려",
-          "count": 3
-        },
-        {
-          "text": "통상교섭본부 직원 격려",
-          "count": 2
-        },
-        {
-          "text": "부내 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "통상교섭본부 국장급 격려",
-          "count": 1
-        },
-        {
-          "text": "출장단 직원 격려 오찬",
-          "count": 1
-        },
-        {
-          "text": "내부 현안 점검회의",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-03-25",
-      "date_max": "2026-04-30",
-      "recent": [
-        {
-          "date": "2026-04-30",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 195000,
-          "people": 7,
-          "purpose": "내부 현안 점검회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2025-10-28",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 278000,
-          "people": 11,
-          "purpose": "출장단 직원 격려 오찬",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2025-03-20",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 136000,
-          "people": 10,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-11",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 271000,
-          "people": 10,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-30",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 270000,
-          "people": 10,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-08-30",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 287000,
-          "people": 8,
-          "purpose": "통상교섭본부 국장급 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-11",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 182000,
-          "people": 8,
-          "purpose": "통상교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-09",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 250000,
-          "people": 10,
-          "purpose": "통상교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -3469,14 +2809,14 @@
       ]
     },
     {
-      "merchant": "송쉐프 숭례문점",
+      "merchant": "잼배옥",
       "address": "",
       "score": 57.6,
       "visits": 8,
       "role_count": 0,
       "institution_count": 1,
-      "months": 8,
-      "spend": 1883300,
+      "months": 7,
+      "spend": 1869000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -3490,237 +2830,107 @@
       "purpose_stats": [
         {
           "text": "교섭본부 직원 격려",
-          "count": 4
-        },
-        {
-          "text": "관계기관 업무협의",
-          "count": 1
+          "count": 3
         },
         {
           "text": "통상교섭본부 직원 격려",
+          "count": 2
+        },
+        {
+          "text": "통상교섭본부 국장급 격려",
           "count": 1
         },
         {
-          "text": "카메룬 출장준비 업무협의",
+          "text": "출장단 직원 격려 오찬",
           "count": 1
         },
         {
-          "text": "수출상황 점검회의",
+          "text": "내부 현안 점검회의",
           "count": 1
         }
       ],
-      "date_min": "2024-02-01",
-      "date_max": "2026-05-07",
+      "date_min": "2024-07-09",
+      "date_max": "2026-04-30",
       "recent": [
         {
-          "date": "2026-05-07",
+          "date": "2026-04-30",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 245300,
-          "people": 6,
-          "purpose": "수출상황 점검회의",
+          "amount": 195000,
+          "people": 7,
+          "purpose": "내부 현안 점검회의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
         },
         {
-          "date": "2026-03-20",
+          "date": "2025-10-28",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 256000,
-          "people": 12,
-          "purpose": "카메룬 출장준비 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+          "amount": 278000,
+          "people": 11,
+          "purpose": "출장단 직원 격려 오찬",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
         },
         {
-          "date": "2025-03-05",
+          "date": "2025-03-20",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 168000,
-          "people": 6,
+          "amount": 136000,
+          "people": 10,
           "purpose": "교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2025-02-12",
+          "date": "2024-12-11",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 84000,
-          "people": 5,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-24",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 372000,
-          "people": 8,
+          "amount": 271000,
+          "people": 10,
           "purpose": "교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-11-06",
+          "date": "2024-10-30",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 197000,
-          "people": 8,
+          "amount": 270000,
+          "people": 10,
           "purpose": "교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-08-05",
+          "date": "2024-08-30",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 281000,
+          "amount": 287000,
+          "people": 8,
+          "purpose": "통상교섭본부 국장급 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        },
+        {
+          "date": "2024-07-11",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 182000,
           "people": 8,
           "purpose": "통상교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         },
         {
-          "date": "2024-02-01",
+          "date": "2024-07-09",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 280000,
-          "people": 5,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "대선칼국수",
-      "address": "",
-      "score": 57.6,
-      "visits": 8,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 8,
-      "spend": 1803000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 8
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "부내 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "2차관실 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "비서실 등 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "2차관실 정책 점검회의",
-          "count": 1
-        },
-        {
-          "text": "2차관실 국회 대응 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "업무보고 관련 담당 직원들 격려",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-02-05",
-      "date_max": "2026-04-21",
-      "recent": [
-        {
-          "date": "2026-04-21",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 220000,
+          "amount": 250000,
           "people": 10,
-          "purpose": "국가핵심기술 관련 회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2026-03-13",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 140000,
-          "people": 7,
-          "purpose": "감사 담당 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2025-12-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 154000,
-          "people": 8,
-          "purpose": "업무보고 관련 담당 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2024-12-19",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 266000,
-          "people": 14,
-          "purpose": "2차관실 국회 대응 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-10-11",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 244000,
-          "people": 8,
-          "purpose": "2차관실 정책 점검회의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-07-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 112000,
-          "people": 6,
-          "purpose": "비서실 등 직원 격려",
+          "purpose": "통상교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-03-06",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 181000,
-          "people": 10,
-          "purpose": "2차관실 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-02-05",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 486000,
-          "people": 15,
-          "purpose": "부내 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -4115,89 +3325,114 @@
       ]
     },
     {
-      "merchant": "소문/(주)을정",
+      "merchant": "차이(chai)797 광화문점",
       "address": "",
-      "score": 57.0,
-      "visits": 4,
-      "role_count": 1,
-      "institution_count": 2,
-      "months": 4,
-      "spend": 698000,
-      "senior_weight": 0.85,
+      "score": 56.5,
+      "visits": 7,
+      "role_count": 0,
+      "institution_count": 1,
+      "months": 6,
+      "spend": 2844000,
+      "senior_weight": 0.5,
       "institutions": [
-        "산업통상부",
-        "통일부"
+        "산업통상부"
       ],
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 3
-        },
-        {
-          "role": "남북회담본부장",
-          "visits": 1
+          "visits": 7
         }
       ],
       "purpose_stats": [
         {
-          "text": "기술안보 언론 간담회",
-          "count": 1
-        },
-        {
-          "text": "1차관실 간부 오찬",
-          "count": 1
-        },
-        {
-          "text": "간담회 개최",
-          "count": 1
+          "text": "언론사 간담회",
+          "count": 4
         },
         {
           "text": "관계기관 업무협의",
           "count": 1
+        },
+        {
+          "text": "출입기자 간담회",
+          "count": 1
+        },
+        {
+          "text": "부내 직원격려",
+          "count": 1
         }
       ],
-      "date_min": "2024-03-14",
-      "date_max": "2026-06-16",
+      "date_min": "2024-09-03",
+      "date_max": "2025-03-10",
       "recent": [
         {
-          "date": "2026-06-16",
+          "date": "2025-03-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 141000,
-          "people": 7,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+          "amount": 281000,
+          "people": 10,
+          "purpose": "부내 직원격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2026-02-06",
-          "time": "",
-          "institution": "통일부",
-          "role": "남북회담본부장",
-          "amount": 108000,
-          "people": 4,
-          "purpose": "간담회 개최",
-          "source": "https://www.unikorea.go.kr/web/unikorea/file/download/uu/b6f1c8ecc4154ad7b1c75ce6f629151b"
-        },
-        {
-          "date": "2024-07-12",
+          "date": "2025-02-25",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 270000,
-          "people": 9,
-          "purpose": "1차관실 간부 오찬",
+          "amount": 320000,
+          "people": 8,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-22",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 434000,
+          "people": 11,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-11-05",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 475000,
+          "people": 10,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-10-23",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 471000,
+          "people": 10,
+          "purpose": "출입기자 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-09-25",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 491000,
+          "people": 16,
+          "purpose": "언론사 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         },
         {
-          "date": "2024-03-14",
+          "date": "2024-09-03",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 179000,
-          "people": 6,
-          "purpose": "기술안보 언론 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 372000,
+          "people": 13,
+          "purpose": "관계기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -4558,14 +3793,14 @@
       ]
     },
     {
-      "merchant": "해담채시청",
+      "merchant": "송쉐프 숭례문점",
       "address": "",
       "score": 56.3,
       "visits": 7,
       "role_count": 0,
       "institution_count": 1,
       "months": 7,
-      "spend": 1644000,
+      "spend": 1603300,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -4578,102 +3813,94 @@
       ],
       "purpose_stats": [
         {
-          "text": "관계기관 업무협의",
-          "count": 2
+          "text": "교섭본부 직원 격려",
+          "count": 4
         },
         {
-          "text": "유관기관 업무협의",
+          "text": "통상교섭본부 직원 격려",
           "count": 1
         },
         {
-          "text": "학계 업무협의",
+          "text": "카메룬 출장준비 업무협의",
           "count": 1
         },
         {
-          "text": "통상정책국 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "통상 전문가 간담회",
-          "count": 1
-        },
-        {
-          "text": "유관기관 통상현안 간담회",
+          "text": "수출상황 점검회의",
           "count": 1
         }
       ],
-      "date_min": "2024-01-18",
-      "date_max": "2026-03-19",
+      "date_min": "2024-08-05",
+      "date_max": "2026-05-07",
       "recent": [
         {
-          "date": "2026-03-19",
+          "date": "2026-05-07",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 410000,
-          "people": 8,
-          "purpose": "유관기관 통상현안 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
-        },
-        {
-          "date": "2026-01-26",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 299000,
+          "amount": 245300,
           "people": 6,
-          "purpose": "통상 전문가 간담회",
+          "purpose": "수출상황 점검회의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+        },
+        {
+          "date": "2026-03-20",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 256000,
+          "people": 12,
+          "purpose": "카메룬 출장준비 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
         },
         {
-          "date": "2025-03-07",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 190000,
-          "people": 9,
-          "purpose": "통상정책국 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-08-27",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 145000,
-          "people": 3,
-          "purpose": "학계 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-24",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 284000,
-          "people": 4,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-02-16",
+          "date": "2025-03-05",
           "time": "",
           "institution": "산업통상부",
           "role": "",
           "amount": 168000,
-          "people": 4,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "people": 6,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-01-18",
+          "date": "2025-02-12",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 148000,
-          "people": 4,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 84000,
+          "people": 5,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-12-24",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 372000,
+          "people": 8,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-11-06",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 197000,
+          "people": 8,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-08-05",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 281000,
+          "people": 8,
+          "purpose": "통상교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -5100,14 +4327,14 @@
       ]
     },
     {
-      "merchant": "세종장어대가",
+      "merchant": "대선칼국수",
       "address": "",
-      "score": 55.1,
+      "score": 54.8,
       "visits": 6,
       "role_count": 0,
       "institution_count": 1,
       "months": 6,
-      "spend": 2560000,
+      "spend": 1136000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -5120,92 +4347,92 @@
       ],
       "purpose_stats": [
         {
-          "text": "관계기관 업무협의",
+          "text": "비서실 등 직원 격려",
           "count": 1
         },
         {
-          "text": "실무직원 격려",
+          "text": "2차관실 정책 점검회의",
           "count": 1
         },
         {
-          "text": "부내 직원 격려",
+          "text": "2차관실 국회 대응 직원 격려",
           "count": 1
         },
         {
-          "text": "출입기자 간담회",
+          "text": "업무보고 관련 담당 직원들 격려",
           "count": 1
         },
         {
-          "text": "언론사 업무협의",
+          "text": "감사 담당 직원들 격려",
           "count": 1
         },
         {
-          "text": "현안점검 간부회의",
+          "text": "국가핵심기술 관련 회의",
           "count": 1
         }
       ],
-      "date_min": "2024-01-17",
-      "date_max": "2026-06-29",
+      "date_min": "2024-07-02",
+      "date_max": "2026-04-21",
       "recent": [
         {
-          "date": "2026-06-29",
+          "date": "2026-04-21",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 450000,
+          "amount": 220000,
           "people": 10,
-          "purpose": "현안점검 간부회의",
+          "purpose": "국가핵심기술 관련 회의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
         },
         {
-          "date": "2026-04-14",
+          "date": "2026-03-13",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 363000,
+          "amount": 140000,
+          "people": 7,
+          "purpose": "감사 담당 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+        },
+        {
+          "date": "2025-12-12",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 154000,
           "people": 8,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+          "purpose": "업무보고 관련 담당 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
         },
         {
-          "date": "2024-11-04",
+          "date": "2024-12-19",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 489000,
-          "people": 10,
-          "purpose": "출입기자 간담회",
+          "amount": 266000,
+          "people": 14,
+          "purpose": "2차관실 국회 대응 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-07-18",
+          "date": "2024-10-11",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 450000,
-          "people": 12,
-          "purpose": "부내 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-03-11",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 384000,
-          "people": 12,
-          "purpose": "실무직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-01-17",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 424000,
+          "amount": 244000,
           "people": 8,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "purpose": "2차관실 정책 점검회의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-07-02",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 112000,
+          "people": 6,
+          "purpose": "비서실 등 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -5332,14 +4559,14 @@
       ]
     },
     {
-      "merchant": "제주산방식당 대한상공회의소점",
+      "merchant": "한일관",
       "address": "",
-      "score": 54.2,
+      "score": 54.3,
       "visits": 8,
       "role_count": 0,
       "institution_count": 1,
       "months": 5,
-      "spend": 1373000,
+      "spend": 2322000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -5352,100 +4579,112 @@
       ],
       "purpose_stats": [
         {
-          "text": "교섭본부 직원 격려",
-          "count": 4
-        },
-        {
-          "text": "통상교섭본부 직원 격려",
+          "text": "언론사 간담회",
           "count": 3
         },
         {
-          "text": "부내 직원 격려",
+          "text": "운영지원과 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "전문가 간담회",
+          "count": 1
+        },
+        {
+          "text": "언론사 업무협의",
+          "count": 1
+        },
+        {
+          "text": "부내 직원격려",
+          "count": 1
+        },
+        {
+          "text": "법안 소위 관련 도시락 회의",
           "count": 1
         }
       ],
-      "date_min": "2024-02-21",
-      "date_max": "2025-02-10",
+      "date_min": "2024-07-04",
+      "date_max": "2025-11-14",
       "recent": [
         {
-          "date": "2025-02-10",
+          "date": "2025-11-14",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 200000,
+          "amount": 480000,
+          "people": 12,
+          "purpose": "법안 소위 관련 도시락 회의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-10-30",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 264000,
+          "people": 6,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-10-23",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 172000,
+          "people": 4,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-01-22",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 414000,
           "people": 10,
-          "purpose": "교섭본부 직원 격려",
+          "purpose": "부내 직원격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-11-27",
+          "date": "2024-10-17",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 53000,
+          "amount": 166000,
           "people": 4,
-          "purpose": "교섭본부 직원 격려",
+          "purpose": "언론사 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-11-19",
+          "date": "2024-10-16",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 100000,
+          "amount": 260000,
           "people": 8,
-          "purpose": "교섭본부 직원 격려",
+          "purpose": "전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-11-07",
+          "date": "2024-07-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 70000,
+          "amount": 193000,
           "people": 6,
-          "purpose": "교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-09-24",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 200000,
-          "people": 10,
-          "purpose": "통상교섭본부 직원 격려",
+          "purpose": "운영지원과 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         },
         {
-          "date": "2024-09-04",
+          "date": "2024-07-04",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 200000,
-          "people": 10,
-          "purpose": "통상교섭본부 직원 격려",
+          "amount": 373000,
+          "people": 6,
+          "purpose": "언론사 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-07-17",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 250000,
-          "people": 10,
-          "purpose": "통상교섭본부 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-02-21",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 300000,
-          "people": 13,
-          "purpose": "부내 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -5710,14 +4949,14 @@
       ]
     },
     {
-      "merchant": "명동칼국수",
+      "merchant": "송추가마골인어반/동경（주）광화문지점",
       "address": "",
-      "score": 53.1,
+      "score": 53.2,
       "visits": 7,
       "role_count": 0,
       "institution_count": 1,
       "months": 5,
-      "spend": 2032000,
+      "spend": 2960600,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -5730,260 +4969,114 @@
       ],
       "purpose_stats": [
         {
-          "text": "2차관실 정책과장 격려",
+          "text": "교섭본부 직원 격려",
+          "count": 2
+        },
+        {
+          "text": "부내직원 간담회",
           "count": 1
         },
         {
-          "text": "에너지효율과 오찬 간담회",
+          "text": "원전 전문가 간담회",
           "count": 1
         },
         {
-          "text": "2차관실 간부 간담회",
+          "text": "국정감사 준비 직원 격려 오찬",
           "count": 1
         },
         {
-          "text": "가스산업과 직원 격려",
+          "text": "미국 출장직원 격려",
           "count": 1
         },
         {
-          "text": "2차관실 직원 간담회",
-          "count": 1
-        },
-        {
-          "text": "에너지정책과 등 직원 격려",
+          "text": "부내 직원들 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-01-23",
-      "date_max": "2025-03-17",
+      "date_min": "2024-11-26",
+      "date_max": "2026-06-29",
       "recent": [
         {
-          "date": "2025-03-17",
+          "date": "2026-06-29",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 445000,
-          "people": 13,
-          "purpose": "2차관실 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-02-10",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 448000,
-          "people": 18,
-          "purpose": "에너지정책과 등 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-02-04",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 322000,
-          "people": 16,
-          "purpose": "2차관실 직원 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-09",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 220000,
-          "people": 13,
-          "purpose": "가스산업과 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2025-01-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 215500,
-          "people": 12,
-          "purpose": "2차관실 간부 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-12-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 182500,
-          "people": 9,
-          "purpose": "에너지효율과 오찬 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-01-23",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 199000,
-          "people": 7,
-          "purpose": "2차관실 정책과장 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "양지이엠알/기와",
-      "address": "",
-      "score": 52.7,
-      "visits": 3,
-      "role_count": 1,
-      "institution_count": 2,
-      "months": 3,
-      "spend": 521500,
-      "senior_weight": 1.0,
-      "institutions": [
-        "농림축산식품부",
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 2
-        },
-        {
-          "role": "장관",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "언론사 간담회",
-          "count": 1
-        },
-        {
-          "text": "장관실 직원 간담회",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-02-07",
-      "date_max": "2026-07-07",
-      "recent": [
-        {
-          "date": "2026-07-07",
-          "time": "12:22",
-          "institution": "농림축산식품부",
-          "role": "장관",
-          "amount": 88500,
-          "people": 5,
-          "purpose": "장관실 직원 간담회",
-          "source": "https://www.mafra.go.kr/bbs/home/775/599890/download.do"
-        },
-        {
-          "date": "2026-06-16",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 240000,
-          "people": 5,
-          "purpose": "언론사 간담회",
+          "amount": 355000,
+          "people": 8,
+          "purpose": "부내 직원들 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
         },
         {
-          "date": "2024-02-07",
+          "date": "2026-02-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 193000,
-          "people": 5,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "이윽고",
-      "address": "",
-      "score": 51.9,
-      "visits": 3,
-      "role_count": 1,
-      "institution_count": 2,
-      "months": 3,
-      "spend": 993000,
-      "senior_weight": 0.9,
-      "institutions": [
-        "농림축산식품부",
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 2
+          "amount": 489000,
+          "people": 14,
+          "purpose": "미국 출장직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
         },
         {
-          "role": "차관",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "교섭본부 실장급 간담회",
-          "count": 1
-        },
-        {
-          "text": "교섭본부 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "업무보고 작성 방향 등 논의",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-01-22",
-      "date_max": "2026-07-02",
-      "recent": [
-        {
-          "date": "2026-07-02",
-          "time": "12:32",
-          "institution": "농림축산식품부",
-          "role": "차관",
-          "amount": 289000,
+          "date": "2025-10-24",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 495600,
           "people": 10,
-          "purpose": "업무보고 작성 방향 등 논의",
-          "source": "https://www.mafra.go.kr/bbs/home/775/599890/download.do"
+          "purpose": "국정감사 준비 직원 격려 오찬",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
+        },
+        {
+          "date": "2025-01-21",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 470000,
+          "people": 12,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-14",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 490000,
+          "people": 7,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
           "date": "2024-11-27",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 214000,
-          "people": 4,
-          "purpose": "교섭본부 직원 격려",
+          "amount": 274000,
+          "people": 9,
+          "purpose": "원전 전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-01-22",
+          "date": "2024-11-26",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 490000,
-          "people": 5,
-          "purpose": "교섭본부 실장급 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 387000,
+          "people": 8,
+          "purpose": "부내직원 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         }
       ]
     },
     {
-      "merchant": "차이(Chai)797 시청점/(주)삼천리이엔지",
+      "merchant": "영빈루블랙 그랜드센트럴점",
       "address": "",
-      "score": 51.7,
-      "visits": 6,
+      "score": 52.2,
+      "visits": 9,
       "role_count": 0,
       "institution_count": 1,
-      "months": 5,
-      "spend": 2243000,
+      "months": 4,
+      "spend": 3141000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -5991,89 +5084,117 @@
       "role_stats": [
         {
           "role": "직위 미상",
-          "visits": 6
+          "visits": 9
         }
       ],
       "purpose_stats": [
         {
-          "text": "유관기관 업무협의",
-          "count": 3
-        },
-        {
-          "text": "교섭본부 실국장 간담회",
+          "text": "정책 전문가 간담회",
           "count": 1
         },
         {
-          "text": "전문가 업무협의",
+          "text": "산업부 유관기관 업무협의",
           "count": 1
         },
         {
-          "text": "사업관리단 직원들 격려",
+          "text": "에너지 전문가 간담회",
+          "count": 1
+        },
+        {
+          "text": "주요 현안 언론사 업무협의",
+          "count": 1
+        },
+        {
+          "text": "에너지현안 언론사 업무협의",
+          "count": 1
+        },
+        {
+          "text": "관계부처 업무협의",
           "count": 1
         }
       ],
-      "date_min": "2024-01-26",
-      "date_max": "2026-06-12",
+      "date_min": "2024-07-09",
+      "date_max": "2025-03-28",
       "recent": [
         {
-          "date": "2026-06-12",
+          "date": "2025-03-28",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 459000,
-          "people": 10,
-          "purpose": "사업관리단 직원들 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2025-02-25",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 458000,
-          "people": 7,
-          "purpose": "유관기관 업무협의",
+          "amount": 455000,
+          "people": 9,
+          "purpose": "언론사 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2025-02-05",
+          "date": "2025-03-13",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 278000,
+          "amount": 485000,
           "people": 6,
-          "purpose": "전문가 업무협의",
+          "purpose": "언론사 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2025-01-09",
+          "date": "2024-12-18",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 367500,
+          "amount": 193000,
           "people": 5,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+          "purpose": "주요 현안 언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-08-22",
+          "date": "2024-12-06",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 244500,
+          "amount": 380000,
+          "people": 6,
+          "purpose": "관계부처 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-11-21",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 249000,
+          "people": 7,
+          "purpose": "에너지현안 언론사 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-11-06",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 270000,
           "people": 4,
-          "purpose": "유관기관 업무협의",
+          "purpose": "주요 현안 언론사 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-07-15",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 240000,
+          "people": 6,
+          "purpose": "에너지 전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         },
         {
-          "date": "2024-01-26",
+          "date": "2024-07-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 436000,
-          "people": 10,
-          "purpose": "교섭본부 실국장 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 447000,
+          "people": 9,
+          "purpose": "산업부 유관기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -6175,6 +5296,79 @@
           "amount": 298000,
           "people": 5,
           "purpose": "유관부처 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        }
+      ]
+    },
+    {
+      "merchant": "소문/(주)을정",
+      "address": "",
+      "score": 51.2,
+      "visits": 3,
+      "role_count": 1,
+      "institution_count": 2,
+      "months": 3,
+      "spend": 519000,
+      "senior_weight": 0.85,
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "role_stats": [
+        {
+          "role": "직위 미상",
+          "visits": 2
+        },
+        {
+          "role": "남북회담본부장",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "1차관실 간부 오찬",
+          "count": 1
+        },
+        {
+          "text": "간담회 개최",
+          "count": 1
+        },
+        {
+          "text": "관계기관 업무협의",
+          "count": 1
+        }
+      ],
+      "date_min": "2024-07-12",
+      "date_max": "2026-06-16",
+      "recent": [
+        {
+          "date": "2026-06-16",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 141000,
+          "people": 7,
+          "purpose": "관계기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+        },
+        {
+          "date": "2026-02-06",
+          "time": "",
+          "institution": "통일부",
+          "role": "남북회담본부장",
+          "amount": 108000,
+          "people": 4,
+          "purpose": "간담회 개최",
+          "source": "https://www.unikorea.go.kr/web/unikorea/file/download/uu/b6f1c8ecc4154ad7b1c75ce6f629151b"
+        },
+        {
+          "date": "2024-07-12",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 270000,
+          "people": 9,
+          "purpose": "1차관실 간부 오찬",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
@@ -6336,14 +5530,14 @@
       ]
     },
     {
-      "merchant": "시청해우리",
+      "merchant": "해담채시청",
       "address": "",
       "score": 49.9,
       "visits": 5,
       "role_count": 0,
       "institution_count": 1,
       "months": 5,
-      "spend": 1333000,
+      "spend": 1328000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -6355,171 +5549,79 @@
         }
       ],
       "purpose_stats": [
-        {
-          "text": "교섭본부 실국장 간담회",
-          "count": 1
-        },
-        {
-          "text": "산업 통상 언론 간담회",
-          "count": 1
-        },
-        {
-          "text": "관계기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "신임 FTA정책관/교섭관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "차관보실 실국장 업무협의",
-          "count": 1
-        }
-      ],
-      "date_min": "2024-01-12",
-      "date_max": "2025-11-12",
-      "recent": [
-        {
-          "date": "2025-11-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 260000,
-          "people": 5,
-          "purpose": "차관보실 실국장 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/799f62a4cb11299f94d6523509100c7c"
-        },
-        {
-          "date": "2024-10-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 209000,
-          "people": 4,
-          "purpose": "신임 FTA정책관/교섭관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-03-21",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 279000,
-          "people": 5,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-02-15",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 187000,
-          "people": 6,
-          "purpose": "산업 통상 언론 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-01-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 398000,
-          "people": 11,
-          "purpose": "교섭본부 실국장 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        }
-      ]
-    },
-    {
-      "merchant": "아리연",
-      "address": "",
-      "score": 49.9,
-      "visits": 5,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 5,
-      "spend": 1271000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 5
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "관계기관 업무협의",
-          "count": 2
-        },
         {
           "text": "유관기관 업무협의",
           "count": 1
         },
         {
-          "text": "공공기관 업무보고 관련 회의",
+          "text": "학계 업무협의",
           "count": 1
         },
         {
-          "text": "통상 현안 전문가 면담",
+          "text": "통상정책국 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "통상 전문가 간담회",
+          "count": 1
+        },
+        {
+          "text": "유관기관 통상현안 간담회",
           "count": 1
         }
       ],
-      "date_min": "2024-01-30",
-      "date_max": "2026-04-24",
+      "date_min": "2024-07-24",
+      "date_max": "2026-03-19",
       "recent": [
         {
-          "date": "2026-04-24",
+          "date": "2026-03-19",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 138000,
-          "people": 2,
-          "purpose": "통상 현안 전문가 면담",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
-        },
-        {
-          "date": "2026-01-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 210000,
-          "people": 5,
-          "purpose": "공공기관 업무보고 관련 회의",
+          "amount": 410000,
+          "people": 8,
+          "purpose": "유관기관 통상현안 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
         },
         {
-          "date": "2024-11-08",
+          "date": "2026-01-26",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 396000,
-          "people": 12,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+          "amount": 299000,
+          "people": 6,
+          "purpose": "통상 전문가 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
         },
         {
-          "date": "2024-03-05",
+          "date": "2025-03-07",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 244000,
-          "people": 7,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 190000,
+          "people": 9,
+          "purpose": "통상정책국 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-01-30",
+          "date": "2024-08-27",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 283000,
+          "amount": 145000,
+          "people": 3,
+          "purpose": "학계 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        },
+        {
+          "date": "2024-07-24",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 284000,
           "people": 4,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
@@ -6600,14 +5702,14 @@
       ]
     },
     {
-      "merchant": "비프다이닝 온도",
+      "merchant": "제주산방식당 대한상공회의소점",
       "address": "",
-      "score": 49.8,
+      "score": 49.5,
       "visits": 7,
       "role_count": 0,
       "institution_count": 1,
       "months": 4,
-      "spend": 2714000,
+      "spend": 1073000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -6620,114 +5722,98 @@
       ],
       "purpose_stats": [
         {
-          "text": "산정국 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "재생국 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "에디터 및 홍보 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "무역정책과 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "운영지원과 직원 격려",
-          "count": 1
-        },
-        {
           "text": "교섭본부 직원 격려",
-          "count": 1
+          "count": 4
+        },
+        {
+          "text": "통상교섭본부 직원 격려",
+          "count": 3
         }
       ],
-      "date_min": "2024-03-05",
-      "date_max": "2026-03-16",
+      "date_min": "2024-07-17",
+      "date_max": "2025-02-10",
       "recent": [
         {
-          "date": "2026-03-16",
+          "date": "2025-02-10",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 496000,
-          "people": 12,
-          "purpose": "내부 직원 격려 오찬",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1"
+          "amount": 200000,
+          "people": 10,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-10-21",
+          "date": "2024-11-27",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 300000,
+          "amount": 53000,
+          "people": 4,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        },
+        {
+          "date": "2024-11-19",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 100000,
           "people": 8,
           "purpose": "교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-08-22",
+          "date": "2024-11-07",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 480000,
-          "people": 4,
-          "purpose": "운영지원과 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+          "amount": 70000,
+          "people": 6,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         },
         {
-          "date": "2024-08-12",
+          "date": "2024-09-24",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 326000,
-          "people": 8,
-          "purpose": "무역정책과 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-08-01",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 363000,
-          "people": 7,
-          "purpose": "에디터 및 홍보 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-03-11",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 290000,
+          "amount": 200000,
           "people": 10,
-          "purpose": "재생국 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "purpose": "통상교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         },
         {
-          "date": "2024-03-05",
+          "date": "2024-09-04",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 459000,
-          "people": 15,
-          "purpose": "산정국 직원 격려",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
+          "amount": 200000,
+          "people": 10,
+          "purpose": "통상교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
+        },
+        {
+          "date": "2024-07-17",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 250000,
+          "people": 10,
+          "purpose": "통상교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
         }
       ]
     },
     {
-      "merchant": "삼원가든 투뿔등심 광화문점",
+      "merchant": "명동칼국수",
       "address": "",
       "score": 48.3,
       "visits": 6,
       "role_count": 0,
       "institution_count": 1,
       "months": 4,
-      "spend": 1625000,
+      "spend": 1833000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -6740,88 +5826,92 @@
       ],
       "purpose_stats": [
         {
-          "text": "외부 전문가 업무협의",
-          "count": 2
-        },
-        {
-          "text": "관계기관 업무협의",
+          "text": "에너지효율과 오찬 간담회",
           "count": 1
         },
         {
-          "text": "언론사 간담회",
+          "text": "2차관실 간부 간담회",
           "count": 1
         },
         {
-          "text": "언론사 업무협의",
+          "text": "가스산업과 직원 격려",
           "count": 1
         },
         {
-          "text": "대미 업무 관련 직원 업무협의",
+          "text": "2차관실 직원 간담회",
+          "count": 1
+        },
+        {
+          "text": "에너지정책과 등 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "2차관실 직원 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-01-02",
-      "date_max": "2024-12-09",
+      "date_min": "2024-12-12",
+      "date_max": "2025-03-17",
       "recent": [
         {
-          "date": "2024-12-09",
+          "date": "2025-03-17",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 171000,
-          "people": 4,
-          "purpose": "외부 전문가 업무협의",
+          "amount": 445000,
+          "people": 13,
+          "purpose": "2차관실 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-02-10",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 448000,
+          "people": 18,
+          "purpose": "에너지정책과 등 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-02-04",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 322000,
+          "people": 16,
+          "purpose": "2차관실 직원 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-09",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 220000,
+          "people": 13,
+          "purpose": "가스산업과 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2025-01-02",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 215500,
+          "people": 12,
+          "purpose": "2차관실 간부 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-12-12",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 182500,
+          "people": 9,
+          "purpose": "에너지효율과 오찬 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-12-05",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 190000,
-          "people": 3,
-          "purpose": "외부 전문가 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-11-28",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 170000,
-          "people": 3,
-          "purpose": "대미 업무 관련 직원 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-08-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 134000,
-          "people": 4,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-01-03",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 480000,
-          "people": 7,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-01-02",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 480000,
-          "people": 5,
-          "purpose": "관계기관 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -7001,14 +6091,14 @@
       ]
     },
     {
-      "merchant": "만복림",
+      "merchant": "차이(Chai)797 시청점/(주)삼천리이엔지",
       "address": "",
       "score": 46.7,
       "visits": 5,
       "role_count": 0,
       "institution_count": 1,
       "months": 4,
-      "spend": 1797800,
+      "spend": 1807000,
       "senior_weight": 0.5,
       "institutions": [
         "산업통상부"
@@ -7021,78 +6111,70 @@
       ],
       "purpose_stats": [
         {
-          "text": "에너지 주요법안 전문가 간담회",
+          "text": "유관기관 업무협의",
+          "count": 3
+        },
+        {
+          "text": "전문가 업무협의",
           "count": 1
         },
         {
-          "text": "에너지현안 언론사 간담회",
-          "count": 1
-        },
-        {
-          "text": "출입기자단 오찬 간담회",
-          "count": 1
-        },
-        {
-          "text": "에너지 주요 현안 언론 업무협의",
-          "count": 1
-        },
-        {
-          "text": "에너지 현안 언론사 간담회",
+          "text": "사업관리단 직원들 격려",
           "count": 1
         }
       ],
-      "date_min": "2024-03-12",
-      "date_max": "2025-01-08",
+      "date_min": "2024-08-22",
+      "date_max": "2026-06-12",
       "recent": [
         {
-          "date": "2025-01-08",
+          "date": "2026-06-12",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 342800,
-          "people": 8,
-          "purpose": "에너지 현안 언론사 간담회",
+          "amount": 459000,
+          "people": 10,
+          "purpose": "사업관리단 직원들 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+        },
+        {
+          "date": "2025-02-25",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 458000,
+          "people": 7,
+          "purpose": "유관기관 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-12-05",
+          "date": "2025-02-05",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 413000,
-          "people": 9,
-          "purpose": "에너지 주요 현안 언론 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+          "amount": 278000,
+          "people": 6,
+          "purpose": "전문가 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
         },
         {
-          "date": "2024-07-11",
+          "date": "2025-01-09",
           "time": "",
           "institution": "산업통상부",
           "role": "",
-          "amount": 438000,
-          "people": 12,
-          "purpose": "출입기자단 오찬 간담회",
+          "amount": 367500,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
+        },
+        {
+          "date": "2024-08-22",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 244500,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6ce07f066e498b8d919aba1f8e229e9e"
-        },
-        {
-          "date": "2024-03-22",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 483000,
-          "people": 10,
-          "purpose": "에너지현안 언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-03-12",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 121000,
-          "people": 3,
-          "purpose": "에너지 주요법안 전문가 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -7185,90 +6267,6 @@
           "people": 4,
           "purpose": "전문가 간담회",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        }
-      ]
-    },
-    {
-      "merchant": "동심",
-      "address": "",
-      "score": 46.6,
-      "visits": 5,
-      "role_count": 0,
-      "institution_count": 1,
-      "months": 4,
-      "spend": 1480000,
-      "senior_weight": 0.5,
-      "institutions": [
-        "산업통상부"
-      ],
-      "role_stats": [
-        {
-          "role": "직위 미상",
-          "visits": 5
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "언론사 간담회",
-          "count": 3
-        },
-        {
-          "text": "언론사 업무협의",
-          "count": 2
-        }
-      ],
-      "date_min": "2024-01-05",
-      "date_max": "2025-02-26",
-      "recent": [
-        {
-          "date": "2025-02-26",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 178000,
-          "people": 4,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-        },
-        {
-          "date": "2024-10-31",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 488000,
-          "people": 9,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
-        },
-        {
-          "date": "2024-03-27",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 356000,
-          "people": 9,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-01-25",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 117000,
-          "people": 2,
-          "purpose": "언론사 업무협의",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
-        },
-        {
-          "date": "2024-01-05",
-          "time": "",
-          "institution": "산업통상부",
-          "role": "",
-          "amount": 341000,
-          "people": 6,
-          "purpose": "언론사 간담회",
-          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/166b2e582a611c374d069dac06360d88"
         }
       ]
     },
@@ -7531,6 +6529,124 @@
           "role": "",
           "amount": 88000,
           "people": 7,
+          "purpose": "교섭본부 직원 격려",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
+        }
+      ]
+    },
+    {
+      "merchant": "양지이엠알/기와",
+      "address": "",
+      "score": 46.2,
+      "visits": 2,
+      "role_count": 1,
+      "institution_count": 2,
+      "months": 2,
+      "spend": 328500,
+      "senior_weight": 1.0,
+      "institutions": [
+        "농림축산식품부",
+        "산업통상부"
+      ],
+      "role_stats": [
+        {
+          "role": "직위 미상",
+          "visits": 1
+        },
+        {
+          "role": "장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "언론사 간담회",
+          "count": 1
+        },
+        {
+          "text": "장관실 직원 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-16",
+      "date_max": "2026-07-07",
+      "recent": [
+        {
+          "date": "2026-07-07",
+          "time": "12:22",
+          "institution": "농림축산식품부",
+          "role": "장관",
+          "amount": 88500,
+          "people": 5,
+          "purpose": "장관실 직원 간담회",
+          "source": "https://www.mafra.go.kr/bbs/home/775/599890/download.do"
+        },
+        {
+          "date": "2026-06-16",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 240000,
+          "people": 5,
+          "purpose": "언론사 간담회",
+          "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/f0dc308fbcbe8c9b0dca3cb2eba5fb91"
+        }
+      ]
+    },
+    {
+      "merchant": "이윽고",
+      "address": "",
+      "score": 45.4,
+      "visits": 2,
+      "role_count": 1,
+      "institution_count": 2,
+      "months": 2,
+      "spend": 503000,
+      "senior_weight": 0.9,
+      "institutions": [
+        "농림축산식품부",
+        "산업통상부"
+      ],
+      "role_stats": [
+        {
+          "role": "직위 미상",
+          "visits": 1
+        },
+        {
+          "role": "차관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "교섭본부 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "업무보고 작성 방향 등 논의",
+          "count": 1
+        }
+      ],
+      "date_min": "2024-11-27",
+      "date_max": "2026-07-02",
+      "recent": [
+        {
+          "date": "2026-07-02",
+          "time": "12:32",
+          "institution": "농림축산식품부",
+          "role": "차관",
+          "amount": 289000,
+          "people": 10,
+          "purpose": "업무보고 작성 방향 등 논의",
+          "source": "https://www.mafra.go.kr/bbs/home/775/599890/download.do"
+        },
+        {
+          "date": "2024-11-27",
+          "time": "",
+          "institution": "산업통상부",
+          "role": "",
+          "amount": 214000,
+          "people": 4,
           "purpose": "교섭본부 직원 격려",
           "source": "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/d6387987977bff81b843a56d8d61e6c8"
         }
