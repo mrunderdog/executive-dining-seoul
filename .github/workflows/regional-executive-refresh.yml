@@ -84,9 +84,6 @@ jobs:
           echo "Gyeonggi: $(cat /tmp/gyeonggi.status 2>/dev/null || echo UNKNOWN)"
           echo "Incheon: $(cat /tmp/incheon.status 2>/dev/null || echo UNKNOWN)"
 
-      - name: Refresh coordinates
-        run: python pipeline/geocode_cache.py --mode auto
-
       - name: Quality gate
         run: python pipeline/quality_gate.py
 
@@ -106,11 +103,25 @@ jobs:
           if [[ "$I" == "OK" ]]; then
             git add data/raw/incheon_province_expense.json reports/incheon-*.json reports/incheon-*.md 2>/dev/null || true
           fi
-          git add data/geocode_cache.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No successful regional changes to publish."
             exit 0
           fi
           git commit -m "data: refresh regional executive sources"
-          git pull --rebase origin main
+          if ! git pull --rebase origin main; then
+            for F in $(git diff --name-only --diff-filter=U); do
+              case "$F" in
+                data/raw/gyeonggi_province_expense.json|data/raw/incheon_province_expense.json|reports/gyeonggi-*|reports/incheon-*)
+                  git checkout --theirs -- "$F"
+                  git add "$F"
+                  ;;
+                *)
+                  echo "Unexpected rebase conflict: $F"
+                  git rebase --abort
+                  exit 1
+                  ;;
+              esac
+            done
+            GIT_EDITOR=true git rebase --continue
+          fi
           git push origin HEAD:main
