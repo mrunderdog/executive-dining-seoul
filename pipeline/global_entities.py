@@ -55,14 +55,13 @@ def family_name(v) -> str:
 
 
 def locality_key(r: dict) -> str:
-    """Conservative city/county/district hint for no-address entity matching.
+    """Conservative city/county/district hint for entity matching.
 
-    Exact street addresses remain the primary key. This fallback is only used
-    when the source itself gives a locality (for example "인천 연수구 소재")
-    or the origin is a concrete 시/군/구. Broad origins such as 중앙정부,
-    서울시청, 경기도청 are deliberately excluded.
+    Prefer an explicit source locality hint, then a street address, then a
+    concrete local-government origin. Broad origins such as 중앙정부 or
+    광역단체청 are deliberately excluded.
     """
-    raw = t(r.get("location_hint"))
+    raw = t(r.get("location_hint")) or t(r.get("address"))
     if not raw:
         origin = t(r.get("origin"))
         if re.search(r"(?:시|군|구)$", origin) and origin not in {
@@ -71,10 +70,12 @@ def locality_key(r: dict) -> str:
             raw = origin
     if not raw:
         return ""
-    m = re.search(r"([가-힣0-9]+(?:시|군|구))\b", raw)
-    if not m:
+    matches = re.findall(r"([가-힣0-9]+(?:시|군|구))\b", raw)
+    if not matches:
         return ""
-    return compact(m.group(1))
+    # In a full address the most specific locality is normally the last
+    # 시/군/구 token (e.g. 인천광역시 연수구 -> 연수구).
+    return compact(matches[-1])
 
 
 def entity_key(r: dict) -> str:
@@ -168,9 +169,37 @@ def _best_signal(rows: list[dict], field: str):
 
 def merge_global_entities(payload: dict) -> dict:
     records = list(payload.get("records") or [])
+
+    # First index records that have a real street address. A locality-only
+    # disclosure may attach to one of these only when the normalized merchant
+    # family + locality resolves to exactly one strong entity. This avoids
+    # unsafe name-only merges for chains with multiple branches.
+    strong_index = defaultdict(set)
+    strict_keys = {}
+    for idx, r in enumerate(records):
+        name = family_name(r.get("name"))
+        address = canonical_address(r.get("address"))
+        if not name or not address:
+            continue
+        key = f"{name}||{address}"
+        strict_keys[idx] = key
+        loc = locality_key(r)
+        if loc:
+            strong_index[(name, loc)].add(key)
+
     groups = defaultdict(list)
-    for r in records:
-        groups[entity_key(r)].append(r)
+    for idx, r in enumerate(records):
+        if idx in strict_keys:
+            key = strict_keys[idx]
+        else:
+            name = family_name(r.get("name"))
+            loc = locality_key(r)
+            candidates = strong_index.get((name, loc), set()) if name and loc else set()
+            if len(candidates) == 1:
+                key = next(iter(candidates))
+            else:
+                key = entity_key(r)
+        groups[key].append(r)
 
     merged = []
     merged_groups = 0
