@@ -80,7 +80,7 @@ def fetch(url: str) -> str:
         "Accept-Language":"ko-KR,ko;q=0.9,en;q=0.6",
     })
     last=None
-    for timeout in (20,35,50):
+    for timeout in (12,20):
         try:
             with urllib.request.urlopen(req,timeout=timeout) as r:
                 return decode(r.read(),r.headers.get_content_charset())
