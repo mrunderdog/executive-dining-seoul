@@ -42,7 +42,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install spreadsheet parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
 
       - name: Resolve target year
         id: target
