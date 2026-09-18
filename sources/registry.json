@@ -358,9 +358,10 @@
       "institution": "평택시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.ptcouncil.go.kr/coun/cost/reportList.do",
+      "adapter": "discovery_required_official_surface",
+      "note": "Official council navigation exposes an 업무추진비 공개 menu at this endpoint; external fetch currently does not expose enough listing/attachment structure to enable automated ingestion safely."
     },
     {
       "region": "경기",
