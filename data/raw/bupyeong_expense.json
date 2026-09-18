@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "bupyeong",
-  "generated_at": "2026-09-18T03:52:02",
+  "generated_at": "2026-09-18T23:20:45",
   "row_count": 2753,
   "rows": [
     {
@@ -132763,10 +132763,13 @@
   "errors": [],
   "raw_quality": {
     "rows": 2753,
+    "transaction_rows": 2746,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 1,
     "valid_date_coverage": 0.9993,
-    "in_period_date_coverage": 0.6556,
+    "in_period_date_coverage": 0.6573,
+    "all_row_valid_date_coverage": 0.9993,
+    "all_row_in_period_date_coverage": 0.6556,
     "invalid_examples": [
       {
         "used_date": "",

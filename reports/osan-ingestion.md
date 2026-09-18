@@ -1,0 +1,234 @@
+# osan expense ingestion
+
+- Normalized rows: **1175**
+- Source posts: **21**
+- Downloaded files: **42**
+- Errors: **0**
+
+## Rows by year
+
+- 2020: 2
+- 2024: 68
+- 2025: 708
+- 2026: 395
+
+## Top roles / sheets
+
+- 급식비: 1023
+- 기타: 150
+- 없: 2
+
+## Files
+
+- `업무추진비_공개(2026년_8월분).pdf 파일 내려받기 업무추진비_공개(2026년_8월분).pdf` — 110,485 bytes — 48 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `d2b77744f4a55ceb305a4cb9c8748781.pdf` — 110,485 bytes — 48 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2026년_7월분).pdf 파일 내려받기 업무추진비_공개(2026년_7월분).pdf` — 114,566 bytes — 51 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `c086311a5dfa0b82e6baecaeea997dae.pdf` — 114,566 bytes — 51 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비(2026년_6월분.pdf 파일 내려받기 업무추진비(2026년_6월분.pdf` — 101,193 bytes — 40 rows
+  - pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `c5cc2b617e9fedec33b4bb6622a747a9.pdf` — 101,193 bytes — 40 rows
+  - pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비(2026년_5월분).pdf 파일 내려받기 업무추진비(2026년_5월분).pdf` — 144,171 bytes — 36 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 10 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `8cd254977c3088ad28ac716a8d5e5b54.pdf` — 144,171 bytes — 36 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 10 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2026년_4월분).pdf 파일 내려받기 업무추진비_공개(2026년_4월분).pdf` — 170,048 bytes — 54 rows
+  - pdf-page-1: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `c604ef41f92dd268995c56c261eb9427.pdf` — 170,048 bytes — 54 rows
+  - pdf-page-1: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년도_업무추진비_사용_내역(3월).pdf 파일 내려받기 2026년도_업무추진비_사용_내역(3월).pdf` — 174,258 bytes — 66 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 27 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 23 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `ffe4881bd88eca8dc881521e0049b997.pdf` — 174,258 bytes — 66 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 27 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 23 / mapping {'date': 1, 'role': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비(2월).pdf 파일 내려받기 업무추진비(2월).pdf` — 162,955 bytes — 55 rows
+  - pdf-page-1: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 24 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 13 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `ca4ad07b2c62be06f40bff718cb16a60.pdf` — 162,955 bytes — 55 rows
+  - pdf-page-1: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 24 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 13 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비(2026년_1월).pdf 파일 내려받기 업무추진비(2026년_1월).pdf` — 158,416 bytes — 73 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `2b63ff19788aea9501ed770bc234f8d4.pdf` — 158,416 bytes — 73 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2025년_12월분.pdf 파일 내려받기 업무추진비_공개(2025년_12월분.pdf` — 175,657 bytes — 82 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `b623a1a9244384d3da81d0a3ed55019f.pdf` — 175,657 bytes — 82 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2025년_11월분).pdf 파일 내려받기 업무추진비_공개(2025년_11월분).pdf` — 145,135 bytes — 58 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `140ba36ad22f45997038b34cf4b768c3.pdf` — 145,135 bytes — 58 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2025년_10월분)_공개.pdf 파일 내려받기 업무추진비_공개(2025년_10월분)_공개.pdf` — 144,456 bytes — 58 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 25 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `27a9383468538eefc54308bcc5ad544d.pdf` — 144,456 bytes — 58 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 25 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2025년_9월분)_공개.pdf 파일 내려받기 업무추진비_공개(2025년_9월분)_공개.pdf` — 143,145 bytes — 56 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 11 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `f3fc18f9bf14f5b394f6ec6eb95675f5.pdf` — 143,145 bytes — 56 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-2: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-3: OK / parsed 11 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - pdf-page-4: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비_공개(2025년_8월분)_공개.pdf 파일 내려받기 업무추진비_공개(2025년_8월분)_공개.pdf` — 123,435 bytes — 43 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 21 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 12 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 9 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `d805a4fb1907497cdfd889c9b39cb70e.pdf` — 123,435 bytes — 43 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 21 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 12 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 9 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_7월분)_공개.pdf 파일 내려받기 업무추진비_공개(2025년_7월분)_공개.pdf` — 126,971 bytes — 46 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 19 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 17 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 8 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `0158a3e024c128e3cfae6cc5ccceae32.pdf` — 126,971 bytes — 46 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 19 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 17 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 8 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_6월분)_공개.pdf 파일 내려받기 업무추진비_공개(2025년_6월분)_공개.pdf` — 137,188 bytes — 60 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `2b273f857781d4963262b0c29f253365.pdf` — 137,188 bytes — 60 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 26 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_5월분)_공개(최종).pdf 파일 내려받기 업무추진비_공개(2025년_5월분)_공개(최종).pdf` — 116,766 bytes — 39 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 9 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 14 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `39d5666ba5a13e115c502b87ea18f33d.pdf` — 116,766 bytes — 39 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 9 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 14 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_4월분)_공개(최종).pdf 파일 내려받기 업무추진비_공개(2025년_4월분)_공개(최종).pdf` — 153,355 bytes — 69 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 32 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `c25874f702c31be13fb5730c2a042679.pdf` — 153,355 bytes — 69 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 32 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_3월분)_서식변경(수정)-최종.pdf 파일 내려받기 업무추진비_공개(2025년_3월분)_서식변경(수정)-최종.pdf` — 137,274 bytes — 53 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 13 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 23 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `2592d7a2dfe8796289661cf168dffcca.pdf` — 137,274 bytes — 53 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 15 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 13 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 23 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_2월분)_서식변경(최종)-공개.pdf 파일 내려받기 업무추진비_공개(2025년_2월분)_서식변경(최종)-공개.pdf` — 224,385 bytes — 61 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 30 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 10 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `ba63e6b4038382704a20d8a13bd3b2e2.pdf` — 224,385 bytes — 61 rows
+  - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 30 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 10 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2025년_1월분)_서식변경(최종)-공개.pdf 파일 내려받기 업무추진비_공개(2025년_1월분)_서식변경(최종)-공개.pdf` — 145,456 bytes — 63 rows
+  - pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 33 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: OK / parsed 7 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-5: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `ca6803106da9f88c238319a9421c7dba.pdf` — 145,456 bytes — 63 rows
+  - pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 33 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: OK / parsed 7 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-5: OK / parsed 20 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `업무추진비_공개(2024년_12월분)_서식변경(최종)-공개.pdf 파일 내려받기 업무추진비_공개(2024년_12월분)_서식변경(최종)-공개.pdf` — 141,760 bytes — 66 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 25 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 29 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 10 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `5444384cb158166e3044d1773659a8df.pdf` — 141,760 bytes — 66 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-2: OK / parsed 25 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-3: OK / parsed 29 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-4: OK / parsed 10 / mapping {'date': 1, 'role': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7}

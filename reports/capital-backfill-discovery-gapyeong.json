@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T17:07:01",
+  "generated_at": "2026-09-18T23:18:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -8,8 +8,103 @@
   "posts": [
     {
       "source": "gapyeong",
-      "listing_url": "https://www.gpassem.go.kr/kr/operations2BBS.do?flag=all&page=1",
-      "error": "listing URLError: <urlopen error timed out>"
+      "region": "경기",
+      "jurisdiction": "가평군",
+      "institution": "가평군의회",
+      "title": "2026년도 2분기 업무추진비 사용내역 상세보기 2026년도 2분기 업무추진비 사용내역",
+      "period": [
+        2026,
+        null,
+        2
+      ],
+      "post_url": "https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=D62A1C9FEF421AC0A2CBF93AB69FDAED&schwrd=&flag=all&page=1&list_style=",
+      "attachments": [
+        {
+          "text": "업무추진비사용내역(2026-2분기).pdf 업무추진비사용내역(2026-2분기).pdf",
+          "url": "https://www.gpassem.go.kr/viewer/pdf.do?group=bbs&uid=11911",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "gapyeong",
+      "region": "경기",
+      "jurisdiction": "가평군",
+      "institution": "가평군의회",
+      "title": "2026년도 1분기 업무추진비 사용내역 상세보기 2026년도 1분기 업무추진비 사용내역",
+      "period": [
+        2026,
+        null,
+        1
+      ],
+      "post_url": "https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=ADBF4AA44BD0D28238DE73FB2A2168FC&schwrd=&flag=all&page=1&list_style=",
+      "attachments": [
+        {
+          "text": "업무추진비사용내역(2026-1분기).pdf 업무추진비사용내역(2026-1분기).pdf",
+          "url": "https://www.gpassem.go.kr/viewer/pdf.do?group=bbs&uid=11499",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "gapyeong",
+      "region": "경기",
+      "jurisdiction": "가평군",
+      "institution": "가평군의회",
+      "title": "2025년도 4분기 업무추진비 사용내역 상세보기 2025년도 4분기 업무추진비 사용내역",
+      "period": [
+        2025,
+        null,
+        4
+      ],
+      "post_url": "https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=4C24BFD8112FF173396BB10F884A4931&schwrd=&flag=all&page=1&list_style=",
+      "attachments": [
+        {
+          "text": "업무추진비사용내역(2025-4분기).pdf 업무추진비사용내역(2025-4분기).pdf",
+          "url": "https://www.gpassem.go.kr/viewer/pdf.do?group=bbs&uid=11140",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "gapyeong",
+      "region": "경기",
+      "jurisdiction": "가평군",
+      "institution": "가평군의회",
+      "title": "2025년도 1분기 업무추진비 사용내역 상세보기 2025년도 1분기 업무추진비 사용내역",
+      "period": [
+        2025,
+        null,
+        1
+      ],
+      "post_url": "https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=3DB7B6DF91024C032CF6DB0758EFE0F9&schwrd=&flag=all&page=1&list_style=",
+      "attachments": [
+        {
+          "text": "업무추진비사용내역(2025-1분기).pdf 업무추진비사용내역(2025-1분기).pdf",
+          "url": "https://www.gpassem.go.kr/viewer/pdf.do?group=bbs&uid=10918",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "gapyeong",
+      "region": "경기",
+      "jurisdiction": "가평군",
+      "institution": "가평군의회",
+      "title": "2024년도 4분기 업무추진비 사용내역 상세보기 2024년도 4분기 업무추진비 사용내역",
+      "period": [
+        2024,
+        null,
+        4
+      ],
+      "post_url": "https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=4F6130EFA9271881F247B27B3D74B44F&schwrd=&flag=all&page=1&list_style=",
+      "attachments": [
+        {
+          "text": "업무추진비사용내역(2024-4분기).pdf 업무추진비사용내역(2024-4분기).pdf",
+          "url": "https://www.gpassem.go.kr/viewer/pdf.do?group=bbs&uid=10917",
+          "onclick": ""
+        }
+      ]
     }
   ]
 }

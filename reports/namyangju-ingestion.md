@@ -1,0 +1,175 @@
+# namyangju expense ingestion
+
+- Normalized rows: **2284**
+- Source posts: **7**
+- Downloaded files: **12**
+- Errors: **2**
+
+## Rows by year
+
+- 2024: 359
+- 2025: 1198
+- 2026: 727
+
+## Top roles / sheets
+
+- 의장: 288
+- 복지환경위원장: 217
+- 자치행정위원장: 200
+- 의사담당: 199
+- 도시교통위원장: 194
+- 의회사무국장: 188
+- 부의장: 181
+- 운영위원장: 140
+- 교섭단체원내대표: 96
+- 예산결산특별위원장: 73
+- 운영전문위원: 71
+- 자치행정전문위원: 65
+- 회계담당: 65
+- 복지환경전문위원: 63
+- 도시교통전문위원: 62
+- 행정7급: 60
+- 공무직근로자: 45
+- 행정8급: 36
+- 협의회담당: 13
+- 행사담당: 7
+
+## Files
+
+- `Array 첨부파일을 다운받습니다. xlsx 2026년 2분기 업무추진비 집행내역(남양주시의회).xlsx` — 74,285 bytes — 335 rows
+  - 의장: OK / parsed 41 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 부의장: OK / parsed 33 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 운영위원장: OK / parsed 19 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 자치행정위원장: OK / parsed 18 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 복지환경위원장: OK / parsed 33 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 도시교통위원장: OK / parsed 24 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 예산결산특별위원장: OK / parsed 17 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 공통경비: OK / parsed 60 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 시책: OK / parsed 89 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 기관: OK / parsed 1 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+- `Array 첨부파일을 다운받습니다. xlsx 2026년 2분기 업무추진비 집행내역(남양주시의회).xlsx` — 74,285 bytes — 335 rows
+  - 의장: OK / parsed 41 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 부의장: OK / parsed 33 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 운영위원장: OK / parsed 19 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 자치행정위원장: OK / parsed 18 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 복지환경위원장: OK / parsed 33 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 도시교통위원장: OK / parsed 24 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 예산결산특별위원장: OK / parsed 17 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 공통경비: OK / parsed 60 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 시책: OK / parsed 89 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 기관: OK / parsed 1 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+- `Array 첨부파일을 다운받습니다. xlsx 2026년 1분기 업무추진비 집행내역(남양주시의회).xlsx` — 78,935 bytes — 392 rows
+  - 의장: OK / parsed 63 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 부의장: OK / parsed 28 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 운영위원장: OK / parsed 32 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 자치행정위원장: OK / parsed 39 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 복지환경위원장: OK / parsed 48 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 41 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 14 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 공통경비: OK / parsed 58 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 시책: OK / parsed 60 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 기관: OK / parsed 9 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `Array 첨부파일을 다운받습니다. xlsx 2026년 1분기 업무추진비 집행내역(남양주시의회).xlsx` — 78,935 bytes — 392 rows
+  - 의장: OK / parsed 63 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 부의장: OK / parsed 28 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 운영위원장: OK / parsed 32 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 자치행정위원장: OK / parsed 39 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 복지환경위원장: OK / parsed 48 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 41 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 14 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 공통경비: OK / parsed 58 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9}
+  - 시책: OK / parsed 60 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+  - 기관: OK / parsed 9 / mapping {'role': 1, 'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 4분기).xlsx` — 64,472 bytes — 415 rows
+  - 의장: OK / parsed 51 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 32 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 33 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 9 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 117 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 81 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 기관운영업무추진비: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 4분기).xlsx` — 64,472 bytes — 415 rows
+  - 의장: OK / parsed 51 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 32 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 33 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 9 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 117 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 81 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 기관운영업무추진비: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 2분기).xlsx` — 55,144 bytes — 344 rows
+  - 의장: OK / parsed 41 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 29 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 31 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 39 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 94 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 58 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+  - 기관운영업무추진비: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 2분기).xlsx` — 55,144 bytes — 344 rows
+  - 의장: OK / parsed 41 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 29 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 31 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 39 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 94 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 58 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+  - 기관운영업무추진비: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 1분기).xlsx` — 58,603 bytes — 442 rows
+  - 의장: OK / parsed 54 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 30 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 41 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 43 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 30 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 101 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 84 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+  - 기관운영업무추진비: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2025년 1분기).xlsx` — 58,603 bytes — 442 rows
+  - 의장: OK / parsed 54 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 부의장: OK / parsed 30 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 운영위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 자치행정위원장: OK / parsed 41 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 복지환경위원장: OK / parsed 43 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 도시교통위원장: OK / parsed 30 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 예산결산특별위원장: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 의정운영공통경비: OK / parsed 101 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 6}
+  - 시책추진업무추진비: OK / parsed 84 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+  - 기관운영업무추진비: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 4, 'people': 7}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2024년 4분기).xlsx` — 54,861 bytes — 356 rows
+  - 의장: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 부의장: OK / parsed 32 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 운영위원장: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 자치행정위원장: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 복지환경위원장: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 도시교통위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 예산결산특별위원장: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 의정운영공통경비: OK / parsed 100 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 시책추진업무추진비: OK / parsed 43 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 8}
+  - 기관운영업무추진비: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 8}
+- `Array 첨부파일을 다운받습니다. xlsx 업무추진비 공개(2024년 4분기).xlsx` — 54,861 bytes — 356 rows
+  - 의장: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 부의장: OK / parsed 32 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 운영위원장: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 자치행정위원장: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 복지환경위원장: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 도시교통위원장: OK / parsed 27 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 예산결산특별위원장: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 의정운영공통경비: OK / parsed 100 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 7}
+  - 시책추진업무추진비: OK / parsed 43 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 8}
+  - 기관운영업무추진비: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'role': 3, 'amount': 5, 'people': 8}
+
+## Errors
+
+- TypeError: <class 'openpyxl.styles.named_styles._NamedCellStyle'>.name should be <class 'str'> but value is <class 'NoneType'> — https://nyjc.go.kr/gtb_download.php?gtid=chujin&fid=77166
+- TypeError: <class 'openpyxl.styles.named_styles._NamedCellStyle'>.name should be <class 'str'> but value is <class 'NoneType'> — https://nyjc.go.kr/gtb_download.php?gtid=chujin&fid=77166
