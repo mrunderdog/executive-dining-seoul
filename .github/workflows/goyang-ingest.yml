@@ -32,13 +32,13 @@ jobs:
           python-version: '3.12'
 
       - name: Install spreadsheet parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
 
       - name: Refresh supported councils in parallel
         shell: bash
         run: |
           set +e
-          SOURCES="goyang suwon hwaseong michuhol bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council"
+          SOURCES="goyang suwon hwaseong michuhol bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
           refresh_one() {
             SOURCE="$1"
             LOG="/tmp/council-$SOURCE.log"
