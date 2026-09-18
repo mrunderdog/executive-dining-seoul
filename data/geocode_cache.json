@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 42,
+    "failed_count": 65,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 665,
+    "record_count": 688,
     "success_count": 623,
-    "updated_at": "2026-09-18T00:09:18+00:00"
+    "updated_at": "2026-09-18T04:33:30+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -403,6 +403,17 @@
         "arcgis:강구미주구리 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:12+00:00"
+    },
+    "강릉장칼국수|수원시": {
+      "failed": true,
+      "fingerprint": "5c72a6a32145cee9",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:강릉장칼국수 수원특례시",
+        "nominatim:강릉장칼국수 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:16+00:00"
     },
     "강변식당|관악구": {
       "addr_type": "PointAddress",
@@ -830,6 +841,17 @@
       ],
       "updated_at": "2026-09-17T23:04:28+00:00"
     },
+    "고향우렁이마을|수원시": {
+      "failed": true,
+      "fingerprint": "47c5b8f180987ad3",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:고향우렁이마을 수원특례시",
+        "nominatim:고향우렁이마을 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:53+00:00"
+    },
     "고향정|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
@@ -1082,6 +1104,17 @@
       ],
       "updated_at": "2026-09-18T00:07:47+00:00"
     },
+    "구운정|수원시": {
+      "failed": true,
+      "fingerprint": "2e8506c617daea6e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:구운정 수원특례시",
+        "nominatim:구운정 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:58+00:00"
+    },
     "구이구이|국회의원(정치자금 2024)": {
       "addr_type": "Subaddress",
       "display_name": "서울 영등포구 여의도동 의사당대로 38 101동",
@@ -1099,6 +1132,17 @@
         "arcgis:서울 영등포구 의사당대로 38 101"
       ],
       "updated_at": "2026-09-18T00:08:06+00:00"
+    },
+    "국군복지단|수원시": {
+      "failed": true,
+      "fingerprint": "f0f87a26e0db8ca1",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:국군복지단 수원특례시",
+        "nominatim:국군복지단 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:27+00:00"
     },
     "국회의사당파리바게뜨|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -1207,6 +1251,17 @@
         "arcgis:서울 용산구 한강대로40길 31 (한강로2가, 용수정) 1층"
       ],
       "updated_at": "2026-09-18T00:09:13+00:00"
+    },
+    "글림|수원시": {
+      "failed": true,
+      "fingerprint": "c07947243711b424",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:글림 수원특례시",
+        "nominatim:글림 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:57+00:00"
     },
     "금각도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -1525,6 +1580,17 @@
         "arcgis:남도마루 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:10+00:00"
+    },
+    "남수통닭|수원시": {
+      "failed": true,
+      "fingerprint": "4561d904497a2dcf",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:남수통닭 수원특례시",
+        "nominatim:남수통닭 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:25+00:00"
     },
     "남촌회관|서울시청": {
       "addr_type": "PointAddress",
@@ -2157,6 +2223,17 @@
       ],
       "updated_at": "2026-09-17T23:02:47+00:00"
     },
+    "대풍숯불갈비|수원시": {
+      "failed": true,
+      "fingerprint": "35d99124e82dec71",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:대풍숯불갈비 수원특례시",
+        "nominatim:대풍숯불갈비 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:30+00:00"
+    },
     "더라운드 삼성점|성북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강남구 삼성동 영동대로 648",
@@ -2454,6 +2531,17 @@
       ],
       "updated_at": "2026-09-17T23:04:27+00:00"
     },
+    "돌고래수산|수원시": {
+      "failed": true,
+      "fingerprint": "3011684ccb4f201f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:돌고래수산 수원특례시",
+        "nominatim:돌고래수산 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:24+00:00"
+    },
     "동경|중앙정부": {
       "addr_type": "POI",
       "display_name": "동경",
@@ -2741,6 +2829,17 @@
         "arcgis:서울 영등포구 선유로47길 16 (양평동4가, 오오1004빌딩)"
       ],
       "updated_at": "2026-09-18T00:07:56+00:00"
+    },
+    "뚱딴지감자탕 해장국|수원시": {
+      "failed": true,
+      "fingerprint": "5eefa262df136eea",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:뚱딴지감자탕 해장국 수원특례시",
+        "nominatim:뚱딴지감자탕 해장국 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:10+00:00"
     },
     "라티에|중앙정부": {
       "addr_type": "POI",
@@ -5405,6 +5504,28 @@
       ],
       "updated_at": "2026-09-17T23:05:24+00:00"
     },
+    "소미담 수원시청점|수원시": {
+      "failed": true,
+      "fingerprint": "442581ef7e133038",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:소미담 수원시청점 수원특례시",
+        "nominatim:소미담 수원시청점 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:55+00:00"
+    },
+    "소반낙지마당|수원시": {
+      "failed": true,
+      "fingerprint": "90f43d6bb4086e47",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:소반낙지마당 수원특례시",
+        "nominatim:소반낙지마당 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:22+00:00"
+    },
     "소선재 푸드랩|중앙정부": {
       "addr_type": "POI",
       "display_name": "소선재 푸드랩",
@@ -5440,6 +5561,17 @@
         "arcgis:서울 영등포구 도림로 462"
       ],
       "updated_at": "2026-09-17T23:03:33+00:00"
+    },
+    "소소한우|수원시": {
+      "failed": true,
+      "fingerprint": "5ffc80ef2072c596",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:소소한우 수원특례시",
+        "nominatim:소소한우 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:04+00:00"
     },
     "소쿠리밥상세종청사점|중앙정부": {
       "addr_type": "POI",
@@ -5919,6 +6051,17 @@
         "arcgis:서울 도봉구 도당로 145-0@ 1층 (방학동)"
       ],
       "updated_at": "2026-09-17T23:03:14+00:00"
+    },
+    "시골생고기 무한리필|수원시": {
+      "failed": true,
+      "fingerprint": "13941d5d71fefdd6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:시골생고기 무한리필 수원특례시",
+        "nominatim:시골생고기 무한리필 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:06+00:00"
     },
     "시드니램１９０１|금천구": {
       "addr_type": "PointAddress",
@@ -6698,6 +6841,17 @@
       ],
       "updated_at": "2026-09-17T23:03:48+00:00"
     },
+    "에스와이바자르|수원시": {
+      "failed": true,
+      "fingerprint": "9dcaddd8645de52e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:에스와이바자르 수원특례시",
+        "nominatim:에스와이바자르 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:28+00:00"
+    },
     "엔엠에프서여의도점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로72길 22",
@@ -7373,6 +7527,28 @@
         "arcgis:서울 동대문구 왕산로16길 9"
       ],
       "updated_at": "2026-09-17T23:01:35+00:00"
+    },
+    "우계골 본점|수원시": {
+      "failed": true,
+      "fingerprint": "8608151807170d64",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:우계골 본점 수원특례시",
+        "nominatim:우계골 본점 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:09+00:00"
+    },
+    "우계골|수원시": {
+      "failed": true,
+      "fingerprint": "62d847f8e23e16dc",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:우계골 수원특례시",
+        "nominatim:우계골 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:12+00:00"
     },
     "우담가해담가|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -8085,6 +8261,17 @@
         "arcgis:서울 영등포구 국회대로68길 17(여의도동,해운빌딩)"
       ],
       "updated_at": "2026-09-18T00:07:58+00:00"
+    },
+    "이화정|수원시": {
+      "failed": true,
+      "fingerprint": "deb1c257756a0e1e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:이화정 수원특례시",
+        "nominatim:이화정 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:50+00:00"
     },
     "인생감자탕 금천점|금천구": {
       "addr_type": "PointAddress",
@@ -9703,6 +9890,17 @@
       ],
       "updated_at": "2026-09-17T23:02:16+00:00"
     },
+    "카야마구로|수원시": {
+      "failed": true,
+      "fingerprint": "a2ff6d5ef66d82c0",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:카야마구로 수원특례시",
+        "nominatim:카야마구로 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:00+00:00"
+    },
     "컨퍼런스하우스달개비 정동점|중앙정부": {
       "failed": true,
       "fingerprint": "9d42ac8b192b0840",
@@ -9949,6 +10147,17 @@
       ],
       "updated_at": "2026-09-17T23:01:06+00:00"
     },
+    "태백산|수원시": {
+      "failed": true,
+      "fingerprint": "3d457df41d00ab83",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:태백산 수원특례시",
+        "nominatim:태백산 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:18+00:00"
+    },
     "태산|중앙정부": {
       "addr_type": "Locality",
       "display_name": "경기 태산",
@@ -10110,6 +10319,17 @@
         "arcgis:통영굴밥 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:20+00:00"
+    },
+    "투썸플레이스 수원터미널점|수원시": {
+      "failed": true,
+      "fingerprint": "60c315be7619b44f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:투썸플레이스 수원터미널점 수원특례시",
+        "nominatim:투썸플레이스 수원터미널점 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:14+00:00"
     },
     "투썸플레이스국회의사당역점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -10283,6 +10503,17 @@
         "arcgis:서울 영등포구 은행로 37 (여의도동, 기계산업진흥회) 지하1층"
       ],
       "updated_at": "2026-09-18T00:07:05+00:00"
+    },
+    "페블|수원시": {
+      "failed": true,
+      "fingerprint": "27144ac491a899d3",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:페블 수원특례시",
+        "nominatim:페블 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:19+00:00"
     },
     "포도나무|서울시청": {
       "addr_type": "PointAddress",
@@ -10541,6 +10772,17 @@
         "arcgis:서울 중구 남대문로 7"
       ],
       "updated_at": "2026-09-17T23:03:57+00:00"
+    },
+    "하남미소 명품한우|수원시": {
+      "failed": true,
+      "fingerprint": "bb9320e89299758e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:하남미소 명품한우 수원특례시",
+        "nominatim:하남미소 명품한우 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:33:02+00:00"
     },
     "하동관|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11080,6 +11322,17 @@
         "arcgis:서울 영등포구 국회대로76길 10(여의도동,기독교한국침례회총회빌딩)"
       ],
       "updated_at": "2026-09-18T00:07:42+00:00"
+    },
+    "해화참치|수원시": {
+      "failed": true,
+      "fingerprint": "34cc5b4d5c4e8770",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:해화참치 수원특례시",
+        "nominatim:해화참치 수원특례시"
+      ],
+      "updated_at": "2026-09-18T04:32:49+00:00"
     },
     "향연|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
