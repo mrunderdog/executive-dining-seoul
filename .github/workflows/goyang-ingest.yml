@@ -39,7 +39,7 @@ jobs:
         run: |
           set +e
           : > /tmp/council-status.tsv
-          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
+          for SOURCE in goyang suwon hwaseong bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
             echo "=== discover $SOURCE ==="
             python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
             DISC=$?
