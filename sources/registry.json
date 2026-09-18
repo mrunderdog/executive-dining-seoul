@@ -313,9 +313,10 @@
       "institution": "성남시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.sncouncil.go.kr/kr/news/bbsCost.do",
+      "adapter": "listing_quarter_regex",
+      "note": "Official quarterly council operating-expense disclosure; PDF attachments."
     },
     {
       "region": "경기",
@@ -323,9 +324,10 @@
       "institution": "부천시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.bucheon.go.kr/kr/intro/bbsInfo.do?pageNum=1",
+      "adapter": "listing_month_regex",
+      "note": "Official monthly council operating-expense disclosure; XLSX attachments."
     },
     {
       "region": "경기",
