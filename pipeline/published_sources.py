@@ -123,6 +123,25 @@ SOURCE_SPECS = {
     },
 }
 
+REGIONAL_EXEC_SPECS = {
+    "gyeonggi_province": {
+        "report": "gyeonggi-province-candidates.json",
+        "origin": "경기도청",
+        "region": "경기",
+        "jurisdiction": "경기도",
+        "institution": "경기도청",
+        "label": "경기도청",
+    },
+    "incheon_province": {
+        "report": "incheon-province-candidates.json",
+        "origin": "인천시청",
+        "region": "인천",
+        "jurisdiction": "인천광역시",
+        "institution": "인천광역시청",
+        "label": "인천광역시청",
+    },
+}
+
 ENTITY_ALIASES = {
     "일산하인선생": "하인선생 일산점",
     "하인선생": "하인선생 일산점",
@@ -331,6 +350,76 @@ def _build_seoul_city_records(max_records: int = 100) -> list[dict]:
     return out
 
 
+def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60) -> list[dict]:
+    path = REPORTS / spec["report"]
+    if not path.exists():
+        return []
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    candidates = doc.get("candidates") or []
+    publishable = [
+        x for x in candidates
+        if _txt(x.get("address"))
+        and int(x.get("visits") or 0) >= 3
+        and int(x.get("months") or 0) >= 2
+        and float(x.get("score") or 0) >= 50
+    ]
+    publishable.sort(
+        key=lambda x: (float(x.get("score") or 0), int(x.get("visits") or 0), int(x.get("spend") or 0)),
+        reverse=True,
+    )
+    out = []
+    for rank, x in enumerate(publishable[:max_records], 1):
+        name = _txt(x.get("merchant")); address = _txt(x.get("address"))
+        visits = int(x.get("visits") or 0); months = int(x.get("months") or 0); spend = int(x.get("spend") or 0)
+        raw_roles = x.get("role_stats") or x.get("department_stats") or []
+        roles = []
+        for r in raw_roles:
+            role = _txt(r.get("role") or r.get("department"))
+            if role:
+                roles.append({"role": role, "visits": int(r.get("visits") or 0), "people": 0, "spend": 0})
+        recent = [{
+            "date": _txt(r.get("date")), "time": _txt(r.get("time")),
+            "role": _txt(r.get("role") or r.get("department")),
+            "people": int(r.get("people") or 0), "amount": int(r.get("amount") or 0),
+            "purpose": _txt(r.get("purpose")), "source": _txt(r.get("source")),
+        } for r in (x.get("recent") or [])]
+        executive = {
+            "rank": rank, "score": round(float(x.get("score") or 0), 1),
+            "exec_events": visits, "roles": int(x.get("role_count") or x.get("department_count") or len(roles)),
+            "months": months, "evening_ratio": 0, "source": source,
+        }
+        if source == "incheon_province":
+            executive["mayor_visits"] = int(x.get("mayor_visits") or 0)
+            executive["vice_mayor_visits"] = int(x.get("vice_mayor_visits") or 0)
+        why = f"{spec['label']} 공식 업무추진비에서 {visits}회, {months}개월에 걸쳐 반복 확인된 사용처입니다."
+        if source == "incheon_province":
+            top = int(x.get("mayor_visits") or 0) + int(x.get("vice_mayor_visits") or 0)
+            if top:
+                why += f" 시장·부시장 공개분 사용 {top}회가 포함됩니다."
+        out.append({
+            "name": name, "origin": spec["origin"], "region": spec["region"],
+            "jurisdiction": spec["jurisdiction"], "institution": spec["institution"],
+            "type": "executive", "destination": None, "executive": executive,
+            "address": address, "search_query": f"{name} {address}",
+            "business": {
+                "display": name, "category": _category(name), "phone": "",
+                "status": f"{spec['label']} 공식 업무추진비 원자료상 사용처",
+                "rating": "",
+                "note": "공식 업무추진비 공개자료 기반. 식당 품질 평가가 아니라 공개 지출에서 확인되는 선택 패턴 신호입니다.",
+                "url": "",
+            },
+            "evidence": {
+                "visits": visits, "spend": spend, "people": 0, "months": months,
+                "evening": 0, "evening_ratio": 0, "ppc": 0,
+                "date_min": _txt(x.get("date_min")), "date_max": _txt(x.get("date_max")),
+                "roles": roles, "purposes": x.get("purpose_stats") or [],
+                "recent": recent, "source_rows": [],
+            },
+            "why": why, "published_source": source, "cohort": "regional_executive",
+        })
+    return out
+
+
 def merge_published_sources(payload: dict) -> dict:
     base = list(payload.get("records", []))
     seen = {(str(r.get("name","")).strip(),str(r.get("origin","")).strip()) for r in base}
@@ -344,15 +433,20 @@ def merge_published_sources(payload: dict) -> dict:
         k=(r["name"],r["origin"])
         if k in seen: continue
         seen.add(k); added.append(r)
+    for source,spec in REGIONAL_EXEC_SPECS.items():
+        for r in _build_regional_exec_records(source,spec):
+            k=(r["name"],r["origin"])
+            if k in seen: continue
+            seen.add(k); added.append(r)
     records=base+added
     payload=dict(payload); payload["records"]=records
     payload["origins"]=sorted({str(r.get("origin","")).strip() for r in records if str(r.get("origin","")).strip()})
     payload["stats"]={"total":len(records),"destination":sum(bool(r.get("destination")) for r in records),"executive":sum(bool(r.get("executive")) for r in records),"both":sum(bool(r.get("destination")) and bool(r.get("executive")) for r in records),"supplemental":len(added)}
     meta=dict(payload.get("meta") or {})
-    sources=set(SOURCE_SPECS) | {"seoul_city_hall"}
+    sources=set(SOURCE_SPECS) | {"seoul_city_hall"} | set(REGIONAL_EXEC_SPECS)
     meta["published_supplements"]={source:sum(1 for r in added if r.get("published_source")==source) for source in sources}
     meta["scope"]="수도권 공공부문 Executive Dining — 기초의회 + 광역 집행부"
-    meta["source_scope"]="서울 자치구의회 seed + 검증·정규화된 수도권 의회 업무추진비 + 서울특별시 본청 OA-22156"
+    meta["source_scope"]="서울 자치구의회 seed + 검증·정규화된 수도권 의회 업무추진비 + 서울·경기·인천 광역집행부 공식 업무추진비"
     if added:
         dates=[r.get("evidence",{}).get("date_max","") for r in added if r.get("evidence",{}).get("date_max")]
         if dates: meta["period_end"]=max(str(meta.get("period_end") or ""),max(dates))
