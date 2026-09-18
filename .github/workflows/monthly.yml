@@ -123,21 +123,60 @@ jobs:
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY == ''
         run: echo "SEOUL_API_KEY is not configured; Seoul City Hall raw ingestion is skipped."
 
-      - name: Discover Gyeonggi headquarters expense spreadsheets
+      - name: Refresh regional executive sources independently
         if: steps.mode.outputs.full == 'true'
-        run: python pipeline/gyeonggi_executive_discovery.py
+        shell: bash
+        run: |
+          set +e
+          refresh_regional() {
+            NAME="$1"
+            RAW="$2"
+            REPORT="$3"
+            DISCOVERY_CMD="$4"
+            INGEST_CMD="$5"
+            DATE_SOURCE="$6"
+            BUILD_CMD="$7"
+            restore_last_good() {
+              STAGE="$1"
+              if git cat-file -e "HEAD:$RAW" 2>/dev/null && git cat-file -e "HEAD:$REPORT" 2>/dev/null; then
+                git restore --source=HEAD -- "$RAW" 2>/dev/null || true
+                case "$NAME" in
+                  gyeonggi)
+                    git restore --source=HEAD -- reports/gyeonggi-*.json reports/gyeonggi-*.md 2>/dev/null || true
+                    ;;
+                  incheon)
+                    git restore --source=HEAD -- reports/incheon-*.json reports/incheon-*.md 2>/dev/null || true
+                    ;;
+                esac
+                echo "$NAME STALE_OK:$STAGE"
+              else
+                echo "$NAME ${STAGE}_FAILED"
+              fi
+            }
+            eval "$DISCOVERY_CMD" || { restore_last_good DISCOVERY; return 0; }
+            eval "$INGEST_CMD" || { restore_last_good INGEST; return 0; }
+            python pipeline/repair_raw_dates.py --source "$DATE_SOURCE" --min-valid 0.95 || { restore_last_good DATE_QA; return 0; }
+            eval "$BUILD_CMD" || { restore_last_good CANDIDATE; return 0; }
+            echo "$NAME OK"
+          }
 
-      - name: Ingest Gyeonggi headquarters expense rows
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/ingest_gyeonggi_executive.py
+          refresh_regional \
+            gyeonggi \
+            data/raw/gyeonggi_province_expense.json \
+            reports/gyeonggi-province-candidates.json \
+            "python pipeline/gyeonggi_executive_discovery.py" \
+            "python pipeline/ingest_gyeonggi_executive.py" \
+            gyeonggi_province \
+            "python pipeline/build_gyeonggi_candidates.py"
 
-      - name: Repair Gyeonggi expense dates
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95
-
-      - name: Build Gyeonggi executive candidates
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/build_gyeonggi_candidates.py
+          refresh_regional \
+            incheon \
+            data/raw/incheon_province_expense.json \
+            reports/incheon-province-candidates.json \
+            "python pipeline/incheon_executive_discovery.py" \
+            "python pipeline/ingest_incheon_executive.py" \
+            incheon_province \
+            "python pipeline/build_incheon_candidates.py"
 
       - name: Discover central-government executive expense files
         if: steps.mode.outputs.full == 'true'
