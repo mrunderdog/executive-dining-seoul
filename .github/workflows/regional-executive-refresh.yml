@@ -59,6 +59,42 @@ jobs:
           python pipeline/build_gyeonggi_candidates.py || { restore_last_good CANDIDATE; exit 0; }
           echo OK > "$STATUS"
 
+      - name: Gate and publish Gyeonggi immediately
+        shell: bash
+        run: |
+          G="$(cat /tmp/gyeonggi.status 2>/dev/null || echo UNKNOWN)"
+          if [[ "$G" != "OK" ]]; then
+            echo "Gyeonggi is not freshly usable: $G"
+            exit 0
+          fi
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/index-gyeonggi.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/gyeonggi_province_expense.json reports/gyeonggi-*.json reports/gyeonggi-*.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No Gyeonggi changes to publish."
+            exit 0
+          fi
+          git commit -m "data: refresh Gyeonggi executive source"
+          if ! git pull --rebase origin main; then
+            for F in $(git diff --name-only --diff-filter=U); do
+              case "$F" in
+                data/raw/gyeonggi_province_expense.json|reports/gyeonggi-*)
+                  git checkout --theirs -- "$F"
+                  git add "$F"
+                  ;;
+                *)
+                  echo "Unexpected Gyeonggi rebase conflict: $F"
+                  git rebase --abort
+                  exit 1
+                  ;;
+              esac
+            done
+            GIT_EDITOR=true git rebase --continue
+          fi
+          git push origin HEAD:main
+
       - name: Refresh Incheon executive source
         shell: bash
         run: |
@@ -95,11 +131,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          G="$(cat /tmp/gyeonggi.status 2>/dev/null || echo UNKNOWN)"
           I="$(cat /tmp/incheon.status 2>/dev/null || echo UNKNOWN)"
-          if [[ "$G" == "OK" ]]; then
-            git add data/raw/gyeonggi_province_expense.json reports/gyeonggi-*.json reports/gyeonggi-*.md 2>/dev/null || true
-          fi
           if [[ "$I" == "OK" ]]; then
             git add data/raw/incheon_province_expense.json reports/incheon-*.json reports/incheon-*.md 2>/dev/null || true
           fi
@@ -107,7 +139,7 @@ jobs:
             echo "No successful regional changes to publish."
             exit 0
           fi
-          git commit -m "data: refresh regional executive sources"
+          git commit -m "data: refresh Incheon executive source"
           if ! git pull --rebase origin main; then
             for F in $(git diff --name-only --diff-filter=U); do
               case "$F" in
