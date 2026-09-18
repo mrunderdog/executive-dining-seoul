@@ -81,39 +81,37 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/supplemental_source_status.py ${{ steps.target.outputs.args }}
 
-      - name: Discover Capital Area source posts and attachments
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/capital_backfill.py --since 2024-12
-
-      - name: Ingest supported official council spreadsheets
+      - name: Refresh council sources independently
         if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
-          set -e
+          set +e
+          : > /tmp/monthly-council-status.tsv
           for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
-            echo "=== ingest $SOURCE ==="
+            echo "=== discover $SOURCE ==="
+            python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
+            if [[ $? -ne 0 ]]; then
+              echo -e "$SOURCE\tDISCOVERY_FAILED" >> /tmp/monthly-council-status.tsv
+              continue
+            fi
             python pipeline/ingest_council_expense.py --source "$SOURCE"
-          done
-
-      - name: Repair and validate council dates
-        if: steps.mode.outputs.full == 'true'
-        shell: bash
-        run: |
-          set -e
-          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
-            echo "=== dates $SOURCE ==="
+            if [[ $? -ne 0 ]]; then
+              echo -e "$SOURCE\tINGEST_FAILED" >> /tmp/monthly-council-status.tsv
+              continue
+            fi
             python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
-          done
-
-      - name: Build publishable council candidates
-        if: steps.mode.outputs.full == 'true'
-        shell: bash
-        run: |
-          set -e
-          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
-            echo "=== candidates $SOURCE ==="
+            if [[ $? -ne 0 ]]; then
+              echo -e "$SOURCE\tDATE_QA_FAILED" >> /tmp/monthly-council-status.tsv
+              continue
+            fi
             python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
+            if [[ $? -ne 0 ]]; then
+              echo -e "$SOURCE\tCANDIDATE_FAILED" >> /tmp/monthly-council-status.tsv
+              continue
+            fi
+            echo -e "$SOURCE\tOK" >> /tmp/monthly-council-status.tsv
           done
+          cat /tmp/monthly-council-status.tsv
 
       - name: Ingest Seoul City Hall official OpenAPI
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY != ''
