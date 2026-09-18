@@ -80,7 +80,10 @@ def main() -> None:
 
     duplicates = [f"{name} / {origin}" for (name, origin), c in keys_seen.items() if c > 1]
     if duplicates:
-        errors.append("duplicate name+origin records: " + "; ".join(duplicates[:20]))
+        warnings.append(
+            "same name+origin appears at multiple physical entities: "
+            + "; ".join(duplicates[:20])
+        )
     duplicate_entity_ids = [eid for eid, count in entity_ids.items() if count > 1]
     if duplicate_entity_ids:
         errors.append("duplicate global entity_id values: " + "; ".join(duplicate_entity_ids[:20]))
