@@ -107,7 +107,27 @@ def workbook_rows(blob: bytes, filename: str):
             rows = [sh.row_values(i) for i in range(sh.nrows)]
             yield sh.name, rows
         return
-    raise ValueError("unsupported spreadsheet format")
+    if blob.startswith(b"%PDF") or lower.endswith(".pdf"):
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(blob))
+        yielded = False
+        for pageno, page in enumerate(reader.pages, 1):
+            try:
+                text = page.extract_text(extraction_mode="layout") or page.extract_text() or ""
+            except TypeError:
+                text = page.extract_text() or ""
+            rows = []
+            for line in text.splitlines():
+                cells = [x.strip() for x in re.split(r"\s{2,}|\t+", line.strip()) if x.strip()]
+                if cells:
+                    rows.append(cells)
+            if rows:
+                yielded = True
+                yield f"pdf-page-{pageno}", rows
+        if not yielded:
+            raise ValueError("PDF contained no extractable text rows")
+        return
+    raise ValueError("unsupported spreadsheet/PDF format")
 
 
 def header_score(row):
@@ -153,8 +173,12 @@ def cell(row, mapping, field):
 
 def infer_leadership_role(title):
     s=clean_text(title)
-    if re.search(r"\(의장\)",s): return "의장"
-    if re.search(r"\((?:1|2)부의장\)",s): return "부의장"
+    if re.search(r"(?:^|[^가-힣])1\s*부의장",s) or re.search(r"\(1부의장\)",s): return "1부의장"
+    if re.search(r"(?:^|[^가-힣])2\s*부의장",s) or re.search(r"\(2부의장\)",s): return "2부의장"
+    if "부의장" in s: return "부의장"
+    m=re.search(r"([가-힣A-Za-z0-9·]+위원장)",s)
+    if m: return m.group(1)
+    if "의장" in s: return "의장"
     return ""
 
 def normalize_sheet(rows, sheet_name, source_meta):
@@ -240,7 +264,7 @@ def main():
                     meta = {
                         "source": post["source"], "region": post["region"], "jurisdiction": post["jurisdiction"], "institution": post["institution"],
                         "post_url": post["post_url"], "attachment_url": url, "attachment_name": name, "period": post.get("period"),
-                        "default_role": infer_leadership_role(post.get("title")),
+                        "default_role": infer_leadership_role(name) or infer_leadership_role(post.get("title")),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
                     per_file["sheets"].append(info)
