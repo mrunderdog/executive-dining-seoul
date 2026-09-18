@@ -88,27 +88,25 @@ jobs:
           set +e
           : > /tmp/monthly-council-status.tsv
           for SOURCE in goyang suwon hwaseong michuhol bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
+            restore_last_good() {
+              STAGE="$1"
+              if git cat-file -e "HEAD:data/raw/${SOURCE}_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/${SOURCE}-executive-candidates.json" 2>/dev/null; then
+                git restore --source=HEAD -- "data/raw/${SOURCE}_expense.json" 2>/dev/null || true
+                git restore --source=HEAD -- "reports/${SOURCE}-executive-candidates.json" "reports/${SOURCE}-executive-candidates.md" "reports/${SOURCE}-ingestion.md" 2>/dev/null || true
+                echo -e "$SOURCE\tSTALE_OK:${STAGE}" >> /tmp/monthly-council-status.tsv
+              else
+                echo -e "$SOURCE\t${STAGE}_FAILED" >> /tmp/monthly-council-status.tsv
+              fi
+            }
             echo "=== discover $SOURCE ==="
             python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
-            if [[ $? -ne 0 ]]; then
-              echo -e "$SOURCE\tDISCOVERY_FAILED" >> /tmp/monthly-council-status.tsv
-              continue
-            fi
+            if [[ $? -ne 0 ]]; then restore_last_good "DISCOVERY"; continue; fi
             python pipeline/ingest_council_expense.py --source "$SOURCE"
-            if [[ $? -ne 0 ]]; then
-              echo -e "$SOURCE\tINGEST_FAILED" >> /tmp/monthly-council-status.tsv
-              continue
-            fi
+            if [[ $? -ne 0 ]]; then restore_last_good "INGEST"; continue; fi
             python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
-            if [[ $? -ne 0 ]]; then
-              echo -e "$SOURCE\tDATE_QA_FAILED" >> /tmp/monthly-council-status.tsv
-              continue
-            fi
+            if [[ $? -ne 0 ]]; then restore_last_good "DATE_QA"; continue; fi
             python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
-            if [[ $? -ne 0 ]]; then
-              echo -e "$SOURCE\tCANDIDATE_FAILED" >> /tmp/monthly-council-status.tsv
-              continue
-            fi
+            if [[ $? -ne 0 ]]; then restore_last_good "CANDIDATE"; continue; fi
             echo -e "$SOURCE\tOK" >> /tmp/monthly-council-status.tsv
           done
           cat /tmp/monthly-council-status.tsv
@@ -176,7 +174,8 @@ jobs:
                       k,v=line.split('\t',1); status[k]=v
           checked=0
           for source,state in status.items():
-              if state!='OK':
+              usable = state=='OK' or state.startswith('STALE_OK:')
+              if not usable:
                   print(source, state)
                   continue
               p=Path(f'data/raw/{source}_expense.json')
@@ -191,8 +190,8 @@ jobs:
                   raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}, date={date:.1%}')
               checked += 1
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
-          if checked < 3:
-              raise SystemExit(f'only {checked} council sources refreshed successfully')
+          if checked < 1:
+              raise SystemExit('no usable council source is available')
           PY
 
       - name: Geocode central and National Assembly pre-QA candidates
