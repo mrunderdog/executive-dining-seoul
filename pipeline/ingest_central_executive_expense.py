@@ -13,6 +13,8 @@ from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 
+from pdf_tables import pdf_tables
+
 ROOT=Path(__file__).resolve().parents[1]
 REPORTS=ROOT/"reports"; RAW_DIR=ROOT/"data"/"raw"
 DISCOVERY=REPORTS/"central-executive-discovery.json"
@@ -100,6 +102,13 @@ def hwpx_tables(blob):
 
 def rows_from(blob,name):
     lower=name.lower()
+    if ".pdf" in lower:
+        tables=pdf_tables(blob)
+        if not tables:
+            raise ValueError("PDF contained no extractable tables")
+        for item in tables:
+            yield item
+        return
     if ".hwpx" in lower:
         tables=hwpx_tables(blob)
         if not tables:
@@ -198,7 +207,7 @@ def main():
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
             s=(a.get("text","")+" "+a.get("url","")).lower()
-            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx")):continue
+            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx",".pdf")):continue
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
                 label=a.get("text") or a["url"]
