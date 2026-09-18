@@ -17,12 +17,88 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 LISTING = "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page={page}"
 FILE_EXTS = (".xlsx", ".xls", ".csv")
+
+# Official monthly executive boards. These are intentionally tracked even when
+# the current client-rendered list cannot be crawled from GitHub Actions.
+ROLE_TARGETS = [
+    {"role":"도지사","url":"https://www.gg.go.kr/bbs/board.do?bsIdx=803&menuId=1768"},
+    {"role":"행정1부지사","url":"https://www.gg.go.kr/bbs/board.do?bsIdx=804&menuId=1769"},
+    {"role":"행정2부지사","url":"https://www.gg.go.kr/bbs/board.do?bsIdx=805&menuId=1770"},
+    {"role":"경제부지사","url":"https://www.gg.go.kr/bbs/board.do?bsIdx=806&menuId=1771"},
+]
+
+# Verified official 2026 Q1 detail pages and attachment endpoints. The listing
+# and detail pages intermittently time out in GitHub Actions, while the direct
+# attachment route is stable enough to be used as a resilience seed. Seeds are
+# source lineage, not manually invented expense rows.
 SEED_POSTS = {
     2026: [
         {
-            "title": "2026년 1분기 시책추진업무추진비 사용내역(건설정책과)",
-            "url": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294031&bcIdx=536&bsIdx=535&menuId=1778&page=1",
-        }
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(건설정책과)",
+            "department":"건설정책과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232294031&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"(건설정책과) 2026년 1분기 시책업무추진비 공개자료.xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891854","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(기획예산담당관)",
+            "department":"기획예산담당관","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=231836438&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(기획예산담당관).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891679","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(보도기획담당관)",
+            "department":"보도기획담당관","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(보도기획담당관).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=892063","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(식품안전과)",
+            "department":"식품안전과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(식품안전과).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891513","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(기획담당관)",
+            "department":"기획담당관","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(기획담당관).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891941","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(AI프런티어정책과)",
+            "department":"AI프런티어정책과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232065193&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진 업무추진비 공개자료_AI프런티어정책과.xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891793","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(정책홍보담당관)",
+            "department":"정책홍보담당관","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(정책홍보담당관).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891527","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(평생교육과)",
+            "department":"평생교육과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(평생교육과).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891648","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(공공기관담당관)",
+            "department":"공공기관담당관","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=231836409&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(공공기관담당관).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891634","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(노인복지과)",
+            "department":"노인복지과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232294023&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 업무추진비 공개자료(노인복지과).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891846","seeded":True}],
+        },
+        {
+            "title":"2026년 1분기 시책추진업무추진비 사용내역(택시교통과)",
+            "department":"택시교통과","period":[2026,None,1],
+            "url":"https://www.gg.go.kr/bbs/boardView.do?bIdx=232751899&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+            "attachments":[{"text":"2026년 1분기 시책추진업무추진비 공개자료(택시교통과).xlsx","url":"https://www.gg.go.kr/cmmn/download.do?idx=891928","seeded":True}],
+        },
     ]
 }
 
@@ -142,6 +218,21 @@ def crawl_seed_posts(year: int, max_posts: int = 300) -> tuple[list[dict], list[
             continue
         seen.add(url)
         title=item.get("title") or ""
+        seed_atts=[a for a in (item.get("attachments") or []) if a.get("url")]
+        if seed_atts:
+            posts.append({
+                "source":"gyeonggi_province",
+                "region":"경기",
+                "jurisdiction":"경기도",
+                "institution":"경기도청",
+                "title":title,
+                "department":item.get("department") or department_from(title),
+                "role":item.get("role") or "",
+                "period":item.get("period") or quarter_from(title),
+                "post_url":url,
+                "attachments":seed_atts,
+                "discovery_mode":"verified_attachment_seed",
+            })
         try:
             doc=fetch(url)
         except Exception as e:
@@ -164,18 +255,20 @@ def crawl_seed_posts(year: int, max_posts: int = 300) -> tuple[list[dict], list[
         atts=[x for x in links(url,doc) if looks_file(x)]
         if not atts:
             atts=regex_file_fallback(url,doc)
-        posts.append({
-            "source":"gyeonggi_province",
-            "region":"경기",
-            "jurisdiction":"경기도",
-            "institution":"경기도청",
-            "title":title,
-            "department":department_from(title),
-            "period":quarter_from(title),
-            "post_url":url,
-            "attachments":atts,
-            "discovery_mode":"detail_chain",
-        })
+        if atts:
+            posts.append({
+                "source":"gyeonggi_province",
+                "region":"경기",
+                "jurisdiction":"경기도",
+                "institution":"경기도청",
+                "title":title,
+                "department":item.get("department") or department_from(title),
+                "role":item.get("role") or "",
+                "period":item.get("period") or quarter_from(title),
+                "post_url":url,
+                "attachments":atts,
+                "discovery_mode":"detail_chain",
+            })
     return posts, errors
 
 def main():
@@ -220,16 +313,23 @@ def main():
                 row["error"]=f"{type(e).__name__}: {e}"
             posts.append(row)
 
-    if not posts:
-        fallback_posts,fallback_errors=crawl_seed_posts(args.year)
-        posts.extend(fallback_posts)
-        errors.extend(fallback_errors)
+    # Always merge verified seeds. They are the resilience path when the official
+    # client-rendered listing or detail pages time out from GitHub Actions.
+    fallback_posts,fallback_errors=crawl_seed_posts(args.year)
+    posts.extend(fallback_posts)
+    errors.extend(fallback_errors)
 
-    # Stable de-duplication when both listing and fallback see the same detail.
+    # Stable de-duplication. Prefer the version with more downloadable
+    # attachments so a successful live crawl can supersede a seed, but a
+    # transient empty live result cannot erase the seed.
     by_url={}
     for p in posts:
-        if p.get("post_url"):
-            by_url[p["post_url"]]=p
+        u=p.get("post_url")
+        if not u:
+            continue
+        current=by_url.get(u)
+        if current is None or sum(bool(a.get("url")) for a in p.get("attachments",[])) > sum(bool(a.get("url")) for a in current.get("attachments",[])):
+            by_url[u]=p
     posts=list(by_url.values())
 
     REPORTS.mkdir(exist_ok=True)
@@ -237,6 +337,7 @@ def main():
         "generated_at":datetime.now().isoformat(timespec="seconds"),
         "year":args.year,
         "listing_template":LISTING,
+        "role_targets":ROLE_TARGETS,
         "posts":posts,
         "errors":errors,
     }
@@ -248,6 +349,11 @@ def main():
         f"- Posts: **{len(posts)}**",
         f"- Downloadable attachments: **{downloadable}**",
         f"- Errors: **{len(errors)}**","",
+        "## Monthly executive role targets","",
+    ]
+    md.extend(f"- {x['role']}: {x['url']}" for x in ROLE_TARGETS)
+    md += [
+        "",
         "| Department | Period | Attachments | Post |",
         "|---|---|---:|---|",
     ]
