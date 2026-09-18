@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-09-18T16:52:16",
+  "generated_at": "2026-09-18T16:53:32",
   "dataset_records": 608,
   "cross_institution_count": 105,
+  "cross_origin_count": 0,
   "top_official_count": 95,
   "regional_head_count": 12,
   "entity_merges": 6,
@@ -14,7 +15,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 법제처 · 보건복지부",
         "농림축산식품부",
         "법제처",
         "보건복지부",
@@ -28,7 +28,7 @@
       "date_min": "2024-01-02",
       "date_max": "2026-08-27",
       "consensus_score": 75.3,
-      "institution_count": 6,
+      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -48,7 +48,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부 · 통일부",
         "보건복지부",
         "산업통상부",
         "통일부"
@@ -61,7 +60,7 @@
       "date_min": "11:55",
       "date_max": "20:13",
       "consensus_score": 75.3,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -81,7 +80,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부 · 통일부",
         "보건복지부",
         "산업통상부",
         "통일부"
@@ -94,7 +92,7 @@
       "date_min": "13:05",
       "date_max": "2026-05-06",
       "consensus_score": 75.3,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -107,166 +105,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "일품당프리미엄",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 46,
-      "spend": 12182150,
-      "date_min": "12:19",
-      "date_max": "2026-05-27",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "곰솔",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 28,
-      "spend": 5882516,
-      "date_min": "12:41",
-      "date_max": "20:52",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소문/(주)을정",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 26,
-      "spend": 3888667,
-      "date_min": "12:24",
-      "date_max": "20:57",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "강구미주구리",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 26,
-      "spend": 4447128,
-      "date_min": "12:13",
-      "date_max": "21:46",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오디푸드시스템 오발탄 세종점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
-        "법제처 · 보건복지부 · 산업통상부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 23,
-      "spend": 6738000,
-      "date_min": "2024-01-30",
-      "date_max": "2026-07-13",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "오롯이",
       "address": "",
       "origins": [
@@ -274,7 +112,6 @@
       ],
       "institutions": [
         "국가보훈부",
-        "국가보훈부 · 농림축산식품부 · 법제처 · 산업통상부",
         "농림축산식품부",
         "법제처",
         "산업통상부",
@@ -288,7 +125,7 @@
       "date_min": "2024-08-09",
       "date_max": "20260522",
       "consensus_score": 74.9,
-      "institution_count": 6,
+      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -308,7 +145,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 법제처 · 보건복지부 · 산업통상부",
         "법제처",
         "보건복지부",
         "산업통상부"
@@ -321,7 +157,7 @@
       "date_min": "2024-03-05",
       "date_max": "2026-07-22",
       "consensus_score": 74.5,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -334,6 +170,225 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "식원",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 15,
+      "spend": 3635480,
+      "date_min": "2024-02-26",
+      "date_max": "2026-08-24",
+      "consensus_score": 73.0,
+      "institution_count": 4,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "화담",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 11,
+      "spend": 2568116,
+      "date_min": "12:46",
+      "date_max": "2026-08-24",
+      "consensus_score": 70.7,
+      "institution_count": 4,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일품당프리미엄",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 46,
+      "spend": 12182150,
+      "date_min": "12:19",
+      "date_max": "2026-05-27",
+      "consensus_score": 70.4,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "곰솔",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 28,
+      "spend": 5882516,
+      "date_min": "12:41",
+      "date_max": "20:52",
+      "consensus_score": 70.4,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "소문/(주)을정",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 26,
+      "spend": 3888667,
+      "date_min": "12:24",
+      "date_max": "20:57",
+      "consensus_score": 70.4,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "강구미주구리",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 26,
+      "spend": 4447128,
+      "date_min": "12:13",
+      "date_max": "21:46",
+      "consensus_score": 70.4,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "오디푸드시스템 오발탄 세종점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 23,
+      "spend": 6738000,
+      "date_min": "2024-01-30",
+      "date_max": "2026-07-13",
+      "consensus_score": 70.4,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "대선칼국수",
       "address": "",
       "origins": [
@@ -341,7 +396,6 @@
       ],
       "institutions": [
         "법제처",
-        "법제처 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -352,8 +406,8 @@
       "spend": 3217000,
       "date_min": "12:06",
       "date_max": "2026-07-07",
-      "consensus_score": 74.5,
-      "institution_count": 4,
+      "consensus_score": 69.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "other",
       "top_role_label": "기타 공개 직위",
@@ -373,7 +427,6 @@
       ],
       "institutions": [
         "산업통상부",
-        "산업통상부 · 통일부 · 해양수산부",
         "통일부",
         "해양수산부"
       ],
@@ -384,8 +437,8 @@
       "spend": 2750000,
       "date_min": "12:20",
       "date_max": "20:26",
-      "consensus_score": 74.5,
-      "institution_count": 4,
+      "consensus_score": 69.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "other",
       "top_role_label": "기타 공개 직위",
@@ -405,7 +458,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -416,8 +468,8 @@
       "spend": 215482,
       "date_min": "2025-01-15",
       "date_max": "2026-05-16",
-      "consensus_score": 74.0,
-      "institution_count": 4,
+      "consensus_score": 69.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -437,7 +489,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -448,8 +499,8 @@
       "spend": 3309000,
       "date_min": "12:30",
       "date_max": "21:17",
-      "consensus_score": 73.5,
-      "institution_count": 4,
+      "consensus_score": 68.7,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -462,35 +513,35 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "식원",
+      "name": "이윽고",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부 · 해양수산부",
         "농림축산식품부",
+        "법제처",
+        "보건복지부",
         "산업통상부",
         "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 15,
-      "spend": 3635480,
-      "date_min": "2024-02-26",
-      "date_max": "2026-08-24",
-      "consensus_score": 73.0,
+      "visits": 8,
+      "spend": 1787000,
+      "date_min": "2024-01-22",
+      "date_max": "2026-07-02",
+      "consensus_score": 68.3,
       "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 1,
+      "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 1,
+      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -502,7 +553,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -513,8 +563,8 @@
       "spend": 3490000,
       "date_min": "12:46",
       "date_max": "2026-05-06",
-      "consensus_score": 73.0,
-      "institution_count": 4,
+      "consensus_score": 68.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -534,7 +584,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -545,8 +594,8 @@
       "spend": 1118145,
       "date_min": "2024-02-15",
       "date_max": "2025-12-31",
-      "consensus_score": 73.0,
-      "institution_count": 4,
+      "consensus_score": 68.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -566,7 +615,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -577,8 +625,8 @@
       "spend": 3227565,
       "date_min": "19:06",
       "date_max": "2026-05-07",
-      "consensus_score": 72.5,
-      "institution_count": 4,
+      "consensus_score": 67.7,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -587,703 +635,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "일품당샤브샤브",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "농림축산식품부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 13,
-      "spend": 2511500,
-      "date_min": "12:27",
-      "date_max": "20:25",
-      "consensus_score": 72.0,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "만복림",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 12,
-      "spend": 3786484,
-      "date_min": "2024-03-12",
-      "date_max": "2026-04-21",
-      "consensus_score": 71.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "화담",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부 · 통일부",
-        "농림축산식품부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 11,
-      "spend": 2568116,
-      "date_min": "12:46",
-      "date_max": "2026-08-24",
-      "consensus_score": 70.7,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "마라",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 11,
-      "spend": 2628270,
-      "date_min": "12:41",
-      "date_max": "2026-06-05",
-      "consensus_score": 70.7,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "포도나무",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 26,
-      "spend": 6774000,
-      "date_min": "12:47",
-      "date_max": "21:13",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "지혜",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "보건복지부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 22,
-      "spend": 3839000,
-      "date_min": "11:43",
-      "date_max": "21:09",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해초가",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "보건복지부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 22,
-      "spend": 5049000,
-      "date_min": "12:23",
-      "date_max": "20:26",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 1,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "낙원",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 21,
-      "spend": 4042000,
-      "date_min": "18:42",
-      "date_max": "20:37",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "컨퍼런스하우스달개비 정동점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 20,
-      "spend": 4388400,
-      "date_min": "12:48",
-      "date_max": "2026-05-28",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "크리스탈제이드 서머셋점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 20,
-      "spend": 5297700,
-      "date_min": "13:20",
-      "date_max": "20:15",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "우아라",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 10,
-      "spend": 2347000,
-      "date_min": "12:45",
-      "date_max": "2026-04-16",
-      "consensus_score": 70.0,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "미향한정식",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 19,
-      "spend": 4018000,
-      "date_min": "12:15",
-      "date_max": "20:35",
-      "consensus_score": 70.0,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "한일관",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 18,
-      "spend": 4579000,
-      "date_min": "12:21",
-      "date_max": "2025-11-14",
-      "consensus_score": 69.6,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "광화문아띠/설가온",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 2250000,
-      "date_min": "12:57",
-      "date_max": "2026-06-19",
-      "consensus_score": 69.2,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "백정한우",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "농림축산식품부 · 법제처 · 해양수산부",
-        "법제처",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 292000,
-      "date_min": "2024-04-15",
-      "date_max": "2026-07-15",
-      "consensus_score": 69.2,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "평가옥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 974111,
-      "date_min": "12:22",
-      "date_max": "21:03",
-      "consensus_score": 69.2,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "스시와",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 17,
-      "spend": 5031000,
-      "date_min": "12:23",
-      "date_max": "2026-02-10",
-      "consensus_score": 69.2,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "경성한우국밥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 17,
-      "spend": 3450500,
-      "date_min": "11:49",
-      "date_max": "2026-05-13",
-      "consensus_score": 69.2,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이윽고",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "농림축산식품부 · 법제처 · 보건복지부 · 산업통상부",
-        "법제처",
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1787000,
-      "date_min": "2024-01-22",
-      "date_max": "2026-07-02",
-      "consensus_score": 68.3,
-      "institution_count": 6,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "외계인키친",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 549043,
-      "date_min": "2024-07-04",
-      "date_max": "2026-04-08",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "방원양갈비양꼬치",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부",
-        "농림축산식품부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 2440386,
-      "date_min": "2024-05-27",
-      "date_max": "2026-07-21",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "저림숙성그릴",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1457295,
-      "date_min": "2024-04-01",
-      "date_max": "2026-06-22",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1295,7 +646,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 법제처 · 산업통상부",
         "농림축산식품부",
         "법제처",
         "산업통상부"
@@ -1308,7 +658,7 @@
       "date_min": "2025-08-18",
       "date_max": "2026-07-27",
       "consensus_score": 67.4,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1328,7 +678,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부 · 해양수산부",
         "산업통상부",
         "통일부",
         "해양수산부"
@@ -1341,7 +690,7 @@
       "date_min": "12:42",
       "date_max": "2026-07-10",
       "consensus_score": 67.4,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1354,6 +703,680 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "일품당샤브샤브",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "농림축산식품부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 13,
+      "spend": 2511500,
+      "date_min": "12:27",
+      "date_max": "20:25",
+      "consensus_score": 67.1,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "만복림",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 12,
+      "spend": 3786484,
+      "date_min": "2024-03-12",
+      "date_max": "2026-04-21",
+      "consensus_score": 66.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이태형의 메구미",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국가보훈부",
+        "법제처",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 6,
+      "spend": 1345324,
+      "date_min": "2024-04-01",
+      "date_max": "20260821",
+      "consensus_score": 66.3,
+      "institution_count": 4,
+      "source_count": 1,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 2,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "마라",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 11,
+      "spend": 2628270,
+      "date_min": "12:41",
+      "date_max": "2026-06-05",
+      "consensus_score": 65.8,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "우아라",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 10,
+      "spend": 2347000,
+      "date_min": "12:45",
+      "date_max": "2026-04-16",
+      "consensus_score": 65.1,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "정민복집",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "법제처",
+        "보건복지부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 551000,
+      "date_min": "2025-07-21",
+      "date_max": "2026-07-27",
+      "consensus_score": 65.0,
+      "institution_count": 4,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "광화문아띠/설가온",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 2250000,
+      "date_min": "12:57",
+      "date_max": "2026-06-19",
+      "consensus_score": 64.3,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "백정한우",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "농림축산식품부",
+        "법제처",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 292000,
+      "date_min": "2024-04-15",
+      "date_max": "2026-07-15",
+      "consensus_score": 64.3,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "평가옥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 974111,
+      "date_min": "12:22",
+      "date_max": "21:03",
+      "consensus_score": 64.3,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "포도나무",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 26,
+      "spend": 6774000,
+      "date_min": "12:47",
+      "date_max": "21:13",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "지혜",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 22,
+      "spend": 3839000,
+      "date_min": "11:43",
+      "date_max": "21:09",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "해초가",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 22,
+      "spend": 5049000,
+      "date_min": "12:23",
+      "date_max": "20:26",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 1,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "낙원",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 21,
+      "spend": 4042000,
+      "date_min": "18:42",
+      "date_max": "20:37",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "컨퍼런스하우스달개비 정동점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 20,
+      "spend": 4388400,
+      "date_min": "12:48",
+      "date_max": "2026-05-28",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "크리스탈제이드 서머셋점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 20,
+      "spend": 5297700,
+      "date_min": "13:20",
+      "date_max": "20:15",
+      "consensus_score": 64.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "미향한정식",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 19,
+      "spend": 4018000,
+      "date_min": "12:15",
+      "date_max": "20:35",
+      "consensus_score": 63.8,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "외계인키친",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 8,
+      "spend": 549043,
+      "date_min": "2024-07-04",
+      "date_max": "2026-04-08",
+      "consensus_score": 63.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "방원양갈비양꼬치",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 8,
+      "spend": 2440386,
+      "date_min": "2024-05-27",
+      "date_max": "2026-07-21",
+      "consensus_score": 63.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "저림숙성그릴",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 8,
+      "spend": 1457295,
+      "date_min": "2024-04-01",
+      "date_max": "2026-06-22",
+      "consensus_score": 63.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "한일관",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 18,
+      "spend": 4579000,
+      "date_min": "12:21",
+      "date_max": "2025-11-14",
+      "consensus_score": 63.3,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "스시와",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 17,
+      "spend": 5031000,
+      "date_min": "12:23",
+      "date_max": "2026-02-10",
+      "consensus_score": 62.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "경성한우국밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 17,
+      "spend": 3450500,
+      "date_min": "11:49",
+      "date_max": "2026-05-13",
+      "consensus_score": 62.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "오발탄 세종점",
       "address": "",
       "origins": [
@@ -1361,7 +1384,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -1372,8 +1394,8 @@
       "spend": 1153640,
       "date_min": "2026-01-07",
       "date_max": "2026-06-15",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1393,7 +1415,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -1404,8 +1425,8 @@
       "spend": 178327,
       "date_min": "2025-04-28",
       "date_max": "2026-03-03",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1425,7 +1446,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -1436,8 +1456,8 @@
       "spend": 1396135,
       "date_min": "12:37",
       "date_max": "2026-04-24",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1457,7 +1477,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -1468,8 +1487,8 @@
       "spend": 2546000,
       "date_min": "12:03",
       "date_max": "2026-05-04",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1489,7 +1508,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -1500,8 +1518,8 @@
       "spend": 945108,
       "date_min": "2024-08-08",
       "date_max": "2025-10-20",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1514,101 +1532,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "능라도 광화문점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 13,
-      "spend": 2099500,
-      "date_min": "12:18",
-      "date_max": "20:58",
-      "consensus_score": 67.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "하동관",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 해양수산부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 13,
-      "spend": 1678000,
-      "date_min": "2024-11-11",
-      "date_max": "2026-04-07",
-      "consensus_score": 67.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이태형의 메구미",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 국가보훈부 · 법제처 · 산업통상부",
-        "국가보훈부",
-        "법제처",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1345324,
-      "date_min": "2024-04-01",
-      "date_max": "20260821",
-      "consensus_score": 66.3,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 2,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "운산",
       "address": "",
       "origins": [
@@ -1616,7 +1539,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -1627,8 +1549,8 @@
       "spend": 1445639,
       "date_min": "2024-04-03",
       "date_max": "2026-07-28",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1648,7 +1570,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 해양수산부",
         "농림축산식품부",
         "해양수산부"
       ],
@@ -1659,8 +1580,8 @@
       "spend": 42411,
       "date_min": "2024-10-25",
       "date_max": "2026-08-24",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1680,7 +1601,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -1691,8 +1611,8 @@
       "spend": 557205,
       "date_min": "2024-05-03",
       "date_max": "2026-04-29",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1712,7 +1632,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -1723,8 +1642,8 @@
       "spend": 1946100,
       "date_min": "11:12",
       "date_max": "2026-03-11",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1744,7 +1663,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 법제처 · 해양수산부",
         "법제처",
         "해양수산부"
       ],
@@ -1755,8 +1673,8 @@
       "spend": 128634,
       "date_min": "2024-04-03",
       "date_max": "2026-08-25",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1776,7 +1694,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -1787,8 +1704,8 @@
       "spend": 1207060,
       "date_min": "13:17",
       "date_max": "2026-01-22",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1801,25 +1718,24 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "차이(chai)797 광화문점",
+      "name": "능라도 광화문점",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "산업통상부",
-        "산업통상부 · 통일부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 11,
-      "spend": 3612500,
-      "date_min": "13:06",
-      "date_max": "2025-08-05",
-      "consensus_score": 65.8,
-      "institution_count": 3,
+      "visits": 13,
+      "spend": 2099500,
+      "date_min": "12:18",
+      "date_max": "20:58",
+      "consensus_score": 60.8,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "other",
       "top_role_label": "기타 공개 직위",
@@ -1832,66 +1748,32 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "진가와코리아",
+      "name": "하동관",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
-        "고용노동부 · 보건복지부",
-        "보건복지부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 10,
-      "spend": 1760,
-      "date_min": "2025-08-15",
-      "date_max": "2026-04-23",
-      "consensus_score": 65.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "정민복집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
-        "법제처 · 보건복지부 · 산업통상부 · 해양수산부",
-        "보건복지부",
         "산업통상부",
         "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 5,
-      "spend": 551000,
-      "date_min": "2025-07-21",
-      "date_max": "2026-07-27",
-      "consensus_score": 65.0,
-      "institution_count": 5,
+      "visits": 13,
+      "spend": 1678000,
+      "date_min": "2024-11-11",
+      "date_max": "2026-04-07",
+      "consensus_score": 60.8,
+      "institution_count": 2,
       "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 1,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1903,7 +1785,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 통일부",
         "보건복지부",
         "통일부"
       ],
@@ -1914,8 +1795,8 @@
       "spend": 435620,
       "date_min": "12:28",
       "date_max": "2026-05-08",
-      "consensus_score": 65.0,
-      "institution_count": 4,
+      "consensus_score": 60.1,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1935,7 +1816,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -1946,8 +1826,8 @@
       "spend": 1003500,
       "date_min": "2024-11-22",
       "date_max": "2026-01-30",
-      "consensus_score": 65.0,
-      "institution_count": 4,
+      "consensus_score": 60.1,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1960,25 +1840,54 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "삿뽀로",
+      "name": "차이(chai)797 광화문점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 11,
+      "spend": 3612500,
+      "date_min": "13:06",
+      "date_max": "2025-08-05",
+      "consensus_score": 59.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "진가와코리아",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
-        "산업통상부"
+        "보건복지부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 961925,
-      "date_min": "2025-07-18",
-      "date_max": "2026-05-12",
-      "consensus_score": 64.3,
-      "institution_count": 3,
+      "visits": 10,
+      "spend": 1760,
+      "date_min": "2025-08-15",
+      "date_max": "2026-04-23",
+      "consensus_score": 58.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1991,68 +1900,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "은주식당",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 2579000,
-      "date_min": "19:03",
-      "date_max": "2026-04-07",
-      "consensus_score": 64.3,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "통영굴밥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 1561000,
-      "date_min": "19:04",
-      "date_max": "20:50",
-      "consensus_score": 64.3,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "김삼보",
       "address": "",
       "origins": [
@@ -2060,7 +1907,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -2071,8 +1917,8 @@
       "spend": 76393,
       "date_min": "2024-10-08",
       "date_max": "2026-07-08",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2092,7 +1938,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -2103,8 +1948,8 @@
       "spend": 859435,
       "date_min": "2024-07-05",
       "date_max": "2026-05-14",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2124,7 +1969,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -2135,8 +1979,8 @@
       "spend": 486152,
       "date_min": "2024-01-09",
       "date_max": "2026-02-04",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2156,7 +2000,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -2167,8 +2010,8 @@
       "spend": 349156,
       "date_min": "2024-04-12",
       "date_max": "2025-07-16",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2188,7 +2031,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -2199,8 +2041,8 @@
       "spend": 286144,
       "date_min": "2025-04-29",
       "date_max": "2026-03-31",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2213,6 +2055,96 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "삿뽀로",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 961925,
+      "date_min": "2025-07-18",
+      "date_max": "2026-05-12",
+      "consensus_score": 58.1,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "은주식당",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 2579000,
+      "date_min": "19:03",
+      "date_max": "2026-04-07",
+      "consensus_score": 58.1,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "통영굴밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 1561000,
+      "date_min": "19:04",
+      "date_max": "20:50",
+      "consensus_score": 58.1,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "관산성한우 세종나성점",
       "address": "",
       "origins": [
@@ -2220,7 +2152,6 @@
       ],
       "institutions": [
         "법제처",
-        "법제처 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2230,8 +2161,8 @@
       "spend": 2381500,
       "date_min": "2024-01-15",
       "date_max": "2026-07-16",
-      "consensus_score": 63.5,
-      "institution_count": 3,
+      "consensus_score": 57.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "director_general",
       "top_role_label": "국장급",
@@ -2251,7 +2182,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 해양수산부",
         "해양수산부"
       ],
       "cohorts": [
@@ -2261,8 +2191,8 @@
       "spend": 417000,
       "date_min": "2025-02-19",
       "date_max": "2025-08-26",
-      "consensus_score": 63.5,
-      "institution_count": 3,
+      "consensus_score": 57.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2282,7 +2212,6 @@
       ],
       "institutions": [
         "산업통상부",
-        "산업통상부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -2292,194 +2221,8 @@
       "spend": 1758000,
       "date_min": "12:44",
       "date_max": "2024-07-25",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "other",
-      "top_role_label": "기타 공개 직위",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "모담 서울역점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 보건복지부",
-        "보건복지부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1357238,
-      "date_min": "2026-02-20",
-      "date_max": "2026-06-30",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 1,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "서울관",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "농림축산식품부 · 해양수산부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 315000,
-      "date_min": "2024-05-22",
-      "date_max": "2026-07-28",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "진가와코리아 광화문점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1637000,
-      "date_min": "12:40",
-      "date_max": "20:01",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "agency_head",
-      "top_role_label": "기관장·본부장급",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "도담도담 민물장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 2475490,
-      "date_min": "2024-04-08",
-      "date_max": "2026-02-26",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소쿠리밥상세종청사점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "고용노동부 · 산업통상부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1357112,
-      "date_min": "2024-09-30",
-      "date_max": "2026-03-04",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "시청해우리",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "산업통상부 · 통일부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1663000,
-      "date_min": "12:40",
-      "date_max": "2025-11-12",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "consensus_score": 57.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "other",
       "top_role_label": "기타 공개 직위",
@@ -2499,7 +2242,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -2510,8 +2252,8 @@
       "spend": 430285,
       "date_min": "2024-11-05",
       "date_max": "2026-05-07",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2531,7 +2273,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -2542,8 +2283,8 @@
       "spend": 230000,
       "date_min": "2025-09-02",
       "date_max": "2026-08-20",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2563,7 +2304,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -2574,8 +2314,8 @@
       "spend": 1036000,
       "date_min": "19:23",
       "date_max": "2026-06-30",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2595,7 +2335,6 @@
       ],
       "institutions": [
         "법제처",
-        "법제처 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -2606,11 +2345,191 @@
       "spend": 355000,
       "date_min": "2024-04-09",
       "date_max": "2026-07-20",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "agency_head",
       "top_role_label": "기관장·본부장급",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "모담 서울역점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 1357238,
+      "date_min": "2026-02-20",
+      "date_max": "2026-06-30",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 1,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "서울관",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 315000,
+      "date_min": "2024-05-22",
+      "date_max": "2026-07-28",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "진가와코리아 광화문점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 1637000,
+      "date_min": "12:40",
+      "date_max": "20:01",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "agency_head",
+      "top_role_label": "기관장·본부장급",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "도담도담 민물장어",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 2475490,
+      "date_min": "2024-04-08",
+      "date_max": "2026-02-26",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "소쿠리밥상세종청사점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 1357112,
+      "date_min": "2024-09-30",
+      "date_max": "2026-03-04",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "시청해우리",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 1663000,
+      "date_min": "12:40",
+      "date_max": "2025-11-12",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "other",
+      "top_role_label": "기타 공개 직위",
       "top_official_visits": 0,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -2627,7 +2546,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부",
         "농림축산식품부"
       ],
       "cohorts": [
@@ -2637,8 +2555,8 @@
       "spend": 734487,
       "date_min": "2026-03-04",
       "date_max": "2026-08-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2658,7 +2576,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2668,8 +2585,8 @@
       "spend": 1030488,
       "date_min": "2024-01-24",
       "date_max": "2026-04-08",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2689,7 +2606,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2699,8 +2615,8 @@
       "spend": 881168,
       "date_min": "2024-05-14",
       "date_max": "2025-12-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2720,7 +2636,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2730,8 +2645,8 @@
       "spend": 1175500,
       "date_min": "2024-02-07",
       "date_max": "2026-07-07",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -2751,7 +2666,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -2761,8 +2675,8 @@
       "spend": 1138495,
       "date_min": "2025-11-19",
       "date_max": "2026-07-14",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -2782,7 +2696,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -2792,8 +2705,8 @@
       "spend": 541366,
       "date_min": "2025-12-22",
       "date_max": "2026-06-22",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2813,7 +2726,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -2823,8 +2735,8 @@
       "spend": 900000,
       "date_min": "12:11",
       "date_max": "2026-04-29",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2844,7 +2756,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2854,8 +2765,8 @@
       "spend": 156927,
       "date_min": "2025-02-05",
       "date_max": "2026-04-01",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2875,7 +2786,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -2885,8 +2795,8 @@
       "spend": 573448,
       "date_min": "11:51",
       "date_max": "2026-03-19",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2906,7 +2816,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2916,8 +2825,8 @@
       "spend": 965275,
       "date_min": "2024-03-29",
       "date_max": "2026-04-16",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2937,7 +2846,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -2947,8 +2855,8 @@
       "spend": 1374000,
       "date_min": "2025-12-16",
       "date_max": "2026-05-15",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -2968,7 +2876,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -2978,8 +2885,8 @@
       "spend": 500325,
       "date_min": "12:48",
       "date_max": "2026-04-03",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "agency_head",
       "top_role_label": "기관장·본부장급",
@@ -2999,7 +2906,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 해양수산부",
         "해양수산부"
       ],
       "cohorts": [
@@ -3009,8 +2915,8 @@
       "spend": 663,
       "date_min": "2024-10-29",
       "date_max": "2025-09-09",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3030,7 +2936,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -3040,8 +2945,8 @@
       "spend": 257517,
       "date_min": "2025-06-26",
       "date_max": "2026-04-07",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3061,7 +2966,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -3071,8 +2975,8 @@
       "spend": 767138,
       "date_min": "2026-02-27",
       "date_max": "2026-04-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -3092,7 +2996,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -3102,8 +3005,8 @@
       "spend": 752000,
       "date_min": "2024-11-13",
       "date_max": "2026-07-24",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3123,7 +3026,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -3133,8 +3035,8 @@
       "spend": 112132,
       "date_min": "2025-02-10",
       "date_max": "2026-01-28",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3154,7 +3056,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 법제처",
         "법제처"
       ],
       "cohorts": [
@@ -3164,8 +3065,8 @@
       "spend": 628000,
       "date_min": "2026-07-01",
       "date_max": "2026-07-14",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3185,7 +3086,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -3195,8 +3095,8 @@
       "spend": 270195,
       "date_min": "11:32",
       "date_max": "2025-10-10",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3216,7 +3116,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -3226,8 +3125,8 @@
       "spend": 170399,
       "date_min": "2025-06-27",
       "date_max": "2026-03-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3247,7 +3146,6 @@
       ],
       "institutions": [
         "산업통상부",
-        "산업통상부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -3257,8 +3155,8 @@
       "spend": 436000,
       "date_min": "2024-12-20",
       "date_max": "2026-01-29",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "agency_head",
       "top_role_label": "기관장·본부장급",
@@ -3278,7 +3176,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -3288,8 +3185,8 @@
       "spend": 176210,
       "date_min": "2025-11-19",
       "date_max": "2026-02-27",
-      "consensus_score": 54.4,
-      "institution_count": 3,
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3309,7 +3206,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -3319,8 +3215,8 @@
       "spend": 147204,
       "date_min": "2026-03-24",
       "date_max": "2026-04-01",
-      "consensus_score": 54.4,
-      "institution_count": 3,
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3371,7 +3267,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -3382,8 +3277,8 @@
       "spend": 215482,
       "date_min": "2025-01-15",
       "date_max": "2026-05-16",
-      "consensus_score": 74.0,
-      "institution_count": 4,
+      "consensus_score": 69.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3432,7 +3327,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 법제처 · 보건복지부 · 산업통상부",
         "법제처",
         "보건복지부",
         "산업통상부"
@@ -3445,7 +3339,7 @@
       "date_min": "2024-03-05",
       "date_max": "2026-07-22",
       "consensus_score": 74.5,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3494,7 +3388,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 법제처 · 보건복지부",
         "농림축산식품부",
         "법제처",
         "보건복지부",
@@ -3508,7 +3401,7 @@
       "date_min": "2024-01-02",
       "date_max": "2026-08-27",
       "consensus_score": 75.3,
-      "institution_count": 6,
+      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3528,7 +3421,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -3538,8 +3430,8 @@
       "spend": 1760,
       "date_min": "2025-08-15",
       "date_max": "2026-04-23",
-      "consensus_score": 65.1,
-      "institution_count": 3,
+      "consensus_score": 58.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3559,7 +3451,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -3569,8 +3460,8 @@
       "spend": 961925,
       "date_min": "2025-07-18",
       "date_max": "2026-05-12",
-      "consensus_score": 64.3,
-      "institution_count": 3,
+      "consensus_score": 58.1,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3590,7 +3481,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -3600,8 +3490,8 @@
       "spend": 1357238,
       "date_min": "2026-02-20",
       "date_max": "2026-06-30",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -3621,7 +3511,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -3632,8 +3521,8 @@
       "spend": 1153640,
       "date_min": "2026-01-07",
       "date_max": "2026-06-15",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3740,7 +3629,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -3751,8 +3639,8 @@
       "spend": 178327,
       "date_min": "2025-04-28",
       "date_max": "2026-03-03",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3772,7 +3660,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -3782,8 +3669,8 @@
       "spend": 1138495,
       "date_min": "2025-11-19",
       "date_max": "2026-07-14",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -3803,7 +3690,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -3813,8 +3699,8 @@
       "spend": 541366,
       "date_min": "2025-12-22",
       "date_max": "2026-06-22",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3834,7 +3720,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부 · 통일부",
         "보건복지부",
         "산업통상부",
         "통일부"
@@ -3847,7 +3732,7 @@
       "date_min": "13:05",
       "date_max": "2026-05-06",
       "consensus_score": 75.3,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3867,7 +3752,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -3877,8 +3761,8 @@
       "spend": 3839000,
       "date_min": "11:43",
       "date_max": "21:09",
-      "consensus_score": 70.4,
-      "institution_count": 3,
+      "consensus_score": 64.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3898,7 +3782,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -3909,8 +3792,8 @@
       "spend": 2250000,
       "date_min": "12:57",
       "date_max": "2026-06-19",
-      "consensus_score": 69.2,
-      "institution_count": 4,
+      "consensus_score": 64.3,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3959,7 +3842,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 법제처 · 산업통상부",
         "농림축산식품부",
         "법제처",
         "산업통상부"
@@ -3972,7 +3854,7 @@
       "date_min": "2025-08-18",
       "date_max": "2026-07-27",
       "consensus_score": 67.4,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3992,7 +3874,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 해양수산부",
         "농림축산식품부",
         "해양수산부"
       ],
@@ -4003,8 +3884,8 @@
       "spend": 42411,
       "date_min": "2024-10-25",
       "date_max": "2026-08-24",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4024,7 +3905,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 통일부",
         "보건복지부",
         "통일부"
       ],
@@ -4035,8 +3915,8 @@
       "spend": 435620,
       "date_min": "12:28",
       "date_max": "2026-05-08",
-      "consensus_score": 65.0,
-      "institution_count": 4,
+      "consensus_score": 60.1,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4056,7 +3936,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -4066,8 +3945,8 @@
       "spend": 156927,
       "date_min": "2025-02-05",
       "date_max": "2026-04-01",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4116,7 +3995,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부 · 통일부",
         "보건복지부",
         "산업통상부",
         "통일부"
@@ -4129,7 +4007,7 @@
       "date_min": "11:55",
       "date_max": "20:13",
       "consensus_score": 75.3,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -4149,7 +4027,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 법제처 · 보건복지부 · 산업통상부",
         "법제처",
         "보건복지부",
         "산업통상부",
@@ -4163,7 +4040,7 @@
       "date_min": "2024-01-22",
       "date_max": "2026-07-02",
       "consensus_score": 68.3,
-      "institution_count": 6,
+      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4183,7 +4060,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -4194,8 +4070,8 @@
       "spend": 1457295,
       "date_min": "2024-04-01",
       "date_max": "2026-06-22",
-      "consensus_score": 68.3,
-      "institution_count": 4,
+      "consensus_score": 63.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4215,7 +4091,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -4226,8 +4101,8 @@
       "spend": 549043,
       "date_min": "2024-07-04",
       "date_max": "2026-04-08",
-      "consensus_score": 68.3,
-      "institution_count": 4,
+      "consensus_score": 63.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4247,7 +4122,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부 · 해양수산부",
         "산업통상부",
         "통일부",
         "해양수산부"
@@ -4260,7 +4134,7 @@
       "date_min": "12:42",
       "date_max": "2026-07-10",
       "consensus_score": 67.4,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4280,7 +4154,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 국가보훈부 · 법제처 · 산업통상부",
         "국가보훈부",
         "법제처",
         "산업통상부"
@@ -4293,7 +4166,7 @@
       "date_min": "2024-04-01",
       "date_max": "20260821",
       "consensus_score": 66.3,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -4313,7 +4186,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -4324,8 +4196,8 @@
       "spend": 1445639,
       "date_min": "2024-04-03",
       "date_max": "2026-07-28",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4345,7 +4217,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -4355,8 +4226,8 @@
       "spend": 881168,
       "date_min": "2024-05-14",
       "date_max": "2025-12-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4463,7 +4334,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 해양수산부",
         "해양수산부"
       ],
       "cohorts": [
@@ -4473,8 +4343,8 @@
       "spend": 663,
       "date_min": "2024-10-29",
       "date_max": "2025-09-09",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4552,7 +4422,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부",
         "보건복지부"
       ],
       "cohorts": [
@@ -4562,8 +4431,8 @@
       "spend": 767138,
       "date_min": "2026-02-27",
       "date_max": "2026-04-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -4583,7 +4452,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -4594,8 +4462,8 @@
       "spend": 5882516,
       "date_min": "12:41",
       "date_max": "20:52",
-      "consensus_score": 75.3,
-      "institution_count": 4,
+      "consensus_score": 70.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4615,7 +4483,6 @@
       ],
       "institutions": [
         "법제처",
-        "법제처 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -4626,8 +4493,8 @@
       "spend": 6738000,
       "date_min": "2024-01-30",
       "date_max": "2026-07-13",
-      "consensus_score": 75.3,
-      "institution_count": 4,
+      "consensus_score": 70.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4647,7 +4514,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -4657,8 +4523,8 @@
       "spend": 5049000,
       "date_min": "12:23",
       "date_max": "20:26",
-      "consensus_score": 70.4,
-      "institution_count": 3,
+      "consensus_score": 64.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -4678,7 +4544,6 @@
       ],
       "institutions": [
         "국가보훈부",
-        "국가보훈부 · 농림축산식품부 · 법제처 · 산업통상부",
         "농림축산식품부",
         "법제처",
         "산업통상부",
@@ -4692,7 +4557,7 @@
       "date_min": "2024-08-09",
       "date_max": "20260522",
       "consensus_score": 74.9,
-      "institution_count": 6,
+      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4712,7 +4577,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -4723,8 +4587,8 @@
       "spend": 3490000,
       "date_min": "12:46",
       "date_max": "2026-05-06",
-      "consensus_score": 73.0,
-      "institution_count": 4,
+      "consensus_score": 68.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4744,7 +4608,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -4755,8 +4618,8 @@
       "spend": 3227565,
       "date_min": "19:06",
       "date_max": "2026-05-07",
-      "consensus_score": 72.5,
-      "institution_count": 4,
+      "consensus_score": 67.7,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4776,7 +4639,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -4787,8 +4649,8 @@
       "spend": 3786484,
       "date_min": "2024-03-12",
       "date_max": "2026-04-21",
-      "consensus_score": 71.3,
-      "institution_count": 4,
+      "consensus_score": 66.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4808,7 +4670,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -4819,8 +4680,8 @@
       "spend": 2628270,
       "date_min": "12:41",
       "date_max": "2026-06-05",
-      "consensus_score": 70.7,
-      "institution_count": 4,
+      "consensus_score": 65.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4840,7 +4701,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -4851,8 +4711,8 @@
       "spend": 2546000,
       "date_min": "12:03",
       "date_max": "2026-05-04",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4872,7 +4732,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -4883,8 +4742,8 @@
       "spend": 557205,
       "date_min": "2024-05-03",
       "date_max": "2026-04-29",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4904,7 +4763,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -4914,8 +4772,8 @@
       "spend": 1030488,
       "date_min": "2024-01-24",
       "date_max": "2026-04-08",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4935,7 +4793,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -4945,8 +4802,8 @@
       "spend": 900000,
       "date_min": "12:11",
       "date_max": "2026-04-29",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4966,7 +4823,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -4977,8 +4833,8 @@
       "spend": 76393,
       "date_min": "2024-10-08",
       "date_max": "2026-07-08",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4998,7 +4854,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5008,8 +4863,8 @@
       "spend": 1374000,
       "date_min": "2025-12-16",
       "date_max": "2026-05-15",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -5029,7 +4884,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 산업통상부",
         "보건복지부",
         "산업통상부"
       ],
@@ -5040,8 +4894,8 @@
       "spend": 859435,
       "date_min": "2024-07-05",
       "date_max": "2026-05-14",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5061,7 +4915,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5071,8 +4924,8 @@
       "spend": 257517,
       "date_min": "2025-06-26",
       "date_max": "2026-04-07",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5092,7 +4945,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5102,8 +4954,8 @@
       "spend": 752000,
       "date_min": "2024-11-13",
       "date_max": "2026-07-24",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5123,7 +4975,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -5134,8 +4985,8 @@
       "spend": 430285,
       "date_min": "2024-11-05",
       "date_max": "2026-05-07",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5155,7 +5006,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5165,8 +5015,8 @@
       "spend": 170399,
       "date_min": "2025-06-27",
       "date_max": "2026-03-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5186,7 +5036,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -5196,8 +5045,8 @@
       "spend": 270195,
       "date_min": "11:32",
       "date_max": "2025-10-10",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5217,7 +5066,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5228,8 +5076,8 @@
       "spend": 12182150,
       "date_min": "12:19",
       "date_max": "2026-05-27",
-      "consensus_score": 75.3,
-      "institution_count": 4,
+      "consensus_score": 70.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5249,7 +5097,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5260,8 +5107,8 @@
       "spend": 4447128,
       "date_min": "12:13",
       "date_max": "21:46",
-      "consensus_score": 75.3,
-      "institution_count": 4,
+      "consensus_score": 70.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5281,7 +5128,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5292,8 +5138,8 @@
       "spend": 3888667,
       "date_min": "12:24",
       "date_max": "20:57",
-      "consensus_score": 75.3,
-      "institution_count": 4,
+      "consensus_score": 70.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5313,7 +5159,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5324,8 +5169,8 @@
       "spend": 3309000,
       "date_min": "12:30",
       "date_max": "21:17",
-      "consensus_score": 73.5,
-      "institution_count": 4,
+      "consensus_score": 68.7,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5345,7 +5190,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부 · 해양수산부",
         "농림축산식품부",
         "산업통상부",
         "해양수산부"
@@ -5358,7 +5202,7 @@
       "date_min": "2024-02-26",
       "date_max": "2026-08-24",
       "consensus_score": 73.0,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5378,7 +5222,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -5389,8 +5232,8 @@
       "spend": 1118145,
       "date_min": "2024-02-15",
       "date_max": "2025-12-31",
-      "consensus_score": 73.0,
-      "institution_count": 4,
+      "consensus_score": 68.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5410,7 +5253,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부 · 통일부",
         "농림축산식품부",
         "산업통상부",
         "통일부"
@@ -5423,7 +5265,7 @@
       "date_min": "12:46",
       "date_max": "2026-08-24",
       "consensus_score": 70.7,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5443,7 +5285,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5454,8 +5295,8 @@
       "spend": 2347000,
       "date_min": "12:45",
       "date_max": "2026-04-16",
-      "consensus_score": 70.0,
-      "institution_count": 4,
+      "consensus_score": 65.1,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5475,7 +5316,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5486,8 +5326,8 @@
       "spend": 974111,
       "date_min": "12:22",
       "date_max": "21:03",
-      "consensus_score": 69.2,
-      "institution_count": 4,
+      "consensus_score": 64.3,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5507,7 +5347,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 법제처 · 해양수산부",
         "법제처",
         "해양수산부"
       ],
@@ -5518,8 +5357,8 @@
       "spend": 292000,
       "date_min": "2024-04-15",
       "date_max": "2026-07-15",
-      "consensus_score": 69.2,
-      "institution_count": 4,
+      "consensus_score": 64.3,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5539,7 +5378,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부 · 산업통상부",
         "농림축산식품부",
         "산업통상부"
       ],
@@ -5550,8 +5388,8 @@
       "spend": 2440386,
       "date_min": "2024-05-27",
       "date_max": "2026-07-21",
-      "consensus_score": 68.3,
-      "institution_count": 4,
+      "consensus_score": 63.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5571,7 +5409,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 해양수산부",
         "해양수산부"
       ],
       "cohorts": [
@@ -5581,8 +5418,8 @@
       "spend": 417000,
       "date_min": "2025-02-19",
       "date_max": "2025-08-26",
-      "consensus_score": 63.5,
-      "institution_count": 3,
+      "consensus_score": 57.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5602,7 +5439,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 해양수산부",
         "해양수산부"
       ],
       "cohorts": [
@@ -5612,8 +5448,8 @@
       "spend": 315000,
       "date_min": "2024-05-22",
       "date_max": "2026-07-28",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5633,7 +5469,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5644,8 +5479,8 @@
       "spend": 1396135,
       "date_min": "12:37",
       "date_max": "2026-04-24",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5665,7 +5500,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5675,8 +5509,8 @@
       "spend": 1357112,
       "date_min": "2024-09-30",
       "date_max": "2026-03-04",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5696,7 +5530,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5706,8 +5539,8 @@
       "spend": 2475490,
       "date_min": "2024-04-08",
       "date_max": "2026-02-26",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5727,7 +5560,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -5738,8 +5570,8 @@
       "spend": 945108,
       "date_min": "2024-08-08",
       "date_max": "2025-10-20",
-      "consensus_score": 67.4,
-      "institution_count": 4,
+      "consensus_score": 62.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5759,7 +5591,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 법제처 · 해양수산부",
         "법제처",
         "해양수산부"
       ],
@@ -5770,8 +5601,8 @@
       "spend": 128634,
       "date_min": "2024-04-03",
       "date_max": "2026-08-25",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5791,7 +5622,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 농림축산식품부",
         "농림축산식품부"
       ],
       "cohorts": [
@@ -5801,8 +5631,8 @@
       "spend": 734487,
       "date_min": "2026-03-04",
       "date_max": "2026-08-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5822,7 +5652,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5832,8 +5661,8 @@
       "spend": 1175500,
       "date_min": "2024-02-07",
       "date_max": "2026-07-07",
-      "consensus_score": 61.4,
-      "institution_count": 3,
+      "consensus_score": 55.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
@@ -5853,7 +5682,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5864,8 +5692,8 @@
       "spend": 1946100,
       "date_min": "11:12",
       "date_max": "2026-03-11",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5885,7 +5713,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -5896,8 +5723,8 @@
       "spend": 1207060,
       "date_min": "13:17",
       "date_max": "2026-01-22",
-      "consensus_score": 66.3,
-      "institution_count": 4,
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5917,7 +5744,6 @@
       ],
       "institutions": [
         "법제처",
-        "법제처 · 보건복지부 · 산업통상부 · 해양수산부",
         "보건복지부",
         "산업통상부",
         "해양수산부"
@@ -5930,7 +5756,7 @@
       "date_min": "2025-07-21",
       "date_max": "2026-07-27",
       "consensus_score": 65.0,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5950,7 +5776,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -5960,8 +5785,8 @@
       "spend": 965275,
       "date_min": "2024-03-29",
       "date_max": "2026-04-16",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5981,7 +5806,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -5991,8 +5815,8 @@
       "spend": 573448,
       "date_min": "11:51",
       "date_max": "2026-03-19",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6012,7 +5836,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -6023,8 +5846,8 @@
       "spend": 1003500,
       "date_min": "2024-11-22",
       "date_max": "2026-01-30",
-      "consensus_score": 65.0,
-      "institution_count": 4,
+      "consensus_score": 60.1,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6044,7 +5867,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -6055,8 +5877,8 @@
       "spend": 286144,
       "date_min": "2025-04-29",
       "date_max": "2026-03-31",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6076,7 +5898,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -6087,8 +5908,8 @@
       "spend": 486152,
       "date_min": "2024-01-09",
       "date_max": "2026-02-04",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6108,7 +5929,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부 · 해양수산부",
         "산업통상부",
         "해양수산부"
       ],
@@ -6119,8 +5939,8 @@
       "spend": 349156,
       "date_min": "2024-04-12",
       "date_max": "2025-07-16",
-      "consensus_score": 63.5,
-      "institution_count": 4,
+      "consensus_score": 58.6,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6140,7 +5960,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 보건복지부 · 해양수산부",
         "보건복지부",
         "해양수산부"
       ],
@@ -6151,8 +5970,8 @@
       "spend": 230000,
       "date_min": "2025-09-02",
       "date_max": "2026-08-20",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6172,7 +5991,6 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "농림축산식품부 · 법제처",
         "법제처"
       ],
       "cohorts": [
@@ -6182,8 +6000,8 @@
       "spend": 628000,
       "date_min": "2026-07-01",
       "date_max": "2026-07-14",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6203,7 +6021,6 @@
       ],
       "institutions": [
         "보건복지부",
-        "보건복지부 · 산업통상부 · 통일부",
         "산업통상부",
         "통일부"
       ],
@@ -6214,8 +6031,8 @@
       "spend": 1036000,
       "date_min": "19:23",
       "date_max": "2026-06-30",
-      "consensus_score": 61.7,
-      "institution_count": 4,
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6235,7 +6052,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 산업통상부",
         "산업통상부"
       ],
       "cohorts": [
@@ -6245,8 +6061,8 @@
       "spend": 112132,
       "date_min": "2025-02-10",
       "date_max": "2026-01-28",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6266,7 +6082,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -6276,8 +6091,8 @@
       "spend": 147204,
       "date_min": "2026-03-24",
       "date_max": "2026-04-01",
-      "consensus_score": 54.4,
-      "institution_count": 3,
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6297,7 +6112,6 @@
       ],
       "institutions": [
         "고용노동부",
-        "고용노동부 · 통일부",
         "통일부"
       ],
       "cohorts": [
@@ -6307,8 +6121,8 @@
       "spend": 176210,
       "date_min": "2025-11-19",
       "date_max": "2026-02-27",
-      "consensus_score": 54.4,
-      "institution_count": 3,
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
