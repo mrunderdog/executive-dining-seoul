@@ -335,9 +335,10 @@
       "institution": "남양주시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://nyjc.go.kr/content/dataroom/propelclosed.html",
+      "adapter": "listing_quarter_regex",
+      "note": "Official quarterly council operating-expense disclosure."
     },
     {
       "region": "경기",

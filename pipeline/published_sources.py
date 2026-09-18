@@ -66,6 +66,17 @@ SOURCE_SPECS = {
         "max_records": 30,
         "home_tokens": ("부천",),
     },
+    "namyangju": {
+        "origin": "남양주시",
+        "region": "경기",
+        "jurisdiction": "남양주시",
+        "institution": "남양주시의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("남양주",),
+    },
     "michuhol": {
         "origin": "미추홀구",
         "region": "인천",

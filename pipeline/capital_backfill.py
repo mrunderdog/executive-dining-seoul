@@ -39,6 +39,7 @@ SOURCES = [
     Source("goyang", "경기", "고양시", "고양특례시의회", "https://www.goyangcouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 10, "quarterly"),
     Source("seongnam", "경기", "성남시", "성남시의회", "https://www.sncouncil.go.kr/kr/news/bbsCost.do?pageNum={page}", 10, "quarterly"),
     Source("bucheon", "경기", "부천시", "부천시의회", "https://council.bucheon.go.kr/kr/intro/bbsInfo.do?pageNum={page}", 15, "monthly"),
+    Source("namyangju", "경기", "남양주시", "남양주시의회", "https://nyjc.go.kr/content/dataroom/propelclosed.html", 1, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
     Source("michuhol", "인천", "미추홀구", "미추홀구의회", "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage={page}&keyfield=&keyword=", 8, "monthly"),
     Source("yeonsu", "인천", "연수구", "연수구의회", "https://council.yeonsu.go.kr/kr/businessBBS.do?flag=all&page={page}", 12, "monthly"),
@@ -151,6 +152,9 @@ def title_period(title: str):
     m = re.search(r"(20\d{2})\s+(\d{1,2})\s*월", normalized)
     if m:
         return int(m.group(1)), int(m.group(2)), None
+    m = re.search(r"(20\d{2})\s*년?\s*([1-4])\s*/\s*4\s*분기", title)
+    if m:
+        return int(m.group(1)), None, int(m.group(2))
     m = re.search(r"(?:(20)?(\d{2}))\s*년?\s*([1-4])\s*분기", title)
     if m:
         year = int((m.group(1) or "20") + m.group(2))
