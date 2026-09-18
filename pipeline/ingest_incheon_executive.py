@@ -50,6 +50,7 @@ def main():
                     for r in norm:
                         r["region"]="인천"
                         r["jurisdiction"]="인천광역시"
+                        r["cohort"]="regional_executive"
                         r["source_post_url"]=post.get("post_url") or ""
                         r["source_period"]=post.get("period")
                         r["scope"]=post.get("scope") or ""
