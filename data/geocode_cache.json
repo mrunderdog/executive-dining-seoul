@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 100,
+    "failed_count": 105,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 840,
-    "success_count": 740,
-    "updated_at": "2026-09-18T16:52:17+00:00"
+    "record_count": 852,
+    "success_count": 747,
+    "updated_at": "2026-09-18T17:02:23+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -601,6 +601,17 @@
       ],
       "updated_at": "2026-09-18T13:42:44+00:00"
     },
+    "경복궁구월점|인천시청": {
+      "failed": true,
+      "fingerprint": "cde38f4079a848f6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:경복궁구월점 인천 남동구",
+        "nominatim:경복궁구월점 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:12+00:00"
+    },
     "경복궁남도식탁|중앙정부": {
       "addr_type": "POI",
       "display_name": "경복궁 남도식탁",
@@ -629,6 +640,17 @@
         "nominatim:경복궁삼계탕 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:49+00:00"
+    },
+    "경복궁삼계탕|인천시청": {
+      "failed": true,
+      "fingerprint": "c20a058bc457888c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:경복궁삼계탕 인천 남동구",
+        "nominatim:경복궁삼계탕 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:17+00:00"
     },
     "경복궁여의도아이에프씨점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -2572,6 +2594,24 @@
         "arcgis:대우송도호텔 인천 연수구"
       ],
       "updated_at": "2026-09-18T13:42:42+00:00"
+    },
+    "대우송도호텔|인천시청": {
+      "addr_type": "POI",
+      "display_name": "대우송도호텔(주)",
+      "fingerprint": "848c26073d32e1ff",
+      "geocoder_version": 4,
+      "lat": 37.390167345,
+      "lon": 126.645435025,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "대우송도호텔 인천 연수구",
+      "result_name": "대우송도호텔(주)",
+      "score": 94.21,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대우송도호텔 인천 연수구"
+      ],
+      "updated_at": "2026-09-18T17:02:10+00:00"
     },
     "대진도원참치|중앙정부": {
       "addr_type": "POI",
@@ -5726,6 +5766,17 @@
       ],
       "updated_at": "2026-09-18T13:42:54+00:00"
     },
+    "삿뽀로구월점|인천시청": {
+      "failed": true,
+      "fingerprint": "7c2a03364d942826",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:삿뽀로구월점 인천 남동구",
+        "nominatim:삿뽀로구월점 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:22+00:00"
+    },
     "삿뽀로여의도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국제금융로 10",
@@ -6436,6 +6487,24 @@
       ],
       "updated_at": "2026-09-18T13:42:39+00:00"
     },
+    "설농가옥|인천시청": {
+      "addr_type": "POI",
+      "display_name": "설농가옥",
+      "fingerprint": "2e10467a30daeb98",
+      "geocoder_version": 4,
+      "lat": 37.450353738,
+      "lon": 126.7060842,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "설농가옥 인천 남동구",
+      "result_name": "설농가옥",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:설농가옥 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:09+00:00"
+    },
     "설화생갈비(인천 남동구 소재)|인천시청": {
       "failed": true,
       "fingerprint": "cefe111f29c10fac",
@@ -6446,6 +6515,17 @@
         "nominatim:설화생갈비 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:52+00:00"
+    },
+    "설화생갈비|인천시청": {
+      "failed": true,
+      "fingerprint": "db463f7cf0f6e84c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:설화생갈비 인천 남동구",
+        "nominatim:설화생갈비 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:19+00:00"
     },
     "성한가든|성북구": {
       "addr_type": "PointAddress",
@@ -6970,6 +7050,24 @@
       ],
       "updated_at": "2026-09-18T13:42:55+00:00"
     },
+    "솔잎사골순대아구찜탕|인천시청": {
+      "addr_type": "POI",
+      "display_name": "솔잎사골순대,아구찜.탕",
+      "fingerprint": "6a68054c1068a328",
+      "geocoder_version": 4,
+      "lat": 37.398026708,
+      "lon": 126.717145563,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "솔잎사골순대아구찜탕 인천 남동구",
+      "result_name": "솔잎사골순대,아구찜.탕",
+      "score": 92.64,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:솔잎사골순대아구찜탕 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:23+00:00"
+    },
     "송도갈매기(인천 남동구 소재)|인천시청": {
       "failed": true,
       "fingerprint": "12e5fbc3277a0d4b",
@@ -6980,6 +7078,17 @@
         "nominatim:송도갈매기 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:47+00:00"
+    },
+    "송도갈매기|인천시청": {
+      "failed": true,
+      "fingerprint": "2f3638f5780e2d35",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:송도갈매기 인천 남동구",
+        "nominatim:송도갈매기 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:15+00:00"
     },
     "송도식당|연수구": {
       "addr_type": "POI",
@@ -10730,6 +10839,24 @@
       ],
       "updated_at": "2026-09-18T13:42:55+00:00"
     },
+    "젊은농부해피타운|인천시청": {
+      "addr_type": "POI",
+      "display_name": "젊은농부해피타운",
+      "fingerprint": "afba514600831101",
+      "geocoder_version": 4,
+      "lat": 37.451068429,
+      "lon": 126.706619096,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "젊은농부해피타운 인천 남동구",
+      "result_name": "젊은농부해피타운",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:젊은농부해피타운 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:22+00:00"
+    },
     "정가|관악구": {
       "addr_type": "PointAddress",
       "display_name": "서울 관악구 봉천동 남부순환로 1710",
@@ -11215,6 +11342,24 @@
         "arcgis:주원일식 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:50+00:00"
+    },
+    "주원일식|인천시청": {
+      "addr_type": "POI",
+      "display_name": "주원일식",
+      "fingerprint": "57b1a65e41755276",
+      "geocoder_version": 4,
+      "lat": 37.451326414,
+      "lon": 126.699036877,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "주원일식 인천 남동구",
+      "result_name": "주원일식",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:주원일식 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:17+00:00"
     },
     "중대양곱창|동작구": {
       "addr_type": "Locality",
@@ -12109,6 +12254,24 @@
         "arcgis:서울 중구 세종대로7길 43"
       ],
       "updated_at": "2026-09-17T23:04:32+00:00"
+    },
+    "취홍|인천시청": {
+      "addr_type": "POI",
+      "display_name": "취홍",
+      "fingerprint": "4abcffbdfb65c852",
+      "geocoder_version": 4,
+      "lat": 37.451340282,
+      "lon": 126.702948432,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "취홍 인천 남동구",
+      "result_name": "취홍",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:취홍 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:09+00:00"
     },
     "치킨마루|동작구": {
       "addr_type": "Locality",
@@ -13844,6 +14007,24 @@
         "arcgis:형제복집 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:38+00:00"
+    },
+    "형제복집|인천시청": {
+      "addr_type": "POI",
+      "display_name": "형제복집",
+      "fingerprint": "594d26a031e8ec49",
+      "geocoder_version": 4,
+      "lat": 37.453536152,
+      "lon": 126.702579487,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "형제복집 인천 남동구",
+      "result_name": "형제복집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:형제복집 인천 남동구"
+      ],
+      "updated_at": "2026-09-18T17:02:08+00:00"
     },
     "호정|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
