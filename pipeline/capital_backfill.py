@@ -112,7 +112,7 @@ def decode_html(raw: bytes, header_charset: str | None) -> str:
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with urllib.request.urlopen(req, timeout=15) as r:
         raw = r.read()
         charset = r.headers.get_content_charset()
     return decode_html(raw, charset)
