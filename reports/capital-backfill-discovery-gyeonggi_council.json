@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T05:27:01",
+  "generated_at": "2026-09-18T08:18:24",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -8,22 +8,8 @@
   "posts": [
     {
       "source": "gyeonggi_council",
-      "region": "경기",
-      "jurisdiction": "경기도",
-      "institution": "경기도의회",
-      "title": "2026년 2분기 업무추진비 사용내역(의장).xlsx 2026년 2분기 의회운영업무추진비 사용내역(의장)",
-      "period": [
-        2026,
-        null,
-        2
-      ],
-      "post_url": "https://www.ggc.go.kr/site/main/duty/list?cp=1&listType=list&sortOrder=DT_USE_DT",
-      "attachments": [
-        {
-          "text": "2026년 2분기 업무추진비 사용내역(의장).xlsx 2026년 2분기 의회운영업무추진비 사용내역(의장).xlsx",
-          "url": "https://www.ggc.go.kr/site/main/file/download/uu/c647c6fbb8e44a699dffc4dc8923ba70"
-        }
-      ]
+      "listing_url": "https://www.ggc.go.kr/site/main/duty/list?cp=1&listType=list&sortOrder=DT_USE_DT",
+      "error": "listing URLError: <urlopen error timed out>"
     }
   ]
 }
