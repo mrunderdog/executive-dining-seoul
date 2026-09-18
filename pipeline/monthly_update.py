@@ -49,6 +49,17 @@ def source_name(src):
     return src.get("institution") or src.get("district") or src.get("jurisdiction") or "unknown"
 
 
+def source_active_for(src, year, month):
+    target=f"{year:04d}-{month:02d}"
+    active_from=str(src.get("active_from") or "")[:7]
+    active_to=str(src.get("active_to") or "")[:7]
+    if active_from and target < active_from:
+        return False
+    if active_to and target > active_to:
+        return False
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--year", type=int)
@@ -63,6 +74,8 @@ def main():
 
     rows = []
     for src in reg["sources"]:
+        if not source_active_for(src,year,month):
+            continue
         region = src.get("region") or "서울"
         if args.region and region != args.region:
             continue
