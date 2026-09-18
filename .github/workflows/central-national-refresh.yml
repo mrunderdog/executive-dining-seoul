@@ -13,6 +13,7 @@ on:
       - 'pipeline/geocode_extra_cache.py'
       - 'pipeline/qa_national_legislator_map.py'
       - 'sources/central_executive_registry.json'
+      - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
     inputs:
       year:
