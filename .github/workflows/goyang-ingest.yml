@@ -41,7 +41,7 @@ jobs:
         shell: bash
         run: |
           set -e
-          for SOURCE in goyang suwon bupyeong; do
+          for SOURCE in goyang suwon bupyeong yeonsu gyeyang ganghwa ongjin; do
             echo "=== ingest $SOURCE ==="
             python pipeline/ingest_council_expense.py --source "$SOURCE"
             python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
@@ -54,7 +54,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          for source in ('goyang','suwon','bupyeong'):
+          for source in ('goyang','suwon','bupyeong','yeonsu','gyeyang','ganghwa','ongjin'):
               p=Path(f'data/raw/{source}_expense.json')
               d=json.loads(p.read_text(encoding='utf-8'))
               rows=d.get('rows',[])
@@ -79,8 +79,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw/goyang_expense.json data/raw/suwon_expense.json data/raw/bupyeong_expense.json
-          git add reports/goyang-* reports/suwon-* reports/bupyeong-* reports/capital-backfill-discovery.*
+          git add data/raw/goyang_expense.json data/raw/suwon_expense.json data/raw/bupyeong_expense.json data/raw/yeonsu_expense.json data/raw/gyeyang_expense.json data/raw/ganghwa_expense.json data/raw/ongjin_expense.json
+          git add reports/goyang-* reports/suwon-* reports/bupyeong-* reports/yeonsu-* reports/gyeyang-* reports/ganghwa-* reports/ongjin-* reports/capital-backfill-discovery.*
           if git diff --cached --quiet; then
             echo "No council data changes."
             exit 0
