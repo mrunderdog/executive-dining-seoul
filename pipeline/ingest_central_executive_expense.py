@@ -7,6 +7,8 @@ import io
 import json
 import re
 import urllib.request
+import zipfile
+import xml.etree.ElementTree as ET
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -60,23 +62,84 @@ def fetch(url):
     req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"*/*"})
     with urllib.request.urlopen(req,timeout=60) as r:return r.read()
 
+def _local(tag):
+    return tag.split("}",1)[-1] if "}" in tag else tag
+
+def hwpx_tables(blob):
+    tables=[]
+    with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+        names=sorted(n for n in zf.namelist() if n.lower().startswith("contents/section") and n.lower().endswith(".xml"))
+        for sec_no,name in enumerate(names,1):
+            try:
+                root=ET.fromstring(zf.read(name))
+            except Exception:
+                continue
+            tno=0
+            for tbl in root.iter():
+                if _local(tbl.tag)!="tbl":
+                    continue
+                tno+=1
+                rows=[]
+                for tr in tbl.iter():
+                    if _local(tr.tag)!="tr":
+                        continue
+                    row=[]
+                    for tc in tr:
+                        if _local(tc.tag)!="tc":
+                            continue
+                        parts=[]
+                        for node in tc.iter():
+                            if _local(node.tag)=="t" and node.text:
+                                parts.append(node.text)
+                        row.append(" ".join(" ".join(parts).split()))
+                    if any(clean(x) for x in row):
+                        rows.append(row)
+                if rows:
+                    tables.append((f"section{sec_no}-table{tno}",rows))
+    return tables
+
 def rows_from(blob,name):
     lower=name.lower()
-    if blob.startswith(b"PK") or ".xlsx" in lower:
+    if ".hwpx" in lower:
+        tables=hwpx_tables(blob)
+        if not tables:
+            raise ValueError("HWPX contained no parseable tables")
+        for item in tables:
+            yield item
+        return
+    if ".xlsx" in lower:
         import openpyxl
         wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
-        for ws in wb.worksheets: yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
+        for ws in wb.worksheets:
+            yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
         return
     if blob.startswith(bytes.fromhex("D0CF11E0A1B11AE1")) or ".xls" in lower:
         import xlrd
         book=xlrd.open_workbook(file_contents=blob)
-        for sh in book.sheets(): yield sh.name,[sh.row_values(i) for i in range(sh.nrows)]
+        for sh in book.sheets():
+            yield sh.name,[sh.row_values(i) for i in range(sh.nrows)]
         return
     if ".csv" in lower:
         text=blob.decode("utf-8-sig",errors="replace")
         import csv
-        yield "csv",list(csv.reader(io.StringIO(text))); return
-    raise ValueError("unsupported spreadsheet")
+        yield "csv",list(csv.reader(io.StringIO(text)))
+        return
+    if blob.startswith(b"PK"):
+        # Unknown ZIP container: try HWPX first, then XLSX.
+        try:
+            tables=hwpx_tables(blob)
+            if tables:
+                for item in tables:
+                    yield item
+                return
+        except Exception:
+            pass
+        import openpyxl
+        wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
+        for ws in wb.worksheets:
+            yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
+        return
+    raise ValueError("unsupported spreadsheet/document")
 
 def header_score(row):
     cells=[nh(x) for x in row]; matched=set()
@@ -127,7 +190,7 @@ def main():
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
             s=(a.get("text","")+" "+a.get("url","")).lower()
-            if not any(ext in s for ext in (".xlsx",".xls",".csv")):continue
+            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx")):continue
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
                 for sheet,rows in rows_from(blob,a.get("text") or a["url"]):

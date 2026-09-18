@@ -116,7 +116,7 @@ def discover_source(src: dict, year: int) -> dict:
                 if not relevant({"text":label,"url":f["url"]}, year): continue
                 if f["url"] in seen_att: continue
                 seen_att.add(f["url"]); y,m=extract_year_month(label); result["attachments"].append({"text":label,"url":f["url"],"year":y,"month":m,"parent":x["url"]})
-    parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in (".xlsx",".xls",".csv")) for a in result["attachments"])
+    parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in (".xlsx",".xls",".csv",".hwpx")) for a in result["attachments"])
     result["parseable_attachments"]=parseable
     result["status"]="PARSEABLE_FOUND" if parseable else ("FILES_FOUND_UNSUPPORTED" if result["attachments"] else ("FETCH_FAILED" if result["errors"] else "NO_FILES_FOUND"))
     return result
