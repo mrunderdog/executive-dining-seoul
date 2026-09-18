@@ -7,6 +7,7 @@ import json
 import re
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -125,7 +126,24 @@ def discover_source(src: dict, year: int) -> dict:
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); ap.add_argument("--source"); args=ap.parse_args()
     reg=json.loads(REGISTRY.read_text(encoding="utf-8")); sources=[x for x in reg.get("sources",[]) if not args.source or x.get("key")==args.source]
-    rows=[discover_source(x,args.year) for x in sources]
+    rows=[]
+    workers=min(8,max(1,len(sources)))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        future_map={pool.submit(discover_source,x,args.year):x for x in sources}
+        for fut in as_completed(future_map):
+            src=future_map[fut]
+            try:
+                rows.append(fut.result())
+            except Exception as e:
+                rows.append({
+                    "key":src["key"],"institution":src["institution"],
+                    "verified":bool(src.get("verified")),"role_scope":src.get("role_scope",""),
+                    "format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
+                    "errors":[f"worker {type(e).__name__}: {e}"],"parseable_attachments":0,
+                    "status":"FETCH_FAILED",
+                })
+    order={x.get("key"):i for i,x in enumerate(sources)}
+    rows.sort(key=lambda r:order.get(r.get("key"),9999))
     REPORTS.mkdir(exist_ok=True)
     out=REPORTS / "central-executive-discovery.json"; out.write_text(json.dumps({"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,"sources":rows},ensure_ascii=False,indent=2),encoding="utf-8")
     md=[f"# Central executive source discovery — {args.year}","","| Institution | Status | Files | Parseable |","|---|---|---:|---:|"]
