@@ -94,5 +94,20 @@ jobs:
           fi
           git commit -m "chore: refresh central and National Assembly data"
           git restore data/geocode_cache.json || true
-          git pull --rebase origin main
+          if ! git pull --rebase origin main; then
+            for F in $(git diff --name-only --diff-filter=U); do
+              case "$F" in
+                reports/*)
+                  git checkout --theirs -- "$F"
+                  git add "$F"
+                  ;;
+                *)
+                  echo "Unexpected rebase conflict: $F"
+                  git rebase --abort
+                  exit 1
+                  ;;
+              esac
+            done
+            GIT_EDITOR=true git rebase --continue
+          fi
           git push origin HEAD:main
