@@ -75,7 +75,7 @@ Register all 67 current basic councils, historical Incheon jurisdiction aliases,
 
 Prioritize sources that expose structured XLS/XLSX/PDF/API data or predictable monthly/quarterly boards. Current priorities are Goyang/Suwon-style council spreadsheets, Seoul City Hall Open Data and regional-government disclosure boards.
 
-Verified expansion sources include Hanam City Council's official monthly business-expense board and Yeoncheon County Council's official monthly expense board. Sources without a confirmed official expense listing remain `discovery_required`; guessed URLs must not be promoted to canonical adapters.
+Verified expansion sources include Hanam City Council's official monthly business-expense board, Yeoncheon County Council's official monthly expense board, and Yangju City Council's official quarterly XLSX board. Sources without a confirmed official expense listing remain `discovery_required`; guessed URLs must not be promoted to canonical adapters.
 
 ### Phase C — backfill
 

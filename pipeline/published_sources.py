@@ -162,6 +162,17 @@ SOURCE_SPECS = {
     "gapyeong":{"origin":"가평군","region":"경기","jurisdiction":"가평군","institution":"가평군의회","min_visits":3,"min_months":2,"min_score":50.0,"max_records":30,"home_tokens":("가평",)},
     "siheung":{"origin":"시흥시","region":"경기","jurisdiction":"시흥시","institution":"시흥시의회","min_visits":4,"min_months":3,"min_score":55.0,"max_records":30,"home_tokens":("시흥",)},
     "yeoju":{"origin":"여주시","region":"경기","jurisdiction":"여주시","institution":"여주시의회","min_visits":4,"min_months":3,"min_score":55.0,"max_records":30,"home_tokens":("여주",)},
+    "yangju": {
+        "origin": "양주시",
+        "region": "경기",
+        "jurisdiction": "양주시",
+        "institution": "양주시의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("양주",),
+    },
     "hanam": {
         "origin": "하남시",
         "region": "경기",

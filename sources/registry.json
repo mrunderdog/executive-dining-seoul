@@ -466,9 +466,10 @@
       "institution": "양주시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://yjcc.yangju.go.kr/yjcc/selectBbsNttList.do?bbsNo=302&key=2559",
+      "adapter": "listing_quarter_regex",
+      "note": "Official council quarterly business-expense board; XLSX attachments confirmed through 2026."
     },
     {
       "region": "경기",
@@ -656,9 +657,10 @@
       "institution": "남동구의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://biz.namdong.go.kr/bbs/bbsMsgList.do?bcd=officially_data",
+      "adapter": "discovery_required_filtered_listing",
+      "note": "Official prior-information board publishes council-member business-expense records, but the board mixes thousands of unrelated records; filtered discovery must be verified before automated ingestion."
     },
     {
       "region": "인천",

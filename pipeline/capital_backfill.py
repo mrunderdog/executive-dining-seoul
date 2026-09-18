@@ -61,6 +61,7 @@ SOURCES = [
     Source("gapyeong", "경기", "가평군", "가평군의회", "https://www.gpassem.go.kr/kr/operations2BBS.do?flag=all&page={page}", 10, "quarterly"),
     Source("siheung", "경기", "시흥시", "시흥시의회", "https://www.siheungcouncil.go.kr/content/activity/business.html?page={page}", 5, "quarterly"),
     Source("yeoju", "경기", "여주시", "여주시의회", "https://yeojucouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("yangju", "경기", "양주시", "양주시의회", "https://yjcc.yangju.go.kr/yjcc/selectBbsNttList.do?bbsNo=302&key=2559&pageIndex={page}", 5, "quarterly"),
     Source("hanam", "경기", "하남시", "하남시의회", "https://council.hanam.go.kr/content/community/business.html?page={page}", 24, "monthly"),
     Source("yeoncheon", "경기", "연천군", "연천군의회", "https://www.yca21.go.kr/board/news/list.do?tbname=cost&page={page}", 12, "monthly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
