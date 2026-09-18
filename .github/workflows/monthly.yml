@@ -161,15 +161,24 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_national_legislator_candidates.py
 
-      - name: Sanity gate staged council raw data
+      - name: Sanity gate successfully refreshed council raw data
         if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          sources=['goyang','suwon','bupyeong','yeonsu','gyeyang','ganghwa','ongjin','gyeonggi_council']
-          for source in sources:
+          status={}
+          sp=Path('/tmp/monthly-council-status.tsv')
+          if sp.exists():
+              for line in sp.read_text().splitlines():
+                  if '\t' in line:
+                      k,v=line.split('\t',1); status[k]=v
+          checked=0
+          for source,state in status.items():
+              if state!='OK':
+                  print(source, state)
+                  continue
               p=Path(f'data/raw/{source}_expense.json')
               d=json.loads(p.read_text(encoding='utf-8'))
               rows=d.get('rows',[])
@@ -180,7 +189,10 @@ jobs:
               date=d.get('raw_quality',{}).get('valid_date_coverage',0)
               if merchant < .70 or amount < .70 or date < .95:
                   raise SystemExit(f'{source}: raw coverage failed merchant={merchant:.1%}, amount={amount:.1%}, date={date:.1%}')
+              checked += 1
               print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date})
+          if checked < 3:
+              raise SystemExit(f'only {checked} council sources refreshed successfully')
           PY
 
       - name: Geocode central and National Assembly pre-QA candidates
