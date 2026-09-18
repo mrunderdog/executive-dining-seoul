@@ -8,9 +8,9 @@ Executive Dining expands from Seoul basic local councils to a broader public-sec
 
 - Seoul: 25 basic local councils
 - Gyeonggi: 31 basic local councils
-- Incheon: 10 basic local councils
+- Incheon: 11 current basic local councils (from 2026-07-01)
 
-Total: **66 basic local councils**.
+Current total: **67 basic local councils**. Historical Incheon records before 2026-07-01 retain the former 10-jurisdiction structure so event lineage is not rewritten.
 
 ### Regional legislatures (P0.5)
 
@@ -69,7 +69,7 @@ Legacy Seoul seed records may still contain only `origin` such as `중랑구`; U
 
 ### Phase A — source registry
 
-Register all 66 basic councils, 3 regional councils and supplemental executive/legislator source families. Mark only manually verified official disclosure surfaces as verified.
+Register all 67 current basic councils, historical Incheon jurisdiction aliases, 3 regional councils and supplemental executive/legislator source families. Mark only manually verified official disclosure surfaces as verified.
 
 ### Phase B — high-yield adapters
 
