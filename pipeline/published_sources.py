@@ -33,6 +33,17 @@ SOURCE_SPECS = {
         "max_records": 30,
         "home_tokens": ("수원",),
     },
+    "hwaseong": {
+        "origin": "화성시",
+        "region": "경기",
+        "jurisdiction": "화성특례시",
+        "institution": "화성특례시의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("화성",),
+    },
     "bupyeong": {
         "origin": "부평구",
         "region": "인천",
