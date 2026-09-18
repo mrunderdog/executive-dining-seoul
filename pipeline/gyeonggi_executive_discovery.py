@@ -17,6 +17,14 @@ UA = "ExecutiveDiningSeoul/3.0 (+https://github.com/mrunderdog/executive-dining-
 
 LISTING = "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page={page}"
 FILE_EXTS = (".xlsx", ".xls", ".csv")
+SEED_POSTS = {
+    2026: [
+        {
+            "title": "2026년 1분기 시책추진업무추진비 사용내역(건설정책과)",
+            "url": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294031&bcIdx=536&bsIdx=535&menuId=1778&page=1",
+        }
+    ]
+}
 
 
 class AnchorParser(HTMLParser):
@@ -103,6 +111,60 @@ def regex_file_fallback(base: str, doc: str) -> list[dict]:
     return out
 
 
+
+def crawl_seed_posts(year: int, max_posts: int = 300) -> tuple[list[dict], list[dict]]:
+    """Fallback for the JS-rendered board listing.
+
+    Official detail pages expose previous/next boardView links and attachment download
+    links in server-rendered HTML, so walk the same board from a verified yearly seed.
+    """
+    queue=list(SEED_POSTS.get(year) or [])
+    seen=set()
+    posts=[]
+    errors=[]
+    while queue and len(seen) < max_posts:
+        item=queue.pop(0)
+        url=item.get("url") or ""
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        title=item.get("title") or ""
+        try:
+            doc=fetch(url)
+        except Exception as e:
+            errors.append({"url":url,"error":f"seed detail {type(e).__name__}: {e}"})
+            continue
+
+        # Discover adjacent posts from this exact board.
+        for x in links(url,doc):
+            u=x.get("url") or ""
+            txt=x.get("text") or ""
+            if "boardView.do" not in u or "bsIdx=535" not in u:
+                continue
+            if "업무추진비" not in txt or str(year) not in txt:
+                continue
+            if u not in seen and all(q.get("url") != u for q in queue):
+                queue.append({"title":txt,"url":u})
+
+        if "업무추진비" not in title or str(year) not in title:
+            continue
+        atts=[x for x in links(url,doc) if looks_file(x)]
+        if not atts:
+            atts=regex_file_fallback(url,doc)
+        posts.append({
+            "source":"gyeonggi_province",
+            "region":"경기",
+            "jurisdiction":"경기도",
+            "institution":"경기도청",
+            "title":title,
+            "department":department_from(title),
+            "period":quarter_from(title),
+            "post_url":url,
+            "attachments":atts,
+            "discovery_mode":"detail_chain",
+        })
+    return posts, errors
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--year",type=int,default=datetime.now().year)
@@ -144,6 +206,18 @@ def main():
             except Exception as e:
                 row["error"]=f"{type(e).__name__}: {e}"
             posts.append(row)
+
+    if not posts:
+        fallback_posts,fallback_errors=crawl_seed_posts(args.year)
+        posts.extend(fallback_posts)
+        errors.extend(fallback_errors)
+
+    # Stable de-duplication when both listing and fallback see the same detail.
+    by_url={}
+    for p in posts:
+        if p.get("post_url"):
+            by_url[p["post_url"]]=p
+    posts=list(by_url.values())
 
     REPORTS.mkdir(exist_ok=True)
     payload={
