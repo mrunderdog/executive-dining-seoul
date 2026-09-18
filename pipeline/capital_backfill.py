@@ -41,6 +41,7 @@ SOURCES = [
     Source("gyeyang", "인천", "계양구", "계양구의회", "https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("ganghwa", "인천", "강화군", "강화군의회", "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("ongjin", "인천", "옹진군", "옹진군의회", "https://council.ongjin.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
+    Source("gyeonggi_council", "경기", "경기도", "경기도의회", "https://www.ggc.go.kr/site/main/duty/list?cp={page}&listType=list&sortOrder=DT_USE_DT", 12, "quarterly"),
 ]
 
 
@@ -216,6 +217,26 @@ def discover_source(src: Source, since, until):
             posts.append({"source": src.key, "listing_url": url, "error": f"listing {type(e).__name__}: {e}"})
             break
         for a in anchors(url, doc):
+            if src.key == "gyeonggi_council":
+                title=a.get("text","")
+                period=title_period(title)
+                if not period_overlaps(period, since, until):
+                    continue
+                # The official Gyeonggi Council list links the title directly to
+                # an XLS/XLSX download. Keep only chair/vice-chair leadership files.
+                if "업무추진비" not in title or not re.search(r"\((?:의장|1부의장|2부의장)\)", title):
+                    continue
+                if "/file/download/" not in a.get("url",""):
+                    continue
+                if a["url"] in seen_posts:
+                    continue
+                seen_posts.add(a["url"])
+                posts.append({
+                    "source":src.key,"region":src.region,"jurisdiction":src.jurisdiction,
+                    "institution":src.institution,"title":title,"period":period,
+                    "post_url":url,"attachments":[{"text":title+".xlsx","url":a["url"]}],
+                })
+                continue
             if not post_like(a, src):
                 continue
             period = title_period(a["text"])
