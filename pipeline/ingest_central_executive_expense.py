@@ -167,6 +167,13 @@ def mapping(row):
 def cell(row,m,k):
     i=m.get(k); return row[i] if i is not None and i<len(row) else None
 
+def infer_role(label):
+    s=clean(label)
+    for token in ("1차관","2차관","차관","장관","국무총리","총리","본부장","처장","청장","실장","국장"):
+        if token in s:
+            return token
+    return ""
+
 def normalize(rows,sheet,meta):
     h=find_header(rows)
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER"}
@@ -177,7 +184,8 @@ def normalize(rows,sheet,meta):
         if not merchant and amt is None:continue
         joined=" ".join(clean(x) for x in row[:10])
         if any(k in joined for k in ("합계","총계","누계")) and not d:continue
-        role=clean(cell(row,m,"role")); dept=clean(cell(row,m,"department"))
+        role=clean(cell(row,m,"role")) or clean(meta.get("default_role"))
+        dept=clean(cell(row,m,"department"))
         r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":clean(cell(row,m,"time")),"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
@@ -193,8 +201,10 @@ def main():
             if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx")):continue
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
-                for sheet,rows in rows_from(blob,a.get("text") or a["url"]):
-                    norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"]}); all_rows.extend(norm);info["sheets"].append(si)
+                label=a.get("text") or a["url"]
+                default_role=infer_role(label+" "+src.get("role_scope",""))
+                for sheet,rows in rows_from(blob,label):
+                    norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role}); all_rows.extend(norm);info["sheets"].append(si)
                 files.append(info)
             except Exception as e: errors.append({"institution":src["institution"],"url":a.get("url"),"error":f"{type(e).__name__}: {e}"})
     unique={r["row_id"]:r for r in all_rows}; rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
