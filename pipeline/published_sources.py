@@ -121,6 +121,17 @@ SOURCE_SPECS = {
         "max_records": 40,
         "home_tokens": ("경기", "수원"),
     },
+    "incheon_council": {
+        "origin": "인천시의회",
+        "region": "인천",
+        "jurisdiction": "인천광역시",
+        "institution": "인천광역시의회",
+        "min_visits": 3,
+        "min_months": 2,
+        "min_score": 50.0,
+        "max_records": 40,
+        "home_tokens": ("인천",),
+    },
 }
 
 REGIONAL_EXEC_SPECS = {
@@ -205,9 +216,15 @@ def _category(name: str) -> str:
     return "업종 확인 필요"
 
 
-def _role_bucket(role: str) -> str | None:
+def _role_bucket(role: str, include_committees: bool = False) -> str | None:
     s = re.sub(r"\s+", "", _txt(role))
-    return s if s in {"의장", "부의장"} else None
+    if s == "의장":
+        return "의장"
+    if s in {"부의장", "1부의장", "2부의장"}:
+        return "부의장"
+    if include_committees and s.endswith("위원장"):
+        return s
+    return None
 
 
 def _most_common(values: list[str]) -> str:
@@ -263,9 +280,10 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
     selected = selected[:spec["max_records"]]
     selected_names = {c["merchant"] for c in selected}
     grouped: dict[str, list[dict]] = defaultdict(list)
+    include_committees = source in {"gyeonggi_council", "incheon_council"}
     for r in raw.get("rows", []):
         name = _canonical(r.get("merchant"))
-        if name not in selected_names or r.get("date_quality") != "in_period" or not _role_bucket(r.get("role")):
+        if name not in selected_names or r.get("date_quality") != "in_period" or not _role_bucket(r.get("role"), include_committees):
             continue
         grouped[name].append(r)
     out = []
@@ -282,12 +300,12 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
         address = _txt(override.get("address")) or raw_address
         role_map = defaultdict(lambda: {"visits":0,"people":0,"spend":0})
         for r in rows:
-            role = _role_bucket(r.get("role")) or _txt(r.get("role")) or "직책 미상"
+            role = _role_bucket(r.get("role"), include_committees) or _txt(r.get("role")) or "직책 미상"
             role_map[role]["visits"] += 1; role_map[role]["people"] += int(r.get("people") or 0); role_map[role]["spend"] += int(r.get("amount") or 0)
         roles = [{"role":role, **vals} for role, vals in sorted(role_map.items(), key=lambda kv:(kv[1]["visits"],kv[1]["spend"]), reverse=True)]
         purposes_count = Counter(_txt(r.get("purpose")) for r in rows if _txt(r.get("purpose")))
         purposes = [{"text":text,"count":count} for text,count in purposes_count.most_common(5)]
-        recent = [{"date":_txt(r.get("used_date")),"time":_txt(r.get("used_time")),"role":_role_bucket(r.get("role")) or _txt(r.get("role")),"people":int(r.get("people") or 0),"amount":int(r.get("amount") or 0),"purpose":_txt(r.get("purpose")),"source":_txt(r.get("source_post_url"))} for r in reversed(rows[-8:])]
+        recent = [{"date":_txt(r.get("used_date")),"time":_txt(r.get("used_time")),"role":_role_bucket(r.get("role"), include_committees) or _txt(r.get("role")),"people":int(r.get("people") or 0),"amount":int(r.get("amount") or 0),"purpose":_txt(r.get("purpose")),"source":_txt(r.get("source_post_url"))} for r in reversed(rows[-8:])]
         outside_flags = [_is_outside_home(r.get("address") or "", spec["home_tokens"]) for r in rows]
         outside_known = [x for x in outside_flags if x is not None]
         outside_count = sum(1 for x in outside_known if x); outside_ratio = round(outside_count/len(outside_known),3) if outside_known else 0.0
