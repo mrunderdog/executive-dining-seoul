@@ -13,6 +13,64 @@ def t(v) -> str:
     return " ".join(str(v or "").split()).strip()
 
 
+CENTRAL_ROLE_TIER_ORDER = {
+    "other": 0,
+    "director_general": 1,
+    "senior_official": 2,
+    "agency_head": 3,
+    "vice_minister": 4,
+    "minister": 5,
+    "deputy_prime_minister": 6,
+    "prime_minister": 7,
+}
+CENTRAL_ROLE_TIER_LABEL = {
+    "other": "기타 공개 직위",
+    "director_general": "국장급",
+    "senior_official": "실장급",
+    "agency_head": "기관장·본부장급",
+    "vice_minister": "차관급",
+    "minister": "장관급",
+    "deputy_prime_minister": "부총리급",
+    "prime_minister": "국무총리급",
+}
+
+
+def _central_role_tier(role: str) -> str:
+    s = t(role)
+    if "국무총리" in s or s == "총리":
+        return "prime_minister"
+    if "부총리" in s:
+        return "deputy_prime_minister"
+    if "차관" in s:
+        return "vice_minister"
+    if "장관" in s:
+        return "minister"
+    if any(x in s for x in ("처장", "청장", "본부장")):
+        return "agency_head"
+    if "실장" in s:
+        return "senior_official"
+    if "국장" in s:
+        return "director_general"
+    return "other"
+
+
+def _central_tier_summary(candidate: dict) -> dict:
+    counts = {k: 0 for k in CENTRAL_ROLE_TIER_ORDER}
+    for row in candidate.get("role_stats") or []:
+        tier = _central_role_tier(row.get("role"))
+        counts[tier] += int(row.get("visits") or 0)
+    top = max(counts, key=lambda k: CENTRAL_ROLE_TIER_ORDER[k]) if any(counts.values()) else "other"
+    return {
+        "top_role_tier": top,
+        "top_role_label": CENTRAL_ROLE_TIER_LABEL[top],
+        "top_official_visits": sum(counts[k] for k in ("prime_minister", "deputy_prime_minister", "minister", "vice_minister")),
+        "prime_minister_visits": counts["prime_minister"],
+        "deputy_prime_minister_visits": counts["deputy_prime_minister"],
+        "minister_visits": counts["minister"],
+        "vice_minister_visits": counts["vice_minister"],
+    }
+
+
 def _legislator_candidate_doc() -> dict:
     p = REPORTS / "national-legislator-candidates.json"
     if not p.exists():
@@ -43,9 +101,14 @@ def central_records(max_records: int = 120) -> list[dict]:
         months = int(c.get("months") or 0)
         score = float(c.get("score") or 0)
         spend = int(c.get("spend") or 0)
-        top_role_tier = t(c.get("top_role_tier"))
-        top_role_label = t(c.get("top_role_label"))
-        top_official_visits = int(c.get("top_official_visits") or 0)
+        inferred_tiers = _central_tier_summary(c)
+        top_role_tier = t(c.get("top_role_tier")) or inferred_tiers["top_role_tier"]
+        top_role_label = t(c.get("top_role_label")) or inferred_tiers["top_role_label"]
+        top_official_visits = int(c.get("top_official_visits") or inferred_tiers["top_official_visits"])
+        prime_minister_visits = int(c.get("prime_minister_visits") or inferred_tiers["prime_minister_visits"])
+        deputy_prime_minister_visits = int(c.get("deputy_prime_minister_visits") or inferred_tiers["deputy_prime_minister_visits"])
+        minister_visits = int(c.get("minister_visits") or inferred_tiers["minister_visits"])
+        vice_minister_visits = int(c.get("vice_minister_visits") or inferred_tiers["vice_minister_visits"])
         roles = [
             {"role": t(x.get("role")), "visits": int(x.get("visits") or 0), "people": 0, "spend": 0}
             for x in (c.get("role_stats") or []) if t(x.get("role"))
@@ -81,8 +144,10 @@ def central_records(max_records: int = 120) -> list[dict]:
                 "top_role_tier": top_role_tier,
                 "top_role_label": top_role_label,
                 "top_official_visits": top_official_visits,
-                "minister_visits": int(c.get("minister_visits") or 0),
-                "vice_minister_visits": int(c.get("vice_minister_visits") or 0),
+                "prime_minister_visits": prime_minister_visits,
+                "deputy_prime_minister_visits": deputy_prime_minister_visits,
+                "minister_visits": minister_visits,
+                "vice_minister_visits": vice_minister_visits,
             },
             "address": address,
             "search_query": f"{name} {address or '대한민국'}",
