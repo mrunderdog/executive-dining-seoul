@@ -145,8 +145,18 @@ def merge_global_entities(payload: dict) -> dict:
     merged_groups = 0
     for key, rows in groups.items():
         primary = deepcopy(_best_record(rows))
-        origins = sorted({t(r.get("origin")) for r in rows if t(r.get("origin"))})
-        institutions = sorted({t(r.get("institution")) for r in rows if t(r.get("institution"))})
+        origins = sorted({
+            t(o)
+            for r in rows
+            for o in ((r.get("origins") or []) + ([r.get("origin")] if r.get("origin") else []))
+            if t(o)
+        })
+        institutions = sorted({
+            t(i)
+            for r in rows
+            for i in ((r.get("institutions") or []) + ([r.get("institution")] if r.get("institution") else []))
+            if t(i)
+        })
         multi = len(origins) > 1
         primary["origins"] = origins
         primary["institutions"] = institutions

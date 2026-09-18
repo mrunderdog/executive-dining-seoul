@@ -543,8 +543,12 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
         reverse=True,
     )
     out = []
-    for rank, x in enumerate(publishable[:max_records], 1):
+    rank = 0
+    for x in publishable[:max_records]:
         name = _txt(x.get("merchant")); address = _txt(x.get("address"))
+        if not name or name in {"-", "미상", "상호없음", "상호 없음", "확인불가", "확인 불가"}:
+            continue
+        rank += 1
         location_hint = ""
         m = re.search(r"\(([^()]*(?:시|군|구)[^()]*?)\s*소재\)", name)
         if m:

@@ -20,7 +20,7 @@ def t(v): return " ".join(str(v or "").split()).strip()
 
 def looks_meal(r):
     merchant=t(r.get("merchant")); purpose=t(r.get("purpose"))
-    if not merchant: return False
+    if not merchant or merchant in {"-", "미상", "상호없음", "상호 없음", "확인불가", "확인 불가"}: return False
     s=f"{merchant} {purpose}"
     if any(x in s for x in EXCLUDE_WORDS): return False
     return any(x in purpose for x in MEAL_WORDS) or any(x in t(r.get("role")) for x in ("시장","부시장"))

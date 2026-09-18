@@ -131,6 +131,7 @@ def central_records(max_records: int = 120) -> list[dict]:
             "region": "전국",
             "jurisdiction": "대한민국",
             "institution": " · ".join(inst[:4]) or "중앙행정기관",
+            "institutions": inst,
             "type": "executive",
             "destination": None,
             "executive": {
