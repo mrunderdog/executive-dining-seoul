@@ -34,39 +34,38 @@ jobs:
       - name: Install spreadsheet parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
 
-      - name: Refresh supported councils independently
+      - name: Refresh supported councils in parallel
         shell: bash
         run: |
           set +e
+          SOURCES="goyang suwon hwaseong bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council"
+          refresh_one() {
+            SOURCE="$1"
+            LOG="/tmp/council-$SOURCE.log"
+            STATUS="/tmp/council-$SOURCE.status"
+            {
+              echo "=== discover $SOURCE ==="
+              python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE" || { echo "DISCOVERY_FAILED" > "$STATUS"; exit 0; }
+              echo "=== ingest $SOURCE ==="
+              python pipeline/ingest_council_expense.py --source "$SOURCE" || { echo "INGEST_FAILED" > "$STATUS"; exit 0; }
+              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 || { echo "DATE_QA_FAILED" > "$STATUS"; exit 0; }
+              python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { echo "CANDIDATE_FAILED" > "$STATUS"; exit 0; }
+              echo "OK" > "$STATUS"
+            } > "$LOG" 2>&1
+          }
+          PIDS=""
+          for SOURCE in $SOURCES; do
+            refresh_one "$SOURCE" &
+            PIDS="$PIDS $!"
+          done
+          for PID in $PIDS; do wait "$PID"; done
+
           : > /tmp/council-status.tsv
-          for SOURCE in goyang suwon hwaseong bupyeong yeonsu gyeyang ganghwa ongjin gyeonggi_council; do
-            echo "=== discover $SOURCE ==="
-            python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
-            DISC=$?
-            if [[ $DISC -ne 0 ]]; then
-              echo -e "$SOURCE\tDISCOVERY_FAILED" >> /tmp/council-status.tsv
-              continue
-            fi
-            echo "=== ingest $SOURCE ==="
-            python pipeline/ingest_council_expense.py --source "$SOURCE"
-            ING=$?
-            if [[ $ING -ne 0 ]]; then
-              echo -e "$SOURCE\tINGEST_FAILED" >> /tmp/council-status.tsv
-              continue
-            fi
-            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
-            DATE=$?
-            if [[ $DATE -ne 0 ]]; then
-              echo -e "$SOURCE\tDATE_QA_FAILED" >> /tmp/council-status.tsv
-              continue
-            fi
-            python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
-            CAND=$?
-            if [[ $CAND -ne 0 ]]; then
-              echo -e "$SOURCE\tCANDIDATE_FAILED" >> /tmp/council-status.tsv
-              continue
-            fi
-            echo -e "$SOURCE\tOK" >> /tmp/council-status.tsv
+          for SOURCE in $SOURCES; do
+            STATE="$(cat "/tmp/council-$SOURCE.status" 2>/dev/null || echo UNKNOWN)"
+            echo -e "$SOURCE\t$STATE" >> /tmp/council-status.tsv
+            echo "===== $SOURCE : $STATE ====="
+            tail -80 "/tmp/council-$SOURCE.log" || true
           done
           cat /tmp/council-status.tsv
 

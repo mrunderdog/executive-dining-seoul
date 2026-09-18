@@ -210,6 +210,7 @@ def regex_attachment_fallback(base: str, text: str):
 
 def discover_source(src: Source, since, until):
     seen_posts = set(); posts = []
+    empty_pages = 0
     for page in range(1, src.max_pages + 1):
         url = src.listing_template.format(page=page)
         try:
@@ -217,7 +218,9 @@ def discover_source(src: Source, since, until):
         except Exception as e:
             posts.append({"source": src.key, "listing_url": url, "error": f"listing {type(e).__name__}: {e}"})
             break
-        for a in anchors(url, doc):
+        before_page = len(posts)
+        page_anchors = anchors(url, doc)
+        for a in page_anchors:
             if src.key == "gyeonggi_council":
                 title=a.get("text","")
                 period=title_period(title)
@@ -258,6 +261,15 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+
+        # Once target-period posts have been found, two consecutive pages
+        # that add nothing mean we have moved beyond the useful backfill window.
+        if len(posts) > before_page:
+            empty_pages = 0
+        else:
+            empty_pages += 1
+            if posts and empty_pages >= 2:
+                break
     return posts
 
 
