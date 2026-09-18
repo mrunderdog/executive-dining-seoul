@@ -50,6 +50,12 @@ def main():
                         # department lineage instead of a generic Sheet1 role.
                         if not clean_text(r.get("role")) or clean_text(r.get("role")).lower().startswith("sheet"):
                             r["role"]=department
+                        r["row_id"]=hashlib.sha256(
+                            "|".join(str(r.get(k,"")) for k in (
+                                "institution","department","used_date","role","merchant","amount",
+                                "source_attachment_name","source_sheet","source_row"
+                            )).encode("utf-8")
+                        ).hexdigest()[:20]
                     per_file["sheets"].append(info)
                     all_rows.extend(normalized)
                 files.append(per_file)
