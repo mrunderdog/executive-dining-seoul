@@ -1,8 +1,8 @@
 # goyang expense ingestion
 
 - Normalized rows: **2470**
-- Source posts: **7**
-- Downloaded files: **7**
+- Source posts: **14**
+- Downloaded files: **14**
 - Errors: **0**
 
 ## Rows by year
@@ -44,7 +44,29 @@
   - 문화복지위원장: OK / parsed 28 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(더불어민주당): OK / parsed 17 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(국민의힘): OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2026년도 2분기 업무추진비 집행내역(고양시의회).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 55,606 bytes — 314 rows
+  - 의장: OK / parsed 90 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 15 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 40 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 30 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 47 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 19 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 28 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 17 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
 - `2026년도 1분기 업무추진비 집행내역(고양시의회).xlsx excel 아이콘 이미지 2026년도 1분기 업무추진비 집행내역(고양시의회).xlsx` — 62,375 bytes — 440 rows
+  - 의장: OK / parsed 97 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 51 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 53 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산위원장: OK / parsed 4 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 24 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 33 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 20 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 33 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 98 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2026년도 1분기 업무추진비 집행내역(고양시의회).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 62,375 bytes — 440 rows
   - 의장: OK / parsed 97 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 부의장: OK / parsed 51 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 의회운영위원장: OK / parsed 53 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
@@ -66,7 +88,29 @@
   - 문화복지위원장: OK / parsed 38 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(더불어민주당): OK / parsed 13 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(국민의힘): OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2025년도 4분기 업무추진비 집행내역(고양시의회).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 58,233 bytes — 339 rows
+  - 의장: OK / parsed 84 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 23 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 36 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산위원장: OK / parsed 10 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 13 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 47 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 43 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 38 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 13 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
 - `2025년도 3분기 업무추진비 집행내역(의회사무국).xlsx excel 아이콘 이미지 2025년도 3분기 업무추진비 집행내역(의회사무국).xlsx` — 63,680 bytes — 397 rows
+  - 의장: OK / parsed 113 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 49 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산위원장: OK / parsed 4 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 34 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 12 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 29 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 50 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 47 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2025년도 3분기 업무추진비 집행내역(의회사무국).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 63,680 bytes — 397 rows
   - 의장: OK / parsed 113 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 부의장: OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 의회운영위원장: OK / parsed 49 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
@@ -88,6 +132,17 @@
   - 문화복지위원장: OK / parsed 26 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(더불어민주당): OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(국민의힘): OK / parsed 20 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2025년도 2분기 업무추진비 집행내역(고양시의회).xls' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 146,944 bytes — 332 rows
+  - 의장: OK / parsed 126 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 26 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 38 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산특별위원회위원장: OK / parsed 4 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 37 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 5 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원회: OK / parsed 18 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 26 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 20 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
 - `2025년도 1분기 업무추진비 집행내역(고양시의회).xls excel 아이콘 이미지 2025년도 1분기 업무추진비 집행내역(고양시의회).xls` — 114,688 bytes — 354 rows
   - 의장: OK / parsed 85 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 부의장: OK / parsed 54 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
@@ -99,7 +154,28 @@
   - 문화복지위원장: OK / parsed 16 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(국민의힘): OK / parsed 53 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 교섭단체 대표의원(더불어민주당): OK / parsed 28 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2025년도 1분기 업무추진비 집행내역(고양시의회).xls' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 114,688 bytes — 354 rows
+  - 의장: OK / parsed 85 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 54 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 55 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 예산결산위원장: OK / parsed 5 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 20 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 21 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 17 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 16 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 53 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 28 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
 - `2024년도 4분기 업무추진비 집행내역(고양시의회).xls excel 아이콘 이미지 2024년도 4분기 업무추진비 집행내역(고양시의회).xls` — 102,400 bytes — 294 rows
+  - 의장: OK / parsed 51 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 부의장: OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 의회운영위원장: OK / parsed 44 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 기획행정위원장: OK / parsed 34 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 환경경제위원장: OK / parsed 31 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 건설교통위원장: OK / parsed 28 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 문화복지위원장: OK / parsed 25 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(국민의힘): OK / parsed 22 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+  - 교섭단체 대표의원(더불어민주당): OK / parsed 27 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
+- `'2024년도 4분기 업무추진비 집행내역(고양시의회).xls' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 102,400 bytes — 294 rows
   - 의장: OK / parsed 51 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 부의장: OK / parsed 32 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
   - 의회운영위원장: OK / parsed 44 / mapping {'date': 0, 'time': 1, 'people': 2, 'purpose': 3, 'merchant': 4, 'role': 5, 'method': 6, 'amount': 7}
