@@ -21,6 +21,30 @@ LISTINGS = [
     {"key":"headquarters","role":"본청 실국과장","url":"https://www.incheon.go.kr/open/OPEN010305"},
 ]
 
+# Verified official detail IDs are a resilience seed, not a substitute for live
+# discovery. Incheon list/detail HTML intermittently times out from GitHub
+# Actions, while its official attachment endpoint remains stable. These seeds
+# keep the latest verified 2026 mayor/vice-mayor disclosures ingestible.
+SEED_POSTS_2026 = [
+    {"scope":"mayor","role":"시장","month":1,"upper_no":3064270,"files":3},
+    {"scope":"mayor","role":"시장","month":2,"upper_no":3065798,"files":3},
+    {"scope":"mayor","role":"시장","month":3,"upper_no":3068575,"files":3},
+    {"scope":"mayor","role":"시장","month":4,"upper_no":3071498,"files":3},
+    {"scope":"mayor","role":"시장","month":6,"upper_no":3081521,"files":3},
+    {"scope":"vice_mayor","role":"행정부시장","month":1,"upper_no":3064272,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":1,"upper_no":3064273,"files":2},
+    {"scope":"vice_mayor","role":"행정부시장","month":2,"upper_no":3065801,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":2,"upper_no":3065802,"files":2},
+    {"scope":"vice_mayor","role":"행정부시장","month":3,"upper_no":3068576,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":3,"upper_no":3068581,"files":2},
+    {"scope":"vice_mayor","role":"행정부시장","month":4,"upper_no":3071499,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":4,"upper_no":3071500,"files":2},
+    {"scope":"vice_mayor","role":"행정부시장","month":5,"upper_no":3076689,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":5,"upper_no":3076690,"files":2},
+    {"scope":"vice_mayor","role":"행정부시장","month":6,"upper_no":3081522,"files":2},
+    {"scope":"vice_mayor","role":"정무부시장","month":6,"upper_no":3081524,"files":2},
+]
+
 
 class AnchorParser(HTMLParser):
     def __init__(self):
@@ -55,8 +79,14 @@ def fetch(url: str) -> str:
         "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
         "Accept-Language":"ko-KR,ko;q=0.9,en;q=0.6",
     })
-    with urllib.request.urlopen(req,timeout=30) as r:
-        return decode(r.read(),r.headers.get_content_charset())
+    last=None
+    for timeout in (20,35,50):
+        try:
+            with urllib.request.urlopen(req,timeout=timeout) as r:
+                return decode(r.read(),r.headers.get_content_charset())
+        except Exception as e:
+            last=e
+    raise last
 
 
 def onclick_url(base: str, value: str) -> str | None:
@@ -110,6 +140,49 @@ def actor_from(title: str, default: str) -> str:
     return default
 
 
+def seeded_posts(year: int) -> list[dict]:
+    if year != 2026:
+        return []
+    out=[]
+    for seed in SEED_POSTS_2026:
+        base="OPEN010301" if seed["scope"]=="mayor" else "OPEN010303"
+        title=f"{year}년 {seed['month']}월 {seed['role']} 업무추진비 사용내역"
+        attachments=[]
+        for file_no in range(1,int(seed["files"])+1):
+            attachments.append({
+                "text":f"{seed['role']} 업무추진비 {year}-{seed['month']:02d} file-{file_no}.pdf",
+                "url":(
+                    "https://www.incheon.go.kr/comm/getFile"
+                    f"?fileNo={file_no}&fileTy=ATTACH&srvcId=BBSTY1&upperNo={seed['upper_no']}"
+                ),
+                "seeded":True,
+            })
+        out.append({
+            "source":"incheon_metropolitan_government",
+            "region":"인천",
+            "jurisdiction":"인천광역시",
+            "institution":"인천광역시청",
+            "scope":seed["scope"],
+            "role":seed["role"],
+            "title":title,
+            "period":[year,seed["month"],None],
+            "post_url":f"https://www.incheon.go.kr/open/{base}/{seed['upper_no']}",
+            "attachments":attachments,
+            "discovery_mode":"verified_detail_seed",
+        })
+    return out
+
+
+def merge_seed_posts(posts: list[dict], year: int) -> list[dict]:
+    by_post={p.get("post_url"):p for p in posts if p.get("post_url")}
+    for seed in seeded_posts(year):
+        current=by_post.get(seed["post_url"])
+        if current and any(a.get("url") for a in current.get("attachments",[])):
+            continue
+        by_post[seed["post_url"]]=seed
+    return list(by_post.values())
+
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--year",type=int,default=datetime.now().year)
@@ -149,6 +222,9 @@ def main():
                     "post_url":x["url"],
                     "attachments":atts,
                 })
+
+    posts=merge_seed_posts(posts,args.year)
+    posts.sort(key=lambda p:(p.get("period") or [0,0,0],p.get("role") or "",p.get("post_url") or ""),reverse=True)
 
     REPORTS.mkdir(exist_ok=True)
     out=REPORTS/"incheon-executive-discovery.json"
