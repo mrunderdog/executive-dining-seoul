@@ -48,12 +48,16 @@
       "jurisdiction_level": "regional_executive",
       "source_family": "executive_government",
       "cohort": "regional_executive",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required",
-      "cadence": "unknown",
-      "actor_scope": "시장단 및 공개 대상 고위직",
-      "note": "Keep in target scope; verify the official disclosure listing and attachment/API pattern before enabling ingestion."
+      "verified": true,
+      "url": "https://www.incheon.go.kr/open/OPEN010301",
+      "adapter": "incheon_expense_boards",
+      "cadence": "monthly",
+      "actor_scope": "시장·행정부시장·정무부시장 및 본청 실국과장 공개분",
+      "note": "Official Incheon information-disclosure portal. Separate boards expose mayor, vice-mayor and headquarters director-level business-promotion expenses with downloadable PDF attachments.",
+      "secondary_urls": [
+        "https://www.incheon.go.kr/open/OPEN010303",
+        "https://www.incheon.go.kr/open/OPEN010305"
+      ]
     },
     {
       "key": "national_assembly_members",
