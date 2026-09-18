@@ -152,6 +152,8 @@ def merge_global_entities(payload: dict) -> dict:
         primary["source_keys"] = list(dict.fromkeys(
             f"{t(r.get('name'))}|{t(r.get('origin'))}" for r in rows if t(r.get("name")) and t(r.get("origin"))
         ))
+        primary["published_sources"] = sorted({t(r.get("published_source")) for r in rows if t(r.get("published_source"))})
+        primary["cohorts"] = sorted({t(r.get("cohort")) for r in rows if t(r.get("cohort"))})
         primary["entity_id"] = hashlib.sha1(key.encode("utf-8")).hexdigest()[:16]
         primary["evidence"] = _merge_evidence(rows, multi)
         primary["executive"] = _best_signal(rows, "executive")
