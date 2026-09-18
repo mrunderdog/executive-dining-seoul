@@ -56,5 +56,20 @@ jobs:
             exit 0
           fi
           git commit -m "data: refresh static coordinate cache"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          for ATTEMPT in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another workflow; rebuilding on latest main (attempt $ATTEMPT/3)."
+            git fetch origin main
+            git reset --hard origin/main
+            python pipeline/geocode_cache.py --mode auto
+            git add data/geocode_cache.json
+            if git diff --cached --quiet; then
+              echo "Latest main already contains an equivalent coordinate cache."
+              exit 0
+            fi
+            git commit -m "data: refresh static coordinate cache"
+          done
+          echo "Could not publish coordinate cache after 3 attempts."
+          exit 1
