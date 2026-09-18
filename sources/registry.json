@@ -433,9 +433,10 @@
       "institution": "하남시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.hanam.go.kr/content/community/business.html",
+      "adapter": "listing_month_regex_pdf_xlsx",
+      "note": "Official council business-expense board; recent disclosures include PDF and historical XLSX attachments."
     },
     {
       "region": "경기",
@@ -596,9 +597,10 @@
       "institution": "연천군의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.yca21.go.kr/board/news/list.do?tbname=cost",
+      "adapter": "listing_month_regex",
+      "note": "Official council monthly business-expense disclosure board."
     },
     {
       "region": "인천",
@@ -767,11 +769,11 @@
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
       "verified": true,
-      "url": "https://council.jemulpo.go.kr/kr/costBBS.do",
+      "url": "https://council.jemulpo.go.kr/council/kr/costBBS.do",
       "homepage": "https://council.jemulpo.go.kr",
       "adapter": "listing_month_regex_active_from",
       "active_from": "2026-07-01",
-      "note": "Current council expense menu; ingest only events from 2026-07-01 onward.",
+      "note": "Current council expense menu. Publish events under 제물포구 only from 2026-07-01; predecessor records remain historical lineage.",
       "predecessors": [
         "중구(원도심 일부)",
         "동구"
