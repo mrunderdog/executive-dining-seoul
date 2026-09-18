@@ -7,6 +7,21 @@
   const originLabel=document.querySelector('label[for="origin"]');
   if(originLabel) originLabel.textContent='기관 / 출처';
 
+  const signalSelect=document.getElementById('ds');
+  if(signalSelect && !signalSelect.querySelector('option[value="consensus"]')){
+    const opt=document.createElement('option');
+    opt.value='consensus';
+    opt.textContent='기관 교차 선택';
+    signalSelect.appendChild(opt);
+  }
+  const sortSelect=document.getElementById('sort');
+  if(sortSelect && !sortSelect.querySelector('option[value="consensus"]')){
+    const opt=document.createElement('option');
+    opt.value='consensus';
+    opt.textContent='기관 교차 신호';
+    sortSelect.appendChild(opt);
+  }
+
   const workspace=document.querySelector('.workspace');
   const sidebar=document.querySelector('.sidebar');
   const filters=document.querySelector('.filters');
