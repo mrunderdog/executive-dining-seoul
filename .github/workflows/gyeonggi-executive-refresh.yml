@@ -19,8 +19,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: published-data-writer
-  cancel-in-progress: false
+  group: gyeonggi-executive-ingest
+  cancel-in-progress: true
 
 jobs:
   ingest:
@@ -87,4 +87,5 @@ jobs:
             exit 0
           fi
           git commit -m "data: ingest Gyeonggi executive expenses"
+          git pull --rebase origin main
           git push origin HEAD:main
