@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
-UA = "ExecutiveDiningSeoul/3.0 (+https://github.com/mrunderdog/executive-dining-seoul)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0 Safari/537.36"
 
 LISTING = "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page={page}"
 FILE_EXTS = (".xlsx", ".xls", ".csv")
@@ -55,9 +55,22 @@ def decode(raw: bytes, charset: str | None) -> str:
 
 
 def fetch(url: str) -> str:
-    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"text/html,*/*;q=0.8"})
-    with urllib.request.urlopen(req,timeout=45) as r:
-        return decode(r.read(),r.headers.get_content_charset())
+    headers={
+        "User-Agent":UA,
+        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.5",
+        "Cache-Control":"no-cache",
+        "Referer":"https://www.gg.go.kr/",
+    }
+    last=None
+    for timeout in (12,20):
+        try:
+            req=urllib.request.Request(url,headers=headers)
+            with urllib.request.urlopen(req,timeout=timeout) as r:
+                return decode(r.read(),r.headers.get_content_charset())
+        except Exception as e:
+            last=e
+    raise last
 
 
 def onclick_url(base: str, value: str) -> str | None:
@@ -245,7 +258,7 @@ def main():
         md.extend(f"- {e}" for e in errors)
     (REPORTS/"gyeonggi-executive-discovery.md").write_text("\n".join(md)+"\n",encoding="utf-8")
 
-    print(json.dumps({"posts":len(posts),"attachments":downloadable,"errors":len(errors)},ensure_ascii=False))
+    print(json.dumps({"posts":len(posts),"attachments":downloadable,"errors":errors[:10]},ensure_ascii=False))
     if not posts:
         raise SystemExit("No Gyeonggi executive posts discovered; inspect discovery report")
 
