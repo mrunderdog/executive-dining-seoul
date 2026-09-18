@@ -210,6 +210,7 @@ def regex_attachment_fallback(base: str, text: str):
 
 def discover_source(src: Source, since, until):
     seen_posts = set(); posts = []
+    empty_pages = 0
     for page in range(1, src.max_pages + 1):
         url = src.listing_template.format(page=page)
         try:
@@ -258,6 +259,33 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+
+        # Once a source has yielded target-period posts, two consecutive listing
+        # pages with no new qualifying posts means we have moved past the useful
+        # window. This keeps monthly refreshes bounded as source coverage grows.
+        page_posts = [
+            x for x in posts
+            if x.get("listing_url") == url or x.get("post_url") == url
+        ]
+        # For normal boards the detail URL differs from listing URL, so compare
+        # growth instead of relying on listing_url metadata.
+        if not hasattr(discover_source, "_noop"):
+            pass
+        # Use the number of seen posts before/after this page via an inexpensive
+        # page-local scan of anchors.
+        qualifying = 0
+        for a in anchors(url, doc):
+            period = title_period(a.get("text",""))
+            if period_overlaps(period, since, until) and (
+                "업무추진비" in a.get("text","") or post_like(a, src)
+            ):
+                qualifying += 1
+        if qualifying:
+            empty_pages = 0
+        else:
+            empty_pages += 1
+            if posts and empty_pages >= 2:
+                break
     return posts
 
 
