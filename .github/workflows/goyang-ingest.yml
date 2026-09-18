@@ -1,4 +1,4 @@
-name: Goyang expense ingestion smoke test
+name: Capital council expense ingestion
 
 on:
   push:
@@ -8,10 +8,16 @@ on:
       - 'pipeline/repair_raw_dates.py'
       - 'pipeline/build_source_candidates.py'
       - 'pipeline/capital_backfill.py'
+      - 'pipeline/published_sources.py'
+      - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: published-data-writer
+  cancel-in-progress: false
 
 jobs:
   ingest:
@@ -20,44 +26,67 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+
       - name: Install spreadsheet parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+
       - name: Refresh official attachment discovery
-        run: python pipeline/capital_backfill.py --since 2024-12 --source goyang
-      - name: Download and normalize Goyang expense rows
-        run: python pipeline/ingest_council_expense.py --source goyang
-      - name: Repair legacy XLS serial dates
-        run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
-      - name: Sanity check normalized rows
+        run: python pipeline/capital_backfill.py --since 2024-12
+
+      - name: Download and normalize supported council expense rows
+        shell: bash
+        run: |
+          set -e
+          for SOURCE in goyang suwon bupyeong; do
+            echo "=== ingest $SOURCE ==="
+            python pipeline/ingest_council_expense.py --source "$SOURCE"
+            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
+            python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
+          done
+
+      - name: Sanity check normalized council rows
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path('data/raw/goyang_expense.json')
-          d=json.loads(p.read_text(encoding='utf-8'))
-          rows=d.get('rows',[])
-          assert rows, 'no normalized rows'
-          merchant=sum(1 for r in rows if r.get('merchant'))/len(rows)
-          amount=sum(1 for r in rows if isinstance(r.get('amount'), int) and r['amount']>=0)/len(rows)
-          date=d.get('raw_quality',{}).get('valid_date_coverage',0)
-          assert merchant >= .70, f'merchant coverage too low: {merchant:.1%}'
-          assert amount >= .70, f'amount coverage too low: {amount:.1%}'
-          assert date >= .95, f'date coverage too low: {date:.1%}'
-          print({'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
+          for source in ('goyang','suwon','bupyeong'):
+              p=Path(f'data/raw/{source}_expense.json')
+              d=json.loads(p.read_text(encoding='utf-8'))
+              rows=d.get('rows',[])
+              assert rows, f'{source}: no normalized rows'
+              merchant=sum(bool(str(r.get('merchant') or '').strip()) for r in rows)/len(rows)
+              amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in rows)/len(rows)
+              date=d.get('raw_quality',{}).get('valid_date_coverage',0)
+              assert merchant >= .70, f'{source}: merchant coverage too low: {merchant:.1%}'
+              assert amount >= .70, f'{source}: amount coverage too low: {amount:.1%}'
+              assert date >= .95, f'{source}: date coverage too low: {date:.1%}'
+              print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
           PY
-      - name: Build exploratory Executive-repeat candidates
-        run: python pipeline/build_source_candidates.py --source goyang --top 50
-      - name: Commit staged raw dataset and reports
+
+      - name: Refresh static coordinates
+        run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Quality gate public dataset
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit staged council data and reports
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw/goyang_expense.json reports/goyang-ingestion.md reports/goyang-executive-candidates.* reports/capital-backfill-discovery.*
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "data: ingest Goyang expense rows and candidates"
-          git pull --rebase origin main
+          git add data/raw/goyang_expense.json data/raw/suwon_expense.json data/raw/bupyeong_expense.json
+          git add data/geocode_cache.json reports/goyang-* reports/suwon-* reports/bupyeong-* reports/capital-backfill-discovery.*
+          if git diff --cached --quiet; then
+            echo "No council data changes."
+            exit 0
+          fi
+          git commit -m "data: ingest Capital Area council expenses"
           git push origin HEAD:main

@@ -21,7 +21,29 @@ SOURCE_SPECS = {
         "min_score": 55.0,
         "max_records": 30,
         "home_tokens": ("고양",),
-    }
+    },
+    "suwon": {
+        "origin": "수원시",
+        "region": "경기",
+        "jurisdiction": "수원특례시",
+        "institution": "수원특례시의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("수원",),
+    },
+    "bupyeong": {
+        "origin": "부평구",
+        "region": "인천",
+        "jurisdiction": "인천광역시 부평구",
+        "institution": "부평구의회",
+        "min_visits": 4,
+        "min_months": 3,
+        "min_score": 55.0,
+        "max_records": 30,
+        "home_tokens": ("부평", "인천"),
+    },
 }
 
 ENTITY_ALIASES = {

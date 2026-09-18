@@ -85,17 +85,35 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/capital_backfill.py --since 2024-12
 
-      - name: Ingest supported official spreadsheets
+      - name: Ingest supported official council spreadsheets
         if: steps.mode.outputs.full == 'true'
-        run: python pipeline/ingest_council_expense.py --source goyang
+        shell: bash
+        run: |
+          set -e
+          for SOURCE in goyang suwon bupyeong; do
+            echo "=== ingest $SOURCE ==="
+            python pipeline/ingest_council_expense.py --source "$SOURCE"
+          done
 
-      - name: Repair legacy XLS serial dates
+      - name: Repair and validate council dates
         if: steps.mode.outputs.full == 'true'
-        run: python pipeline/repair_raw_dates.py --source goyang --min-valid 0.95
+        shell: bash
+        run: |
+          set -e
+          for SOURCE in goyang suwon bupyeong; do
+            echo "=== dates $SOURCE ==="
+            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95
+          done
 
       - name: Build publishable council candidates
         if: steps.mode.outputs.full == 'true'
-        run: python pipeline/build_source_candidates.py --source goyang --top 100
+        shell: bash
+        run: |
+          set -e
+          for SOURCE in goyang suwon bupyeong; do
+            echo "=== candidates $SOURCE ==="
+            python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
+          done
 
       - name: Ingest Seoul City Hall official OpenAPI
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY != ''
@@ -136,7 +154,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          sources=['goyang']
+          sources=['goyang','suwon','bupyeong']
           for source in sources:
               p=Path(f'data/raw/{source}_expense.json')
               d=json.loads(p.read_text(encoding='utf-8'))
