@@ -233,6 +233,10 @@ def crawl_seed_posts(year: int, max_posts: int = 300) -> tuple[list[dict], list[
                 "attachments":seed_atts,
                 "discovery_mode":"verified_attachment_seed",
             })
+            # Direct attachment URLs are already verified from the official
+            # detail pages; do not re-fetch those pages during CI. This avoids
+            # serial timeouts on gg.go.kr and keeps the resilience path fast.
+            continue
         try:
             doc=fetch(url)
         except Exception as e:
