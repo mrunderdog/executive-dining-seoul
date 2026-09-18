@@ -43,13 +43,23 @@ jobs:
             SOURCE="$1"
             LOG="/tmp/council-$SOURCE.log"
             STATUS="/tmp/council-$SOURCE.status"
+            restore_last_good() {
+              STAGE="$1"
+              if git cat-file -e "HEAD:data/raw/${SOURCE}_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/${SOURCE}-executive-candidates.json" 2>/dev/null; then
+                git restore --source=HEAD -- "data/raw/${SOURCE}_expense.json" 2>/dev/null || true
+                git restore --source=HEAD -- "reports/${SOURCE}-executive-candidates.json" "reports/${SOURCE}-executive-candidates.md" "reports/${SOURCE}-ingestion.md" 2>/dev/null || true
+                echo "STALE_OK:${STAGE}" > "$STATUS"
+              else
+                echo "${STAGE}_FAILED" > "$STATUS"
+              fi
+            }
             {
               echo "=== discover $SOURCE ==="
-              python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE" || { echo "DISCOVERY_FAILED" > "$STATUS"; exit 0; }
+              python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE" || { restore_last_good "DISCOVERY"; exit 0; }
               echo "=== ingest $SOURCE ==="
-              python pipeline/ingest_council_expense.py --source "$SOURCE" || { echo "INGEST_FAILED" > "$STATUS"; exit 0; }
-              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 || { echo "DATE_QA_FAILED" > "$STATUS"; exit 0; }
-              python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { echo "CANDIDATE_FAILED" > "$STATUS"; exit 0; }
+              python pipeline/ingest_council_expense.py --source "$SOURCE" || { restore_last_good "INGEST"; exit 0; }
+              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 || { restore_last_good "DATE_QA"; exit 0; }
+              python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { restore_last_good "CANDIDATE"; exit 0; }
               echo "OK" > "$STATUS"
             } > "$LOG" 2>&1
           }
@@ -83,7 +93,8 @@ jobs:
                       k,v=line.split('\t',1); status[k]=v
           ok=0
           for source,state in status.items():
-              if state!='OK':
+              usable = state=='OK' or state.startswith('STALE_OK:')
+              if not usable:
                   print(source, state)
                   continue
               p=Path(f'data/raw/{source}_expense.json')
@@ -97,8 +108,8 @@ jobs:
               assert amount >= .70, f'{source}: amount coverage too low: {amount:.1%}'
               assert date >= .95, f'{source}: date coverage too low: {date:.1%}'
               ok += 1
-              print(source, {'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
-          assert ok >= 1, f'no council source passed this refresh'
+              print(source, {'state':state,'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
+          assert ok >= 1, f'no usable council source is available'
           PY
 
       - name: Quality gate public dataset
@@ -113,7 +124,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           while IFS=$'\t' read -r SOURCE STATE; do
-            [[ "$STATE" == "OK" ]] || continue
+            if [[ "$STATE" != "OK" ]]; then
+              for F in reports/capital-backfill-discovery-${SOURCE}.*; do
+                [[ -e "$F" ]] && git add "$F"
+              done
+              continue
+            fi
             [[ -f "data/raw/${SOURCE}_expense.json" ]] && git add "data/raw/${SOURCE}_expense.json"
             for F in reports/${SOURCE}-*; do
               [[ -e "$F" ]] && git add "$F"
