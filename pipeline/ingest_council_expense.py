@@ -170,6 +170,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         used_date = parse_date(cell(row, mapping, "date"))
         if not merchant and amount is None:
             continue
+        # Skip structural/header/subtotal rows that carry a numeric amount but
+        # have neither a transaction date nor a merchant. These occur in some
+        # Suwon committee sheets and are not expense events.
+        if not merchant and not used_date:
+            continue
         # Skip obvious subtotal/footer rows.
         joined = " ".join(clean_text(x) for x in row[:8])
         if any(k in joined for k in ("합계", "총계", "누계")) and not used_date:
