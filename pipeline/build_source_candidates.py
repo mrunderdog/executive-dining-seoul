@@ -32,13 +32,15 @@ def looks_meal(r):
     return any(x in purpose for x in MEAL_WORDS) or bool(merchant)
 
 
-def role_bucket(role):
+def role_bucket(role, include_committees=False):
     s=re.sub(r'\s+','',str(role or ''))
     # Some councils suffix the sheet role with a month, e.g. 의장(8월),
-    # 부의장(10월). Keep the leadership scope conservative while accepting
-    # those presentation variants.
+    # 부의장(10월). Regional councils may also disclose standing-committee chairs.
     if re.match(r'^의장(?:\(|$)', s): return '의장'
-    if re.match(r'^부의장(?:\(|$)', s): return '부의장'
+    if re.match(r'^(?:1|2)?부의장(?:\(|$)', s): return '부의장'
+    if include_committees:
+        m=re.match(r'^(.+위원장)(?:\(|$)',s)
+        if m: return m.group(1)
     return None
 
 
@@ -47,8 +49,9 @@ def main():
     d=json.loads((RAW/f'{args.source}_expense.json').read_text(encoding='utf-8'))
     rows=[r for r in d.get('rows',[]) if r.get('date_quality')=='in_period' and looks_meal(r)]
     groups=defaultdict(list)
+    include_committees=args.source in {'gyeonggi_council','incheon_council'}
     for r in rows:
-        rb=role_bucket(r.get('role'))
+        rb=role_bucket(r.get('role'),include_committees=include_committees)
         if not rb: continue
         name=' '.join(str(r.get('merchant') or '').split())
         if not name: continue
