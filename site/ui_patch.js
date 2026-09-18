@@ -20,6 +20,18 @@
     opt.textContent='장·차관급 사용';
     signalSelect.appendChild(opt);
   }
+  if(signalSelect && !signalSelect.querySelector('option[value="regional_head"]')){
+    const opt=document.createElement('option');
+    opt.value='regional_head';
+    opt.textContent='시장·부시장급 사용';
+    signalSelect.appendChild(opt);
+  }
+  if(signalSelect && !signalSelect.querySelector('option[value="cross_origin"]')){
+    const opt=document.createElement('option');
+    opt.value='cross_origin';
+    opt.textContent='지역 간 교차 선택';
+    signalSelect.appendChild(opt);
+  }
   const sortSelect=document.getElementById('sort');
   if(sortSelect && !sortSelect.querySelector('option[value="consensus"]')){
     const opt=document.createElement('option');
@@ -31,6 +43,12 @@
     const opt=document.createElement('option');
     opt.value='top_official';
     opt.textContent='장·차관급 반복';
+    sortSelect.appendChild(opt);
+  }
+  if(sortSelect && !sortSelect.querySelector('option[value="regional_head"]')){
+    const opt=document.createElement('option');
+    opt.value='regional_head';
+    opt.textContent='시장·부시장급 반복';
     sortSelect.appendChild(opt);
   }
 
