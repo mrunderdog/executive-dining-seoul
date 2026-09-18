@@ -1,0 +1,90 @@
+name: Gyeonggi executive expense ingestion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/gyeonggi_executive_discovery.py'
+      - 'pipeline/ingest_gyeonggi_executive.py'
+      - 'pipeline/build_gyeonggi_candidates.py'
+      - '.github/workflows/gyeonggi-executive-refresh.yml'
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Target year'
+        required: false
+        default: '2026'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: published-data-writer
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install spreadsheet parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+
+      - name: Resolve year
+        id: target
+        shell: bash
+        run: |
+          YEAR="${{ github.event.inputs.year }}"
+          if [[ -z "$YEAR" ]]; then YEAR="2026"; fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+
+      - name: Discover Gyeonggi headquarters expense spreadsheets
+        run: python pipeline/gyeonggi_executive_discovery.py --year "${{ steps.target.outputs.year }}"
+
+      - name: Ingest Gyeonggi headquarters expense rows
+        run: python pipeline/ingest_gyeonggi_executive.py
+
+      - name: Repair and validate dates
+        run: python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95
+
+      - name: Build Gyeonggi dining candidates
+        run: python pipeline/build_gyeonggi_candidates.py
+
+      - name: Sanity check staged Gyeonggi data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/raw/gyeonggi_province_expense.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          rows=d.get('rows',[])
+          assert rows, 'no Gyeonggi rows'
+          merchant=sum(bool(str(r.get('merchant') or '').strip()) for r in rows)/len(rows)
+          amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in rows)/len(rows)
+          date=d.get('raw_quality',{}).get('valid_date_coverage',0)
+          assert merchant >= .70, f'merchant coverage too low: {merchant:.1%}'
+          assert amount >= .70, f'amount coverage too low: {amount:.1%}'
+          assert date >= .95, f'date coverage too low: {date:.1%}'
+          print({'rows':len(rows),'merchant':merchant,'amount':amount,'date':date,'files':len(d.get('files',[])),'errors':len(d.get('errors',[]))})
+          PY
+
+      - name: Commit staged Gyeonggi raw data and reports
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/gyeonggi_province_expense.json reports/gyeonggi-*
+          if git diff --cached --quiet; then
+            echo "No Gyeonggi data changes."
+            exit 0
+          fi
+          git commit -m "data: ingest Gyeonggi executive expenses"
+          git push origin HEAD:main
