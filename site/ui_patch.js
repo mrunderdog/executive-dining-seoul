@@ -14,11 +14,23 @@
     opt.textContent='기관 교차 선택';
     signalSelect.appendChild(opt);
   }
+  if(signalSelect && !signalSelect.querySelector('option[value="top_official"]')){
+    const opt=document.createElement('option');
+    opt.value='top_official';
+    opt.textContent='장·차관급 사용';
+    signalSelect.appendChild(opt);
+  }
   const sortSelect=document.getElementById('sort');
   if(sortSelect && !sortSelect.querySelector('option[value="consensus"]')){
     const opt=document.createElement('option');
     opt.value='consensus';
     opt.textContent='기관 교차 신호';
+    sortSelect.appendChild(opt);
+  }
+  if(sortSelect && !sortSelect.querySelector('option[value="top_official"]')){
+    const opt=document.createElement('option');
+    opt.value='top_official';
+    opt.textContent='장·차관급 반복';
     sortSelect.appendChild(opt);
   }
 
