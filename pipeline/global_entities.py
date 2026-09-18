@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import math
 import re
 from collections import Counter, defaultdict
 from copy import deepcopy
@@ -169,19 +170,36 @@ def merge_global_entities(payload: dict) -> dict:
                 "spend": sum(int((r.get("evidence") or {}).get("spend") or 0) for r in rr),
                 "records": len(rr),
             })
+        cohort_count = len(primary["cohorts"])
+        institution_count = len(institutions)
+        source_count = len(origins)
+        total_visits = int(primary["evidence"].get("visits") or 0)
+        is_cross = institution_count >= 2
+        consensus_score = 0.0
+        if is_cross:
+            consensus_score = round(100 * (
+                .35 * min(math.log1p(institution_count) / math.log1p(4), 1)
+                + .20 * min(math.log1p(source_count) / math.log1p(4), 1)
+                + .25 * min(math.log1p(total_visits) / math.log1p(20), 1)
+                + .20 * min(cohort_count / 3, 1)
+            ), 1)
         primary["cross_institution"] = {
-            "source_count": len(origins),
-            "institution_count": len(institutions),
+            "source_count": source_count,
+            "institution_count": institution_count,
+            "cohort_count": cohort_count,
             "origins": origins,
             "institutions": institutions,
+            "cohorts": primary["cohorts"],
             "by_origin": by_origin,
-            "is_cross": multi,
+            "visits": total_visits,
+            "score": consensus_score,
+            "is_cross": is_cross,
         }
-        if multi:
+        if is_cross:
             merged_groups += 1
             primary["why"] = (
-                f"{' · '.join(origins)} 등 {len(origins)}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
-                f"합산 {primary['evidence']['visits']}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
+                f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
+                f"합산 {total_visits}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
             )
         merged.append(primary)
 
