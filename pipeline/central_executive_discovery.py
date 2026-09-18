@@ -17,7 +17,7 @@ REGISTRY = ROOT / "sources" / "central_executive_registry.json"
 REPORTS = ROOT / "reports"
 UA = "ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
 FILE_EXTS = (".xlsx", ".xls", ".csv", ".pdf", ".hwp", ".hwpx")
-EXPENSE_WORDS = ("업무추진비", "업무 추진비", "장관", "차관", "실국장", "실·국장", "기관장")
+EXPENSE_WORDS = ("업무추진비", "업무 추진비", "장관", "차관", "처장", "차장", "실국장", "실·국장", "기관장")
 
 
 class AnchorParser(HTMLParser):

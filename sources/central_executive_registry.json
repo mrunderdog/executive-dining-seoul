@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-17",
+  "as_of": "2026-09-18",
   "notes": "Target universe for senior central-government dining signals. verified=true means an official business-expense disclosure surface was confirmed; ingestion still depends on parseable merchant-level attachments. Institution names follow the current 2026 government organization where applicable; historical files may use predecessor names.",
   "sources": [
     {
@@ -201,13 +201,14 @@
       "institution": "보건복지부",
       "cohort": "central_executive",
       "level": "ministry",
-      "verified": false,
+      "verified": true,
       "listing_urls": [
-        "https://www.mohw.go.kr/"
+        "https://www.mohw.go.kr/board.es?mid=a10414000000&bid=0022"
       ],
       "role_scope": "장·차관 및 공개 대상 실국장",
-      "format_hint": "discovery_required",
-      "max_pages": 1
+      "format_hint": "mixed",
+      "max_pages": 1,
+      "note": "Official Ministry of Health and Welfare business-expense board."
     },
     {
       "key": "ministry_climate_energy_environment",
@@ -304,33 +305,42 @@
       "institution": "인사혁신처",
       "cohort": "central_executive",
       "level": "ministry_level_agency",
-      "verified": false,
-      "listing_urls": [],
+      "verified": true,
+      "listing_urls": [
+        "https://www.mpm.go.kr/mpm/open/openBudget/?boardId=bbs_0000000000000044"
+      ],
       "role_scope": "처장·차장·실국장",
-      "format_hint": "discovery_required",
-      "max_pages": 1
+      "format_hint": "xlsx_mixed",
+      "max_pages": 1,
+      "note": "Official Ministry of Personnel Management business-expense board."
     },
     {
       "key": "government_legislation",
       "institution": "법제처",
       "cohort": "central_executive",
       "level": "ministry_level_agency",
-      "verified": false,
-      "listing_urls": [],
+      "verified": true,
+      "listing_urls": [
+        "https://www.moleg.go.kr/board.es?bid=0004&cg_code=&keyField=&keyWord=&mid=a10704060000&nPage=1&pageCntBySelf=50&srch_data01=&srch_data02=&tabNo=0"
+      ],
       "role_scope": "처장·차장·실국장",
-      "format_hint": "discovery_required",
-      "max_pages": 1
+      "format_hint": "hwpx_mixed",
+      "max_pages": 1,
+      "note": "Official Ministry of Government Legislation expense board including minister-equivalent chief, vice chief and director-level disclosures."
     },
     {
       "key": "food_drug_safety",
       "institution": "식품의약품안전처",
       "cohort": "central_executive",
       "level": "ministry_level_agency",
-      "verified": false,
-      "listing_urls": [],
+      "verified": true,
+      "listing_urls": [
+        "https://www.mfds.go.kr/brd/m_19/list.do"
+      ],
       "role_scope": "처장·차장·국장급",
-      "format_hint": "discovery_required",
-      "max_pages": 1
+      "format_hint": "mixed",
+      "max_pages": 1,
+      "note": "Official Ministry of Food and Drug Safety business-expense information board."
     }
   ]
 }
