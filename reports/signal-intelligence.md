@@ -1,12 +1,12 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-18T17:02:09
-- Published restaurant entities: **607**
+- Generated: 2026-09-18T17:03:10
+- Published restaurant entities: **606**
 - Cross-institution restaurants: **105**
 - Cross-origin restaurants: **0**
 - Central top-official restaurants: **95**
 - Regional mayor/vice-mayor restaurants: **12**
-- Entity merges: **7**
+- Entity merges: **8**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
 
