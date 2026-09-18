@@ -127,6 +127,22 @@ jobs:
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY == ''
         run: echo "SEOUL_API_KEY is not configured; Seoul City Hall raw ingestion is skipped."
 
+      - name: Discover Gyeonggi headquarters expense spreadsheets
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/gyeonggi_executive_discovery.py
+
+      - name: Ingest Gyeonggi headquarters expense rows
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/ingest_gyeonggi_executive.py
+
+      - name: Repair Gyeonggi expense dates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95
+
+      - name: Build Gyeonggi executive candidates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/build_gyeonggi_candidates.py
+
       - name: Discover central-government executive expense files
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/central_executive_discovery.py
