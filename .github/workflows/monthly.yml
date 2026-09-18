@@ -87,7 +87,7 @@ jobs:
         run: |
           set +e
           : > /tmp/monthly-council-status.tsv
-          for SOURCE in goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju anseong icheon osan pocheon yangpyeong michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council; do
+          for SOURCE in goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju anseong icheon osan pocheon yangpyeong yongin gwangju guri uiwang gunpo dongducheon gwacheon gapyeong siheung yeoju michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council; do
             restore_last_good() {
               STAGE="$1"
               if git cat-file -e "HEAD:data/raw/${SOURCE}_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/${SOURCE}-executive-candidates.json" 2>/dev/null; then

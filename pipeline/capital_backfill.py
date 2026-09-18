@@ -51,6 +51,16 @@ SOURCES = [
     Source("osan", "경기", "오산시", "오산시의회", "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&page={page}", 15, "monthly"),
     Source("pocheon", "경기", "포천시", "포천시의회", "https://council.pocheon.go.kr/kr/news/bbsBusiness.do?flag=all&pageNum={page}", 15, "monthly"),
     Source("yangpyeong", "경기", "양평군", "양평군의회", "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex={page}&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=", 12, "monthly"),
+    Source("yongin", "경기", "용인시", "용인특례시의회", "https://council.yongin.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("gwangju", "경기", "광주시", "광주시의회", "https://www.gjcouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("guri", "경기", "구리시", "구리시의회", "https://www.gcc.or.kr/board/news/list.do?tbname=cost&page={page}", 16, "monthly"),
+    Source("uiwang", "경기", "의왕시", "의왕시의회", "https://council.uiwang.go.kr/kr/Information/bbsCost.do?flag=all&pageNum={page}", 12, "monthly"),
+    Source("gunpo", "경기", "군포시", "군포시의회", "https://www.gunpocouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 10, "monthly"),
+    Source("dongducheon", "경기", "동두천시", "동두천시의회", "https://council.ddc.go.kr/kr/news/bbsCost.do?flag=all&page={page}", 12, "monthly"),
+    Source("gwacheon", "경기", "과천시", "과천시의회", "https://www.gccouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
+    Source("gapyeong", "경기", "가평군", "가평군의회", "https://www.gpassem.go.kr/kr/operations2BBS.do?flag=all&page={page}", 10, "quarterly"),
+    Source("siheung", "경기", "시흥시", "시흥시의회", "https://www.siheungcouncil.go.kr/content/activity/business.html?page={page}", 5, "quarterly"),
+    Source("yeoju", "경기", "여주시", "여주시의회", "https://yeojucouncil.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
     Source("jemulpo", "인천", "제물포구", "제물포구의회", "https://council.jemulpo.go.kr/kr/costBBS.do?flag=all&page={page}", 4, "monthly", (2026, 7)),
     Source("yeongjong", "인천", "영종구", "영종구의회", "https://www.yeongjong.go.kr/council/pst/list.do?pst_id=cncl_ofcl_exp", 1, "monthly", (2026, 7)),
@@ -191,7 +201,7 @@ def post_like(a, src: Source):
     t, u = a["text"], a["url"]
     if "업무추진비" not in t:
         return False
-    if src.key in {"suwon", "goyang", "jemulpo"}:
+    if src.key in {"suwon", "goyang", "jemulpo", "yongin", "gwangju", "gunpo", "gwacheon", "yeoju"}:
         return "costBBSview" in u or "costbbsview" in u.lower()
     if src.key == "michuhol":
         return "bbs_view.asp" in u.lower() and "board_189" in u.lower()
@@ -274,6 +284,18 @@ def discover_source(src: Source, since, until):
                 })
 
         for a in page_anchors:
+            title=a.get("text","")
+            direct_period=title_period(title)
+            if "업무추진비" in title and attachment_like(a) and period_overlaps(direct_period, effective_since, until):
+                direct_key="direct:"+a.get("url","")
+                if direct_key not in seen_posts:
+                    seen_posts.add(direct_key)
+                    posts.append({
+                        "source":src.key,"region":src.region,"jurisdiction":src.jurisdiction,
+                        "institution":src.institution,"title":title,"period":direct_period,
+                        "post_url":url,"attachments":[{"text":title or "attachment","url":a["url"]}],
+                    })
+                continue
             if src.key == "gyeonggi_council":
                 title=a.get("text","")
                 period=title_period(title)

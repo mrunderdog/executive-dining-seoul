@@ -281,9 +281,10 @@
       "institution": "용인특례시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.yongin.go.kr/kr/costBBS.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -377,9 +378,10 @@
       "institution": "시흥시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.siheungcouncil.go.kr/content/activity/business.html",
+      "adapter": "siheung_quarterly_static",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -420,9 +422,10 @@
       "institution": "광주시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.gjcouncil.go.kr/kr/costBBS.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -451,9 +454,10 @@
       "institution": "군포시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.gunpocouncil.go.kr/kr/costBBS.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -504,9 +508,10 @@
       "institution": "구리시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.gcc.or.kr/board/news/list.do?tbname=cost",
+      "adapter": "guri_monthly_board",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -514,9 +519,10 @@
       "institution": "의왕시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do",
+      "adapter": "uiwang_monthly_board",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -546,9 +552,10 @@
       "institution": "여주시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://yeojucouncil.go.kr/kr/costBBS.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -556,9 +563,10 @@
       "institution": "동두천시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://council.ddc.go.kr/kr/news/bbsCost.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -566,9 +574,10 @@
       "institution": "과천시의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.gccouncil.go.kr/kr/costBBS.do",
+      "adapter": "listing_month_regex",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
@@ -576,9 +585,10 @@
       "institution": "가평군의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.gpassem.go.kr/kr/operations2BBS.do",
+      "adapter": "gapyeong_quarterly_board",
+      "note": "Official council business-promotion expense disclosure surface verified."
     },
     {
       "region": "경기",
