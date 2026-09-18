@@ -20,6 +20,7 @@ NON_DINING_MERCHANT_WORDS=(
     '인쇄','광고','디자인','문구','사무용','우체국','택배','통신',
     '마트','슈퍼','편의점','백화점','면세점','꽃집','화원','기념품',
     '후원회','정당','위원회','의원실','연구소','포럼',
+    '파리바게뜨','뚜레쥬르','배스킨라빈스','적십자사','국군복지단',
 )
 
 
@@ -50,9 +51,11 @@ def main():
     rows=[r for r in d.get('rows',[]) if r.get('date_quality')=='in_period' and looks_meal(r)]
     groups=defaultdict(list)
     include_committees=args.source in {'gyeonggi_council','incheon_council'}
+    leadership_rows=0
     for r in rows:
         rb=role_bucket(r.get('role'),include_committees=include_committees)
         if not rb: continue
+        leadership_rows+=1
         name=' '.join(str(r.get('merchant') or '').split())
         if not name: continue
         groups[name].append((rb,r))
@@ -70,6 +73,8 @@ def main():
         score=min(100, round(35*min(visits/10,1)+25*min(len(months)/5,1)+20*min(len(roles)/2,1)+10*(evenings/visits if visits else 0)+10*min(spend/3_000_000,1),1))
         out.append({'merchant':name,'visits':visits,'roles':roles,'months':len(months),'spend':spend,'people':people,'evening_ratio':round(evenings/visits,3) if visits else 0,'score':score})
     out.sort(key=lambda x:(x['score'],x['visits'],x['spend']),reverse=True)
+    if leadership_rows >= 10 and not out:
+        raise SystemExit(f'{args.source}: {leadership_rows} leadership rows but zero merchant candidates')
     REPORTS.mkdir(exist_ok=True)
     md=REPORTS/f'{args.source}-executive-candidates.md'
     lines=[f'# {args.source} Executive-repeat candidates','',f'Rows considered: {len(rows)}','', '> Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.','', '| # | Merchant | Score | Chair/Vice visits | Roles | Months | Spend | Evening |','|---:|---|---:|---:|---|---:|---:|---:|']
