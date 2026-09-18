@@ -85,6 +85,21 @@ def main():
     if not RAW.exists():
         print("central executive raw missing; no candidates built");return
     d=json.loads(RAW.read_text(encoding="utf-8"));rows=[r for r in d.get("rows",[]) if meal(r)]
+    if not rows:
+        previous=REPORTS/"central-executive-candidates.json"
+        if previous.exists():
+            try:
+                old=json.loads(previous.read_text(encoding="utf-8"))
+            except (OSError,json.JSONDecodeError):
+                old={}
+            old_candidates=old.get("candidates") or []
+            if old_candidates:
+                print(json.dumps({
+                    "meal_rows":0,
+                    "preserved_last_good":len(old_candidates),
+                    "reason":"central refresh produced zero meal rows",
+                },ensure_ascii=False))
+                return
     groups=defaultdict(list)
     for r in rows:groups[(canon_name(r.get("merchant")),canon_addr(r.get("address")))].append(r)
     out=[]
