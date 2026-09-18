@@ -716,12 +716,15 @@
       "institution": "서해구의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
+      "verified": true,
+      "url": "https://www.seohae.go.kr/open_content/council/activity/open.jsp",
       "homepage": "https://www.seohae.go.kr",
-      "adapter": "discovery_required",
+      "adapter": "listing_month_regex_active_from",
       "active_from": "2026-07-01",
-      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+      "note": "Current council expense listing; ingest only events from 2026-07-01 onward.",
+      "predecessors": [
+        "서구(서해 지역)"
+      ]
     },
     {
       "region": "인천",
@@ -729,12 +732,15 @@
       "institution": "영종구의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
+      "verified": true,
+      "url": "https://www.yeongjong.go.kr/council/pst/list.do?pst_id=cncl_ofcl_exp",
       "homepage": "https://www.yeongjong.go.kr",
-      "adapter": "discovery_required",
+      "adapter": "listing_month_regex_active_from",
       "active_from": "2026-07-01",
-      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+      "note": "Current council expense menu; ingest only events from 2026-07-01 onward.",
+      "predecessors": [
+        "중구(영종 지역)"
+      ]
     },
     {
       "region": "인천",
@@ -742,12 +748,16 @@
       "institution": "제물포구의회",
       "jurisdiction_level": "basic_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
+      "verified": true,
+      "url": "https://council.jemulpo.go.kr/kr/costBBS.do",
       "homepage": "https://council.jemulpo.go.kr",
-      "adapter": "discovery_required",
+      "adapter": "listing_month_regex_active_from",
       "active_from": "2026-07-01",
-      "note": "Current Incheon jurisdiction after the 2026-07-01 administrative reorganization; expense listing discovery pending."
+      "note": "Current council expense menu; ingest only events from 2026-07-01 onward.",
+      "predecessors": [
+        "중구(원도심 일부)",
+        "동구"
+      ]
     },
     {
       "region": "서울",

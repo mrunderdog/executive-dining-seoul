@@ -31,6 +31,7 @@ class Source:
     listing_template: str
     max_pages: int
     kind: str
+    active_from: tuple[int, int] | None = None
 
 
 SOURCES = [
@@ -43,6 +44,9 @@ SOURCES = [
     Source("uijeongbu", "경기", "의정부시", "의정부시의회", "https://www.ujbcl.go.kr/svc/bbs/BusinessList.do?bbsMnuCd=MNU002300000650400000666&pageNo={page}", 8, "quarterly"),
     Source("gwangmyeong", "경기", "광명시", "광명시의회", "https://council.gm.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
     Source("bupyeong", "인천", "부평구", "부평구의회", "https://council.icbp.go.kr/kr/news/bbs?bbs_id=expense&page={page}", 15, "monthly"),
+    Source("jemulpo", "인천", "제물포구", "제물포구의회", "https://council.jemulpo.go.kr/kr/costBBS.do?flag=all&page={page}", 4, "monthly", (2026, 7)),
+    Source("yeongjong", "인천", "영종구", "영종구의회", "https://www.yeongjong.go.kr/council/pst/list.do?pst_id=cncl_ofcl_exp", 1, "monthly", (2026, 7)),
+    Source("seohae", "인천", "서해구", "서해구의회", "https://www.seohae.go.kr/open_content/council/activity/open.jsp", 1, "monthly", (2026, 7)),
     Source("michuhol", "인천", "미추홀구", "미추홀구의회", "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage={page}&keyfield=&keyword=", 8, "monthly"),
     Source("yeonsu", "인천", "연수구", "연수구의회", "https://council.yeonsu.go.kr/kr/businessBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("gyeyang", "인천", "계양구", "계양구의회", "https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
@@ -179,7 +183,7 @@ def post_like(a, src: Source):
     t, u = a["text"], a["url"]
     if "업무추진비" not in t:
         return False
-    if src.key in {"suwon", "goyang"}:
+    if src.key in {"suwon", "goyang", "jemulpo"}:
         return "costBBSview" in u or "costbbsview" in u.lower()
     if src.key == "michuhol":
         return "bbs_view.asp" in u.lower() and "board_189" in u.lower()
@@ -223,6 +227,7 @@ def regex_attachment_fallback(base: str, text: str):
 
 
 def discover_source(src: Source, since, until):
+    effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
     empty_pages = 0
     for page in range(1, src.max_pages + 1):
@@ -238,7 +243,7 @@ def discover_source(src: Source, since, until):
             if src.key == "gyeonggi_council":
                 title=a.get("text","")
                 period=title_period(title)
-                if not period_overlaps(period, since, until):
+                if not period_overlaps(period, effective_since, until):
                     continue
                 # The official Gyeonggi Council list links the title directly to
                 # an XLS/XLSX download. Keep only chair/vice-chair leadership files.
@@ -258,7 +263,7 @@ def discover_source(src: Source, since, until):
             if not post_like(a, src):
                 continue
             period = title_period(a["text"])
-            if not period_overlaps(period, since, until) or a["url"] in seen_posts:
+            if not period_overlaps(period, effective_since, until) or a["url"] in seen_posts:
                 continue
             seen_posts.add(a["url"])
             row = {
