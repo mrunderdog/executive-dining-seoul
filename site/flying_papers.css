@@ -73,3 +73,27 @@ body{font-family:Inter,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun
 .explorer-toggle .state-closed,.workspace.explorer-collapsed~.explorer-toggle .state-open{display:none}
 .legend-dot.exec{background:var(--magenta)!important}.legend-dot.dest{background:var(--yellow)!important}.legend-dot.both{background:var(--red)!important}
 @media(max-width:1120px){.workspace,.workspace.explorer-collapsed{grid-template-columns:1fr!important}.workspace.explorer-collapsed .sidebar{display:none}.brand h1{font-size:36px!important}}
+
+/* Global entity / cross-institution UI */
+.brand,.stats,.stat{min-width:0}
+.control{min-width:0;white-space:nowrap;text-overflow:ellipsis}
+.map-actions{flex-wrap:nowrap;white-space:nowrap}
+.map-btn{white-space:nowrap;min-width:max-content}
+.badge.cross{background:var(--yellow)!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;font-weight:800!important}
+.cross-grid{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.cross-row{display:flex;justify-content:space-between;gap:14px;padding:10px 12px;background:var(--paper);border-bottom:1px solid var(--ink);font-size:12px}
+.cross-row:nth-child(even){background:var(--matcha)}
+.cross-row:last-child{border-bottom:0}
+.filters .explorer-toggle{position:static!important;width:100%;height:36px;margin-top:12px}
+body>.explorer-toggle{left:18px;bottom:18px}
+@media(max-width:1380px){
+  .map-toolbar{left:18px!important;right:18px!important}
+  .map-info{max-width:280px!important}
+  .map-actions{max-width:55%}
+}
+@media(max-width:760px){
+  .map-toolbar{gap:6px}
+  .map-info{max-width:48%!important}
+  .map-actions{max-width:50%;overflow-x:auto}
+  .map-btn{padding:0 9px!important}
+}
