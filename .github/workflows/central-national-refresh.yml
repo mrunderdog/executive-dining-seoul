@@ -10,10 +10,8 @@ on:
       - 'pipeline/ingest_central_executive_expense.py'
       - 'pipeline/build_central_executive_candidates.py'
       - 'pipeline/extra_published.py'
-      - 'pipeline/geocode_cache.py'
       - 'pipeline/geocode_extra_cache.py'
       - 'pipeline/qa_national_legislator_map.py'
-      - 'pipeline/quality_gate.py'
       - 'sources/central_executive_registry.json'
       - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
@@ -27,8 +25,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: published-data-writer
-  cancel-in-progress: false
+  group: central-national-refresh
+  cancel-in-progress: true
 
 jobs:
   refresh:
@@ -85,15 +83,17 @@ jobs:
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
 
-      - name: Commit generated reports and coordinate cache
+      - name: Commit generated reports
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports data/geocode_cache.json || true
+          git add reports || true
           if git diff --cached --quiet; then
             echo "No generated changes to publish."
             exit 0
           fi
           git commit -m "chore: refresh central and National Assembly data"
+          git restore data/geocode_cache.json || true
+          git pull --rebase origin main
           git push origin HEAD:main
