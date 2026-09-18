@@ -98,6 +98,34 @@ def hwpx_tables(blob):
                     tables.append((f"section{sec_no}-table{tno}",rows))
     return tables
 
+def pdf_rows(blob):
+    from pypdf import PdfReader
+    reader=PdfReader(io.BytesIO(blob))
+    for pageno,page in enumerate(reader.pages,1):
+        try:
+            text=page.extract_text(extraction_mode="layout") or page.extract_text() or ""
+        except TypeError:
+            text=page.extract_text() or ""
+        rows=[]
+        for line in text.splitlines():
+            line=" ".join(line.replace("\u00a0"," ").split("\t"))
+            if not line.strip():
+                continue
+            cells=[x.strip() for x in re.split(r"\s{2,}|\t+",line.strip()) if x.strip()]
+            if cells:
+                rows.append(cells)
+        if rows:
+            yield f"pdf-page-{pageno}",rows
+
+def amount_scale(rows):
+    head=" ".join(clean(x) for row in rows[:30] for x in row[:12])
+    compact=re.sub(r"\s+","",head)
+    if re.search(r"(?:단위|금액단위)[:：]?천원",compact):
+        return 1000
+    if re.search(r"(?:단위|금액단위)[:：]?만원",compact):
+        return 10000
+    return 1
+
 def rows_from(blob,name):
     lower=name.lower()
     if ".hwpx" in lower:
@@ -123,6 +151,14 @@ def rows_from(blob,name):
         text=blob.decode("utf-8-sig",errors="replace")
         import csv
         yield "csv",list(csv.reader(io.StringIO(text)))
+        return
+    if ".pdf" in lower or blob.startswith(b"%PDF"):
+        yielded=False
+        for item in pdf_rows(blob):
+            yielded=True
+            yield item
+        if not yielded:
+            raise ValueError("PDF contained no extractable text rows")
         return
     if blob.startswith(b"PK"):
         # Unknown ZIP container: try HWPX first, then XLSX.
@@ -175,21 +211,24 @@ def infer_role(label):
     return ""
 
 def normalize(rows,sheet,meta):
+    scale=amount_scale(rows)
     h=find_header(rows)
-    if not h:return [],{"sheet":sheet,"status":"NO_HEADER"}
+    if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
     score,hi,_=h;m=mapping(rows[hi]);out=[]
     for ri,row in enumerate(rows[hi+1:],start=hi+2):
         if not any(clean(x) for x in row):continue
         merchant=clean(cell(row,m,"merchant")); amt=amount(cell(row,m,"amount")); d=pdate(cell(row,m,"date"))
+        if amt is not None and scale != 1:
+            amt *= scale
         if not merchant and amt is None:continue
         joined=" ".join(clean(x) for x in row[:10])
         if any(k in joined for k in ("합계","총계","누계")) and not d:continue
         role=clean(cell(row,m,"role")) or clean(meta.get("default_role"))
         dept=clean(cell(row,m,"department"))
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":clean(cell(row,m,"time")),"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":clean(cell(row,m,"time")),"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
-    return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score}
+    return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--year",type=int,default=datetime.now().year);args=ap.parse_args()
@@ -198,7 +237,7 @@ def main():
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
             s=(a.get("text","")+" "+a.get("url","")).lower()
-            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx")):continue
+            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx",".pdf")):continue
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
                 label=a.get("text") or a["url"]
