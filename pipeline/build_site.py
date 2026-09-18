@@ -7,6 +7,7 @@ from pathlib import Path
 from data_io import load_payload
 from published_sources import merge_published_sources
 from extra_published import merge_extra_published
+from global_entities import merge_global_entities
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
@@ -63,7 +64,7 @@ def main():
     ap.add_argument("--output", default=str(ROOT / "index.html"))
     args = ap.parse_args()
 
-    payload = merge_extra_published(merge_published_sources(load_payload()))
+    payload = merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
     records = payload.get("records", [])
     if not records:
         raise SystemExit("published dataset has no records")
@@ -71,11 +72,18 @@ def main():
     geo = load_geo_cache()
     coord_count = 0
     for r in records:
-        key = f"{r.get('name', '')}|{r.get('origin', '')}"
-        g = geo.get(key) or {}
+        candidates = list(r.get("source_keys") or [])
+        candidates.append(f"{r.get('name', '')}|{r.get('origin', '')}")
+        g = {}
+        for key in candidates:
+            row = geo.get(key) or {}
+            if isinstance(row.get("lat"), (int, float)) and isinstance(row.get("lon"), (int, float)):
+                g = row
+                break
         if isinstance(g.get("lat"), (int, float)) and isinstance(g.get("lon"), (int, float)):
             r["lat"] = float(g["lat"])
             r["lon"] = float(g["lon"])
+            r["coordinate_source_key"] = key
             coord_count += 1
 
     stats = dict(payload.get("stats") or {})

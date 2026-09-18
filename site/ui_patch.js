@@ -9,7 +9,8 @@
 
   const workspace=document.querySelector('.workspace');
   const sidebar=document.querySelector('.sidebar');
-  if(!workspace||!sidebar) return;
+  const filters=document.querySelector('.filters');
+  if(!workspace||!sidebar||!filters) return;
 
   const btn=document.createElement('button');
   btn.type='button';
@@ -17,13 +18,18 @@
   btn.setAttribute('aria-controls','explorer-panel');
   btn.setAttribute('aria-expanded','true');
   sidebar.id='explorer-panel';
-  document.body.appendChild(btn);
+  filters.appendChild(btn);
 
   function sync(){
     const collapsed=workspace.classList.contains('explorer-collapsed');
     btn.setAttribute('aria-expanded',String(!collapsed));
     btn.textContent=collapsed?'탐색 열기 →':'← 탐색 접기';
     btn.title=collapsed?'Explorer 패널 열기':'Explorer 패널 접기';
+    if(collapsed){
+      if(btn.parentElement!==document.body) document.body.appendChild(btn);
+    }else{
+      if(btn.parentElement!==filters) filters.appendChild(btn);
+    }
     setTimeout(()=>{ try{ map.resize(); fitMap(); }catch(e){} },230);
   }
 
