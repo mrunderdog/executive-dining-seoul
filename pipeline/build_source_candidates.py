@@ -26,8 +26,11 @@ def looks_meal(r):
 
 def role_bucket(role):
     s=re.sub(r'\s+','',str(role or ''))
-    if s=='의장': return '의장'
-    if s=='부의장': return '부의장'
+    # Some councils suffix the sheet role with a month, e.g. 의장(8월),
+    # 부의장(10월). Keep the leadership scope conservative while accepting
+    # those presentation variants.
+    if re.match(r'^의장(?:\(|$)', s): return '의장'
+    if re.match(r'^부의장(?:\(|$)', s): return '부의장'
     return None
 
 
