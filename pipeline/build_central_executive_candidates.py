@@ -32,8 +32,16 @@ def senior_weight(role):
     if "국장" in s:return .65
     return .5
 
-def score(visits,roles,months,institutions,weight,spend):
-    return round(100*(.25*min(math.log1p(visits)/math.log1p(10),1)+.20*min(roles/5,1)+.20*min(months/6,1)+.20*min(institutions/4,1)+.10*weight+.05*min(math.log1p(max(spend,0))/math.log1p(5_000_000),1)),1)
+def score(visits,roles,months,institutions,weight,senior_ratio,spend):
+    return round(100*(
+        .22*min(math.log1p(visits)/math.log1p(10),1)
+        +.13*min(roles/5,1)
+        +.15*min(months/6,1)
+        +.15*min(institutions/4,1)
+        +.20*weight
+        +.10*min(max(senior_ratio,0),1)
+        +.05*min(math.log1p(max(spend,0))/math.log1p(5_000_000),1)
+    ),1)
 
 def main():
     if not RAW.exists():
@@ -48,17 +56,20 @@ def main():
         institutions=sorted({t(r.get("institution")) for r in items if t(r.get("institution"))})
         months=sorted({(t(r.get("used_date")))[:7] for r in items if re.match(r"20\d{2}-\d{2}",t(r.get("used_date")))})
         spend=sum(int(r.get("amount") or 0) for r in items if isinstance(r.get("amount"),(int,float)))
-        weight=max([senior_weight(r.get("role")) for r in items] or [.5])
-        s=score(visits,len(roles),len(months),len(institutions),weight,spend)
+        weights=[senior_weight(r.get("role")) for r in items]
+        weight=max(weights or [.5])
+        senior_visits=sum(1 for w in weights if w>=.65)
+        senior_ratio=senior_visits/visits if visits else 0
+        s=score(visits,len(roles),len(months),len(institutions),weight,senior_ratio,spend)
         rc=Counter(t(r.get("role")) or t(r.get("department")) or "직위 미상" for r in items);pc=Counter(t(r.get("purpose")) for r in items if t(r.get("purpose")))
         dates=sorted(t(r.get("used_date")) for r in items if t(r.get("used_date")))
-        out.append({"merchant":name,"address":address,"score":s,"visits":visits,"role_count":len(roles),"institution_count":len(institutions),"months":len(months),"spend":spend,"senior_weight":weight,"institutions":institutions,"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common(10)],"purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(6)],"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","recent":[{"date":t(r.get("used_date")),"time":t(r.get("used_time")),"institution":t(r.get("institution")),"role":t(r.get("role")) or t(r.get("department")),"amount":int(r.get("amount") or 0),"people":int(r.get("people") or 0),"purpose":t(r.get("purpose")),"source":t(r.get("source_url"))} for r in sorted(items,key=lambda x:(t(x.get("used_date")),t(x.get("used_time"))),reverse=True)[:8]]})
-    eligible=[x for x in out if x["visits"]>=2 and x["months"]>=1 and x["score"]>=45]
+        out.append({"merchant":name,"address":address,"score":s,"visits":visits,"senior_visits":senior_visits,"senior_ratio":round(senior_ratio,3),"role_count":len(roles),"institution_count":len(institutions),"months":len(months),"spend":spend,"senior_weight":weight,"institutions":institutions,"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common(10)],"purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(6)],"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","recent":[{"date":t(r.get("used_date")),"time":t(r.get("used_time")),"institution":t(r.get("institution")),"role":t(r.get("role")) or t(r.get("department")),"amount":int(r.get("amount") or 0),"people":int(r.get("people") or 0),"purpose":t(r.get("purpose")),"source":t(r.get("source_url"))} for r in sorted(items,key=lambda x:(t(x.get("used_date")),t(x.get("used_time"))),reverse=True)[:8]]})
+    eligible=[x for x in out if x["visits"]>=2 and x["months"]>=1 and x["score"]>=45 and (x["senior_weight"]>=.65 or x["institution_count"]>=2)]
     eligible.sort(key=lambda x:(x["score"],x["institution_count"],x["visits"],x["spend"]),reverse=True)
     REPORTS.mkdir(exist_ok=True)
     (REPORTS/"central-executive-candidates.json").write_text(json.dumps({"generated_at":datetime.now().isoformat(timespec="seconds"),"source":"central_executive","cohort":"central_executive","entity_count":len(out),"eligible_count":len(eligible),"candidates":eligible[:200]},ensure_ascii=False,indent=2),encoding="utf-8")
-    md=["# Central executive dining candidates","",f"- Meal-like rows: **{len(rows)}**",f"- Entities: **{len(out)}**",f"- Eligible: **{len(eligible)}**","","| # | Merchant | Score | Visits | Institutions | Roles | Months | Spend |","|---:|---|---:|---:|---:|---:|---:|---:|"]
-    for i,x in enumerate(eligible[:100],1):md.append(f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | {x['visits']} | {x['institution_count']} | {x['role_count']} | {x['months']} | {x['spend']:,} |")
+    md=["# Central executive dining candidates","",f"- Meal-like rows: **{len(rows)}**",f"- Entities: **{len(out)}**",f"- Eligible: **{len(eligible)}**","","> Ranking prioritizes documented minister/vice-minister/senior-executive use; generic departmental rows alone do not qualify unless the restaurant is independently repeated across institutions.","","| # | Merchant | Score | Visits | Senior visits | Institutions | Roles | Months | Spend |","|---:|---|---:|---:|---:|---:|---:|---:|---:|"]
+    for i,x in enumerate(eligible[:100],1):md.append(f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | {x['visits']} | {x['senior_visits']} | {x['institution_count']} | {x['role_count']} | {x['months']} | {x['spend']:,} |")
     (REPORTS/"central-executive-candidates.md").write_text("\n".join(md)+"\n",encoding="utf-8")
     print(json.dumps({"meal_rows":len(rows),"entities":len(out),"eligible":len(eligible),"published_stage":min(len(eligible),200)},ensure_ascii=False))
 
