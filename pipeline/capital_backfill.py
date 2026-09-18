@@ -257,8 +257,9 @@ def main():
         rows.extend(discover_source(src, since, until))
 
     REPORTS.mkdir(parents=True, exist_ok=True)
-    out_json = REPORTS / "capital-backfill-discovery.json"
-    out_md = REPORTS / "capital-backfill-discovery.md"
+    suffix = f"-{args.source}" if args.source else ""
+    out_json = REPORTS / f"capital-backfill-discovery{suffix}.json"
+    out_md = REPORTS / f"capital-backfill-discovery{suffix}.md"
     result = {"generated_at": datetime.now().isoformat(timespec="seconds"), "since": args.since, "until": args.until, "sources": [s.key for s in selected], "posts": rows}
     out_json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
