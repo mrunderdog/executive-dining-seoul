@@ -132,6 +132,26 @@ SOURCE_SPECS = {
         "max_records": 30,
         "home_tokens": ("파주",),
     },
+    "anseong": {
+        "origin": "안성시","region": "경기","jurisdiction": "안성시","institution": "안성시의회",
+        "min_visits": 4,"min_months": 3,"min_score": 55.0,"max_records": 30,"home_tokens": ("안성",),
+    },
+    "icheon": {
+        "origin": "이천시","region": "경기","jurisdiction": "이천시","institution": "이천시의회",
+        "min_visits": 4,"min_months": 3,"min_score": 55.0,"max_records": 30,"home_tokens": ("이천",),
+    },
+    "osan": {
+        "origin": "오산시","region": "경기","jurisdiction": "오산시","institution": "오산시의회",
+        "min_visits": 4,"min_months": 3,"min_score": 55.0,"max_records": 30,"home_tokens": ("오산",),
+    },
+    "pocheon": {
+        "origin": "포천시","region": "경기","jurisdiction": "포천시","institution": "포천시의회",
+        "min_visits": 4,"min_months": 3,"min_score": 55.0,"max_records": 30,"home_tokens": ("포천",),
+    },
+    "yangpyeong": {
+        "origin": "양평군","region": "경기","jurisdiction": "양평군","institution": "양평군의회",
+        "min_visits": 3,"min_months": 2,"min_score": 50.0,"max_records": 30,"home_tokens": ("양평",),
+    },
     "michuhol": {
         "origin": "미추홀구",
         "region": "인천",
