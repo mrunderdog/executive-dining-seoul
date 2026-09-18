@@ -88,7 +88,7 @@ def main():
 
     lines = [
         f"# Supplemental source status — {year}-{month:02d}", "",
-        "> Supplemental cohorts are monitored separately from the 66 basic councils and are not directly comparable by default.", "",
+        "> Supplemental cohorts are monitored separately from the 67 current basic councils and are not directly comparable by default.", "",
         "| Region | Institution | Cohort | Adapter | Status | Source |",
         "|---|---|---|---|---|---|",
     ]
