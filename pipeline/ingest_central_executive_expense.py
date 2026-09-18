@@ -202,7 +202,9 @@ def main():
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
                 label=a.get("text") or a["url"]
-                default_role=infer_role(label+" "+src.get("role_scope",""))
+                # Infer only from the concrete attachment/detail label. role_scope is
+                # documentation of possible roles and must never be treated as row evidence.
+                default_role=infer_role(label)
                 for sheet,rows in rows_from(blob,label):
                     norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role}); all_rows.extend(norm);info["sheets"].append(si)
                 files.append(info)
