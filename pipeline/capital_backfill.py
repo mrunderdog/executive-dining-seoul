@@ -44,6 +44,7 @@ SOURCES = [
     Source("ganghwa", "인천", "강화군", "강화군의회", "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("ongjin", "인천", "옹진군", "옹진군의회", "https://council.ongjin.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
     Source("gyeonggi_council", "경기", "경기도", "경기도의회", "https://www.ggc.go.kr/site/main/duty/list?cp={page}&listType=list&sortOrder=DT_USE_DT", 12, "quarterly"),
+    Source("incheon_council", "인천", "인천광역시", "인천광역시의회", "https://www.icouncil.go.kr/main/bbs/bbsMsgList.do?bcd=infordisc&pgno={page}", 25, "monthly"),
 ]
 
 
@@ -182,6 +183,8 @@ def post_like(a, src: Source):
         return "costbbsview" in u.lower()
     if src.key == "ganghwa":
         return "workbbsview" in u.lower()
+    if src.key == "incheon_council":
+        return "bbsmsgdetail.do" in u.lower() and "bcd=infordisc" in u.lower()
     return True
 
 
