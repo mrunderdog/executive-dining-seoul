@@ -54,6 +54,18 @@ Newly ingested rows should carry:
 
 Legacy Seoul seed records may still contain only `origin` such as `중랑구`; UI and normalization code should treat those as Seoul basic-council records until migrated.
 
+## Coverage snapshot — 2026-09-19
+
+For the **current Gyeonggi + Incheon universe (42 basic councils = 31 + 11)**:
+
+- Official expense-disclosure surface verified: **40 / 42**
+- Automated source adapter registered: **38 / 42**
+- Verified surface, adapter pending: **Pyeongtaek**, **Namdong**
+- Official expense-listing surface still unresolved: **Anyang**, **Geomdan**
+- Historical Incheon Jung-gu, Dong-gu and Seo-gu are retained only for pre-2026-07-01 lineage and are excluded from the current 42-council coverage denominator.
+
+Recent adapter additions: **Hanam**, **Yeoncheon**, **Yangju**. Their publication remains subject to the same discovery → ingestion → date QA → candidate-build gates as all other councils.
+
 ## Collection policy
 
 1. Official council / government / statutory disclosure source only for canonical expense rows.
