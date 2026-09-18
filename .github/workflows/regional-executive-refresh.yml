@@ -1,0 +1,116 @@
+name: Regional executive refresh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/gyeonggi_executive_discovery.py'
+      - 'pipeline/ingest_gyeonggi_executive.py'
+      - 'pipeline/build_gyeonggi_candidates.py'
+      - 'pipeline/incheon_executive_discovery.py'
+      - 'pipeline/ingest_incheon_executive.py'
+      - 'pipeline/build_incheon_candidates.py'
+      - 'pipeline/published_sources.py'
+      - 'sources/supplemental_registry.json'
+      - '.github/workflows/regional-executive-refresh.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regional-executive-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+
+      - name: Refresh Gyeonggi executive source
+        shell: bash
+        run: |
+          set +e
+          STATUS=/tmp/gyeonggi.status
+          restore_last_good() {
+            STAGE="$1"
+            if git cat-file -e "HEAD:data/raw/gyeonggi_province_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/gyeonggi-province-candidates.json" 2>/dev/null; then
+              git restore --source=HEAD -- data/raw/gyeonggi_province_expense.json reports/gyeonggi-province-candidates.json reports/gyeonggi-province-candidates.md reports/gyeonggi-province-ingestion.md reports/gyeonggi-executive-discovery.json reports/gyeonggi-executive-discovery.md 2>/dev/null || true
+              echo "STALE_OK:$STAGE" > "$STATUS"
+            else
+              echo "$STAGE"_FAILED > "$STATUS"
+            fi
+          }
+          python pipeline/gyeonggi_executive_discovery.py || { restore_last_good DISCOVERY; exit 0; }
+          python pipeline/ingest_gyeonggi_executive.py || { restore_last_good INGEST; exit 0; }
+          python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95 || { restore_last_good DATE_QA; exit 0; }
+          python pipeline/build_gyeonggi_candidates.py || { restore_last_good CANDIDATE; exit 0; }
+          echo OK > "$STATUS"
+
+      - name: Refresh Incheon executive source
+        shell: bash
+        run: |
+          set +e
+          STATUS=/tmp/incheon.status
+          restore_last_good() {
+            STAGE="$1"
+            if git cat-file -e "HEAD:data/raw/incheon_province_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/incheon-province-candidates.json" 2>/dev/null; then
+              git restore --source=HEAD -- data/raw/incheon_province_expense.json reports/incheon-province-candidates.json reports/incheon-province-candidates.md reports/incheon-province-ingestion.md reports/incheon-executive-discovery.json reports/incheon-executive-discovery.md 2>/dev/null || true
+              echo "STALE_OK:$STAGE" > "$STATUS"
+            else
+              echo "$STAGE"_FAILED > "$STATUS"
+            fi
+          }
+          python pipeline/incheon_executive_discovery.py || { restore_last_good DISCOVERY; exit 0; }
+          python pipeline/ingest_incheon_executive.py || { restore_last_good INGEST; exit 0; }
+          python pipeline/repair_raw_dates.py --source incheon_province --min-valid 0.95 || { restore_last_good DATE_QA; exit 0; }
+          python pipeline/build_incheon_candidates.py || { restore_last_good CANDIDATE; exit 0; }
+          echo OK > "$STATUS"
+
+      - name: Show source status
+        run: |
+          echo "Gyeonggi: $(cat /tmp/gyeonggi.status 2>/dev/null || echo UNKNOWN)"
+          echo "Incheon: $(cat /tmp/incheon.status 2>/dev/null || echo UNKNOWN)"
+
+      - name: Refresh coordinates
+        run: python pipeline/geocode_cache.py --mode auto
+
+      - name: Quality gate
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit successful regional data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          G="$(cat /tmp/gyeonggi.status 2>/dev/null || echo UNKNOWN)"
+          I="$(cat /tmp/incheon.status 2>/dev/null || echo UNKNOWN)"
+          if [[ "$G" == "OK" ]]; then
+            git add data/raw/gyeonggi_province_expense.json reports/gyeonggi-*.json reports/gyeonggi-*.md 2>/dev/null || true
+          fi
+          if [[ "$I" == "OK" ]]; then
+            git add data/raw/incheon_province_expense.json reports/incheon-*.json reports/incheon-*.md 2>/dev/null || true
+          fi
+          git add data/geocode_cache.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No successful regional changes to publish."
+            exit 0
+          fi
+          git commit -m "data: refresh regional executive sources"
+          git pull --rebase origin main
+          git push origin HEAD:main
