@@ -3,15 +3,23 @@ from __future__ import annotations
 
 import hashlib
 import json
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-from ingest_central_executive_expense import clean, fetch, normalize, rows_from
+from ingest_central_executive_expense import clean, normalize, rows_from
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORTS=ROOT/"reports"
 RAW_DIR=ROOT/"data"/"raw"
 DISCOVERY=REPORTS/"incheon-executive-discovery.json"
+UA="ExecutiveDiningSeoul/2.2 (+https://github.com/mrunderdog/executive-dining-seoul)"
+
+
+def fetch_binary(url: str) -> bytes:
+    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"*/*"})
+    with urllib.request.urlopen(req,timeout=15) as r:
+        return r.read()
 
 
 def main():
@@ -29,7 +37,7 @@ def main():
             if not url: continue
             label=clean(att.get("text")) or url
             try:
-                blob=fetch(url)
+                blob=fetch_binary(url)
                 info={
                     "title":post.get("title"),
                     "scope":post.get("scope"),
