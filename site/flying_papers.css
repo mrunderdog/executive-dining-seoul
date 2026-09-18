@@ -97,3 +97,39 @@ body>.explorer-toggle{left:18px;bottom:18px}
   .map-actions{max-width:50%;overflow-x:auto}
   .map-btn{padding:0 9px!important}
 }
+
+/* Compact explorer: keep filters useful without hiding the restaurant list */
+@media(min-width:1001px){
+  .filters{
+    padding:16px 18px 12px!important;
+  }
+  .filter-grid{
+    gap:10px 12px!important;
+  }
+  .field{
+    gap:5px!important;
+  }
+  .field label{
+    font-size:11px!important;
+    margin:0!important;
+  }
+  .control,
+  .search-wrap input,
+  select{
+    min-height:40px!important;
+    height:40px!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+  }
+  .filters .explorer-toggle{
+    height:32px!important;
+    margin-top:8px!important;
+  }
+  .list-panel{
+    min-height:0!important;
+  }
+  .restaurant-list,
+  .list{
+    min-height:0!important;
+  }
+}
