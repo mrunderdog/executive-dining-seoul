@@ -709,9 +709,10 @@
       "institution": "인천광역시의회",
       "jurisdiction_level": "regional_council",
       "source_family": "council_leadership",
-      "verified": false,
-      "url": null,
-      "adapter": "discovery_required"
+      "verified": true,
+      "url": "https://www.icouncil.go.kr/main/participate/expense.jsp",
+      "adapter": "incheon_council_pdf_listing",
+      "note": "Official council-member business-promotion expense listing; monthly chair, vice-chair and committee-chair PDF disclosures."
     }
   ],
   "auxiliary": [
