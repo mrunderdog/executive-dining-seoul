@@ -205,9 +205,12 @@ def normalize_sheet(rows, sheet_name, source_meta):
         # Suwon committee sheets and are not expense events.
         if not merchant and not used_date:
             continue
-        # Skip obvious subtotal/footer rows.
+        # Skip obvious subtotal/footer rows. Some councils put "합계" or
+        # "계" directly in the date column, so a truthy used_date is not enough
+        # to distinguish a transaction from a layout/footer row.
         joined = " ".join(clean_text(x) for x in row[:8])
-        if any(k in joined for k in ("합계", "총계", "누계")) and not used_date:
+        structural_date = bool(re.fullmatch(r"(?:합계|총계|누계|계)", used_date or ""))
+        if structural_date or (any(k in joined for k in ("합계", "총계", "누계")) and not used_date):
             continue
         raw = {
             "region": source_meta["region"],

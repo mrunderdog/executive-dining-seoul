@@ -25,6 +25,13 @@ def parse_date_text(s):
     raw=str(s or '').strip()
     if not raw:
         return None
+    # Common council shorthand: 25.11.05. -> 2025-11-05.
+    m=re.fullmatch(r"(\d{2})[./-](\d{1,2})[./-](\d{1,2})[.]?",raw)
+    if m:
+        try:
+            return date(2000+int(m.group(1)),int(m.group(2)),int(m.group(3)))
+        except ValueError:
+            pass
     patterns=(
         r'^(20\d{2})-(\d{2})-(\d{2})$',
         r'^(20\d{2})(\d{2})(\d{2})$',
@@ -68,6 +75,7 @@ def self_test():
         '202601-05':'2026-01-05',
         '2026.1.5':'2026-01-05',
         '2026/01/05':'2026-01-05',
+        '25.11.05.':'2025-11-05',
     }
     for raw,expected in samples.items():
         got=parse_date_text(raw)
@@ -92,26 +100,44 @@ def main():
     normalized_text_dates=0
     valid=0
     in_period=0
+    transaction_rows=0
+    transaction_valid=0
+    transaction_in_period=0
     invalid_examples=[]
 
     for r in rows:
         raw=r.get('used_date','')
+        period=expected_period(r.get('source_period'))
         dt=parse_date_text(raw)
         if dt and str(raw).strip()!=dt.isoformat():
             r['used_date']=dt.isoformat()
             normalized_text_dates+=1
+        # Monthly disclosure sheets sometimes abbreviate the date to the day
+        # number only. When the source post itself fixes year+month, that day is
+        # unambiguous and can be normalized safely.
+        if not dt and period and r.get('source_period') and r.get('source_period')[1] and re.fullmatch(r"\d{1,2}",str(raw).strip()):
+            try:
+                dt=date(int(r['source_period'][0]),int(r['source_period'][1]),int(str(raw).strip()))
+                r['used_date']=dt.isoformat()
+                normalized_text_dates+=1
+            except ValueError:
+                pass
         if not dt:
             dt=excel_serial_to_date(raw)
             if dt:
                 r['used_date']=dt.isoformat()
                 repaired_serial+=1
 
-        period=expected_period(r.get('source_period'))
         ok=dt is not None
         ip=bool(dt and period and period[0] <= dt <= period[1])
         r['date_quality']='in_period' if ip else ('valid_outside_period' if ok else 'invalid')
         valid += int(ok)
         in_period += int(ip)
+        is_transaction=bool(str(r.get('merchant') or '').strip())
+        if is_transaction:
+            transaction_rows += 1
+            transaction_valid += int(ok)
+            transaction_in_period += int(ip)
         if (not ok or (period and not ip)) and len(invalid_examples)<20:
             invalid_examples.append({
                 'used_date':r.get('used_date'),
@@ -121,14 +147,19 @@ def main():
                 'merchant':r.get('merchant'),
             })
 
-    coverage=valid/len(rows) if rows else 0
-    in_period_coverage=in_period/len(rows) if rows else 0
+    all_coverage=valid/len(rows) if rows else 0
+    all_in_period_coverage=in_period/len(rows) if rows else 0
+    coverage=transaction_valid/transaction_rows if transaction_rows else all_coverage
+    in_period_coverage=transaction_in_period/transaction_rows if transaction_rows else all_in_period_coverage
     d['raw_quality']={
         'rows':len(rows),
+        'transaction_rows':transaction_rows,
         'repaired_excel_serial_dates':repaired_serial,
         'normalized_text_dates':normalized_text_dates,
         'valid_date_coverage':round(coverage,4),
         'in_period_date_coverage':round(in_period_coverage,4),
+        'all_row_valid_date_coverage':round(all_coverage,4),
+        'all_row_in_period_date_coverage':round(all_in_period_coverage,4),
         'invalid_examples':invalid_examples,
     }
     path.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
