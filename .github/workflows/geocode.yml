@@ -15,8 +15,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: published-data-writer
-  cancel-in-progress: false
+  group: static-coordinate-cache
+  cancel-in-progress: true
 
 jobs:
   geocode:
