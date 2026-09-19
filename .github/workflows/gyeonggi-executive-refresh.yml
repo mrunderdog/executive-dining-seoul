@@ -7,6 +7,7 @@ on:
       - 'pipeline/gyeonggi_executive_discovery.py'
       - 'pipeline/ingest_gyeonggi_executive.py'
       - 'pipeline/build_gyeonggi_candidates.py'
+      - 'pipeline/repair_raw_dates.py'
       - '.github/workflows/gyeonggi-executive-refresh.yml'
   workflow_dispatch:
     inputs:
