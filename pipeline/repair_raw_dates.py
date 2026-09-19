@@ -76,6 +76,7 @@ def self_test():
         '2026.1.5':'2026-01-05',
         '2026/01/05':'2026-01-05',
         '25.11.05.':'2025-11-05',
+        '1월 12일':None,
     }
     for raw,expected in samples.items():
         got=parse_date_text(raw)
@@ -112,12 +113,24 @@ def main():
         if dt and str(raw).strip()!=dt.isoformat():
             r['used_date']=dt.isoformat()
             normalized_text_dates+=1
-        # Monthly disclosure sheets sometimes abbreviate the date to the day
-        # number only. When the source post itself fixes year+month, that day is
-        # unambiguous and can be normalized safely.
-        if not dt and period and r.get('source_period') and r.get('source_period')[1] and re.fullmatch(r"\d{1,2}",str(raw).strip()):
+        # Some public disclosure sheets omit the year and write dates as
+        # "1월 12일". When source_period fixes the year, month/day is unambiguous
+        # even for quarterly sheets, so normalize it before the quality gate.
+        source_period=r.get('source_period')
+        if not dt and source_period and source_period[0]:
+            md=re.fullmatch(r"\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일\s*",str(raw).strip())
+            if md:
+                try:
+                    dt=date(int(source_period[0]),int(md.group(1)),int(md.group(2)))
+                    r['used_date']=dt.isoformat()
+                    normalized_text_dates+=1
+                except ValueError:
+                    pass
+        # Monthly disclosure sheets can also abbreviate the date to the day
+        # number only. This is safe only when source_period fixes year+month.
+        if not dt and period and source_period and source_period[1] and re.fullmatch(r"\d{1,2}",str(raw).strip()):
             try:
-                dt=date(int(r['source_period'][0]),int(r['source_period'][1]),int(str(raw).strip()))
+                dt=date(int(source_period[0]),int(source_period[1]),int(str(raw).strip()))
                 r['used_date']=dt.isoformat()
                 normalized_text_dates+=1
             except ValueError:
