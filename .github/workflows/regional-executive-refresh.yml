@@ -10,6 +10,7 @@ on:
       - 'pipeline/incheon_executive_discovery.py'
       - 'pipeline/ingest_incheon_executive.py'
       - 'pipeline/build_incheon_candidates.py'
+      - 'pipeline/repair_raw_dates.py'
       - 'pipeline/published_sources.py'
       - 'sources/supplemental_registry.json'
       - '.github/workflows/regional-executive-refresh.yml'
