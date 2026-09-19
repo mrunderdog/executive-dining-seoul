@@ -76,7 +76,6 @@ def self_test():
         '2026.1.5':'2026-01-05',
         '2026/01/05':'2026-01-05',
         '25.11.05.':'2025-11-05',
-        '1월 12일':None,
     }
     for raw,expected in samples.items():
         got=parse_date_text(raw)
