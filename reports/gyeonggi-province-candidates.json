@@ -1,0 +1,1881 @@
+{
+  "source": "gyeonggi_province",
+  "cohort": "regional_executive",
+  "entity_count": 303,
+  "eligible_count": 20,
+  "publication_status": "staged_not_published",
+  "candidates": [
+    {
+      "merchant": "우사 광교점",
+      "address": "",
+      "score": 70.5,
+      "visits": 11,
+      "department_count": 5,
+      "departments": [
+        "공공기관담당관",
+        "기획담당관",
+        "보도기획담당관",
+        "정책홍보담당관",
+        "평생교육과"
+      ],
+      "months": 3,
+      "spend": 1524000,
+      "date_min": "2026-01-14",
+      "date_max": "2026-03-30",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 6
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 2
+        },
+        {
+          "department": "공공기관담당관",
+          "visits": 1
+        },
+        {
+          "department": "평생교육과",
+          "visits": 1
+        },
+        {
+          "department": "보도기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 2
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "도정 현안업무 논의를 위한 관계자 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "공공기관 경영평가 업무 관련 간담 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "평생교육 관계자 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 1
+        },
+        {
+          "text": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-30",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 80000,
+          "people": 4,
+          "purpose": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-24",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 300000,
+          "people": 8,
+          "purpose": "도정 현안업무 논의를 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-18",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 69000,
+          "people": 4,
+          "purpose": "도정 현안업무 논의를 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-13",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 90000,
+          "people": 6,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-27",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 108000,
+          "people": 6,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-20",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 36000,
+          "people": 2,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-20",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 80000,
+          "people": 4,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 138000,
+          "people": 8,
+          "purpose": "평생교육 관계자 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-04",
+          "time": "",
+          "department": "공공기관담당관",
+          "amount": 112000,
+          "people": 4,
+          "purpose": "공공기관 경영평가 업무 관련 간담 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836409&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-27",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 391000,
+          "people": 10,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "다인",
+      "address": "",
+      "score": 65.0,
+      "visits": 11,
+      "department_count": 3,
+      "departments": [
+        "기획담당관",
+        "식품안전과",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 1470000,
+      "date_min": "2026-01-12",
+      "date_max": "2026-03-20",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 5
+        },
+        {
+          "department": "식품안전과",
+          "visits": 3
+        },
+        {
+          "department": "기획담당관",
+          "visits": 3
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 5
+        },
+        {
+          "text": "식품안전 정책 추진 간담회",
+          "count": 3
+        },
+        {
+          "text": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-20",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 198000,
+          "people": 8,
+          "purpose": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-16",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 149000,
+          "people": 6,
+          "purpose": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-27",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 54000,
+          "people": 3,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 70000,
+          "people": 7,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-13",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 84000,
+          "people": 6,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-11",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 36000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-10",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 201000,
+          "people": 6,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 477000,
+          "people": 15,
+          "purpose": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-03",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 84000,
+          "people": 5,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-28",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 81000,
+          "people": 3,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "북경오리구이",
+      "address": "",
+      "score": 64.5,
+      "visits": 8,
+      "department_count": 4,
+      "departments": [
+        "기획담당관",
+        "보도기획담당관",
+        "정책홍보담당관",
+        "평생교육과"
+      ],
+      "months": 3,
+      "spend": 1106000,
+      "date_min": "2026-01-16",
+      "date_max": "2026-03-23",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 4
+        },
+        {
+          "department": "평생교육과",
+          "visits": 2
+        },
+        {
+          "department": "보도기획담당관",
+          "visits": 1
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 4
+        },
+        {
+          "text": "평생교육 관계자 간담회비 지출",
+          "count": 2
+        },
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 1
+        },
+        {
+          "text": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-23",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 220000,
+          "people": 9,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-16",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 66000,
+          "people": 4,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-25",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 81000,
+          "people": 3,
+          "purpose": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-23",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 243000,
+          "people": 9,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-06",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 120000,
+          "people": 5,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-29",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 66000,
+          "people": 3,
+          "purpose": "평생교육 관계자 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-21",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 102000,
+          "people": 5,
+          "purpose": "평생교육 관계자 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-16",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 208000,
+          "people": 8,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "건강밥상심마니",
+      "address": "",
+      "score": 62.4,
+      "visits": 9,
+      "department_count": 3,
+      "departments": [
+        "기획담당관",
+        "보도기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 845600,
+      "date_min": "2026-01-08",
+      "date_max": "2026-03-17",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 7
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        },
+        {
+          "department": "보도기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "count": 3
+        },
+        {
+          "text": "도정 정책 발굴을 위한 시책추진 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        },
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-17",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 64800,
+          "people": 3,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-27",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 91600,
+          "people": 4,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 144000,
+          "people": 6,
+          "purpose": "도정 정책 발굴을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-09",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 61700,
+          "people": 3,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-02",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 130900,
+          "people": 4,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-02",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 136600,
+          "people": 5,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-29",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 48000,
+          "people": 2,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-28",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 120000,
+          "people": 5,
+          "purpose": "도정 정책 발굴을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-08",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 48000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "미케",
+      "address": "",
+      "score": 59.9,
+      "visits": 7,
+      "department_count": 3,
+      "departments": [
+        "기획담당관",
+        "정책홍보담당관",
+        "평생교육과"
+      ],
+      "months": 3,
+      "spend": 874000,
+      "date_min": "2026-01-29",
+      "date_max": "2026-03-30",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 4
+        },
+        {
+          "department": "평생교육과",
+          "visits": 2
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "평생교육 업무추진 관련 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "청소년 업무추진 관련 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-30",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 106000,
+          "people": 5,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-26",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 110000,
+          "people": 5,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-20",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 219000,
+          "people": 9,
+          "purpose": "청소년 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-13",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 93000,
+          "people": 4,
+          "purpose": "평생교육 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-27",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 105000,
+          "people": 5,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-30",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 146000,
+          "people": 5,
+          "purpose": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-29",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 95000,
+          "people": 4,
+          "purpose": "도정 현안업무 추진 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "우사",
+      "address": "",
+      "score": 58.0,
+      "visits": 6,
+      "department_count": 3,
+      "departments": [
+        "노인복지과",
+        "정책홍보담당관",
+        "평생교육과"
+      ],
+      "months": 3,
+      "spend": 570000,
+      "date_min": "2026-01-02",
+      "date_max": "2026-03-12",
+      "department_stats": [
+        {
+          "department": "노인복지과",
+          "visits": 3
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 2
+        },
+        {
+          "department": "평생교육과",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 2
+        },
+        {
+          "text": "평생교육 관계자 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "2026년 신규 노인일자리 사업 관계자 오찬 간담회 경비 지급 건의(2.2.)",
+          "count": 1
+        },
+        {
+          "text": "노인복지사업 관계자 오찬 간담회 경비 지급 건의(2.24.)",
+          "count": 1
+        },
+        {
+          "text": "노인 일자리지원센터 관계자 오찬 간담회 경비 지급 건의(3.12.)",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-12",
+          "time": "",
+          "department": "노인복지과",
+          "amount": 69000,
+          "people": 4,
+          "purpose": "노인 일자리지원센터 관계자 오찬 간담회 경비 지급 건의(3.12.)",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294023&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-09",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 90000,
+          "people": 4,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-06",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 80000,
+          "people": 4,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-24",
+          "time": "",
+          "department": "노인복지과",
+          "amount": 126000,
+          "people": 7,
+          "purpose": "노인복지사업 관계자 오찬 간담회 경비 지급 건의(2.24.)",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294023&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-02",
+          "time": "",
+          "department": "노인복지과",
+          "amount": 105000,
+          "people": 7,
+          "purpose": "2026년 신규 노인일자리 사업 관계자 오찬 간담회 경비 지급 건의(2.2.)",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294023&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-02",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 100000,
+          "people": 7,
+          "purpose": "평생교육 관계자 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "만촌닭갈비",
+      "address": "",
+      "score": 57.1,
+      "visits": 4,
+      "department_count": 4,
+      "departments": [
+        "공공기관담당관",
+        "기획담당관",
+        "노인복지과",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 474900,
+      "date_min": "2026-01-16",
+      "date_max": "2026-03-10",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        },
+        {
+          "department": "노인복지과",
+          "visits": 1
+        },
+        {
+          "department": "공공기관담당관",
+          "visits": 1
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        },
+        {
+          "text": "선배시민 사업 관계자 오찬 간담회 경비 지급 건의(2.19.)",
+          "count": 1
+        },
+        {
+          "text": "공공기관 책임계약 관련 간담 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정 현안업무 논의를 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-10",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 66500,
+          "people": 4,
+          "purpose": "도정 현안업무 논의를 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-06",
+          "time": "",
+          "department": "공공기관담당관",
+          "amount": 98000,
+          "people": 6,
+          "purpose": "공공기관 책임계약 관련 간담 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836409&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "department": "노인복지과",
+          "amount": 105000,
+          "people": 7,
+          "purpose": "선배시민 사업 관계자 오찬 간담회 경비 지급 건의(2.19.)",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232294023&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-16",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 205400,
+          "people": 10,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "거궁광교점",
+      "address": "",
+      "score": 52.5,
+      "visits": 6,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "평생교육과"
+      ],
+      "months": 2,
+      "spend": 1312000,
+      "date_min": "2026-02-09",
+      "date_max": "2026-03-25",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 5
+        },
+        {
+          "department": "평생교육과",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정자문위원회 발전 방안 논의를 위한 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "공공기관 경영평가단 설명회 개최 관련 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "청년 업무추진 관련 간담회비 지출",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-25",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 168000,
+          "people": 8,
+          "purpose": "청년 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-23",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 208000,
+          "people": 8,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-04",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 208000,
+          "people": 8,
+          "purpose": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-26",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 260000,
+          "people": 10,
+          "purpose": "공공기관 경영평가단 설명회 개최 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-11",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 180000,
+          "people": 6,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-09",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 288000,
+          "people": 8,
+          "purpose": "도정자문위원회 발전 방안 논의를 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "양은이네 광교점",
+      "address": "",
+      "score": 51.8,
+      "visits": 5,
+      "department_count": 2,
+      "departments": [
+        "보도기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 267000,
+      "date_min": "2026-01-07",
+      "date_max": "2026-03-12",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 3
+        },
+        {
+          "department": "보도기획담당관",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 3
+        },
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-12",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 35000,
+          "people": 2,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-23",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 122000,
+          "people": 5,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-21",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 45000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-08",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 30000,
+          "people": 2,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-07",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 35000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "더몰트하우스 광교",
+      "address": "",
+      "score": 50.4,
+      "visits": 4,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 664230,
+      "date_min": "2026-01-23",
+      "date_max": "2026-03-03",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 3
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 2
+        },
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-03",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 268200,
+          "people": 10,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-13",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 197130,
+          "people": 8,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-29",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 119700,
+          "people": 4,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-23",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 79200,
+          "people": 3,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "거궁 광교점",
+      "address": "",
+      "score": 49.9,
+      "visits": 4,
+      "department_count": 2,
+      "departments": [
+        "식품안전과",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 363000,
+      "date_min": "2026-01-06",
+      "date_max": "2026-03-11",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 2
+        },
+        {
+          "department": "식품안전과",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 2
+        },
+        {
+          "text": "식품안전 정책 추진 간담회",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-11",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 133000,
+          "people": 7,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-10",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 78000,
+          "people": 3,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-06",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 114000,
+          "people": 6,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-06",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 38000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "청담동샤브 광교아브뉴프랑점",
+      "address": "",
+      "score": 48.7,
+      "visits": 3,
+      "department_count": 3,
+      "departments": [
+        "공공기관담당관",
+        "식품안전과",
+        "정책홍보담당관"
+      ],
+      "months": 2,
+      "spend": 235100,
+      "date_min": "2026-01-21",
+      "date_max": "2026-03-10",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        },
+        {
+          "department": "공공기관담당관",
+          "visits": 1
+        },
+        {
+          "department": "식품안전과",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        },
+        {
+          "text": "공공기관 통합채용 관련 간담 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "식품안전 정책 추진 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-10",
+          "time": "",
+          "department": "식품안전과",
+          "amount": 88400,
+          "people": 6,
+          "purpose": "식품안전 정책 추진 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607772&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-03",
+          "time": "",
+          "department": "공공기관담당관",
+          "amount": 102000,
+          "people": 7,
+          "purpose": "공공기관 통합채용 관련 간담 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836409&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-21",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 44700,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "남도예찬",
+      "address": "",
+      "score": 48.6,
+      "visits": 4,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "평생교육과"
+      ],
+      "months": 2,
+      "spend": 1292000,
+      "date_min": "2026-02-05",
+      "date_max": "2026-03-31",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 3
+        },
+        {
+          "department": "평생교육과",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정자문위원회 제7차 전체회의 관련 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "청소년 업무추진 관련 간담회비 지출",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-31",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 114000,
+          "people": 6,
+          "purpose": "청소년 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-27",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 114000,
+          "people": 3,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-11",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 570000,
+          "people": 15,
+          "purpose": "도정자문위원회 제7차 전체회의 관련 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 494000,
+          "people": 15,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "광교양평해장국 광교중앙역본점",
+      "address": "",
+      "score": 47.9,
+      "visits": 3,
+      "department_count": 3,
+      "departments": [
+        "공공기관담당관",
+        "기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 2,
+      "spend": 85000,
+      "date_min": "2026-01-12",
+      "date_max": "2026-03-30",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        },
+        {
+          "department": "공공기관담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "공공기관 결산 관련 간담 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-30",
+          "time": "",
+          "department": "공공기관담당관",
+          "amount": 26000,
+          "people": 3,
+          "purpose": "공공기관 결산 관련 간담 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836409&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-25",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 37000,
+          "people": 3,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-12",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 22000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "하태우노란황태",
+      "address": "",
+      "score": 47.8,
+      "visits": 4,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 2,
+      "spend": 440000,
+      "date_min": "2026-02-10",
+      "date_max": "2026-03-12",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 3
+        },
+        {
+          "department": "정책홍보담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "홍보관계자 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-12",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 86000,
+          "people": 7,
+          "purpose": "도정 주요현안 점검 관련 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-03-03",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 100000,
+          "people": 4,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-20",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 66000,
+          "people": 6,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-10",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 188000,
+          "people": 10,
+          "purpose": "도정 시책 설명을 위한 관계자 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "본당 광교점",
+      "address": "",
+      "score": 47.7,
+      "visits": 3,
+      "department_count": 2,
+      "departments": [
+        "보도기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 3,
+      "spend": 556800,
+      "date_min": "2026-01-08",
+      "date_max": "2026-03-10",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 2
+        },
+        {
+          "department": "보도기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 2
+        },
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-10",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 303000,
+          "people": 11,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-26",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 225800,
+          "people": 11,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-08",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 28000,
+          "people": 2,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "후호정",
+      "address": "",
+      "score": 47.6,
+      "visits": 4,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "보도기획담당관"
+      ],
+      "months": 2,
+      "spend": 335000,
+      "date_min": "2026-01-19",
+      "date_max": "2026-02-23",
+      "department_stats": [
+        {
+          "department": "보도기획담당관",
+          "visits": 3
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정 주요사업 보도기획 업무협의 간담회",
+          "count": 3
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-02-23",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 57000,
+          "people": 3,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 104000,
+          "people": 4,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-26",
+          "time": "",
+          "department": "보도기획담당관",
+          "amount": 97000,
+          "people": 4,
+          "purpose": "도정 주요사업 보도기획 업무협의 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232981004&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-19",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 77000,
+          "people": 3,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "봉혜자네주방 광교아브뉴프랑점",
+      "address": "",
+      "score": 47.2,
+      "visits": 3,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "평생교육과"
+      ],
+      "months": 3,
+      "spend": 297500,
+      "date_min": "2026-01-28",
+      "date_max": "2026-03-06",
+      "department_stats": [
+        {
+          "department": "평생교육과",
+          "visits": 2
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "평생교육 관계자 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "청년 업무추진 관련 간담회비 지출",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-06",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 138000,
+          "people": 6,
+          "purpose": "청년 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 64500,
+          "people": 5,
+          "purpose": "평생교육 관계자 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-28",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 95000,
+          "people": 4,
+          "purpose": "도정현안 해결방안 모색을 위한 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "광교부추곱창",
+      "address": "",
+      "score": 45.5,
+      "visits": 3,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "평생교육과"
+      ],
+      "months": 2,
+      "spend": 657000,
+      "date_min": "2026-01-09",
+      "date_max": "2026-02-19",
+      "department_stats": [
+        {
+          "department": "기획담당관",
+          "visits": 2
+        },
+        {
+          "department": "평생교육과",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "평생교육 업무추진 관련 간담회비 지출",
+          "count": 1
+        },
+        {
+          "text": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        },
+        {
+          "text": "도정 현안업무 논의를 위한 시책추진 간담회 경비 지급",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 182000,
+          "people": 6,
+          "purpose": "도정 현안업무 논의를 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-11",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 213000,
+          "people": 10,
+          "purpose": "도정운영 활성화 추진을 위한 시책추진 간담회 경비 지급",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-01-09",
+          "time": "",
+          "department": "평생교육과",
+          "amount": 262000,
+          "people": 10,
+          "purpose": "평생교육 업무추진 관련 간담회비 지출",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231836421&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    },
+    {
+      "merchant": "탐복 광교점",
+      "address": "",
+      "score": 45.1,
+      "visits": 3,
+      "department_count": 2,
+      "departments": [
+        "기획담당관",
+        "정책홍보담당관"
+      ],
+      "months": 2,
+      "spend": 381000,
+      "date_min": "2026-02-12",
+      "date_max": "2026-03-04",
+      "department_stats": [
+        {
+          "department": "정책홍보담당관",
+          "visits": 2
+        },
+        {
+          "department": "기획담당관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "홍보관계자 간담회",
+          "count": 2
+        },
+        {
+          "text": "제388회 임시회 제4차 본회의 개최 관련 관계자 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-04",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 36000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-25",
+          "time": "",
+          "department": "정책홍보담당관",
+          "amount": 36000,
+          "people": 2,
+          "purpose": "홍보관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=231607782&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        },
+        {
+          "date": "2026-02-12",
+          "time": "",
+          "department": "기획담당관",
+          "amount": 309000,
+          "people": 10,
+          "purpose": "제388회 임시회 제4차 본회의 개최 관련 관계자 간담회",
+          "source": "https://www.gg.go.kr/bbs/boardView.do?bIdx=232751906&bcIdx=536&bsIdx=535&menuId=1778&page=1"
+        }
+      ]
+    }
+  ]
+}
