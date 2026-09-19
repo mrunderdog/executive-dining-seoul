@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-18T23:27:52",
-  "dataset_records": 696,
-  "cross_institution_count": 91,
-  "cross_origin_count": 1,
+  "generated_at": "2026-09-19T00:04:46",
+  "dataset_records": 704,
+  "cross_institution_count": 90,
+  "cross_origin_count": 0,
   "top_official_count": 120,
-  "regional_head_count": 12,
-  "entity_merges": 9,
+  "regional_head_count": 20,
+  "entity_merges": 8,
   "cross_institution": [
     {
       "name": "마키노차야 더가우",
@@ -450,37 +450,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해량 260도",
-      "address": "",
-      "origins": [
-        "연수구",
-        "인천시청"
-      ],
-      "institutions": [
-        "연수구의회",
-        "인천광역시청"
-      ],
-      "cohorts": [
-        "regional_executive"
-      ],
-      "visits": 23,
-      "spend": 5179000,
-      "date_min": "2024-12-05",
-      "date_max": "2026-08-13",
-      "consensus_score": 69.2,
-      "institution_count": 2,
-      "source_count": 2,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -6444,10 +6413,10 @@
       "cohorts": [
         "regional_executive"
       ],
-      "visits": 9,
-      "spend": 2135000,
-      "date_min": "2025-02-10",
-      "date_max": "2026-03-20",
+      "visits": 18,
+      "spend": 6070000,
+      "date_min": "2025-07-03",
+      "date_max": "2026-07-09",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6459,7 +6428,7 @@
       "minister_visits": 0,
       "vice_minister_visits": 0,
       "mayor_visits": 8,
-      "vice_mayor_visits": 1
+      "vice_mayor_visits": 10
     },
     {
       "name": "형제복집",
@@ -6473,10 +6442,10 @@
       "cohorts": [
         "regional_executive"
       ],
-      "visits": 8,
-      "spend": 2181000,
-      "date_min": "2025-02-15",
-      "date_max": "2026-08-18",
+      "visits": 13,
+      "spend": 2727000,
+      "date_min": "2025-01-23",
+      "date_max": "2026-06-09",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6488,7 +6457,7 @@
       "minister_visits": 0,
       "vice_minister_visits": 0,
       "mayor_visits": 6,
-      "vice_mayor_visits": 2
+      "vice_mayor_visits": 7
     },
     {
       "name": "설농가옥",
@@ -6502,10 +6471,10 @@
       "cohorts": [
         "regional_executive"
       ],
-      "visits": 8,
-      "spend": 4961000,
-      "date_min": "2025-02-12",
-      "date_max": "2026-06-25",
+      "visits": 12,
+      "spend": 4004500,
+      "date_min": "2025-07-14",
+      "date_max": "2026-08-15",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6516,11 +6485,11 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 0,
-      "mayor_visits": 6,
-      "vice_mayor_visits": 2
+      "mayor_visits": 2,
+      "vice_mayor_visits": 10
     },
     {
-      "name": "경복궁구월점",
+      "name": "젊은농부해피타운",
       "address": "",
       "origins": [
         "인천시청"
@@ -6532,9 +6501,9 @@
         "regional_executive"
       ],
       "visits": 6,
-      "spend": 2687000,
-      "date_min": "2026-02-03",
-      "date_max": "2026-06-11",
+      "spend": 1535000,
+      "date_min": "2026-01-23",
+      "date_max": "2026-08-04",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6546,122 +6515,6 @@
       "minister_visits": 0,
       "vice_minister_visits": 0,
       "mayor_visits": 3,
-      "vice_mayor_visits": 3
-    },
-    {
-      "name": "대우송도호텔",
-      "address": "",
-      "origins": [
-        "인천시청"
-      ],
-      "institutions": [
-        "인천광역시청"
-      ],
-      "cohorts": [
-        "regional_executive"
-      ],
-      "visits": 5,
-      "spend": 1925800,
-      "date_min": "2025-02-04",
-      "date_max": "2026-08-19",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 5,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "송도갈매기",
-      "address": "",
-      "origins": [
-        "인천시청"
-      ],
-      "institutions": [
-        "인천광역시청"
-      ],
-      "cohorts": [
-        "regional_executive"
-      ],
-      "visits": 4,
-      "spend": 1036500,
-      "date_min": "2025-11-04",
-      "date_max": "2026-05-01",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 3
-    },
-    {
-      "name": "경복궁삼계탕",
-      "address": "",
-      "origins": [
-        "인천시청"
-      ],
-      "institutions": [
-        "인천광역시청"
-      ],
-      "cohorts": [
-        "regional_executive"
-      ],
-      "visits": 4,
-      "spend": 660000,
-      "date_min": "2026-02-27",
-      "date_max": "2026-08-21",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 3,
-      "vice_mayor_visits": 1
-    },
-    {
-      "name": "주원일식",
-      "address": "",
-      "origins": [
-        "인천시청"
-      ],
-      "institutions": [
-        "인천광역시청"
-      ],
-      "cohorts": [
-        "regional_executive"
-      ],
-      "visits": 4,
-      "spend": 1218000,
-      "date_min": "2026-02-04",
-      "date_max": "2026-08-20",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 1,
       "vice_mayor_visits": 3
     },
     {
@@ -6676,10 +6529,68 @@
       "cohorts": [
         "regional_executive"
       ],
-      "visits": 3,
-      "spend": 507000,
-      "date_min": "2026-03-10",
-      "date_max": "2026-08-07",
+      "visits": 6,
+      "spend": 1968000,
+      "date_min": "2025-01-10",
+      "date_max": "2026-08-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 4,
+      "vice_mayor_visits": 2
+    },
+    {
+      "name": "옛정",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 6,
+      "spend": 1860000,
+      "date_min": "2025-07-02",
+      "date_max": "2026-04-07",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 5
+    },
+    {
+      "name": "경복궁구월점",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 5,
+      "spend": 901000,
+      "date_min": "2026-01-21",
+      "date_max": "2026-08-24",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6691,10 +6602,10 @@
       "minister_visits": 0,
       "vice_minister_visits": 0,
       "mayor_visits": 2,
-      "vice_mayor_visits": 1
+      "vice_mayor_visits": 3
     },
     {
-      "name": "삿뽀로구월점",
+      "name": "전복촌",
       "address": "",
       "origins": [
         "인천시청"
@@ -6705,10 +6616,126 @@
       "cohorts": [
         "regional_executive"
       ],
-      "visits": 3,
-      "spend": 921000,
-      "date_min": "2025-11-16",
-      "date_max": "2026-02-26",
+      "visits": 5,
+      "spend": 1062300,
+      "date_min": "2026-01-21",
+      "date_max": "2026-08-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 2
+    },
+    {
+      "name": "이도참치",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 5,
+      "spend": 852000,
+      "date_min": "2025-07-04",
+      "date_max": "2026-04-22",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 4
+    },
+    {
+      "name": "용인정",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 5,
+      "spend": 501000,
+      "date_min": "2026-01-08",
+      "date_max": "2026-04-21",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 4
+    },
+    {
+      "name": "황제삼계탕",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 4,
+      "spend": 784000,
+      "date_min": "2025-01-02",
+      "date_max": "2026-08-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 1
+    },
+    {
+      "name": "소래포구해남수산",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 4,
+      "spend": 1848000,
+      "date_min": "2026-01-21",
+      "date_max": "2026-07-02",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6720,10 +6747,39 @@
       "minister_visits": 0,
       "vice_minister_visits": 0,
       "mayor_visits": 2,
+      "vice_mayor_visits": 2
+    },
+    {
+      "name": "경복궁삼계탕",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 4,
+      "spend": 890000,
+      "date_min": "2025-07-03",
+      "date_max": "2026-07-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 3,
       "vice_mayor_visits": 1
     },
     {
-      "name": "젊은농부해피타운",
+      "name": "랑꽁팩토리",
       "address": "",
       "origins": [
         "인천시청"
@@ -6735,9 +6791,9 @@
         "regional_executive"
       ],
       "visits": 3,
-      "spend": 529000,
-      "date_min": "2026-02-09",
-      "date_max": "2026-03-12",
+      "spend": 360200,
+      "date_min": "2026-05-07",
+      "date_max": "2026-07-22",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6752,7 +6808,7 @@
       "vice_mayor_visits": 2
     },
     {
-      "name": "솔잎사골순대아구찜탕",
+      "name": "채원정",
       "address": "",
       "origins": [
         "인천시청"
@@ -6764,9 +6820,38 @@
         "regional_executive"
       ],
       "visits": 3,
-      "spend": 498000,
-      "date_min": "2025-11-08",
-      "date_max": "2026-03-22",
+      "spend": 266000,
+      "date_min": "2025-07-02",
+      "date_max": "2026-04-06",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 1
+    },
+    {
+      "name": "한우정",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 3,
+      "spend": 1026000,
+      "date_min": "2025-07-17",
+      "date_max": "2026-06-11",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -6779,6 +6864,122 @@
       "vice_minister_visits": 0,
       "mayor_visits": 3,
       "vice_mayor_visits": 0
+    },
+    {
+      "name": "해장국,설렁탕",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 3,
+      "spend": 152000,
+      "date_min": "2025-07-04",
+      "date_max": "2026-07-07",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "청실홍실",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 3,
+      "spend": 108000,
+      "date_min": "2025-07-11",
+      "date_max": "2026-04-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 3
+    },
+    {
+      "name": "서동가청국장",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 3,
+      "spend": 136000,
+      "date_min": "2025-07-16",
+      "date_max": "2026-04-16",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 3
+    },
+    {
+      "name": "우프스낵바",
+      "address": "",
+      "origins": [
+        "인천시청"
+      ],
+      "institutions": [
+        "인천광역시청"
+      ],
+      "cohorts": [
+        "regional_executive"
+      ],
+      "visits": 3,
+      "spend": 116100,
+      "date_min": "2025-07-10",
+      "date_max": "2026-04-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 3
     }
   ]
 }
