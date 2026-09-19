@@ -1,151 +1,143 @@
 # Incheon Metropolitan Government expense ingestion
 
-- Normalized rows: **343**
-- Files: **24**
-- Errors: **116**
+- Normalized rows: **450**
+- Files: **22**
+- Errors: **110**
 
 ## Files
 
-- 행정부시장 — `다운로드` — 2 rows
-- 시장 — `다운로드` — 19 rows
-- 본청 실국과장 — `다운로드` — 6 rows
-- 본청 실국과장 — `다운로드` — 13 rows
-- 본청 실국과장 — `다운로드` — 6 rows
-- 본청 실국과장 — `다운로드` — 2 rows
-- 본청 실국과장 — `다운로드` — 2 rows
-- 본청 실국과장 — `다운로드` — 7 rows
-- 본청 실국과장 — `다운로드` — 0 rows
-- 본청 실국과장 — `다운로드` — 10 rows
-- 시장 — `다운로드` — 31 rows
 - 시장 — `다운로드` — 16 rows
+- 정무부시장 — `다운로드` — 7 rows
+- 시장 — `다운로드` — 31 rows
+- 행정부시장 — `행정부시장 업무추진비 2026-06 file-1.pdf` — 16 rows
 - 시장 — `다운로드` — 13 rows
-- 정무부시장 — `다운로드` — 3 rows
-- 정무부시장 — `정무부시장 업무추진비 2026-03 file-2.pdf` — 9 rows
-- 시장 — `시장 업무추진비 2026-03 file-1.pdf` — 23 rows
-- 시장 — `시장 업무추진비 2026-03 file-2.pdf` — 31 rows
-- 시장 — `시장 업무추진비 2026-03 file-3.pdf` — 22 rows
-- 행정부시장 — `행정부시장 업무추진비 2026-02 file-1.pdf` — 25 rows
-- 행정부시장 — `행정부시장 업무추진비 2026-02 file-2.pdf` — 13 rows
-- 정무부시장 — `정무부시장 업무추진비 2026-02 file-1.pdf` — 20 rows
+- 정무부시장 — `정무부시장 업무추진비 2026-05 file-1.pdf` — 10 rows
+- 정무부시장 — `정무부시장 업무추진비 2026-05 file-2.pdf` — 3 rows
+- 행정부시장 — `행정부시장 업무추진비 2026-04 file-1.pdf` — 31 rows
+- 행정부시장 — `행정부시장 업무추진비 2026-04 file-2.pdf` — 10 rows
+- 시장 — `다운로드` — 31 rows
+- 시장 — `다운로드` — 31 rows
 - 정무부시장 — `정무부시장 업무추진비 2026-02 file-2.pdf` — 10 rows
+- 행정부시장 — `행정부시장 업무추진비 2026-01 file-1.pdf` — 31 rows
+- 행정부시장 — `행정부시장 업무추진비 2026-01 file-2.pdf` — 13 rows
+- 정무부시장 — `다운로드` — 31 rows
+- 시장 — `시장 업무추진비 2026-01 file-3.pdf` — 22 rows
+- 행정부시장 — `다운로드` — 29 rows
+- 시장 — `다운로드` — 31 rows
+- 시장 — `다운로드` — 14 rows
 - 시장 — `다운로드` — 30 rows
-- 시장 — `다운로드` — 30 rows
+- 행정부시장 — `다운로드` — 30 rows
+- 시장 — `다운로드` — 10 rows
 
 ## Errors
 
 - {'post': '2026년 8월 행정부시장(기획조정실장 직무대행) 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087887&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 8월 행정부시장(기획조정실장 직무대행) 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087887&fileTy=ATTACH&fileNo=1', 'error': 'RemoteDisconnected: Remote end closed connection without response'}
 - {'post': '2026년 8월 행정부시장(기획조정실장 직무대행) 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087887&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 행정부시장(기획조정실장 직무대행) 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087887&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 사회연대경제과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3088421&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 사회연대경제과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3088421&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 행정국장 및 총무과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087888&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 행정국장 및 총무과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087888&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 행정국장 및 총무과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087888&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 행정국장 및 총무과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087888&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 AI혁신과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087661&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 AI혁신과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087661&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 도시관리과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087509&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 재정기획관 및 예산담당관 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087478&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 재정기획관 및 예산담당관 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087478&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 대기보전과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087441&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 대기보전과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087441&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 정보화담당관 업무추진비 집행현황', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087420&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 정보화담당관 업무추진비 집행현황', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087420&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 경제국장, 경제정책과장 업무추진비 현황', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087419&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 경제국장, 경제정책과장 업무추진비 현황', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087419&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 문화기반과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087399&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 문화기반과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087399&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 외로움대응과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087346&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 세정담당관 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087278&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 세정담당관 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087278&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 항공과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087261&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 항공과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087261&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 청년정책담당관 시책추진업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087065&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 청년정책담당관 시책추진업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087065&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 청소년정책과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087064&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 인사과 업무추진비 집행 내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087058&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'ValueError: unsupported spreadsheet/document'}
-- {'post': '2026년 8월 물류정책과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087017&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 물류정책과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087017&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 감염병관리과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3086899&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 국제협력국장 및 국제협력과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3086893&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 국제협력국장 및 국제협력과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3086893&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 국제협력국장 및 국제협력과장 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3086893&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 미래산업본부 첨단산업과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3086885&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 8월 미래산업본부 첨단산업과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3086885&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087885&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 균형발전부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087886&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 균형발전부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087886&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 균형발전부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087886&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 8월 균형발전부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087886&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 7월 정무부시장 및 기획조정실장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085410&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 7월 정무부시장 및 기획조정실장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3085410&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 7월 정무부시장 및 기획조정실장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085410&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'RemoteDisconnected: Remote end closed connection without response'}
+- {'post': '2026년 7월 정무부시장 및 기획조정실장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3085410&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 7월 정무부시장 및 기획조정실장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085410&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'ValueError: unsupported spreadsheet/document'}
 - {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3085409&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 행정부시장 등 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081522&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 행정부시장 등 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081522&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 행정부시장 등 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081522&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 행정부시장 등 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081522&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 6월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3081522', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081524&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081524&fileTy=ATTACH&fileNo=1', 'error': 'RemoteDisconnected: Remote end closed connection without response'}
+- {'post': '2026년 6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081524&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081524&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081524&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'ValueError: unsupported spreadsheet/document'}
+- {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 6월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3081521&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 5월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3076689&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 5월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3076689&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 5월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3076689&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 5월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3076689&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 5월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3076690&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 5월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3076690&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 5월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3076690&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 4월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3071499&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 4월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3071499&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 4월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3071499&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 4월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3071499&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3071500', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3071500', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 4월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3071498&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 3월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3068576', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2026년 3월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3068576', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 3월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3068581', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=3&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064272', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064272', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064273', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064273', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3064270&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 11월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3052638&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 11월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3052638&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 11월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3052638&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 11월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3052638&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 11월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3052638&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3068581&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3068581&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3068581&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3068581&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3068575&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3068575&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3068575&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3068575&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 3월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3068575&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3065801&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3065801&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3065801&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3065801&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065802', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'EmptyFileError: Cannot read an empty file'}
+- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'EmptyFileError: Cannot read an empty file'}
+- {'post': '2026년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=3&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3065798', 'error': 'EmptyFileError: Cannot read an empty file'}
+- {'post': '2026년 1월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3064273&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'ValueError: unsupported spreadsheet/document'}
+- {'post': '2026년 1월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3064273&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 1월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3064273&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=1&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064270', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2026년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?fileNo=2&fileTy=ATTACH&srvcId=BBSTY1&upperNo=3064270', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 12월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3061975&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 12월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3061975&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 12월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3061975&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 12월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3061975&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 10월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3047648&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 10월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3047648&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 10월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3047648&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 10월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3047648&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 8월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3034176&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 8월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3034176&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 8월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3034176&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 8월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3034176&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029597&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029597&fileTy=ATTACH&fileNo=4&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3029597&fileTy=ATTACH&fileNo=4', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029598&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3029598&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029598&fileTy=ATTACH&fileNo=4&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3029598&fileTy=ATTACH&fileNo=4', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029593&fileTy=ATTACH&fileNo=4&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029593&fileTy=ATTACH&fileNo=5&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3029593&fileTy=ATTACH&fileNo=5', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 7월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3029593&fileTy=ATTACH&fileNo=6&convertParam=IMAGE', 'error': 'ValueError: unsupported spreadsheet/document'}
 - {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 2월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3002473&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'RemoteDisconnected: Remote end closed connection without response'}
+- {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=3&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 1월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=2236406&fileTy=ATTACH&fileNo=3', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3025036&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3025036&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 행정부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3025036&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3025037&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3025037&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3025037&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
+- {'post': '2025년 5~6월 정무부시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3025037&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
 - {'post': '2025년 2~9월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3046289&fileTy=ATTACH&fileNo=1&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2025년 2~9월 시장 업무추진비 사용내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3046289&fileTy=ATTACH&fileNo=1', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1~8월 인천대로개발과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/fileViewSynapSever?srvcId=BBSTY1&upperNo=3087246&fileTy=ATTACH&fileNo=2&convertParam=IMAGE', 'error': 'URLError: <urlopen error timed out>'}
-- {'post': '2026년 1~8월 인천대로개발과 업무추진비 집행내역', 'url': 'https://www.incheon.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=3087246&fileTy=ATTACH&fileNo=2', 'error': 'URLError: <urlopen error timed out>'}
