@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-20T08:49:27",
-  "dataset_records": 702,
+  "generated_at": "2026-09-20T08:50:43",
+  "dataset_records": 701,
   "cross_institution_count": 90,
-  "cross_origin_count": 2,
+  "cross_origin_count": 3,
   "top_official_count": 120,
   "regional_head_count": 20,
-  "entity_merges": 10,
+  "entity_merges": 11,
   "cross_institution": [
     {
       "name": "외계인키친",
@@ -73,6 +73,40 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일품당 프리미엄",
+      "address": "서울 종로구 새문안로5가길 7",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "regional_executive"
+      ],
+      "visits": 64,
+      "spend": 17851150,
+      "date_min": "2024-08-06",
+      "date_max": "2026-07-20",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 21,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 21,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -267,37 +301,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "일품당프리미엄",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 41,
-      "spend": 11730150,
-      "date_min": "2024-08-06",
-      "date_max": "2026-07-20",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 21,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 21,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2897,26 +2900,29 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "일품당프리미엄",
-      "address": "",
+      "name": "일품당 프리미엄",
+      "address": "서울 종로구 새문안로5가길 7",
       "origins": [
+        "서울시청",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
         "산업통상부",
+        "서울특별시 본청",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "regional_executive"
       ],
-      "visits": 41,
-      "spend": 11730150,
+      "visits": 64,
+      "spend": 17851150,
       "date_min": "2024-08-06",
       "date_max": "2026-07-20",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 21,
