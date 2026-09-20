@@ -176,6 +176,11 @@ def merge_global_entities(payload: dict) -> dict:
     # unsafe name-only merges for chains with multiple branches.
     strong_index = defaultdict(set)
     strict_keys = {}
+    # Address corroboration index: an addressless disclosure may inherit a
+    # physical entity only when at least two independent origins already agree
+    # on the exact same normalized merchant family + street address, and there
+    # is no competing addressed branch for that family in the published set.
+    family_address_origins = defaultdict(lambda: defaultdict(set))
     for idx, r in enumerate(records):
         name = family_name(r.get("name"))
         address = canonical_address(r.get("address"))
@@ -183,11 +188,24 @@ def merge_global_entities(payload: dict) -> dict:
             continue
         key = f"{name}||{address}"
         strict_keys[idx] = key
+        origin = t(r.get("origin"))
+        if origin:
+            family_address_origins[name][key].add(origin)
         loc = locality_key(r)
         if loc:
             strong_index[(name, loc)].add(key)
 
+    corroborated_address_index = {}
+    for name, address_map in family_address_origins.items():
+        if len(name) < 4 or len(address_map) != 1:
+            continue
+        key, origins = next(iter(address_map.items()))
+        if len(origins) >= 2:
+            corroborated_address_index[name] = key
+
     groups = defaultdict(list)
+    bridged_records = 0
+    bridged_groups = defaultdict(int)
     for idx, r in enumerate(records):
         if idx in strict_keys:
             key = strict_keys[idx]
@@ -197,6 +215,13 @@ def merge_global_entities(payload: dict) -> dict:
             candidates = strong_index.get((name, loc), set()) if name and loc else set()
             if len(candidates) == 1:
                 key = next(iter(candidates))
+            elif not loc and name in corroborated_address_index:
+                # No locality was published for this record, but independent
+                # addressed origins already corroborate one and only one
+                # physical branch for the merchant family.
+                key = corroborated_address_index[name]
+                bridged_records += 1
+                bridged_groups[key] += 1
             else:
                 key = entity_key(r)
         groups[key].append(r)
@@ -226,6 +251,9 @@ def merge_global_entities(payload: dict) -> dict:
         primary["published_sources"] = sorted({t(r.get("published_source")) for r in rows if t(r.get("published_source"))})
         primary["cohorts"] = sorted({t(r.get("cohort")) for r in rows if t(r.get("cohort"))})
         primary["entity_id"] = hashlib.sha1(key.encode("utf-8")).hexdigest()[:16]
+        if bridged_groups.get(key):
+            primary["entity_match_basis"] = "corroborated_address"
+            primary["corroborated_address_bridges"] = bridged_groups[key]
         primary["evidence"] = _merge_evidence(rows, multi)
         primary["executive"] = _best_signal(rows, "executive")
         primary["destination"] = _best_signal(rows, "destination")
@@ -287,7 +315,8 @@ def merge_global_entities(payload: dict) -> dict:
     stats["both"] = sum(bool(r.get("destination")) and bool(r.get("executive")) for r in merged)
     out["stats"] = stats
     meta = dict(out.get("meta") or {})
-    meta["entity_model"] = "global_restaurant_entity_v2"
+    meta["entity_model"] = "global_restaurant_entity_v3"
     meta["entity_merge_groups"] = merged_groups
+    meta["corroborated_address_bridges"] = bridged_records
     out["meta"] = meta
     return out
