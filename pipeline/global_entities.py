@@ -40,6 +40,13 @@ def canonical_address(v) -> str:
     return compact(s)
 
 
+def strict_name(v) -> str:
+    """Normalized merchant name without collapsing branch/location suffixes."""
+    s = t(v)
+    s = re.sub(r"^(?:주식회사|유한회사|\\(주\\)|㈜)\\s*", "", s, flags=re.I)
+    return compact(s)
+
+
 def family_name(v) -> str:
     s = t(v)
     s = re.sub(r"^(?:주식회사|유한회사|\(주\)|㈜)\s*", "", s, flags=re.I)
@@ -164,7 +171,30 @@ def _best_signal(rows: list[dict], field: str):
     candidates = [r.get(field) for r in rows if r.get(field)]
     if not candidates:
         return None
-    return deepcopy(max(candidates, key=lambda x: float(x.get("score") or 0)))
+    out = deepcopy(max(candidates, key=lambda x: float(x.get("score") or 0)))
+    if field == "executive":
+        # Preserve specialized executive metadata across merged origins instead
+        # of losing it when another cohort has a higher generic signal score.
+        additive = (
+            "top_official_visits", "prime_minister_visits",
+            "deputy_prime_minister_visits", "minister_visits",
+            "vice_minister_visits", "mayor_visits", "vice_mayor_visits",
+        )
+        for key in additive:
+            out[key] = sum(int(x.get(key) or 0) for x in candidates)
+        tier_order = {
+            "": 0, "other": 0, "director_general": 1, "senior_official": 2,
+            "agency_head": 3, "vice_minister": 4, "minister": 5,
+            "deputy_prime_minister": 6, "prime_minister": 7,
+        }
+        strongest = max(
+            candidates,
+            key=lambda x: tier_order.get(t(x.get("top_role_tier")), 0),
+        )
+        if tier_order.get(t(strongest.get("top_role_tier")), 0):
+            out["top_role_tier"] = t(strongest.get("top_role_tier"))
+            out["top_role_label"] = t(strongest.get("top_role_label"))
+    return out
 
 
 def merge_global_entities(payload: dict) -> dict:
@@ -181,6 +211,7 @@ def merge_global_entities(payload: dict) -> dict:
     # on the exact same normalized merchant family + street address, and there
     # is no competing addressed branch for that family in the published set.
     family_address_origins = defaultdict(lambda: defaultdict(set))
+    strict_address_keys = defaultdict(set)
     for idx, r in enumerate(records):
         name = family_name(r.get("name"))
         address = canonical_address(r.get("address"))
@@ -191,17 +222,28 @@ def merge_global_entities(payload: dict) -> dict:
         origin = t(r.get("origin"))
         if origin:
             family_address_origins[name][key].add(origin)
+        sname = strict_name(r.get("name"))
+        if sname:
+            strict_address_keys[sname].add(key)
         loc = locality_key(r)
         if loc:
             strong_index[(name, loc)].add(key)
 
     corroborated_address_index = {}
+    unique_branch_address_index = {}
     for name, address_map in family_address_origins.items():
         if len(name) < 4 or len(address_map) != 1:
             continue
         key, origins = next(iter(address_map.items()))
         if len(origins) >= 2:
             corroborated_address_index[name] = key
+
+    # A single addressed origin is sufficient only when the disclosure itself
+    # names an explicit branch/location suffix such as "...여의도점" or
+    # "...정동점", and that strict branch name resolves to exactly one address.
+    for sname, keys in strict_address_keys.items():
+        if len(keys) == 1 and re.search(r"(?:점|지점|호점)$", sname):
+            unique_branch_address_index[sname] = next(iter(keys))
 
     groups = defaultdict(list)
     bridged_records = 0
@@ -220,6 +262,12 @@ def merge_global_entities(payload: dict) -> dict:
                 # addressed origins already corroborate one and only one
                 # physical branch for the merchant family.
                 key = corroborated_address_index[name]
+                bridged_records += 1
+                bridged_groups[key] += 1
+            elif not loc and strict_name(r.get("name")) in unique_branch_address_index:
+                # Explicit branch name + exactly one addressed match is narrow
+                # enough to bridge without collapsing generic chain names.
+                key = unique_branch_address_index[strict_name(r.get("name"))]
                 bridged_records += 1
                 bridged_groups[key] += 1
             else:
