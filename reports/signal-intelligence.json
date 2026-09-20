@@ -1,11 +1,462 @@
 {
-  "generated_at": "2026-09-20T08:50:43",
+  "generated_at": "2026-09-20T08:51:59",
   "dataset_records": 701,
   "cross_institution_count": 90,
   "cross_origin_count": 3,
   "top_official_count": 120,
   "regional_head_count": 20,
   "entity_merges": 11,
+  "cross_origin_review_count": 21,
+  "cross_origin_review": [
+    {
+      "name": "남도마루",
+      "strict_name": "남도마루",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "용산구",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "visits": 201,
+      "addresses": [
+        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "화담",
+      "strict_name": "화담",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "산업통상부",
+        "통일부"
+      ],
+      "visits": 184,
+      "addresses": [
+        "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "운산",
+      "strict_name": "운산",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "visits": 109,
+      "addresses": [
+        "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "대방골",
+      "strict_name": "대방골",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부",
+        "해양수산부"
+      ],
+      "visits": 100,
+      "addresses": [
+        "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "은주식당",
+      "strict_name": "은주식당",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "visits": 93,
+      "addresses": [
+        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "참복집",
+      "strict_name": "참복집",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "통일부",
+        "해양수산부"
+      ],
+      "visits": 84,
+      "addresses": [
+        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "연타발",
+      "strict_name": "연타발",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "visits": 77,
+      "addresses": [
+        "서울 영등포구 국회대로70길 18 (여의도동, 한양빌딩) 1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "황금복국",
+      "strict_name": "황금복국",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부"
+      ],
+      "visits": 64,
+      "addresses": [
+        "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "노조미",
+      "strict_name": "노조미",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
+      ],
+      "visits": 57,
+      "addresses": [
+        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "해초가",
+      "strict_name": "해초가",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "통일부"
+      ],
+      "visits": 48,
+      "addresses": [
+        "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "챠이나프로",
+      "strict_name": "챠이나프로",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원"
+      ],
+      "visits": 48,
+      "addresses": [
+        "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "너섬",
+      "strict_name": "너섬",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "visits": 45,
+      "addresses": [
+        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "여의도장어",
+      "strict_name": "여의도장어",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "visits": 44,
+      "addresses": [
+        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "천지명",
+      "strict_name": "천지명",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "해양수산부"
+      ],
+      "visits": 42,
+      "addresses": [
+        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "버드나무집",
+      "strict_name": "버드나무집",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원"
+      ],
+      "visits": 26,
+      "addresses": [
+        "서울 영등포구 국회대로70길 7"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "김삼보",
+      "strict_name": "김삼보",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "해양수산부"
+      ],
+      "visits": 24,
+      "addresses": [
+        "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "생태명가",
+      "strict_name": "생태명가",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
+      ],
+      "visits": 24,
+      "addresses": [
+        "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
+      "name": "포도나무",
+      "strict_name": "포도나무",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "visits": 51,
+      "addresses": [
+        "서울 종로구 사직로 108-1"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "곰솔",
+      "strict_name": "곰솔",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "visits": 40,
+      "addresses": [
+        "서울 종로구 자하문로8길 9"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "취홍",
+      "strict_name": "취홍",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "서울시청",
+        "인천시청"
+      ],
+      "institutions": [
+        "서울특별시 본청",
+        "인천광역시청"
+      ],
+      "visits": 39,
+      "addresses": [
+        "서울 중구 세종대로7길 43"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "우리네코다리",
+      "strict_name": "우리네코다리",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "고양시",
+        "양천구"
+      ],
+      "institutions": [
+        "고양특례시의회"
+      ],
+      "visits": 13,
+      "addresses": [
+        "양천구 목동서로"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    }
+  ],
   "cross_institution": [
     {
       "name": "외계인키친",

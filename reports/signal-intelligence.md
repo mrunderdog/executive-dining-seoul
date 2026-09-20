@@ -1,12 +1,13 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-20T08:50:43
+- Generated: 2026-09-20T08:51:59
 - Published restaurant entities: **701**
 - Cross-institution restaurants: **90**
 - Cross-origin restaurants: **3**
 - Central top-official restaurants: **120**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **11**
+- Cross-origin review candidates: **21**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
 
@@ -104,6 +105,32 @@
 | 88 | 사천이모집 | 50.6 | 2 | 1 | 3 | 중앙정부 |
 | 89 | 고우가광화문 | 50.6 | 2 | 1 | 3 | 중앙정부 |
 | 90 | 뚜리삼 | 50.6 | 2 | 1 | 3 | 중앙정부 |
+
+## Cross-origin review queue
+
+| # | Restaurant | Confidence | Origins | Visits | Address entities | Reason |
+|---:|---|---|---|---:|---:|---|
+| 1 | 남도마루 | HIGH | 국회의원(정치자금 2024) · 용산구 · 중앙정부 | 201 | 1 | exact name + single published address + QA A |
+| 2 | 화담 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 184 | 1 | exact name + single published address + QA A |
+| 3 | 운산 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 109 | 1 | exact name + single published address + QA A |
+| 4 | 대방골 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 100 | 1 | exact name + single published address + QA A |
+| 5 | 은주식당 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 93 | 1 | exact name + single published address + QA A |
+| 6 | 참복집 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 84 | 1 | exact name + single published address + QA A |
+| 7 | 연타발 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 77 | 1 | exact name + single published address + QA A |
+| 8 | 황금복국 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 64 | 1 | exact name + single published address + QA A |
+| 9 | 노조미 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 57 | 1 | exact name + single published address + QA A |
+| 10 | 해초가 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 48 | 1 | exact name + single published address + QA A |
+| 11 | 챠이나프로 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 48 | 1 | exact name + single published address + QA A |
+| 12 | 너섬 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 45 | 1 | exact name + single published address + QA A |
+| 13 | 여의도장어 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 44 | 1 | exact name + single published address + QA A |
+| 14 | 천지명 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 42 | 1 | exact name + single published address + QA A |
+| 15 | 버드나무집 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 26 | 1 | exact name + single published address + QA A |
+| 16 | 김삼보 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 24 | 1 | exact name + single published address + QA A |
+| 17 | 생태명가 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 24 | 1 | exact name + single published address + QA A |
+| 18 | 포도나무 | REVIEW | 서울시청 · 중앙정부 | 51 | 1 | exact name + single published address |
+| 19 | 곰솔 | REVIEW | 서울시청 · 중앙정부 | 40 | 1 | exact name + single published address |
+| 20 | 취홍 | REVIEW | 서울시청 · 인천시청 | 39 | 1 | exact name + single published address |
+| 21 | 우리네코다리 | REVIEW | 고양시 · 양천구 | 13 | 1 | exact name + single published address |
 
 ## Central top-official dining signal
 
