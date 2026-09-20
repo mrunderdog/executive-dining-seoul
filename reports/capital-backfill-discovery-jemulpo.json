@@ -1,9 +1,15 @@
 {
-  "generated_at": "2026-09-18T23:18:30",
+  "generated_at": "2026-09-20T00:42:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
     "jemulpo"
   ],
-  "posts": []
+  "posts": [
+    {
+      "source": "jemulpo",
+      "listing_url": "https://council.jemulpo.go.kr/council/kr/costBBS.do?flag=all&page=1",
+      "error": "listing URLError: <urlopen error timed out>"
+    }
+  ]
 }

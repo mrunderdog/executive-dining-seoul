@@ -1,9 +1,15 @@
 {
-  "generated_at": "2026-09-18T23:18:25",
+  "generated_at": "2026-09-20T00:42:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
     "yeongjong"
   ],
-  "posts": []
+  "posts": [
+    {
+      "source": "yeongjong",
+      "listing_url": "https://www.yeongjong.go.kr/council/pst/list.do?pst_id=cncl_ofcl_exp",
+      "error": "listing URLError: <urlopen error timed out>"
+    }
+  ]
 }

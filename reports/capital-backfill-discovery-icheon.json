@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T23:18:24",
+  "generated_at": "2026-09-20T00:42:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -9,7 +9,7 @@
     {
       "source": "icheon",
       "listing_url": "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?page=1",
-      "error": "listing URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>"
+      "error": "listing URLError: <urlopen error timed out>"
     }
   ]
 }

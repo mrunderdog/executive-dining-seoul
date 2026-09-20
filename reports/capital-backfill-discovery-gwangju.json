@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T23:18:33",
+  "generated_at": "2026-09-20T00:42:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -9,7 +9,7 @@
     {
       "source": "gwangju",
       "listing_url": "https://www.gjcouncil.go.kr/kr/costBBS.do?flag=all&page=1",
-      "error": "listing URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      "error": "listing URLError: <urlopen error timed out>"
     }
   ]
 }
