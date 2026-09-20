@@ -231,6 +231,7 @@ def merge_global_entities(payload: dict) -> dict:
 
     corroborated_address_index = {}
     unique_branch_address_index = {}
+    unique_exact_address_index = {}
     for name, address_map in family_address_origins.items():
         if len(name) < 4 or len(address_map) != 1:
             continue
@@ -242,8 +243,13 @@ def merge_global_entities(payload: dict) -> dict:
     # names an explicit branch/location suffix such as "...여의도점" or
     # "...정동점", and that strict branch name resolves to exactly one address.
     for sname, keys in strict_address_keys.items():
-        if len(keys) == 1 and re.search(r"(?:점|지점|호점)$", sname):
-            unique_branch_address_index[sname] = next(iter(keys))
+        if len(keys) != 1:
+            continue
+        only_key = next(iter(keys))
+        if re.search(r"(?:점|지점|호점)$", sname):
+            unique_branch_address_index[sname] = only_key
+        if len(sname) >= 6:
+            unique_exact_address_index[sname] = only_key
 
     groups = defaultdict(list)
     bridged_records = 0
@@ -268,6 +274,18 @@ def merge_global_entities(payload: dict) -> dict:
                 # Explicit branch name + exactly one addressed match is narrow
                 # enough to bridge without collapsing generic chain names.
                 key = unique_branch_address_index[strict_name(r.get("name"))]
+                bridged_records += 1
+                bridged_groups[key] += 1
+            elif (
+                not loc
+                and strict_name(r.get("name")) in unique_exact_address_index
+                and len(set(r.get("institutions") or [])) >= 2
+            ):
+                # For long exact merchant names, repeated use by multiple
+                # independent institutions provides an additional corroborating
+                # signal. Bridge only when the entire published dataset contains
+                # exactly one addressed physical entity for that exact name.
+                key = unique_exact_address_index[strict_name(r.get("name"))]
                 bridged_records += 1
                 bridged_groups[key] += 1
             else:
