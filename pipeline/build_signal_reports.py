@@ -8,7 +8,7 @@ from pathlib import Path
 from data_io import load_payload
 from published_sources import merge_published_sources
 from extra_published import merge_extra_published
-from global_entities import merge_global_entities
+from global_entities import canonical_address, merge_global_entities, strict_name
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -18,12 +18,99 @@ def t(v) -> str:
     return " ".join(str(v or "").split()).strip()
 
 
-def build_payload() -> dict:
-    return merge_global_entities(
-        merge_extra_published(
-            merge_published_sources(load_payload())
-        )
+def build_premerge_payload() -> dict:
+    return merge_extra_published(
+        merge_published_sources(load_payload())
     )
+
+
+def build_payload() -> dict:
+    return merge_global_entities(build_premerge_payload())
+
+
+def build_cross_origin_review(pre_records: list[dict], merged_records: list[dict]) -> list[dict]:
+    """Find exact-name cross-origin candidates that were intentionally not auto-merged."""
+    merged_names = {
+        strict_name(r.get("name"))
+        for r in merged_records
+        if int((r.get("cross_institution") or {}).get("source_count") or 0) >= 2
+    }
+    groups: dict[str, list[dict]] = {}
+    for r in pre_records:
+        name = strict_name(r.get("name"))
+        if not name:
+            continue
+        groups.setdefault(name, []).append(r)
+
+    out = []
+    for name_key, rows in groups.items():
+        origins = sorted({
+            t(o)
+            for r in rows
+            for o in (r.get("origins") or ([r.get("origin")] if r.get("origin") else []))
+            if t(o)
+        })
+        if len(origins) < 2 or name_key in merged_names:
+            continue
+
+        addressed = []
+        address_keys = {}
+        for r in rows:
+            addr = t(r.get("address"))
+            key = canonical_address(addr)
+            if addr and key:
+                addressed.append(r)
+                address_keys.setdefault(key, set()).add(addr)
+
+        if not addressed:
+            continue
+
+        institutions = sorted({
+            t(i)
+            for r in rows
+            for i in (r.get("institutions") or ([r.get("institution")] if r.get("institution") else []))
+            if t(i)
+        })
+        visits = sum(int((r.get("evidence") or {}).get("visits") or 0) for r in rows)
+        qa_a = any(t(r.get("qa_grade")) == "A" for r in addressed)
+        branch_named = any(
+            strict_name(r.get("name")).endswith(("점", "지점", "호점"))
+            for r in rows
+        )
+        unique_address = len(address_keys) == 1
+        if unique_address and qa_a:
+            confidence = "HIGH"
+            reason = "exact name + single published address + QA A"
+        elif unique_address and branch_named:
+            confidence = "HIGH"
+            reason = "explicit branch name + single published address"
+        elif unique_address:
+            confidence = "REVIEW"
+            reason = "exact name + single published address"
+        else:
+            confidence = "AMBIGUOUS"
+            reason = f"exact name but {len(address_keys)} addressed entities"
+
+        display = t((rows[0].get("business") or {}).get("display") or rows[0].get("name"))
+        out.append({
+            "name": display,
+            "strict_name": name_key,
+            "confidence": confidence,
+            "reason": reason,
+            "origins": origins,
+            "institutions": institutions,
+            "visits": visits,
+            "addresses": sorted({a for vals in address_keys.values() for a in vals}),
+            "address_entity_count": len(address_keys),
+            "qa_a": qa_a,
+        })
+
+    order = {"HIGH": 3, "REVIEW": 2, "AMBIGUOUS": 1}
+    out.sort(
+        key=lambda x: (order.get(x["confidence"], 0), len(x["origins"]), x["visits"]),
+        reverse=True,
+    )
+    return out
 
 
 def compact_record(r: dict) -> dict:
@@ -56,7 +143,9 @@ def compact_record(r: dict) -> dict:
 
 
 def main():
-    payload = build_payload()
+    pre_payload = build_premerge_payload()
+    pre_records = pre_payload.get("records") or []
+    payload = merge_global_entities(pre_payload)
     records = payload.get("records") or []
 
     cross = [
@@ -89,6 +178,8 @@ def main():
         reverse=True,
     )
 
+    cross_origin_review = build_cross_origin_review(pre_records, records)
+
     stats = payload.get("stats") or {}
     doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -98,6 +189,8 @@ def main():
         "top_official_count": len(top_official),
         "regional_head_count": len(regional_heads),
         "entity_merges": int(stats.get("entity_merges") or 0),
+        "cross_origin_review_count": len(cross_origin_review),
+        "cross_origin_review": cross_origin_review,
         "cross_institution": cross,
         "top_official": top_official,
         "regional_heads": regional_heads,
@@ -117,6 +210,7 @@ def main():
         f"- Central top-official restaurants: **{len(top_official)}**",
         f"- Regional mayor/vice-mayor restaurants: **{len(regional_heads)}**",
         f"- Entity merges: **{doc['entity_merges']}**",
+        f"- Cross-origin review candidates: **{len(cross_origin_review)}**",
         "",
         "> This report ranks restaurant-selection signals, not public officials or political actors.",
         "",
@@ -130,6 +224,20 @@ def main():
         md.append(
             f"| {i} | {x['name'].replace('|','/')} | {x['consensus_score']:.1f} | "
             f"{x['institution_count']} | {x['source_count']} | {x['visits']} | {origins.replace('|','/')} |"
+        )
+
+    md += [
+        "",
+        "## Cross-origin review queue",
+        "",
+        "| # | Restaurant | Confidence | Origins | Visits | Address entities | Reason |",
+        "|---:|---|---|---|---:|---:|---|",
+    ]
+    for i, x in enumerate(cross_origin_review[:100], 1):
+        md.append(
+            f"| {i} | {x['name'].replace('|','/')} | {x['confidence']} | "
+            f"{' · '.join(x['origins']).replace('|','/')} | {x['visits']} | "
+            f"{x['address_entity_count']} | {x['reason'].replace('|','/')} |"
         )
 
     md += [
