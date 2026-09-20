@@ -1,12 +1,47 @@
 {
-  "generated_at": "2026-09-20T02:13:15",
-  "dataset_records": 704,
+  "generated_at": "2026-09-20T08:48:18",
+  "dataset_records": 703,
   "cross_institution_count": 90,
-  "cross_origin_count": 0,
-  "top_official_count": 120,
+  "cross_origin_count": 1,
+  "top_official_count": 119,
   "regional_head_count": 20,
-  "entity_merges": 8,
+  "entity_merges": 9,
   "cross_institution": [
+    {
+      "name": "외계인키친",
+      "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "origins": [
+        "구로구, 은평구",
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 97,
+      "spend": 3821943,
+      "date_min": "2024-01-09",
+      "date_max": "2026-04-08",
+      "consensus_score": 90.6,
+      "institution_count": 4,
+      "source_count": 3,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
     {
       "name": "마키노차야 더가우",
       "address": "",
@@ -1248,37 +1283,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "외계인키친",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 460343,
-      "date_min": "2024-07-04",
-      "date_max": "2026-04-08",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4896,37 +4900,6 @@
       "date_min": "2024-10-02",
       "date_max": "2026-06-22",
       "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "외계인키친",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 460343,
-      "date_min": "2024-07-04",
-      "date_max": "2026-04-08",
-      "consensus_score": 61.4,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
