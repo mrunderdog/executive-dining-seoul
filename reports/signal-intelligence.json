@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-20T08:48:18",
-  "dataset_records": 703,
+  "generated_at": "2026-09-20T08:49:27",
+  "dataset_records": 702,
   "cross_institution_count": 90,
-  "cross_origin_count": 1,
-  "top_official_count": 119,
+  "cross_origin_count": 2,
+  "top_official_count": 120,
   "regional_head_count": 20,
-  "entity_merges": 9,
+  "entity_merges": 10,
   "cross_institution": [
     {
       "name": "외계인키친",
@@ -32,13 +32,47 @@
       "consensus_score": 90.6,
       "institution_count": 4,
       "source_count": 3,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "가시리여의도점",
+      "address": "서울 영등포구 여의도동 13-4 2층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 77,
+      "spend": 15713060,
+      "date_min": "2024-01-08",
+      "date_max": "2026-03-06",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1314,37 +1348,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "가시리 여의도점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1207060,
-      "date_min": "2025-11-17",
-      "date_max": "2026-03-06",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4820,6 +4823,41 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "외계인키친",
+      "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "origins": [
+        "구로구, 은평구",
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 97,
+      "spend": 3821943,
+      "date_min": "2024-01-09",
+      "date_max": "2026-04-08",
+      "consensus_score": 90.6,
+      "institution_count": 4,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "남도마루",
       "address": "",
       "origins": [
@@ -5271,6 +5309,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "가시리여의도점",
+      "address": "서울 영등포구 여의도동 13-4 2층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 77,
+      "spend": 15713060,
+      "date_min": "2024-01-08",
+      "date_max": "2026-03-06",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "오디푸드시스템 오발탄 세종점",
       "address": "",
       "origins": [
@@ -5443,37 +5515,6 @@
       "date_max": "2025-12-17",
       "consensus_score": 56.2,
       "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "가시리 여의도점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1207060,
-      "date_min": "2025-11-17",
-      "date_max": "2026-03-06",
-      "consensus_score": 61.4,
-      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
