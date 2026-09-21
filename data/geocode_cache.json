@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 120,
+    "failed_count": 133,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 912,
-    "success_count": 792,
-    "updated_at": "2026-09-18T23:17:39+00:00"
+    "record_count": 984,
+    "success_count": 851,
+    "updated_at": "2026-09-21T07:29:13+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -76,6 +76,28 @@
         "nominatim:(주)안스 인천광역시 연수구"
       ],
       "updated_at": "2026-09-18T09:48:21+00:00"
+    },
+    "(주)우루루산본점|군포시": {
+      "failed": true,
+      "fingerprint": "8fd260a2beb2350c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:(주)우루루산본점 군포시",
+        "nominatim:(주)우루루산본점 군포시"
+      ],
+      "updated_at": "2026-09-21T07:29:00+00:00"
+    },
+    "(주)의송|군포시": {
+      "failed": true,
+      "fingerprint": "bc9c9ec711bc700a",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:(주)의송 군포시",
+        "nominatim:(주)의송 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:50+00:00"
     },
     "(주)전한 강강술래상|노원구": {
       "failed": true,
@@ -187,6 +209,24 @@
         "nominatim:25도씨 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:56+00:00"
+    },
+    "260도 부천점|부천시": {
+      "addr_type": "POI",
+      "display_name": "260도 부천점",
+      "fingerprint": "5927aee3ea35b2f5",
+      "geocoder_version": 4,
+      "lat": 37.49996459,
+      "lon": 126.777483511,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "260도 부천점 부천시",
+      "result_name": "260도 부천점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:260도 부천점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:26+00:00"
     },
     "M고용노동부11동|중앙정부": {
       "failed": true,
@@ -770,6 +810,42 @@
         "arcgis:서울 영등포구 국회대로72길 21 (여의도동, 민족통일대통령리빙텔) 1층"
       ],
       "updated_at": "2026-09-18T00:09:10+00:00"
+    },
+    "계절명가|부천시": {
+      "addr_type": "POI",
+      "display_name": "계절명가",
+      "fingerprint": "12c2623eed3084c3",
+      "geocoder_version": 4,
+      "lat": 37.526784325,
+      "lon": 126.805429072,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "계절명가 부천시",
+      "result_name": "계절명가",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:계절명가 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:37+00:00"
+    },
+    "고갯마루|군포시": {
+      "addr_type": "POI",
+      "display_name": "고갯마루",
+      "fingerprint": "0b36222fce621bd4",
+      "geocoder_version": 4,
+      "lat": 37.355935266,
+      "lon": 126.942398743,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "고갯마루 군포시",
+      "result_name": "고갯마루",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:고갯마루 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:52+00:00"
     },
     "고굽진|과천시": {
       "addr_type": "POI",
@@ -1701,6 +1777,24 @@
       ],
       "updated_at": "2026-09-18T00:07:54+00:00"
     },
+    "금정숯불갈비|군포시": {
+      "addr_type": "POI",
+      "display_name": "금정숯불갈비",
+      "fingerprint": "9af98b8a0c8f6f3b",
+      "geocoder_version": 4,
+      "lat": 37.363078586,
+      "lon": 126.943407526,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "금정숯불갈비 군포시",
+      "result_name": "금정숯불갈비",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:금정숯불갈비 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:54+00:00"
+    },
     "금하|광진구": {
       "addr_type": "PointAddress",
       "display_name": "서울 광진구 자양동 아차산로36길 5",
@@ -1909,6 +2003,24 @@
         "arcgis:꾸덕해 인천광역시 연수구"
       ],
       "updated_at": "2026-09-18T09:48:15+00:00"
+    },
+    "나주설렁탕|군포시": {
+      "addr_type": "POI",
+      "display_name": "나주설렁탕",
+      "fingerprint": "e8071b3fdcce18aa",
+      "geocoder_version": 4,
+      "lat": 37.359463254,
+      "lon": 126.932219504,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "나주설렁탕 군포시",
+      "result_name": "나주설렁탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:나주설렁탕 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:52+00:00"
     },
     "낙원|중앙정부": {
       "addr_type": "POI",
@@ -2138,6 +2250,42 @@
       ],
       "updated_at": "2026-09-17T23:02:31+00:00"
     },
+    "내조삼계탕 부천점|부천시": {
+      "addr_type": "POI",
+      "display_name": "내조삼계탕 부천점",
+      "fingerprint": "efe0ba77845cd16f",
+      "geocoder_version": 4,
+      "lat": 37.503466453,
+      "lon": 126.764491656,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "내조삼계탕 부천점 부천시",
+      "result_name": "내조삼계탕 부천점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:내조삼계탕 부천점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:25+00:00"
+    },
+    "냉삼이네|남양주시": {
+      "addr_type": "POI",
+      "display_name": "냉삼이네",
+      "fingerprint": "e63b44f70df691f8",
+      "geocoder_version": 4,
+      "lat": 37.698695725,
+      "lon": 127.201547157,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "냉삼이네 남양주시",
+      "result_name": "냉삼이네",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:냉삼이네 남양주시"
+      ],
+      "updated_at": "2026-09-21T07:28:45+00:00"
+    },
     "너섬|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로 750",
@@ -2281,6 +2429,24 @@
         "arcgis:서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) 비113호"
       ],
       "updated_at": "2026-09-18T00:08:28+00:00"
+    },
+    "놀부장어|군포시": {
+      "addr_type": "POI",
+      "display_name": "놀부장어",
+      "fingerprint": "8d9a7cd27d47c81d",
+      "geocoder_version": 4,
+      "lat": 37.369051285,
+      "lon": 126.938568339,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "놀부장어 군포시",
+      "result_name": "놀부장어",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:놀부장어 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:48+00:00"
     },
     "농농|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3333,6 +3499,24 @@
       ],
       "updated_at": "2026-09-18T13:43:01+00:00"
     },
+    "동원참치광화문본점|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "동원참치광화문본점",
+      "fingerprint": "0fa3c0b151839109",
+      "geocoder_version": 4,
+      "lat": 37.57536622,
+      "lon": 126.97332142,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "동원참치광화문본점 대한민국",
+      "result_name": "동원참치광화문본점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:동원참치광화문본점 대한민국"
+      ],
+      "updated_at": "2026-09-21T07:29:13+00:00"
+    },
     "동해도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 은행로 25",
@@ -3542,6 +3726,17 @@
       ],
       "updated_at": "2026-09-18T05:23:47+00:00"
     },
+    "두미|부천시": {
+      "failed": true,
+      "fingerprint": "1669b359ae0a1cbe",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:두미 부천시",
+        "nominatim:두미 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:33+00:00"
+    },
     "둘둘치킨|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 태평로2가 서소문로 134-5",
@@ -3689,6 +3884,24 @@
         "arcgis:란이 대한민국"
       ],
       "updated_at": "2026-09-18T13:43:25+00:00"
+    },
+    "랑꽁팩토리|인천시청": {
+      "addr_type": "POI",
+      "display_name": "랑꽁팩토리",
+      "fingerprint": "c5e6664cda6aea47",
+      "geocoder_version": 4,
+      "lat": 37.453336121,
+      "lon": 126.707752494,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "랑꽁팩토리 인천 남동구",
+      "result_name": "랑꽁팩토리",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:랑꽁팩토리 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:07+00:00"
     },
     "로씨니|중앙정부": {
       "addr_type": "POI",
@@ -4187,6 +4400,17 @@
       ],
       "updated_at": "2026-09-17T23:05:48+00:00"
     },
+    "명동찌개마을 성곡점|부천시": {
+      "failed": true,
+      "fingerprint": "c5f3fa150fd4f206",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:명동찌개마을 성곡점 부천시",
+        "nominatim:명동찌개마을 성곡점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:31+00:00"
+    },
     "명동칼국수|중앙정부": {
       "addr_type": "POI",
       "display_name": "명동칼국수",
@@ -4204,6 +4428,35 @@
         "arcgis:명동칼국수 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:39+00:00"
+    },
+    "명륜진사갈비 고강점|부천시": {
+      "failed": true,
+      "fingerprint": "410973938d59de45",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:명륜진사갈비 고강점 부천시",
+        "nominatim:명륜진사갈비 고강점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:41+00:00"
+    },
+    "명륜진사갈비 부천여월점|부천시": {
+      "addr_type": "POI",
+      "display_name": "명륜진사갈비 부천여월점",
+      "fingerprint": "98cfc3b4fd0d7777",
+      "geocoder_version": 4,
+      "lat": 37.515434365,
+      "lon": 126.803387295,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "명륜진사갈비 부천여월점 부천시",
+      "result_name": "명륜진사갈비 부천여월점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:명륜진사갈비 부천여월점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:28+00:00"
     },
     "명륜진사갈비 하계점|노원구": {
       "failed": true,
@@ -4574,6 +4827,17 @@
         "arcgis:미르 대한민국"
       ],
       "updated_at": "2026-09-17T07:48:12+00:00"
+    },
+    "미스터쭈 산채향가마|군포시": {
+      "failed": true,
+      "fingerprint": "6277a37bb91dd861",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:미스터쭈 산채향가마 군포시",
+        "nominatim:미스터쭈 산채향가마 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:55+00:00"
     },
     "미시령너머|서울시청": {
       "addr_type": "PointAddress",
@@ -5101,6 +5365,24 @@
       ],
       "updated_at": "2026-09-18T00:08:18+00:00"
     },
+    "보라분식|군포시": {
+      "addr_type": "POI",
+      "display_name": "보라분식",
+      "fingerprint": "ca69901f87e057ff",
+      "geocoder_version": 4,
+      "lat": 37.352016681,
+      "lon": 126.931085671,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "보라분식 군포시",
+      "result_name": "보라분식",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:보라분식 군포시"
+      ],
+      "updated_at": "2026-09-21T07:29:01+00:00"
+    },
     "보양삼계탕|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산서구 대화동 주화로 180",
@@ -5240,6 +5522,24 @@
       ],
       "updated_at": "2026-09-17T23:02:41+00:00"
     },
+    "본가황금동태탕찜|부천시": {
+      "addr_type": "POI",
+      "display_name": "본가황금동태탕찜",
+      "fingerprint": "deb949d0e4dd8441",
+      "geocoder_version": 4,
+      "lat": 37.503177875,
+      "lon": 126.764438392,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "본가황금동태탕찜 부천시",
+      "result_name": "본가황금동태탕찜",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:본가황금동태탕찜 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:22+00:00"
+    },
     "본도시락 종각점|중앙정부": {
       "addr_type": "POI",
       "display_name": "본도시락 종각점",
@@ -5342,6 +5642,24 @@
         "nominatim:본죽앤비빔밥마포구청역점 대한민국"
       ],
       "updated_at": "2026-09-17T23:02:22+00:00"
+    },
+    "본칠백식당|부천시": {
+      "addr_type": "POI",
+      "display_name": "본칠백식당",
+      "fingerprint": "eb9cce9cbc95057e",
+      "geocoder_version": 4,
+      "lat": 37.493746479,
+      "lon": 126.78125157,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "본칠백식당 부천시",
+      "result_name": "본칠백식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:본칠백식당 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:35+00:00"
     },
     "봉우리한정식|중앙정부": {
       "addr_type": "POI",
@@ -5490,6 +5808,24 @@
         "nominatim:부팔라 리스토란테 과천시"
       ],
       "updated_at": "2026-09-18T23:15:39+00:00"
+    },
+    "북극해고등어|부천시": {
+      "addr_type": "POI",
+      "display_name": "북극해고등어",
+      "fingerprint": "dd6cba8f537d8b93",
+      "geocoder_version": 4,
+      "lat": 37.514748785,
+      "lon": 126.814677615,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "북극해고등어 부천시",
+      "result_name": "북극해고등어",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:북극해고등어 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:36+00:00"
     },
     "북창동 황소곱창|서울시청": {
       "addr_type": "PointAddress",
@@ -5803,6 +6139,24 @@
       ],
       "updated_at": "2026-09-17T23:03:32+00:00"
     },
+    "빛뜰화로구이 부천중동점|부천시": {
+      "addr_type": "POI",
+      "display_name": "빛뜰화로구이 부천중동점",
+      "fingerprint": "09109bbaf80b67fb",
+      "geocoder_version": 4,
+      "lat": 37.50233814,
+      "lon": 126.762963018,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "빛뜰화로구이 부천중동점 부천시",
+      "result_name": "빛뜰화로구이 부천중동점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:빛뜰화로구이 부천중동점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:21+00:00"
+    },
     "사계절어촌|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산서구 대화동 주엽로 80",
@@ -5922,6 +6276,24 @@
       ],
       "updated_at": "2026-09-18T23:16:04+00:00"
     },
+    "산너머남촌|군포시": {
+      "addr_type": "POI",
+      "display_name": "산너머남촌",
+      "fingerprint": "ff78ac357dc5eff6",
+      "geocoder_version": 4,
+      "lat": 37.358128062,
+      "lon": 126.916852091,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "산너머남촌 군포시",
+      "result_name": "산너머남촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:산너머남촌 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:53+00:00"
+    },
     "산들해|서초구": {
       "addr_type": "PointAddress",
       "display_name": "서울 서초구 양재동 강남대로 213",
@@ -5994,6 +6366,17 @@
       ],
       "updated_at": "2026-09-17T23:02:49+00:00"
     },
+    "삼관왕수산|부천시": {
+      "failed": true,
+      "fingerprint": "f2d5e3392eb7dee0",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:삼관왕수산 부천시",
+        "nominatim:삼관왕수산 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:24+00:00"
+    },
     "삼도일식|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로 750",
@@ -6048,6 +6431,24 @@
       ],
       "updated_at": "2026-09-17T23:00:44+00:00"
     },
+    "삼봉푸줏간|남양주시": {
+      "display_name": "삼봉푸줏간, 6-8, 북한강로855번길, 구봉마을, 조안면, 남양주시, 경기도, 12278, 대한민국",
+      "fingerprint": "497d38dd4ee64785",
+      "geocoder_version": 4,
+      "lat": 37.5937168,
+      "lon": 127.3375841,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "삼봉푸줏간 남양주시",
+      "result_name": "삼봉푸줏간",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:삼봉푸줏간 남양주시",
+        "nominatim:삼봉푸줏간 남양주시"
+      ],
+      "updated_at": "2026-09-21T07:28:44+00:00"
+    },
     "삼씨오화|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 의사당대로 83",
@@ -6101,6 +6502,24 @@
         "nominatim:삼원가든 투뿔등심 광화문점 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:50+00:00"
+    },
+    "삼정복집|군포시": {
+      "addr_type": "POI",
+      "display_name": "삼정복집",
+      "fingerprint": "e7b60cc62444426d",
+      "geocoder_version": 4,
+      "lat": 37.359732154,
+      "lon": 126.930478036,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "삼정복집 군포시",
+      "result_name": "삼정복집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:삼정복집 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:53+00:00"
     },
     "삼정하누광화문점|중앙정부": {
       "addr_type": "POI",
@@ -6398,6 +6817,24 @@
       ],
       "updated_at": "2026-09-17T23:01:52+00:00"
     },
+    "생고기마을|군포시": {
+      "addr_type": "POI",
+      "display_name": "생고기마을",
+      "fingerprint": "7faa4871d30acba6",
+      "geocoder_version": 4,
+      "lat": 37.355851946,
+      "lon": 126.931801596,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "생고기마을 군포시",
+      "result_name": "생고기마을",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:생고기마을 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:50+00:00"
+    },
     "생선나라|연수구": {
       "addr_type": "POI",
       "display_name": "생선나라",
@@ -6631,6 +7068,24 @@
         "arcgis:서대문영양족발 서대문구 서울"
       ],
       "updated_at": "2026-09-17T23:03:20+00:00"
+    },
+    "서동가청국장|인천시청": {
+      "addr_type": "POI",
+      "display_name": "서동가청국장",
+      "fingerprint": "73f020f60c2378c9",
+      "geocoder_version": 4,
+      "lat": 37.451884235,
+      "lon": 126.704093996,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "서동가청국장 인천 남동구",
+      "result_name": "서동가청국장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서동가청국장 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:11+00:00"
     },
     "서리원|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -7245,6 +7700,24 @@
       ],
       "updated_at": "2026-09-18T00:07:37+00:00"
     },
+    "소래포구해남수산|인천시청": {
+      "addr_type": "POI",
+      "display_name": "소래포구해남수산",
+      "fingerprint": "bcedb5b3042ac335",
+      "geocoder_version": 4,
+      "lat": 37.453696008,
+      "lon": 126.704126074,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "소래포구해남수산 인천 남동구",
+      "result_name": "소래포구해남수산",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:소래포구해남수산 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:08+00:00"
+    },
     "소문/(주)을정|중앙정부": {
       "failed": true,
       "fingerprint": "2db64e2eaf88ff6d",
@@ -7729,6 +8202,24 @@
       ],
       "updated_at": "2026-09-17T23:01:23+00:00"
     },
+    "수타원|부천시": {
+      "addr_type": "POI",
+      "display_name": "수타원",
+      "fingerprint": "c813380eac6704b2",
+      "geocoder_version": 4,
+      "lat": 37.505856823,
+      "lon": 126.812025819,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "수타원 부천시",
+      "result_name": "수타원",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:수타원 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:21+00:00"
+    },
     "순대실록|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로74길 9",
@@ -8027,6 +8518,24 @@
         "nominatim:시골생고기 무한리필 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:06+00:00"
+    },
+    "시골애|부천시": {
+      "display_name": "시골애(愛), 36, 중동로254번길, 중동, 원미구, 부천시, 경기도, 14548, 대한민국",
+      "fingerprint": "ad0b24ffa8ac3cc7",
+      "geocoder_version": 4,
+      "lat": 37.5020206,
+      "lon": 126.7710802,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "시골애 부천시",
+      "result_name": "시골애(愛)",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:시골애 부천시",
+        "nominatim:시골애 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:39+00:00"
     },
     "시드니램１９０１|금천구": {
       "addr_type": "PointAddress",
@@ -8446,6 +8955,24 @@
       ],
       "updated_at": "2026-09-17T23:03:23+00:00"
     },
+    "심가면옥|부천시": {
+      "addr_type": "POI",
+      "display_name": "심가면옥",
+      "fingerprint": "7eb6288d499cced2",
+      "geocoder_version": 4,
+      "lat": 37.518324135,
+      "lon": 126.804550066,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "심가면옥 부천시",
+      "result_name": "심가면옥",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:심가면옥 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:34+00:00"
+    },
     "싱카이|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의대로 128",
@@ -8535,6 +9062,17 @@
         "arcgis:아리연 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:47+00:00"
+    },
+    "아브힐|부천시": {
+      "failed": true,
+      "fingerprint": "416ca3c1ae40a212",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:아브힐 부천시",
+        "nominatim:아브힐 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:28+00:00"
     },
     "아우랑횟집|은평구": {
       "addr_type": "PointAddress",
@@ -8834,6 +9372,24 @@
         "arcgis:서울 서대문구 충정로6안길 4"
       ],
       "updated_at": "2026-09-17T23:04:33+00:00"
+    },
+    "어정낙지촌|군포시": {
+      "addr_type": "POI",
+      "display_name": "어정낙지촌",
+      "fingerprint": "88641305f6526567",
+      "geocoder_version": 4,
+      "lat": 37.370251348,
+      "lon": 126.940809669,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "어정낙지촌 군포시",
+      "result_name": "어정낙지촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:어정낙지촌 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:46+00:00"
     },
     "어펜딕스여의도본점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -9268,6 +9824,24 @@
         "arcgis:옛날김치찌개 과천시"
       ],
       "updated_at": "2026-09-18T23:15:49+00:00"
+    },
+    "옛정|인천시청": {
+      "addr_type": "POI",
+      "display_name": "옛정",
+      "fingerprint": "95b3743969ae5354",
+      "geocoder_version": 4,
+      "lat": 37.458288352,
+      "lon": 126.705354697,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "옛정 인천 남동구",
+      "result_name": "옛정",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:옛정 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:04+00:00"
     },
     "옛집|영등포구": {
       "addr_type": "PointAddress",
@@ -9760,6 +10334,24 @@
       ],
       "updated_at": "2026-09-18T05:24:00+00:00"
     },
+    "용인정|인천시청": {
+      "addr_type": "POI",
+      "display_name": "용인정",
+      "fingerprint": "e093a7a2a418b581",
+      "geocoder_version": 4,
+      "lat": 37.460499797,
+      "lon": 126.674682062,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "용인정 인천 미추홀구",
+      "result_name": "용인정",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:용인정 인천 미추홀구"
+      ],
+      "updated_at": "2026-09-21T07:29:07+00:00"
+    },
     "우계골 본점|수원시": {
       "failed": true,
       "fingerprint": "8608151807170d64",
@@ -10092,6 +10684,24 @@
       ],
       "updated_at": "2026-09-17T23:04:14+00:00"
     },
+    "우프스낵바|인천시청": {
+      "addr_type": "POI",
+      "display_name": "우프스낵바",
+      "fingerprint": "8b8fcc0f4057ecfb",
+      "geocoder_version": 4,
+      "lat": 37.456905261,
+      "lon": 126.704136645,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우프스낵바 인천 남동구",
+      "result_name": "우프스낵바",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우프스낵바 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:12+00:00"
+    },
     "운산|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의공원로 101",
@@ -10217,6 +10827,24 @@
         "arcgis:유명한목동갈비 양천구 서울"
       ],
       "updated_at": "2026-09-17T23:01:55+00:00"
+    },
+    "유일돌구이|부천시": {
+      "addr_type": "POI",
+      "display_name": "유일돌구이",
+      "fingerprint": "6a53d7448179fc07",
+      "geocoder_version": 4,
+      "lat": 37.489791037,
+      "lon": 126.757658201,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "유일돌구이 부천시",
+      "result_name": "유일돌구이",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:유일돌구이 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:34+00:00"
     },
     "유진식당|서대문구": {
       "addr_type": "POI",
@@ -10528,6 +11156,24 @@
       ],
       "updated_at": "2026-09-18T00:07:06+00:00"
     },
+    "이도참치|인천시청": {
+      "addr_type": "POI",
+      "display_name": "이도참치",
+      "fingerprint": "1b998909899e46c3",
+      "geocoder_version": 4,
+      "lat": 37.450679703,
+      "lon": 126.70537496,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이도참치 인천 남동구",
+      "result_name": "이도참치",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이도참치 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:06+00:00"
+    },
     "이랜드파크켄싱턴여의도|국회의원(정치자금 2024)": {
       "failed": true,
       "fingerprint": "e4a33d3088616540",
@@ -10577,6 +11223,24 @@
       ],
       "updated_at": "2026-09-17T07:48:06+00:00"
     },
+    "이우철한방누룽지삼계탕 부천점|부천시": {
+      "addr_type": "POI",
+      "display_name": "이우철한방누룽지삼계탕 부천점",
+      "fingerprint": "756f90e1fd45b456",
+      "geocoder_version": 4,
+      "lat": 37.521696783,
+      "lon": 126.804405644,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이우철한방누룽지삼계탕 부천점 부천시",
+      "result_name": "이우철한방누룽지삼계탕 부천점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이우철한방누룽지삼계탕 부천점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:31+00:00"
+    },
     "이윽고|중앙정부": {
       "addr_type": "POI",
       "display_name": "이윽고",
@@ -10594,6 +11258,24 @@
         "arcgis:이윽고 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:42+00:00"
+    },
+    "이재옥남원추어탕|부천시": {
+      "addr_type": "POI",
+      "display_name": "이재옥남원추어탕",
+      "fingerprint": "3eea2b13d84cc362",
+      "geocoder_version": 4,
+      "lat": 37.472150511,
+      "lon": 126.814134634,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이재옥남원추어탕 부천시",
+      "result_name": "이재옥남원추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이재옥남원추어탕 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:35+00:00"
     },
     "이즈미|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -10731,6 +11413,42 @@
         "arcgis:이태형의 메구미 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:34+00:00"
+    },
+    "이학갈비(산본)|군포시": {
+      "display_name": "이학갈비, 56, 산본천로, 궁내동, 광정동, 산본동, 경기도, 15865, 대한민국",
+      "fingerprint": "ceedc826aaa555b9",
+      "geocoder_version": 4,
+      "lat": 37.3604602,
+      "lon": 126.9299498,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "이학갈비(산본) 군포시",
+      "result_name": "이학갈비",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:이학갈비(산본) 군포시",
+        "nominatim:이학갈비(산본) 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:48+00:00"
+    },
+    "이학갈비|부천시": {
+      "addr_type": "POI",
+      "display_name": "이학갈비",
+      "fingerprint": "5c01ee054a29cadb",
+      "geocoder_version": 4,
+      "lat": 37.496974271,
+      "lon": 126.761830891,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이학갈비 부천시",
+      "result_name": "이학갈비",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이학갈비 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:41+00:00"
     },
     "이화정|수원시": {
       "failed": true,
@@ -10897,6 +11615,24 @@
         "nominatim:일산하인선생 고양특례시"
       ],
       "updated_at": "2026-09-16T16:08:53+00:00"
+    },
+    "일식 송수사|군포시": {
+      "addr_type": "POI",
+      "display_name": "일식 송수사",
+      "fingerprint": "3d5272bfac3ca9f1",
+      "geocoder_version": 4,
+      "lat": 37.359302627,
+      "lon": 126.933160856,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "일식 송수사 군포시",
+      "result_name": "일식 송수사",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:일식 송수사 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:47+00:00"
     },
     "일식성진|중앙정부": {
       "failed": true,
@@ -11154,6 +11890,24 @@
       ],
       "updated_at": "2026-09-17T23:03:24+00:00"
     },
+    "작동순대국|부천시": {
+      "addr_type": "POI",
+      "display_name": "작동순대국",
+      "fingerprint": "9cccc1212c1778a5",
+      "geocoder_version": 4,
+      "lat": 37.518369492,
+      "lon": 126.814148057,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "작동순대국 부천시",
+      "result_name": "작동순대국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:작동순대국 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:38+00:00"
+    },
     "잘차려진바다|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 다동 남대문로9길 8",
@@ -11207,6 +11961,17 @@
         "arcgis:서울 영등포구 의사당대로38,101-104"
       ],
       "updated_at": "2026-09-18T00:08:53+00:00"
+    },
+    "장모님식당|수원시": {
+      "failed": true,
+      "fingerprint": "3bed6edfb5dd786d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:장모님식당 수원특례시",
+        "nominatim:장모님식당 수원특례시"
+      ],
+      "updated_at": "2026-09-21T07:28:17+00:00"
     },
     "장수집|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11333,6 +12098,24 @@
         "arcgis:경기 안양시 만안구 삼막로 42"
       ],
       "updated_at": "2026-09-17T23:01:26+00:00"
+    },
+    "전복촌|인천시청": {
+      "addr_type": "POI",
+      "display_name": "전복촌",
+      "fingerprint": "5eed730c37439b07",
+      "geocoder_version": 4,
+      "lat": 37.452388821,
+      "lon": 126.703548597,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "전복촌 인천 남동구",
+      "result_name": "전복촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:전복촌 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:04+00:00"
     },
     "전북집|서울시청": {
       "addr_type": "PointAddress",
@@ -11496,6 +12279,24 @@
       ],
       "updated_at": "2026-09-17T23:02:29+00:00"
     },
+    "정다운맛집|군포시": {
+      "addr_type": "POI",
+      "display_name": "정다운맛집",
+      "fingerprint": "388143d796bdefb8",
+      "geocoder_version": 4,
+      "lat": 37.352823899,
+      "lon": 126.932719569,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "정다운맛집 군포시",
+      "result_name": "정다운맛집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:정다운맛집 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:51+00:00"
+    },
     "정동각|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로62길 14",
@@ -11531,6 +12332,24 @@
         "arcgis:정민복집 대한민국"
       ],
       "updated_at": "2026-09-18T13:43:01+00:00"
+    },
+    "정연성의탕&찜|군포시": {
+      "addr_type": "POI",
+      "display_name": "정연성의탕&찜",
+      "fingerprint": "15c308ea0a0e4452",
+      "geocoder_version": 4,
+      "lat": 37.361418346,
+      "lon": 126.936711248,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "정연성의탕&찜 군포시",
+      "result_name": "정연성의탕&찜",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:정연성의탕&찜 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:50+00:00"
     },
     "정윤기 황칠낙지|연수구": {
       "addr_type": "POI",
@@ -11639,6 +12458,24 @@
         "arcgis:제이티알 대한민국"
       ],
       "updated_at": "2026-09-17T07:47:28+00:00"
+    },
+    "제주궁|부천시": {
+      "addr_type": "POI",
+      "display_name": "제주궁",
+      "fingerprint": "9fd94eb3f3e51dca",
+      "geocoder_version": 4,
+      "lat": 37.503233183,
+      "lon": 126.764214168,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "제주궁 부천시",
+      "result_name": "제주궁",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:제주궁 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:36+00:00"
     },
     "제주산방식당 대한상공회의소점|중앙정부": {
       "addr_type": "POI",
@@ -11946,6 +12783,17 @@
       ],
       "updated_at": "2026-09-17T23:01:41+00:00"
     },
+    "주식회사촌장|서해구": {
+      "failed": true,
+      "fingerprint": "fa450d4508cce4c7",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:주식회사촌장 인천광역시 서해구",
+        "nominatim:주식회사촌장 인천광역시 서해구"
+      ],
+      "updated_at": "2026-09-21T07:29:04+00:00"
+    },
     "주원일식(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
       "display_name": "주원일식",
@@ -12190,6 +13038,24 @@
         "arcgis:경기 광명시 밤일로 35"
       ],
       "updated_at": "2026-09-17T23:00:36+00:00"
+    },
+    "진미식당|군포시": {
+      "addr_type": "POI",
+      "display_name": "진미식당",
+      "fingerprint": "2d650f653fa40466",
+      "geocoder_version": 4,
+      "lat": 37.352219931,
+      "lon": 126.946051269,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "진미식당 군포시",
+      "result_name": "진미식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:진미식당 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:58+00:00"
     },
     "진주식당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -12559,6 +13425,24 @@
       ],
       "updated_at": "2026-09-18T00:07:51+00:00"
     },
+    "채원정|인천시청": {
+      "addr_type": "POI",
+      "display_name": "채원정",
+      "fingerprint": "7f721c493199250d",
+      "geocoder_version": 4,
+      "lat": 37.451380315,
+      "lon": 126.699381595,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "채원정 인천 남동구",
+      "result_name": "채원정",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:채원정 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:09+00:00"
+    },
     "챠이797 청계천점|중앙정부": {
       "failed": true,
       "fingerprint": "2e73b3ac537856b7",
@@ -12779,6 +13663,24 @@
       ],
       "updated_at": "2026-09-18T00:09:16+00:00"
     },
+    "청나루기사님식당|군포시": {
+      "addr_type": "POI",
+      "display_name": "청나루기사님식당",
+      "fingerprint": "eadddafbb32b4796",
+      "geocoder_version": 4,
+      "lat": 37.359605838,
+      "lon": 126.941404433,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "청나루기사님식당 군포시",
+      "result_name": "청나루기사님식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:청나루기사님식당 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:51+00:00"
+    },
     "청담본갈비 광명점|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 하안동 밤일로 4",
@@ -12850,6 +13752,24 @@
         "arcgis:서울 영등포구 국제금융로 112 (여의도동, 상아빌딩) 103호"
       ],
       "updated_at": "2026-09-18T00:08:15+00:00"
+    },
+    "청실홍실|인천시청": {
+      "addr_type": "POI",
+      "display_name": "청실홍실",
+      "fingerprint": "541ce90de0c72861",
+      "geocoder_version": 4,
+      "lat": 37.459639365,
+      "lon": 126.679815766,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "청실홍실 인천 미추홀구",
+      "result_name": "청실홍실",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:청실홍실 인천 미추홀구"
+      ],
+      "updated_at": "2026-09-21T07:29:11+00:00"
     },
     "청정수산|의정부시": {
       "addr_type": "POI",
@@ -13078,6 +13998,24 @@
       ],
       "updated_at": "2026-09-18T23:15:41+00:00"
     },
+    "컨테이너 키친|군포시": {
+      "addr_type": "POI",
+      "display_name": "컨테이너 키친",
+      "fingerprint": "a0e4d67f99880a73",
+      "geocoder_version": 4,
+      "lat": 37.359941311,
+      "lon": 126.930573465,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "컨테이너 키친 군포시",
+      "result_name": "컨테이너 키친",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:컨테이너 키친 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:56+00:00"
+    },
     "컨퍼런스하우스달개비 정동점|중앙정부": {
       "failed": true,
       "fingerprint": "9d42ac8b192b0840",
@@ -13262,6 +14200,24 @@
         "arcgis:서울 중구 남대문로9길 51"
       ],
       "updated_at": "2026-09-17T23:04:06+00:00"
+    },
+    "크리드나인|부천시": {
+      "addr_type": "POI",
+      "display_name": "크리드나인",
+      "fingerprint": "fbc51fa0fb5d2e5c",
+      "geocoder_version": 4,
+      "lat": 37.503569883,
+      "lon": 126.763870276,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "크리드나인 부천시",
+      "result_name": "크리드나인",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:크리드나인 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:24+00:00"
     },
     "크리스탈제이드 서머셋점|중앙정부": {
       "addr_type": "POI",
@@ -13638,6 +14594,24 @@
       ],
       "updated_at": "2026-09-18T00:08:39+00:00"
     },
+    "투파인드피터 산본점|군포시": {
+      "addr_type": "POI",
+      "display_name": "투파인드피터 산본점",
+      "fingerprint": "dbdbc0d383b00f62",
+      "geocoder_version": 4,
+      "lat": 37.360186634,
+      "lon": 126.931607265,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "투파인드피터 산본점 군포시",
+      "result_name": "투파인드피터 산본점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:투파인드피터 산본점 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:57+00:00"
+    },
     "파리바게뜨국회의사당점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 의사당대로 1",
@@ -13952,6 +14926,24 @@
       ],
       "updated_at": "2026-09-17T23:02:14+00:00"
     },
+    "풍년옥|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "풍년옥",
+      "fingerprint": "790c44cab96983f7",
+      "geocoder_version": 4,
+      "lat": 37.333597568,
+      "lon": 127.311412035,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "풍년옥 대한민국",
+      "result_name": "풍년옥",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:풍년옥 대한민국"
+      ],
+      "updated_at": "2026-09-21T07:29:13+00:00"
+    },
     "풍천가 서초|서초구": {
       "addr_type": "POI",
       "display_name": "풍천가 서초",
@@ -14167,6 +15159,24 @@
       ],
       "updated_at": "2026-09-18T04:33:02+00:00"
     },
+    "하남미소 명품한우|하남시": {
+      "addr_type": "POI",
+      "display_name": "하남미소 명품한우",
+      "fingerprint": "68c65c117456a71c",
+      "geocoder_version": 4,
+      "lat": 37.541015382,
+      "lon": 127.215207318,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "하남미소 명품한우 하남시",
+      "result_name": "하남미소 명품한우",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:하남미소 명품한우 하남시"
+      ],
+      "updated_at": "2026-09-21T07:29:02+00:00"
+    },
     "하동관|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 은행로 3",
@@ -14267,6 +15277,24 @@
         "arcgis:서울 중구 서소문로 134-5"
       ],
       "updated_at": "2026-09-17T23:04:20+00:00"
+    },
+    "한결남원추어탕|부천시": {
+      "addr_type": "POI",
+      "display_name": "한결남원추어탕",
+      "fingerprint": "22c19a3a4efcb448",
+      "geocoder_version": 4,
+      "lat": 37.480750506,
+      "lon": 126.794343602,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한결남원추어탕 부천시",
+      "result_name": "한결남원추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한결남원추어탕 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:35+00:00"
     },
     "한국의밥상(영등포)|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -14412,6 +15440,24 @@
       ],
       "updated_at": "2026-09-18T00:08:42+00:00"
     },
+    "한방전주콩나물국밥|남양주시": {
+      "addr_type": "POI",
+      "display_name": "한방전주콩나물국밥",
+      "fingerprint": "a5af0ad47734a24d",
+      "geocoder_version": 4,
+      "lat": 37.679297995,
+      "lon": 127.210647721,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한방전주콩나물국밥 남양주시",
+      "result_name": "한방전주콩나물국밥",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한방전주콩나물국밥 남양주시"
+      ],
+      "updated_at": "2026-09-21T07:28:45+00:00"
+    },
     "한성관|강동구": {
       "addr_type": "POI",
       "display_name": "한성관",
@@ -14430,6 +15476,24 @@
       ],
       "updated_at": "2026-09-17T23:03:17+00:00"
     },
+    "한식 엄마손 밥상|군포시": {
+      "addr_type": "POI",
+      "display_name": "한식 엄마손 밥상",
+      "fingerprint": "a587b6300024901e",
+      "geocoder_version": 4,
+      "lat": 37.360375818,
+      "lon": 126.94278057,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한식 엄마손 밥상 군포시",
+      "result_name": "한식 엄마손 밥상",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한식 엄마손 밥상 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:50+00:00"
+    },
     "한양갈비|관악구": {
       "addr_type": "PointAddress",
       "display_name": "경기 안양시 만안구 석수동 삼막로24번길 115",
@@ -14447,6 +15511,24 @@
         "arcgis:경기 안양시 만안구 삼막로24번길 115"
       ],
       "updated_at": "2026-09-17T23:01:29+00:00"
+    },
+    "한우농가&고창장어|부천시": {
+      "addr_type": "POI",
+      "display_name": "한우농가&고창장어",
+      "fingerprint": "9d7cfbb5652347a2",
+      "geocoder_version": 4,
+      "lat": 37.506458713,
+      "lon": 126.805102509,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한우농가&고창장어 부천시",
+      "result_name": "한우농가&고창장어",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한우농가&고창장어 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:28+00:00"
     },
     "한우등촌골|강서구": {
       "addr_type": "PointAddress",
@@ -14483,6 +15565,42 @@
         "arcgis:서울 중구 남대문로5길 7"
       ],
       "updated_at": "2026-09-17T23:04:09+00:00"
+    },
+    "한우만|군포시": {
+      "addr_type": "POI",
+      "display_name": "한우만",
+      "fingerprint": "8429c506c1dacb5f",
+      "geocoder_version": 4,
+      "lat": 37.375144786,
+      "lon": 126.942811259,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한우만 군포시",
+      "result_name": "한우만",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한우만 군포시"
+      ],
+      "updated_at": "2026-09-21T07:29:02+00:00"
+    },
+    "한우정|인천시청": {
+      "addr_type": "POI",
+      "display_name": "한우정",
+      "fingerprint": "077a486030e2d6bf",
+      "geocoder_version": 4,
+      "lat": 37.402367415,
+      "lon": 126.735162691,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한우정 인천 남동구",
+      "result_name": "한우정",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한우정 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:09+00:00"
     },
     "한일관|중앙정부": {
       "addr_type": "POI",
@@ -14530,6 +15648,17 @@
         "nominatim:한화푸드테크 대한민국"
       ],
       "updated_at": "2026-09-18T05:24:12+00:00"
+    },
+    "할매보쌈족발|수원시": {
+      "failed": true,
+      "fingerprint": "d9baa4057c354c5c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:할매보쌈족발 수원특례시",
+        "nominatim:할매보쌈족발 수원특례시"
+      ],
+      "updated_at": "2026-09-21T07:28:19+00:00"
     },
     "함박|강서구": {
       "addr_type": "PointAddress",
@@ -14720,6 +15849,24 @@
         "arcgis:서울 중구 청계천로 24"
       ],
       "updated_at": "2026-09-17T23:04:30+00:00"
+    },
+    "해장국,설렁탕|인천시청": {
+      "addr_type": "POI",
+      "display_name": "해장국,설렁탕",
+      "fingerprint": "2b61c3224241de50",
+      "geocoder_version": 4,
+      "lat": 37.453775188,
+      "lon": 126.705819304,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "해장국,설렁탕 인천 남동구",
+      "result_name": "해장국,설렁탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:해장국,설렁탕 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:10+00:00"
     },
     "해초가|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15152,6 +16299,28 @@
       ],
       "updated_at": "2026-09-17T23:04:58+00:00"
     },
+    "화로본가|부천시": {
+      "failed": true,
+      "fingerprint": "392cc481cee692e1",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:화로본가 부천시",
+        "nominatim:화로본가 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:20+00:00"
+    },
+    "화사랑갈비 상동점|부천시": {
+      "failed": true,
+      "fingerprint": "974198c816fa0425",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:화사랑갈비 상동점 부천시",
+        "nominatim:화사랑갈비 상동점 부천시"
+      ],
+      "updated_at": "2026-09-21T07:28:44+00:00"
+    },
     "화수목|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 마포구 창전동 서강로 60",
@@ -15343,6 +16512,24 @@
       ],
       "updated_at": "2026-09-18T05:24:31+00:00"
     },
+    "황보식당|군포시": {
+      "addr_type": "POI",
+      "display_name": "황보식당",
+      "fingerprint": "69178d46e24be030",
+      "geocoder_version": 4,
+      "lat": 37.363587278,
+      "lon": 126.941236325,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "황보식당 군포시",
+      "result_name": "황보식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:황보식당 군포시"
+      ],
+      "updated_at": "2026-09-21T07:28:56+00:00"
+    },
     "황씨네대가추어탕|종로구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 수송동 삼봉로 81",
@@ -15360,6 +16547,24 @@
         "arcgis:서울 종로구 삼봉로 81"
       ],
       "updated_at": "2026-09-17T23:01:42+00:00"
+    },
+    "황제삼계탕|인천시청": {
+      "addr_type": "POI",
+      "display_name": "황제삼계탕",
+      "fingerprint": "727013ce56aca737",
+      "geocoder_version": 4,
+      "lat": 37.454624601,
+      "lon": 126.702083401,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "황제삼계탕 인천 남동구",
+      "result_name": "황제삼계탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:황제삼계탕 인천 남동구"
+      ],
+      "updated_at": "2026-09-21T07:29:05+00:00"
     },
     "회동|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
