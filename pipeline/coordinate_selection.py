@@ -39,6 +39,19 @@ def coordinate_candidates(record: dict, geo: dict) -> list[tuple[str, dict]]:
     return out
 
 
+UNSAFE_NAME_ADDR_TYPES = {
+    "locality", "region", "country", "postal", "neighborhood", "district", "admin",
+}
+
+
+def unsafe_name_geocode(row: dict) -> bool:
+    """Reject name-only geocodes that resolved to a geographic place, not a venue."""
+    if t(row.get("match_mode")).lower() != "name":
+        return False
+    addr_type = t(row.get("addr_type")).lower()
+    return any(token in addr_type for token in UNSAFE_NAME_ADDR_TYPES)
+
+
 def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None, dict]:
     """Choose a coordinate conservatively.
 
@@ -80,9 +93,31 @@ def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None,
             return matched[0][0], matched[0][1], meta
         return None, None, meta
 
-    # No published address: address-mode geocodes are safer than name-only POIs.
-    candidates.sort(key=lambda item: (
+    # No published address: never accept a name-only hit that is actually a
+    # locality/region/etc. ArcGIS can score a place name such as "운산 대한민국"
+    # at 100 even though it is not a restaurant.
+    safe = []
+    for key, row in candidates:
+        if unsafe_name_geocode(row):
+            meta["rejected_candidates"].append({
+                "key": key,
+                "match_mode": row.get("match_mode"),
+                "addr_type": row.get("addr_type"),
+                "query": row.get("query"),
+                "display_name": row.get("display_name"),
+                "lat": row.get("lat"),
+                "lon": row.get("lon"),
+                "reason": "name_resolved_to_geographic_locality",
+            })
+            continue
+        safe.append((key, row))
+
+    if not safe:
+        return None, None, meta
+
+    # Address-mode geocodes are safer than name-only POIs.
+    safe.sort(key=lambda item: (
         0 if item[1].get("match_mode") == "address" else 1,
         -(float(item[1].get("score") or 0)),
     ))
-    return candidates[0][0], candidates[0][1], meta
+    return safe[0][0], safe[0][1], meta
