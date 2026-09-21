@@ -477,6 +477,13 @@ def _role_bucket(role: str, include_committees: bool = False) -> str | None:
     return None
 
 
+def _effective_role(row: dict, include_committees: bool = False) -> str | None:
+    return (
+        _role_bucket(row.get("role"), include_committees)
+        or _role_bucket(row.get("source_sheet"), include_committees)
+    )
+
+
 def _most_common(values: list[str]) -> str:
     vals = [_txt(x) for x in values if _txt(x)]
     return Counter(vals).most_common(1)[0][0] if vals else ""
@@ -533,7 +540,7 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
     include_committees = source in {"gyeonggi_council", "incheon_council"}
     for r in raw.get("rows", []):
         name = _canonical(r.get("merchant"))
-        if name not in selected_names or r.get("date_quality") != "in_period" or not _role_bucket(r.get("role"), include_committees):
+        if name not in selected_names or r.get("date_quality") != "in_period" or not _effective_role(r, include_committees):
             continue
         grouped[name].append(r)
     out = []
@@ -550,12 +557,12 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
         address = _txt(override.get("address")) or raw_address
         role_map = defaultdict(lambda: {"visits":0,"people":0,"spend":0})
         for r in rows:
-            role = _role_bucket(r.get("role"), include_committees) or _txt(r.get("role")) or "직책 미상"
+            role = _effective_role(r, include_committees) or _txt(r.get("role")) or _txt(r.get("source_sheet")) or "직책 미상"
             role_map[role]["visits"] += 1; role_map[role]["people"] += int(r.get("people") or 0); role_map[role]["spend"] += int(r.get("amount") or 0)
         roles = [{"role":role, **vals} for role, vals in sorted(role_map.items(), key=lambda kv:(kv[1]["visits"],kv[1]["spend"]), reverse=True)]
         purposes_count = Counter(_txt(r.get("purpose")) for r in rows if _txt(r.get("purpose")))
         purposes = [{"text":text,"count":count} for text,count in purposes_count.most_common(5)]
-        recent = [{"date":_txt(r.get("used_date")),"time":_txt(r.get("used_time")),"role":_role_bucket(r.get("role"), include_committees) or _txt(r.get("role")),"people":int(r.get("people") or 0),"amount":int(r.get("amount") or 0),"purpose":_txt(r.get("purpose")),"source":_txt(r.get("source_post_url"))} for r in reversed(rows[-8:])]
+        recent = [{"date":_txt(r.get("used_date")),"time":_txt(r.get("used_time")),"role":_effective_role(r, include_committees) or _txt(r.get("role")) or _txt(r.get("source_sheet")),"people":int(r.get("people") or 0),"amount":int(r.get("amount") or 0),"purpose":_txt(r.get("purpose")),"source":_txt(r.get("source_post_url"))} for r in reversed(rows[-8:])]
         outside_flags = [_is_outside_home(r.get("address") or "", spec["home_tokens"]) for r in rows]
         outside_known = [x for x in outside_flags if x is not None]
         outside_count = sum(1 for x in outside_known if x); outside_ratio = round(outside_count/len(outside_known),3) if outside_known else 0.0
