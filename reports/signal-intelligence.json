@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21T08:47:49",
-  "dataset_records": 716,
+  "generated_at": "2026-09-21T08:55:58",
+  "dataset_records": 737,
   "cross_institution_count": 94,
   "cross_origin_count": 11,
   "top_official_count": 118,
@@ -469,7 +469,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 12,
+  "cross_origin_review_count": 13,
   "cross_origin_review": [
     {
       "name": "화담",
@@ -701,6 +701,25 @@
       "visits": 39,
       "addresses": [
         "서울 중구 세종대로7길 43"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "소풍",
+      "strict_name": "소풍",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "강서구",
+        "양주시"
+      ],
+      "institutions": [
+        "양주시의회"
+      ],
+      "visits": 17,
+      "addresses": [
+        "경기 고양시 덕양구 행주로15번길 64-7"
       ],
       "address_entity_count": 1,
       "qa_a": false

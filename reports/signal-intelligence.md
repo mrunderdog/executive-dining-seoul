@@ -1,14 +1,14 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-21T08:47:49
-- Published restaurant entities: **716**
+- Generated: 2026-09-21T08:55:58
+- Published restaurant entities: **737**
 - Cross-institution restaurants: **94**
 - Cross-origin restaurants: **11**
 - Central top-official restaurants: **118**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **23**
 - Merge audit groups: **22**
-- Cross-origin review candidates: **12**
+- Cross-origin review candidates: **13**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
 
@@ -153,7 +153,8 @@
 | 9 | 포도나무 | REVIEW | 서울시청 · 중앙정부 | 52 | 1 | exact name + single published address |
 | 10 | 곰솔 | REVIEW | 서울시청 · 중앙정부 | 40 | 1 | exact name + single published address |
 | 11 | 취홍 | REVIEW | 서울시청 · 인천시청 | 39 | 1 | exact name + single published address |
-| 12 | 우리네코다리 | REVIEW | 고양시 · 양천구 | 13 | 1 | exact name + single published address |
+| 12 | 소풍 | REVIEW | 강서구 · 양주시 | 17 | 1 | exact name + single published address |
+| 13 | 우리네코다리 | REVIEW | 고양시 · 양천구 | 13 | 1 | exact name + single published address |
 
 ## Central top-official dining signal
 
