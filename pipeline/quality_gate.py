@@ -221,6 +221,21 @@ def main() -> None:
         leadership_rows = 0
         candidate_count = 0
         publishable_candidates = 0
+        discovery_posts = 0
+        discovery_attachments = 0
+
+        discovery_path = REPORTS / f"capital-backfill-discovery-{source}.json"
+        if discovery_path.exists():
+            try:
+                discovery_doc = json.loads(discovery_path.read_text(encoding="utf-8"))
+                posts = [
+                    p for p in (discovery_doc.get("posts") or [])
+                    if str(p.get("source") or "").strip() == source
+                ]
+                discovery_posts = len(posts)
+                discovery_attachments = sum(len(p.get("attachments") or []) for p in posts)
+            except (OSError, json.JSONDecodeError):
+                pass
 
         if raw_path.exists():
             try:
@@ -259,11 +274,20 @@ def main() -> None:
             warnings.append(
                 f"{source}: {publishable_candidates} candidates pass publication thresholds but 0 are published"
             )
+        elif leadership_rows >= 10 and candidate_count == 0:
+            diagnosis = "CANDIDATE_BUILD_REVIEW"
+            warnings.append(
+                f"{source}: {leadership_rows} recognizable leadership rows but candidate report is empty"
+            )
         elif raw_rows >= 100 and leadership_rows == 0:
             diagnosis = "ROLE_OR_SOURCE_SCOPE_REVIEW"
             warnings.append(
                 f"{source}: {raw_rows} raw rows but no recognizable chair/vice-chair rows"
             )
+        elif raw_rows == 0 and discovery_posts > 0:
+            diagnosis = "INGESTION_REVIEW"
+        elif raw_rows == 0 and discovery_posts == 0:
+            diagnosis = "DISCOVERY_REVIEW"
         elif candidate_count == 0 and raw_rows > 0:
             diagnosis = "NO_CANDIDATES"
         elif published == 0 and candidate_count > 0:
@@ -274,6 +298,8 @@ def main() -> None:
             diagnosis = "NO_DATA"
 
         source_health[source] = {
+            "discovery_posts": discovery_posts,
+            "discovery_attachments": discovery_attachments,
             "raw_rows": raw_rows,
             "in_period_rows": in_period_rows,
             "leadership_rows": leadership_rows,
