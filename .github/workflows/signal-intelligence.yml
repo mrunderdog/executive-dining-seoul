@@ -15,6 +15,7 @@ on:
   workflow_run:
     workflows:
       - Capital council expense ingestion
+      - Rebuild council candidates
       - Central + National refresh
       - Regional executive refresh
       - Monthly data refresh
