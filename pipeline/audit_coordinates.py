@@ -34,6 +34,7 @@ def main():
     address_records = 0
     prevented = 0
     missing_safe = 0
+    rejected_locality_hits = 0
 
     for r in records:
         target = canonical_address(r.get("address"))
@@ -50,6 +51,11 @@ def main():
         old_mismatch = bool(
             target and old_row and geocode_address_key(old_row) != target
         )
+        locality_rejections = [
+            x for x in (meta.get("rejected_candidates") or [])
+            if x.get("reason") == "name_resolved_to_geographic_locality"
+        ]
+        rejected_locality_hits += len(locality_rejections)
         changed = bool(old_key and new_key and old_key != new_key)
         dropped = bool(old_key and not new_key and target)
         if old_mismatch or changed or dropped:
@@ -83,6 +89,7 @@ def main():
         "safe_coordinates": selected,
         "unsafe_old_selections_prevented": prevented,
         "safe_coordinate_missing": missing_safe,
+        "rejected_name_to_locality_hits": rejected_locality_hits,
         "issue_count": len(issues),
         "issues": issues,
     }
@@ -100,6 +107,7 @@ def main():
         f"- Safe static coordinates selected: **{selected}**",
         f"- Unsafe legacy selections prevented: **{prevented}**",
         f"- Addressed entities now left without a safe coordinate: **{missing_safe}**",
+        f"- Name-only geocodes rejected as geographic localities: **{rejected_locality_hits}**",
         f"- Changed/dropped selections: **{len(issues)}**",
         "",
         "| Restaurant | Address | Old key | New key | Old mismatch | Safe missing |",
