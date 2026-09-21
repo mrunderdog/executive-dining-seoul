@@ -388,3 +388,337 @@ body{
   color:var(--butter);
   letter-spacing:-.01em;
 }
+
+
+/* =========================
+   UI v2: compact header + 2-pane workspace + detail drawer
+   ========================= */
+.ui-v2 .shell{
+  gap:10px!important;
+}
+.ui-v2 .topbar{
+  padding:12px 16px!important;
+  grid-template-columns:minmax(0,1.45fr) minmax(420px,.9fr)!important;
+  gap:18px!important;
+  align-items:center!important;
+}
+.ui-v2 .brand-kicker{
+  font-size:10px!important;
+  margin-bottom:3px!important;
+}
+.ui-v2 .brand h1{
+  font-size:34px!important;
+  line-height:1!important;
+}
+.ui-v2 .brand p{
+  margin-top:5px!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+.ui-v2 .brand-tagline{
+  margin-top:4px!important;
+  font-size:12px!important;
+}
+.ui-v2 .stats{
+  gap:0!important;
+}
+.ui-v2 .stat{
+  padding:4px 10px!important;
+}
+.ui-v2 .stat-label{
+  font-size:9px!important;
+}
+.ui-v2 .stat-value{
+  font-size:20px!important;
+}
+.ui-v2 .stat-sub{
+  font-size:10px!important;
+}
+
+.ui-v2 .cross-showcase-v2{
+  padding:10px 12px!important;
+}
+.ui-v2 .cross-showcase-head{
+  margin-bottom:8px!important;
+  align-items:center!important;
+}
+.ui-v2 .cross-title-wrap{
+  min-width:0;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.ui-v2 .cross-title-wrap .section-eyebrow{
+  margin:0!important;
+  font-size:9px!important;
+}
+.ui-v2 .cross-showcase h2{
+  margin:0!important;
+  font-size:18px!important;
+}
+.ui-v2 .cross-showcase p{
+  font-size:11px!important;
+  color:var(--muted);
+}
+.ui-v2 .cross-head-actions{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+}
+.ui-v2 .cross-nav,
+.ui-v2 .cross-all-btn{
+  height:30px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-weight:800;
+  cursor:pointer;
+}
+.ui-v2 .cross-nav{
+  width:30px;
+  padding:0;
+}
+.ui-v2 .cross-all-btn{
+  padding:0 11px!important;
+}
+.ui-v2 .cross-showcase-track{
+  display:flex!important;
+  gap:8px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x proximity;
+  scrollbar-width:thin;
+  padding-bottom:2px;
+}
+.ui-v2 .cross-showcase-card{
+  flex:0 0 230px!important;
+  min-width:230px!important;
+  scroll-snap-align:start;
+  padding:8px 10px!important;
+  gap:2px!important;
+}
+.ui-v2 .cross-showcase-card strong{
+  font-size:14px!important;
+}
+.ui-v2 .cross-showcase-card span:not(.cross-rank),
+.ui-v2 .cross-showcase-card small{
+  font-size:10px!important;
+}
+.ui-v2 .cross-pagination{
+  display:none!important;
+}
+
+/* Two-pane desktop workspace. Detail lives above the map as a drawer. */
+@media(min-width:1121px){
+  .ui-v2 .workspace{
+    position:relative!important;
+    grid-template-columns:minmax(300px,340px) minmax(0,1fr)!important;
+    height:max(760px,calc(100dvh - 205px))!important;
+    min-height:760px!important;
+    overflow:hidden!important;
+  }
+  .ui-v2 .workspace.explorer-collapsed{
+    grid-template-columns:0 minmax(0,1fr)!important;
+  }
+  .ui-v2 .workspace.explorer-collapsed .sidebar{
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+  .ui-v2 .sidebar{
+    grid-column:1!important;
+    min-width:0!important;
+  }
+  .ui-v2 .map-panel{
+    grid-column:2!important;
+    min-width:0!important;
+    position:relative!important;
+  }
+  .ui-v2 .detail{
+    position:absolute!important;
+    z-index:80!important;
+    top:8px!important;
+    right:8px!important;
+    bottom:8px!important;
+    width:min(430px,42vw)!important;
+    height:auto!important;
+    min-height:0!important;
+    transform:translateX(calc(100% + 22px));
+    opacity:0;
+    pointer-events:none;
+    transition:transform .22s ease,opacity .16s ease;
+    overflow:auto!important;
+    border:1.5px solid var(--ink)!important;
+    box-shadow:0 10px 30px rgba(0,0,0,.18)!important;
+    background:var(--paper)!important;
+  }
+  .ui-v2 .workspace.detail-open .detail{
+    transform:translateX(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+}
+
+/* Compact filters so the list gets the vertical space. */
+.ui-v2 .filters{
+  padding:10px 12px 8px!important;
+}
+.ui-v2 .filters .section-eyebrow{
+  margin-bottom:6px!important;
+  font-size:10px!important;
+}
+.ui-v2 .filter-grid{
+  gap:6px!important;
+}
+.ui-v2 .field{
+  margin-top:5px!important;
+}
+.ui-v2 .field label{
+  margin:0 0 2px 2px!important;
+  font-size:10px!important;
+}
+.ui-v2 .control,
+.ui-v2 .search-wrap input,
+.ui-v2 select,
+.ui-v2 .reset-btn{
+  min-height:34px!important;
+  height:34px!important;
+}
+.ui-v2 .sort-row{
+  gap:6px!important;
+}
+.ui-v2 .summary{
+  min-height:38px;
+  padding:7px 10px!important;
+}
+.ui-v2 .summary .legend{
+  display:none!important;
+}
+.ui-v2 .summary .explorer-toggle{
+  position:static!important;
+  width:auto!important;
+  height:28px!important;
+  margin:0 0 0 auto!important;
+  padding:0 9px!important;
+  border:1.5px solid var(--ink)!important;
+  background:var(--paper)!important;
+  font-size:10px!important;
+}
+.ui-v2 .list{
+  padding:8px!important;
+}
+.ui-v2 .restaurant-card{
+  margin-bottom:7px!important;
+  padding:10px 11px!important;
+}
+.ui-v2 .card-title{
+  font-size:16px!important;
+}
+.ui-v2 .badge-row{
+  margin-top:5px!important;
+  gap:4px!important;
+}
+.ui-v2 .badge{
+  height:19px!important;
+  padding:0 6px!important;
+  font-size:10px!important;
+}
+.ui-v2 .card-meta{
+  margin-top:6px!important;
+  line-height:1.35!important;
+  font-size:11px!important;
+}
+.ui-v2 .card-metrics{
+  margin-top:7px!important;
+  gap:5px!important;
+}
+.ui-v2 .mini-metric{
+  padding-top:5px!important;
+}
+.ui-v2 .mini-label{
+  font-size:9px!important;
+}
+.ui-v2 .mini-value{
+  font-size:12px!important;
+}
+
+.ui-v2 .detail{
+  padding:18px!important;
+}
+.ui-v2 .detail-drawer-close{
+  position:sticky;
+  top:0;
+  float:right;
+  z-index:10;
+  width:34px;
+  height:34px;
+  margin:-4px -4px 8px 8px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+  font-size:24px;
+  line-height:28px;
+  font-weight:900;
+  cursor:pointer;
+}
+.ui-v2 .detail h2{
+  font-size:26px!important;
+}
+.ui-v2 .why-card{
+  margin-top:12px!important;
+  padding:12px!important;
+}
+.ui-v2 .detail-section{
+  margin-top:14px!important;
+  padding-top:14px!important;
+}
+
+/* Short-height desktop mode: preserve working room for the venue list/map. */
+@media(min-width:1121px) and (max-height:850px){
+  .ui-v2 .topbar{
+    padding:9px 14px!important;
+  }
+  .ui-v2 .brand h1{
+    font-size:30px!important;
+  }
+  .ui-v2 .brand p{
+    font-size:12px!important;
+  }
+  .ui-v2 .brand-tagline{
+    display:none!important;
+  }
+  .ui-v2 .cross-showcase-v2{
+    padding:8px 10px!important;
+  }
+  .ui-v2 .cross-title-wrap p{
+    display:none!important;
+  }
+  .ui-v2 .cross-showcase-card{
+    flex-basis:210px!important;
+    min-width:210px!important;
+  }
+  .ui-v2 .workspace{
+    height:760px!important;
+    min-height:760px!important;
+  }
+}
+
+/* Mobile/tablet: detail becomes normal stacked content again. */
+@media(max-width:1120px){
+  .ui-v2 .topbar{
+    grid-template-columns:1fr!important;
+  }
+  .ui-v2 .cross-showcase-track{
+    display:flex!important;
+  }
+  .ui-v2 .detail{
+    position:relative!important;
+    transform:none!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+  }
+  .ui-v2 .detail-drawer-close{
+    display:none!important;
+  }
+}
