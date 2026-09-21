@@ -13,6 +13,7 @@ on:
   workflow_run:
     workflows:
       - Central + National refresh
+      - Rebuild council candidates
     types: [completed]
   workflow_dispatch:
 
