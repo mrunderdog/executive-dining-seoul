@@ -340,3 +340,42 @@ body{
     right:16px!important;
   }
 }
+
+
+/* Cross showcase pagination */
+.cross-pagination{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+}
+.cross-page-btn{
+  height:34px;
+  padding:0 12px;
+  border:1.5px solid var(--ink);
+  border-radius:100px;
+  background:var(--paper);
+  color:var(--ink);
+  font-weight:800;
+  cursor:pointer;
+}
+.cross-page-btn:hover:not(:disabled){background:var(--pink)}
+.cross-page-btn:disabled{
+  opacity:.35;
+  cursor:default;
+}
+.cross-page-state{
+  min-width:120px;
+  text-align:center;
+  font:800 11px ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media(max-width:760px){
+  .cross-pagination{
+    justify-content:space-between;
+  }
+  .cross-page-state{
+    min-width:auto;
+    flex:1;
+  }
+}
