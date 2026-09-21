@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 984,
-    "success_count": 851,
-    "updated_at": "2026-09-21T07:29:13+00:00"
+    "record_count": 986,
+    "success_count": 853,
+    "updated_at": "2026-09-21T08:08:45+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -2022,6 +2022,24 @@
       ],
       "updated_at": "2026-09-21T07:28:52+00:00"
     },
+    "나주소 나주곰탕|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "나주소 나주곰탕",
+      "fingerprint": "765ad7d5fe9d6f76",
+      "geocoder_version": 4,
+      "lat": 37.573216769,
+      "lon": 126.981264246,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "나주소 나주곰탕 대한민국",
+      "result_name": "나주소 나주곰탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:나주소 나주곰탕 대한민국"
+      ],
+      "updated_at": "2026-09-21T08:08:44+00:00"
+    },
     "낙원|중앙정부": {
       "addr_type": "POI",
       "display_name": "낙원",
@@ -3071,6 +3089,24 @@
         "nominatim:대풍숯불갈비 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:30+00:00"
+    },
+    "더구십사(THE 94)|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "더구십사(THE 94)",
+      "fingerprint": "ee6fef498f9c520f",
+      "geocoder_version": 4,
+      "lat": 37.578997941,
+      "lon": 126.971959179,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "더구십사(THE 94) 대한민국",
+      "result_name": "더구십사(THE 94)",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:더구십사(THE 94) 대한민국"
+      ],
+      "updated_at": "2026-09-21T08:08:45+00:00"
     },
     "더라운드 삼성점|성북구": {
       "addr_type": "PointAddress",
