@@ -27,4 +27,4 @@
 
 ## Errors
 
-- {'url': 'https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page=1', 'error': 'NO_SERVER_RENDERED_POST_LINKS'}
+- {'url': 'https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page=1', 'error': 'TimeoutError: The read operation timed out'}
