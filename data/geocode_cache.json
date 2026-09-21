@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 138,
+    "failed_count": 146,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1013,
-    "success_count": 875,
-    "updated_at": "2026-09-21T08:47:55+00:00"
+    "record_count": 1034,
+    "success_count": 888,
+    "updated_at": "2026-09-21T08:56:22+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -699,6 +699,17 @@
       ],
       "updated_at": "2026-09-17T23:05:04+00:00"
     },
+    "경복궁백석점|고양시": {
+      "failed": true,
+      "fingerprint": "eb382e609f5db8ac",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:경복궁백석점 고양특례시",
+        "nominatim:경복궁백석점 고양특례시"
+      ],
+      "updated_at": "2026-09-21T08:56:07+00:00"
+    },
     "경복궁삼계탕(인천 남동구 소재)|인천시청": {
       "failed": true,
       "fingerprint": "5b69550281d55896",
@@ -1146,6 +1157,24 @@
       ],
       "updated_at": "2026-09-18T13:43:20+00:00"
     },
+    "고우시|양주시": {
+      "addr_type": "POI",
+      "display_name": "고우시",
+      "fingerprint": "febad9e6b4130427",
+      "geocoder_version": 4,
+      "lat": 37.783691727,
+      "lon": 127.083223192,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "고우시 양주시",
+      "result_name": "고우시",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:고우시 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:10+00:00"
+    },
     "고창복낙지|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 하안동 범안로 893",
@@ -1282,6 +1311,24 @@
         "arcgis:곰솔 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:40+00:00"
+    },
+    "곰스시|양주시": {
+      "addr_type": "POI",
+      "display_name": "곰스시",
+      "fingerprint": "f4f58d03f9624b1a",
+      "geocoder_version": 4,
+      "lat": 37.81700188,
+      "lon": 126.986504668,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "곰스시 양주시",
+      "result_name": "곰스시",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:곰스시 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:10+00:00"
     },
     "공리|서초구": {
       "addr_type": "POI",
@@ -1633,6 +1680,17 @@
       ],
       "updated_at": "2026-09-18T04:33:27+00:00"
     },
+    "국사봉쭈꾸미|고양시": {
+      "failed": true,
+      "fingerprint": "447d0425eee5567e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:국사봉쭈꾸미 고양특례시",
+        "nominatim:국사봉쭈꾸미 고양특례시"
+      ],
+      "updated_at": "2026-09-21T08:56:05+00:00"
+    },
     "국회의사당파리바게뜨|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 의사당대로 1",
@@ -1740,6 +1798,24 @@
         "arcgis:권스시 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:58+00:00"
+    },
+    "그집순대국|양주시": {
+      "addr_type": "POI",
+      "display_name": "그집순대국",
+      "fingerprint": "8c5737993a17ff6d",
+      "geocoder_version": 4,
+      "lat": 37.802776424,
+      "lon": 127.003968071,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "그집순대국 양주시",
+      "result_name": "그집순대국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:그집순대국 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:22+00:00"
     },
     "글로벌봉피양|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -2422,6 +2498,17 @@
         "arcgis:너섬 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:34+00:00"
+    },
+    "넷길이 콩나물 국밥|양주시": {
+      "failed": true,
+      "fingerprint": "45484342d2a8630b",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:넷길이 콩나물 국밥 양주시",
+        "nominatim:넷길이 콩나물 국밥 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:18+00:00"
     },
     "노독일처|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3535,6 +3622,17 @@
       ],
       "updated_at": "2026-09-17T23:05:51+00:00"
     },
+    "동경㈜ 양주회천지점|양주시": {
+      "failed": true,
+      "fingerprint": "670bca69440e949e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:동경㈜ 양주회천지점 양주시",
+        "nominatim:동경㈜ 양주회천지점 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:19+00:00"
+    },
     "동경식당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의대로 8",
@@ -4040,6 +4138,24 @@
       ],
       "updated_at": "2026-09-21T07:29:07+00:00"
     },
+    "려기 양주점|양주시": {
+      "addr_type": "POI",
+      "display_name": "려기 양주점",
+      "fingerprint": "bb6b471a305244ea",
+      "geocoder_version": 4,
+      "lat": 37.807650951,
+      "lon": 127.094104976,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "려기 양주점 양주시",
+      "result_name": "려기 양주점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:려기 양주점 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:13+00:00"
+    },
     "로씨니|중앙정부": {
       "addr_type": "POI",
       "display_name": "로씨니",
@@ -4399,6 +4515,24 @@
         "arcgis:서울 은평구 응암로 307-1,"
       ],
       "updated_at": "2026-09-17T23:02:37+00:00"
+    },
+    "맘스터치|양주시": {
+      "addr_type": "POI",
+      "display_name": "맘스터치",
+      "fingerprint": "2af1884d7122b675",
+      "geocoder_version": 4,
+      "lat": 37.794930677,
+      "lon": 127.078795879,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "맘스터치 양주시",
+      "result_name": "맘스터치",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:맘스터치 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:21+00:00"
     },
     "맛있는정원|고양시": {
       "addr_type": "PointAddress",
@@ -6173,6 +6307,17 @@
       ],
       "updated_at": "2026-09-18T05:24:13+00:00"
     },
+    "브러더소고기집|수원시": {
+      "failed": true,
+      "fingerprint": "7b27ddd0f524684f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:브러더소고기집 수원특례시",
+        "nominatim:브러더소고기집 수원특례시"
+      ],
+      "updated_at": "2026-09-21T08:56:08+00:00"
+    },
     "브레쉬에비뉴|과천시": {
       "failed": true,
       "fingerprint": "e4c94d5b30d2f8ff",
@@ -6514,6 +6659,17 @@
       ],
       "updated_at": "2026-09-18T23:16:04+00:00"
     },
+    "산꼼장어민물장어|양주시": {
+      "failed": true,
+      "fingerprint": "59b850415337e21d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:산꼼장어민물장어 양주시",
+        "nominatim:산꼼장어민물장어 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:13+00:00"
+    },
     "산너머남촌|군포시": {
       "addr_type": "POI",
       "display_name": "산너머남촌",
@@ -6614,6 +6770,24 @@
         "nominatim:삼관왕수산 부천시"
       ],
       "updated_at": "2026-09-21T07:28:24+00:00"
+    },
+    "삼국지|양주시": {
+      "addr_type": "POI",
+      "display_name": "삼국지",
+      "fingerprint": "9840d007286d5517",
+      "geocoder_version": 4,
+      "lat": 37.790848361,
+      "lon": 127.04922763,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "삼국지 양주시",
+      "result_name": "삼국지",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:삼국지 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:14+00:00"
     },
     "삼도일식|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -7054,6 +7228,24 @@
         "arcgis:색동저고리 양천구 서울"
       ],
       "updated_at": "2026-09-17T23:01:52+00:00"
+    },
+    "샘말두부전골|양주시": {
+      "addr_type": "POI",
+      "display_name": "샘말두부전골",
+      "fingerprint": "0b89e33a1b92b63a",
+      "geocoder_version": 4,
+      "lat": 37.78570593,
+      "lon": 126.982967276,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "샘말두부전골 양주시",
+      "result_name": "샘말두부전골",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:샘말두부전골 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:22+00:00"
     },
     "생고기마을|군포시": {
       "addr_type": "POI",
@@ -8108,6 +8300,24 @@
       ],
       "updated_at": "2026-09-17T23:01:09+00:00"
     },
+    "소풍|양주시": {
+      "addr_type": "POI",
+      "display_name": "소풍",
+      "fingerprint": "3d5d836d011c89ec",
+      "geocoder_version": 4,
+      "lat": 37.837268924,
+      "lon": 127.065940829,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "소풍 양주시",
+      "result_name": "소풍",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:소풍 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:11+00:00"
+    },
     "소하리두부촌|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 소하동 소하일로52번길 16",
@@ -8179,6 +8389,17 @@
         "arcgis:서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩) 2층"
       ],
       "updated_at": "2026-09-18T00:07:31+00:00"
+    },
+    "손오공수타짜장|양주시": {
+      "failed": true,
+      "fingerprint": "def07db06c834c55",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:손오공수타짜장 양주시",
+        "nominatim:손오공수타짜장 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:16+00:00"
     },
     "솔잎사골순대아구찜탕(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
@@ -8302,6 +8523,24 @@
         "nominatim:송추가마골인어반/동경（주）광화문지점 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:15+00:00"
+    },
+    "송추부일기사식당|양주시": {
+      "display_name": "송추부일기사식당, 부흥로1328번길, 양주1동, 방성리, 양주시, 경기도, 11111, 대한민국",
+      "fingerprint": "ef2393b115bb418f",
+      "geocoder_version": 4,
+      "lat": 37.7857167,
+      "lon": 127.0238605,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "송추부일기사식당 양주시",
+      "result_name": "송추부일기사식당",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:송추부일기사식당 양주시",
+        "nominatim:송추부일기사식당 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:18+00:00"
     },
     "송포털레기 추어탕|고양시": {
       "addr_type": "PointAddress",
@@ -9211,6 +9450,24 @@
       ],
       "updated_at": "2026-09-21T07:28:34+00:00"
     },
+    "심플레이스|양주시": {
+      "addr_type": "POI",
+      "display_name": "심플레이스",
+      "fingerprint": "02b9e78d42dc3a9d",
+      "geocoder_version": 4,
+      "lat": 37.813774192,
+      "lon": 127.04642731,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "심플레이스 양주시",
+      "result_name": "심플레이스",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:심플레이스 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:20+00:00"
+    },
     "싱카이|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의대로 128",
@@ -9528,6 +9785,24 @@
       ],
       "updated_at": "2026-09-17T23:03:29+00:00"
     },
+    "양주성|양주시": {
+      "addr_type": "POI",
+      "display_name": "양주성",
+      "fingerprint": "2fdf4ce7a4be9429",
+      "geocoder_version": 4,
+      "lat": 37.784473971,
+      "lon": 127.044071824,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "양주성 양주시",
+      "result_name": "양주성",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:양주성 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:10+00:00"
+    },
     "양지이엠알/기와|중앙정부": {
       "failed": true,
       "fingerprint": "478673853e7eee2b",
@@ -9711,6 +9986,24 @@
         "nominatim:에스와이바자르 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:28+00:00"
+    },
+    "엔분의일|양주시": {
+      "addr_type": "POI",
+      "display_name": "엔분의일",
+      "fingerprint": "865420435572c60c",
+      "geocoder_version": 4,
+      "lat": 37.811186816,
+      "lon": 126.979903022,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "엔분의일 양주시",
+      "result_name": "엔분의일",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:엔분의일 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:14+00:00"
     },
     "엔엠에프서여의도점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11238,6 +11531,17 @@
         "arcgis:경기 광명시 금하로527번길 25"
       ],
       "updated_at": "2026-09-17T23:01:25+00:00"
+    },
+    "은봉산정육점|양주시": {
+      "failed": true,
+      "fingerprint": "e296b6b0c6b19060",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:은봉산정육점 양주시",
+        "nominatim:은봉산정육점 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:09+00:00"
     },
     "은성순대국|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -13951,6 +14255,24 @@
         "arcgis:천지명 대한민국"
       ],
       "updated_at": "2026-09-18T13:43:09+00:00"
+    },
+    "철원양평해장국|양주시": {
+      "addr_type": "POI",
+      "display_name": "철원양평해장국",
+      "fingerprint": "5996b6019bb21973",
+      "geocoder_version": 4,
+      "lat": 37.783207463,
+      "lon": 127.061745081,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "철원양평해장국 양주시",
+      "result_name": "철원양평해장국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:철원양평해장국 양주시"
+      ],
+      "updated_at": "2026-09-21T08:56:19+00:00"
     },
     "철원오대쌀 갓지은솥|도봉구": {
       "addr_type": "PointAddress",
