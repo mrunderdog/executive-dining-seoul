@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 
+from coordinate_selection import select_coordinate
 from data_io import load_payload
 from published_sources import merge_published_sources
 from extra_published import merge_extra_published
@@ -71,20 +72,15 @@ def main():
 
     geo = load_geo_cache()
     coord_count = 0
+    coord_rejected = 0
     for r in records:
-        candidates = list(r.get("source_keys") or [])
-        candidates.append(f"{r.get('name', '')}|{r.get('origin', '')}")
-        g = {}
-        for key in candidates:
-            row = geo.get(key) or {}
-            if isinstance(row.get("lat"), (int, float)) and isinstance(row.get("lon"), (int, float)):
-                g = row
-                break
-        if isinstance(g.get("lat"), (int, float)) and isinstance(g.get("lon"), (int, float)):
+        key, g, meta = select_coordinate(r, geo)
+        if g:
             r["lat"] = float(g["lat"])
             r["lon"] = float(g["lon"])
             r["coordinate_source_key"] = key
             coord_count += 1
+        coord_rejected += len(meta.get("rejected_candidates") or [])
 
     stats = dict(payload.get("stats") or {})
     stats.setdefault("total", len(records))
@@ -93,6 +89,7 @@ def main():
     stats.setdefault("both", sum(bool(r.get("destination")) and bool(r.get("executive")) for r in records))
     stats["coordinates"] = coord_count
     stats["coordinates_missing"] = len(records) - coord_count
+    stats["coordinate_candidates_rejected"] = coord_rejected
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
 
     html = inject_maplibre(TEMPLATE.read_text(encoding="utf-8"))
