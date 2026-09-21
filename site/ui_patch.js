@@ -58,17 +58,36 @@
   if(topbar && crossOrigin.length){
     const showcase=document.createElement('section');
     showcase.className='cross-showcase';
-    showcase.innerHTML='<div class="cross-showcase-head"><div><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>서로 다른 공공기관·출처에서 독립적으로 반복 선택된 동일 식당입니다.</p></div><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳 보기 →</button></div><div class="cross-showcase-track"></div>';
+    showcase.innerHTML='<div class="cross-showcase-head"><div><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>서로 다른 공공기관·출처에서 독립적으로 반복 선택된 동일 식당입니다.</p></div><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳 보기 →</button></div><div class="cross-showcase-track"></div><div class="cross-pagination" aria-label="기관 교차 선택 페이지"><button type="button" class="cross-page-btn cross-prev" aria-label="이전 페이지">← 이전</button><span class="cross-page-state" aria-live="polite"></span><button type="button" class="cross-page-btn cross-next" aria-label="다음 페이지">다음 →</button></div>';
     const track=showcase.querySelector('.cross-showcase-track');
-    crossOrigin.slice(0,6).forEach(r=>{
-      const e=r.evidence||{},c=r.cross_institution||{};
-      const card=document.createElement('button');
-      card.type='button'; card.className='cross-showcase-card';
-      card.innerHTML='<span class="cross-rank">C '+(c.score||0)+'</span><strong>'+esc(r.business?.display||r.name)+'</strong><span>'+esc((r.origins||[]).join(' · '))+'</span><small>'+Number(e.visits||0).toLocaleString('ko-KR')+'회 · '+(c.institution_count||0)+'개 기관</small>';
-      card.addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';renderList(false);selectRecord(r,true,true);});
-      track.appendChild(card);
-    });
-    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';selected=null;renderEmpty();renderList(true);});
+    const prevBtn=showcase.querySelector('.cross-prev');
+    const nextBtn=showcase.querySelector('.cross-next');
+    const pageState=showcase.querySelector('.cross-page-state');
+    const pageSize=6;
+    const pageCount=Math.ceil(crossOrigin.length/pageSize);
+    let crossPage=0;
+
+    function renderCrossPage(){
+      const start=crossPage*pageSize;
+      track.innerHTML='';
+      crossOrigin.slice(start,start+pageSize).forEach(r=>{
+        const e=r.evidence||{},c=r.cross_institution||{};
+        const card=document.createElement('button');
+        card.type='button'; card.className='cross-showcase-card';
+        card.innerHTML='<span class="cross-rank">C '+(c.score||0)+'</span><strong>'+esc(r.business?.display||r.name)+'</strong><span>'+esc((r.origins||[]).join(' · '))+'</span><small>'+Number(e.visits||0).toLocaleString('ko-KR')+'회 · '+(c.institution_count||0)+'개 기관</small>';
+        card.addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';renderList(false);selectRecord(r,true,true);});
+        track.appendChild(card);
+      });
+      pageState.textContent=(crossPage+1)+' / '+pageCount+' · '+(start+1)+'–'+Math.min(start+pageSize,crossOrigin.length)+' / '+crossOrigin.length+'곳';
+      prevBtn.disabled=crossPage===0;
+      nextBtn.disabled=crossPage>=pageCount-1;
+    }
+
+    prevBtn.addEventListener('click',()=>{if(crossPage>0){crossPage--;renderCrossPage();}});
+    nextBtn.addEventListener('click',()=>{if(crossPage<pageCount-1){crossPage++;renderCrossPage();}});
+    if(pageCount<=1) showcase.querySelector('.cross-pagination').hidden=true;
+    renderCrossPage();
+    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';selected=null;renderEmpty();renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
     topbar.insertAdjacentElement('afterend',showcase);
   }
 
