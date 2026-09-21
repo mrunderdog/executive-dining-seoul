@@ -59,36 +59,27 @@
   const topbar=document.querySelector('.topbar');
   if(topbar && crossOrigin.length){
     const showcase=document.createElement('section');
-    showcase.className='cross-showcase';
-    showcase.innerHTML='<div class="cross-showcase-head"><div><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>서로 다른 공공기관·출처에서 독립적으로 반복 선택된 동일 식당입니다.</p></div><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳 보기 →</button></div><div class="cross-showcase-track"></div><div class="cross-pagination" aria-label="기관 교차 선택 페이지"><button type="button" class="cross-page-btn cross-prev" aria-label="이전 페이지">← 이전</button><span class="cross-page-state" aria-live="polite"></span><button type="button" class="cross-page-btn cross-next" aria-label="다음 페이지">다음 →</button></div>';
+    showcase.className='cross-showcase cross-showcase-v2';
+    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
     const track=showcase.querySelector('.cross-showcase-track');
-    const prevBtn=showcase.querySelector('.cross-prev');
-    const nextBtn=showcase.querySelector('.cross-next');
-    const pageState=showcase.querySelector('.cross-page-state');
-    const pageSize=6;
-    const pageCount=Math.ceil(crossOrigin.length/pageSize);
-    let crossPage=0;
 
-    function renderCrossPage(){
-      const start=crossPage*pageSize;
-      track.innerHTML='';
-      crossOrigin.slice(start,start+pageSize).forEach(r=>{
-        const e=r.evidence||{},c=r.cross_institution||{};
-        const card=document.createElement('button');
-        card.type='button'; card.className='cross-showcase-card';
-        card.innerHTML='<span class="cross-rank">C '+(c.score||0)+'</span><strong>'+esc(r.business?.display||r.name)+'</strong><span>'+esc((r.origins||[]).join(' · '))+'</span><small>'+Number(e.visits||0).toLocaleString('ko-KR')+'회 · '+(c.institution_count||0)+'개 기관</small>';
-        card.addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';renderList(false);selectRecord(r,true,true);});
-        track.appendChild(card);
-      });
-      pageState.textContent=(crossPage+1)+' / '+pageCount+' · '+(start+1)+'–'+Math.min(start+pageSize,crossOrigin.length)+' / '+crossOrigin.length+'곳';
-      prevBtn.disabled=crossPage===0;
-      nextBtn.disabled=crossPage>=pageCount-1;
-    }
+    crossOrigin.forEach(r=>{
+      const e=r.evidence||{},ci=r.cross_institution||{};
+      const card=document.createElement('button');
+      card.type='button';
+      card.className='cross-showcase-card';
+      card.innerHTML='<span class="cross-rank">C '+(ci.score||0)+'</span><strong>'+esc(r.business?.display||r.name)+'</strong><span>'+esc((r.origins||[]).join(' · '))+'</span><small>'+Number(e.visits||0).toLocaleString('ko-KR')+'회 · '+(ci.institution_count||0)+'개 기관</small>';
+      card.addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';renderList(false);selectRecord(r,true,true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'nearest'});});
+      track.appendChild(card);
+    });
 
-    prevBtn.addEventListener('click',()=>{if(crossPage>0){crossPage--;renderCrossPage();}});
-    nextBtn.addEventListener('click',()=>{if(crossPage<pageCount-1){crossPage++;renderCrossPage();}});
-    if(pageCount<=1) showcase.querySelector('.cross-pagination').hidden=true;
-    renderCrossPage();
+    const scrollCards=dir=>{
+      const card=track.querySelector('.cross-showcase-card');
+      const step=(card?.getBoundingClientRect().width||240)+10;
+      track.scrollBy({left:dir*step*2,behavior:'smooth'});
+    };
+    showcase.querySelector('.cross-prev').addEventListener('click',()=>scrollCards(-1));
+    showcase.querySelector('.cross-next').addEventListener('click',()=>scrollCards(1));
     showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';selected=null;renderEmpty();renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
     topbar.insertAdjacentElement('afterend',showcase);
   }
@@ -96,27 +87,25 @@
   const workspace=document.querySelector('.workspace');
   const sidebar=document.querySelector('.sidebar');
   const filters=document.querySelector('.filters');
-  if(!workspace||!sidebar||!filters) return;
+  const summary=document.querySelector('.summary');
+  if(!workspace||!sidebar||!filters||!summary) return;
+
+  document.body.classList.add('ui-v2');
+  sidebar.id='explorer-panel';
 
   const btn=document.createElement('button');
   btn.type='button';
   btn.className='explorer-toggle';
   btn.setAttribute('aria-controls','explorer-panel');
   btn.setAttribute('aria-expanded','true');
-  sidebar.id='explorer-panel';
-  filters.appendChild(btn);
+  summary.appendChild(btn);
 
   function sync(){
     const collapsed=workspace.classList.contains('explorer-collapsed');
     btn.setAttribute('aria-expanded',String(!collapsed));
-    btn.textContent=collapsed?'탐색 열기 →':'← 탐색 접기';
-    btn.title=collapsed?'Explorer 패널 열기':'Explorer 패널 접기';
-    if(collapsed){
-      if(btn.parentElement!==document.body) document.body.appendChild(btn);
-    }else{
-      if(btn.parentElement!==filters) filters.appendChild(btn);
-    }
-    setTimeout(()=>{ try{ map.resize(); fitMap(); }catch(e){} },230);
+    btn.textContent=collapsed?'목록 열기':'목록 접기';
+    btn.title=collapsed?'식당 목록 열기':'식당 목록 접기';
+    setTimeout(()=>{ try{ map.resize(); }catch(e){} },240);
   }
 
   btn.addEventListener('click',()=>{
@@ -128,5 +117,46 @@
   try{
     if(localStorage.getItem('executiveDiningExplorerCollapsed')==='1') workspace.classList.add('explorer-collapsed');
   }catch(e){}
+
+  const baseRenderDetail=renderDetail;
+  const baseRenderEmpty=renderEmpty;
+
+  function addDrawerChrome(){
+    if(detail.querySelector('.detail-drawer-close')) return;
+    const close=document.createElement('button');
+    close.type='button';
+    close.className='detail-drawer-close';
+    close.setAttribute('aria-label','상세 닫기');
+    close.textContent='×';
+    close.addEventListener('click',()=>{
+      selected=null;
+      if(selectedPopup){selectedPopup.remove();selectedPopup=null;}
+      baseRenderEmpty();
+      workspace.classList.remove('detail-open');
+      highlight();
+      updateMap(false);
+      setTimeout(()=>{try{map.resize()}catch(e){}},180);
+    });
+    detail.prepend(close);
+  }
+
+  renderDetail=function(r){
+    baseRenderDetail(r);
+    if(!r){
+      workspace.classList.remove('detail-open');
+      return;
+    }
+    addDrawerChrome();
+    workspace.classList.add('detail-open');
+    setTimeout(()=>{try{map.resize()}catch(e){}},180);
+  };
+
+  renderEmpty=function(){
+    baseRenderEmpty();
+    workspace.classList.remove('detail-open');
+  };
+
+  // Initial empty detail is now hidden off-canvas rather than reserving a third column.
+  workspace.classList.remove('detail-open');
   sync();
 })();
