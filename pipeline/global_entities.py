@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 import re
+from pathlib import Path
 from collections import Counter, defaultdict
 from copy import deepcopy
+
+ROOT = Path(__file__).resolve().parents[1]
+ENTITY_BRIDGES = ROOT / "sources" / "entity_bridge_overrides.json"
 
 
 def t(v) -> str:
@@ -59,6 +64,22 @@ def family_name(v) -> str:
     for pat in suffixes:
         s = re.sub(pat, "", s, flags=re.I)
     return compact(s)
+
+
+def _load_verified_bridges() -> dict[str, str]:
+    if not ENTITY_BRIDGES.exists():
+        return {}
+    try:
+        doc = json.loads(ENTITY_BRIDGES.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    out = {}
+    for raw_name, spec in (doc.get("bridges") or {}).items():
+        name = strict_name(raw_name)
+        address = canonical_address((spec or {}).get("address"))
+        if name and address:
+            out[name] = address
+    return out
 
 
 def locality_key(r: dict) -> str:
@@ -251,6 +272,8 @@ def merge_global_entities(payload: dict) -> dict:
         if len(sname) >= 6:
             unique_exact_address_index[sname] = only_key
 
+    verified_bridges = _load_verified_bridges()
+
     groups = defaultdict(list)
     bridged_records = 0
     bridged_groups = defaultdict(int)
@@ -276,6 +299,22 @@ def merge_global_entities(payload: dict) -> dict:
                 key = unique_branch_address_index[strict_name(r.get("name"))]
                 bridged_records += 1
                 bridged_groups[key] += 1
+            elif (
+                not loc
+                and strict_name(r.get("name")) in verified_bridges
+            ):
+                verified_address = verified_bridges[strict_name(r.get("name"))]
+                candidate_keys = strict_address_keys.get(strict_name(r.get("name")), set())
+                matches = [
+                    k for k in candidate_keys
+                    if k.endswith("||" + verified_address)
+                ]
+                if len(matches) == 1:
+                    key = matches[0]
+                    bridged_records += 1
+                    bridged_groups[key] += 1
+                else:
+                    key = entity_key(r)
             elif (
                 not loc
                 and strict_name(r.get("name")) in unique_exact_address_index
