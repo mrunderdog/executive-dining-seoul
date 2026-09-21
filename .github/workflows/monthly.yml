@@ -198,41 +198,102 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_national_legislator_candidates.py
 
-      - name: Sanity gate successfully refreshed council raw data
+      - name: Sanity gate and quarantine degraded council refreshes
         if: steps.mode.outputs.full == 'true'
         shell: bash
         run: |
           python - <<'PY'
           import json
+          import subprocess
           from pathlib import Path
+
           status={}
+          order=[]
           sp=Path('/tmp/monthly-council-status.tsv')
           if sp.exists():
               for line in sp.read_text().splitlines():
                   if '\t' in line:
-                      k,v=line.split('\t',1); status[k]=v
+                      k,v=line.split('\t',1)
+                      status[k]=v
+                      order.append(k)
+
+          def exists_in_head(path: str) -> bool:
+              return subprocess.run(
+                  ['git','cat-file','-e',f'HEAD:{path}'],
+                  stdout=subprocess.DEVNULL,
+                  stderr=subprocess.DEVNULL,
+              ).returncode == 0
+
+          def quarantine(source: str, reason: str) -> str:
+              paths=[
+                  f'data/raw/{source}_expense.json',
+                  f'reports/{source}-executive-candidates.json',
+                  f'reports/{source}-executive-candidates.md',
+                  f'reports/{source}-ingestion.md',
+              ]
+              last_good=exists_in_head(paths[0]) and exists_in_head(paths[1])
+              for path in paths:
+                  p=Path(path)
+                  if exists_in_head(path):
+                      subprocess.run(
+                          ['git','restore','--source=HEAD','--',path],
+                          check=False,
+                          stdout=subprocess.DEVNULL,
+                          stderr=subprocess.DEVNULL,
+                      )
+                  elif p.exists():
+                      p.unlink()
+              state=(f'STALE_OK:VALIDATION_{reason}' if last_good
+                     else f'VALIDATION_FAILED:{reason}')
+              print(f'{source}: quarantined fresh refresh -> {state}')
+              return state
+
           checked=0
-          for source,state in status.items():
-              usable = state=='OK' or state.startswith('STALE_OK:')
+          for source in order:
+              state=status[source]
+              usable=state=='OK' or state.startswith('STALE_OK:')
               if not usable:
-                  print(source, state)
+                  print(source,state)
                   continue
-              p=Path(f'data/raw/{source}_expense.json')
-              d=json.loads(p.read_text(encoding='utf-8'))
-              rows=d.get('rows',[])
-              if not rows:
-                  raise SystemExit(f'{source}: no normalized rows')
-              tx=[r for r in rows if str(r.get('merchant') or '').strip()]
-              if len(tx) < 10:
-                  raise SystemExit(f'{source}: too few merchant transaction rows: {len(tx)}')
-              merchant_share=len(tx)/len(rows)
-              amount=sum(isinstance(r.get('amount'), int) and r['amount']>=0 for r in tx)/len(tx)
-              date=sum(r.get('date_quality') in ('in_period','valid_outside_period') for r in tx)/len(tx)
-              if amount < .70 or date < .95:
-                  raise SystemExit(f'{source}: transaction coverage failed amount={amount:.1%}, date={date:.1%}')
-              checked += 1
-              print(source, {'rows':len(rows),'transaction_rows':len(tx),'merchant_share':merchant_share,'amount':amount,'date':date})
-          if checked < 1:
+              try:
+                  p=Path(f'data/raw/{source}_expense.json')
+                  d=json.loads(p.read_text(encoding='utf-8'))
+                  rows=d.get('rows',[])
+                  if not rows:
+                      raise ValueError('no_rows')
+                  tx=[r for r in rows if str(r.get('merchant') or '').strip()]
+                  if len(tx)<10:
+                      raise ValueError(f'too_few_transactions_{len(tx)}')
+                  amount=sum(
+                      isinstance(r.get('amount'),int) and r['amount']>=0
+                      for r in tx
+                  )/len(tx)
+                  date=sum(
+                      r.get('date_quality') in ('in_period','valid_outside_period')
+                      for r in tx
+                  )/len(tx)
+                  if amount < .70:
+                      raise ValueError(f'amount_{amount:.3f}')
+                  if date < .95:
+                      raise ValueError(f'date_{date:.3f}')
+                  checked+=1
+                  print(source,{
+                      'rows':len(rows),
+                      'transaction_rows':len(tx),
+                      'amount':amount,
+                      'date':date,
+                  })
+              except Exception as exc:
+                  status[source]=quarantine(
+                      source,
+                      str(exc).replace(' ','_')[:80],
+                  )
+
+          sp.write_text(
+              ''.join(f'{source}\t{status[source]}\n' for source in order),
+              encoding='utf-8',
+          )
+          if checked < 1 and not any(v.startswith('STALE_OK:') for v in status.values()):
               raise SystemExit('no usable council source is available')
           PY
 
@@ -251,6 +312,9 @@ jobs:
       - name: Fast-mode note
         if: steps.mode.outputs.full != 'true'
         run: echo "FAST mode uses committed reports/data and only validates the publish pipeline."
+
+      - name: Audit published coordinates
+        run: python pipeline/audit_coordinates.py
 
       - name: Quality gate published dataset
         run: python pipeline/quality_gate.py
