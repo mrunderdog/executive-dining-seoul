@@ -1,36 +1,13 @@
 {
-  "generated_at": "2026-09-20T08:51:59",
-  "dataset_records": 701,
-  "cross_institution_count": 90,
-  "cross_origin_count": 3,
+  "generated_at": "2026-09-21T00:27:36",
+  "dataset_records": 692,
+  "cross_institution_count": 91,
+  "cross_origin_count": 12,
   "top_official_count": 120,
   "regional_head_count": 20,
-  "entity_merges": 11,
-  "cross_origin_review_count": 21,
+  "entity_merges": 20,
+  "cross_origin_review_count": 12,
   "cross_origin_review": [
-    {
-      "name": "남도마루",
-      "strict_name": "남도마루",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "용산구",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "산업통상부",
-        "통일부"
-      ],
-      "visits": 201,
-      "addresses": [
-        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
     {
       "name": "화담",
       "strict_name": "화담",
@@ -77,29 +54,6 @@
       "qa_a": true
     },
     {
-      "name": "대방골",
-      "strict_name": "대방골",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "보건복지부",
-        "산업통상부",
-        "통일부",
-        "해양수산부"
-      ],
-      "visits": 100,
-      "addresses": [
-        "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
       "name": "은주식당",
       "strict_name": "은주식당",
       "confidence": "HIGH",
@@ -116,27 +70,6 @@
       "visits": 93,
       "addresses": [
         "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "참복집",
-      "strict_name": "참복집",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "통일부",
-        "해양수산부"
-      ],
-      "visits": 84,
-      "addresses": [
-        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
       ],
       "address_entity_count": 1,
       "qa_a": true
@@ -180,134 +113,6 @@
       "visits": 64,
       "addresses": [
         "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "노조미",
-      "strict_name": "노조미",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "산업통상부"
-      ],
-      "visits": 57,
-      "addresses": [
-        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "해초가",
-      "strict_name": "해초가",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "보건복지부",
-        "통일부"
-      ],
-      "visits": 48,
-      "addresses": [
-        "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "챠이나프로",
-      "strict_name": "챠이나프로",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원"
-      ],
-      "visits": 48,
-      "addresses": [
-        "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "너섬",
-      "strict_name": "너섬",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "농림축산식품부",
-        "해양수산부"
-      ],
-      "visits": 45,
-      "addresses": [
-        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "여의도장어",
-      "strict_name": "여의도장어",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "visits": 44,
-      "addresses": [
-        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "천지명",
-      "strict_name": "천지명",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "보건복지부",
-        "해양수산부"
-      ],
-      "visits": 42,
-      "addresses": [
-        "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)"
       ],
       "address_entity_count": 1,
       "qa_a": true
@@ -494,6 +299,75 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "대방골",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 100,
+      "spend": 20342000,
+      "date_min": "2024-01-19",
+      "date_max": "2026-07-10",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "남도마루",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 196,
+      "spend": 44133565,
+      "date_min": "2024-01-03",
+      "date_max": "2026-05-07",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "가시리여의도점",
       "address": "서울 영등포구 여의도동 13-4 2층",
       "origins": [
@@ -558,6 +432,239 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 21,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "너섬",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 45,
+      "spend": 3437411,
+      "date_min": "2024-01-16",
+      "date_max": "2026-08-24",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "여의도장어",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 44,
+      "spend": 8473144,
+      "date_min": "2024-01-05",
+      "date_max": "2026-03-31",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "천지명",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 42,
+      "spend": 10699785,
+      "date_min": "2024-02-20",
+      "date_max": "2026-05-07",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "참복집",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "통일부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 84,
+      "spend": 15639000,
+      "date_min": "2024-01-02",
+      "date_max": "2025-11-14",
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "노조미",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 57,
+      "spend": 14037168,
+      "date_min": "2024-01-14",
+      "date_max": "2025-12-24",
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "해초가",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 48,
+      "spend": 9763000,
+      "date_min": "2024-07-15",
+      "date_max": "2026-08-31",
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 22,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 1,
+      "vice_minister_visits": 21,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "챠이나프로",
+      "address": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 48,
+      "spend": 11346587,
+      "date_min": "2024-01-05",
+      "date_max": "2026-05-07",
+      "consensus_score": 75.9,
+      "institution_count": 2,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -977,38 +1084,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "대방골",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1795000,
-      "date_min": "2024-10-25",
-      "date_max": "2026-07-10",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "태진복집",
       "address": "",
       "origins": [
@@ -1067,37 +1142,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "남도마루",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 13,
-      "spend": 2902565,
-      "date_min": "2024-07-19",
-      "date_max": "2026-05-07",
-      "consensus_score": 67.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1285,36 +1329,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해초가",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 22,
-      "spend": 5049000,
-      "date_min": "2025-08-01",
-      "date_max": "2026-08-31",
-      "consensus_score": 64.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 22,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 1,
-      "vice_minister_visits": 21,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1775,37 +1789,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "너섬",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 42411,
-      "date_min": "2024-10-25",
-      "date_max": "2026-08-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "분당만강원",
       "address": "",
       "origins": [
@@ -2175,37 +2158,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "여의도장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 286144,
-      "date_min": "2025-04-29",
-      "date_max": "2026-03-31",
-      "consensus_score": 58.6,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "일품진진수라",
       "address": "",
       "origins": [
@@ -2323,37 +2275,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "천지명",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 3,
-      "spend": 430285,
-      "date_min": "2024-11-05",
-      "date_max": "2026-05-07",
-      "consensus_score": 56.8,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2929,36 +2850,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "참복집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "통일부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 688000,
-      "date_min": "2024-10-29",
-      "date_max": "2025-11-14",
-      "consensus_score": 52.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "안성또순이",
       "address": "",
       "origins": [
@@ -3105,36 +2996,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "노조미",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 249168,
-      "date_min": "2025-08-27",
-      "date_max": "2025-12-24",
-      "consensus_score": 52.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3292,24 +3153,27 @@
     },
     {
       "name": "해초가",
-      "address": "",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
       "origins": [
+        "국회의원(정치자금 2024)",
         "중앙정부"
       ],
       "institutions": [
+        "국회의원",
         "보건복지부",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "national_legislator"
       ],
-      "visits": 22,
-      "spend": 5049000,
-      "date_min": "2025-08-01",
+      "visits": 48,
+      "spend": 9763000,
+      "date_min": "2024-07-15",
       "date_max": "2026-08-31",
-      "consensus_score": 64.2,
-      "institution_count": 2,
-      "source_count": 1,
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
       "top_role_tier": "minister",
       "top_role_label": "장관급",
       "top_official_visits": 22,
@@ -4139,6 +4003,41 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "대방골",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 100,
+      "spend": 20342000,
+      "date_min": "2024-01-19",
+      "date_max": "2026-07-10",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "낙원",
       "address": "",
       "origins": [
@@ -4220,38 +4119,6 @@
       "date_max": "2026-07-02",
       "consensus_score": 70.0,
       "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "대방골",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1795000,
-      "date_min": "2024-10-25",
-      "date_max": "2026-07-10",
-      "consensus_score": 68.3,
-      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4919,6 +4786,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "너섬",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 45,
+      "spend": 3437411,
+      "date_min": "2024-01-16",
+      "date_max": "2026-08-24",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "화담",
       "address": "",
       "origins": [
@@ -4969,37 +4870,6 @@
       "date_min": "2026-01-02",
       "date_max": "2026-06-17",
       "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "너섬",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 42411,
-      "date_min": "2024-10-25",
-      "date_max": "2026-08-24",
-      "consensus_score": 61.4,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -5280,6 +5150,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "남도마루",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 196,
+      "spend": 44133565,
+      "date_min": "2024-01-03",
+      "date_max": "2026-05-07",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "외계인키친",
       "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
       "origins": [
@@ -5315,26 +5219,93 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "남도마루",
-      "address": "",
+      "name": "참복집",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
       "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "통일부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 84,
+      "spend": 15639000,
+      "date_min": "2024-01-02",
+      "date_max": "2025-11-14",
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "노조미",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "산업통상부",
-        "통일부"
+        "국회의원",
+        "산업통상부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "national_legislator"
       ],
-      "visits": 13,
-      "spend": 2902565,
-      "date_min": "2024-07-19",
-      "date_max": "2026-05-07",
-      "consensus_score": 67.1,
+      "visits": 57,
+      "spend": 14037168,
+      "date_min": "2024-01-14",
+      "date_max": "2025-12-24",
+      "consensus_score": 82.1,
       "institution_count": 3,
-      "source_count": 1,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "챠이나프로",
+      "address": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 48,
+      "spend": 11346587,
+      "date_min": "2024-01-05",
+      "date_max": "2026-05-07",
+      "consensus_score": 75.9,
+      "institution_count": 2,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 3,
@@ -5559,35 +5530,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "챠이나프로",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 1587,
-      "date_min": "2026-01-26",
-      "date_max": "2026-05-07",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "버드나무집",
       "address": "",
       "origins": [
@@ -5617,36 +5559,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "노조미",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 249168,
-      "date_min": "2025-08-27",
-      "date_max": "2025-12-24",
-      "consensus_score": 52.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "경희궁 참치집",
       "address": "",
       "origins": [
@@ -5663,36 +5575,6 @@
       "spend": 1186000,
       "date_min": "2025-08-07",
       "date_max": "2025-11-25",
-      "consensus_score": 52.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "참복집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "통일부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 688000,
-      "date_min": "2024-10-29",
-      "date_max": "2025-11-14",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -5786,6 +5668,40 @@
       "spend": 15713060,
       "date_min": "2024-01-08",
       "date_max": "2026-03-06",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "천지명",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 42,
+      "spend": 10699785,
+      "date_min": "2024-02-20",
+      "date_max": "2026-05-07",
       "consensus_score": 87.0,
       "institution_count": 4,
       "source_count": 2,
@@ -6318,33 +6234,36 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "천지명",
-      "address": "",
+      "name": "여의도장어",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
       "origins": [
+        "국회의원(정치자금 2024)",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "보건복지부",
+        "국회의원",
+        "산업통상부",
         "해양수산부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "national_legislator"
       ],
-      "visits": 3,
-      "spend": 430285,
-      "date_min": "2024-11-05",
-      "date_max": "2026-05-07",
-      "consensus_score": 56.8,
-      "institution_count": 3,
-      "source_count": 1,
+      "visits": 44,
+      "spend": 8473144,
+      "date_min": "2024-01-05",
+      "date_max": "2026-03-31",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 2,
+      "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 2,
+      "vice_minister_visits": 1,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -6735,37 +6654,6 @@
       "date_min": "2026-01-05",
       "date_max": "2026-07-21",
       "consensus_score": 60.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "여의도장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 286144,
-      "date_min": "2025-04-29",
-      "date_max": "2026-03-31",
-      "consensus_score": 58.6,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
