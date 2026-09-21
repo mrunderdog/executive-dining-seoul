@@ -158,15 +158,16 @@ html,body{
   min-width:0;
 }
 body{
-  overflow:hidden!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
 }
 .shell{
-  height:100dvh!important;
-  min-height:0!important;
+  height:auto!important;
+  min-height:100dvh!important;
   display:grid!important;
-  grid-template-rows:auto auto minmax(0,1fr)!important;
-  align-content:stretch!important;
-  overflow:hidden!important;
+  grid-template-rows:auto auto auto!important;
+  align-content:start!important;
+  overflow:visible!important;
 }
 .topbar,
 .cross-showcase,
@@ -261,7 +262,8 @@ body{
    another implicit page section below the fold. */
 @media(min-width:1121px){
   .workspace{
-    height:100%;
+    height:max(620px,calc(100dvh - 330px));
+    min-height:620px!important;
   }
   .sidebar,
   .map-panel,
