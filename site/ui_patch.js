@@ -132,8 +132,14 @@
   function sync(){
     const collapsed=workspace.classList.contains('explorer-collapsed');
     btn.setAttribute('aria-expanded',String(!collapsed));
-    btn.textContent=collapsed?'목록 열기':'목록 접기';
+    btn.textContent=collapsed?'☰ 목록 열기':'목록 접기';
     btn.title=collapsed?'식당 목록 열기':'식당 목록 접기';
+    btn.classList.toggle('is-floating',collapsed);
+    if(collapsed){
+      if(btn.parentElement!==document.body) document.body.appendChild(btn);
+    }else{
+      if(btn.parentElement!==summary) summary.appendChild(btn);
+    }
     setTimeout(()=>{ try{ map.resize(); }catch(e){} },240);
   }
 
