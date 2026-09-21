@@ -379,3 +379,12 @@ body{
     flex:1;
   }
 }
+
+
+.brand-tagline{
+  display:inline-block;
+  margin-top:7px;
+  font-weight:800;
+  color:var(--butter);
+  letter-spacing:-.01em;
+}
