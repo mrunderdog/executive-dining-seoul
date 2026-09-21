@@ -181,6 +181,18 @@ def infer_leadership_role(title):
     if "의장" in s: return "의장"
     return ""
 
+
+def resolve_role(cell_value, sheet_name, default_role):
+    """Prefer explicit leadership context over generic department labels."""
+    cell_role = clean_text(cell_value)
+    explicit = infer_leadership_role(cell_role)
+    if explicit:
+        return explicit
+    contextual = infer_leadership_role(sheet_name) or infer_leadership_role(default_role)
+    if contextual:
+        return contextual
+    return cell_role or clean_text(default_role) or clean_text(sheet_name)
+
 def normalize_sheet(rows, sheet_name, source_meta):
     found = find_header(rows)
     if not found:
@@ -225,7 +237,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "source_row": ri,
             "used_date": used_date,
             "used_time": clean_text(cell(row, mapping, "time")),
-            "role": clean_text(cell(row, mapping, "role")) or source_meta.get("default_role") or sheet_name,
+            "role": resolve_role(cell(row, mapping, "role"), sheet_name, source_meta.get("default_role")),
             "merchant": merchant,
             "address": clean_text(cell(row, mapping, "address")),
             "purpose": clean_text(cell(row, mapping, "purpose")),
