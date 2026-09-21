@@ -83,6 +83,9 @@ jobs:
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
 
+      - name: Build signal intelligence reports
+        run: python pipeline/build_signal_reports.py
+
       - name: Commit generated reports
         shell: bash
         run: |
