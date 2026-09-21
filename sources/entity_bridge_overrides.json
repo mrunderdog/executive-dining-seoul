@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "policy": "Manual, auditable bridge for addressless exact merchant names. Applied only when the exact normalized name has a currently published addressed entity whose canonical address equals this verified address.",
+  "verified_on": "2026-09-21",
+  "bridges": {
+    "남도마루": {
+      "address": "서울 영등포구 은행로 3",
+      "rationale": "Public restaurant listing confirms 남도마루 여의도동점 at the same address as the National Assembly QA-A entity.",
+      "source_url": "https://www.tabling.co.kr/place/677cc78466de5f069874df0e"
+    },
+    "대방골": {
+      "address": "서울 영등포구 국회대로 800",
+      "rationale": "Korea Tourism Organization accessible-travel listing and restaurant listings confirm 대방골 at 여의도파라곤, 국회대로 800.",
+      "source_url": "https://access.visitkorea.or.kr/food/detail.do?cotId=118a92ac-3464-40d5-bb30-e67e7a4fe7b6"
+    },
+    "참복집": {
+      "address": "서울 영등포구 국회대로 750",
+      "rationale": "Current restaurant listing confirms 참복집 at 금산빌딩, 국회대로 750.",
+      "source_url": "https://www.tabling.co.kr/place/677cc77a66de5f069874c8ff"
+    },
+    "노조미": {
+      "address": "서울 영등포구 은행로 3",
+      "rationale": "Recent business-place record confirms 노조미 at 익스콘벤처타워, 은행로 3.",
+      "source_url": "https://place.clariosync.com/p/849889/%EB%85%B8%EC%A1%B0%EB%AF%B8"
+    },
+    "해초가": {
+      "address": "서울 영등포구 국회대로76길 10",
+      "rationale": "Recent local business profile confirms 해초가 여의도 at 기독교한국침례회총회빌딩, 국회대로76길 10.",
+      "source_url": "https://www.daangn.com/kr/local-profile/%ED%95%B4%EC%B4%88%EA%B0%80-%EC%97%AC%EC%9D%98%EB%8F%84-4zb5wzgp1apk/"
+    },
+    "챠이나프로": {
+      "address": "서울 영등포구 국회대로74길 20",
+      "rationale": "Current restaurant listing confirms 챠이나 프로 at 국회대로74길 20.",
+      "source_url": "https://www.tabling.co.kr/place/677cc77f66de5f069874d443"
+    },
+    "너섬": {
+      "address": "서울 영등포구 국회대로 750",
+      "rationale": "2026 business information confirms 너섬 at 국회대로 750 지하1층.",
+      "source_url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/Q2R6V1hzcUc0NkhRYWdkSisvNG92dz09/company_nm/%EB%84%88%EC%84%AC"
+    },
+    "여의도장어": {
+      "address": "서울 영등포구 국회대로 750",
+      "rationale": "Current restaurant listings confirm 여의도장어 at 금산빌딩, 국회대로 750.",
+      "source_url": "https://www.tabling.co.kr/place/677cce5966de5f069882b59f"
+    },
+    "천지명": {
+      "address": "서울 영등포구 은행로 3",
+      "rationale": "Current restaurant and employer listings confirm 천지명 at 익스콘벤처타워 2층, 은행로 3.",
+      "source_url": "https://www.tabling.co.kr/restaurant/1403"
+    }
+  }
+}
