@@ -8,7 +8,6 @@ on:
       - 'pipeline/repair_raw_dates.py'
       - 'pipeline/build_source_candidates.py'
       - 'pipeline/capital_backfill.py'
-      - 'pipeline/published_sources.py'
       - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
 
