@@ -722,3 +722,27 @@ body{
     display:none!important;
   }
 }
+
+
+.ui-v2 .explorer-toggle.is-floating{
+  position:fixed!important;
+  left:18px!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  z-index:2500!important;
+  width:auto!important;
+  height:40px!important;
+  margin:0!important;
+  padding:0 14px!important;
+  border:2px solid var(--ink)!important;
+  border-radius:999px!important;
+  background:var(--yellow)!important;
+  color:var(--ink)!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  box-shadow:0 4px 16px rgba(0,0,0,.18)!important;
+}
+.ui-v2 .explorer-toggle.is-floating:hover{
+  background:var(--butter)!important;
+}
