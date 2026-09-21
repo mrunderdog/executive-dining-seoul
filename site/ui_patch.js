@@ -99,7 +99,7 @@
     };
     showcase.querySelector('.cross-prev').addEventListener('click',()=>scrollCards(-1));
     showcase.querySelector('.cross-next').addEventListener('click',()=>scrollCards(1));
-    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';selected=null;renderEmpty();renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';if(typeof clearSelection==='function')clearSelection();else{selected=null;renderEmpty();}renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
     topbar.insertAdjacentElement('afterend',showcase);
   }
 
