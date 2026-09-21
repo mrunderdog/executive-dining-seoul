@@ -464,12 +464,16 @@ def _local_corroborators(region: str, locality: str, merchant: str) -> list[dict
 
 def _role_bucket(role: str, include_committees: bool = False) -> str | None:
     s = re.sub(r"\s+", "", _txt(role))
-    if s == "의장":
+    # Keep publication semantics aligned with build_source_candidates.py.
+    # Several councils suffix roles with a month, e.g. 의장(8월), 부의장(10월).
+    if re.match(r"^의장(?:\(|$)", s):
         return "의장"
-    if s in {"부의장", "1부의장", "2부의장"}:
+    if re.match(r"^(?:1|2)?부의장(?:\(|$)", s):
         return "부의장"
-    if include_committees and s.endswith("위원장"):
-        return s
+    if include_committees:
+        m = re.match(r"^(.+위원장)(?:\(|$)", s)
+        if m:
+            return m.group(1)
     return None
 
 
