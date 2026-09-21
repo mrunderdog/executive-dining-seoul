@@ -19,7 +19,8 @@ def pct(num: int, den: int) -> float:
 
 def main() -> None:
     from data_io import load_payload
-    from published_sources import merge_published_sources
+    from published_sources import SOURCE_SPECS, merge_published_sources
+    from build_source_candidates import role_bucket
     from extra_published import merge_extra_published
     from global_entities import merge_global_entities
     payload = merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
@@ -210,6 +211,78 @@ def main() -> None:
                         + "; ".join(missing_leg_coords[:20])
                     )
 
+    published_counts = dict(meta.get("published_supplements") or {})
+    source_health = {}
+    for source, spec in SOURCE_SPECS.items():
+        raw_path = ROOT / "data" / "raw" / f"{source}_expense.json"
+        cand_path = REPORTS / f"{source}-executive-candidates.json"
+        raw_rows = 0
+        in_period_rows = 0
+        leadership_rows = 0
+        candidate_count = 0
+        publishable_candidates = 0
+
+        if raw_path.exists():
+            try:
+                raw_doc = json.loads(raw_path.read_text(encoding="utf-8"))
+                rows = raw_doc.get("rows") or []
+                raw_rows = len(rows)
+                include_committees = source in {"gyeonggi_council", "incheon_council"}
+                for row in rows:
+                    if row.get("date_quality") == "in_period":
+                        in_period_rows += 1
+                        if (
+                            role_bucket(row.get("role"), include_committees=include_committees)
+                            or role_bucket(row.get("source_sheet"), include_committees=include_committees)
+                        ):
+                            leadership_rows += 1
+            except (OSError, json.JSONDecodeError):
+                pass
+
+        if cand_path.exists():
+            try:
+                cand_doc = json.loads(cand_path.read_text(encoding="utf-8"))
+                candidates = cand_doc.get("candidates") or []
+                candidate_count = len(candidates)
+                publishable_candidates = sum(
+                    int(x.get("visits") or 0) >= int(spec.get("min_visits") or 0)
+                    and int(x.get("months") or 0) >= int(spec.get("min_months") or 0)
+                    and float(x.get("score") or 0) >= float(spec.get("min_score") or 0)
+                    for x in candidates
+                )
+            except (OSError, json.JSONDecodeError):
+                pass
+
+        published = int(published_counts.get(source) or 0)
+        if publishable_candidates > 0 and published == 0:
+            diagnosis = "PUBLISH_PIPELINE_REVIEW"
+            warnings.append(
+                f"{source}: {publishable_candidates} candidates pass publication thresholds but 0 are published"
+            )
+        elif raw_rows >= 100 and leadership_rows == 0:
+            diagnosis = "ROLE_OR_SOURCE_SCOPE_REVIEW"
+            warnings.append(
+                f"{source}: {raw_rows} raw rows but no recognizable chair/vice-chair rows"
+            )
+        elif candidate_count == 0 and raw_rows > 0:
+            diagnosis = "NO_CANDIDATES"
+        elif published == 0 and candidate_count > 0:
+            diagnosis = "BELOW_PUBLICATION_THRESHOLDS"
+        elif published > 0:
+            diagnosis = "PUBLISHED"
+        else:
+            diagnosis = "NO_DATA"
+
+        source_health[source] = {
+            "raw_rows": raw_rows,
+            "in_period_rows": in_period_rows,
+            "leadership_rows": leadership_rows,
+            "candidate_count": candidate_count,
+            "publishable_candidate_count": publishable_candidates,
+            "published_count": published,
+            "diagnosis": diagnosis,
+        }
+
     supplements = sum(1 for r in records if r.get("published_source"))
     result = {
         "passed": not errors,
@@ -228,6 +301,7 @@ def main() -> None:
             "address_coverage": pct(total - missing_address, total),
             "known_category_coverage": pct(total - unknown_category, total),
             "unknown_category_top_origins": dict(unknown_by_origin.most_common(12)),
+            "source_health": source_health,
         },
         "errors": errors,
         "warnings": warnings,
