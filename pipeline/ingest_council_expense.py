@@ -199,6 +199,20 @@ def normalize_sheet(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
     score, hi, matched = found
     mapping = map_columns(rows[hi])
+    # "구분" is ambiguous across councils. Some use it for leadership roles,
+    # while others use it for expense categories such as 급식비/기타.
+    # Keep it as a role column only when sampled values actually contain a
+    # recognizable leadership title; otherwise allow sheet/file context to
+    # supply the role instead of polluting the dataset with category labels.
+    role_idx = mapping.get("role")
+    if role_idx is not None and norm_header(rows[hi][role_idx] if role_idx < len(rows[hi]) else "") == "구분":
+        samples = [
+            clean_text(r[role_idx])
+            for r in rows[hi + 1:hi + 31]
+            if role_idx < len(r) and clean_text(r[role_idx])
+        ]
+        if samples and not any(infer_leadership_role(v) for v in samples):
+            mapping.pop("role", None)
     out = []
     blank_run = 0
     for ri, row in enumerate(rows[hi + 1:], start=hi + 2):
