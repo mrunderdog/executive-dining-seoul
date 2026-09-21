@@ -38,6 +38,9 @@ jobs:
       - name: Quality gate
         run: python pipeline/quality_gate.py
 
+      - name: Audit coordinates
+        run: python pipeline/audit_coordinates.py
+
       - name: Build static site
         run: python pipeline/build_site.py --output dist/index.html
 
