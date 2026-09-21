@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-21T08:07:36",
-  "dataset_records": 691,
+  "generated_at": "2026-09-21T08:45:38",
+  "dataset_records": 716,
   "cross_institution_count": 94,
   "cross_origin_count": 11,
   "top_official_count": 118,
   "regional_head_count": 20,
-  "entity_merges": 21,
-  "entity_merge_audit_count": 20,
+  "entity_merges": 23,
+  "entity_merge_audit_count": 22,
   "entity_merge_audit": [
     {
       "name": "외계인키친",
@@ -355,6 +355,25 @@
       "spend": 8688000
     },
     {
+      "name": "진향중화요리",
+      "address": "",
+      "origins": [
+        "부평구"
+      ],
+      "institutions": [
+        "부평구의회"
+      ],
+      "source_keys": [
+        "진향중화요리|부평구",
+        "진향 중화요리|부평구"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 31,
+      "spend": 2763000
+    },
+    {
       "name": "철원오대쌀갓지은솥밥",
       "address": "",
       "origins": [
@@ -429,6 +448,25 @@
       "corroborated_address_bridges": 0,
       "visits": 9,
       "spend": 989000
+    },
+    {
+      "name": "공존파인땡큐다이닝",
+      "address": "",
+      "origins": [
+        "부평구"
+      ],
+      "institutions": [
+        "부평구의회"
+      ],
+      "source_keys": [
+        "공존파인땡큐다이닝|부평구",
+        "공존 파인땡큐다이닝|부평구"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 8,
+      "spend": 1277400
     }
   ],
   "cross_origin_review_count": 12,

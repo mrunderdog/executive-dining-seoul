@@ -1,13 +1,13 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-21T08:07:36
-- Published restaurant entities: **691**
+- Generated: 2026-09-21T08:45:38
+- Published restaurant entities: **716**
 - Cross-institution restaurants: **94**
 - Cross-origin restaurants: **11**
 - Central top-official restaurants: **118**
 - Regional mayor/vice-mayor restaurants: **20**
-- Entity merges: **21**
-- Merge audit groups: **20**
+- Entity merges: **23**
+- Merge audit groups: **22**
 - Cross-origin review candidates: **12**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
@@ -131,10 +131,12 @@
 | 14 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
 | 15 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
 | 16 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
-| 17 | 철원오대쌀갓지은솥밥 | 2 | 의정부시 | strict_entity_key |  |
-| 18 | 해량 260도 | 2 | 연수구 | strict_entity_key |  |
-| 19 | 챠이797청계천점 | 2 | 중앙정부 | strict_entity_key |  |
-| 20 | 매생이굴국밥 | 2 | 중앙정부 | strict_entity_key |  |
+| 17 | 진향중화요리 | 2 | 부평구 | strict_entity_key |  |
+| 18 | 철원오대쌀갓지은솥밥 | 2 | 의정부시 | strict_entity_key |  |
+| 19 | 해량 260도 | 2 | 연수구 | strict_entity_key |  |
+| 20 | 챠이797청계천점 | 2 | 중앙정부 | strict_entity_key |  |
+| 21 | 매생이굴국밥 | 2 | 중앙정부 | strict_entity_key |  |
+| 22 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
 
 ## Cross-origin review queue
 
