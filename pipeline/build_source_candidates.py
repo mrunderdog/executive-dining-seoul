@@ -54,6 +54,8 @@ def main():
     leadership_rows=0
     for r in rows:
         rb=role_bucket(r.get('role'),include_committees=include_committees)
+        if not rb:
+            rb=role_bucket(r.get('source_sheet'),include_committees=include_committees)
         if not rb: continue
         leadership_rows+=1
         name=' '.join(str(r.get('merchant') or '').split())
