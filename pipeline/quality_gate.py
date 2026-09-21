@@ -37,6 +37,8 @@ def main() -> None:
     missing_address = 0
     unknown_category = 0
     bad_evidence = 0
+    implausible_recent_amounts = []
+    zero_recent_amounts = []
 
     for idx, r in enumerate(records, start=1):
         missing = sorted(REQUIRED_RECORD_KEYS - set(r))
@@ -77,6 +79,30 @@ def main() -> None:
         recent = ev.get("recent", [])
         if recent and not isinstance(recent, list):
             errors.append(f"record {idx} evidence.recent must be list")
+        elif isinstance(recent, list):
+            for x in recent:
+                if not isinstance(x, dict):
+                    continue
+                amount = x.get("amount")
+                people = x.get("people")
+                if isinstance(amount, (int, float)) and isinstance(people, (int, float)):
+                    if amount > 0 and people >= 2 and amount / people < 1000:
+                        implausible_recent_amounts.append({
+                            "record": idx,
+                            "name": name,
+                            "origin": origin,
+                            "amount": amount,
+                            "people": people,
+                            "date": x.get("date"),
+                        })
+                    if amount == 0 and people > 0:
+                        zero_recent_amounts.append({
+                            "record": idx,
+                            "name": name,
+                            "origin": origin,
+                            "people": people,
+                            "date": x.get("date"),
+                        })
 
     duplicates = [f"{name} / {origin}" for (name, origin), c in keys_seen.items() if c > 1]
     if duplicates:
@@ -87,6 +113,19 @@ def main() -> None:
     duplicate_entity_ids = [eid for eid, count in entity_ids.items() if count > 1]
     if duplicate_entity_ids:
         errors.append("duplicate global entity_id values: " + "; ".join(duplicate_entity_ids[:20]))
+
+    if implausible_recent_amounts:
+        sample = "; ".join(
+            f"{x['name']} {x['amount']}/{x['people']}명 ({x.get('date') or '-'})"
+            for x in implausible_recent_amounts[:12]
+        )
+        errors.append(
+            f"implausibly low per-person amounts detected ({len(implausible_recent_amounts)} rows): {sample}"
+        )
+    if zero_recent_amounts:
+        warnings.append(
+            f"recent rows with zero amount but positive people remain: {len(zero_recent_amounts)}"
+        )
 
     total = len(records)
     if total:
@@ -169,6 +208,8 @@ def main() -> None:
             "missing_address_count": missing_address,
             "unknown_category_count": unknown_category,
             "bad_evidence_count": bad_evidence,
+            "implausible_recent_amount_count": len(implausible_recent_amounts),
+            "zero_recent_amount_with_people_count": len(zero_recent_amounts),
             "cross_institution_entity_count": cross_entities,
             "duplicate_entity_id_count": len(duplicate_entity_ids),
             "address_coverage": pct(total - missing_address, total),
