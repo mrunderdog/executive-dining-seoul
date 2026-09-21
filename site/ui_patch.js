@@ -52,6 +52,26 @@
     sortSelect.appendChild(opt);
   }
 
+  const crossOrigin=DATA.filter(r=>r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2)
+    .sort((a,b)=>(b.cross_institution?.score||0)-(a.cross_institution?.score||0)||(b.evidence?.visits||0)-(a.evidence?.visits||0));
+  const topbar=document.querySelector('.topbar');
+  if(topbar && crossOrigin.length){
+    const showcase=document.createElement('section');
+    showcase.className='cross-showcase';
+    showcase.innerHTML='<div class="cross-showcase-head"><div><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>서로 다른 공공기관·출처에서 독립적으로 반복 선택된 동일 식당입니다.</p></div><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳 보기 →</button></div><div class="cross-showcase-track"></div>';
+    const track=showcase.querySelector('.cross-showcase-track');
+    crossOrigin.slice(0,6).forEach(r=>{
+      const e=r.evidence||{},c=r.cross_institution||{};
+      const card=document.createElement('button');
+      card.type='button'; card.className='cross-showcase-card';
+      card.innerHTML='<span class="cross-rank">C '+(c.score||0)+'</span><strong>'+esc(r.business?.display||r.name)+'</strong><span>'+esc((r.origins||[]).join(' · '))+'</span><small>'+Number(e.visits||0).toLocaleString('ko-KR')+'회 · '+(c.institution_count||0)+'개 기관</small>';
+      card.addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';renderList(false);selectRecord(r,true,true);});
+      track.appendChild(card);
+    });
+    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';selected=null;renderEmpty();renderList(true);});
+    topbar.insertAdjacentElement('afterend',showcase);
+  }
+
   const workspace=document.querySelector('.workspace');
   const sidebar=document.querySelector('.sidebar');
   const filters=document.querySelector('.filters');
