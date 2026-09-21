@@ -6,7 +6,6 @@ on:
     paths:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/repair_raw_dates.py'
-      - 'pipeline/build_source_candidates.py'
       - 'pipeline/capital_backfill.py'
       - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
