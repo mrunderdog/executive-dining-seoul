@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import re
+import statistics
 import urllib.request
 import zipfile
 import xml.etree.ElementTree as ET
@@ -220,6 +221,19 @@ def normalize(rows,sheet,meta):
     h=find_header(rows)
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
     score,hi,_=h;m=mapping(rows[hi]);out=[]
+
+    # Some MOEL HWPX tables express amounts in thousand won while the unit
+    # label lives outside the parsed table. Infer that unit only when the
+    # amount column itself is consistently in the tens/hundreds range.
+    if scale == 1 and meta.get("key") == "ministry_employment_labor" and "amount" in m:
+        sample=[]
+        for probe in rows[hi+1:]:
+            v=amount(cell(probe,m,"amount"))
+            if isinstance(v,(int,float)) and v>0:
+                sample.append(v)
+        if len(sample) >= 3 and statistics.median(sample) < 5000:
+            scale=1000
+
     for ri,row in enumerate(rows[hi+1:],start=hi+2):
         if not any(clean(x) for x in row):continue
         merchant=clean(cell(row,m,"merchant")); amt=amount(cell(row,m,"amount")); d=pdate(cell(row,m,"date"))
@@ -238,7 +252,21 @@ def normalize(rows,sheet,meta):
             used_time=d
             d=pdate(role)
             role=clean(meta.get("default_role"))
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":clean(cell(row,m,"purpose")),"people":people(cell(row,m,"people")),"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        purpose_text=clean(cell(row,m,"purpose"))
+        people_value=people(cell(row,m,"people"))
+
+        # PDF text extraction can collapse the final amount/person cells into
+        # the purpose cell. Recover only an unambiguous comma-formatted trailing
+        # amount so policy numbers/years are never mistaken for money.
+        if (amt is None or amt == 0) and purpose_text:
+            tail=re.search(r"(?<!\d)(\d{1,3}(?:,\d{3})+)(?:\s+(\d{1,3}))?\s*$",purpose_text)
+            if tail:
+                amt=int(tail.group(1).replace(",",""))
+                if not people_value and tail.group(2):
+                    people_value=int(tail.group(2))
+                purpose_text=purpose_text[:tail.start()].strip()
+
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
