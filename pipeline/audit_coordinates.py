@@ -57,10 +57,11 @@ def main():
         ]
         rejected_locality_hits += len(locality_rejections)
         changed = bool(old_key and new_key and old_key != new_key)
-        dropped = bool(old_key and not new_key and target)
-        if old_mismatch or changed or dropped:
+        dropped = bool(old_key and not new_key)
+        addressed_dropped = bool(dropped and target)
+        if old_mismatch or changed or dropped or locality_rejections:
             prevented += int(old_mismatch)
-            missing_safe += int(dropped)
+            missing_safe += int(addressed_dropped)
             issues.append({
                 "name": r.get("name"),
                 "address": r.get("address"),
@@ -79,7 +80,9 @@ def main():
                 "new_lon": (new_row or {}).get("lon"),
                 "old_address_mismatch": old_mismatch,
                 "changed_selection": changed,
-                "safe_coordinate_missing": dropped,
+                "safe_coordinate_missing": addressed_dropped,
+                "coordinate_dropped": dropped,
+                "locality_rejection_count": len(locality_rejections),
                 "rejected_candidates": meta.get("rejected_candidates") or [],
             })
 
