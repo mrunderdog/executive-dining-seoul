@@ -123,9 +123,22 @@ def main() -> None:
             f"implausibly low per-person amounts detected ({len(implausible_recent_amounts)} rows): {sample}"
         )
     if zero_recent_amounts:
-        warnings.append(
-            f"recent rows with zero amount but positive people remain: {len(zero_recent_amounts)}"
+        sample = "; ".join(
+            f"{x['name']} 0원/{x['people']}명 ({x.get('date') or '-'})"
+            for x in zero_recent_amounts[:8]
         )
+        warnings.append(
+            f"recent rows with zero amount but positive people remain ({len(zero_recent_amounts)}): {sample}"
+        )
+
+    unknown_by_origin = Counter()
+    for r in records:
+        category = str((r.get("business") or {}).get("category", "")).strip()
+        if not category or "확인 필요" in category:
+            origins = r.get("origins") or ([r.get("origin")] if r.get("origin") else [])
+            for origin in origins:
+                if str(origin or "").strip():
+                    unknown_by_origin[str(origin).strip()] += 1
 
     total = len(records)
     if total:
@@ -214,6 +227,7 @@ def main() -> None:
             "duplicate_entity_id_count": len(duplicate_entity_ids),
             "address_coverage": pct(total - missing_address, total),
             "known_category_coverage": pct(total - unknown_category, total),
+            "unknown_category_top_origins": dict(unknown_by_origin.most_common(12)),
         },
         "errors": errors,
         "warnings": warnings,
