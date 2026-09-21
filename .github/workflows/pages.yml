@@ -7,7 +7,6 @@ on:
     workflows:
       - Build static coordinate cache
       - Monthly data refresh
-      - Central + National refresh
     types: [completed]
   workflow_dispatch:
 
