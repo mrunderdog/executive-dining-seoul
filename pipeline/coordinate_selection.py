@@ -8,7 +8,10 @@ def has_coords(row: dict) -> bool:
 
 
 def geocode_address_key(row: dict) -> str:
-    for field in ("display_name", "query"):
+    # Prefer the exact query that produced the cached geocode. Address-mode
+    # geocoders may insert dong/neighborhood text into display_name even when
+    # the road-address target is the same physical place.
+    for field in ("query", "display_name"):
         value = t(row.get(field))
         if not value:
             continue
