@@ -11,6 +11,7 @@ on:
       - 'reports/*-executive-candidates.json'
       - 'reports/*-province-candidates.json'
       - 'reports/national-legislator-map-qa.json'
+      - 'sources/entity_bridge_overrides.json'
   workflow_run:
     workflows:
       - Capital council expense ingestion
