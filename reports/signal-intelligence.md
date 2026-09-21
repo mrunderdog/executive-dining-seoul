@@ -1,12 +1,13 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-21T07:42:59
+- Generated: 2026-09-21T08:07:36
 - Published restaurant entities: **691**
 - Cross-institution restaurants: **94**
 - Cross-origin restaurants: **11**
 - Central top-official restaurants: **118**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **21**
+- Merge audit groups: **20**
 - Cross-origin review candidates: **12**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
@@ -109,6 +110,31 @@
 | 92 | 생태명가 | 52.4 | 2 | 1 | 4 | 중앙정부 |
 | 93 | 더구십사(THE 94) | 52.4 | 2 | 1 | 4 | 중앙정부 |
 | 94 | 뚜리삼 | 50.6 | 2 | 1 | 3 | 중앙정부 |
+
+## Entity merge audit
+
+| # | Restaurant | Sources merged | Origins | Match basis | Address |
+|---:|---|---:|---|---|---|
+| 1 | 외계인키친 | 3 | 구로구, 은평구 · 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층 |
+| 2 | 남도마루 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) |
+| 3 | 대방골 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층 |
+| 4 | 참복집 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
+| 5 | 가시리여의도점 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 여의도동 13-4 2층 |
+| 6 | 일품당 프리미엄 | 2 | 서울시청 · 중앙정부 | corroborated_address | 서울 종로구 새문안로5가길 7 |
+| 7 | 노조미 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) |
+| 8 | 챠이나프로 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층 |
+| 9 | 해초가 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층 |
+| 10 | 너섬 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
+| 11 | 여의도장어 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
+| 12 | 일월담 | 2 | 도봉구 · 의정부시 | strict_entity_key | 경기 의정부시 장암동 107-4 |
+| 13 | 탱글낙지마당 | 2 | 강서구 · 양천구 | strict_entity_key | 서울 양천구 등촌로 186 |
+| 14 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
+| 15 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
+| 16 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
+| 17 | 철원오대쌀갓지은솥밥 | 2 | 의정부시 | strict_entity_key |  |
+| 18 | 해량 260도 | 2 | 연수구 | strict_entity_key |  |
+| 19 | 챠이797청계천점 | 2 | 중앙정부 | strict_entity_key |  |
+| 20 | 매생이굴국밥 | 2 | 중앙정부 | strict_entity_key |  |
 
 ## Cross-origin review queue
 

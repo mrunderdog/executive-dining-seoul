@@ -1,11 +1,436 @@
 {
-  "generated_at": "2026-09-21T07:42:59",
+  "generated_at": "2026-09-21T08:07:36",
   "dataset_records": 691,
   "cross_institution_count": 94,
   "cross_origin_count": 11,
   "top_official_count": 118,
   "regional_head_count": 20,
   "entity_merges": 21,
+  "entity_merge_audit_count": 20,
+  "entity_merge_audit": [
+    {
+      "name": "외계인키친",
+      "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
+      "origins": [
+        "구로구, 은평구",
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "외계인키친|구로구, 은평구",
+        "외계인키친|중앙정부",
+        "외계인키친|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 3,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 99,
+      "spend": 4253300
+    },
+    {
+      "name": "남도마루",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "남도마루|중앙정부",
+        "남도마루|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 197,
+      "spend": 45023000
+    },
+    {
+      "name": "대방골",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부",
+        "해양수산부"
+      ],
+      "source_keys": [
+        "대방골|중앙정부",
+        "대방골|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 99,
+      "spend": 20173000
+    },
+    {
+      "name": "참복집",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "통일부",
+        "해양수산부"
+      ],
+      "source_keys": [
+        "참복집|중앙정부",
+        "참복집|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 84,
+      "spend": 15639000
+    },
+    {
+      "name": "가시리여의도점",
+      "address": "서울 영등포구 여의도동 13-4 2층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "가시리 여의도점|중앙정부",
+        "가시리여의도점|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 77,
+      "spend": 15773000
+    },
+    {
+      "name": "일품당 프리미엄",
+      "address": "서울 종로구 새문안로5가길 7",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "source_keys": [
+        "일품당 프리미엄|서울시청",
+        "일품당프리미엄|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 67,
+      "spend": 18170000
+    },
+    {
+      "name": "노조미",
+      "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "노조미|중앙정부",
+        "노조미|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 59,
+      "spend": 15836000
+    },
+    {
+      "name": "챠이나프로",
+      "address": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원"
+      ],
+      "source_keys": [
+        "챠이나프로|중앙정부",
+        "챠이나프로|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 48,
+      "spend": 12932000
+    },
+    {
+      "name": "해초가",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "통일부"
+      ],
+      "source_keys": [
+        "해초가|중앙정부",
+        "해초가|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 47,
+      "spend": 9303000
+    },
+    {
+      "name": "너섬",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "source_keys": [
+        "너섬|중앙정부",
+        "너섬|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 45,
+      "spend": 3848000
+    },
+    {
+      "name": "여의도장어",
+      "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "source_keys": [
+        "여의도장어|중앙정부",
+        "여의도장어|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 44,
+      "spend": 8617000
+    },
+    {
+      "name": "일월담",
+      "address": "경기 의정부시 장암동 107-4",
+      "origins": [
+        "도봉구",
+        "의정부시"
+      ],
+      "institutions": [
+        "의정부시의회"
+      ],
+      "source_keys": [
+        "일월담|도봉구",
+        "일월담|의정부시"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 27,
+      "spend": 5167000
+    },
+    {
+      "name": "탱글낙지마당",
+      "address": "서울 양천구 등촌로 186",
+      "origins": [
+        "강서구",
+        "양천구"
+      ],
+      "institutions": [],
+      "source_keys": [
+        "탱글낙지마당|강서구",
+        "탱글낙지마당|양천구"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 16,
+      "spend": 2888000
+    },
+    {
+      "name": "주식회사 고려보쌈",
+      "address": "서울 중구 세종대로20길 23",
+      "origins": [
+        "서울시청"
+      ],
+      "institutions": [
+        "서울특별시 본청"
+      ],
+      "source_keys": [
+        "주식회사 고려보쌈|서울시청",
+        "고려보쌈|서울시청"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 48,
+      "spend": 5799800
+    },
+    {
+      "name": "(주)태맥을지점",
+      "address": "서울 중구 을지로3길 34",
+      "origins": [
+        "서울시청"
+      ],
+      "institutions": [
+        "서울특별시 본청"
+      ],
+      "source_keys": [
+        "(주)태맥을지점|서울시청",
+        "㈜태맥을지점|서울시청"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 34,
+      "spend": 6785500
+    },
+    {
+      "name": "민소한우",
+      "address": "서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩)",
+      "origins": [
+        "국회의원(정치자금 2024)"
+      ],
+      "institutions": [
+        "국회의원"
+      ],
+      "source_keys": [
+        "민소한우|국회의원(정치자금 2024)",
+        "민소한우(서여의도점)|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 34,
+      "spend": 8688000
+    },
+    {
+      "name": "철원오대쌀갓지은솥밥",
+      "address": "",
+      "origins": [
+        "의정부시"
+      ],
+      "institutions": [
+        "의정부시의회"
+      ],
+      "source_keys": [
+        "철원오대쌀갓지은솥밥|의정부시",
+        "철원오대쌀 갓지은솥밥|의정부시"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 29,
+      "spend": 3906000
+    },
+    {
+      "name": "해량 260도",
+      "address": "",
+      "origins": [
+        "연수구"
+      ],
+      "institutions": [
+        "연수구의회"
+      ],
+      "source_keys": [
+        "해량 260도|연수구",
+        "(주)해량 260도|연수구"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 21,
+      "spend": 4384500
+    },
+    {
+      "name": "챠이797청계천점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "source_keys": [
+        "챠이797청계천점|중앙정부",
+        "챠이797 청계천점|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 9,
+      "spend": 1973000
+    },
+    {
+      "name": "매생이굴국밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "source_keys": [
+        "매생이굴국밥|중앙정부",
+        "매생이 굴국밥|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 9,
+      "spend": 989000
+    }
+  ],
   "cross_origin_review_count": 12,
   "cross_origin_review": [
     {
