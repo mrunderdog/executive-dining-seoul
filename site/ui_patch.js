@@ -77,8 +77,13 @@
     .sort((a,b)=>(b.cross_institution?.score||0)-(a.cross_institution?.score||0)||(b.evidence?.visits||0)-(a.evidence?.visits||0));
   const topbar=document.querySelector('.topbar');
   if(topbar && crossOrigin.length){
-    const showcase=document.createElement('section');
-    showcase.className='cross-showcase cross-showcase-v2';
+    let showcase=document.getElementById('crossShowcase');
+    if(!showcase){
+      showcase=document.createElement('section');
+      showcase.id='crossShowcase';
+      showcase.className='cross-showcase cross-showcase-v2';
+      topbar.insertAdjacentElement('afterend',showcase);
+    }
     showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
     const track=showcase.querySelector('.cross-showcase-track');
 
@@ -100,7 +105,9 @@
     showcase.querySelector('.cross-prev').addEventListener('click',()=>scrollCards(-1));
     showcase.querySelector('.cross-next').addEventListener('click',()=>scrollCards(1));
     showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';if(typeof clearSelection==='function')clearSelection();else{selected=null;renderEmpty();}renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
-    topbar.insertAdjacentElement('afterend',showcase);
+  }else{
+    const showcase=document.getElementById('crossShowcase');
+    if(showcase) showcase.hidden=true;
   }
 
   const workspace=document.querySelector('.workspace');
