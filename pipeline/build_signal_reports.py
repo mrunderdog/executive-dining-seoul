@@ -179,6 +179,27 @@ def main():
     )
 
     cross_origin_review = build_cross_origin_review(pre_records, records)
+    entity_merge_audit = []
+    for r in records:
+        source_keys = list(r.get("source_keys") or [])
+        if len(source_keys) <= 1:
+            continue
+        entity_merge_audit.append({
+            "name": t((r.get("business") or {}).get("display") or r.get("name")),
+            "address": t(r.get("address")),
+            "origins": r.get("origins") or [],
+            "institutions": r.get("institutions") or [],
+            "source_keys": source_keys,
+            "source_key_count": len(source_keys),
+            "match_basis": t(r.get("entity_match_basis")) or "strict_entity_key",
+            "corroborated_address_bridges": int(r.get("corroborated_address_bridges") or 0),
+            "visits": int((r.get("evidence") or {}).get("visits") or 0),
+            "spend": int((r.get("evidence") or {}).get("spend") or 0),
+        })
+    entity_merge_audit.sort(
+        key=lambda x: (x["source_key_count"], len(x["origins"]), x["visits"]),
+        reverse=True,
+    )
 
     stats = payload.get("stats") or {}
     doc = {
@@ -189,6 +210,8 @@ def main():
         "top_official_count": len(top_official),
         "regional_head_count": len(regional_heads),
         "entity_merges": int(stats.get("entity_merges") or 0),
+        "entity_merge_audit_count": len(entity_merge_audit),
+        "entity_merge_audit": entity_merge_audit,
         "cross_origin_review_count": len(cross_origin_review),
         "cross_origin_review": cross_origin_review,
         "cross_institution": cross,
@@ -210,6 +233,7 @@ def main():
         f"- Central top-official restaurants: **{len(top_official)}**",
         f"- Regional mayor/vice-mayor restaurants: **{len(regional_heads)}**",
         f"- Entity merges: **{doc['entity_merges']}**",
+        f"- Merge audit groups: **{len(entity_merge_audit)}**",
         f"- Cross-origin review candidates: **{len(cross_origin_review)}**",
         "",
         "> This report ranks restaurant-selection signals, not public officials or political actors.",
@@ -224,6 +248,20 @@ def main():
         md.append(
             f"| {i} | {x['name'].replace('|','/')} | {x['consensus_score']:.1f} | "
             f"{x['institution_count']} | {x['source_count']} | {x['visits']} | {origins.replace('|','/')} |"
+        )
+
+    md += [
+        "",
+        "## Entity merge audit",
+        "",
+        "| # | Restaurant | Sources merged | Origins | Match basis | Address |",
+        "|---:|---|---:|---|---|---|",
+    ]
+    for i, x in enumerate(entity_merge_audit[:150], 1):
+        md.append(
+            f"| {i} | {x['name'].replace('|','/')} | {x['source_key_count']} | "
+            f"{' · '.join(x['origins']).replace('|','/')} | {x['match_basis'].replace('|','/')} | "
+            f"{x['address'].replace('|','/')} |"
         )
 
     md += [
