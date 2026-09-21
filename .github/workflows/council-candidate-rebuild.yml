@@ -1,0 +1,72 @@
+name: Rebuild council candidates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/build_source_candidates.py'
+      - '.github/workflows/council-candidate-rebuild.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: council-candidate-rebuild
+  cancel-in-progress: true
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild candidates from committed raw data
+        shell: bash
+        run: |
+          set -e
+          SOURCES="goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju anseong icheon osan pocheon yangpyeong yongin gwangju guri uiwang gunpo dongducheon gwacheon gapyeong siheung yeoju yangju hanam yeoncheon michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
+          for SOURCE in $SOURCES; do
+            if [[ ! -f "data/raw/${SOURCE}_expense.json" ]]; then
+              echo "$SOURCE: no committed raw data; skip"
+              continue
+            fi
+            echo "=== $SOURCE ==="
+            python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
+          done
+
+      - name: Quality gate
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit candidate reports
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/*-executive-candidates.json reports/*-executive-candidates.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Candidate reports already current."
+            exit 0
+          fi
+          git commit -m "data: rebuild council candidates from committed raw"
+          for ATTEMPT in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another workflow; retrying on latest main."
+            git fetch origin main
+            git rebase origin/main
+          done
+          exit 1
