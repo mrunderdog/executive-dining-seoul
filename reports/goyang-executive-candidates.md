@@ -1,6 +1,6 @@
 # goyang Executive-repeat candidates
 
-Rows considered: 2059
+Rows considered: 2455
 
 > Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.
 
