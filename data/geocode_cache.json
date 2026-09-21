@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 133,
+    "failed_count": 138,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 986,
-    "success_count": 853,
-    "updated_at": "2026-09-21T08:08:45+00:00"
+    "record_count": 1013,
+    "success_count": 875,
+    "updated_at": "2026-09-21T08:46:18+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -1301,6 +1301,35 @@
       ],
       "updated_at": "2026-09-17T23:03:06+00:00"
     },
+    "공존 파인땡큐다이닝|부평구": {
+      "addr_type": "POI",
+      "display_name": "공존 파인땡큐다이닝",
+      "fingerprint": "b49ec931994a166e",
+      "geocoder_version": 4,
+      "lat": 37.485702661,
+      "lon": 126.708267034,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "공존 파인땡큐다이닝 인천광역시 부평구",
+      "result_name": "공존 파인땡큐다이닝",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:공존 파인땡큐다이닝 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:17+00:00"
+    },
+    "공존파인땡큐다이닝|부평구": {
+      "failed": true,
+      "fingerprint": "41d0293c2767b108",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:공존파인땡큐다이닝 인천광역시 부평구",
+        "nominatim:공존파인땡큐다이닝 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:17+00:00"
+    },
     "과천갈비|과천시": {
       "addr_type": "POI",
       "display_name": "과천갈비",
@@ -1657,6 +1686,24 @@
         "arcgis:굴국밥 강동구 서울"
       ],
       "updated_at": "2026-09-17T23:02:33+00:00"
+    },
+    "굴세상부평점|부평구": {
+      "addr_type": "POI",
+      "display_name": "굴세상부평점",
+      "fingerprint": "886e20f1b3ecd21c",
+      "geocoder_version": 4,
+      "lat": 37.497150988,
+      "lon": 126.721508902,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "굴세상부평점 인천광역시 부평구",
+      "result_name": "굴세상부평점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:굴세상부평점 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:11+00:00"
     },
     "굽돌집서울시청본점|서울시청": {
       "addr_type": "PointAddress",
@@ -2149,6 +2196,24 @@
       ],
       "updated_at": "2026-09-17T23:05:10+00:00"
     },
+    "남도복국 부평구청역점|부평구": {
+      "addr_type": "POI",
+      "display_name": "남도복국 부평구청역점",
+      "fingerprint": "bf08085b3a7d883e",
+      "geocoder_version": 4,
+      "lat": 37.508069887,
+      "lon": 126.723045141,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "남도복국 부평구청역점 인천광역시 부평구",
+      "result_name": "남도복국 부평구청역점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:남도복국 부평구청역점 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:07+00:00"
+    },
     "남수통닭|수원시": {
       "failed": true,
       "fingerprint": "4561d904497a2dcf",
@@ -2159,6 +2224,24 @@
         "nominatim:남수통닭 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:25+00:00"
+    },
+    "남원골장원추어탕|부평구": {
+      "addr_type": "POI",
+      "display_name": "남원골장원추어탕",
+      "fingerprint": "606e22b1e4c06ab4",
+      "geocoder_version": 4,
+      "lat": 37.497238349,
+      "lon": 126.72303762,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "남원골장원추어탕 인천광역시 부평구",
+      "result_name": "남원골장원추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:남원골장원추어탕 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:15+00:00"
     },
     "남촌회관|서울시청": {
       "addr_type": "PointAddress",
@@ -3231,6 +3314,24 @@
         "arcgis:덕순네 장어랑 메기 대한민국"
       ],
       "updated_at": "2026-09-17T23:03:26+00:00"
+    },
+    "덕쿤|부평구": {
+      "addr_type": "POI",
+      "display_name": "덕쿤",
+      "fingerprint": "1823c8552fdaa2fb",
+      "geocoder_version": 4,
+      "lat": 37.50597909,
+      "lon": 126.722919427,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "덕쿤 인천광역시 부평구",
+      "result_name": "덕쿤",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:덕쿤 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:05+00:00"
     },
     "덕후선생 광화문|서울시청": {
       "addr_type": "PointAddress",
@@ -4371,6 +4472,24 @@
       ],
       "updated_at": "2026-09-17T23:01:46+00:00"
     },
+    "메이드|부평구": {
+      "addr_type": "POI",
+      "display_name": "메이드",
+      "fingerprint": "abe55f24e79ac49a",
+      "geocoder_version": 4,
+      "lat": 37.49809569,
+      "lon": 126.725542578,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "메이드 인천광역시 부평구",
+      "result_name": "메이드",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:메이드 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:15+00:00"
+    },
     "메이드인33|중앙정부": {
       "failed": true,
       "fingerprint": "3eeee3cdcd02a93c",
@@ -4435,6 +4554,24 @@
         "arcgis:명가감자탕 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:48+00:00"
+    },
+    "명가설렁탕|부평구": {
+      "addr_type": "POI",
+      "display_name": "명가설렁탕",
+      "fingerprint": "b833045f42fa50f8",
+      "geocoder_version": 4,
+      "lat": 37.50053549,
+      "lon": 126.726135354,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "명가설렁탕 인천광역시 부평구",
+      "result_name": "명가설렁탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:명가설렁탕 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:05+00:00"
     },
     "명동찌개마을 성곡점|부천시": {
       "failed": true,
@@ -4669,6 +4806,24 @@
       ],
       "updated_at": "2026-09-17T23:04:40+00:00"
     },
+    "몬스터스시&사시미|부평구": {
+      "addr_type": "POI",
+      "display_name": "몬스터스시&사시미",
+      "fingerprint": "bec6375552180668",
+      "geocoder_version": 4,
+      "lat": 37.504911477,
+      "lon": 126.722713687,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "몬스터스시&사시미 인천광역시 부평구",
+      "result_name": "몬스터스시&사시미",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:몬스터스시&사시미 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:15+00:00"
+    },
     "몽중헌 페럼타워|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 수하동 을지로5길 19",
@@ -4816,6 +4971,24 @@
         "nominatim:문원한우마을 과천시"
       ],
       "updated_at": "2026-09-18T23:15:33+00:00"
+    },
+    "미담맛을논하다|부평구": {
+      "addr_type": "POI",
+      "display_name": "미담맛을논하다",
+      "fingerprint": "d2983d0a6ce5288c",
+      "geocoder_version": 4,
+      "lat": 37.51229754,
+      "lon": 126.704564935,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "미담맛을논하다 인천광역시 부평구",
+      "result_name": "미담맛을논하다",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:미담맛을논하다 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:01+00:00"
     },
     "미락복집|의정부시": {
       "failed": true,
@@ -5030,6 +5203,17 @@
       ],
       "updated_at": "2026-09-18T05:24:11+00:00"
     },
+    "밀스하우스|부평구": {
+      "failed": true,
+      "fingerprint": "b3056b28a8134c22",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:밀스하우스 인천광역시 부평구",
+        "nominatim:밀스하우스 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:10+00:00"
+    },
     "바다마을|송파구": {
       "addr_type": "POI",
       "display_name": "바다마을",
@@ -5173,6 +5357,24 @@
         "arcgis:서울 중구 무교로 13"
       ],
       "updated_at": "2026-09-17T23:04:54+00:00"
+    },
+    "밥도둑간장게장|부평구": {
+      "addr_type": "POI",
+      "display_name": "밥도둑간장게장",
+      "fingerprint": "ab6fbb1ea650e66f",
+      "geocoder_version": 4,
+      "lat": 37.493195894,
+      "lon": 126.721360485,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "밥도둑간장게장 인천광역시 부평구",
+      "result_name": "밥도둑간장게장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:밥도둑간장게장 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:14+00:00"
     },
     "방원양갈비양꼬치|중앙정부": {
       "addr_type": "POI",
@@ -9409,6 +9611,42 @@
       ],
       "updated_at": "2026-09-17T23:04:33+00:00"
     },
+    "어량촌|부평구": {
+      "addr_type": "POI",
+      "display_name": "어량촌",
+      "fingerprint": "785ba6469b0be31c",
+      "geocoder_version": 4,
+      "lat": 37.501879617,
+      "lon": 126.722784539,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "어량촌 인천광역시 부평구",
+      "result_name": "어량촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:어량촌 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:07+00:00"
+    },
+    "어썰당 부평더샵동암점|부평구": {
+      "addr_type": "POI",
+      "display_name": "어썰당 부평더샵동암점",
+      "fingerprint": "15cd8c7365a0a0e7",
+      "geocoder_version": 4,
+      "lat": 37.473968157,
+      "lon": 126.698546026,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "어썰당 부평더샵동암점 인천광역시 부평구",
+      "result_name": "어썰당 부평더샵동암점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:어썰당 부평더샵동암점 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:13+00:00"
+    },
     "어정낙지촌|군포시": {
       "addr_type": "POI",
       "display_name": "어정낙지촌",
@@ -10738,6 +10976,24 @@
       ],
       "updated_at": "2026-09-21T07:29:12+00:00"
     },
+    "우한판|부평구": {
+      "addr_type": "POI",
+      "display_name": "우한판",
+      "fingerprint": "9ee7409427bdd8a4",
+      "geocoder_version": 4,
+      "lat": 37.499518933,
+      "lon": 126.71584034,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우한판 인천광역시 부평구",
+      "result_name": "우한판",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우한판 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:11+00:00"
+    },
     "운산|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의공원로 101",
@@ -10809,6 +11065,17 @@
         "arcgis:서울 영등포구 당산로32길 5"
       ],
       "updated_at": "2026-09-17T23:01:49+00:00"
+    },
+    "원조버섯칼국수|부평구": {
+      "failed": true,
+      "fingerprint": "61ee61b9cf46549b",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:원조버섯칼국수 인천광역시 부평구",
+        "nominatim:원조버섯칼국수 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:13+00:00"
     },
     "원주추옥|고양시": {
       "addr_type": "PointAddress",
@@ -12243,6 +12510,24 @@
       ],
       "updated_at": "2026-09-17T23:04:56+00:00"
     },
+    "전통복회관|부평구": {
+      "addr_type": "POI",
+      "display_name": "전통복회관",
+      "fingerprint": "61c8d44763b48c13",
+      "geocoder_version": 4,
+      "lat": 37.497680828,
+      "lon": 126.724732245,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "전통복회관 인천광역시 부평구",
+      "result_name": "전통복회관",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:전통복회관 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:08+00:00"
+    },
     "젊은농부해피타운(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
       "display_name": "젊은농부해피타운",
@@ -12675,6 +12960,24 @@
       ],
       "updated_at": "2026-09-17T23:01:54+00:00"
     },
+    "주문진곰치국|부평구": {
+      "addr_type": "POI",
+      "display_name": "주문진곰치국",
+      "fingerprint": "e0bc3a9d5a414b6a",
+      "geocoder_version": 4,
+      "lat": 37.506132773,
+      "lon": 126.722401133,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "주문진곰치국 인천광역시 부평구",
+      "result_name": "주문진곰치국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:주문진곰치국 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:04+00:00"
+    },
     "주식회사 고려보쌈|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 무교동 세종대로20길 23",
@@ -13075,6 +13378,17 @@
       ],
       "updated_at": "2026-09-17T23:00:36+00:00"
     },
+    "진명숯불구이|부평구": {
+      "failed": true,
+      "fingerprint": "0a6d14327050b4aa",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:진명숯불구이 인천광역시 부평구",
+        "nominatim:진명숯불구이 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:04+00:00"
+    },
     "진미식당|군포시": {
       "addr_type": "POI",
       "display_name": "진미식당",
@@ -13164,6 +13478,35 @@
         "arcgis:진평９２５ 마포구 서울"
       ],
       "updated_at": "2026-09-17T23:02:51+00:00"
+    },
+    "진향 중화요리|부평구": {
+      "addr_type": "POI",
+      "display_name": "진향 중화요리",
+      "fingerprint": "0099f241b6779ea6",
+      "geocoder_version": 4,
+      "lat": 37.506138154,
+      "lon": 126.72221792,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "진향 중화요리 인천광역시 부평구",
+      "result_name": "진향 중화요리",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:진향 중화요리 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:14+00:00"
+    },
+    "진향중화요리|부평구": {
+      "failed": true,
+      "fingerprint": "60311ff2ddd443ba",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:진향중화요리 인천광역시 부평구",
+        "nominatim:진향중화요리 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:01+00:00"
     },
     "짬뽕지존 서오릉점|은평구": {
       "addr_type": "PointAddress",
@@ -13843,6 +14186,24 @@
       ],
       "updated_at": "2026-09-17T23:01:28+00:00"
     },
+    "초밥몬스터|부평구": {
+      "addr_type": "POI",
+      "display_name": "초밥몬스터",
+      "fingerprint": "c3d2622c83d764c4",
+      "geocoder_version": 4,
+      "lat": 37.471155713,
+      "lon": 126.703857573,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "초밥몬스터 인천광역시 부평구",
+      "result_name": "초밥몬스터",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:초밥몬스터 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:06+00:00"
+    },
     "촌장골 주식회사|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 소하동 소하로109번길 16",
@@ -14445,6 +14806,24 @@
         "arcgis:서울 중구 무교로 17-25"
       ],
       "updated_at": "2026-09-17T23:04:31+00:00"
+    },
+    "태평양볼테기|부평구": {
+      "addr_type": "POI",
+      "display_name": "태평양볼테기",
+      "fingerprint": "3bb4cfb993e04d70",
+      "geocoder_version": 4,
+      "lat": 37.498911308,
+      "lon": 126.721168597,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "태평양볼테기 인천광역시 부평구",
+      "result_name": "태평양볼테기",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:태평양볼테기 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:10+00:00"
     },
     "탱글낙지마당|강서구": {
       "addr_type": "PointAddress",
@@ -15094,6 +15473,24 @@
       ],
       "updated_at": "2026-09-18T23:15:47+00:00"
     },
+    "프릴|부평구": {
+      "addr_type": "POI",
+      "display_name": "프릴",
+      "fingerprint": "1fd6ed8f0b346de9",
+      "geocoder_version": 4,
+      "lat": 37.507723149,
+      "lon": 126.724351792,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "프릴 인천광역시 부평구",
+      "result_name": "프릴",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:프릴 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:10+00:00"
+    },
     "플라이팬|광진구": {
       "addr_type": "POI",
       "display_name": "플라이팬",
@@ -15547,6 +15944,24 @@
         "arcgis:경기 안양시 만안구 삼막로24번길 115"
       ],
       "updated_at": "2026-09-17T23:01:29+00:00"
+    },
+    "한양수산|부평구": {
+      "addr_type": "POI",
+      "display_name": "한양수산",
+      "fingerprint": "689316440c55f468",
+      "geocoder_version": 4,
+      "lat": 37.489021908,
+      "lon": 126.722662495,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한양수산 인천광역시 부평구",
+      "result_name": "한양수산",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한양수산 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:02+00:00"
     },
     "한우농가&고창장어|부천시": {
       "addr_type": "POI",
@@ -16667,6 +17082,24 @@
       ],
       "updated_at": "2026-09-18T23:16:03+00:00"
     },
+    "훈장골|부평구": {
+      "addr_type": "POI",
+      "display_name": "훈장골",
+      "fingerprint": "060f95d3a57f8d04",
+      "geocoder_version": 4,
+      "lat": 37.49373072,
+      "lon": 126.721408741,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "훈장골 인천광역시 부평구",
+      "result_name": "훈장골",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:훈장골 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:04+00:00"
+    },
     "훈장골영등포신길점|영등포구": {
       "addr_type": "PointAddress",
       "display_name": "서울특별시 영등포구 신길동 도신로49길 3",
@@ -16738,6 +17171,24 @@
         "arcgis:경기 안양시 만안구 삼막로 34-15"
       ],
       "updated_at": "2026-09-17T23:00:33+00:00"
+    },
+    "희락|부평구": {
+      "addr_type": "POI",
+      "display_name": "희락",
+      "fingerprint": "86facb7d84e837e0",
+      "geocoder_version": 4,
+      "lat": 37.497782937,
+      "lon": 126.729581089,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "희락 인천광역시 부평구",
+      "result_name": "희락",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:희락 인천광역시 부평구"
+      ],
+      "updated_at": "2026-09-21T08:46:18+00:00"
     },
     "힘찬낙지|광진구": {
       "addr_type": "POI",
