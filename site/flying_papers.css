@@ -148,3 +148,193 @@ body>.explorer-toggle{left:18px;bottom:18px}
 .cross-rank{font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--magenta)}
 @media(max-width:1380px){.cross-showcase-track{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.cross-showcase-head{align-items:flex-start;flex-direction:column}.cross-showcase-track{display:flex;overflow-x:auto}.cross-showcase-card{min-width:190px}}
+
+
+/* Layout integrity: the UI patch inserts cross-showcase between topbar and workspace.
+   Keep those three sections in explicit rows so cards/map/detail never slide under
+   the showcase or escape the viewport. */
+html,body{
+  width:100%;
+  min-width:0;
+}
+body{
+  overflow:hidden!important;
+}
+.shell{
+  height:100dvh!important;
+  min-height:0!important;
+  display:grid!important;
+  grid-template-rows:auto auto minmax(0,1fr)!important;
+  align-content:stretch!important;
+  overflow:hidden!important;
+}
+.topbar,
+.cross-showcase,
+.workspace{
+  position:relative;
+  isolation:isolate;
+  min-width:0;
+}
+.topbar{z-index:30}
+.cross-showcase{z-index:20}
+.workspace{
+  z-index:10;
+  min-height:0!important;
+  overflow:hidden;
+  align-items:stretch;
+}
+.sidebar,
+.map-panel,
+.detail{
+  position:relative;
+  z-index:1;
+  min-width:0;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.sidebar{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.filters,
+.summary{
+  flex:0 0 auto;
+  position:relative;
+  z-index:2;
+}
+.list{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+}
+.map-panel{
+  display:block;
+}
+#map{
+  position:relative;
+  z-index:0;
+  width:100%;
+  height:100%!important;
+  min-height:0!important;
+}
+.map-toolbar{
+  z-index:20!important;
+}
+.maplibregl-map,
+.maplibregl-canvas-container,
+.maplibregl-canvas{
+  z-index:0;
+}
+.maplibregl-control-container,
+.maplibregl-popup{
+  z-index:10;
+}
+.detail{
+  display:block;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  background:var(--paper)!important;
+}
+.restaurant-card,
+.cross-showcase-card{
+  position:relative;
+  z-index:1;
+}
+.cross-showcase{
+  overflow:hidden;
+}
+.cross-showcase-track{
+  min-width:0;
+}
+.map-info{
+  max-width:min(315px,46%)!important;
+}
+.map-actions{
+  max-width:52%;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.map-actions::-webkit-scrollbar{display:none}
+
+/* The desktop workspace should use the remainder of the viewport, not create
+   another implicit page section below the fold. */
+@media(min-width:1121px){
+  .workspace{
+    height:100%;
+  }
+  .sidebar,
+  .map-panel,
+  .detail{
+    height:100%;
+  }
+}
+
+/* On narrower screens switch back to a normal document flow.  Explicitly
+   reset the base template's fixed grid rows, otherwise the injected showcase
+   leaves oversized/overlapping panels. */
+@media(max-width:1120px){
+  body{
+    overflow:auto!important;
+  }
+  .shell{
+    height:auto!important;
+    min-height:100dvh!important;
+    overflow:visible!important;
+    grid-template-rows:auto auto auto!important;
+  }
+  .workspace,
+  .workspace.explorer-collapsed{
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto!important;
+    overflow:visible!important;
+  }
+  .map-panel{
+    grid-row:auto!important;
+    order:1;
+    height:520px!important;
+    min-height:520px!important;
+  }
+  .sidebar{
+    grid-row:auto!important;
+    order:2;
+    height:min(680px,72dvh)!important;
+  }
+  .detail{
+    grid-row:auto!important;
+    order:3;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  #map{
+    min-height:100%!important;
+  }
+  .workspace.explorer-collapsed .sidebar{
+    display:none!important;
+  }
+}
+@media(max-width:760px){
+  .shell{
+    padding:8px!important;
+    gap:8px!important;
+  }
+  .topbar{
+    padding:16px!important;
+  }
+  .cross-showcase{
+    padding:14px!important;
+  }
+  .map-panel{
+    height:430px!important;
+    min-height:430px!important;
+  }
+  .sidebar{
+    height:620px!important;
+  }
+  .map-toolbar{
+    top:16px!important;
+    left:16px!important;
+    right:16px!important;
+  }
+}
