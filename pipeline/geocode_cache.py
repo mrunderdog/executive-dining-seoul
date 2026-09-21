@@ -322,9 +322,24 @@ def main() -> None:
             items[key]={"failed":True,**stamp}; failed+=1
             print(f"[{i}/{len(todo)}] NO_MATCH {key}")
         save_cache(cache)
-    success=sum(isinstance(v,dict) and isinstance(v.get("lat"),(int,float)) for v in items.values())
+    current_keys={f"{r.get('name','')}|{r.get('origin','')}" for r in records}
+    success=sum(
+        isinstance(items.get(k),dict)
+        and isinstance((items.get(k) or {}).get("lat"),(int,float))
+        and isinstance((items.get(k) or {}).get("lon"),(int,float))
+        for k in current_keys
+    )
     save_cache(cache)
-    print(json.dumps({"records":len(records),"processed":len(todo),"requests":requests,"ok":ok,"failed":failed,"success_total":success,"coverage":round(success/len(records),4) if records else 0},ensure_ascii=False))
+    print(json.dumps({
+        "records":len(records),
+        "processed":len(todo),
+        "requests":requests,
+        "ok":ok,
+        "failed":failed,
+        "success_total":success,
+        "coverage":round(success/len(records),4) if records else 0,
+        "cache_entries":len(items),
+    },ensure_ascii=False))
 
 
 if __name__=="__main__":
