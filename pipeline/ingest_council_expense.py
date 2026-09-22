@@ -30,7 +30,7 @@ ALIASES = {
     "purpose": ["집행목적", "사용목적", "목적", "내용", "적요"],
     "people": ["인원", "참석인원", "대상인원", "사용인원"],
     "amount": ["금액", "집행금액", "사용금액", "결제금액", "지출금액"],
-    "role": ["사용자", "사용자명", "직책", "집행자", "부서", "구분"],
+    "role": ["사용자", "사용자명", "직책", "직위", "집행자", "부서명", "부서", "구분"],
     "method": ["결제방법", "지급방법", "결제수단"],
 }
 
@@ -155,14 +155,28 @@ def find_header(rows):
 
 def map_columns(row):
     result = {}
+    # Role-like headers are unusually ambiguous: a single table may contain
+    # both "부서명" and the actual payer/user ("사용자"). Resolve all other
+    # fields left-to-right, then choose role by semantic priority instead of
+    # whichever role-like header appears first.
     for idx, cell in enumerate(row):
         c = norm_header(cell)
         if not c:
             continue
         for field, aliases in ALIASES.items():
-            if field in result: continue
+            if field == "role" or field in result:
+                continue
             if any(norm_header(a) == c or norm_header(a) in c for a in aliases):
                 result[field] = idx
+
+    role_priority = ("사용자", "사용자명", "직책", "직위", "집행자", "부서명", "부서", "구분")
+    cells = [norm_header(x) for x in row]
+    for alias in role_priority:
+        a = norm_header(alias)
+        hit = next((idx for idx, value in enumerate(cells) if value and (a == value or a in value)), None)
+        if hit is not None:
+            result["role"] = hit
+            break
     return result
 
 
@@ -182,12 +196,35 @@ def infer_leadership_role(title):
     return ""
 
 
-def resolve_role(cell_value, sheet_name, default_role):
+def infer_leadership_role_from_purpose(value):
+    """Recover payer leadership only from explicit parenthetical/bracket labels.
+
+    Some councils publish a generic user value (e.g. 안성시의회) and put the
+    accountable chair in the purpose text as "(의장)" or "(부의장)". Keep this
+    deliberately strict so phrases such as "시군의회의장협의회" are not
+    misclassified as payer roles.
+    """
+    s = clean_text(value)
+    if re.search(r"[\(\[]\s*1\s*부의장\s*[\)\]]", s):
+        return "1부의장"
+    if re.search(r"[\(\[]\s*2\s*부의장\s*[\)\]]", s):
+        return "2부의장"
+    if re.search(r"[\(\[]\s*부의장\s*[\)\]]", s):
+        return "부의장"
+    if re.search(r"[\(\[]\s*의장\s*[\)\]]", s):
+        return "의장"
+    return ""
+
+
+def resolve_role(cell_value, sheet_name, default_role, purpose=""):
     """Prefer explicit leadership context over generic department labels."""
     cell_role = clean_text(cell_value)
     explicit = infer_leadership_role(cell_role)
     if explicit:
         return explicit
+    purpose_role = infer_leadership_role_from_purpose(purpose)
+    if purpose_role:
+        return purpose_role
     contextual = infer_leadership_role(sheet_name) or infer_leadership_role(default_role)
     if contextual:
         return contextual
@@ -238,6 +275,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
         structural_date = bool(re.fullmatch(r"(?:합계|총계|누계|계)", used_date or ""))
         if structural_date or (any(k in joined for k in ("합계", "총계", "누계")) and not used_date):
             continue
+        purpose = clean_text(cell(row, mapping, "purpose"))
         raw = {
             "region": source_meta["region"],
             "jurisdiction": source_meta["jurisdiction"],
@@ -251,10 +289,15 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "source_row": ri,
             "used_date": used_date,
             "used_time": clean_text(cell(row, mapping, "time")),
-            "role": resolve_role(cell(row, mapping, "role"), sheet_name, source_meta.get("default_role")),
+            "role": resolve_role(
+                cell(row, mapping, "role"),
+                sheet_name,
+                source_meta.get("default_role"),
+                purpose=purpose,
+            ),
             "merchant": merchant,
             "address": clean_text(cell(row, mapping, "address")),
-            "purpose": clean_text(cell(row, mapping, "purpose")),
+            "purpose": purpose,
             "people": parse_people(cell(row, mapping, "people")),
             "amount": amount,
             "payment_method": clean_text(cell(row, mapping, "method")),
