@@ -3,7 +3,7 @@
 from pathlib import Path
 
 from coordinate_selection import select_coordinate
-from ingest_council_expense import map_columns, resolve_role
+from ingest_council_expense import map_columns, normalize_sheet, resolve_role
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -66,6 +66,35 @@ def test_address_mismatch_coordinate_is_suppressed():
                for x in meta.get("rejected_candidates", [])), meta
 
 
+
+
+def test_pdf_preamble_role_and_merged_date():
+    rows = [
+        ["2026년 2분기 업무추진비 집행내역(부의장)"],
+        ["사용일자", "집행목적", "집행장소", "대상인원", "집행금액"],
+        ["2026-04-03", "간담회", "테스트식당", 4, 120000],
+        ["", "간담회", "다른식당", 3, 90000],
+    ]
+    meta = {
+        "region": "경기",
+        "jurisdiction": "테스트시",
+        "institution": "테스트시의회",
+        "source": "test",
+        "post_url": "https://example.invalid/post",
+        "attachment_url": "https://example.invalid/file",
+        "attachment_name": "test.pdf",
+        "period": [2026, None, 2],
+        "default_role": "",
+    }
+    normalized, info = normalize_sheet(rows, "pdf-page-1", meta)
+    assert len(normalized) == 2, normalized
+    assert normalized[0]["role"] == "부의장", normalized[0]
+    assert normalized[1]["role"] == "부의장", normalized[1]
+    assert normalized[1]["used_date"] == "2026-04-03", normalized[1]
+    assert normalized[1]["date_inferred_from_previous_row"] is True, normalized[1]
+    assert info.get("section_role") == "부의장", info
+
+
 def test_removed_selected_location_button():
     template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     map_js = (ROOT / "site" / "maplibre.js").read_text(encoding="utf-8")
@@ -80,6 +109,7 @@ def main():
         test_role_from_purpose,
         test_national_name_only_coordinate_is_suppressed,
         test_address_mismatch_coordinate_is_suppressed,
+        test_pdf_preamble_role_and_merged_date,
         test_removed_selected_location_button,
     ]
     for fn in tests:
