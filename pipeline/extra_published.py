@@ -166,6 +166,8 @@ def central_records(max_records: int = 120) -> list[dict]:
                     "중앙행정기관이 공개한 장·차관/고위직 업무추진비의 파싱 가능한 XLS/XLSX/CSV 원자료 기반."
                 ),
                 "url": t(override.get("url")),
+                "verified_at": t(override.get("verified_at")),
+                "verification_confidence": t(override.get("confidence")),
             },
             "evidence": {
                 "visits": visits,
