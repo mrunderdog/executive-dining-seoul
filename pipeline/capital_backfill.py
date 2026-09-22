@@ -91,6 +91,7 @@ class AnchorParser(HTMLParser):
                 "href": attrs.get("href", ""),
                 "onclick": attrs.get("onclick", ""),
                 "title": attrs.get("title", ""),
+                "attrs": attrs,
                 "text": [],
             })
             return
@@ -170,6 +171,19 @@ def anchors(url: str, text: str):
             resolved = onclick_url(url, a.get("onclick", ""))
         if not resolved:
             continue
+        attrs = a.get("attrs") or {}
+        low = resolved.lower()
+        if "bbsattachdownload.do" in low and "key=" not in low:
+            haystacks = [a.get("onclick", "")] + [str(v) for v in attrs.values()]
+            key = ""
+            for raw in haystacks:
+                m = re.search(r"(?:key\s*[=:]\s*|['\"])([0-9a-f]{32,128})(?:['\"]|$)", html.unescape(str(raw)), flags=re.I)
+                if m:
+                    key = m.group(1)
+                    break
+            if key:
+                sep = "&" if "?" in resolved else "?"
+                resolved = f"{resolved}{sep}key={urllib.parse.quote(key)}"
         out.append({"text": a.get("text", ""), "url": resolved, "onclick": a.get("onclick", "")})
     return out
 
@@ -224,7 +238,7 @@ def post_like(a, src: Source):
 def attachment_like(a):
     # Expense attachment filenames themselves normally contain '업무추진비', so never exclude on that word.
     t, u = a["text"].lower(), a["url"].lower()
-    file_ext = any(ext in t or ext in u for ext in (".xlsx", ".xls", ".csv", ".pdf"))
+    file_ext = any(ext in t or ext in u for ext in (".xlsx", ".xls", ".csv", ".pdf", ".zip"))
     file_route = any(token in u for token in ("download", "filedown", "attach", "atchfile", "bbsfile"))
     return file_ext or file_route
 
@@ -236,6 +250,12 @@ def regex_attachment_fallback(base: str, text: str):
     for m in re.finditer(r"['\"]([^'\"]*(?:download|filedown|attach|atchfile|bbsfile)[^'\"]*)['\"]", text, flags=re.I):
         raw = html.unescape(m.group(1))
         url = urllib.parse.urljoin(base, raw)
+        if "bbsattachdownload.do" in url.lower() and "key=" not in url.lower():
+            nearby = text[max(0, m.start()-500):min(len(text), m.end()+500)]
+            km = re.search(r"(?:key\s*[=:]\s*|['\"])([0-9a-f]{32,128})(?:['\"]|$)", nearby, flags=re.I)
+            if km:
+                sep = "&" if "?" in url else "?"
+                url = f"{url}{sep}key={urllib.parse.quote(km.group(1))}"
         if url not in seen:
             seen.add(url); results.append({"text": "attachment", "url": url})
     # At minimum preserve visible XLS/XLSX filenames for lineage even if the board hides the URL in JS.
