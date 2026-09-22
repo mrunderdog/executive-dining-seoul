@@ -322,7 +322,11 @@ def find_header(rows):
         score, matched = header_score(row)
         if score > best_single[0]:
             best_single = (score, i, matched, list(row), 1)
-    if best_single[0] >= 4:
+    if (
+        best_single[0] >= 4
+        and "merchant" in best_single[2]
+        and "amount" in best_single[2]
+    ):
         return best_single
 
     best_pair = (-1, -1, set(), [], 2)
@@ -338,7 +342,11 @@ def find_header(rows):
         score, matched = header_score(combined)
         if score > best_pair[0]:
             best_pair = (score, i, matched, combined, 2)
-    return best_pair if best_pair[0] >= 4 else None
+    return (
+        best_pair
+        if best_pair[0] >= 4 and "merchant" in best_pair[2] and "amount" in best_pair[2]
+        else None
+    )
 
 
 def map_columns(row):
