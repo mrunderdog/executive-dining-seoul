@@ -1,13 +1,13 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-21T10:24:00
-- Published restaurant entities: **733**
+- Generated: 2026-09-22T02:41:32
+- Published restaurant entities: **792**
 - Cross-institution restaurants: **94**
 - Cross-origin restaurants: **11**
 - Central top-official restaurants: **118**
 - Regional mayor/vice-mayor restaurants: **20**
-- Entity merges: **23**
-- Merge audit groups: **22**
+- Entity merges: **24**
+- Merge audit groups: **23**
 - Cross-origin review candidates: **13**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
@@ -128,15 +128,16 @@
 | 11 | 여의도장어 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
 | 12 | 일월담 | 2 | 도봉구 · 의정부시 | strict_entity_key | 경기 의정부시 장암동 107-4 |
 | 13 | 탱글낙지마당 | 2 | 강서구 · 양천구 | strict_entity_key | 서울 양천구 등촌로 186 |
-| 14 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
-| 15 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
-| 16 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
-| 17 | 진향중화요리 | 2 | 부평구 | strict_entity_key |  |
-| 18 | 철원오대쌀갓지은솥밥 | 2 | 의정부시 | strict_entity_key |  |
-| 19 | 해량 260도 | 2 | 연수구 | strict_entity_key |  |
-| 20 | 챠이797청계천점 | 2 | 중앙정부 | strict_entity_key |  |
-| 21 | 매생이굴국밥 | 2 | 중앙정부 | strict_entity_key |  |
-| 22 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
+| 14 | 생선명가거북명태 | 2 | 광명시 · 금천구 | strict_entity_key | 경기 광명시 범안로 856 |
+| 15 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
+| 16 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
+| 17 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
+| 18 | 진향중화요리 | 2 | 부평구 | strict_entity_key |  |
+| 19 | 철원오대쌀갓지은솥밥 | 2 | 의정부시 | strict_entity_key |  |
+| 20 | 해량 260도 | 2 | 연수구 | strict_entity_key |  |
+| 21 | 챠이797청계천점 | 2 | 중앙정부 | strict_entity_key |  |
+| 22 | 매생이굴국밥 | 2 | 중앙정부 | strict_entity_key |  |
+| 23 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
 
 ## Cross-origin review queue
 

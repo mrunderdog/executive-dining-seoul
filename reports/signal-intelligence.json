@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-21T10:24:00",
-  "dataset_records": 733,
+  "generated_at": "2026-09-22T02:41:32",
+  "dataset_records": 792,
   "cross_institution_count": 94,
   "cross_origin_count": 11,
   "top_official_count": 118,
   "regional_head_count": 20,
-  "entity_merges": 23,
-  "entity_merge_audit_count": 22,
+  "entity_merges": 24,
+  "entity_merge_audit_count": 23,
   "entity_merge_audit": [
     {
       "name": "외계인키친",
@@ -296,6 +296,26 @@
       "corroborated_address_bridges": 0,
       "visits": 16,
       "spend": 2888000
+    },
+    {
+      "name": "생선명가거북명태",
+      "address": "경기 광명시 범안로 856",
+      "origins": [
+        "광명시",
+        "금천구"
+      ],
+      "institutions": [
+        "광명시의회"
+      ],
+      "source_keys": [
+        "생선명가거북명태|금천구",
+        "생선명가거북명태|광명시"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 8,
+      "spend": 538000
     },
     {
       "name": "주식회사 고려보쌈",
