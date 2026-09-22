@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from published_sources import _category
+from published_sources import _category, ENTITY_OVERRIDES
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -93,7 +93,9 @@ def central_records(max_records: int = 120) -> list[dict]:
     out = []
     for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
         name = t(c.get("merchant"))
-        address = t(c.get("address"))
+        override = ENTITY_OVERRIDES.get(name, {})
+        address = t(c.get("address")) or t(override.get("address"))
+        display_name = t(override.get("display")) or name
         if not name:
             continue
         inst = c.get("institutions") or []
@@ -151,15 +153,19 @@ def central_records(max_records: int = 120) -> list[dict]:
                 "vice_minister_visits": vice_minister_visits,
             },
             "address": address,
-            "search_query": f"{name} {address or '대한민국'}",
+            "search_query": f"{display_name} {address or '대한민국'}",
             "business": {
-                "display": name,
+                "display": display_name,
                 "category": _category(name),
-                "phone": "",
-                "status": "중앙부처 공식 업무추진비 원자료상 사용처",
+                "phone": t(override.get("phone")),
+                "status": "중앙부처 공식 업무추진비 원자료 + 업체정보 보강" if override else "중앙부처 공식 업무추진비 원자료상 사용처",
                 "rating": "",
-                "note": "중앙행정기관이 공개한 장·차관/고위직 업무추진비의 파싱 가능한 XLS/XLSX/CSV 원자료 기반.",
-                "url": "",
+                "note": (
+                    "중앙행정기관이 공개한 장·차관/고위직 업무추진비 원자료 기반. 주소·전화·업종은 확인 가능한 업체만 별도 보강."
+                    if override else
+                    "중앙행정기관이 공개한 장·차관/고위직 업무추진비의 파싱 가능한 XLS/XLSX/CSV 원자료 기반."
+                ),
+                "url": t(override.get("url")),
             },
             "evidence": {
                 "visits": visits,
