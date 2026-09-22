@@ -347,6 +347,14 @@ ENTITY_ALIASES = {
 }
 
 ENTITY_OVERRIDES = {
+    "마키노차야 더가우": {"address":"세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호","phone":"044-272-0060","category":"뷔페 · 한식","url":"https://www.onkorea.co.kr/sejong/uVGwNPu9Y02V"},
+    "크리스탈제이드 서머셋점": {"display":"크리스탈제이드 광화문 상하이 팰리스점","address":"서울특별시 종로구 율곡로2길 7, 서머셋팰리스 1층","phone":"02-720-0133","category":"중식 · 상하이 요리","url":"https://www.crystaljade.co.kr/menu/menuInfo.do?shGb=B&shSq=23"},
+    "중원내자점": {"address":"서울특별시 종로구 내자동 178-1","phone":"02-730-3634","category":"한식 · 백반/한정식","url":"https://place.udanax.org/p/304206/%EC%A4%91%EC%9B%90%20%EB%82%B4%EC%9E%90%EC%A0%90"},
+    "워낭2013": {"address":"세종특별자치시 도움8로 81","phone":"044-864-8624","category":"고기·구이 · 한우/한식","url":"https://www.tabling.co.kr/place/677ccf9f66de5f0698848fd3"},
+    "일품당샤브샤브": {"display":"일품당 광화문점","address":"서울특별시 종로구 세종대로23길 25","phone":"02-733-4949","category":"샤브샤브 · 스끼야끼","url":"https://www.tabling.co.kr/place/677cc7ab66de5f0698752683"},
+    "태진복집": {"address":"서울특별시 종로구 자하문로10길 10-24","phone":"02-733-3730","category":"복어 · 한식","url":"https://www.tabling.co.kr/place/677cc7a366de5f069875161c"},
+    "능라도 광화문점": {"address":"서울특별시 종로구 새문안로3길 15","phone":"02-730-3989","category":"한식 · 평양냉면","url":"https://www.tabling.co.kr/place/677cccb266de5f06987f94c6"},
+    "테이엔": {"address":"서울특별시 종로구 경희궁2길 14-6","phone":"02-733-5327","category":"일식 · 이자카야/벤또","url":"https://www.tabling.co.kr/place/677cc7b166de5f0698753376"},
     "고봉산한우터": {"address":"경기도 고양시 일산동구 성석로 17","phone":"031-975-9234","category":"고기·구이 · 한우","url":"https://place.udanax.org/p/12167/%EA%B3%A0%EB%B4%89%EC%82%B0%ED%95%9C%EC%9A%B0%ED%84%B0"},
     "원주추옥": {"address":"경기도 고양시 덕양구 원당로33번길 58","phone":"031-968-7888","category":"국물·탕 · 추어탕","url":"https://www.diningcode.com/profile.php?rid=TREuf7DSQEq9"},
     "맛있는정원": {"address":"경기도 고양시 덕양구 성사동 338-20","phone":"031-967-9888","category":"고기·구이","url":""},
