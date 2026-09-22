@@ -130,6 +130,18 @@ def test_removed_selected_location_button():
     assert "선택 위치" not in template
 
 
+
+def test_template_has_no_legacy_leaflet_runtime():
+    template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
+    build = (ROOT / "pipeline" / "build_site.py").read_text(encoding="utf-8")
+    assert "leaflet.js" not in template.lower()
+    assert "leaflet.css" not in template.lower()
+    assert "L.map(" not in template
+    assert "<!-- APP_RUNTIME -->" in template
+    assert "site/app.js" in build
+    assert "site/app.css" in build
+
+
 def main():
     tests = [
         test_role_column_priority,
@@ -139,6 +151,7 @@ def main():
         test_pdf_preamble_role_and_merged_date,
         test_pdf_role_context_can_carry_across_pages,
         test_removed_selected_location_button,
+        test_template_has_no_legacy_leaflet_runtime,
     ]
     for fn in tests:
         fn()
