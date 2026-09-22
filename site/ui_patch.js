@@ -116,6 +116,19 @@
   });
   summary.appendChild(scoreHelp);
 
+  const dataHelp=document.createElement('button');
+  dataHelp.type='button';
+  dataHelp.className='score-help';
+  dataHelp.textContent='데이터 현황';
+  dataHelp.title='현재 공개 데이터의 위치 검증·지도 표시 현황';
+  dataHelp.addEventListener('click',()=>{
+    const total=Number(STATS.total||DATA.length);
+    const mapped=Number(STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length);
+    const a=Number(STATS.location_grade_a||0),b=Number(STATS.location_grade_b||0),c=Number(STATS.location_grade_c||Math.max(0,total-mapped));
+    alert('현재 공개 식당 '+total.toLocaleString('ko-KR')+'곳\n\n지도 표시 '+mapped.toLocaleString('ko-KR')+'곳\n위치 미확인 '+Math.max(0,total-mapped).toLocaleString('ko-KR')+'곳\n\nA 주소·위치 확인 '+a.toLocaleString('ko-KR')+'곳\nB 위치 확인·주소 미확인 '+b.toLocaleString('ko-KR')+'곳\nC 원자료만·위치 미확인 '+c.toLocaleString('ko-KR')+'곳\n\n위치 미확인 식당은 잘못된 마커를 만들지 않기 위해 지도에 표시하지 않습니다.');
+  });
+  summary.appendChild(dataHelp);
+
   document.body.classList.add('ui-v2');
   sidebar.id='explorer-panel';
 
