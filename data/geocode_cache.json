@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 165,
+    "failed_count": 162,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1106,
-    "success_count": 941,
-    "updated_at": "2026-09-22T07:35:15+00:00"
+    "success_count": 944,
+    "updated_at": "2026-09-22T07:36:53+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -1930,15 +1930,22 @@
       "updated_at": "2026-09-18T00:09:13+00:00"
     },
     "글림|수원시": {
-      "failed": true,
-      "fingerprint": "c07947243711b424",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 수원시 팔달구 인계동 권광로175번길 44",
+      "fingerprint": "e0bee6ba5c73ca19",
       "geocoder_version": 4,
+      "lat": 37.264046663076,
+      "lon": 127.029997104327,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 수원시 팔달구 권광로175번길 44",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:글림 수원특례시",
-        "nominatim:글림 수원특례시"
+        "arcgis:경기도 수원시 팔달구 권광로175번길 44"
       ],
-      "updated_at": "2026-09-18T04:32:57+00:00"
+      "updated_at": "2026-09-22T07:36:51+00:00"
     },
     "금각도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -8716,22 +8723,22 @@
       "updated_at": "2026-09-18T00:07:37+00:00"
     },
     "소들녘|광명시": {
-      "addr_type": "POI",
-      "display_name": "소들녘",
-      "fingerprint": "4a400a518ba40670",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 철산동 오리로876번길 6",
+      "fingerprint": "9cf6f156103988b9",
       "geocoder_version": 4,
-      "lat": 37.476469811,
-      "lon": 126.866011676,
-      "match_mode": "name",
+      "lat": 37.476470660174,
+      "lon": 126.866008186185,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "소들녘 광명시",
-      "result_name": "소들녘",
+      "query": "경기도 광명시 오리로876번길 6",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:소들녘 광명시"
+        "arcgis:경기도 광명시 오리로876번길 6"
       ],
-      "updated_at": "2026-09-22T07:23:28+00:00"
+      "updated_at": "2026-09-22T07:36:52+00:00"
     },
     "소래포구해남수산|인천시청": {
       "addr_type": "POI",
@@ -9690,22 +9697,22 @@
       "updated_at": "2026-09-18T00:08:35+00:00"
     },
     "시청앞두루치기|광명시": {
-      "addr_type": "POI",
-      "display_name": "시청앞두루치기",
-      "fingerprint": "28ede30f4973f85b",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 철산동 시청로 34",
+      "fingerprint": "b72bbc9c24987516",
       "geocoder_version": 4,
-      "lat": 37.479838803,
-      "lon": 126.864200002,
-      "match_mode": "name",
+      "lat": 37.479760138076,
+      "lon": 126.864196605451,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "시청앞두루치기 광명시",
-      "result_name": "시청앞두루치기",
+      "query": "경기도 광명시 시청로 34",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:시청앞두루치기 광명시"
+        "arcgis:경기도 광명시 시청로 34"
       ],
-      "updated_at": "2026-09-22T07:23:28+00:00"
+      "updated_at": "2026-09-22T07:36:53+00:00"
     },
     "시청해우리|중앙정부": {
       "addr_type": "POI",
@@ -12551,15 +12558,22 @@
       "updated_at": "2026-09-18T00:08:27+00:00"
     },
     "이대감|과천시": {
-      "failed": true,
-      "fingerprint": "46c5efc25286f9b4",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 과천시 갈현동 찬우물로 28",
+      "fingerprint": "1683c76afb16d899",
       "geocoder_version": 4,
+      "lat": 37.417040619728,
+      "lon": 126.98451496986,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 과천시 찬우물로 28",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:이대감 과천시",
-        "nominatim:이대감 과천시"
+        "arcgis:경기도 과천시 찬우물로 28"
       ],
-      "updated_at": "2026-09-18T23:15:34+00:00"
+      "updated_at": "2026-09-22T07:36:53+00:00"
     },
     "이도맨숀|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -17848,15 +17862,22 @@
       "updated_at": "2026-09-18T00:07:42+00:00"
     },
     "해화참치|수원시": {
-      "failed": true,
-      "fingerprint": "34cc5b4d5c4e8770",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 수원시 팔달구 인계동 경수대로 424",
+      "fingerprint": "57e916bb0f194433",
       "geocoder_version": 4,
+      "lat": 37.26391821041,
+      "lon": 127.025926013955,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 수원시 팔달구 경수대로 424",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:해화참치 수원특례시",
-        "nominatim:해화참치 수원특례시"
+        "arcgis:경기도 수원시 팔달구 경수대로 424"
       ],
-      "updated_at": "2026-09-18T04:32:49+00:00"
+      "updated_at": "2026-09-22T07:36:51+00:00"
     },
     "향미정|중앙정부": {
       "addr_type": "POI",
