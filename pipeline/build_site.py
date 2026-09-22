@@ -75,11 +75,18 @@ def main():
     coord_rejected = 0
     for r in records:
         key, g, meta = select_coordinate(r, geo)
+        has_address = bool(str(r.get("address") or "").strip())
         if g:
             r["lat"] = float(g["lat"])
             r["lon"] = float(g["lon"])
             r["coordinate_source_key"] = key
             coord_count += 1
+        if has_address and g:
+            r["location_verification"] = {"grade": "A", "label": "주소·위치 확인"}
+        elif g:
+            r["location_verification"] = {"grade": "B", "label": "위치 확인 · 주소 미확인"}
+        else:
+            r["location_verification"] = {"grade": "C", "label": "원자료만 · 위치 미확인"}
         coord_rejected += len(meta.get("rejected_candidates") or [])
 
     stats = dict(payload.get("stats") or {})
@@ -89,6 +96,9 @@ def main():
     stats.setdefault("both", sum(bool(r.get("destination")) and bool(r.get("executive")) for r in records))
     stats["coordinates"] = coord_count
     stats["coordinates_missing"] = len(records) - coord_count
+    stats["location_grade_a"] = sum((r.get("location_verification") or {}).get("grade") == "A" for r in records)
+    stats["location_grade_b"] = sum((r.get("location_verification") or {}).get("grade") == "B" for r in records)
+    stats["location_grade_c"] = sum((r.get("location_verification") or {}).get("grade") == "C" for r in records)
     stats["coordinate_candidates_rejected"] = coord_rejected
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
 
