@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 163,
+    "failed_count": 164,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1107,
+    "record_count": 1108,
     "success_count": 944,
-    "updated_at": "2026-09-22T08:25:37+00:00"
+    "updated_at": "2026-09-22T10:01:24+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -17835,6 +17835,17 @@
         "arcgis:서울 강남구 영동대로 336 (대치동)"
       ],
       "updated_at": "2026-09-18T00:08:30+00:00"
+    },
+    "해초섬/(주)서울스퀘어해초섬|중앙정부": {
+      "failed": true,
+      "fingerprint": "a1b064afd96cd54c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:해초섬/(주)서울스퀘어해초섬 대한민국",
+        "nominatim:해초섬/(주)서울스퀘어해초섬 대한민국"
+      ],
+      "updated_at": "2026-09-22T10:01:24+00:00"
     },
     "해초섬|중앙정부": {
       "addr_type": "POI",
