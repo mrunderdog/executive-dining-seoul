@@ -129,18 +129,42 @@ def parse_date(v):
     return s
 
 
-def fetch_binary(url: str, referer: str = "") -> bytes:
+def _html_attachment_candidates(base_url: str, blob: bytes) -> list[str]:
+    text = blob.decode("utf-8", errors="ignore")
+    candidates = []
+    patterns = [
+        r'''(?:src|href|data)\s*=\s*["']([^"']+)["']''',
+        r'''["']([^"']+\.(?:pdf|xlsx?|xls|csv|zip)(?:\?[^"']*)?)["']''',
+        r'''["']([^"']*(?:download|filedown|attach|atchfile|bbsfile)[^"']*)["']''',
+    ]
+    seen = set()
+    for pat in patterns:
+        for m in re.finditer(pat, text, flags=re.I):
+            raw = html.unescape(m.group(1)).strip()
+            if not raw or raw.lower().startswith(("javascript:", "data:")):
+                continue
+            url = urllib.parse.urljoin(base_url, raw)
+            low = url.lower()
+            if not any(token in low for token in (".pdf", ".xlsx", ".xls", ".csv", ".zip", "download", "filedown", "attach", "atchfile", "bbsfile")):
+                continue
+            if url == base_url or url in seen:
+                continue
+            seen.add(url)
+            candidates.append(url)
+    return candidates
+
+
+def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     """Download public-board attachments with browser-like session semantics.
 
-    Several council file endpoints require a Referer and/or a session cookie
-    established by visiting the board page first. Retry transient server errors
-    and reject HTML error/login pages before they reach the spreadsheet parser.
+    Several council endpoints return a small HTML viewer/wrapper rather than
+    the attachment bytes. Follow one nested PDF/download target when present.
     """
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     base_headers = {
         "User-Agent": UA,
-        "Accept": "application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv,*/*;q=0.8",
+        "Accept": "application/pdf,application/zip,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv,*/*;q=0.8",
         "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.6",
     }
     if referer:
@@ -153,7 +177,6 @@ def fetch_binary(url: str, referer: str = "") -> bytes:
             with opener.open(warm, timeout=25) as r:
                 r.read(2048)
         except Exception:
-            # Referer is still useful even when the warm-up page times out.
             pass
 
     last_exc = None
@@ -163,13 +186,21 @@ def fetch_binary(url: str, referer: str = "") -> bytes:
             with opener.open(req, timeout=75) as r:
                 blob = r.read()
                 ctype = (r.headers.get("Content-Type") or "").lower()
+                final_url = r.geturl()
             head = blob[:512].lstrip().lower()
-            if (
+            is_html = (
                 "text/html" in ctype
                 or head.startswith(b"<!doctype html")
                 or head.startswith(b"<html")
-            ):
-                raise ValueError(f"attachment endpoint returned HTML ({ctype or 'unknown content-type'})")
+            )
+            if is_html:
+                if _depth < 2:
+                    for nested in _html_attachment_candidates(final_url or url, blob):
+                        try:
+                            return fetch_binary(nested, final_url or url, _depth + 1)
+                        except Exception:
+                            continue
+                raise ValueError(f"attachment endpoint returned HTML wrapper with no usable file ({ctype or 'unknown content-type'})")
             if len(blob) < 32:
                 raise ValueError(f"attachment response too small ({len(blob)} bytes)")
             return blob
