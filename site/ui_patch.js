@@ -120,19 +120,70 @@
   dataHelp.type='button';
   dataHelp.className='score-help';
   dataHelp.textContent='데이터 현황';
-  dataHelp.title='현재 공개 데이터의 위치 검증·지도 표시 현황';
-  dataHelp.addEventListener('click',()=>{
+  dataHelp.title='현재 공개 데이터의 위치 검증·기관별 수집 상태';
+
+  const SOURCE_LABELS={
+    goyang:'고양시의회',suwon:'수원시의회',hwaseong:'화성시의회',seongnam:'성남시의회',
+    bucheon:'부천시의회',namyangju:'남양주시의회',uijeongbu:'의정부시의회',gwangmyeong:'광명시의회',
+    gimpo:'김포시의회',ansan:'안산시의회',paju:'파주시의회',anseong:'안성시의회',icheon:'이천시의회',
+    osan:'오산시의회',pocheon:'포천시의회',yangpyeong:'양평군의회',yongin:'용인시의회',gwangju:'광주시의회',
+    guri:'구리시의회',uiwang:'의왕시의회',gunpo:'군포시의회',dongducheon:'동두천시의회',gwacheon:'과천시의회',
+    gapyeong:'가평군의회',siheung:'시흥시의회',yeoju:'여주시의회',yangju:'양주시의회',hanam:'하남시의회',
+    yeoncheon:'연천군의회',michuhol:'미추홀구의회',bupyeong:'부평구의회',jemulpo:'제물포구의회',
+    yeongjong:'영종구의회',seohae:'서해구의회',yeonsu:'연수구의회',gyeyang:'계양구의회',ganghwa:'강화군의회',
+    ongjin:'옹진군의회',gyeonggi_council:'경기도의회',incheon_council:'인천시의회'
+  };
+  const STATUS_LABELS={
+    PUBLISHED:'게시 중',INGESTION_REVIEW:'수집·인입 점검',ROLE_OR_SOURCE_SCOPE_REVIEW:'파서/역할 점검',
+    NO_CANDIDATES:'파서/역할 점검',DISCOVERY_REVIEW:'소스 탐색',BELOW_PUBLICATION_THRESHOLDS:'게시 기준 미달',
+    CANDIDATE_BUILD_REVIEW:'후보 생성 점검',PUBLISH_PIPELINE_REVIEW:'게시 파이프라인 점검',NO_DATA:'자료 없음'
+  };
+  const STATUS_ORDER={
+    PUBLISHED:0,BELOW_PUBLICATION_THRESHOLDS:1,PUBLISH_PIPELINE_REVIEW:2,CANDIDATE_BUILD_REVIEW:3,
+    ROLE_OR_SOURCE_SCOPE_REVIEW:4,NO_CANDIDATES:5,INGESTION_REVIEW:6,DISCOVERY_REVIEW:7,NO_DATA:8
+  };
+
+  function closeDataStatus(){
+    document.querySelector('.data-status-backdrop')?.remove();
+  }
+  function showDataStatus(){
+    closeDataStatus();
     const total=Number(STATS.total||DATA.length);
     const mapped=Number(STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length);
     const a=Number(STATS.location_grade_a||0),b=Number(STATS.location_grade_b||0),c=Number(STATS.location_grade_c||Math.max(0,total-mapped));
-    const hs=STATS.source_health_summary||{};
-    const published=Number(hs.PUBLISHED||0);
-    const discovery=Number(hs.DISCOVERY_REVIEW||0);
-    const ingestion=Number(hs.INGESTION_REVIEW||0);
-    const parser=Number(hs.ROLE_OR_SOURCE_SCOPE_REVIEW||0)+Number(hs.NO_CANDIDATES||0);
-    const below=Number(hs.BELOW_PUBLICATION_THRESHOLDS||0);
-    alert('현재 공개 식당 '+total.toLocaleString('ko-KR')+'곳\n\n지도 표시 '+mapped.toLocaleString('ko-KR')+'곳\n위치 미확인 '+Math.max(0,total-mapped).toLocaleString('ko-KR')+'곳\n\nA 주소·위치 확인 '+a.toLocaleString('ko-KR')+'곳\nB 위치 확인·주소 미확인 '+b.toLocaleString('ko-KR')+'곳\nC 원자료만·위치 미확인 '+c.toLocaleString('ko-KR')+'곳\n\n기관 데이터 상태\n게시 중 '+published+'개\n수집·인입 점검 '+ingestion+'개\n파서/역할 점검 '+parser+'개\n소스 탐색 '+discovery+'개\n게시 기준 미달 '+below+'개\n\n위치 미확인 식당은 잘못된 마커를 만들지 않기 위해 지도에 표시하지 않습니다.');
-  });
+    const sourceHealth=STATS.source_health||{};
+    const rows=Object.entries(sourceHealth).sort((x,y)=>{
+      const ax=STATUS_ORDER[x[1]?.diagnosis]??99, ay=STATUS_ORDER[y[1]?.diagnosis]??99;
+      return ax-ay||(SOURCE_LABELS[x[0]]||x[0]).localeCompare(SOURCE_LABELS[y[0]]||y[0],'ko-KR');
+    });
+    const tableRows=rows.map(([source,row])=>{
+      const state=String(row?.diagnosis||'NO_DATA');
+      return '<tr><td><strong>'+esc(SOURCE_LABELS[source]||source)+'</strong></td>'+
+        '<td><span class="data-status-pill state-'+esc(state.toLowerCase())+'">'+esc(STATUS_LABELS[state]||state)+'</span></td>'+
+        '<td>'+Number(row?.raw_rows||0).toLocaleString('ko-KR')+'</td>'+
+        '<td>'+Number(row?.candidate_count||0).toLocaleString('ko-KR')+'</td>'+
+        '<td>'+Number(row?.published_count||0).toLocaleString('ko-KR')+'</td></tr>';
+    }).join('');
+    const backdrop=document.createElement('div');
+    backdrop.className='data-status-backdrop';
+    backdrop.innerHTML='<section class="data-status-modal" role="dialog" aria-modal="true" aria-label="데이터 현황">'+
+      '<div class="data-status-head"><div><div class="section-eyebrow">DATA STATUS</div><h2>데이터 현황</h2><p>공개 식당의 위치 검증 수준과 기관별 수집·게시 상태입니다.</p></div><button type="button" class="data-status-close" aria-label="닫기">×</button></div>'+
+      '<div class="data-status-metrics">'+
+        '<div><span>공개 식당</span><strong>'+total.toLocaleString('ko-KR')+'</strong></div>'+
+        '<div><span>지도 표시</span><strong>'+mapped.toLocaleString('ko-KR')+'</strong></div>'+
+        '<div><span>A 주소·위치 확인</span><strong>'+a.toLocaleString('ko-KR')+'</strong></div>'+
+        '<div><span>B 위치만 확인</span><strong>'+b.toLocaleString('ko-KR')+'</strong></div>'+
+        '<div><span>C 위치 미확인</span><strong>'+c.toLocaleString('ko-KR')+'</strong></div>'+
+      '</div>'+
+      '<div class="data-status-note">위치 미확인 식당은 오배치를 막기 위해 지도에 표시하지 않습니다. 목록과 원자료 증거는 유지됩니다.</div>'+
+      (rows.length?'<div class="data-status-table-wrap"><table class="data-status-table"><thead><tr><th>기관</th><th>상태</th><th>원자료</th><th>후보</th><th>게시</th></tr></thead><tbody>'+tableRows+'</tbody></table></div>':'<div class="data-status-note">기관별 상태 데이터가 아직 생성되지 않았습니다.</div>')+
+      '</section>';
+    backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeDataStatus();});
+    backdrop.querySelector('.data-status-close').addEventListener('click',closeDataStatus);
+    document.body.appendChild(backdrop);
+    requestAnimationFrame(()=>backdrop.classList.add('is-open'));
+  }
+  dataHelp.addEventListener('click',showDataStatus);
   summary.appendChild(dataHelp);
 
   document.body.classList.add('ui-v2');
