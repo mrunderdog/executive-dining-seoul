@@ -9,6 +9,8 @@ on:
       - 'reports/*-executive-candidates.json'
       - 'pipeline/geocode_cache.py'
       - 'pipeline/published_sources.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/coordinate_selection.py'
       - '.github/workflows/geocode.yml'
   workflow_run:
     workflows:
