@@ -152,8 +152,8 @@ def test_template_has_no_legacy_leaflet_runtime():
     assert "leaflet.css" not in template.lower()
     assert "L.map(" not in template
     assert "<!-- APP_RUNTIME -->" in template
-    assert "site/app.js" in build
-    assert "site/app.css" in build
+    assert 'APP_JS = ROOT / "site" / "app.js"' in build
+    assert 'APP_CSS = ROOT / "site" / "app.css"' in build
 
 
 def main():
