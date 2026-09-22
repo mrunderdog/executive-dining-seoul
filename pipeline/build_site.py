@@ -42,17 +42,14 @@ def inject_maplibre(html: str) -> str:
         '<style>\n' + css + '\n</style>\n</head>'
     )
 
-    start = html.find('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>')
-    if start < 0:
-        raise RuntimeError('Leaflet script marker not found in template')
-    end = html.rfind('</body>')
-    if end < start:
-        raise RuntimeError('body terminator not found')
+    marker = '<!-- APP_RUNTIME -->'
+    if marker not in html:
+        raise RuntimeError('app runtime marker not found in template')
     replacement = (
         '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n'
         '<script>\n' + js + '\n</script>\n'
     )
-    return html[:start] + replacement + html[end:]
+    return html.replace(marker, replacement)
 
 
 def main():
