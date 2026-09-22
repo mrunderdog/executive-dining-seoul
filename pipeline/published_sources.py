@@ -544,6 +544,15 @@ def _role_bucket(role: str, include_committees: bool = False) -> str | None:
     return None
 
 
+def _plausible_transaction(row: dict) -> bool:
+    amount = row.get("amount")
+    people = row.get("people")
+    if isinstance(amount, (int, float)) and isinstance(people, (int, float)):
+        if amount > 0 and people >= 2 and amount / people < 1000:
+            return False
+    return True
+
+
 def _effective_role(row: dict, include_committees: bool = False) -> str | None:
     return (
         _role_bucket(row.get("role"), include_committees)
@@ -607,7 +616,12 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
     include_committees = source in {"gyeonggi_council", "incheon_council"}
     for r in raw.get("rows", []):
         name = _canonical(r.get("merchant"))
-        if name not in selected_names or r.get("date_quality") != "in_period" or not _effective_role(r, include_committees):
+        if (
+            name not in selected_names
+            or r.get("date_quality") != "in_period"
+            or not _effective_role(r, include_committees)
+            or not _plausible_transaction(r)
+        ):
             continue
         grouped[name].append(r)
     out = []
