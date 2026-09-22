@@ -3,7 +3,7 @@
 from pathlib import Path
 
 from coordinate_selection import select_coordinate
-from ingest_council_expense import map_columns, normalize_sheet, resolve_role
+from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, resolve_role
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -95,6 +95,33 @@ def test_pdf_preamble_role_and_merged_date():
     assert info.get("section_role") == "부의장", info
 
 
+
+def test_pdf_role_context_can_carry_across_pages():
+    title_page = [
+        ["2026년 2분기 시흥시의회"],
+        ["부의장 업무추진비 집행내역"],
+    ]
+    table_page = [
+        ["사용일자", "집행목적", "집행장소", "대상인원", "집행금액"],
+        ["2026-04-03", "간담회", "테스트식당", 4, 120000],
+    ]
+    carried = infer_pdf_context_role(title_page)
+    assert carried == "부의장", carried
+    meta = {
+        "region": "경기",
+        "jurisdiction": "시흥시",
+        "institution": "시흥시의회",
+        "source": "siheung",
+        "post_url": "https://example.invalid/post",
+        "attachment_url": "https://example.invalid/file",
+        "attachment_name": "test.pdf",
+        "period": [2026, None, 2],
+        "default_role": carried,
+    }
+    normalized, _ = normalize_sheet(table_page, "pdf-page-2", meta)
+    assert normalized and normalized[0]["role"] == "부의장", normalized
+
+
 def test_removed_selected_location_button():
     template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     map_js = (ROOT / "site" / "maplibre.js").read_text(encoding="utf-8")
@@ -110,6 +137,7 @@ def main():
         test_national_name_only_coordinate_is_suppressed,
         test_address_mismatch_coordinate_is_suppressed,
         test_pdf_preamble_role_and_merged_date,
+        test_pdf_role_context_can_carry_across_pages,
         test_removed_selected_location_button,
     ]
     for fn in tests:
