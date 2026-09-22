@@ -4,7 +4,8 @@ from pathlib import Path
 
 from coordinate_selection import select_coordinate
 from build_source_candidates import plausible_transaction
-from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_date_from_row, resolve_role
+from repair_raw_dates import parse_date_text
+from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_date_from_row, resolve_role, valid_transaction_merchant
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -147,6 +148,19 @@ def test_implausible_amount_is_quarantined():
     assert plausible_transaction({"amount": 0, "people": 8})
 
 
+
+def test_structural_merchant_rows_are_rejected():
+    assert not valid_transaction_merchant("3828700")
+    assert not valid_transaction_merchant("(단위 : 원)")
+    assert not valid_transaction_merchant("인원 사용방법")
+    assert valid_transaction_merchant("1973 산꼼장어")
+
+
+def test_date_time_suffix_normalization():
+    assert parse_date_text("25.11.18. 14:37").isoformat() == "2025-11-18"
+    assert parse_date_text("25.11.24 19:54").isoformat() == "2025-11-24"
+
+
 def test_removed_selected_location_button():
     template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     map_js = (ROOT / "site" / "maplibre.js").read_text(encoding="utf-8")
@@ -177,6 +191,8 @@ def main():
         test_pdf_role_context_can_carry_across_pages,
         test_abbreviated_date_recovery,
         test_implausible_amount_is_quarantined,
+        test_structural_merchant_rows_are_rejected,
+        test_date_time_suffix_normalization,
         test_removed_selected_location_button,
         test_template_has_no_legacy_leaflet_runtime,
     ]
