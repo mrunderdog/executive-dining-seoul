@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 146,
+    "failed_count": 165,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1034,
-    "success_count": 888,
-    "updated_at": "2026-09-21T08:56:22+00:00"
+    "record_count": 1106,
+    "success_count": 941,
+    "updated_at": "2026-09-22T07:24:34+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -65,6 +65,17 @@
         "arcgis:충남 전안시 구성동 171]"
       ],
       "updated_at": "2026-09-17T23:00:55+00:00"
+    },
+    "(주)신화케이푸드|오산시": {
+      "failed": true,
+      "fingerprint": "dd08bc4ff2927477",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:(주)신화케이푸드 오산시",
+        "nominatim:(주)신화케이푸드 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:17+00:00"
     },
     "(주)안스|연수구": {
       "failed": true,
@@ -275,6 +286,17 @@
         "arcgis:서울 중구 을지로3길 34"
       ],
       "updated_at": "2026-09-17T23:04:33+00:00"
+    },
+    "가마솥밥상 철산본점|광명시": {
+      "failed": true,
+      "fingerprint": "4a120cb548d7282b",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:가마솥밥상 철산본점 광명시",
+        "nominatim:가마솥밥상 철산본점 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:43+00:00"
     },
     "가마솥순대|마포구": {
       "addr_type": "PointAddress",
@@ -1258,6 +1280,24 @@
       ],
       "updated_at": "2026-09-18T00:07:25+00:00"
     },
+    "고향집숯불왕갈비|광명시": {
+      "addr_type": "POI",
+      "display_name": "고향집숯불왕갈비",
+      "fingerprint": "de5fb9e8f0478ee3",
+      "geocoder_version": 4,
+      "lat": 37.480138079,
+      "lon": 126.863909711,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "고향집숯불왕갈비 광명시",
+      "result_name": "고향집숯불왕갈비",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:고향집숯불왕갈비 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:26+00:00"
+    },
     "곤드레밥(bob-gondre)|중앙정부": {
       "addr_type": "POI",
       "display_name": "곤드레밥(bob-gondre)",
@@ -1329,6 +1369,24 @@
         "arcgis:곰스시 양주시"
       ],
       "updated_at": "2026-09-21T08:56:10+00:00"
+    },
+    "공도폐계닭|안성시": {
+      "addr_type": "POI",
+      "display_name": "공도폐계닭",
+      "fingerprint": "437ac8d3257afab9",
+      "geocoder_version": 4,
+      "lat": 37.003487326,
+      "lon": 127.169397419,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "공도폐계닭 안성시",
+      "result_name": "공도폐계닭",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:공도폐계닭 안성시"
+      ],
+      "updated_at": "2026-09-22T07:23:56+00:00"
     },
     "공리|서초구": {
       "addr_type": "POI",
@@ -1466,6 +1524,24 @@
         "arcgis:서울 성북구 보문로30길 36"
       ],
       "updated_at": "2026-09-17T23:02:52+00:00"
+    },
+    "광명맛집|광명시": {
+      "addr_type": "POI",
+      "display_name": "광명맛집",
+      "fingerprint": "fa5c22dff381f78b",
+      "geocoder_version": 4,
+      "lat": 37.478513906,
+      "lon": 126.858745934,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "광명맛집 광명시",
+      "result_name": "광명맛집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:광명맛집 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:28+00:00"
     },
     "광주국밥|강서구": {
       "addr_type": "PointAddress",
@@ -1799,6 +1875,24 @@
       ],
       "updated_at": "2026-09-17T23:05:58+00:00"
     },
+    "귀례정|오산시": {
+      "addr_type": "POI",
+      "display_name": "귀례정",
+      "fingerprint": "6c7f1bfb14ae015e",
+      "geocoder_version": 4,
+      "lat": 37.178905446,
+      "lon": 127.029751641,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "귀례정 오산시",
+      "result_name": "귀례정",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:귀례정 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:28+00:00"
+    },
     "그집순대국|양주시": {
       "addr_type": "POI",
       "display_name": "그집순대국",
@@ -1946,6 +2040,24 @@
         "nominatim:길목식당 고양특례시"
       ],
       "updated_at": "2026-09-17T23:03:44+00:00"
+    },
+    "김가네칼국수|안성시": {
+      "addr_type": "POI",
+      "display_name": "김가네칼국수",
+      "fingerprint": "1d85468949cd55a5",
+      "geocoder_version": 4,
+      "lat": 37.009692474,
+      "lon": 127.284707938,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "김가네칼국수 안성시",
+      "result_name": "김가네칼국수",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:김가네칼국수 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:11+00:00"
     },
     "김명자굴국밥 서소문점|서울시청": {
       "addr_type": "PointAddress",
@@ -2198,6 +2310,24 @@
         "arcgis:서울 영등포구 여의도동 13-20 (프린스텔)"
       ],
       "updated_at": "2026-09-18T00:08:18+00:00"
+    },
+    "난봉꾼|오산시": {
+      "addr_type": "POI",
+      "display_name": "난봉꾼",
+      "fingerprint": "0d0820f26eec9ccf",
+      "geocoder_version": 4,
+      "lat": 37.156558374,
+      "lon": 127.07542751,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "난봉꾼 오산시",
+      "result_name": "난봉꾼",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:난봉꾼 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:24+00:00"
     },
     "남궁|고양시": {
       "addr_type": "PointAddress",
@@ -2618,6 +2748,24 @@
       ],
       "updated_at": "2026-09-18T00:08:28+00:00"
     },
+    "논산옛날집|오산시": {
+      "addr_type": "POI",
+      "display_name": "논산옛날집",
+      "fingerprint": "b4ba0451f94db60b",
+      "geocoder_version": 4,
+      "lat": 37.149700754,
+      "lon": 127.076059832,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "논산옛날집 오산시",
+      "result_name": "논산옛날집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:논산옛날집 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:27+00:00"
+    },
     "놀부장어|군포시": {
       "addr_type": "POI",
       "display_name": "놀부장어",
@@ -2797,6 +2945,42 @@
         "arcgis:서울 금천구 시흥대로123길 24"
       ],
       "updated_at": "2026-09-17T23:03:25+00:00"
+    },
+    "다강|안성시": {
+      "addr_type": "POI",
+      "display_name": "다강",
+      "fingerprint": "b3e5e6a4782c4e74",
+      "geocoder_version": 4,
+      "lat": 37.014268347,
+      "lon": 127.264402962,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "다강 안성시",
+      "result_name": "다강",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:다강 안성시"
+      ],
+      "updated_at": "2026-09-22T07:23:55+00:00"
+    },
+    "다모아한식|오산시": {
+      "addr_type": "POI",
+      "display_name": "다모아한식",
+      "fingerprint": "a2a11423346a0aec",
+      "geocoder_version": 4,
+      "lat": 37.141323204,
+      "lon": 127.076573586,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "다모아한식 오산시",
+      "result_name": "다모아한식",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:다모아한식 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:30+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -2995,6 +3179,24 @@
         "arcgis:대가 과천시"
       ],
       "updated_at": "2026-09-18T23:15:48+00:00"
+    },
+    "대감|광명시": {
+      "addr_type": "POI",
+      "display_name": "대감",
+      "fingerprint": "e548208ccdac2cc0",
+      "geocoder_version": 4,
+      "lat": 37.475616204,
+      "lon": 126.870150872,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "대감 광명시",
+      "result_name": "대감",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대감 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:28+00:00"
     },
     "대교참치|중랑구": {
       "addr_type": "Locality",
@@ -3212,6 +3414,24 @@
       ],
       "updated_at": "2026-09-18T17:02:10+00:00"
     },
+    "대우정육점식당|오산시": {
+      "addr_type": "POI",
+      "display_name": "대우정육점식당",
+      "fingerprint": "1588b14a58e59161",
+      "geocoder_version": 4,
+      "lat": 37.1638157,
+      "lon": 127.06202096,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "대우정육점식당 오산시",
+      "result_name": "대우정육점식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대우정육점식당 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:28+00:00"
+    },
     "대진도원참치|중앙정부": {
       "addr_type": "POI",
       "display_name": "대진도원참치",
@@ -3382,6 +3602,17 @@
         "arcgis:경기 과천시 매봉로 72"
       ],
       "updated_at": "2026-09-17T23:01:03+00:00"
+    },
+    "더푸짐한밥상|안성시": {
+      "failed": true,
+      "fingerprint": "d5f9f95ca87d4d67",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:더푸짐한밥상 안성시",
+        "nominatim:더푸짐한밥상 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:02+00:00"
     },
     "덕순네 장어랑 메기|중구": {
       "addr_type": "POI",
@@ -3669,6 +3900,24 @@
       ],
       "updated_at": "2026-09-18T00:07:47+00:00"
     },
+    "동네사랑방|광명시": {
+      "addr_type": "POI",
+      "display_name": "동네사랑방",
+      "fingerprint": "55fe1e78037b2eed",
+      "geocoder_version": 4,
+      "lat": 37.417195857,
+      "lon": 126.85228315,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "동네사랑방 광명시",
+      "result_name": "동네사랑방",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:동네사랑방 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:52+00:00"
+    },
     "동성회관|과천시": {
       "addr_type": "POI",
       "display_name": "동성회관",
@@ -3751,6 +4000,17 @@
         "arcgis:동원참치광화문본점 대한민국"
       ],
       "updated_at": "2026-09-21T07:29:13+00:00"
+    },
+    "동해곰치|오산시": {
+      "failed": true,
+      "fingerprint": "f2b9fb24610ae5d8",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:동해곰치 오산시",
+        "nominatim:동해곰치 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:30+00:00"
     },
     "동해도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3932,6 +4192,24 @@
       ],
       "updated_at": "2026-09-17T23:00:41+00:00"
     },
+    "돼지집|광명시": {
+      "addr_type": "POI",
+      "display_name": "돼지집",
+      "fingerprint": "93d33e769674d2ce",
+      "geocoder_version": 4,
+      "lat": 37.435958992,
+      "lon": 126.885851551,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "돼지집 광명시",
+      "result_name": "돼지집",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:돼지집 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:37+00:00"
+    },
     "된장예술과 술|중앙정부": {
       "addr_type": "POI",
       "display_name": "된장예술과 술",
@@ -3960,6 +4238,24 @@
         "nominatim:두레에프엔씨 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:47+00:00"
+    },
+    "두메맛골본관|오산시": {
+      "addr_type": "POI",
+      "display_name": "두메맛골본관",
+      "fingerprint": "73cb23b23c660632",
+      "geocoder_version": 4,
+      "lat": 37.178165097,
+      "lon": 127.026156868,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "두메맛골본관 오산시",
+      "result_name": "두메맛골본관",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:두메맛골본관 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:22+00:00"
     },
     "두미|부천시": {
       "failed": true,
@@ -4065,6 +4361,24 @@
         "nominatim:뚱딴지감자탕 해장국 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:10+00:00"
+    },
+    "라조콩드|광명시": {
+      "addr_type": "POI",
+      "display_name": "라조콩드",
+      "fingerprint": "dafa177f5239124b",
+      "geocoder_version": 4,
+      "lat": 37.479563763,
+      "lon": 126.864111855,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "라조콩드 광명시",
+      "result_name": "라조콩드",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:라조콩드 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:43+00:00"
     },
     "라티에|중앙정부": {
       "addr_type": "POI",
@@ -4246,6 +4560,24 @@
       ],
       "updated_at": "2026-09-17T23:05:18+00:00"
     },
+    "마실|광명시": {
+      "addr_type": "POI",
+      "display_name": "마실",
+      "fingerprint": "1bf32ffc0bd7a3f5",
+      "geocoder_version": 4,
+      "lat": 37.482960615,
+      "lon": 126.865784252,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "마실 광명시",
+      "result_name": "마실",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:마실 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:33+00:00"
+    },
     "마오|중앙정부": {
       "addr_type": "POI",
       "display_name": "마오",
@@ -4263,6 +4595,24 @@
         "arcgis:마오 대한민국"
       ],
       "updated_at": "2026-09-18T23:16:07+00:00"
+    },
+    "마이온빈|광명시": {
+      "addr_type": "POI",
+      "display_name": "마이온빈",
+      "fingerprint": "9f083722835fcb76",
+      "geocoder_version": 4,
+      "lat": 37.478054676,
+      "lon": 126.863261367,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "마이온빈 광명시",
+      "result_name": "마이온빈",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:마이온빈 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:49+00:00"
     },
     "마케집 서울시청점|서울시청": {
       "addr_type": "PointAddress",
@@ -4796,6 +5146,24 @@
       ],
       "updated_at": "2026-09-17T23:02:32+00:00"
     },
+    "명품짬뽕나라|안성시": {
+      "addr_type": "POI",
+      "display_name": "명품짬뽕나라",
+      "fingerprint": "da45714914fffd6e",
+      "geocoder_version": 4,
+      "lat": 37.092735828,
+      "lon": 127.477428451,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "명품짬뽕나라 안성시",
+      "result_name": "명품짬뽕나라",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:명품짬뽕나라 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:07+00:00"
+    },
     "모담 서울역점|중앙정부": {
       "addr_type": "POI",
       "display_name": "모담 서울역점",
@@ -5105,6 +5473,24 @@
         "nominatim:문원한우마을 과천시"
       ],
       "updated_at": "2026-09-18T23:15:33+00:00"
+    },
+    "미강추어탕|광명시": {
+      "addr_type": "POI",
+      "display_name": "미강추어탕",
+      "fingerprint": "a0201b93405d176e",
+      "geocoder_version": 4,
+      "lat": 37.479838803,
+      "lon": 126.864200002,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "미강추어탕 광명시",
+      "result_name": "미강추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:미강추어탕 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:36+00:00"
     },
     "미담맛을논하다|부평구": {
       "addr_type": "POI",
@@ -5492,6 +5878,24 @@
       ],
       "updated_at": "2026-09-17T23:04:54+00:00"
     },
+    "밤일숯불장작구이|광명시": {
+      "addr_type": "POI",
+      "display_name": "밤일숯불장작구이",
+      "fingerprint": "86bf18247f59a043",
+      "geocoder_version": 4,
+      "lat": 37.45294198,
+      "lon": 126.864164965,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "밤일숯불장작구이 광명시",
+      "result_name": "밤일숯불장작구이",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:밤일숯불장작구이 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:53+00:00"
+    },
     "밥도둑간장게장|부평구": {
       "addr_type": "POI",
       "display_name": "밥도둑간장게장",
@@ -5546,6 +5950,17 @@
       ],
       "updated_at": "2026-09-18T05:24:37+00:00"
     },
+    "백가네부대찌게|오산시": {
+      "failed": true,
+      "fingerprint": "3e9ec37b2aa21bd0",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:백가네부대찌게 오산시",
+        "nominatim:백가네부대찌게 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:34+00:00"
+    },
     "백리향|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 63로 40",
@@ -5563,6 +5978,24 @@
         "arcgis:서울 영등포구 63로 40 (여의도동, 라이프오피스텔)"
       ],
       "updated_at": "2026-09-18T00:09:13+00:00"
+    },
+    "백마강민물장어|오산시": {
+      "addr_type": "POI",
+      "display_name": "백마강민물장어",
+      "fingerprint": "7e9bf6710b2d51b0",
+      "geocoder_version": 4,
+      "lat": 37.160542127,
+      "lon": 127.085679443,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "백마강민물장어 오산시",
+      "result_name": "백마강민물장어",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:백마강민물장어 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:20+00:00"
     },
     "백원|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5599,6 +6032,28 @@
         "arcgis:백정한우 대한민국"
       ],
       "updated_at": "2026-09-18T13:43:00+00:00"
+    },
+    "백제찌개촌|안성시": {
+      "failed": true,
+      "fingerprint": "bf420ed46a7b522e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:백제찌개촌 안성시",
+        "nominatim:백제찌개촌 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:07+00:00"
+    },
+    "백호동태 인계점|수원시": {
+      "failed": true,
+      "fingerprint": "070dd1d84b2fb2b6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:백호동태 인계점 수원특례시",
+        "nominatim:백호동태 인계점 수원특례시"
+      ],
+      "updated_at": "2026-09-22T07:23:26+00:00"
     },
     "버거드조선|중앙정부": {
       "failed": true,
@@ -6033,6 +6488,17 @@
       ],
       "updated_at": "2026-09-21T07:28:35+00:00"
     },
+    "봉순언니 시골밥상|오산시": {
+      "failed": true,
+      "fingerprint": "6078df8c4f2c5342",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:봉순언니 시골밥상 오산시",
+        "nominatim:봉순언니 시골밥상 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:15+00:00"
+    },
     "봉우리한정식|중앙정부": {
       "addr_type": "POI",
       "display_name": "봉우리 한정식",
@@ -6181,6 +6647,17 @@
       ],
       "updated_at": "2026-09-18T23:15:39+00:00"
     },
+    "북경오리구이|수원시": {
+      "failed": true,
+      "fingerprint": "c8dd0744ca0561c8",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:북경오리구이 수원특례시",
+        "nominatim:북경오리구이 수원특례시"
+      ],
+      "updated_at": "2026-09-22T07:23:25+00:00"
+    },
     "북극해고등어|부천시": {
       "addr_type": "POI",
       "display_name": "북극해고등어",
@@ -6288,6 +6765,24 @@
         "arcgis:서울 강북구 삼각산로 42-1, 이정기"
       ],
       "updated_at": "2026-09-17T23:02:04+00:00"
+    },
+    "북해도목장|광명시": {
+      "addr_type": "POI",
+      "display_name": "북해도목장",
+      "fingerprint": "d0099001abeb4eaf",
+      "geocoder_version": 4,
+      "lat": 37.47455567,
+      "lon": 126.869167967,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "북해도목장 광명시",
+      "result_name": "북해도목장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:북해도목장 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:35+00:00"
     },
     "분당만강원|중앙정부": {
       "display_name": "분당만강원, 도움1로, 어진동, 도담동, 세종특별자치시, 30116, 대한민국",
@@ -6951,6 +7446,24 @@
       ],
       "updated_at": "2026-09-18T23:16:06+00:00"
     },
+    "삼호|오산시": {
+      "display_name": "삼호, 33, 운암로, 원동, 오산시, 경기도, 18133, 대한민국",
+      "fingerprint": "a349407aea14fe77",
+      "geocoder_version": 4,
+      "lat": 37.1492999,
+      "lon": 127.0760457,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "삼호 오산시",
+      "result_name": "삼호",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:삼호 오산시",
+        "nominatim:삼호 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:28+00:00"
+    },
     "삼호복집|중구": {
       "addr_type": "POI",
       "display_name": "삼호복집",
@@ -7282,6 +7795,24 @@
         "arcgis:생선나라 인천광역시 연수구"
       ],
       "updated_at": "2026-09-18T09:48:24+00:00"
+    },
+    "생선명가거북명태|광명시": {
+      "addr_type": "POI",
+      "display_name": "생선명가거북명태",
+      "fingerprint": "5810476e8b23ae40",
+      "geocoder_version": 4,
+      "lat": 37.450435431,
+      "lon": 126.863937558,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "생선명가거북명태 광명시",
+      "result_name": "생선명가거북명태",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:생선명가거북명태 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:48+00:00"
     },
     "생선명가거북명태|금천구": {
       "addr_type": "PointAddress",
@@ -7661,6 +8192,24 @@
       ],
       "updated_at": "2026-09-18T00:09:18+00:00"
     },
+    "서울순대국|안성시": {
+      "addr_type": "POI",
+      "display_name": "서울순대국",
+      "fingerprint": "96eea56577e8ebf2",
+      "geocoder_version": 4,
+      "lat": 36.999621446,
+      "lon": 127.268752947,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "서울순대국 안성시",
+      "result_name": "서울순대국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울순대국 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:08+00:00"
+    },
     "서울의 달|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 세종대로14길 28-6",
@@ -7678,6 +8227,24 @@
         "arcgis:서울 중구 세종대로14길 28-6"
       ],
       "updated_at": "2026-09-17T23:03:57+00:00"
+    },
+    "서해박속낙지전문점|광명시": {
+      "addr_type": "POI",
+      "display_name": "서해박속낙지전문점",
+      "fingerprint": "4482fd6b6e7c7105",
+      "geocoder_version": 4,
+      "lat": 37.481283296,
+      "lon": 126.848660225,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "서해박속낙지전문점 광명시",
+      "result_name": "서해박속낙지전문점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서해박속낙지전문점 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:35+00:00"
     },
     "서화|서울시청": {
       "addr_type": "PointAddress",
@@ -7884,6 +8451,24 @@
         "arcgis:성호각 서대문구 서울"
       ],
       "updated_at": "2026-09-17T23:02:47+00:00"
+    },
+    "성환뚝배기해장국|오산시": {
+      "addr_type": "POI",
+      "display_name": "성환뚝배기해장국",
+      "fingerprint": "c8359db37eff9d44",
+      "geocoder_version": 4,
+      "lat": 37.156554608,
+      "lon": 127.075835645,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "성환뚝배기해장국 오산시",
+      "result_name": "성환뚝배기해장국",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:성환뚝배기해장국 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:28+00:00"
     },
     "세광양대창 시청점|서울시청": {
       "addr_type": "PointAddress",
@@ -8130,6 +8715,24 @@
       ],
       "updated_at": "2026-09-18T00:07:37+00:00"
     },
+    "소들녘|광명시": {
+      "addr_type": "POI",
+      "display_name": "소들녘",
+      "fingerprint": "4a400a518ba40670",
+      "geocoder_version": 4,
+      "lat": 37.476469811,
+      "lon": 126.866011676,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "소들녘 광명시",
+      "result_name": "소들녘",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:소들녘 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:28+00:00"
+    },
     "소래포구해남수산|인천시청": {
       "addr_type": "POI",
       "display_name": "소래포구해남수산",
@@ -8371,6 +8974,24 @@
         "arcgis:서울 영등포구 여의도동 13 (진미파라곤)"
       ],
       "updated_at": "2026-09-18T00:07:40+00:00"
+    },
+    "속초코다리냉면|광명시": {
+      "addr_type": "POI",
+      "display_name": "속초코다리냉면",
+      "fingerprint": "8fd5f5e0ac7294a7",
+      "geocoder_version": 4,
+      "lat": 37.480800327,
+      "lon": 126.864346793,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "속초코다리냉면 광명시",
+      "result_name": "속초코다리냉면",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:속초코다리냉면 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:50+00:00"
     },
     "속초해물탕|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -8816,6 +9437,24 @@
       ],
       "updated_at": "2026-09-17T23:05:53+00:00"
     },
+    "스시운|오산시": {
+      "addr_type": "POI",
+      "display_name": "스시운",
+      "fingerprint": "e852b3b55ce42d09",
+      "geocoder_version": 4,
+      "lat": 37.147386791,
+      "lon": 127.074227571,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "스시운 오산시",
+      "result_name": "스시운",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:스시운 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:26+00:00"
+    },
     "스시유여의도점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국제금융로 39",
@@ -9049,6 +9688,24 @@
         "arcgis:서울 영등포구 국회대로 750"
       ],
       "updated_at": "2026-09-18T00:08:35+00:00"
+    },
+    "시청앞두루치기|광명시": {
+      "addr_type": "POI",
+      "display_name": "시청앞두루치기",
+      "fingerprint": "28ede30f4973f85b",
+      "geocoder_version": 4,
+      "lat": 37.479838803,
+      "lon": 126.864200002,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "시청앞두루치기 광명시",
+      "result_name": "시청앞두루치기",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:시청앞두루치기 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:28+00:00"
     },
     "시청해우리|중앙정부": {
       "addr_type": "POI",
@@ -9306,6 +9963,24 @@
       ],
       "updated_at": "2026-09-17T23:02:12+00:00"
     },
+    "신짬뽕시대|광명시": {
+      "addr_type": "POI",
+      "display_name": "신짬뽕시대",
+      "fingerprint": "97ae4b0e4b9591a1",
+      "geocoder_version": 4,
+      "lat": 37.477629193,
+      "lon": 126.862594703,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "신짬뽕시대 광명시",
+      "result_name": "신짬뽕시대",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:신짬뽕시대 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:47+00:00"
+    },
     "신촌서서갈비 다동점|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 다동 을지로3길 30-18",
@@ -9540,6 +10215,24 @@
       ],
       "updated_at": "2026-09-18T00:09:04+00:00"
     },
+    "아구마을|오산시": {
+      "addr_type": "POI",
+      "display_name": "아구마을",
+      "fingerprint": "d98e64b04e077766",
+      "geocoder_version": 4,
+      "lat": 37.149310835,
+      "lon": 127.076043344,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "아구마을 오산시",
+      "result_name": "아구마을",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:아구마을 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:20+00:00"
+    },
     "아리연|중앙정부": {
       "addr_type": "POI",
       "display_name": "아리연",
@@ -9659,6 +10352,24 @@
       ],
       "updated_at": "2026-09-17T23:04:34+00:00"
     },
+    "안성교동짬뽕|안성시": {
+      "addr_type": "POI",
+      "display_name": "안성교동짬뽕",
+      "fingerprint": "bc037dc06deadb6b",
+      "geocoder_version": 4,
+      "lat": 37.006261937,
+      "lon": 127.266330974,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "안성교동짬뽕 안성시",
+      "result_name": "안성교동짬뽕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:안성교동짬뽕 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:09+00:00"
+    },
     "안성또순이|중앙정부": {
       "addr_type": "POI",
       "display_name": "안성또순이",
@@ -9676,6 +10387,35 @@
         "arcgis:안성또순이 대한민국"
       ],
       "updated_at": "2026-09-18T23:16:05+00:00"
+    },
+    "안성순대|안성시": {
+      "addr_type": "POI",
+      "display_name": "안성순대",
+      "fingerprint": "56b12c33e49c65c0",
+      "geocoder_version": 4,
+      "lat": 37.090459896,
+      "lon": 127.477600345,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "안성순대 안성시",
+      "result_name": "안성순대",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:안성순대 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:07+00:00"
+    },
+    "안성족발|안성시": {
+      "failed": true,
+      "fingerprint": "6a5ada43fabf69ab",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:안성족발 안성시",
+        "nominatim:안성족발 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:11+00:00"
     },
     "안집|중앙정부": {
       "addr_type": "POI",
@@ -10356,6 +11096,24 @@
       ],
       "updated_at": "2026-09-17T23:05:04+00:00"
     },
+    "영빈반점|안성시": {
+      "addr_type": "POI",
+      "display_name": "영빈반점",
+      "fingerprint": "7577ec2c202ab212",
+      "geocoder_version": 4,
+      "lat": 37.000417366,
+      "lon": 127.325020576,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "영빈반점 안성시",
+      "result_name": "영빈반점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:영빈반점 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:07+00:00"
+    },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로66길 17",
@@ -10558,6 +11316,17 @@
       ],
       "updated_at": "2026-09-18T05:23:27+00:00"
     },
+    "오색돼야지 오색감자|오산시": {
+      "failed": true,
+      "fingerprint": "c91456267e819b05",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:오색돼야지 오색감자 오산시",
+        "nominatim:오색돼야지 오색감자 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:18+00:00"
+    },
     "오성해물탕|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로76길 18",
@@ -10611,6 +11380,24 @@
         "arcgis:서울 중구 다동길 5"
       ],
       "updated_at": "2026-09-17T23:04:49+00:00"
+    },
+    "오흥정육점|안성시": {
+      "addr_type": "POI",
+      "display_name": "오흥정육점",
+      "fingerprint": "ed7948f18f7e2493",
+      "geocoder_version": 4,
+      "lat": 37.00554024,
+      "lon": 127.270073326,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "오흥정육점 안성시",
+      "result_name": "오흥정육점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:오흥정육점 안성시"
+      ],
+      "updated_at": "2026-09-22T07:23:54+00:00"
     },
     "온누리 장작구이|관악구": {
       "addr_type": "PointAddress",
@@ -11132,6 +11919,17 @@
       ],
       "updated_at": "2026-09-17T23:02:52+00:00"
     },
+    "우설화 시청점|오산시": {
+      "failed": true,
+      "fingerprint": "bf5c89e44f930836",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:우설화 시청점 오산시",
+        "nominatim:우설화 시청점 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:20+00:00"
+    },
     "우설화 일산점|고양시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 일산동구 식사동 833-14",
@@ -11406,6 +12204,24 @@
       ],
       "updated_at": "2026-09-18T23:15:29+00:00"
     },
+    "유림촌|오산시": {
+      "addr_type": "POI",
+      "display_name": "유림촌",
+      "fingerprint": "8795590f7b3fdb26",
+      "geocoder_version": 4,
+      "lat": 37.156393406,
+      "lon": 127.076630386,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "유림촌 오산시",
+      "result_name": "유림촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:유림촌 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:18+00:00"
+    },
     "유명한목동갈비|양천구": {
       "addr_type": "POI",
       "display_name": "유명한목동갈비",
@@ -11513,6 +12329,24 @@
         "arcgis:서울 중구 남대문로1길 31"
       ],
       "updated_at": "2026-09-17T23:04:01+00:00"
+    },
+    "육오감|안성시": {
+      "addr_type": "POI",
+      "display_name": "육오감",
+      "fingerprint": "ba68a77ca582017a",
+      "geocoder_version": 4,
+      "lat": 37.00909205,
+      "lon": 127.256486506,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "육오감 안성시",
+      "result_name": "육오감",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:육오감 안성시"
+      ],
+      "updated_at": "2026-09-22T07:23:55+00:00"
     },
     "육칠이광명하안점|금천구": {
       "addr_type": "PointAddress",
@@ -11793,6 +12627,24 @@
         "nominatim:이랜드파크켄싱턴여의도 여의도 서울"
       ],
       "updated_at": "2026-09-17T23:07:49+00:00"
+    },
+    "이레향|광명시": {
+      "display_name": "이레향, 18, Hiking Path, 하안동, 하안1동, 광명시, 경기도, 14260, 대한민국",
+      "fingerprint": "0ea8c0c9ab6d6e2c",
+      "geocoder_version": 4,
+      "lat": 37.4532778,
+      "lon": 126.8635297,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "이레향 광명시",
+      "result_name": "이레향",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:이레향 광명시",
+        "nominatim:이레향 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:33+00:00"
     },
     "이리도담갈비|중앙정부": {
       "addr_type": "POI",
@@ -12532,6 +13384,17 @@
         "arcgis:서울 중구 남대문로9길 8"
       ],
       "updated_at": "2026-09-17T23:04:36+00:00"
+    },
+    "장가네 추어탕|오산시": {
+      "failed": true,
+      "fingerprint": "cd82f56a1e29687e",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:장가네 추어탕 오산시",
+        "nominatim:장가네 추어탕 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:26+00:00"
     },
     "장군보쌈|서울시청": {
       "addr_type": "PointAddress",
@@ -13390,6 +14253,28 @@
       ],
       "updated_at": "2026-09-17T23:04:54+00:00"
     },
+    "주식회사 와밀(철산지|광명시": {
+      "failed": true,
+      "fingerprint": "d26661c1ed4bf09f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:주식회사 와밀(철산지 광명시",
+        "nominatim:주식회사 와밀(철산지 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:45+00:00"
+    },
+    "주식회사 청돈고기나|오산시": {
+      "failed": true,
+      "fingerprint": "5c6efc88e03b4704",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:주식회사 청돈고기나 오산시",
+        "nominatim:주식회사 청돈고기나 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:24+00:00"
+    },
     "주식회사 포시즌어데이|은평구": {
       "addr_type": "PointAddress",
       "display_name": "경기도 고양시 덕양구 효자동 북한산로 451-9",
@@ -14108,6 +14993,24 @@
       ],
       "updated_at": "2026-09-18T00:07:51+00:00"
     },
+    "채수어|광명시": {
+      "addr_type": "POI",
+      "display_name": "채수어",
+      "fingerprint": "7d0d4841216a2c37",
+      "geocoder_version": 4,
+      "lat": 37.447316705,
+      "lon": 126.884979657,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "채수어 광명시",
+      "result_name": "채수어",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:채수어 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:52+00:00"
+    },
     "채원정|인천시청": {
       "addr_type": "POI",
       "display_name": "채원정",
@@ -14201,6 +15104,24 @@
         "arcgis:서울 중구 세종대로14길 27-4"
       ],
       "updated_at": "2026-09-17T23:04:00+00:00"
+    },
+    "천안문|안성시": {
+      "addr_type": "POI",
+      "display_name": "천안문",
+      "fingerprint": "b4d45ddac231f6a8",
+      "geocoder_version": 4,
+      "lat": 37.016672647,
+      "lon": 127.263247346,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "천안문 안성시",
+      "result_name": "천안문",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:천안문 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:12+00:00"
     },
     "천지면옥|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -14346,6 +15267,24 @@
       ],
       "updated_at": "2026-09-18T23:15:53+00:00"
     },
+    "청기와|광명시": {
+      "addr_type": "POI",
+      "display_name": "청기와",
+      "fingerprint": "d29a3ea230175002",
+      "geocoder_version": 4,
+      "lat": 37.477819631,
+      "lon": 126.862898668,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "청기와 광명시",
+      "result_name": "청기와",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:청기와 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:34+00:00"
+    },
     "청기와타운|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 마포구 용강동 토정로 296",
@@ -14454,6 +15393,24 @@
       ],
       "updated_at": "2026-09-18T00:08:15+00:00"
     },
+    "청수장|오산시": {
+      "addr_type": "POI",
+      "display_name": "청수장",
+      "fingerprint": "d5de8092af3a2370",
+      "geocoder_version": 4,
+      "lat": 37.155542844,
+      "lon": 127.074334992,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "청수장 오산시",
+      "result_name": "청수장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:청수장 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:29+00:00"
+    },
     "청실홍실|인천시청": {
       "addr_type": "POI",
       "display_name": "청실홍실",
@@ -14526,6 +15483,24 @@
       ],
       "updated_at": "2026-09-21T08:46:06+00:00"
     },
+    "초심|오산시": {
+      "addr_type": "POI",
+      "display_name": "초심",
+      "fingerprint": "d6fcf59ada09ae4a",
+      "geocoder_version": 4,
+      "lat": 37.149744454,
+      "lon": 127.074787153,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "초심 오산시",
+      "result_name": "초심",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:초심 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:32+00:00"
+    },
     "촌장골 주식회사|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 소하동 소하로109번길 16",
@@ -14561,6 +15536,24 @@
         "arcgis:서울 은평구 은평로21길 57,"
       ],
       "updated_at": "2026-09-17T23:02:51+00:00"
+    },
+    "추오정남원추어탕|광명시": {
+      "addr_type": "POI",
+      "display_name": "추오정남원추어탕",
+      "fingerprint": "111606117d70adaa",
+      "geocoder_version": 4,
+      "lat": 37.457483482,
+      "lon": 126.878463875,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "추오정남원추어탕 광명시",
+      "result_name": "추오정남원추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:추오정남원추어탕 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:43+00:00"
     },
     "춘천명가닭갈비전문점|서울시청": {
       "addr_type": "PointAddress",
@@ -15237,6 +16230,24 @@
       ],
       "updated_at": "2026-09-17T23:04:17+00:00"
     },
+    "토지정육식당|오산시": {
+      "addr_type": "POI",
+      "display_name": "토지정육식당",
+      "fingerprint": "9c9aa427e154fb28",
+      "geocoder_version": 4,
+      "lat": 37.155938194,
+      "lon": 127.074438662,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "토지정육식당 오산시",
+      "result_name": "토지정육식당",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:토지정육식당 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:20+00:00"
+    },
     "통영굴밥|중앙정부": {
       "addr_type": "POI",
       "display_name": "통영굴밥",
@@ -15294,6 +16305,17 @@
         "nominatim:투썸플레이스 과천시"
       ],
       "updated_at": "2026-09-18T23:15:53+00:00"
+    },
+    "투썸플레이스|수원시": {
+      "failed": true,
+      "fingerprint": "c29a7e108605270c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:투썸플레이스 수원특례시",
+        "nominatim:투썸플레이스 수원특례시"
+      ],
+      "updated_at": "2026-09-22T07:23:23+00:00"
     },
     "투썸플레이스국회의사당역점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15395,6 +16417,17 @@
         "nominatim:파리크라상리나스 숭례문점 대한민국"
       ],
       "updated_at": "2026-09-17T07:48:20+00:00"
+    },
+    "파스쿠찌 광명철산점|광명시": {
+      "failed": true,
+      "fingerprint": "704c6b0deaf8eaa7",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:파스쿠찌 광명철산점 광명시",
+        "nominatim:파스쿠찌 광명철산점 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:47+00:00"
     },
     "파크프리베|도봉구": {
       "addr_type": "PointAddress",
@@ -15597,6 +16630,17 @@
         "arcgis:포도나무 대한민국"
       ],
       "updated_at": "2026-09-18T13:43:22+00:00"
+    },
+    "폴바셋 광명철산DT점|광명시": {
+      "failed": true,
+      "fingerprint": "d63d464753c6804c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:폴바셋 광명철산DT점 광명시",
+        "nominatim:폴바셋 광명철산DT점 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:38+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -16033,6 +17077,24 @@
       ],
       "updated_at": "2026-09-17T23:04:20+00:00"
     },
+    "학온추어탕|광명시": {
+      "addr_type": "POI",
+      "display_name": "학온추어탕",
+      "fingerprint": "8b2cbedd57a99d7c",
+      "geocoder_version": 4,
+      "lat": 37.417178789,
+      "lon": 126.852615968,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "학온추어탕 광명시",
+      "result_name": "학온추어탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:학온추어탕 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:50+00:00"
+    },
     "한결남원추어탕|부천시": {
       "addr_type": "POI",
       "display_name": "한결남원추어탕",
@@ -16213,6 +17275,42 @@
       ],
       "updated_at": "2026-09-21T07:28:45+00:00"
     },
+    "한본삼계탕|광명시": {
+      "addr_type": "POI",
+      "display_name": "한본삼계탕",
+      "fingerprint": "2a83b024ea924d26",
+      "geocoder_version": 4,
+      "lat": 37.474382795,
+      "lon": 126.869286684,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한본삼계탕 광명시",
+      "result_name": "한본삼계탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한본삼계탕 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:54+00:00"
+    },
+    "한선희 낙지명가|안성시": {
+      "addr_type": "POI",
+      "display_name": "한선희 낙지명가",
+      "fingerprint": "264b3f3abc8fc776",
+      "geocoder_version": 4,
+      "lat": 37.013386925,
+      "lon": 127.252293768,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한선희 낙지명가 안성시",
+      "result_name": "한선희 낙지명가",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한선희 낙지명가 안성시"
+      ],
+      "updated_at": "2026-09-22T07:24:08+00:00"
+    },
     "한성관|강동구": {
       "addr_type": "POI",
       "display_name": "한성관",
@@ -16356,6 +17454,24 @@
         "arcgis:한우만 군포시"
       ],
       "updated_at": "2026-09-21T07:29:02+00:00"
+    },
+    "한우육회|광명시": {
+      "addr_type": "POI",
+      "display_name": "한우육회",
+      "fingerprint": "90f1918820698a69",
+      "geocoder_version": 4,
+      "lat": 37.475230972,
+      "lon": 126.867697798,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한우육회 광명시",
+      "result_name": "한우육회",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한우육회 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:38+00:00"
     },
     "한우정|인천시청": {
       "addr_type": "POI",
@@ -16892,6 +18008,24 @@
       ],
       "updated_at": "2026-09-18T17:02:08+00:00"
     },
+    "호우|광명시": {
+      "addr_type": "POI",
+      "display_name": "호우",
+      "fingerprint": "4faec1113273ef4d",
+      "geocoder_version": 4,
+      "lat": 37.477653523,
+      "lon": 126.863089767,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "호우 광명시",
+      "result_name": "호우",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:호우 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:28+00:00"
+    },
     "호정|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 마포구 공덕동 마포대로14길 12-19",
@@ -17375,6 +18509,24 @@
       ],
       "updated_at": "2026-09-17T23:04:02+00:00"
     },
+    "횟집도화|광명시": {
+      "addr_type": "POI",
+      "display_name": "횟집도화",
+      "fingerprint": "33897ad36d27354a",
+      "geocoder_version": 4,
+      "lat": 37.475201996,
+      "lon": 126.868844516,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "횟집도화 광명시",
+      "result_name": "횟집도화",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:횟집도화 광명시"
+      ],
+      "updated_at": "2026-09-22T07:23:35+00:00"
+    },
     "효도치킨 광화문점|중앙정부": {
       "addr_type": "POI",
       "display_name": "효도치킨 광화문점",
@@ -17421,6 +18573,17 @@
         "arcgis:훈장골 인천광역시 부평구"
       ],
       "updated_at": "2026-09-21T08:46:04+00:00"
+    },
+    "훈장골동탄|오산시": {
+      "failed": true,
+      "fingerprint": "a518799497c0c752",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:훈장골동탄 오산시",
+        "nominatim:훈장골동탄 오산시"
+      ],
+      "updated_at": "2026-09-22T07:24:32+00:00"
     },
     "훈장골영등포신길점|영등포구": {
       "addr_type": "PointAddress",
