@@ -214,11 +214,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          while IFS=
-      - name: Verify site build
-        run: python pipeline/build_site.py --output /tmp/index.html
-
-\t' read -r SOURCE STATE; do
+          while IFS=$'\t' read -r SOURCE STATE; do
             if [[ "$STATE" != "OK" ]]; then
               for F in reports/capital-backfill-discovery-${SOURCE}.*; do
                 [[ -e "$F" ]] && git add "$F"
@@ -246,4 +242,3 @@ jobs:
 
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
-
