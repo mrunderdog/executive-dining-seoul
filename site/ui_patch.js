@@ -1,14 +1,4 @@
 (function(){
-  document.title='그들이 먹는 세상 | 공개 지출기록으로 보는 식당 선택 지도';
-  const h1=document.querySelector('.brand h1');
-  if(h1) h1.textContent='그들이 먹는 세상';
-  const brandP=document.querySelector('.brand p');
-  if(brandP) brandP.innerHTML='서울·경기·인천의 지방정부와 의회, 중앙정부, 국회의원 공개 지출자료를 모아 여러 기관이 반복해서 찾은 식당과 선택 패턴을 보여줍니다. 맛집 평점이 아니라 <b>실제 공개 기록에 남은 선택의 흔적</b>을 탐색합니다.<br><span class="brand-tagline">누가 어디서, 얼마나 자주 먹었는지는 기록에 남습니다.</span>';
-  const kicker=document.querySelector('.brand-kicker');
-  if(kicker) kicker.textContent='공개 지출기록으로 보는 공공부문의 식당 선택 지도';
-  const originLabel=document.querySelector('label[for="origin"]');
-  if(originLabel) originLabel.textContent='기관 / 출처';
-
   const signalSelect=document.getElementById('ds');
   if(signalSelect && !signalSelect.querySelector('option[value="consensus"]')){
     const opt=document.createElement('option');
