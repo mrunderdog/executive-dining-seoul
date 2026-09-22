@@ -161,6 +161,25 @@ def test_date_time_suffix_normalization():
     assert parse_date_text("25.11.24 19:54").isoformat() == "2025-11-24"
 
 
+
+def test_two_row_header_parsing():
+    rows = [
+        ["사용", "집행", "집행", "대상", "집행"],
+        ["일시", "목적", "장소", "인원", "금액"],
+        ["2026-08-05", "관계자 간담회 식비", "테스트식당", 4, 120000],
+    ]
+    meta = {
+        "region":"경기","jurisdiction":"연천군","institution":"연천군의회",
+        "source":"yeoncheon","post_url":"x","attachment_url":"x","attachment_name":"x.xlsx",
+        "period":[2026,8,None],"default_role":"의장",
+    }
+    normalized, info = normalize_sheet(rows, "Sheet1", meta)
+    assert info.get("header_span") == 2, info
+    assert len(normalized) == 1, normalized
+    assert normalized[0]["merchant"] == "테스트식당", normalized
+    assert normalized[0]["amount"] == 120000, normalized
+
+
 def test_removed_selected_location_button():
     template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     map_js = (ROOT / "site" / "maplibre.js").read_text(encoding="utf-8")
@@ -193,6 +212,7 @@ def main():
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
         test_date_time_suffix_normalization,
+        test_two_row_header_parsing,
         test_removed_selected_location_button,
         test_template_has_no_legacy_leaflet_runtime,
     ]
