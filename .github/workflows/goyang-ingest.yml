@@ -7,6 +7,10 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/repair_raw_dates.py'
       - 'pipeline/capital_backfill.py'
+      - 'pipeline/build_source_candidates.py'
+      - 'pipeline/published_sources.py'
+      - 'pipeline/quality_gate.py'
+      - 'pipeline/regression_checks.py'
       - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
     inputs:
@@ -205,18 +209,16 @@ jobs:
           assert ok >= 1, 'no freshly/previously usable council source is available'
           PY
 
-      - name: Quality gate public dataset
-        run: python pipeline/quality_gate.py
-
-      - name: Verify site build
-        run: python pipeline/build_site.py --output /tmp/index.html
-
       - name: Commit successful council data and reports
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          while IFS=$'\t' read -r SOURCE STATE; do
+          while IFS=
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+\t' read -r SOURCE STATE; do
             if [[ "$STATE" != "OK" ]]; then
               for F in reports/capital-backfill-discovery-${SOURCE}.*; do
                 [[ -e "$F" ]] && git add "$F"
@@ -238,3 +240,10 @@ jobs:
           git commit -m "data: refresh supported Capital Area councils"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Quality gate public dataset
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
