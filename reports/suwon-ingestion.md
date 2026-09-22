@@ -1,6 +1,6 @@
 # suwon expense ingestion
 
-- Normalized rows: **2286**
+- Normalized rows: **2283**
 - Source posts: **42**
 - Downloaded files: **42**
 - Errors: **0**
@@ -8,14 +8,14 @@
 ## Rows by year
 
 - 2024: 149
-- 2025: 1251
-- 2026: 881
+- 2025: 1249
+- 2026: 880
 - 2027: 4
 - 2028: 1
 
 ## Top roles / sheets
 
-- 의장: 905
+- 의장: 902
 - 부의장: 330
 - 환경안전위원장: 266
 - 기획경제위원장: 170
@@ -153,8 +153,8 @@
   - 예산결산특위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 교섭단체(더불어민주당): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 교섭단체(국민의힘): OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx` — 50,058 bytes — 135 rows
-  - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
+- `2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx` — 50,058 bytes — 134 rows
+  - 의장: OK / parsed 30 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
@@ -164,8 +164,8 @@
   - 의회운영위: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 교섭단체(국민의힘): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `'2026. 3월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 50,058 bytes — 135 rows
-  - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
+- `'2026. 3월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 50,058 bytes — 134 rows
+  - 의장: OK / parsed 30 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
@@ -375,8 +375,8 @@
   - 문화체육: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 예결특위: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장)` — 42,517 bytes — 149 rows
-  - 의장: OK / parsed 44 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장)` — 42,517 bytes — 148 rows
+  - 의장: OK / parsed 43 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 부의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 의회운영: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기획경제: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
@@ -385,8 +385,8 @@
   - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `'2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 42,517 bytes — 149 rows
-  - 의장: OK / parsed 44 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `'2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 42,517 bytes — 148 rows
+  - 의장: OK / parsed 43 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 부의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 의회운영: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기획경제: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
@@ -395,8 +395,8 @@
   - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xl` — 38,104 bytes — 110 rows
-  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xl` — 38,104 bytes — 109 rows
+  - 의장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
@@ -404,8 +404,8 @@
   - 환경안전: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `'2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 38,104 bytes — 110 rows
-  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `'2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 38,104 bytes — 109 rows
+  - 의장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}

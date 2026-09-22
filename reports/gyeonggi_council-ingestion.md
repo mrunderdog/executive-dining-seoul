@@ -1,6 +1,6 @@
 # gyeonggi_council expense ingestion
 
-- Normalized rows: **3283**
+- Normalized rows: **3281**
 - Source posts: **90**
 - Downloaded files: **90**
 - Errors: **0**
@@ -114,8 +114,8 @@
   - 기관운영업무추진비(의정국): OK / parsed 33 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
 - `2026년 2분기 의회운영업무추진비 사용내역(1부의장).xlsx 2026년 2분기 의회운영업무추진비 사용내역(1부의장)` — 15,215 bytes — 35 rows
   - 의회운영업무추진비: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
-- `2026년 2분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,181 bytes — 13 rows
-  - 시책추진업무추진비: OK / parsed 13 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 2분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,181 bytes — 12 rows
+  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
 - `2026년 2분기 의회운영업무추진비 사용내역(건설교통위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(건설교통위원회)` — 13,676 bytes — 17 rows
   - 업무추진비: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
 - `2026년 2분기 시책추진업무추진비 사용내역(건설교통위원회).xlsx 2026년 2분기 시책추진업무추진비 사용내역(건설교통위원회)` — 12,426 bytes — 9 rows
@@ -167,8 +167,8 @@
   - 시책추진업무추진비: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
 - `2026년 1분기 의회운영업무추진비 집행내역(미래위).xlsx 2026년 1분기 의회운영업무추진비 사용내역(미래과학협력위원장)` — 14,599 bytes — 26 rows
   - 의회운영업무추진비: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
-- `2026년 1분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,124 bytes — 12 rows
-  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 1분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,124 bytes — 11 rows
+  - 시책추진업무추진비: OK / parsed 11 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
 - `2026년도 1분기 시책추진업무추진비 공개자료(특별전문위원실).xlsx 2026년도 1분기 시책추진업무추진비 사용내역(특별전문위원실)` — 12,630 bytes — 9 rows
   - 시책추진업무추진비: OK / parsed 9 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
 - `2026년도 1분기 의회운영업무추진비 공개자료(예산결산특별위원장).xlsx 2026년도 1분기 의회운영업무추진비 사용내역(특별전문위원실)` — 21,965 bytes — 96 rows

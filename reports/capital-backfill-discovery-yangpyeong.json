@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T10:44:28",
+  "generated_at": "2026-09-22T11:44:18",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -128,8 +128,13 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5107&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(1월)_의정운영공통경비.pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4356",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "yangpyeong",
@@ -143,8 +148,18 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5106&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "pdf 문서 2026년 업무추진비사용내역(1월)_부의장.pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4354",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 2026년 업무추진비사용내역(1월)_의장.pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4355",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "yangpyeong",
@@ -158,8 +173,18 @@
         4
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5081&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4320",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_시책).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4321",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "yangpyeong",
@@ -173,13 +198,8 @@
         4
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5080&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_의정운영공통경비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4319",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -193,18 +213,8 @@
         4
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5079&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_부의장).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4317",
-          "onclick": ""
-        },
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_의장).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4318",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -218,18 +228,8 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4959&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(9월_기관운영업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4235",
-          "onclick": ""
-        },
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(9월_시책업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4236",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -373,18 +373,8 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4873&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(7월_기관운영업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4118",
-          "onclick": ""
-        },
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(7월_시책업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4119",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -398,8 +388,18 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4872&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(7월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4116",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(7월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4117",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "yangpyeong",
@@ -433,18 +433,8 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4860&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(6월_기관운영업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4101",
-          "onclick": ""
-        },
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(6월_시책운영업무추진비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4102",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -473,13 +463,8 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4858&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 업무추진비 사용내역 공개(5월_의정운영공통경비).pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4098",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -493,8 +478,13 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4857&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(5월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4097",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "yangpyeong",
@@ -523,7 +513,147 @@
     },
     {
       "source": "yangpyeong",
-      "listing_url": "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex=4&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4779&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(4월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3976",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4월 양평군의회 업무추진비 집행내역(기관운영·시책추진 업무추진비)",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4778&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(4월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3974",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(4월_시책업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3975",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4777&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(4월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3968",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(4월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3969",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 3월 양평군의회 업무추진비 집행내역(의정운영공통경비, 기관운영업무추진비)",
+      "period": [
+        2025,
+        3,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4725&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(3월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3871",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(3월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3872",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 3월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        3,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4724&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(3월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3869",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(3월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3870",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2024년 4분기 양평군의회 업무추진비 집행내역",
+      "period": [
+        2024,
+        null,
+        4
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4562&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=4&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 2024년 업무추진비 사용내역(4분기_결재).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=3696",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "listing_url": "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex=6&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=",
       "error": "listing URLError: <urlopen error timed out>"
     }
   ]

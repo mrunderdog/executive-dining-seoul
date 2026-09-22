@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "suwon",
-  "generated_at": "2026-09-22T10:51:12",
-  "row_count": 2286,
+  "generated_at": "2026-09-22T11:52:31",
+  "row_count": 2283,
   "rows": [
     {
       "region": "경기",
@@ -9675,35 +9675,6 @@
         null
       ],
       "source_sheet": "의장",
-      "source_row": 5,
-      "used_date": "2025-03-02",
-      "date_inferred_from_previous_row": false,
-      "used_time": "",
-      "role": "의장",
-      "merchant": "1059-3",
-      "address": "",
-      "purpose": "현안사항 관련 대화 후 차담비(의장)지출 건의",
-      "people": 6,
-      "amount": 32500,
-      "payment_method": "신용카드",
-      "parse_confidence": "high",
-      "row_id": "3c9237960186a5539ab7",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "수원시",
-      "institution": "수원특례시의회",
-      "source_key": "suwon",
-      "source_post_url": "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2",
-      "source_attachment_url": "https://council.suwon.go.kr/kr/bbs/download.do?bbs_id=cost&uid=3BA29E6F91D3C1F4DFBAF1C27D8D515C",
-      "source_attachment_name": "'2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일",
-      "source_period": [
-        2025,
-        3,
-        null
-      ],
-      "source_sheet": "의장",
       "source_row": 4,
       "used_date": "2025-03-02",
       "date_inferred_from_previous_row": false,
@@ -13632,35 +13603,6 @@
       "payment_method": "신용카드",
       "parse_confidence": "high",
       "row_id": "116481a3782e420ae713",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "수원시",
-      "institution": "수원특례시의회",
-      "source_key": "suwon",
-      "source_post_url": "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2",
-      "source_attachment_url": "https://council.suwon.go.kr/kr/bbs/download.do?bbs_id=cost&uid=9B28734C58B89291CCEE5C9F9AB487B9",
-      "source_attachment_name": "'2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일",
-      "source_period": [
-        2025,
-        4,
-        null
-      ],
-      "source_sheet": "의장",
-      "source_row": 11,
-      "used_date": "2025-04-08",
-      "date_inferred_from_previous_row": false,
-      "used_time": "",
-      "role": "의장",
-      "merchant": "1059-3",
-      "address": "",
-      "purpose": "현안사항 관련 대화 후 차담비(의장)지출 건의",
-      "people": 10,
-      "amount": 58900,
-      "payment_method": "신용카드",
-      "parse_confidence": "high",
-      "row_id": "2e347df26de0b633f714",
       "date_quality": "in_period"
     },
     {
@@ -59961,35 +59903,6 @@
         null
       ],
       "source_sheet": "의장",
-      "source_row": 10,
-      "used_date": "2026-03-07",
-      "date_inferred_from_previous_row": false,
-      "used_time": "",
-      "role": "의장",
-      "merchant": "1059-3",
-      "address": "",
-      "purpose": "현안사항 관련 대화 후 급식비 및 차담비(의장) 지출 건의",
-      "people": null,
-      "amount": 75400,
-      "payment_method": "카드",
-      "parse_confidence": "high",
-      "row_id": "02f0dcda749d30d955e2",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "수원시",
-      "institution": "수원특례시의회",
-      "source_key": "suwon",
-      "source_post_url": "https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1",
-      "source_attachment_url": "https://council.suwon.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1EB50EEC2455F7EFB5B487A81E93967B",
-      "source_attachment_name": "'2026. 3월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일",
-      "source_period": [
-        2026,
-        3,
-        null
-      ],
-      "source_sheet": "의장",
       "source_row": 11,
       "used_date": "2026-03-09",
       "date_inferred_from_previous_row": false,
@@ -66311,6 +66224,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66333,6 +66247,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66355,6 +66270,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66381,6 +66297,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66407,6 +66324,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66433,6 +66351,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66459,6 +66378,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66485,6 +66405,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66511,6 +66432,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66537,6 +66459,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66563,6 +66486,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66598,6 +66522,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66620,6 +66545,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66642,6 +66568,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66668,6 +66595,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66694,6 +66622,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66720,6 +66649,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66746,6 +66676,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66772,6 +66703,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66798,6 +66730,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66824,6 +66757,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66850,6 +66784,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66885,6 +66820,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66907,6 +66843,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -66929,6 +66866,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66955,6 +66893,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -66981,6 +66920,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67007,6 +66947,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67033,6 +66974,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67059,6 +67001,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67085,6 +67028,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67111,6 +67055,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67137,6 +67082,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67172,6 +67118,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67194,6 +67141,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67216,6 +67164,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67242,6 +67191,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67268,6 +67218,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67294,6 +67245,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67320,6 +67272,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67346,6 +67299,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67372,6 +67326,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67398,6 +67353,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67424,6 +67380,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67459,6 +67416,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67481,6 +67439,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67503,6 +67462,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67529,6 +67489,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67555,6 +67516,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67581,6 +67543,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67607,6 +67570,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67633,6 +67597,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67659,6 +67624,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67685,6 +67651,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67711,6 +67678,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67746,6 +67714,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67768,6 +67737,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -67790,6 +67760,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67816,6 +67787,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67842,6 +67814,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67868,6 +67841,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67894,6 +67868,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67920,6 +67895,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67946,6 +67922,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67972,6 +67949,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -67998,6 +67976,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68033,6 +68012,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68055,6 +68035,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68077,6 +68058,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68103,6 +68085,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68129,6 +68112,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68155,6 +68139,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68181,6 +68166,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68207,6 +68193,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68233,6 +68220,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68259,6 +68247,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68285,6 +68274,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68320,6 +68310,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68342,6 +68333,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68364,6 +68356,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68390,6 +68383,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68416,6 +68410,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68442,6 +68437,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68468,6 +68464,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68494,6 +68491,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68520,6 +68518,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68546,6 +68545,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68572,6 +68572,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68607,6 +68608,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68629,6 +68631,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68651,6 +68654,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68677,6 +68681,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68703,6 +68708,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68729,6 +68735,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68755,6 +68762,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68781,6 +68789,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68807,6 +68816,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68833,6 +68843,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68859,6 +68870,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68894,6 +68906,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68916,6 +68929,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -68938,6 +68952,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68964,6 +68979,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -68990,6 +69006,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69016,6 +69033,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69042,6 +69060,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69068,6 +69087,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69094,6 +69114,7 @@
           "sheet": "예산결산특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69120,6 +69141,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69146,6 +69168,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69181,6 +69204,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69197,12 +69221,13 @@
             "method": 5
           },
           "section_role": "의장",
-          "parsed_rows": 31
+          "parsed_rows": 30
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69225,6 +69250,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69251,6 +69277,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69277,6 +69304,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69303,6 +69331,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69329,6 +69358,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69355,6 +69385,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69381,6 +69412,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69407,6 +69439,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69442,6 +69475,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69458,12 +69492,13 @@
             "method": 5
           },
           "section_role": "의장",
-          "parsed_rows": 31
+          "parsed_rows": 30
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69486,6 +69521,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69512,6 +69548,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69538,6 +69575,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69564,6 +69602,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69590,6 +69629,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69616,6 +69656,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69642,6 +69683,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69668,6 +69710,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69703,6 +69746,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69725,6 +69769,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69747,6 +69792,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69773,6 +69819,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69799,6 +69846,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69825,6 +69873,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69851,6 +69900,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69877,6 +69927,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69903,6 +69954,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69929,6 +69981,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -69964,6 +70017,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -69986,6 +70040,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -70008,6 +70063,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70034,6 +70090,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70060,6 +70117,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70086,6 +70144,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70112,6 +70171,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70138,6 +70198,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70164,6 +70225,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70190,6 +70252,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70225,6 +70288,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -70247,6 +70311,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -70269,6 +70334,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70295,6 +70361,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70321,6 +70388,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70347,6 +70415,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70373,6 +70442,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70399,6 +70469,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70425,6 +70496,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70451,6 +70523,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70477,6 +70550,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70512,6 +70586,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -70534,6 +70609,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -70556,6 +70632,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70582,6 +70659,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70608,6 +70686,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70634,6 +70713,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70660,6 +70740,7 @@
           "sheet": "문화체육교육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70686,6 +70767,7 @@
           "sheet": "의회운영위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70712,6 +70794,7 @@
           "sheet": "교섭단체(더불어민주당)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70738,6 +70821,7 @@
           "sheet": "교섭단체(국민의힘)",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70764,6 +70848,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70799,6 +70884,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70825,6 +70911,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70851,6 +70938,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70877,6 +70965,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70903,6 +70992,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70929,6 +71019,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70955,6 +71046,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -70981,6 +71073,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71016,6 +71109,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71042,6 +71136,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71068,6 +71163,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71094,6 +71190,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71120,6 +71217,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71146,6 +71244,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71172,6 +71271,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71198,6 +71298,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71233,6 +71334,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71259,6 +71361,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71285,6 +71388,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71311,6 +71415,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71337,6 +71442,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71363,6 +71469,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71389,6 +71496,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71415,6 +71523,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71450,6 +71559,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71476,6 +71586,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71502,6 +71613,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71528,6 +71640,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71554,6 +71667,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71580,6 +71694,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71606,6 +71721,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71632,6 +71748,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71667,6 +71784,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71693,6 +71811,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71719,6 +71838,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71745,6 +71865,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71771,6 +71892,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71797,6 +71919,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71823,6 +71946,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71849,6 +71973,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71875,6 +72000,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71910,6 +72036,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71936,6 +72063,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71962,6 +72090,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -71988,6 +72117,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72014,6 +72144,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72040,6 +72171,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72066,6 +72198,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72092,6 +72225,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72118,6 +72252,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72153,6 +72288,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72179,6 +72315,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72205,6 +72342,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72231,6 +72369,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72257,6 +72396,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72283,6 +72423,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72309,6 +72450,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72335,6 +72477,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72370,6 +72513,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72396,6 +72540,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72422,6 +72567,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72448,6 +72594,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72474,6 +72621,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72500,6 +72648,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72526,6 +72675,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72552,6 +72702,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72587,6 +72738,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72613,6 +72765,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72639,6 +72792,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72665,6 +72819,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72691,6 +72846,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72717,6 +72873,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72743,6 +72900,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72769,6 +72927,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72795,6 +72954,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72830,6 +72990,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72856,6 +73017,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72882,6 +73044,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72908,6 +73071,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72934,6 +73098,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72960,6 +73125,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -72986,6 +73152,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73012,6 +73179,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73038,6 +73206,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73073,6 +73242,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73099,6 +73269,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73125,6 +73296,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73151,6 +73323,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73177,6 +73350,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73203,6 +73377,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73229,6 +73404,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73255,6 +73431,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73281,6 +73458,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73316,6 +73494,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73342,6 +73521,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73368,6 +73548,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73394,6 +73575,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73420,6 +73602,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73446,6 +73629,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73472,6 +73656,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73498,6 +73683,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73524,6 +73710,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73559,6 +73746,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73585,6 +73773,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73611,6 +73800,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73637,6 +73827,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73663,6 +73854,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73689,6 +73881,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73715,6 +73908,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73741,6 +73935,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73767,6 +73962,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73802,6 +73998,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73828,6 +74025,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73854,6 +74052,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73880,6 +74079,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73906,6 +74106,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73932,6 +74133,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73958,6 +74160,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -73984,6 +74187,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74010,6 +74214,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74045,6 +74250,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74071,6 +74277,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74097,6 +74304,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74123,6 +74331,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74149,6 +74358,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74175,6 +74385,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74201,6 +74412,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74227,6 +74439,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74253,6 +74466,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74288,6 +74502,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74314,6 +74529,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74340,6 +74556,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74366,6 +74583,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74392,6 +74610,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74418,6 +74637,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74444,6 +74664,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74470,6 +74691,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74496,6 +74718,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74531,6 +74754,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74551,12 +74775,13 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 44
+          "parsed_rows": 43
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74583,6 +74808,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74609,6 +74835,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74635,6 +74862,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74661,6 +74889,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74687,6 +74916,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74713,6 +74943,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74739,6 +74970,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74774,6 +75006,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74794,12 +75027,13 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 44
+          "parsed_rows": 43
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74826,6 +75060,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74852,6 +75087,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74878,6 +75114,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74904,6 +75141,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74930,6 +75168,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74956,6 +75195,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -74982,6 +75222,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75017,6 +75258,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75037,12 +75279,13 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 29
+          "parsed_rows": 28
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75069,6 +75312,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75095,6 +75339,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75121,6 +75366,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75147,6 +75393,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75173,6 +75420,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75199,6 +75447,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75234,6 +75483,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75254,12 +75504,13 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 29
+          "parsed_rows": 28
         },
         {
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75286,6 +75537,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75312,6 +75564,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75338,6 +75591,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75364,6 +75618,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75390,6 +75645,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75416,6 +75672,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75451,6 +75708,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75477,6 +75735,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75503,6 +75762,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75529,6 +75789,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75555,6 +75816,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75581,6 +75843,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75607,6 +75870,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75633,6 +75897,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75668,6 +75933,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75694,6 +75960,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75720,6 +75987,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75746,6 +76014,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75772,6 +76041,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75798,6 +76068,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75824,6 +76095,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75850,6 +76122,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75885,6 +76158,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75911,6 +76185,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75937,6 +76212,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75963,6 +76239,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -75989,6 +76266,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76015,6 +76293,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76041,6 +76320,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76067,6 +76347,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76102,6 +76383,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76128,6 +76410,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76154,6 +76437,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76180,6 +76464,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76206,6 +76491,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76232,6 +76518,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76258,6 +76545,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76284,6 +76572,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76319,6 +76608,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76345,6 +76635,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76371,6 +76662,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76397,6 +76689,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76423,6 +76716,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76449,6 +76743,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76475,6 +76770,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76501,6 +76797,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76527,6 +76824,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76562,6 +76860,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76588,6 +76887,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76614,6 +76914,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76640,6 +76941,7 @@
           "sheet": "기획경제",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76666,6 +76968,7 @@
           "sheet": "도시미래",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76692,6 +76995,7 @@
           "sheet": "환경안전",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76718,6 +77022,7 @@
           "sheet": "문화체육",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76744,6 +77049,7 @@
           "sheet": "보건복지",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76770,6 +77076,7 @@
           "sheet": "예결특위",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -76797,10 +77104,10 @@
   ],
   "errors": [],
   "raw_quality": {
-    "rows": 2286,
-    "transaction_rows": 2286,
+    "rows": 2283,
+    "transaction_rows": 2283,
     "repaired_excel_serial_dates": 0,
-    "normalized_text_dates": 259,
+    "normalized_text_dates": 258,
     "valid_date_coverage": 1.0,
     "in_period_date_coverage": 0.9952,
     "all_row_valid_date_coverage": 1.0,

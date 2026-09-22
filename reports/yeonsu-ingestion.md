@@ -1,6 +1,6 @@
 # yeonsu expense ingestion
 
-- Normalized rows: **1390**
+- Normalized rows: **1385**
 - Source posts: **34**
 - Downloaded files: **34**
 - Errors: **0**
@@ -8,13 +8,13 @@
 ## Rows by year
 
 - 2024: 56
-- 2025: 433
+- 2025: 429
 - 2026: 222
 
 ## Top roles / sheets
 
-- 의장: 362
-- 연수구의회: 261
+- 의장: 359
+- 연수구의회: 259
 - 부의장: 190
 - 자치도시위원장: 159
 - 운영위원장: 134
@@ -159,14 +159,14 @@
   - 자치도시위원장: OK / parsed 16 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 0 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 의정운영공통경비: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-- `(공개용)25년 12월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 12월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 12월 연수구의회 의` — 2,098,934 bytes — 122 rows
+- `(공개용)25년 12월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 12월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 12월 연수구의회 의` — 2,098,934 bytes — 121 rows
   - 의장: OK / parsed 33 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 10 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 운영위원장: OK / parsed 2 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 기획복지위원장: OK / parsed 15 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 자치도시위원장: OK / parsed 14 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 3 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-  - 의정운영공통경비: OK / parsed 45 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 의정운영공통경비: OK / parsed 44 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
 - `(공개용)25년 11월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 11월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 11월 연수구의회 의` — 2,002,287 bytes — 79 rows
   - 의장: OK / parsed 16 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 9 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
@@ -183,8 +183,8 @@
   - 자치도시위원장: OK / parsed 4 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 0 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 의정운영공통경비: OK / parsed 29 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-- `(공개용)25년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 9월 연수구의회 의회운영` — 2,137,990 bytes — 82 rows
-  - 의장: OK / parsed 19 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+- `(공개용)25년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 9월 연수구의회 의회운영` — 2,137,990 bytes — 80 rows
+  - 의장: OK / parsed 17 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 8 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 운영위원장: OK / parsed 8 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 기획복지위원장: OK / parsed 6 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
@@ -247,22 +247,22 @@
   - 자치도시위원장: OK / parsed 1 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 0 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 의정운영공통경비: OK / parsed 4 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-- `(공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2025년 4월 연수구의` — 1,329,389 bytes — 80 rows
+- `(공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2025년 4월 연수구의` — 1,329,389 bytes — 79 rows
   - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 9 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 운영위원장: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 기획복지위원장: OK / parsed 5 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 자치도시위원장: OK / parsed 15 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 2 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-  - 의정운영공통경비: OK / parsed 22 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-- `'(공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 1,329,389 bytes — 80 rows
+  - 의정운영공통경비: OK / parsed 21 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+- `'(공개용)2025년 4월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 1,329,389 bytes — 79 rows
   - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 9 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 운영위원장: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 기획복지위원장: OK / parsed 5 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 자치도시위원장: OK / parsed 15 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 2 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-  - 의정운영공통경비: OK / parsed 22 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 의정운영공통경비: OK / parsed 21 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
 - `(공개용)25년 3월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 3월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 3월 연수구의회 의회운영` — 1,192,350 bytes — 59 rows
   - 의장: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 8 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
@@ -271,8 +271,8 @@
   - 자치도시위원장: OK / parsed 8 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 예결위원장: OK / parsed 0 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 의정운영공통경비: OK / parsed 17 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
-- `(공개용)25년 2월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 2월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 2월 연수구의회 의회운영` — 1,822,052 bytes — 72 rows
-  - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+- `(공개용)25년 2월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 2월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)25년 2월 연수구의회 의회운영` — 1,822,052 bytes — 71 rows
+  - 의장: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 9 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 운영위원장: OK / parsed 7 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 기획복지위원장: OK / parsed 9 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}

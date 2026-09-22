@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "gwangmyeong",
-  "generated_at": "2026-09-22T10:43:24",
-  "row_count": 2320,
+  "generated_at": "2026-09-22T11:42:53",
+  "row_count": 2316,
   "rows": [
     {
       "region": "경기",
@@ -12849,35 +12849,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "1f965191fc3f8c4f96a4",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "광명시",
-      "institution": "광명시의회",
-      "source_key": "gwangmyeong",
-      "source_post_url": "https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1",
-      "source_attachment_url": "https://council.gm.go.kr/kr/bbs/download.do?bbs_id=cost&uid=43EDD4530D06832240F7CCACFEE16F8E",
-      "source_attachment_name": "'의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기",
-      "source_period": [
-        2025,
-        null,
-        1
-      ],
-      "source_sheet": "pdf-page-4",
-      "source_row": 9,
-      "used_date": "2025-01-17",
-      "date_inferred_from_previous_row": false,
-      "used_time": "직원 부의금 지급",
-      "role": "의장",
-      "merchant": "50,000",
-      "address": "",
-      "purpose": "의회사무국 직원",
-      "people": null,
-      "amount": 1,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "30b4ac185fad5bbd57b5",
       "date_quality": "in_period"
     },
     {
@@ -41024,35 +40995,6 @@
         4
       ],
       "source_sheet": "pdf-page-2",
-      "source_row": 16,
-      "used_date": "2025-10-15",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비 지급",
-      "people": 1,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "c41a72fb8c14f1426406",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "광명시",
-      "institution": "광명시의회",
-      "source_key": "gwangmyeong",
-      "source_post_url": "https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1",
-      "source_attachment_url": "https://council.gm.go.kr/kr/bbs/download.do?bbs_id=cost&uid=D1AE4273009FCFF02642B060231C202F",
-      "source_attachment_name": "'의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기",
-      "source_period": [
-        2025,
-        null,
-        4
-      ],
-      "source_sheet": "pdf-page-2",
       "source_row": 19,
       "used_date": "2025-10-15",
       "date_inferred_from_previous_row": false,
@@ -62657,35 +62599,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-1",
-      "source_row": 5,
-      "used_date": "2026-05-08",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비 지급",
-      "people": 1,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "ef59de35506fa48ea842",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "광명시",
-      "institution": "광명시의회",
-      "source_key": "gwangmyeong",
-      "source_post_url": "https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1",
-      "source_attachment_url": "https://council.gm.go.kr/kr/bbs/download.do?bbs_id=cost&uid=5C8DD74AB8CD4C491F21D0CC72DA3EF7",
-      "source_attachment_name": "의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-5",
       "source_row": 19,
       "used_date": "2026-05-08",
@@ -64788,35 +64701,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "ba8640981c659276458e",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "광명시",
-      "institution": "광명시의회",
-      "source_key": "gwangmyeong",
-      "source_post_url": "https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1",
-      "source_attachment_url": "https://council.gm.go.kr/kr/bbs/download.do?bbs_id=cost&uid=5C8DD74AB8CD4C491F21D0CC72DA3EF7",
-      "source_attachment_name": "의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-1",
-      "source_row": 6,
-      "used_date": "2026-06-10",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비 지급",
-      "people": 1,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "dc101db8d284c3ecd96f",
       "date_quality": "in_period"
     },
     {
@@ -67297,6 +67181,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67319,7 +67204,7 @@
             "role": 2
           },
           "section_role": "",
-          "parsed_rows": 25,
+          "parsed_rows": 23,
           "pdf_page_role": "부의장",
           "carried_pdf_role": "부의장"
         },
@@ -67327,6 +67212,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67357,6 +67243,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67387,6 +67274,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67417,6 +67305,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67447,6 +67336,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67477,6 +67367,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67507,6 +67398,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67537,6 +67429,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67567,6 +67460,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67597,6 +67491,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67636,6 +67531,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67666,6 +67562,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67696,6 +67593,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67726,6 +67624,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67756,6 +67655,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67786,6 +67686,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67816,6 +67717,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67846,6 +67748,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67876,6 +67779,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67906,6 +67810,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67936,6 +67841,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67966,6 +67872,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -67996,6 +67903,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68026,6 +67934,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68056,6 +67965,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68095,6 +68005,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68125,6 +68036,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68147,7 +68059,7 @@
             "role": 2
           },
           "section_role": "",
-          "parsed_rows": 24,
+          "parsed_rows": 23,
           "pdf_page_role": "",
           "carried_pdf_role": ""
         },
@@ -68155,6 +68067,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68185,6 +68098,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68215,6 +68129,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68245,6 +68160,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68275,6 +68191,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68305,6 +68222,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68335,6 +68253,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68365,6 +68284,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68395,6 +68315,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68425,6 +68346,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68455,6 +68377,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68485,6 +68408,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68524,6 +68448,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68554,6 +68479,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68584,6 +68510,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68614,6 +68541,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68644,6 +68572,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68674,6 +68603,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68704,6 +68634,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68734,6 +68665,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68764,6 +68696,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68794,6 +68727,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68824,6 +68758,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68854,6 +68789,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68884,6 +68820,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68914,6 +68851,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68944,6 +68882,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -68983,6 +68922,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69013,6 +68953,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69043,6 +68984,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69073,6 +69015,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69103,6 +69046,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69133,6 +69077,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69163,6 +69108,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69193,6 +69139,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69223,6 +69170,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69253,6 +69201,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69283,6 +69232,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69313,6 +69263,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69343,6 +69294,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69382,6 +69334,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69412,6 +69365,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69442,6 +69396,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69472,6 +69427,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69494,7 +69450,7 @@
             "role": 2
           },
           "section_role": "",
-          "parsed_rows": 22,
+          "parsed_rows": 21,
           "pdf_page_role": "",
           "carried_pdf_role": ""
         },
@@ -69502,6 +69458,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69532,6 +69489,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69562,6 +69520,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69592,6 +69551,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69622,6 +69582,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69652,6 +69613,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69682,6 +69644,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69712,6 +69675,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69742,6 +69706,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69772,6 +69737,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69802,6 +69768,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69841,6 +69808,7 @@
           "sheet": "pdf-page-1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69871,6 +69839,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69901,6 +69870,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69931,6 +69901,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69961,6 +69932,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -69991,6 +69963,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70021,6 +69994,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70051,6 +70025,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70081,6 +70056,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70111,6 +70087,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70141,6 +70118,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70171,6 +70149,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70201,6 +70180,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70231,6 +70211,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70261,6 +70242,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70291,6 +70273,7 @@
           "sheet": "pdf-page-16",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -70324,47 +70307,47 @@
     {
       "post": "2026년 2/4분기 업무추진비 및 의정운영공통경비 공개 상세보기 2026년 2/4분기 업무추진비 및 의정운영공통경비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2026년 2/4분기 업무추진비 및 의정운영공통경비 공개 상세보기 2026년 2/4분기 업무추진비 및 의정운영공통경비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2026년 1/4분기 업무추진비 공개 상세보기 2026년 1/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2025년 4/4분기 업무추진비 공개 상세보기 2025년 4/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2025년 3/4분기 업무추진비 공개 상세보기 2025년 3/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2025년 2/4분기 업무추진비 공개 상세보기 2025년 2/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2025년 1/4분기 업무추진비 공개 상세보기 2025년 1/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     },
     {
       "post": "2024년 4/4분기 업무추진비 공개 상세보기 2024년 4/4분기 업무추진비 공개",
       "url": "https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367",
-      "error": "ValueError: attachment endpoint returned HTML (text/html;charset=utf-8)"
+      "error": "NameError: name 'html' is not defined"
     }
   ],
   "raw_quality": {
-    "rows": 2320,
-    "transaction_rows": 2320,
+    "rows": 2316,
+    "transaction_rows": 2316,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 0,
     "valid_date_coverage": 1.0,

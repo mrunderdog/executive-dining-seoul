@@ -1,6 +1,6 @@
 # siheung Executive-repeat candidates
 
-Rows considered: 1542
+Rows considered: 1532
 
 > Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.
 

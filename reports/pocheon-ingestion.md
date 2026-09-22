@@ -1,0 +1,131 @@
+# pocheon expense ingestion
+
+- Normalized rows: **947**
+- Source posts: **20**
+- Downloaded files: **20**
+- Errors: **0**
+
+## Rows by year
+
+- 2024: 62
+- 2025: 566
+- 2026: 296
+
+## Top roles / sheets
+
+- 의장: 618
+- 부의장: 153
+- 운영위원장: 101
+- 예결위원장: 48
+- 포천시의회: 10
+- 교섭단체 대표: 6
+- 특별위원회: 5
+- 사 용 자: 5
+- 홍보팀장: 1
+
+## Files
+
+- `2026년 7월 업무추진비 사용내역.pdf 2026년 7월 업무추진비 사용내역.pdf` — 146,383 bytes — 71 rows
+  - pdf-page-1: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 31 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 6월 업무추진비 사용내역.pdf 2026년 6월 업무추진비 사용내역.pdf` — 141,985 bytes — 61 rows
+  - pdf-page-1: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 5월 업무추진비 사용내역.pdf 2026년 5월 업무추진비 사용내역.pdf` — 103,528 bytes — 24 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 4월 업무추진비 사용내역.pdf 2026년 4월 업무추진비 사용내역.pdf` — 134,481 bytes — 34 rows
+  - pdf-page-1: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 3월 업무추진비 사용내역.pdf 2026년 3월 업무추진비 사용내역.pdf` — 133,549 bytes — 45 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 2월 업무추진비.pdf 2026년 2월 업무추진비.pdf` — 121,507 bytes — 41 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 1월 업무추진비 사용내역.pdf 2026년 1월 업무추진비 사용내역.pdf` — 158,891 bytes — 42 rows
+  - pdf-page-1: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+- `2025년 12월 업무추진비.pdf 2025년 12월 업무추진비.pdf` — 202,896 bytes — 66 rows
+  - pdf-page-1: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-7: NO_HEADER / parsed 0 / mapping {}
+- `2025년 11월 업무추진비.pdf 2025년 11월 업무추진비.pdf` — 145,156 bytes — 39 rows
+  - pdf-page-1: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 10월 업무추진비.pdf 2025년 10월 업무추진비.pdf` — 129,240 bytes — 28 rows
+  - pdf-page-1: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 9월 업무추진비.pdf 2025년 9월 업무추진비.pdf` — 166,011 bytes — 47 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+- `2025년 8월 업무추진비.pdf 2025년 8월 업무추진비.pdf` — 150,130 bytes — 55 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 7월 업무추진비.pdf 2025년 7월 업무추진비.pdf` — 152,408 bytes — 37 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 6월 업무추진비.pdf 2025년 6월 업무추진비.pdf` — 161,427 bytes — 47 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 5월 업무추진비.pdf 2025년 5월 업무추진비.pdf` — 141,803 bytes — 32 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 4월 업무추진비.pdf 2025년 4월 업무추진비.pdf` — 164,689 bytes — 67 rows
+  - pdf-page-1: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 3월 업무추진비.pdf 2025년 3월 업무추진비.pdf` — 155,816 bytes — 60 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 2월 업무추진비.pdf 2025년 2월 업무추진비.pdf` — 156,878 bytes — 37 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2025년 1월 업무추진비.pdf 2025년 1월 업무추진비.pdf` — 147,807 bytes — 53 rows
+  - pdf-page-1: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+- `2024년 12월 업무추진비.pdf 2024년 12월 업무추진비.pdf` — 182,146 bytes — 61 rows
+  - pdf-page-1: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}

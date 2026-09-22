@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "siheung",
-  "generated_at": "2026-09-22T10:43:17",
-  "row_count": 2150,
+  "generated_at": "2026-09-22T11:43:16",
+  "row_count": 2117,
   "rows": [
     {
       "region": "경기",
@@ -15880,35 +15880,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 5,
-      "used_date": "2025-04-01",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:27",
-      "role": "자치행정위원장",
-      "merchant": "10,500",
-      "address": "",
-      "purpose": "커피와케이크",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "1e45f74503bfd77e870f",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-2",
       "source_row": 6,
       "used_date": "2025-04-01",
@@ -16068,35 +16039,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "ec86869280b0f7c1308c",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 5,
-      "used_date": "2025-04-02",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:53",
-      "role": "의장",
-      "merchant": "28,600",
-      "address": "",
-      "purpose": "커피베이시화점",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "118624a8ee0d6e7cc6e4",
       "date_quality": "in_period"
     },
     {
@@ -16373,64 +16315,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 6,
-      "used_date": "2025-04-03",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:10",
-      "role": "의장",
-      "merchant": "32,000",
-      "address": "",
-      "purpose": "커피베이",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "54acd95b93e86918ac7e",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 8,
-      "used_date": "2025-04-03",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:15",
-      "role": "의장",
-      "merchant": "3,900",
-      "address": "",
-      "purpose": "커피베이",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "5782f486ebe399bdd90f",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-12",
       "source_row": 9,
       "used_date": "2025-04-03",
@@ -16605,35 +16489,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 7,
-      "used_date": "2025-04-04",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:16",
-      "role": "부의장",
-      "merchant": "9,300",
-      "address": "",
-      "purpose": "슬로우드커피(Slowood",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "0b7e1c9565a330464163",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-6",
       "source_row": 9,
       "used_date": "2025-04-04",
@@ -16706,35 +16561,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "64e75f8c1c60c7cb09c4",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 11,
-      "used_date": "2025-04-04",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:18",
-      "role": "자치행정위원장",
-      "merchant": "13,000",
-      "address": "",
-      "purpose": "카페섬김",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "954c92f13bdcd55da815",
       "date_quality": "in_period"
     },
     {
@@ -16996,35 +16822,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "af54dae561f036410fc1",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 14,
-      "used_date": "2025-04-07",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:08",
-      "role": "자치행정위원장",
-      "merchant": "20,400",
-      "address": "",
-      "purpose": "투썸플레이스시흥시",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "f0e99f65f186060c09ac",
       "date_quality": "in_period"
     },
     {
@@ -17504,35 +17301,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 13,
-      "used_date": "2025-04-09",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:55",
-      "role": "의장",
-      "merchant": "38,400",
-      "address": "",
-      "purpose": "커피베이",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "ac02105e5caf9b0f931d",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-12",
       "source_row": 15,
       "used_date": "2025-04-09",
@@ -17605,35 +17373,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "d837fee56d8cc86dc036",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 16,
-      "used_date": "2025-04-09",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:08",
-      "role": "자치행정위원장",
-      "merchant": "27,000",
-      "address": "",
-      "purpose": "카페더오브유",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "f2b1accb80c9b6afe793",
       "date_quality": "in_period"
     },
     {
@@ -18462,35 +18201,6 @@
         2
       ],
       "source_sheet": "pdf-page-9",
-      "source_row": 16,
-      "used_date": "2025-04-15",
-      "date_inferred_from_previous_row": false,
-      "used_time": "19:03",
-      "role": "부의장",
-      "merchant": "21,600",
-      "address": "",
-      "purpose": "파리바게뜨시흥대야점",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "90a2cb125bd9d378338f",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
       "source_row": 15,
       "used_date": "2025-04-15",
       "date_inferred_from_previous_row": false,
@@ -19158,35 +18868,6 @@
         2
       ],
       "source_sheet": "pdf-page-6",
-      "source_row": 25,
-      "used_date": "2025-04-19",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:50",
-      "role": "의장",
-      "merchant": "20,200",
-      "address": "",
-      "purpose": "이디야커피(시흥정왕",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "a0e1c36cdc7af27e37c1",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
       "source_row": 24,
       "used_date": "2025-04-19",
       "date_inferred_from_previous_row": false,
@@ -19229,35 +18910,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "2303eeb08c4f110897c7",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 27,
-      "used_date": "2025-04-21",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:28",
-      "role": "의장",
-      "merchant": "198,000",
-      "address": "",
-      "purpose": "느티나무집",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "4ea8666e462d49c05806",
       "date_quality": "in_period"
     },
     {
@@ -19316,35 +18968,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "6c6074527c9033fe3640",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-14",
-      "source_row": 11,
-      "used_date": "2025-04-21",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:19",
-      "role": "교육복지위원장",
-      "merchant": "37,000",
-      "address": "",
-      "purpose": "카페더오브유",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "6e76e71c6639a08db3f2",
       "date_quality": "in_period"
     },
     {
@@ -19490,64 +19113,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "5abf1d6c2368cea7988d",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 20,
-      "used_date": "2025-04-22",
-      "date_inferred_from_previous_row": false,
-      "used_time": "18:18",
-      "role": "부의장",
-      "merchant": "20,000",
-      "address": "",
-      "purpose": "발도스커피시흥대야",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "76ced127e0d46b02ac72",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 21,
-      "used_date": "2025-04-22",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:19",
-      "role": "자치행정위원장",
-      "merchant": "29,000",
-      "address": "",
-      "purpose": "카페더오브유",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "a9fd73c97a45467d8e6d",
       "date_quality": "in_period"
     },
     {
@@ -19737,64 +19302,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-15",
-      "source_row": 12,
-      "used_date": "2025-04-23",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:17",
-      "role": "도시환경위원장",
-      "merchant": "44,000",
-      "address": "",
-      "purpose": "(주)아린",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "d27e6cf81f7fb0a4e880",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 22,
-      "used_date": "2025-04-24",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:15",
-      "role": "부의장",
-      "merchant": "18,000",
-      "address": "",
-      "purpose": "카페해나",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "20e6da7e5d417780462e",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-12",
       "source_row": 23,
       "used_date": "2025-04-24",
@@ -19883,35 +19390,6 @@
         2
       ],
       "source_sheet": "pdf-page-6",
-      "source_row": 32,
-      "used_date": "2025-04-24",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:52",
-      "role": "의장",
-      "merchant": "17,200",
-      "address": "",
-      "purpose": "이디야가평대성점",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "87429c5f3fc17ecefa1d",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
       "source_row": 31,
       "used_date": "2025-04-24",
       "date_inferred_from_previous_row": false,
@@ -19970,35 +19448,6 @@
         2
       ],
       "source_sheet": "pdf-page-6",
-      "source_row": 36,
-      "used_date": "2025-04-26",
-      "date_inferred_from_previous_row": false,
-      "used_time": "15:51",
-      "role": "의장",
-      "merchant": "11,600",
-      "address": "",
-      "purpose": "주식회사플루크가드",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "7aa53e2936699a1a37c3",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
       "source_row": 34,
       "used_date": "2025-04-26",
       "date_inferred_from_previous_row": false,
@@ -20012,35 +19461,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "89d829c4ac6084df2b54",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 33,
-      "used_date": "2025-04-26",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:56",
-      "role": "의장",
-      "merchant": "300,000",
-      "address": "",
-      "purpose": "하얀집",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "ebfb4a6f6a16a97a6aa3",
       "date_quality": "in_period"
     },
     {
@@ -20331,35 +19751,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "e9d93d15f8ee7b8639fe",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 40,
-      "used_date": "2025-04-29",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:16",
-      "role": "의장",
-      "merchant": "31,000",
-      "address": "",
-      "purpose": "근대물왕옥수수찐빵",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "ff17a0444f1133dc4642",
       "date_quality": "in_period"
     },
     {
@@ -20694,35 +20085,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-6",
-      "source_row": 46,
-      "used_date": "2025-05-03",
-      "date_inferred_from_previous_row": false,
-      "used_time": "14:02",
-      "role": "의장",
-      "merchant": "44,800",
-      "address": "",
-      "purpose": "커피베이",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "4aea50fb5772903b207f",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-15",
       "source_row": 15,
       "used_date": "2025-05-07",
@@ -20853,35 +20215,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "432851b6e5cbb0bd28c8",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-14",
-      "source_row": 17,
-      "used_date": "2025-05-08",
-      "date_inferred_from_previous_row": false,
-      "used_time": "11:58",
-      "role": "교육복지위원장",
-      "merchant": "39,700",
-      "address": "",
-      "purpose": "일리카페시흥시청점",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "94dd1abb0c7d4fabb3a7",
       "date_quality": "in_period"
     },
     {
@@ -21056,35 +20389,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "99c0afe7b0e9dea4d63c",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 28,
-      "used_date": "2025-05-12",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:16",
-      "role": "부의장",
-      "merchant": "30,500",
-      "address": "",
-      "purpose": "카페육일구",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "b6395929a79f7c8109e1",
       "date_quality": "in_period"
     },
     {
@@ -21419,35 +20723,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 37,
-      "used_date": "2025-05-22",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:04",
-      "role": "자치행정위원장",
-      "merchant": "12,000",
-      "address": "",
-      "purpose": "카페섬김",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "1b869803c34f17d6176e",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-15",
       "source_row": 19,
       "used_date": "2025-05-22",
@@ -21520,35 +20795,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "868cc63fdcb87c8dc60a",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 32,
-      "used_date": "2025-05-22",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:30",
-      "role": "부의장",
-      "merchant": "51,000",
-      "address": "",
-      "purpose": "카페해나",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "916865fe2ddac13906d3",
       "date_quality": "in_period"
     },
     {
@@ -21912,35 +21158,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 36,
-      "used_date": "2025-05-28",
-      "date_inferred_from_previous_row": false,
-      "used_time": "13:05",
-      "role": "부의장",
-      "merchant": "10,000",
-      "address": "",
-      "purpose": "SADDOBILLY",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "4516010b1df53e908575",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-12",
       "source_row": 43,
       "used_date": "2025-05-28",
@@ -22042,35 +21259,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "a67803d84ac0f9ad6044",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 38,
-      "used_date": "2025-05-30",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:54",
-      "role": "부의장",
-      "merchant": "28,000",
-      "address": "",
-      "purpose": "카페해나",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "3236a019b877f0642d1f",
       "date_quality": "in_period"
     },
     {
@@ -23115,35 +22303,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "0b31276f6fc3c2ae6050",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35157>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=138412",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf",
-      "source_period": [
-        2025,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-9",
-      "source_row": 46,
-      "used_date": "2025-06-20",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:31",
-      "role": "부의장",
-      "merchant": "15,000",
-      "address": "",
-      "purpose": "카페해나",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "745648adc24b9d4520f2",
       "date_quality": "in_period"
     },
     {
@@ -28480,35 +27639,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "b4bb984477cf22e3574b",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=35582>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=136943",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2025년 3분기 시흥시의회 업무추진비 집행내역 공개.pdf",
-      "source_period": [
-        2025,
-        null,
-        3
-      ],
-      "source_sheet": "pdf-page-7",
-      "source_row": 37,
-      "used_date": "2025-08-06",
-      "date_inferred_from_previous_row": false,
-      "used_time": "11:35",
-      "role": "의장",
-      "merchant": "70,700",
-      "address": "",
-      "purpose": "베러스퀘어",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "e8d359a8d40c48d667f0",
       "date_quality": "in_period"
     },
     {
@@ -58684,35 +57814,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-8",
-      "source_row": 46,
-      "used_date": "2026-05-15",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:22민원사항 개선 의견 수렴을 위한 관계자 식비 및 다과비",
-      "role": "부의장",
-      "merchant": "18,000",
-      "address": "",
-      "purpose": "카페해나",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "2c63f03943db10b3b544",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=36335>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=143531",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2026년 2분기 시흥시의회 업무추진비 집행내역 공개.pdf",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-6",
       "source_row": 46,
       "used_date": "2026-05-15",
@@ -58727,35 +57828,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "3b1fe562282f85c003e9",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=36335>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=143531",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2026년 2분기 시흥시의회 업무추진비 집행내역 공개.pdf",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
-      "source_sheet": "pdf-page-8",
-      "source_row": 44,
-      "used_date": "2026-05-15",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:20민원사항 개선 의견 수렴을 위한 관계자 식비 및 다과비",
-      "role": "부의장",
-      "merchant": "119,000",
-      "address": "",
-      "purpose": "월미간장게장",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "997e3468657de3f029cc",
       "date_quality": "in_period"
     },
     {
@@ -60859,35 +59931,6 @@
         null,
         2
       ],
-      "source_sheet": "pdf-page-12",
-      "source_row": 15,
-      "used_date": "2026-06-15",
-      "date_inferred_from_previous_row": false,
-      "used_time": "12:41",
-      "role": "도시환경위원장",
-      "merchant": "90",
-      "address": "",
-      "purpose": "의정활동 추진을 위한 다과비",
-      "people": null,
-      "amount": 3,
-      "payment_method": "21,500",
-      "parse_confidence": "high",
-      "row_id": "93bd24adbb1db4f13497",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "시흥시",
-      "institution": "시흥시의회",
-      "source_key": "siheung",
-      "source_post_url": "https://www.siheungcouncil.go.kr/content/activity/business.html?fidx=36335>id=chujin&pg=vv&sid=1000&page=1&opt=&sword=",
-      "source_attachment_url": "https://www.siheungcouncil.go.kr/gtb_download.php?gtid=chujin&fid=143531",
-      "source_attachment_name": "Array 첨부파일을 다운받습니다. pdf 2026년 2분기 시흥시의회 업무추진비 집행내역 공개.pdf",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
       "source_sheet": "pdf-page-7",
       "source_row": 37,
       "used_date": "2026-06-15",
@@ -62374,6 +61417,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62402,6 +61446,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62430,6 +61475,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62458,6 +61504,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62486,6 +61533,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62514,6 +61562,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62542,6 +61591,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62562,7 +61612,7 @@
             "method": 7
           },
           "section_role": "부의장",
-          "parsed_rows": 38,
+          "parsed_rows": 36,
           "pdf_page_role": "부의장",
           "carried_pdf_role": "부의장"
         },
@@ -62570,6 +61620,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62598,6 +61649,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62626,6 +61678,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62654,6 +61707,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62674,7 +61728,7 @@
             "method": 7
           },
           "section_role": "도시환경위원장",
-          "parsed_rows": 19,
+          "parsed_rows": 18,
           "pdf_page_role": "",
           "carried_pdf_role": "부의장"
         },
@@ -62682,6 +61736,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62710,6 +61765,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62754,6 +61810,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62782,6 +61839,7 @@
           "sheet": "pdf-page-3",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62810,6 +61868,7 @@
           "sheet": "pdf-page-4",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62838,6 +61897,7 @@
           "sheet": "pdf-page-5",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62866,6 +61926,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62894,6 +61955,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62922,6 +61984,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62950,6 +62013,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -62978,6 +62042,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63006,6 +62071,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63034,6 +62100,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63062,6 +62129,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63090,6 +62158,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63118,6 +62187,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63146,6 +62216,7 @@
           "sheet": "pdf-page-16",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63190,6 +62261,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63246,6 +62318,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63281,6 +62354,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63309,6 +62383,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63337,6 +62412,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63365,6 +62441,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63393,6 +62470,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63421,6 +62499,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63449,6 +62528,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63493,6 +62573,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63549,6 +62630,7 @@
           "sheet": "pdf-page-7",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63569,7 +62651,7 @@
             "method": 7
           },
           "section_role": "의장",
-          "parsed_rows": 44,
+          "parsed_rows": 43,
           "pdf_page_role": "의장",
           "carried_pdf_role": "의장"
         },
@@ -63591,6 +62673,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63619,6 +62702,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63647,6 +62731,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63682,6 +62767,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63717,6 +62803,7 @@
           "sheet": "pdf-page-16",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63745,6 +62832,7 @@
           "sheet": "pdf-page-17",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63773,6 +62861,7 @@
           "sheet": "pdf-page-18",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63817,6 +62906,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63866,6 +62956,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63886,7 +62977,7 @@
             "method": 7
           },
           "section_role": "의장",
-          "parsed_rows": 44,
+          "parsed_rows": 33,
           "pdf_page_role": "의장",
           "carried_pdf_role": "의장"
         },
@@ -63908,6 +62999,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63928,7 +63020,7 @@
             "method": 7
           },
           "section_role": "부의장",
-          "parsed_rows": 44,
+          "parsed_rows": 35,
           "pdf_page_role": "부의장",
           "carried_pdf_role": "부의장"
         },
@@ -63943,6 +63035,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63971,6 +63064,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -63991,7 +63085,7 @@
             "method": 7
           },
           "section_role": "자치행정위원장",
-          "parsed_rows": 44,
+          "parsed_rows": 38,
           "pdf_page_role": "",
           "carried_pdf_role": "부의장"
         },
@@ -64006,6 +63100,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64026,7 +63121,7 @@
             "method": 7
           },
           "section_role": "교육복지위원장",
-          "parsed_rows": 29,
+          "parsed_rows": 27,
           "pdf_page_role": "",
           "carried_pdf_role": "부의장"
         },
@@ -64034,6 +63129,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64054,7 +63150,7 @@
             "method": 7
           },
           "section_role": "도시환경위원장",
-          "parsed_rows": 28,
+          "parsed_rows": 27,
           "pdf_page_role": "",
           "carried_pdf_role": "부의장"
         },
@@ -64062,6 +63158,7 @@
           "sheet": "pdf-page-16",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64090,6 +63187,7 @@
           "sheet": "pdf-page-17",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64134,6 +63232,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64183,6 +63282,7 @@
           "sheet": "pdf-page-6",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64218,6 +63318,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64246,6 +63347,7 @@
           "sheet": "pdf-page-9",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64274,6 +63376,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64302,6 +63405,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64330,6 +63434,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64358,6 +63463,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64386,6 +63492,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64430,6 +63537,7 @@
           "sheet": "pdf-page-2",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64493,6 +63601,7 @@
           "sheet": "pdf-page-8",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64528,6 +63637,7 @@
           "sheet": "pdf-page-10",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64556,6 +63666,7 @@
           "sheet": "pdf-page-11",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64584,6 +63695,7 @@
           "sheet": "pdf-page-12",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64612,6 +63724,7 @@
           "sheet": "pdf-page-13",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64640,6 +63753,7 @@
           "sheet": "pdf-page-14",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64668,6 +63782,7 @@
           "sheet": "pdf-page-15",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64696,6 +63811,7 @@
           "sheet": "pdf-page-16",
           "status": "OK",
           "header_row": 2,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -64725,8 +63841,8 @@
   ],
   "errors": [],
   "raw_quality": {
-    "rows": 2150,
-    "transaction_rows": 2150,
+    "rows": 2117,
+    "transaction_rows": 2117,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 0,
     "valid_date_coverage": 1.0,

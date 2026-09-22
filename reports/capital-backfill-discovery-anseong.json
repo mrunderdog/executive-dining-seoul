@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T10:44:06",
+  "generated_at": "2026-09-22T11:42:53",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -93,8 +93,18 @@
         null
       ],
       "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=672ACF11A1F26D163ED06C2549602CEE&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "부서운영업무추진비 집행내역(5월).xlsx 부서운영업무추진비 집행내역(5월).xlsx 부서운영업무추진비 집행내역(5월).xlsx",
+          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1CF5AFB8C062D9DFB1ADB9D59ABC1314",
+          "onclick": ""
+        },
+        {
+          "text": "업무추진비 집행내역(5월).xlsx 업무추진비 집행내역(5월).xlsx 업무추진비 집행내역(5월).xlsx",
+          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=017E3F78924AFCA09482E3A4C7A3F0AE",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "anseong",
@@ -108,18 +118,8 @@
         null
       ],
       "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=D07251CCBE8957AE22BE84ADC03056A1&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(4월).xlsx 부서운영업무추진비 집행내역(4월).xlsx 부서운영업무추진비 집행내역(4월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=0DCFB1772591FCD078641152792FD1FB",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(4월).xlsx 업무추진비 집행내역(4월).xlsx 업무추진비 집행내역(4월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A4456E526BB4EFE3C32B58AD1036B5C1",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "anseong",
@@ -248,253 +248,8 @@
     },
     {
       "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 10월 업무추진비 집행내역 상세보기 2025년 10월 업무추진비 집행내역",
-      "period": [
-        2025,
-        10,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=5822E2AE77425C7DCB4AF43AF70C47DA&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 10월).xlsx 부서운영업무추진비 집행내역(25년 10월).xlsx 부서운영업무추진비 집행내역(25년 10월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=8E9C6FCE9C4466D9F4433D3498C74C70",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 10월).xlsx 업무추진비 집행내역(25년 10월).xlsx 업무추진비 집행내역(25년 10월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=3BF93D1F61A885C1C04126551B4D76A3",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 9월 업무추진비 집행내역 상세보기 2025년 9월 업무추진비 집행내역",
-      "period": [
-        2025,
-        9,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=3D7BE89EFEA1D0D00BC071DB7A93FEB1&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 9월).xlsx 부서운영업무추진비 집행내역(25년 9월).xlsx 부서운영업무추진비 집행내역(25년 9월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=0E1062582513CA02DC4317C5EEA58AA8",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 9월).xlsx 업무추진비 집행내역(25년 9월).xlsx 업무추진비 집행내역(25년 9월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1AE6F509918C3ABD608690394DC16E71",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 8월 업무추진비 집행내역 상세보기 2025년 8월 업무추진비 집행내역",
-      "period": [
-        2025,
-        8,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=2CBF1C0A4A425F2611FCF620E7D055DA&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 7월 업무추진비 집행내역 상세보기 2025년 7월 업무추진비 집행내역",
-      "period": [
-        2025,
-        7,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=799AB3D169ACC30BB12AFCE72AB03976&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 7월).xlsx 부서운영업무추진비 집행내역(25년 7월).xlsx 부서운영업무추진비 집행내역(25년 7월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DDF1B963E5A6ED2CAC2572A0ACCE64B8",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 7월).xlsx 업무추진비 집행내역(25년 7월).xlsx 업무추진비 집행내역(25년 7월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=785105910CE78661B2891E609C74F017",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 6월 업무추진비 집행내역 상세보기 2025년 6월 업무추진비 집행내역",
-      "period": [
-        2025,
-        6,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=6C6AE96667D94F6BA050ED923C173E27&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 6월).xlsx 부서운영업무추진비 집행내역(25년 6월).xlsx 부서운영업무추진비 집행내역(25년 6월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=49A9C48E368E4BC80B261EB5A6DEE9F4",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 6월).xlsx 업무추진비 집행내역(25년 6월).xlsx 업무추진비 집행내역(25년 6월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A9FB4E32C6061699957A6F7D1A9ED5E9",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 5월 업무추진비 집행내역 상세보기 2025년 5월 업무추진비 집행내역",
-      "period": [
-        2025,
-        5,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=0BA1412C2713FDDFC53FCF71CE8F4A43&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 4월 업무추진비 집행내역 상세보기 2025년 4월 업무추진비 집행내역",
-      "period": [
-        2025,
-        4,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=CEB46511BECCC71D902807310851BAB3&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 집행내역(25년 4월).xlsx 업무추진비 집행내역(25년 4월).xlsx 업무추진비 집행내역(25년 4월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=9F9C289CA852C438F0CD687E7DBB1744",
-          "onclick": ""
-        },
-        {
-          "text": "부서운영업무추진비 집행내역(25년 4월).xlsx 부서운영업무추진비 집행내역(25년 4월).xlsx 부서운영업무추진비 집행내역(25년 4월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=935174F9D58ED1C51B5539CBDBFE1E61",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 3월 업무추진비 집행내역 상세보기 2025년 3월 업무추진비 집행내역",
-      "period": [
-        2025,
-        3,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=9ECF6E777B90457AD4C2801993EC24BC&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 집행내역(25년 3월).xlsx 업무추진비 집행내역(25년 3월).xlsx 업무추진비 집행내역(25년 3월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=3CE77687BF615E58CDFB562C908C02FA",
-          "onclick": ""
-        },
-        {
-          "text": "부서운영업무추진비 집행내역(25년 3월).xlsx 부서운영업무추진비 집행내역(25년 3월).xlsx 부서운영업무추진비 집행내역(25년 3월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=ECC8D94D1057C0495CCB32F2F91BBC7B",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 2월 업무추진비 집행내역 상세보기 2025년 2월 업무추진비 집행내역",
-      "period": [
-        2025,
-        2,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=B624610A1B4A3A2CF4B8671ED868D587&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 집행내역(2월).xlsx 업무추진비 집행내역(2월).xlsx 업무추진비 집행내역(2월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=C93A41BA51FAD634557A7C1949E4926B",
-          "onclick": ""
-        },
-        {
-          "text": "부서운영업무추진비 집행내역(25년2월).xlsx 부서운영업무추진비 집행내역(25년2월).xlsx 부서운영업무추진비 집행내역(25년2월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E58856EB79E13DFC7397F068093E21C7",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2025년 1월 업무추진비 집행내역 상세보기 2025년 1월 업무추진비 집행내역",
-      "period": [
-        2025,
-        1,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=C0B2A39A939FD6F0FC22C52BC253AF9C&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 집행내역(25년1월).xlsx 업무추진비 집행내역(25년1월).xlsx 업무추진비 집행내역(25년1월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=41B67FBFE3372FA22D0207D767BF1E6E",
-          "onclick": ""
-        },
-        {
-          "text": "부서운영업무추진비 집행내역(25년1월).xlsx 부서운영업무추진비 집행내역(25년1월).xlsx 부서운영업무추진비 집행내역(25년1월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=3B6B6581D4791075A084D4F513D7C30C",
-          "onclick": ""
-        }
-      ]
-    },
-    {
-      "source": "anseong",
-      "region": "경기",
-      "jurisdiction": "안성시",
-      "institution": "안성시의회",
-      "title": "2024년 12월 업무추진비 집행내역 상세보기 2024년 12월 업무추진비 집행내역",
-      "period": [
-        2024,
-        12,
-        null
-      ],
-      "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=F7AC18CF3DB0B0B63BD888FCF866F4B0&schwrd=&flag=all&page=3&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(24년12월).xlsx 부서운영업무추진비 집행내역(24년12월).xlsx 부서운영업무추진비 집행내역(24년12월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=48EBC93FE86EC127DE73514571515A8D",
-          "onclick": ""
-        }
-      ]
+      "listing_url": "https://anseongcl.go.kr/kr/costBBS.do?flag=all&page=2",
+      "error": "listing URLError: <urlopen error timed out>"
     }
   ]
 }

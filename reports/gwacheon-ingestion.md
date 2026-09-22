@@ -1,6 +1,6 @@
 # gwacheon expense ingestion
 
-- Normalized rows: **737**
+- Normalized rows: **723**
 - Source posts: **47**
 - Downloaded files: **67**
 - Errors: **0**
@@ -8,14 +8,14 @@
 ## Rows by year
 
 - 2024: 11
-- 2025: 398
-- 2026: 326
+- 2025: 390
+- 2026: 322
 
 ## Top roles / sheets
 
-- 의장: 361
-- 부의장: 194
-- 의회사무과장: 169
+- 의장: 349
+- 부의장: 193
+- 의회사무과장: 168
 - 결산특별위원장: 13
 
 ## Files
@@ -31,9 +31,9 @@
   - Sheet1: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2026년 7월).xlsx 부의장_업무추진비_공개(2026년 7월).xlsx 부의장_업무추진비_공개(2026년 7월).xlsx` — 13,654 bytes — 2 rows
   - Sheet1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx` — 11,538 bytes — 8 rows
+- `2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx` — 11,538 bytes — 7 rows
   - 의회사무과(기관): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회사무과(시책): OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+  - 의회사무과(시책): OK / parsed 0 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의장_업무추진비_공개(2026년 6월).xlsx 의장_업무추진비_공개(2026년 6월).xlsx 의장_업무추진비_공개(2026년 6월).xlsx` — 15,341 bytes — 15 rows
   - Sheet1: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2026년 6월).xlsx 부의장_업무추진비_공개(2026년 6월).xlsx 부의장_업무추진비_공개(2026년 6월).xlsx` — 15,461 bytes — 22 rows
@@ -44,8 +44,8 @@
 - `2026년 5월 의회사무과 업무추진비 집행내역.xlsx 2026년 5월 의회사무과 업무추진비 집행내역.xlsx 2026년 5월 의회사무과 업무추진비 집행내역.xlsx` — 12,134 bytes — 11 rows
   - 의회사무과(기관): OK / parsed 10 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
   - 의회사무과(시책): OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx` — 15,270 bytes — 15 rows
-  - Sheet1: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx` — 15,270 bytes — 12 rows
+  - Sheet1: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2026년 5월).xlsx 부의장_업무추진비_공개(2026년 5월).xlsx 부의장_업무추진비_공개(2026년 5월).xlsx` — 13,426 bytes — 1 rows
   - Sheet1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `2026년 4월 의회사무과 업무추진비 집행내역.xlsx 2026년 4월 의회사무과 업무추진비 집행내역.xlsx 2026년 4월 의회사무과 업무추진비 집행내역.xlsx` — 12,712 bytes — 21 rows
@@ -73,8 +73,8 @@
 - `의회사무과장+시책,기관업무추진비+공개(2026년1월).xlsx 의회사무과장+시책,기관업무추진비+공개(2026년1월).xlsx 의회사무과장+시책,기관업무추진비+공개(2026년1월).xlsx` — 13,319 bytes — 14 rows
   - 시책(1월): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기관(1월): OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx` — 15,511 bytes — 19 rows
-  - Sheet1: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx` — 15,511 bytes — 18 rows
+  - Sheet1: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2026년 1월).xlsx 부의장_업무추진비_공개(2026년 1월).xlsx 부의장_업무추진비_공개(2026년 1월).xlsx` — 14,415 bytes — 8 rows
   - Sheet1: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `예산결산특별위원회위원장(25년10~12월).xlsx 예산결산특별위원회위원장(25년10~12월).xlsx 예산결산특별위원회위원장(25년10~12월).xlsx` — 10,827 bytes — 2 rows
@@ -84,17 +84,17 @@
   - 기관(12월): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `의장_업무추진비_공개(2025년 12월).xlsx 의장_업무추진비_공개(2025년 12월).xlsx 의장_업무추진비_공개(2025년 12월).xlsx` — 14,431 bytes — 9 rows
   - Sheet1: OK / parsed 9 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx` — 13,339 bytes — 1 rows
-  - Sheet1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx` — 15,910 bytes — 22 rows
-  - Sheet1: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx` — 13,339 bytes — 0 rows
+  - Sheet1: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx` — 15,910 bytes — 20 rows
+  - Sheet1: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2025년 11월).xlsx 부의장_업무추진비_공개(2025년 11월).xlsx 부의장_업무추진비_공개(2025년 11월).xlsx` — 14,033 bytes — 5 rows
   - Sheet1: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx` — 13,221 bytes — 10 rows
   - 시책(11월): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기관(11월): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx` — 16,124 bytes — 25 rows
-  - Sheet1: OK / parsed 25 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx` — 16,124 bytes — 23 rows
+  - Sheet1: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2025년 10월).xlsx 부의장_업무추진비_공개(2025년 10월).xlsx 부의장_업무추진비_공개(2025년 10월).xlsx` — 13,880 bytes — 4 rows
   - Sheet1: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의회사무과장+시책,기관업무추진비+공개(2025년10월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년10월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년10월).xlsx` — 12,958 bytes — 6 rows
@@ -103,8 +103,8 @@
 - `의회사무과장+시책,기관업무추진비+공개(2025년9월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년9월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년9월).xlsx` — 12,621 bytes — 2 rows
   - 시책(9월): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기관(9월): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx` — 16,017 bytes — 19 rows
-  - Sheet1: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx` — 16,017 bytes — 18 rows
+  - Sheet1: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2025년 9월).xlsx 부의장_업무추진비_공개(2025년 9월).xlsx 부의장_업무추진비_공개(2025년 9월).xlsx` — 15,109 bytes — 12 rows
   - Sheet1: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `예산결산특별위원회위원장(25년7~9월).xlsx 예산결산특별위원회위원장(25년7~9월).xlsx 예산결산특별위원회위원장(25년7~9월).xlsx` — 10,794 bytes — 2 rows
@@ -143,8 +143,8 @@
 - `의회사무과장+시책,기관업무추진비+공개(2025년4월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년4월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년4월).xlsx` — 12,737 bytes — 7 rows
   - 시책(4월): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기관(4월): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx` — 16,127 bytes — 23 rows
-  - Sheet1: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx` — 16,127 bytes — 22 rows
+  - Sheet1: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2025년 4월).xlsx 부의장_업무추진비_공개(2025년 4월).xlsx 부의장_업무추진비_공개(2025년 4월).xlsx` — 14,823 bytes — 14 rows
   - Sheet1: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의장_업무추진비_공개(2025년 3월).xlsx 의장_업무추진비_공개(2025년 3월).xlsx 의장_업무추진비_공개(2025년 3월).xlsx` — 16,161 bytes — 19 rows
@@ -159,8 +159,8 @@
 - `의회사무과장+시책,기관업무추진비+공개(2025년2월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년2월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년2월).xlsx` — 12,342 bytes — 2 rows
   - 시책(2월): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - 기관(2월): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
-- `의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx` — 15,502 bytes — 15 rows
-  - Sheet1: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx` — 15,502 bytes — 13 rows
+  - Sheet1: OK / parsed 13 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2025년 2월).xlsx 부의장_업무추진비_공개(2025년 2월).xlsx 부의장_업무추진비_공개(2025년 2월).xlsx` — 15,315 bytes — 16 rows
   - Sheet1: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의장_업무추진비_공개(2025년 1월).xlsx 의장_업무추진비_공개(2025년 1월).xlsx 의장_업무추진비_공개(2025년 1월).xlsx` — 15,048 bytes — 8 rows

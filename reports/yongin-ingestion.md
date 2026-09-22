@@ -1,6 +1,6 @@
 # yongin expense ingestion
 
-- Normalized rows: **570**
+- Normalized rows: **432**
 - Source posts: **42**
 - Downloaded files: **8**
 - Errors: **34**
@@ -8,52 +8,52 @@
 ## Rows by year
 
 - 2023: 1
-- 2024: 84
-- 2025: 484
+- 2024: 60
+- 2025: 371
 
 ## Top roles / sheets
 
-- 부의장: 166
-- 의장: 109
-- 경제환경위원장: 62
-- 의회운영위원장: 59
-- 도시건설위원장: 58
-- 자치행정위원장: 55
-- 문화복지위원장: 44
+- 의장: 106
+- 부의장: 78
+- 경제환경위원장: 61
+- 의회운영위원장: 57
+- 자치행정위원장: 48
+- 문화복지위원장: 40
+- 도시건설위원장: 25
 - 의회사무국장(4급): 15
 - 의정담당관(5급): 2
 
 ## Files
 
-- `'2025년 6월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 6월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 58,038 bytes — 74 rows
+- `'2025년 6월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 6월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 58,038 bytes — 59 rows
   - pdf-page-1: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-2: OK / parsed 13 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-3: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-4: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-4: OK / parsed 9 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-5: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-6: OK / parsed 9 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-7: OK / parsed 4 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-8: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-7: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-8: OK / parsed 1 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - pdf-page-9: OK / parsed 1 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2025년 5월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 5월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 58,765 bytes — 77 rows
-  - pdf-page-1: OK / parsed 22 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+- `'2025년 5월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 5월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 58,765 bytes — 51 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-2: OK / parsed 16 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-3: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-4: OK / parsed 1 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-5: OK / parsed 3 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-3: OK / parsed 4 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-4: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-5: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-6: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-7: OK / parsed 9 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-8: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-7: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-8: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - pdf-page-9: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2025년 4월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 4월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 63,739 bytes — 105 rows
-  - pdf-page-1: OK / parsed 25 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-2: OK / parsed 12 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+- `'2025년 4월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 4월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 63,739 bytes — 73 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-2: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-3: OK / parsed 8 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-4: OK / parsed 12 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-4: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-5: OK / parsed 9 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-6: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-7: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-8: OK / parsed 19 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-7: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-8: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - pdf-page-9: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
 - `2025년 3월 업무추진비 집행내역(용인시의회).xlsx 2025년 3월 업무추진비 집행내역(용인시의회).xlsx 2025년 3월 업무추진비 집행내역(용인시의회).xlsx` — 57,289 bytes — 82 rows
   - 의장: OK / parsed 12 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
@@ -75,70 +75,70 @@
   - 도시건설위원장: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - 의회사무국장(4급): OK / parsed 15 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - 의정담당관(5급): OK / parsed 2 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 57,596 bytes — 87 rows
+- `'2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 57,596 bytes — 56 rows
   - pdf-page-1: OK / parsed 15 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-2: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-3: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-4: OK / parsed 8 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-4: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-5: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-6: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-7: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-8: OK / parsed 20 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-9: OK / parsed 3 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2025년 1월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 1월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 56,801 bytes — 74 rows
-  - pdf-page-1: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-2: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-7: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-8: OK / parsed 1 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-9: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+- `'2025년 1월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 1월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 56,801 bytes — 64 rows
+  - pdf-page-1: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-2: OK / parsed 13 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-3: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-4: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+  - pdf-page-4: OK / parsed 8 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-5: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - pdf-page-6: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-6: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - pdf-page-7: OK / parsed 11 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-8: OK / parsed 2 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - pdf-page-9: OK / parsed 3 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2024년 12월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2024년 12월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 61,069 bytes — 81 rows
+  - pdf-page-8: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
+  - pdf-page-9: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
+- `'2024년 12월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2024년 12월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 61,069 bytes — 57 rows
   - pdf-page-1: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
-  - pdf-page-2: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
+  - pdf-page-2: OK / parsed 5 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
   - pdf-page-3: OK / parsed 13 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
   - pdf-page-4: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
-  - pdf-page-5: OK / parsed 6 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
+  - pdf-page-5: OK / parsed 5 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
   - pdf-page-6: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
-  - pdf-page-7: OK / parsed 3 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
-  - pdf-page-8: OK / parsed 17 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
-  - pdf-page-9: OK / parsed 2 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
+  - pdf-page-7: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
+  - pdf-page-8: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
+  - pdf-page-9: OK / parsed 0 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 2, 'merchant': 3}
 
 ## Errors
 
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=171078
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=171078
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=33E14A14637CAB838E42CE3A6E6E2D9A
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169841
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169841
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=75C15E530851EA41C7DCB21DEF5C5B9C
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169543
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169543
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=134C369ADC1A8CF78CC045EB402C96CD
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169715
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169715
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=95BF41E9E2A5A05C9CB617F87A340E8E
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168545
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168545
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=48B65BF070EA64AAF46ED1AD58E98587
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169716
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169716
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=F8BA16A49799CA4C8E6C1EB4A176D08D
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168358
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168358
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1559DDB45DA2A3F7BCA2BC597E3133C9
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169717
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169717
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=0BDAED213D9640439D456D9B3FC44F80
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169718
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169718
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DD5B371C48E2F1BA09683D9BA600BBBC
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=167865
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=167865
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=55E2052C462C4043BEF68B84F20B58B4
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162465
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162465
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E61B204159E2D3443B64C1E1DD967687
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162409
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162409
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E1FA442EFE231C63CF53157398E1E060
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=158907
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=158907
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=021F12CAE05B5507647DFAA66063C52E
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157849
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157849
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=460A13CCB0DD5A1AD62A1693B5CBD42D
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157276
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155889
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155021
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=152291
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=151818
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=150911
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157276
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155889
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155021
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=152291
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=151818
+- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=150911

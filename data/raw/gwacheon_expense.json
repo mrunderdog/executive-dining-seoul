@@ -1,67 +1,9 @@
 {
   "schema_version": 1,
   "source": "gwacheon",
-  "generated_at": "2026-09-22T10:45:42",
-  "row_count": 737,
+  "generated_at": "2026-09-22T11:46:11",
+  "row_count": 723,
   "rows": [
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=676BA6D03F43B0507845F041567BAD47&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=2&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=9DC1044C84F21024E14ED9FC6812458C",
-      "source_attachment_name": "부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx 부의장_업무추진비_공개(2025년 12월).xlsx",
-      "source_period": [
-        2025,
-        12,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 4,
-      "used_date": "-",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "부의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "-",
-      "people": null,
-      "amount": null,
-      "payment_method": "-",
-      "parse_confidence": "high",
-      "row_id": "7ae0aeeb17ed0cb9ce03",
-      "date_quality": "invalid"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=7536E75D8A2771C813A262A7ADBAD51B&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=1&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=AF47D21A37CB23C8671FC81173D8E96D",
-      "source_attachment_name": "2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx 2026년 7월 의회사무과 업무추진비 집행내역.xlsx",
-      "source_period": [
-        2026,
-        7,
-        null
-      ],
-      "source_sheet": "의회사무과(시책)",
-      "source_row": 4,
-      "used_date": "-",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의회사무과장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "사용내역 없음",
-      "people": null,
-      "amount": null,
-      "payment_method": "-",
-      "parse_confidence": "high",
-      "row_id": "bc3c3262c0ecd6b494e5",
-      "date_quality": "invalid"
-    },
     {
       "region": "경기",
       "jurisdiction": "과천시",
@@ -1344,35 +1286,6 @@
       "institution": "과천시의회",
       "source_key": "gwacheon",
       "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=263CF6D04DD9D285931584A2FF5F2D7A&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=5&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=93BFDF0EC66A571C4FA8D58DBCBE800F",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx",
-      "source_period": [
-        2025,
-        2,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 7,
-      "used_date": "2025-02-07",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "카드",
-      "parse_confidence": "high",
-      "row_id": "1d8eb3e0bf3042a61fde",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=263CF6D04DD9D285931584A2FF5F2D7A&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=5&cmt_sch=&list_style=&st_sess=",
       "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=531AA3EF02C8EBE5991100887FEAE9A1",
       "source_attachment_name": "부의장_업무추진비_공개(2025년 2월).xlsx 부의장_업무추진비_공개(2025년 2월).xlsx 부의장_업무추진비_공개(2025년 2월).xlsx",
       "source_period": [
@@ -1481,35 +1394,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "be74e159c00ae4868ce6",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=263CF6D04DD9D285931584A2FF5F2D7A&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=5&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=93BFDF0EC66A571C4FA8D58DBCBE800F",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx 의장_업무추진비_공개(2025년 2월).xlsx",
-      "source_period": [
-        2025,
-        2,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 10,
-      "used_date": "2025-02-12",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "카드",
-      "parse_confidence": "high",
-      "row_id": "68114996003fb1cb46a6",
       "date_quality": "in_period"
     },
     {
@@ -3453,35 +3337,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "3e581ed80aaf11e34072",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=10F0EE59152083CA04731463DFC7414C&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=4&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=21150EA2114A8D8FEB01CF6EA4C1C2E6",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx 의장_업무추진비_공개(2025년 4월).xlsx",
-      "source_period": [
-        2025,
-        4,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 7,
-      "used_date": "2025-04-08",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "e81254e2462142a45593",
       "date_quality": "in_period"
     },
     {
@@ -8573,35 +8428,6 @@
         null
       ],
       "source_sheet": "Sheet1",
-      "source_row": 13,
-      "used_date": "2025-09-09",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "02f45cb5718d82e9ee7b",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=92C2758898587546674704FD42B97A1A&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=332D4714030501048DB9B48BAB40AA32",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx 의장_업무추진비_공개(2025년 9월).xlsx",
-      "source_period": [
-        2025,
-        9,
-        null
-      ],
-      "source_sheet": "Sheet1",
       "source_row": 14,
       "used_date": "2025-09-09",
       "date_inferred_from_previous_row": false,
@@ -9588,35 +9414,6 @@
         null
       ],
       "source_sheet": "Sheet1",
-      "source_row": 15,
-      "used_date": "2025-10-18",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "b2abd40fde91c36dade6",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=E04BF39C5242A2A7AEAD7C855A5D37C9&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=EEDFCCEA72EA2D19927F4A0DA59E71C5",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx",
-      "source_period": [
-        2025,
-        10,
-        null
-      ],
-      "source_sheet": "Sheet1",
       "source_row": 17,
       "used_date": "2025-10-20",
       "date_inferred_from_previous_row": false,
@@ -9775,35 +9572,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "717b147bec9104c33a00",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=E04BF39C5242A2A7AEAD7C855A5D37C9&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=EEDFCCEA72EA2D19927F4A0DA59E71C5",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx 의장_업무추진비_공개(2025년 10월).xlsx",
-      "source_period": [
-        2025,
-        10,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 20,
-      "used_date": "2025-10-24",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "군장병 위문금 지급",
-      "people": null,
-      "amount": 500000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "796aadb4cc0f8249a8ad",
       "date_quality": "in_period"
     },
     {
@@ -10362,35 +10130,6 @@
       "jurisdiction": "과천시",
       "institution": "과천시의회",
       "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=6F1DE5501CBFA73B7D243D4CC36EA106&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=35F52E2FC332BB25E793B4D8DC0A7DE5",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx",
-      "source_period": [
-        2025,
-        11,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 6,
-      "used_date": "2025-11-10",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "ab1612aff0756137d878",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
       "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=07D248B65AD771D3E231BFACB5DB18F5&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
       "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=52BE09C3E678D5D1656A344BD5692E83",
       "source_attachment_name": "의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx 의회사무과장+시책,기관업무추진비+공개(2025년11월).xlsx",
@@ -10761,35 +10500,6 @@
       "payment_method": "현금",
       "parse_confidence": "high",
       "row_id": "b277d230c3309c6b17cf",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=6F1DE5501CBFA73B7D243D4CC36EA106&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=3&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=35F52E2FC332BB25E793B4D8DC0A7DE5",
-      "source_attachment_name": "의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx 의장_업무추진비_공개(2025년 11월).xlsx",
-      "source_period": [
-        2025,
-        11,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 18,
-      "used_date": "2025-11-19",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "6e6a8439bbebd0d96c50",
       "date_quality": "in_period"
     },
     {
@@ -12907,35 +12617,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "97d2714d8ed69c5ca5da",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=CDBE011BFD3CE060DC0B2D99F568910C&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=2&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=CA2B60A304B02A06F550B95E82A621BB",
-      "source_attachment_name": "의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx 의장_업무추진비_공개(2026년 1월).xlsx",
-      "source_period": [
-        2026,
-        1,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 19,
-      "used_date": "2026-01-30",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "대한적십자 특별회비",
-      "people": null,
-      "amount": 300000,
-      "payment_method": "계좌입금",
-      "parse_confidence": "high",
-      "row_id": "188784f74f471b80ae7f",
       "date_quality": "in_period"
     },
     {
@@ -17737,35 +17418,6 @@
         null
       ],
       "source_sheet": "Sheet1",
-      "source_row": 14,
-      "used_date": "2026-05-29",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "5932075594f2eef4f13f",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=08F8730CF054C48B28DDCE7DFEFB516C&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=1&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=23E900ECED2AD42C1FA2FFB8CF10F809",
-      "source_attachment_name": "의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx",
-      "source_period": [
-        2026,
-        5,
-        null
-      ],
-      "source_sheet": "Sheet1",
       "source_row": 18,
       "used_date": "2026-05-29",
       "date_inferred_from_previous_row": false,
@@ -17779,64 +17431,6 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "aa8b918fe8b0ee5c8ae9",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=08F8730CF054C48B28DDCE7DFEFB516C&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=1&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=23E900ECED2AD42C1FA2FFB8CF10F809",
-      "source_attachment_name": "의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx",
-      "source_period": [
-        2026,
-        5,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 15,
-      "used_date": "2026-05-29",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "c297389370fd4b0ea457",
-      "date_quality": "in_period"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "과천시",
-      "institution": "과천시의회",
-      "source_key": "gwacheon",
-      "source_post_url": "https://www.gccouncil.go.kr/kr/costBBSview.do?uid=08F8730CF054C48B28DDCE7DFEFB516C&schwrd=&sess_sch=&flag=all&cl_cd_sch=&mem_sch=&th_sch=&ed_sess=&item_sch=&page=1&cmt_sch=&list_style=&st_sess=",
-      "source_attachment_url": "https://www.gccouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=23E900ECED2AD42C1FA2FFB8CF10F809",
-      "source_attachment_name": "의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx 의장_업무추진비_공개(2026년 5월).xlsx",
-      "source_period": [
-        2026,
-        5,
-        null
-      ],
-      "source_sheet": "Sheet1",
-      "source_row": 16,
-      "used_date": "2026-05-29",
-      "date_inferred_from_previous_row": false,
-      "used_time": "-",
-      "role": "의장",
-      "merchant": "-",
-      "address": "",
-      "purpose": "직원 경조사비",
-      "people": null,
-      "amount": 50000,
-      "payment_method": "현금",
-      "parse_confidence": "high",
-      "row_id": "cbdd5b235e07518b5ddd",
       "date_quality": "in_period"
     },
     {
@@ -21390,6 +20984,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21427,6 +21022,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21464,6 +21060,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21492,6 +21089,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21529,6 +21127,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21566,6 +21165,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21603,6 +21203,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21631,6 +21232,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21653,7 +21255,7 @@
             "role": 0
           },
           "section_role": "",
-          "parsed_rows": 1
+          "parsed_rows": 0
         }
       ]
     },
@@ -21668,6 +21270,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21705,6 +21308,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21742,6 +21346,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21770,6 +21375,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21807,6 +21413,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21835,6 +21442,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21872,6 +21480,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21894,7 +21503,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 15
+          "parsed_rows": 12
         }
       ]
     },
@@ -21909,6 +21518,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -21946,6 +21556,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -21972,6 +21583,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22007,6 +21619,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22044,6 +21657,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22081,6 +21695,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22118,6 +21733,7 @@
           "sheet": "의회사무과(기관)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22144,6 +21760,7 @@
           "sheet": "의회사무과(시책)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22179,6 +21796,7 @@
           "sheet": "의장 업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22207,6 +21825,7 @@
           "sheet": "부의장 업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22244,6 +21863,7 @@
           "sheet": "시책(2월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22270,6 +21890,7 @@
           "sheet": "기관(2월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22305,6 +21926,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22342,6 +21964,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22379,6 +22002,7 @@
           "sheet": "시책(1월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22405,6 +22029,7 @@
           "sheet": "기관(1월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22440,6 +22065,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22462,7 +22088,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 19
+          "parsed_rows": 18
         }
       ]
     },
@@ -22477,6 +22103,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22514,6 +22141,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22551,6 +22179,7 @@
           "sheet": "시책(12월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22577,6 +22206,7 @@
           "sheet": "기관(12월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22612,6 +22242,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22649,6 +22280,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22671,7 +22303,7 @@
             "role": 0
           },
           "section_role": "부의장",
-          "parsed_rows": 1
+          "parsed_rows": 0
         }
       ]
     },
@@ -22686,6 +22318,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22708,7 +22341,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 22
+          "parsed_rows": 20
         }
       ]
     },
@@ -22723,6 +22356,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22760,6 +22394,7 @@
           "sheet": "시책(11월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22786,6 +22421,7 @@
           "sheet": "기관(11월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22821,6 +22457,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22843,7 +22480,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 25
+          "parsed_rows": 23
         }
       ]
     },
@@ -22858,6 +22495,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -22895,6 +22533,7 @@
           "sheet": "시책(10월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22921,6 +22560,7 @@
           "sheet": "기관(10월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22956,6 +22596,7 @@
           "sheet": "시책(9월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -22982,6 +22623,7 @@
           "sheet": "기관(9월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23017,6 +22659,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23039,7 +22682,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 19
+          "parsed_rows": 18
         }
       ]
     },
@@ -23054,6 +22697,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23091,6 +22735,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23128,6 +22773,7 @@
           "sheet": "시책(8월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23154,6 +22800,7 @@
           "sheet": "기관(8월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23189,6 +22836,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23226,6 +22874,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23263,6 +22912,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23305,6 +22955,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23342,6 +22993,7 @@
           "sheet": "시책(7월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23368,6 +23020,7 @@
           "sheet": "기관(7월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23403,6 +23056,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23440,6 +23094,7 @@
           "sheet": "시책(6월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23466,6 +23121,7 @@
           "sheet": "기관(6월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23501,6 +23157,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23538,6 +23195,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23575,6 +23233,7 @@
           "sheet": "시책(5월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23601,6 +23260,7 @@
           "sheet": "기관(5월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23636,6 +23296,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23673,6 +23334,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23710,6 +23372,7 @@
           "sheet": "시책(4월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23736,6 +23399,7 @@
           "sheet": "기관(4월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23771,6 +23435,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23793,7 +23458,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 23
+          "parsed_rows": 22
         }
       ]
     },
@@ -23808,6 +23473,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23845,6 +23511,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23882,6 +23549,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -23919,6 +23587,7 @@
           "sheet": "시책(3월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23945,6 +23614,7 @@
           "sheet": "기관(3월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -23980,6 +23650,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24017,6 +23688,7 @@
           "sheet": "시책(2월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -24043,6 +23715,7 @@
           "sheet": "기관(2월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -24078,6 +23751,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24100,7 +23774,7 @@
             "role": 0
           },
           "section_role": "의장",
-          "parsed_rows": 15
+          "parsed_rows": 13
         }
       ]
     },
@@ -24115,6 +23789,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24152,6 +23827,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24189,6 +23865,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24226,6 +23903,7 @@
           "sheet": "시책(1월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -24252,6 +23930,7 @@
           "sheet": "기관(1월)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -24287,6 +23966,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24324,6 +24004,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24361,6 +24042,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -24390,37 +24072,15 @@
   ],
   "errors": [],
   "raw_quality": {
-    "rows": 737,
-    "transaction_rows": 737,
+    "rows": 723,
+    "transaction_rows": 723,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 0,
-    "valid_date_coverage": 0.9973,
-    "in_period_date_coverage": 0.9959,
-    "all_row_valid_date_coverage": 0.9973,
-    "all_row_in_period_date_coverage": 0.9959,
+    "valid_date_coverage": 1.0,
+    "in_period_date_coverage": 0.9986,
+    "all_row_valid_date_coverage": 1.0,
+    "all_row_in_period_date_coverage": 0.9986,
     "invalid_examples": [
-      {
-        "used_date": "-",
-        "period": [
-          2025,
-          12,
-          null
-        ],
-        "sheet": "Sheet1",
-        "row": 4,
-        "merchant": "-"
-      },
-      {
-        "used_date": "-",
-        "period": [
-          2026,
-          7,
-          null
-        ],
-        "sheet": "의회사무과(시책)",
-        "row": 4,
-        "merchant": "-"
-      },
       {
         "used_date": "2026-08-04",
         "period": [

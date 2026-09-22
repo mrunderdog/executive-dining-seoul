@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "seohae",
-  "generated_at": "2026-09-22T10:42:16",
+  "generated_at": "2026-09-22T11:41:51",
   "row_count": 95,
   "rows": [
     {
@@ -2772,6 +2772,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2796,6 +2797,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2820,6 +2822,7 @@
           "sheet": "의회운영위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2844,6 +2847,7 @@
           "sheet": "기획행정안전위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2868,6 +2872,7 @@
           "sheet": "복지환경도시위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2892,6 +2897,7 @@
           "sheet": "예산결산위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -2918,6 +2924,7 @@
           "sheet": "의회사무국장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2942,6 +2949,7 @@
           "sheet": "의정운영공통경비",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -2973,6 +2981,7 @@
           "sheet": "의장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -2997,6 +3006,7 @@
           "sheet": "부의장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -3021,6 +3031,7 @@
           "sheet": "의회운영위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -3045,6 +3056,7 @@
           "sheet": "기획행정안전위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -3069,6 +3081,7 @@
           "sheet": "복지환경도시위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -3093,6 +3106,7 @@
           "sheet": "예산결산위원장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -3119,6 +3133,7 @@
           "sheet": "의회사무국장",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -3143,6 +3158,7 @@
           "sheet": "의정운영공통경비",
           "status": "OK",
           "header_row": 6,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",

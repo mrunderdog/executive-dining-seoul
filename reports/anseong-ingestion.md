@@ -1,24 +1,22 @@
 # anseong expense ingestion
 
-- Normalized rows: **815**
-- Source posts: **21**
-- Downloaded files: **35**
+- Normalized rows: **415**
+- Source posts: **10**
+- Downloaded files: **18**
 - Errors: **0**
 
 ## Rows by year
 
-- 2024: 4
-- 2025: 477
-- 2026: 330
+- 2025: 113
+- 2026: 301
 
 ## Top roles / sheets
 
-- 안성시의회: 400
-- 의장: 316
-- 부의장: 61
-- 의회사무과: 34
-- -: 2
-- 해: 2
+- 안성시의회: 197
+- 의장: 157
+- 의회사무과: 30
+- 부의장: 30
+- 해: 1
 
 ## Files
 
@@ -40,11 +38,11 @@
   - 의정운영공통경비: OK / parsed 10 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
   - 의회운영업무추진비: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
   - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(4월).xlsx 부서운영업무추진비 집행내역(4월).xlsx 부서운영업무추진비 집행내역(4월).xlsx` — 14,606 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(4월).xlsx 업무추진비 집행내역(4월).xlsx 업무추진비 집행내역(4월).xlsx` — 21,909 bytes — 41 rows
-  - 의정운영공통경비: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 36 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
+- `부서운영업무추진비 집행내역(5월).xlsx 부서운영업무추진비 집행내역(5월).xlsx 부서운영업무추진비 집행내역(5월).xlsx` — 15,251 bytes — 4 rows
+  - 부서운영업무추진비: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `업무추진비 집행내역(5월).xlsx 업무추진비 집행내역(5월).xlsx 업무추진비 집행내역(5월).xlsx` — 18,715 bytes — 8 rows
+  - 의정운영공통경비: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
+  - 의회운영업무추진비: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
   - 시책업무추진비: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'method': 7, 'role': 0}
 - `부서운영업무추진비 집행내역(3월).xlsx 부서운영업무추진비 집행내역(3월).xlsx 부서운영업무추진비 집행내역(3월).xlsx` — 14,844 bytes — 2 rows
   - 부서운영업무추진비: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
@@ -76,53 +74,3 @@
   - 의정운영공통경비: OK / parsed 10 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
   - 의회운영업무추진비: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
   - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 10월).xlsx 부서운영업무추진비 집행내역(25년 10월).xlsx 부서운영업무추진비 집행내역(25년 10월).xlsx` — 14,740 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 10월).xlsx 업무추진비 집행내역(25년 10월).xlsx 업무추진비 집행내역(25년 10월).xlsx` — 23,300 bytes — 48 rows
-  - 의정운영공통경비: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 9월).xlsx 부서운영업무추진비 집행내역(25년 9월).xlsx 부서운영업무추진비 집행내역(25년 9월).xlsx` — 14,509 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 9월).xlsx 업무추진비 집행내역(25년 9월).xlsx 업무추진비 집행내역(25년 9월).xlsx` — 22,685 bytes — 44 rows
-  - 의정운영공통경비: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 7월).xlsx 부서운영업무추진비 집행내역(25년 7월).xlsx 부서운영업무추진비 집행내역(25년 7월).xlsx` — 14,587 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 7월).xlsx 업무추진비 집행내역(25년 7월).xlsx 업무추진비 집행내역(25년 7월).xlsx` — 22,784 bytes — 50 rows
-  - 의정운영공통경비: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 6월).xlsx 부서운영업무추진비 집행내역(25년 6월).xlsx 부서운영업무추진비 집행내역(25년 6월).xlsx` — 14,801 bytes — 2 rows
-  - 부서운영업무추진비: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 6월).xlsx 업무추진비 집행내역(25년 6월).xlsx 업무추진비 집행내역(25년 6월).xlsx` — 22,748 bytes — 49 rows
-  - 의정운영공통경비: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 25 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 4월).xlsx 업무추진비 집행내역(25년 4월).xlsx 업무추진비 집행내역(25년 4월).xlsx` — 23,251 bytes — 61 rows
-  - 의정운영공통경비: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 43 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 4월).xlsx 부서운영업무추진비 집행내역(25년 4월).xlsx 부서운영업무추진비 집행내역(25년 4월).xlsx` — 16,373 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년 3월).xlsx 업무추진비 집행내역(25년 3월).xlsx 업무추진비 집행내역(25년 3월).xlsx` — 21,612 bytes — 42 rows
-  - 의정운영공통경비: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년 3월).xlsx 부서운영업무추진비 집행내역(25년 3월).xlsx 부서운영업무추진비 집행내역(25년 3월).xlsx` — 14,517 bytes — 1 rows
-  - 부서운영업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(2월).xlsx 업무추진비 집행내역(2월).xlsx 업무추진비 집행내역(2월).xlsx` — 21,349 bytes — 34 rows
-  - 의정운영공통경비: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년2월).xlsx 부서운영업무추진비 집행내역(25년2월).xlsx 부서운영업무추진비 집행내역(25년2월).xlsx` — 14,715 bytes — 2 rows
-  - 부서운영업무추진비: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `업무추진비 집행내역(25년1월).xlsx 업무추진비 집행내역(25년1월).xlsx 업무추진비 집행내역(25년1월).xlsx` — 20,450 bytes — 28 rows
-  - 의정운영공통경비: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 의회운영업무추진비: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-  - 시책업무추진비: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(25년1월).xlsx 부서운영업무추진비 집행내역(25년1월).xlsx 부서운영업무추진비 집행내역(25년1월).xlsx` — 13,083 bytes — 2 rows
-  - 부서운영업무추진비: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
-- `부서운영업무추진비 집행내역(24년12월).xlsx 부서운영업무추진비 집행내역(24년12월).xlsx 부서운영업무추진비 집행내역(24년12월).xlsx` — 14,883 bytes — 4 rows
-  - 부서운영업무추진비: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}

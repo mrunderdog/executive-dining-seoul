@@ -1,32 +1,34 @@
 # yangpyeong expense ingestion
 
-- Normalized rows: **564**
-- Source posts: **25**
-- Downloaded files: **28**
+- Normalized rows: **782**
+- Source posts: **31**
+- Downloaded files: **36**
 - Errors: **0**
 
 ## Rows by year
 
-- 2025: 450
-- 2026: 114
+- 2024: 206
+- 2025: 410
+- 2026: 166
 
 ## Top roles / sheets
 
-- 의회사무과: 219
-- 의장: 171
-- 부의장: 68
-- 양평군의회: 22
-- 의정활동관계자: 20
-- pdf-page-1: 18
-- 의회사무과장: 12
-- 직원격려: 10
-- 의정운영공통경비: 9
+- 의장: 252
+- 부의장: 237
+- 의회사무과: 133
+- 양평군의회: 58
+- 의정활동관계자: 31
+- 직원격려: 19
+- 직원: 18
+- 의회사무과장: 9
 - 기관운영업무추진비(의회사무과장): 9
+- 의정운영공통경비: 8
+- pdf-page-1: 2
+- 시책업무추진비: 1
+- 10: 1
+- 5: 1
 - 3: 1
 - 4: 1
-- 8: 1
-- 9: 1
-- 7: 1
 - 시책운영업무추진비: 1
 
 ## Files
@@ -48,21 +50,16 @@
   - pdf-page-1: OK / parsed 24 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(1월)_기관운영업무추진비.pdf` — 48,259 bytes — 7 rows
   - pdf-page-1: OK / parsed 7 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(10월~12월_의정운영공통경비).pdf` — 123,842 bytes — 108 rows
-  - pdf-page-1: OK / parsed 35 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-  - pdf-page-2: OK / parsed 38 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-  - pdf-page-3: OK / parsed 35 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(10월~12월_부의장).pdf` — 70,072 bytes — 35 rows
-  - pdf-page-1: OK / parsed 29 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-  - pdf-page-2: OK / parsed 6 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(10월~12월_의장).pdf` — 99,367 bytes — 66 rows
-  - pdf-page-1: OK / parsed 30 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-  - pdf-page-2: OK / parsed 32 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-  - pdf-page-3: OK / parsed 4 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(9월_기관운영업무추진비).pdf` — 42,016 bytes — 3 rows
+- `pdf 문서 업무추진비 사용내역 공개(1월)_의정운영공통경비.pdf` — 42,388 bytes — 3 rows
   - pdf-page-1: OK / parsed 3 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(9월_시책업무추진비).pdf` — 53,984 bytes — 11 rows
-  - pdf-page-1: OK / parsed 11 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 2026년 업무추진비사용내역(1월)_부의장.pdf` — 67,831 bytes — 24 rows
+  - pdf-page-1: OK / parsed 24 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 2026년 업무추진비사용내역(1월)_의장.pdf` — 73,680 bytes — 25 rows
+  - pdf-page-1: OK / parsed 25 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(10월~12월_기관운영업무추진비).pdf` — 71,738 bytes — 21 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(10월~12월_시책).pdf` — 63,467 bytes — 16 rows
+  - pdf-page-1: OK / parsed 16 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(9월_의정운영공통경비).pdf` — 90,677 bytes — 44 rows
   - pdf-page-1: OK / parsed 44 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(9월_부의장).pdf` — 46,579 bytes — 5 rows
@@ -79,19 +76,39 @@
   - pdf-page-1: OK / parsed 12 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(7월_의정운영공통경비).pdf` — 68,896 bytes — 29 rows
   - pdf-page-1: OK / parsed 29 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(7월_기관운영업무추진비).pdf` — 52,771 bytes — 3 rows
-  - pdf-page-1: OK / parsed 3 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(7월_시책업무추진비).pdf` — 48,377 bytes — 2 rows
-  - pdf-page-1: OK / parsed 2 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(7월_의장).pdf` — 65,628 bytes — 21 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(7월_부의장).pdf` — 52,248 bytes — 6 rows
+  - pdf-page-1: OK / parsed 6 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(6월_의정운영공통경비).pdf` — 70,441 bytes — 23 rows
   - pdf-page-1: OK / parsed 23 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(6월_기관운영업무추진비).pdf` — 55,673 bytes — 7 rows
-  - pdf-page-1: OK / parsed 7 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(6월_시책운영업무추진비).pdf` — 51,521 bytes — 2 rows
-  - pdf-page-1: OK / parsed 2 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
-- `pdf 문서 업무추진비 사용내역 공개(5월_의정운영공통경비).pdf` — 69,070 bytes — 18 rows
-  - pdf-page-1: OK / parsed 18 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(5월_기관운영업무추진비).pdf` — 62,445 bytes — 12 rows
+  - pdf-page-1: OK / parsed 12 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(5월_의장).pdf` — 63,156 bytes — 17 rows
   - pdf-page-1: OK / parsed 17 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
 - `pdf 문서 업무추진비 사용내역 공개(5월_부의장).pdf` — 48,699 bytes — 3 rows
   - pdf-page-1: OK / parsed 3 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(4월_의정운영공통경비).pdf` — 79,116 bytes — 27 rows
+  - pdf-page-1: OK / parsed 27 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(4월_기관운영업무추진비).pdf` — 57,167 bytes — 7 rows
+  - pdf-page-1: OK / parsed 7 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(4월_시책업무추진비).pdf` — 52,017 bytes — 2 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(4월_부의장).pdf` — 67,075 bytes — 18 rows
+  - pdf-page-1: OK / parsed 18 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(4월_의장).pdf` — 66,784 bytes — 21 rows
+  - pdf-page-1: OK / parsed 21 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(3월_의정운영공통경비).pdf` — 77,335 bytes — 29 rows
+  - pdf-page-1: OK / parsed 29 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(3월_기관운영업무추진비).pdf` — 46,321 bytes — 7 rows
+  - pdf-page-1: OK / parsed 7 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(3월_의장).pdf` — 61,615 bytes — 17 rows
+  - pdf-page-1: OK / parsed 17 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'role': 7}
+- `pdf 문서 업무추진비 사용내역 공개(3월_부의장).pdf` — 53,643 bytes — 11 rows
+  - pdf-page-1: OK / parsed 11 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+- `pdf 문서 2024년 업무추진비 사용내역(4분기_결재).pdf` — 250,429 bytes — 206 rows
+  - pdf-page-1: OK / parsed 45 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+  - pdf-page-2: OK / parsed 48 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+  - pdf-page-3: OK / parsed 48 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+  - pdf-page-4: OK / parsed 48 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}
+  - pdf-page-5: OK / parsed 17 / mapping {'date': 0, 'amount': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'role': 7}

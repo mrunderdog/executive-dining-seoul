@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "gyeonggi_council",
-  "generated_at": "2026-09-22T10:50:55",
-  "row_count": 3283,
+  "generated_at": "2026-09-22T11:50:09",
+  "row_count": 3281,
   "rows": [
     {
       "region": "경기",
@@ -350,64 +350,6 @@
       "payment_method": "",
       "parse_confidence": "high",
       "row_id": "ca47d30e2996b85cc2c7",
-      "date_quality": "invalid"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "경기도",
-      "institution": "경기도의회",
-      "source_key": "gyeonggi_council",
-      "source_post_url": "https://www.ggc.go.kr/site/main/duty/list?cp=8&listType=list&sortOrder=DT_USE_DT",
-      "source_attachment_url": "https://www.ggc.go.kr/site/main/file/download/uu/5c058db9ee544cfabfbd02b5701e6dcf",
-      "source_attachment_name": "2026년 1분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(디지털의사과)",
-      "source_period": [
-        2026,
-        null,
-        1
-      ],
-      "source_sheet": "시책추진업무추진비",
-      "source_row": 21,
-      "used_date": "1137000",
-      "date_inferred_from_previous_row": false,
-      "used_time": "",
-      "role": "5200000",
-      "merchant": "4063000",
-      "address": "",
-      "purpose": "0.21865384615384614",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "347a4e4a7eb2f68fce95",
-      "date_quality": "invalid"
-    },
-    {
-      "region": "경기",
-      "jurisdiction": "경기도",
-      "institution": "경기도의회",
-      "source_key": "gyeonggi_council",
-      "source_post_url": "https://www.ggc.go.kr/site/main/duty/list?cp=5&listType=list&sortOrder=DT_USE_DT",
-      "source_attachment_url": "https://www.ggc.go.kr/site/main/file/download/uu/6f01b0a5111a4a599eca5ac0d1a4f1ab",
-      "source_attachment_name": "2026년 2분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(디지털의사과)",
-      "source_period": [
-        2026,
-        null,
-        2
-      ],
-      "source_sheet": "시책추진업무추진비",
-      "source_row": 19,
-      "used_date": "1371300",
-      "date_inferred_from_previous_row": false,
-      "used_time": "",
-      "role": "5200000",
-      "merchant": "3828700",
-      "address": "",
-      "purpose": "0.26371153846153844",
-      "people": null,
-      "amount": null,
-      "payment_method": "",
-      "parse_confidence": "high",
-      "row_id": "9541c21fe0bd6ba032a8",
       "date_quality": "invalid"
     },
     {
@@ -95224,6 +95166,7 @@
           "sheet": "시책추진(의정지원과)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -95246,6 +95189,7 @@
           "sheet": "시책추진(의정정책추진단)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -95277,6 +95221,7 @@
           "sheet": "의장업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95310,6 +95255,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95343,6 +95289,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95376,6 +95323,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -95411,6 +95359,7 @@
           "sheet": "의정공통",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -95448,6 +95397,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -95485,6 +95435,7 @@
           "sheet": "의회운영업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95509,6 +95460,7 @@
           "sheet": "의회운영업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -95535,6 +95487,7 @@
           "sheet": "의회운영업무추진비(민주)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95568,6 +95521,7 @@
           "sheet": "내역",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -95603,6 +95557,7 @@
           "sheet": "내역",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -95638,6 +95593,7 @@
           "sheet": "시책추진업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95662,6 +95618,7 @@
           "sheet": "시책추진업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95686,6 +95643,7 @@
           "sheet": "시책추진업무추진비(민주)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95719,6 +95677,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -95756,6 +95715,7 @@
           "sheet": "의회운영업무추진비-도청",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95780,6 +95740,7 @@
           "sheet": "의회운영업무추진비-교육청",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95813,6 +95774,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95846,6 +95808,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95879,6 +95842,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -95914,6 +95878,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -95947,6 +95912,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -95978,6 +95944,7 @@
           "sheet": "시책추진",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96013,6 +95980,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96044,6 +96012,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96079,6 +96048,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96103,6 +96073,7 @@
           "sheet": "시책추진업무추진비 (2)",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96136,6 +96107,7 @@
           "sheet": "의회운영 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96169,6 +96141,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96202,6 +96175,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96237,6 +96211,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96270,6 +96245,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96305,6 +96281,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96338,6 +96315,7 @@
           "sheet": "의정운영 공통경비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96371,6 +96349,7 @@
           "sheet": "의정운영 공통경비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96404,6 +96383,7 @@
           "sheet": "시책추진업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96432,6 +96412,7 @@
           "sheet": "기관운영업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96469,6 +96450,7 @@
           "sheet": "시책추진업무추진비(총무과)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96506,6 +96488,7 @@
           "sheet": "시책추진업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96534,6 +96517,7 @@
           "sheet": "기관운영업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96571,6 +96555,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96604,6 +96589,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96622,7 +96608,7 @@
             "role": 1
           },
           "section_role": "",
-          "parsed_rows": 13
+          "parsed_rows": 12
         }
       ]
     },
@@ -96637,6 +96623,7 @@
           "sheet": "업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96672,6 +96659,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -96707,6 +96695,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96738,6 +96727,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96769,6 +96759,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -96806,6 +96797,7 @@
           "sheet": "시책추진(의정지원과)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96828,6 +96820,7 @@
           "sheet": "시책추진(의정정책추진단)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96859,6 +96852,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96892,6 +96886,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -96925,6 +96920,7 @@
           "sheet": "2022.8",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96947,6 +96943,7 @@
           "sheet": "2022.11.25(공통)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96969,6 +96966,7 @@
           "sheet": "2023",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -96991,6 +96989,7 @@
           "sheet": "2026",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97024,6 +97023,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97057,6 +97057,7 @@
           "sheet": "업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97092,6 +97093,7 @@
           "sheet": "Sheet1",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97127,6 +97129,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97160,6 +97163,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97193,6 +97197,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97226,6 +97231,7 @@
           "sheet": "시책추진업무추진비(총무과)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -97263,6 +97269,7 @@
           "sheet": "시책추진업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -97291,6 +97298,7 @@
           "sheet": "기관운영업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -97328,6 +97336,7 @@
           "sheet": "시책추진업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -97356,6 +97365,7 @@
           "sheet": "기관운영업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -97393,6 +97403,7 @@
           "sheet": "의장업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97426,6 +97437,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97450,6 +97462,7 @@
           "sheet": "시책추진업무추진비 (2)",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97483,6 +97496,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97518,6 +97532,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97553,6 +97568,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97571,7 +97587,7 @@
             "role": 1
           },
           "section_role": "",
-          "parsed_rows": 12
+          "parsed_rows": 11
         }
       ]
     },
@@ -97586,6 +97602,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97619,6 +97636,7 @@
           "sheet": "의회운영업무추진비-도청",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97643,6 +97661,7 @@
           "sheet": "의회운영업무추진비-교육청",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97676,6 +97695,7 @@
           "sheet": "의회운영",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97711,6 +97731,7 @@
           "sheet": "시책추진",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97746,6 +97767,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -97777,6 +97799,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -97808,6 +97831,7 @@
           "sheet": "내역",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97843,6 +97867,7 @@
           "sheet": "시책추진업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97867,6 +97892,7 @@
           "sheet": "시책추진업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97893,6 +97919,7 @@
           "sheet": "시책추진업무추진비(민주)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97926,6 +97953,7 @@
           "sheet": "의회운영업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -97950,6 +97978,7 @@
           "sheet": "의회운영업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -97976,6 +98005,7 @@
           "sheet": "의회운영업무추진비(민주)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98009,6 +98039,7 @@
           "sheet": "내역",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -98044,6 +98075,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98081,6 +98113,7 @@
           "sheet": "의정공통",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98118,6 +98151,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98149,6 +98183,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98180,6 +98215,7 @@
           "sheet": "의회운영업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 12,
           "matched": [
             "amount",
@@ -98215,6 +98251,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98248,6 +98285,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98281,6 +98319,7 @@
           "sheet": "의회운영 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98314,6 +98353,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98347,6 +98387,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98380,6 +98421,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98413,6 +98455,7 @@
           "sheet": "시책추진 업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98446,6 +98489,7 @@
           "sheet": "의정운영 공통경비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98479,6 +98523,7 @@
           "sheet": "의정운영 공통경비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98512,6 +98557,7 @@
           "sheet": "2022.8",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98534,6 +98580,7 @@
           "sheet": "2022.11.25(공통)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98556,6 +98603,7 @@
           "sheet": "2023",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98578,6 +98626,7 @@
           "sheet": "2025",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98602,6 +98651,7 @@
           "sheet": "2025 (공통)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 10,
           "matched": [
             "amount",
@@ -98633,6 +98683,7 @@
           "sheet": "시책추진업무추진비",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98666,6 +98717,7 @@
           "sheet": "시책추진업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98694,6 +98746,7 @@
           "sheet": "기관운영업무추진비(의정국)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98731,6 +98784,7 @@
           "sheet": "시책추진업무추진비(총무담당관)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98768,6 +98822,7 @@
           "sheet": "시책추진업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98796,6 +98851,7 @@
           "sheet": "기관운영업무추진비(의회사무처)",
           "status": "OK",
           "header_row": 5,
+          "header_span": 1,
           "header_score": 13,
           "matched": [
             "amount",
@@ -98833,6 +98889,7 @@
           "sheet": "의장업무추진비",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98866,6 +98923,7 @@
           "sheet": "의회운영업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98890,6 +98948,7 @@
           "sheet": "의회운영업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98914,6 +98973,7 @@
           "sheet": "의회운영업무추진비(민주)",
           "status": "OK",
           "header_row": 4,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98947,6 +99007,7 @@
           "sheet": "시책추진업무추진비(의회운영위원회)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98971,6 +99032,7 @@
           "sheet": "시책추진업무추진비(국힘)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -98995,6 +99057,7 @@
           "sheet": "시책추진업무추진비(민주)",
           "status": "OK",
           "header_row": 3,
+          "header_span": 1,
           "header_score": 11,
           "matched": [
             "amount",
@@ -99020,14 +99083,14 @@
   ],
   "errors": [],
   "raw_quality": {
-    "rows": 3283,
-    "transaction_rows": 3231,
+    "rows": 3281,
+    "transaction_rows": 3229,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 0,
-    "valid_date_coverage": 0.9802,
-    "in_period_date_coverage": 0.8592,
-    "all_row_valid_date_coverage": 0.9805,
-    "all_row_in_period_date_coverage": 0.8614,
+    "valid_date_coverage": 0.9808,
+    "in_period_date_coverage": 0.8597,
+    "all_row_valid_date_coverage": 0.9811,
+    "all_row_in_period_date_coverage": 0.8619,
     "invalid_examples": [
       {
         "used_date": "1.12. 12:14",
@@ -99162,28 +99225,6 @@
         "merchant": "맛세담"
       },
       {
-        "used_date": "1137000",
-        "period": [
-          2026,
-          null,
-          1
-        ],
-        "sheet": "시책추진업무추진비",
-        "row": 21,
-        "merchant": "4063000"
-      },
-      {
-        "used_date": "1371300",
-        "period": [
-          2026,
-          null,
-          2
-        ],
-        "sheet": "시책추진업무추진비",
-        "row": 19,
-        "merchant": "3828700"
-      },
-      {
         "used_date": "2.10. 20:09",
         "period": [
           2026,
@@ -99248,6 +99289,28 @@
         "sheet": "시책추진(의정지원과)",
         "row": 15,
         "merchant": "광교장설렁탕"
+      },
+      {
+        "used_date": "2.24. 19:35",
+        "period": [
+          2026,
+          null,
+          1
+        ],
+        "sheet": "시책추진(의정정책추진단)",
+        "row": 18,
+        "merchant": "샤브올데이 의정부민락점"
+      },
+      {
+        "used_date": "2.25. 19:13",
+        "period": [
+          2026,
+          null,
+          1
+        ],
+        "sheet": "시책추진(의정정책추진단)",
+        "row": 19,
+        "merchant": "행운장충왕족발"
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T10:43:37",
+  "generated_at": "2026-09-22T11:42:18",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -213,8 +213,13 @@
         null
       ],
       "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1316&bcd=infordisc&pgno=1",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 pdf 2026년_8월_예산결산특별위원장_업무추진비_집행내역.pdf",
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&msg_seq=1316&fileno=1",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "incheon_council",
@@ -247,8 +252,13 @@
         null
       ],
       "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1315&bcd=infordisc&pgno=1",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 pdf 2026년_08월_도시건설위원장_업무추진비_집행내역.pdf",
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&msg_seq=1315&fileno=1",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "incheon_council",
@@ -281,8 +291,13 @@
         null
       ],
       "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1314&bcd=infordisc&pgno=1",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 pdf 2026년_8월_교육위원장_업무추진비_집행내역.pdf",
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&msg_seq=1314&fileno=1",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "incheon_council",
@@ -315,8 +330,13 @@
         null
       ],
       "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1313&bcd=infordisc&pgno=1",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 pdf 산업경제위원장_업무추진비(2026-7월).pdf",
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&msg_seq=1313&fileno=1",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "incheon_council",

@@ -1,6 +1,6 @@
 # gwangmyeong expense ingestion
 
-- Normalized rows: **2320**
+- Normalized rows: **2316**
 - Source posts: **14**
 - Downloaded files: **7**
 - Errors: **8**
@@ -8,12 +8,12 @@
 ## Rows by year
 
 - 2024: 371
-- 2025: 1319
-- 2026: 630
+- 2025: 1317
+- 2026: 628
 
 ## Top roles / sheets
 
-- 의장: 696
+- 의장: 692
 - 부의장: 450
 - 복지문화건설위원장: 302
 - 자치행정교육위원장: 296
@@ -25,8 +25,8 @@
 
 ## Files
 
-- `의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf` — 412,614 bytes — 277 rows
-  - pdf-page-1: OK / parsed 25 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+- `의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf` — 412,614 bytes — 275 rows
+  - pdf-page-1: OK / parsed 23 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-2: OK / parsed 26 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-3: OK / parsed 26 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-4: OK / parsed 26 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
@@ -53,9 +53,9 @@
   - pdf-page-13: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-14: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-15: OK / parsed 18 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
-- `'의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기` — 464,948 bytes — 314 rows
+- `'의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 4분기).pdf' 파일 내려받기` — 464,948 bytes — 313 rows
   - pdf-page-1: OK / parsed 23 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
-  - pdf-page-2: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-2: OK / parsed 23 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-3: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-4: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-5: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
@@ -98,11 +98,11 @@
   - pdf-page-11: OK / parsed 25 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-12: OK / parsed 25 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-13: OK / parsed 23 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
-- `'의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기` — 466,383 bytes — 329 rows
+- `'의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기 '의원 업무추진비 집행현황(2025년 1분기).pdf' 파일 내려받기` — 466,383 bytes — 328 rows
   - pdf-page-1: OK / parsed 21 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-2: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-3: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
-  - pdf-page-4: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-4: OK / parsed 21 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-5: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-6: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-7: OK / parsed 22 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
@@ -134,11 +134,11 @@
 
 ## Errors
 
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065
+- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367

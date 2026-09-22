@@ -194,4 +194,4 @@
 
 ## Errors
 
-- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://www.gjcouncil.go.kr/common/downloadSelector.do?type=bbs&uid=39578DAC697A9A330F2A1DED80E5BF8E
+- NameError: name 'html' is not defined — https://www.gjcouncil.go.kr/common/downloadSelector.do?type=bbs&uid=39578DAC697A9A330F2A1DED80E5BF8E
