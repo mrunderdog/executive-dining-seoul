@@ -2,6 +2,8 @@
 import argparse
 import json
 import re
+import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 
 from coordinate_selection import select_coordinate
@@ -110,8 +112,31 @@ def main():
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
+
+    try:
+        git_commit = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except Exception:
+        git_commit = ""
+    build_meta = {
+        "git_commit": git_commit,
+        "dataset_total": len(records),
+        "coordinates": coord_count,
+        "location_grade_a": stats.get("location_grade_a", 0),
+        "location_grade_b": stats.get("location_grade_b", 0),
+        "location_grade_c": stats.get("location_grade_c", 0),
+        "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+    meta_out = out.with_name("build-meta.json")
+    meta_out.write_text(json.dumps(build_meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     supplements = stats.get("supplemental", 0)
     print(f"built {out} with {len(records)} records (+{supplements} staged public-sector); static coordinates={coord_count}/{len(records)}")
+    print(f"build metadata: {meta_out} commit={git_commit[:12] if git_commit else '-'}")
 
 
 if __name__ == "__main__":
