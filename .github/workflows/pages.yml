@@ -39,6 +39,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Regression checks
+        run: python pipeline/regression_checks.py
+
       - name: Quality gate
         run: python pipeline/quality_gate.py
 
