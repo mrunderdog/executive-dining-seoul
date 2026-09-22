@@ -236,6 +236,16 @@ def normalize_sheet(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
     score, hi, matched = found
     mapping = map_columns(rows[hi])
+    # PDF disclosures often put the accountable role in a section title above
+    # the repeated table header, e.g. "업무추진비 집행내역(부의장)", while the
+    # table itself contains only 대상인원. Preserve that page/section context.
+    preamble = " ".join(
+        clean_text(cell)
+        for row in rows[max(0, hi - 8):hi]
+        for cell in row
+        if clean_text(cell)
+    )
+    section_role = infer_leadership_role(preamble)
     # "구분" is ambiguous across councils. Some use it for leadership roles,
     # while others use it for expense categories such as 급식비/기타.
     # Keep it as a role column only when sampled values actually contain a
@@ -292,7 +302,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "role": resolve_role(
                 cell(row, mapping, "role"),
                 sheet_name,
-                source_meta.get("default_role"),
+                section_role or source_meta.get("default_role"),
                 purpose=purpose,
             ),
             "merchant": merchant,
@@ -307,7 +317,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "|".join(str(raw.get(k, "")) for k in ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
         ).hexdigest()[:20]
         out.append(raw)
-    info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_score": score, "matched": sorted(matched), "mapping": mapping, "parsed_rows": len(out)}
+    info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_score": score, "matched": sorted(matched), "mapping": mapping, "section_role": section_role, "parsed_rows": len(out)}
     return out, info
 
 
