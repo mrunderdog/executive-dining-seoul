@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-22T10:40:28",
-  "dataset_records": 785,
-  "cross_institution_count": 89,
-  "cross_origin_count": 18,
+  "generated_at": "2026-09-22T10:42:08",
+  "dataset_records": 783,
+  "cross_institution_count": 90,
+  "cross_origin_count": 20,
   "top_official_count": 117,
   "regional_head_count": 20,
-  "entity_merges": 31,
-  "entity_merge_audit_count": 30,
+  "entity_merges": 33,
+  "entity_merge_audit_count": 32,
   "entity_merge_audit": [
     {
       "name": "외계인키친",
@@ -239,6 +239,27 @@
       "spend": 15624000
     },
     {
+      "name": "포도나무",
+      "address": "서울 종로구 사직로 108-1",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "source_keys": [
+        "포도나무|서울시청",
+        "포도나무|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 51,
+      "spend": 13045000
+    },
+    {
       "name": "챠이나프로",
       "address": "서울 영등포구 국회대로74길 20 (여의도동, 맨하탄21리빙텔) 1층",
       "origins": [
@@ -326,6 +347,29 @@
       "corroborated_address_bridges": 1,
       "visits": 44,
       "spend": 8617000
+    },
+    {
+      "name": "곰솔",
+      "address": "서울 종로구 자하문로8길 9",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "source_keys": [
+        "곰솔|서울시청",
+        "곰솔|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 40,
+      "spend": 8190000
     },
     {
       "name": "버드나무집",
@@ -645,7 +689,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 6,
+  "cross_origin_review_count": 4,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -667,48 +711,6 @@
       ],
       "address_entity_count": 1,
       "qa_a": true
-    },
-    {
-      "name": "포도나무",
-      "strict_name": "포도나무",
-      "confidence": "REVIEW",
-      "reason": "exact name + single published address",
-      "origins": [
-        "서울시청",
-        "중앙정부"
-      ],
-      "institutions": [
-        "서울특별시 본청",
-        "통일부"
-      ],
-      "visits": 51,
-      "addresses": [
-        "서울 종로구 사직로 108-1"
-      ],
-      "address_entity_count": 1,
-      "qa_a": false
-    },
-    {
-      "name": "곰솔",
-      "strict_name": "곰솔",
-      "confidence": "REVIEW",
-      "reason": "exact name + single published address",
-      "origins": [
-        "서울시청",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "서울특별시 본청",
-        "통일부"
-      ],
-      "visits": 40,
-      "addresses": [
-        "서울 종로구 자하문로8길 9"
-      ],
-      "address_entity_count": 1,
-      "qa_a": false
     },
     {
       "name": "취홍",
@@ -1045,6 +1047,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "곰솔",
+      "address": "서울 종로구 자하문로8길 9",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "regional_executive"
+      ],
+      "visits": 40,
+      "spend": 8190000,
+      "date_min": "2024-09-05",
+      "date_max": "2026-08-28",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 24,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 24,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "김삼보",
       "address": "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층",
       "origins": [
@@ -1307,6 +1343,38 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "포도나무",
+      "address": "서울 종로구 사직로 108-1",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "regional_executive"
+      ],
+      "visits": 51,
+      "spend": 13045000,
+      "date_min": "2024-12-11",
+      "date_max": "2026-08-10",
+      "consensus_score": 75.9,
+      "institution_count": 2,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 25,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 25,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1597,37 +1665,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "곰솔",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 26,
-      "spend": 5914000,
-      "date_min": "2024-09-05",
-      "date_max": "2026-08-28",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 24,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 24,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3548,23 +3585,26 @@
   "top_official": [
     {
       "name": "포도나무",
-      "address": "",
+      "address": "서울 종로구 사직로 108-1",
       "origins": [
+        "서울시청",
         "중앙정부"
       ],
       "institutions": [
+        "서울특별시 본청",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "regional_executive"
       ],
-      "visits": 25,
-      "spend": 6474000,
-      "date_min": "2025-07-02",
+      "visits": 51,
+      "spend": 13045000,
+      "date_min": "2024-12-11",
       "date_max": "2026-08-10",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
+      "consensus_score": 75.9,
+      "institution_count": 2,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 25,
@@ -3577,25 +3617,28 @@
     },
     {
       "name": "곰솔",
-      "address": "",
+      "address": "서울 종로구 자하문로8길 9",
       "origins": [
+        "서울시청",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
         "산업통상부",
+        "서울특별시 본청",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "regional_executive"
       ],
-      "visits": 26,
-      "spend": 5914000,
+      "visits": 40,
+      "spend": 8190000,
       "date_min": "2024-09-05",
       "date_max": "2026-08-28",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 24,
