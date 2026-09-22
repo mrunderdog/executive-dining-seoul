@@ -28,6 +28,9 @@ jobs:
   build:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    outputs:
+      commit: ${{ steps.buildinfo.outputs.commit }}
+      total: ${{ steps.buildinfo.outputs.total }}
     steps:
       - name: Checkout latest main
         uses: actions/checkout@v6
@@ -51,6 +54,16 @@ jobs:
       - name: Build static site
         run: python pipeline/build_site.py --output dist/index.html
 
+      - name: Capture build identity
+        id: buildinfo
+        shell: bash
+        run: |
+          COMMIT="$(python -c 'import json; print(json.load(open("dist/build-meta.json", encoding="utf-8"))["git_commit"])')"
+          TOTAL="$(python -c 'import json; print(json.load(open("dist/build-meta.json", encoding="utf-8"))["dataset_total"])')"
+          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+          echo "Built commit $COMMIT with $TOTAL restaurants"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -70,3 +83,27 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Post-deploy sync check
+        shell: bash
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          EXPECTED_COMMIT: ${{ needs.build.outputs.commit }}
+          EXPECTED_TOTAL: ${{ needs.build.outputs.total }}
+        run: |
+          set -e
+          URL="${PAGE_URL%/}/build-meta.json?run=${{ github.run_id }}"
+          for ATTEMPT in 1 2 3 4 5; do
+            if curl -fsSL --max-time 20 "$URL" -o /tmp/build-meta.json; then
+              ACTUAL_COMMIT="$(python -c 'import json; print(json.load(open("/tmp/build-meta.json", encoding="utf-8"))["git_commit"])')"
+              ACTUAL_TOTAL="$(python -c 'import json; print(json.load(open("/tmp/build-meta.json", encoding="utf-8"))["dataset_total"])')"
+              echo "expected commit=$EXPECTED_COMMIT total=$EXPECTED_TOTAL"
+              echo "deployed commit=$ACTUAL_COMMIT total=$ACTUAL_TOTAL"
+              if [[ "$ACTUAL_COMMIT" == "$EXPECTED_COMMIT" && "$ACTUAL_TOTAL" == "$EXPECTED_TOTAL" ]]; then
+                exit 0
+              fi
+            fi
+            sleep 5
+          done
+          echo "Deployed site metadata does not match the build."
+          exit 1
