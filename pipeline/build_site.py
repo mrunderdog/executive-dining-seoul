@@ -14,11 +14,8 @@ from global_entities import merge_global_entities
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
-MAP_JS = ROOT / "site" / "maplibre.js"
-MAP_PATCH_JS = ROOT / "site" / "map_visibility_patch.js"
-MAP_CSS = ROOT / "site" / "maplibre.css"
-THEME_CSS = ROOT / "site" / "flying_papers.css"
-UI_PATCH_JS = ROOT / "site" / "ui_patch.js"
+APP_JS = ROOT / "site" / "app.js"
+APP_CSS = ROOT / "site" / "app.css"
 GEO_CACHE = ROOT / "data" / "geocode_cache.json"
 QUALITY_REPORT = ROOT / "reports" / "quality.json"
 
@@ -34,18 +31,15 @@ def load_geo_cache():
 
 
 def inject_maplibre(html: str) -> str:
-    css = MAP_CSS.read_text(encoding="utf-8")
-    theme_css = THEME_CSS.read_text(encoding="utf-8") if THEME_CSS.exists() else ""
-    js = MAP_JS.read_text(encoding="utf-8")
-    patch_js = MAP_PATCH_JS.read_text(encoding="utf-8") if MAP_PATCH_JS.exists() else ""
-    ui_patch_js = UI_PATCH_JS.read_text(encoding="utf-8") if UI_PATCH_JS.exists() else ""
+    css = APP_CSS.read_text(encoding="utf-8")
+    js = APP_JS.read_text(encoding="utf-8")
 
     html = re.sub(r'<link[^>]+leaflet[^>]+>\s*', '', html, flags=re.I)
     html = re.sub(r'<link[^>]+MarkerCluster[^>]+>\s*', '', html, flags=re.I)
     html = html.replace(
         '</head>',
         '<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css">\n'
-        '<style>\n' + css + '\n' + theme_css + '\n</style>\n</head>'
+        '<style>\n' + css + '\n</style>\n</head>'
     )
 
     start = html.find('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>')
@@ -57,8 +51,6 @@ def inject_maplibre(html: str) -> str:
     replacement = (
         '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n'
         '<script>\n' + js + '\n</script>\n'
-        '<script>\n' + patch_js + '\n</script>\n'
-        '<script>\n' + ui_patch_js + '\n</script>\n'
     )
     return html[:start] + replacement + html[end:]
 
