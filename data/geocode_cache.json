@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 162,
+    "failed_count": 163,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1106,
+    "record_count": 1107,
     "success_count": 944,
-    "updated_at": "2026-09-22T07:36:53+00:00"
+    "updated_at": "2026-09-22T08:22:36+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -1596,6 +1596,17 @@
         "arcgis:광화문 더덕순대 대한민국"
       ],
       "updated_at": "2026-09-18T23:16:06+00:00"
+    },
+    "광화문 아띠(친시,바심)|중앙정부": {
+      "failed": true,
+      "fingerprint": "a5d3927ce94de8cf",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:광화문 아띠(친시,바심) 대한민국",
+        "nominatim:광화문 아띠(친시,바심) 대한민국"
+      ],
+      "updated_at": "2026-09-22T08:22:36+00:00"
     },
     "광화문 양갈비|서울시청": {
       "addr_type": "PointAddress",
