@@ -3,7 +3,8 @@
 from pathlib import Path
 
 from coordinate_selection import select_coordinate
-from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, resolve_role
+from build_source_candidates import plausible_transaction
+from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_date_from_row, resolve_role
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -122,6 +123,19 @@ def test_pdf_role_context_can_carry_across_pages():
     assert normalized and normalized[0]["role"] == "부의장", normalized
 
 
+
+def test_abbreviated_date_recovery():
+    assert recover_date_from_row(["8.", "5.", "식당"], [2026, 8, None]) == "2026-08-05"
+    assert recover_date_from_row(["8. 5.", "식당"], [2026, 8, None]) == "2026-08-05"
+    assert recover_date_from_row(["5일", "식당"], [2026, 8, None]) == "2026-08-05"
+
+
+def test_implausible_amount_is_quarantined():
+    assert plausible_transaction({"amount": 180000, "people": 8})
+    assert not plausible_transaction({"amount": 18, "people": 8})
+    assert plausible_transaction({"amount": 0, "people": 8})
+
+
 def test_removed_selected_location_button():
     template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     map_js = (ROOT / "site" / "maplibre.js").read_text(encoding="utf-8")
@@ -150,6 +164,8 @@ def main():
         test_address_mismatch_coordinate_is_suppressed,
         test_pdf_preamble_role_and_merged_date,
         test_pdf_role_context_can_carry_across_pages,
+        test_abbreviated_date_recovery,
+        test_implausible_amount_is_quarantined,
         test_removed_selected_location_button,
         test_template_has_no_legacy_leaflet_runtime,
     ]
