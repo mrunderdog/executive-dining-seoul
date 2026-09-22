@@ -1,0 +1,897 @@
+/* app.css — consolidated site styles. */
+/* MapLibre base/layout */
+/* MapLibre/OpenFreeMap overrides for the existing monochrome dashboard */
+.maplibregl-map{font:inherit}.maplibregl-ctrl-group{border-radius:12px!important;overflow:hidden;box-shadow:var(--shadow)!important}.maplibregl-ctrl-group button{width:32px;height:32px}.maplibregl-popup-content{border-radius:18px;padding:14px;box-shadow:var(--shadow);border:1px solid var(--hair);font:inherit;color:var(--ink)}.maplibregl-popup-tip{border-top-color:#fff!important}.maplibregl-popup-close-button{font-size:18px;color:var(--muted);padding:5px 8px}.popup h3{font-size:16px;margin:0 0 4px}.popup .muted{color:var(--muted);font-size:12px}.popup .why{background:var(--canvas);border-radius:10px;padding:9px;margin:9px 0;font-size:12px}.popup a{color:var(--ink);font-weight:600}
+
+
+/* Product theme and responsive UI */
+:root{
+  --canvas:#8584bd;
+  --paper:#f9f5f2;
+  --surface:#f9f5f2;
+  --ink:#1a1a1a;
+  --ink-soft:#1a1a1a;
+  --muted:#61609a;
+  --hair:#1a1a1a;
+  --danger:#c94245;
+  --yellow:#f4ed36;
+  --butter:#f9cc73;
+  --pink:#f8c1ba;
+  --matcha:#b5c995;
+  --magenta:#ac4f98;
+  --red:#c94245;
+  --lilac:#61609a;
+  --shadow:none;
+}
+html,body{background:var(--canvas)!important}
+body{font-family:Inter,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif!important}
+.shell{max-width:none!important;padding:12px!important;gap:12px!important}
+.topbar,.panel{box-shadow:none!important;border:1.5px solid var(--ink)!important;border-radius:6px!important}
+.topbar{background:var(--canvas)!important;color:var(--paper)!important;padding:18px 22px!important}
+.brand-kicker{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--yellow)!important;letter-spacing:.08em!important}
+.brand h1{font-size:44px!important;line-height:.92!important;letter-spacing:-.035em!important;font-weight:900!important;color:var(--yellow)!important;text-transform:none}
+.brand p{color:var(--paper)!important;font-size:15px!important;max-width:820px!important}
+.stats{gap:10px!important}
+.stat{border-left:1px solid rgba(249,245,242,.55)!important;padding:8px 14px!important}
+.stat-label{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--butter)!important;font-size:11px!important;letter-spacing:.06em!important}
+.stat-value{color:var(--paper)!important;font-size:27px!important;font-weight:900!important}
+.stat-sub{color:rgba(249,245,242,.82)!important}
+.workspace{gap:12px!important;grid-template-columns:360px minmax(520px,1fr) 410px!important;transition:grid-template-columns .22s ease}
+.workspace.explorer-collapsed{grid-template-columns:0 minmax(650px,1fr) 410px!important}
+.workspace.explorer-collapsed .sidebar{opacity:0;pointer-events:none;border-width:0!important}
+.sidebar{background:var(--paper)!important;transition:opacity .18s ease}
+.filters{background:var(--pink)!important;border-bottom:1.5px solid var(--ink)!important;padding:16px!important}
+.section-eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--ink)!important;font-weight:700!important;letter-spacing:.08em!important}
+.field label{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--ink)!important;font-size:11px!important}
+.control,.reset-btn{background:var(--paper)!important;border:1.5px solid var(--ink)!important;border-radius:100px!important;box-shadow:none!important}
+.control:focus{outline:3px solid var(--yellow)!important;background:var(--paper)!important}
+.reset-btn:hover,.map-btn:hover{background:var(--yellow)!important;filter:none!important}
+.summary{background:var(--butter)!important;color:var(--ink)!important;border-bottom:1.5px solid var(--ink)!important}
+.list{background:var(--matcha)!important;padding:10px!important}
+.restaurant-card{background:var(--paper)!important;border:1.5px solid var(--ink)!important;border-radius:6px!important;box-shadow:none!important;transform:none!important}
+.restaurant-card:hover{background:#fff!important;border-color:var(--ink)!important;transform:none!important}
+.restaurant-card.active{background:var(--yellow)!important;box-shadow:none!important;border:2px solid var(--ink)!important}
+.card-title{font-weight:900!important;font-size:18px!important}
+.score{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--lilac)!important}
+.badge{border-radius:100px!important;border:1px solid var(--ink)!important;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important}
+.badge.solid{background:var(--magenta)!important;color:var(--paper)!important}
+.badge.soft{background:var(--butter)!important;color:var(--ink)!important}
+.badge.outline{background:transparent!important;border:1.5px solid var(--ink)!important}
+.map-panel{background:var(--lilac)!important;padding:8px!important}
+#map{border-radius:6px!important;border:1.5px solid var(--ink)!important;background:var(--paper)!important}
+.map-info,.map-actions{background:var(--paper)!important;backdrop-filter:none!important;border:1.5px solid var(--ink)!important;border-radius:6px!important;box-shadow:none!important}
+.map-info strong{font-weight:900!important}
+.map-btn{border:1.5px solid var(--ink)!important;border-radius:100px!important;background:var(--paper)!important;font-weight:700!important}
+.map-btn.primary{background:var(--yellow)!important;color:#000!important}
+.detail{background:var(--paper)!important}
+.detail h2{font-size:30px!important;font-weight:900!important;line-height:.95!important}
+.why-card{background:var(--butter)!important;border:1.5px solid var(--ink)!important;border-radius:6px!important}
+.metric-card{background:var(--pink)!important;border:1.5px solid var(--ink)!important;border-radius:6px!important}
+.metric-card:nth-child(2n){background:var(--matcha)!important}
+.btn{border-radius:100px!important;font-weight:700!important}
+.btn.primary{background:var(--yellow)!important;color:#000!important;border:1.5px solid #000!important}
+.btn.ghost{background:var(--paper)!important;border:1.5px solid var(--ink)!important}
+.detail-section{border-top:1.5px solid var(--ink)!important}
+.maplibregl-ctrl-group{border-radius:6px!important;box-shadow:none!important;border:1.5px solid var(--ink)!important}
+.maplibregl-popup-content{border-radius:6px!important;box-shadow:none!important;border:1.5px solid var(--ink)!important;background:var(--paper)!important}
+.explorer-toggle{position:fixed;z-index:2200;left:18px;bottom:18px;height:42px;padding:0 15px;border:2px solid #000;border-radius:100px;background:var(--yellow);color:#000;font-weight:900;cursor:pointer;box-shadow:none}
+.explorer-toggle:hover{background:var(--butter)}
+.explorer-toggle .state-open,.workspace.explorer-collapsed~.explorer-toggle .state-closed{display:inline}
+.explorer-toggle .state-closed,.workspace.explorer-collapsed~.explorer-toggle .state-open{display:none}
+.legend-dot.exec{background:var(--magenta)!important}.legend-dot.dest{background:var(--yellow)!important}.legend-dot.both{background:var(--red)!important}
+@media(max-width:1120px){.workspace,.workspace.explorer-collapsed{grid-template-columns:1fr!important}.workspace.explorer-collapsed .sidebar{display:none}.brand h1{font-size:36px!important}}
+
+/* Global entity / cross-institution UI */
+.brand,.stats,.stat{min-width:0}
+.control{min-width:0;white-space:nowrap;text-overflow:ellipsis}
+.map-actions{flex-wrap:nowrap;white-space:nowrap}
+.map-btn{white-space:nowrap;min-width:max-content}
+.badge.cross{background:var(--yellow)!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;font-weight:800!important}
+.cross-grid{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.cross-row{display:flex;justify-content:space-between;gap:14px;padding:10px 12px;background:var(--paper);border-bottom:1px solid var(--ink);font-size:12px}
+.cross-row:nth-child(even){background:var(--matcha)}
+.cross-row:last-child{border-bottom:0}
+.filters .explorer-toggle{position:static!important;width:100%;height:36px;margin-top:12px}
+body>.explorer-toggle{left:18px;bottom:18px}
+@media(max-width:1380px){
+  .map-toolbar{left:18px!important;right:18px!important}
+  .map-info{max-width:280px!important}
+  .map-actions{max-width:55%}
+}
+@media(max-width:760px){
+  .map-toolbar{gap:6px}
+  .map-info{max-width:48%!important}
+  .map-actions{max-width:50%;overflow-x:auto}
+  .map-btn{padding:0 9px!important}
+}
+
+/* Compact explorer: keep filters useful without hiding the restaurant list */
+@media(min-width:1001px){
+  .filters{
+    padding:16px 18px 12px!important;
+  }
+  .filter-grid{
+    gap:10px 12px!important;
+  }
+  .field{
+    gap:5px!important;
+  }
+  .field label{
+    font-size:11px!important;
+    margin:0!important;
+  }
+  .control,
+  .search-wrap input,
+  select{
+    min-height:40px!important;
+    height:40px!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+  }
+  .filters .explorer-toggle{
+    height:32px!important;
+    margin-top:8px!important;
+  }
+  .list-panel{
+    min-height:0!important;
+  }
+  .restaurant-list,
+  .list{
+    min-height:0!important;
+  }
+}
+
+/* Cross-origin landing showcase */
+.cross-showcase{background:var(--yellow);border:1.5px solid var(--ink);border-radius:6px;padding:16px 18px}
+.cross-showcase-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px}
+.cross-showcase h2{margin:2px 0 4px;font-size:26px;line-height:1;font-weight:900;letter-spacing:-.03em}
+.cross-showcase p{margin:0;font-size:13px}
+.cross-all-btn{border:1.5px solid var(--ink);background:var(--paper);border-radius:100px;padding:9px 14px;font-weight:800;cursor:pointer;white-space:nowrap}
+.cross-showcase-track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.cross-showcase-card{min-width:0;text-align:left;border:1.5px solid var(--ink);border-radius:6px;background:var(--paper);padding:11px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.cross-showcase-card:hover{background:var(--pink)}
+.cross-showcase-card strong{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cross-showcase-card span:not(.cross-rank),.cross-showcase-card small{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cross-rank{font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--magenta)}
+@media(max-width:1380px){.cross-showcase-track{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.cross-showcase-head{align-items:flex-start;flex-direction:column}.cross-showcase-track{display:flex;overflow-x:auto}.cross-showcase-card{min-width:190px}}
+
+
+/* Layout integrity: the UI patch inserts cross-showcase between topbar and workspace.
+   Keep those three sections in explicit rows so cards/map/detail never slide under
+   the showcase or escape the viewport. */
+html,body{
+  width:100%;
+  min-width:0;
+}
+body{
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+}
+.shell{
+  height:auto!important;
+  min-height:100dvh!important;
+  display:grid!important;
+  grid-template-rows:auto auto auto!important;
+  align-content:start!important;
+  overflow:visible!important;
+}
+.topbar,
+.cross-showcase,
+.workspace{
+  position:relative;
+  isolation:isolate;
+  min-width:0;
+}
+.topbar{z-index:30}
+.cross-showcase{z-index:20}
+.workspace{
+  z-index:10;
+  min-height:0!important;
+  overflow:hidden;
+  align-items:stretch;
+}
+.sidebar,
+.map-panel,
+.detail{
+  position:relative;
+  z-index:1;
+  min-width:0;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.sidebar{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.filters,
+.summary{
+  flex:0 0 auto;
+  position:relative;
+  z-index:2;
+}
+.list{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+}
+.map-panel{
+  display:block;
+}
+#map{
+  position:relative;
+  z-index:0;
+  width:100%;
+  height:100%!important;
+  min-height:0!important;
+}
+.map-toolbar{
+  z-index:20!important;
+}
+.maplibregl-map,
+.maplibregl-canvas-container,
+.maplibregl-canvas{
+  z-index:0;
+}
+.maplibregl-control-container,
+.maplibregl-popup{
+  z-index:10;
+}
+.detail{
+  display:block;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  background:var(--paper)!important;
+}
+.restaurant-card,
+.cross-showcase-card{
+  position:relative;
+  z-index:1;
+}
+.cross-showcase{
+  overflow:hidden;
+}
+.cross-showcase-track{
+  min-width:0;
+}
+.map-info{
+  max-width:min(315px,46%)!important;
+}
+.map-actions{
+  max-width:52%;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.map-actions::-webkit-scrollbar{display:none}
+
+/* The desktop workspace should use the remainder of the viewport, not create
+   another implicit page section below the fold. */
+@media(min-width:1121px){
+  .workspace{
+    height:max(620px,calc(100dvh - 330px));
+    min-height:620px!important;
+  }
+  .sidebar,
+  .map-panel,
+  .detail{
+    height:100%;
+  }
+}
+
+/* On narrower screens switch back to a normal document flow.  Explicitly
+   reset the base template's fixed grid rows, otherwise the injected showcase
+   leaves oversized/overlapping panels. */
+@media(max-width:1120px){
+  body{
+    overflow:auto!important;
+  }
+  .shell{
+    height:auto!important;
+    min-height:100dvh!important;
+    overflow:visible!important;
+    grid-template-rows:auto auto auto!important;
+  }
+  .workspace,
+  .workspace.explorer-collapsed{
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto!important;
+    overflow:visible!important;
+  }
+  .map-panel{
+    grid-row:auto!important;
+    order:1;
+    height:520px!important;
+    min-height:520px!important;
+  }
+  .sidebar{
+    grid-row:auto!important;
+    order:2;
+    height:min(680px,72dvh)!important;
+  }
+  .detail{
+    grid-row:auto!important;
+    order:3;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  #map{
+    min-height:100%!important;
+  }
+  .workspace.explorer-collapsed .sidebar{
+    display:none!important;
+  }
+}
+@media(max-width:760px){
+  .shell{
+    padding:8px!important;
+    gap:8px!important;
+  }
+  .topbar{
+    padding:16px!important;
+  }
+  .cross-showcase{
+    padding:14px!important;
+  }
+  .map-panel{
+    height:430px!important;
+    min-height:430px!important;
+  }
+  .sidebar{
+    height:620px!important;
+  }
+  .map-toolbar{
+    top:16px!important;
+    left:16px!important;
+    right:16px!important;
+  }
+}
+
+
+/* Cross showcase pagination */
+.cross-pagination{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+}
+.cross-page-btn{
+  height:34px;
+  padding:0 12px;
+  border:1.5px solid var(--ink);
+  border-radius:100px;
+  background:var(--paper);
+  color:var(--ink);
+  font-weight:800;
+  cursor:pointer;
+}
+.cross-page-btn:hover:not(:disabled){background:var(--pink)}
+.cross-page-btn:disabled{
+  opacity:.35;
+  cursor:default;
+}
+.cross-page-state{
+  min-width:120px;
+  text-align:center;
+  font:800 11px ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media(max-width:760px){
+  .cross-pagination{
+    justify-content:space-between;
+  }
+  .cross-page-state{
+    min-width:auto;
+    flex:1;
+  }
+}
+
+
+.brand-tagline{
+  display:inline-block;
+  margin-top:7px;
+  font-weight:800;
+  color:var(--butter);
+  letter-spacing:-.01em;
+}
+
+
+/* =========================
+   UI v2: compact header + 2-pane workspace + detail drawer
+   ========================= */
+.ui-v2 .shell{
+  gap:10px!important;
+}
+.ui-v2 .topbar{
+  padding:12px 16px!important;
+  grid-template-columns:minmax(0,1.45fr) minmax(420px,.9fr)!important;
+  gap:18px!important;
+  align-items:center!important;
+}
+.ui-v2 .brand-kicker{
+  font-size:10px!important;
+  margin-bottom:3px!important;
+}
+.ui-v2 .brand h1{
+  font-size:34px!important;
+  line-height:1!important;
+}
+.ui-v2 .brand p{
+  margin-top:5px!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+.ui-v2 .brand-tagline{
+  margin-top:4px!important;
+  font-size:12px!important;
+}
+.ui-v2 .stats{
+  gap:0!important;
+}
+.ui-v2 .stat{
+  padding:4px 10px!important;
+}
+.ui-v2 .stat-label{
+  font-size:9px!important;
+}
+.ui-v2 .stat-value{
+  font-size:20px!important;
+}
+.ui-v2 .stat-sub{
+  font-size:10px!important;
+}
+
+.ui-v2 .cross-showcase-v2{
+  padding:10px 12px!important;
+}
+.ui-v2 .cross-showcase-head{
+  margin-bottom:8px!important;
+  align-items:center!important;
+}
+.ui-v2 .cross-title-wrap{
+  min-width:0;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.ui-v2 .cross-title-wrap .section-eyebrow{
+  margin:0!important;
+  font-size:9px!important;
+}
+.ui-v2 .cross-showcase h2{
+  margin:0!important;
+  font-size:18px!important;
+}
+.ui-v2 .cross-showcase p{
+  font-size:11px!important;
+  color:var(--muted);
+}
+.ui-v2 .cross-head-actions{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex:0 0 auto;
+}
+.ui-v2 .cross-nav,
+.ui-v2 .cross-all-btn{
+  height:30px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-weight:800;
+  cursor:pointer;
+}
+.ui-v2 .cross-nav{
+  width:30px;
+  padding:0;
+}
+.ui-v2 .cross-all-btn{
+  padding:0 11px!important;
+}
+.ui-v2 .cross-showcase-track{
+  display:flex!important;
+  gap:8px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x proximity;
+  scrollbar-width:thin;
+  padding-bottom:2px;
+}
+.ui-v2 .cross-showcase-card{
+  flex:0 0 230px!important;
+  min-width:230px!important;
+  scroll-snap-align:start;
+  padding:8px 10px!important;
+  gap:2px!important;
+}
+.ui-v2 .cross-showcase-card strong{
+  font-size:14px!important;
+}
+.ui-v2 .cross-showcase-card span:not(.cross-rank),
+.ui-v2 .cross-showcase-card small{
+  font-size:10px!important;
+}
+.ui-v2 .cross-pagination{
+  display:none!important;
+}
+
+/* Two-pane desktop workspace. Detail lives above the map as a drawer. */
+@media(min-width:1121px){
+  .ui-v2 .workspace{
+    position:relative!important;
+    grid-template-columns:minmax(300px,340px) minmax(0,1fr)!important;
+    height:max(760px,calc(100dvh - 205px))!important;
+    min-height:760px!important;
+    overflow:hidden!important;
+  }
+  .ui-v2 .workspace.explorer-collapsed{
+    grid-template-columns:0 minmax(0,1fr)!important;
+  }
+  .ui-v2 .workspace.explorer-collapsed .sidebar{
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+  .ui-v2 .sidebar{
+    grid-column:1!important;
+    min-width:0!important;
+  }
+  .ui-v2 .map-panel{
+    grid-column:2!important;
+    min-width:0!important;
+    position:relative!important;
+  }
+  .ui-v2 .detail{
+    position:absolute!important;
+    z-index:80!important;
+    top:8px!important;
+    right:8px!important;
+    bottom:8px!important;
+    width:min(430px,42vw)!important;
+    height:auto!important;
+    min-height:0!important;
+    transform:translateX(calc(100% + 22px));
+    opacity:0;
+    pointer-events:none;
+    transition:transform .22s ease,opacity .16s ease;
+    overflow:auto!important;
+    border:1.5px solid var(--ink)!important;
+    box-shadow:0 10px 30px rgba(0,0,0,.18)!important;
+    background:var(--paper)!important;
+  }
+  .ui-v2 .workspace.detail-open .detail{
+    transform:translateX(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+}
+
+/* Compact filters so the list gets the vertical space. */
+.ui-v2 .filters{
+  padding:10px 12px 8px!important;
+}
+.ui-v2 .filters .section-eyebrow{
+  margin-bottom:6px!important;
+  font-size:10px!important;
+}
+.ui-v2 .filter-grid{
+  gap:6px!important;
+}
+.ui-v2 .field{
+  margin-top:5px!important;
+}
+.ui-v2 .field label{
+  margin:0 0 2px 2px!important;
+  font-size:10px!important;
+}
+.ui-v2 .control,
+.ui-v2 .search-wrap input,
+.ui-v2 select,
+.ui-v2 .reset-btn{
+  min-height:34px!important;
+  height:34px!important;
+}
+.ui-v2 .sort-row{
+  gap:6px!important;
+}
+.ui-v2 .summary{
+  min-height:38px;
+  padding:7px 10px!important;
+}
+.ui-v2 .summary .legend{
+  display:none!important;
+}
+.ui-v2 .summary .explorer-toggle{
+  position:static!important;
+  width:auto!important;
+  height:28px!important;
+  margin:0 0 0 auto!important;
+  padding:0 9px!important;
+  border:1.5px solid var(--ink)!important;
+  background:var(--paper)!important;
+  font-size:10px!important;
+}
+.ui-v2 .list{
+  padding:8px!important;
+}
+.ui-v2 .restaurant-card{
+  margin-bottom:7px!important;
+  padding:10px 11px!important;
+}
+.ui-v2 .card-title{
+  font-size:16px!important;
+}
+.ui-v2 .badge-row{
+  margin-top:5px!important;
+  gap:4px!important;
+}
+.ui-v2 .badge{
+  height:19px!important;
+  padding:0 6px!important;
+  font-size:10px!important;
+}
+.ui-v2 .card-meta{
+  margin-top:6px!important;
+  line-height:1.35!important;
+  font-size:11px!important;
+}
+.ui-v2 .card-metrics{
+  margin-top:7px!important;
+  gap:5px!important;
+}
+.ui-v2 .mini-metric{
+  padding-top:5px!important;
+}
+.ui-v2 .mini-label{
+  font-size:9px!important;
+}
+.ui-v2 .mini-value{
+  font-size:12px!important;
+}
+
+.ui-v2 .detail{
+  padding:18px!important;
+}
+.ui-v2 .detail-drawer-close{
+  position:sticky;
+  top:0;
+  float:right;
+  z-index:10;
+  width:34px;
+  height:34px;
+  margin:-4px -4px 8px 8px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--yellow);
+  font-size:24px;
+  line-height:28px;
+  font-weight:900;
+  cursor:pointer;
+}
+.ui-v2 .detail h2{
+  font-size:26px!important;
+}
+.ui-v2 .why-card{
+  margin-top:12px!important;
+  padding:12px!important;
+}
+.ui-v2 .detail-section{
+  margin-top:14px!important;
+  padding-top:14px!important;
+}
+
+/* Short-height desktop mode: preserve working room for the venue list/map. */
+@media(min-width:1121px) and (max-height:850px){
+  .ui-v2 .topbar{
+    padding:9px 14px!important;
+  }
+  .ui-v2 .brand h1{
+    font-size:30px!important;
+  }
+  .ui-v2 .brand p{
+    font-size:12px!important;
+  }
+  .ui-v2 .brand-tagline{
+    display:none!important;
+  }
+  .ui-v2 .cross-showcase-v2{
+    padding:8px 10px!important;
+  }
+  .ui-v2 .cross-title-wrap p{
+    display:none!important;
+  }
+  .ui-v2 .cross-showcase-card{
+    flex-basis:210px!important;
+    min-width:210px!important;
+  }
+  .ui-v2 .workspace{
+    height:760px!important;
+    min-height:760px!important;
+  }
+}
+
+/* Mobile/tablet: detail becomes normal stacked content again. */
+@media(max-width:1120px){
+  .ui-v2 .topbar{
+    grid-template-columns:1fr!important;
+  }
+  .ui-v2 .cross-showcase-track{
+    display:flex!important;
+  }
+  .ui-v2 .detail{
+    position:relative!important;
+    transform:none!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+  }
+  .ui-v2 .detail-drawer-close{
+    display:none!important;
+  }
+}
+
+
+.ui-v2 .explorer-toggle.is-floating{
+  position:fixed!important;
+  left:18px!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  z-index:2500!important;
+  width:auto!important;
+  height:40px!important;
+  margin:0!important;
+  padding:0 14px!important;
+  border:2px solid var(--ink)!important;
+  border-radius:999px!important;
+  background:var(--yellow)!important;
+  color:var(--ink)!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  box-shadow:0 4px 16px rgba(0,0,0,.18)!important;
+}
+.ui-v2 .explorer-toggle.is-floating:hover{
+  background:var(--butter)!important;
+}
+
+
+/* Data status modal */
+.data-status-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(26,26,26,.42);
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.data-status-backdrop.is-open{opacity:1}
+.data-status-modal{
+  width:min(920px,94vw);
+  max-height:min(780px,90dvh);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:8px;
+  box-shadow:0 18px 60px rgba(0,0,0,.25);
+}
+.data-status-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 20px 14px;
+  border-bottom:1.5px solid var(--ink);
+  background:var(--yellow);
+}
+.data-status-head h2{
+  margin:2px 0 4px;
+  font-size:28px;
+  line-height:1;
+  font-weight:900;
+}
+.data-status-head p{margin:0;font-size:12px;color:var(--muted)}
+.data-status-close{
+  flex:0 0 auto;
+  width:36px;height:36px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-size:24px;
+  line-height:28px;
+  font-weight:900;
+  cursor:pointer;
+}
+.data-status-metrics{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border-bottom:1.5px solid var(--ink);
+}
+.data-status-metrics>div{
+  padding:12px 14px;
+  border-right:1px solid var(--ink);
+  background:var(--paper);
+}
+.data-status-metrics>div:nth-child(even){background:var(--pink)}
+.data-status-metrics>div:last-child{border-right:0}
+.data-status-metrics span{
+  display:block;
+  font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--muted);
+}
+.data-status-metrics strong{
+  display:block;
+  margin-top:4px;
+  font-size:22px;
+  font-weight:900;
+}
+.data-status-note{
+  padding:10px 14px;
+  border-bottom:1px solid var(--ink);
+  background:var(--butter);
+  font-size:12px;
+  line-height:1.45;
+}
+.data-status-table-wrap{
+  overflow:auto;
+  min-height:0;
+}
+.data-status-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.data-status-table th,
+.data-status-table td{
+  padding:9px 11px;
+  border-bottom:1px solid rgba(26,26,26,.35);
+  text-align:right;
+  white-space:nowrap;
+}
+.data-status-table th:first-child,
+.data-status-table td:first-child,
+.data-status-table th:nth-child(2),
+.data-status-table td:nth-child(2){text-align:left}
+.data-status-table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:var(--matcha);
+  border-bottom:1.5px solid var(--ink);
+  font-weight:900;
+}
+.data-status-pill{
+  display:inline-flex;
+  align-items:center;
+  height:22px;
+  padding:0 8px;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-size:10px;
+  font-weight:800;
+}
+.data-status-pill.state-published{background:var(--matcha)}
+.data-status-pill.state-ingestion_review,
+.data-status-pill.state-candidate_build_review,
+.data-status-pill.state-publish_pipeline_review{background:var(--butter)}
+.data-status-pill.state-role_or_source_scope_review,
+.data-status-pill.state-no_candidates{background:var(--pink)}
+.data-status-pill.state-discovery_review{background:var(--canvas);color:var(--paper)}
+.data-status-pill.state-below_publication_thresholds{background:var(--paper)}
+@media(max-width:760px){
+  .data-status-backdrop{padding:8px}
+  .data-status-modal{width:100%;max-height:94dvh}
+  .data-status-head{padding:14px}
+  .data-status-head h2{font-size:22px}
+  .data-status-metrics{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .data-status-metrics>div{border-bottom:1px solid var(--ink)}
+  .data-status-metrics>div:nth-child(2n){border-right:0}
+  .data-status-table th,.data-status-table td{padding:8px}
+}
