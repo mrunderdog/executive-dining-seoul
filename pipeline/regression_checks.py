@@ -128,6 +128,17 @@ def test_abbreviated_date_recovery():
     assert recover_date_from_row(["8.", "5.", "식당"], [2026, 8, None]) == "2026-08-05"
     assert recover_date_from_row(["8. 5.", "식당"], [2026, 8, None]) == "2026-08-05"
     assert recover_date_from_row(["5일", "식당"], [2026, 8, None]) == "2026-08-05"
+    rows = [
+        ["일시", "집행장소", "집행목적", "집행금액"],
+        ["8. 5.", "테스트식당", "간담회 식비", 120000],
+    ]
+    meta = {
+        "region":"인천","jurisdiction":"인천광역시","institution":"인천광역시의회",
+        "source":"incheon_council","post_url":"x","attachment_url":"x","attachment_name":"x.pdf",
+        "period":[2026,8,None],"default_role":"의장",
+    }
+    normalized, _ = normalize_sheet(rows, "pdf-page-1", meta)
+    assert normalized and normalized[0]["used_date"] == "2026-08-05", normalized
 
 
 def test_implausible_amount_is_quarantined():
