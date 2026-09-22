@@ -9,7 +9,7 @@
     ],
     "record_count": 1106,
     "success_count": 941,
-    "updated_at": "2026-09-22T07:24:34+00:00"
+    "updated_at": "2026-09-22T07:35:15+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -2875,22 +2875,22 @@
       "updated_at": "2026-09-17T23:01:39+00:00"
     },
     "능라도 광화문점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "능라도 광화문점",
-      "fingerprint": "d02480f1198346e2",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 당주동 새문안로3길 15",
+      "fingerprint": "ae33c1f37b653f89",
       "geocoder_version": 4,
-      "lat": 37.571705305,
-      "lon": 126.972301074,
-      "match_mode": "name",
+      "lat": 37.571705634506,
+      "lon": 126.972300609095,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "능라도 광화문점 대한민국",
-      "result_name": "능라도 광화문점",
+      "query": "서울특별시 종로구 새문안로3길 15",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:능라도 광화문점 대한민국"
+        "arcgis:서울특별시 종로구 새문안로3길 15"
       ],
-      "updated_at": "2026-09-18T13:43:22+00:00"
+      "updated_at": "2026-09-22T07:35:13+00:00"
     },
     "능라도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -4633,22 +4633,22 @@
       "updated_at": "2026-09-17T23:04:12+00:00"
     },
     "마키노차야 더가우|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "마키노차야 더가우",
-      "fingerprint": "7b545785f12f42fb",
+      "addr_type": "PointAddress",
+      "display_name": "세종 세종특별자치시 어진동 도움1로 7",
+      "fingerprint": "821e37f06055b4d8",
       "geocoder_version": 4,
-      "lat": 36.500267461,
-      "lon": 127.258036877,
-      "match_mode": "name",
+      "lat": 36.500395981828,
+      "lon": 127.258121160445,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "마키노차야 더가우 대한민국",
-      "result_name": "마키노차야 더가우",
-      "score": 100.0,
+      "query": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
+      "result_name": "",
+      "score": 96.67,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:마키노차야 더가우 대한민국"
+        "arcgis:세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호"
       ],
-      "updated_at": "2026-09-17T23:04:57+00:00"
+      "updated_at": "2026-09-22T07:35:11+00:00"
     },
     "마키노차야더가우|중앙정부": {
       "addr_type": "POI",
@@ -12122,22 +12122,22 @@
       "updated_at": "2026-09-18T05:23:41+00:00"
     },
     "워낭2013|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "워낭2013",
-      "fingerprint": "9d67f4a0b4761b60",
+      "addr_type": "PointAddress",
+      "display_name": "세종특별자치시 어진동 도움8로 81",
+      "fingerprint": "2b32ee929a724fb5",
       "geocoder_version": 4,
-      "lat": 36.5046908,
-      "lon": 127.270851308,
-      "match_mode": "name",
+      "lat": 36.504597285066,
+      "lon": 127.270795771513,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "워낭2013 대한민국",
-      "result_name": "워낭2013",
+      "query": "세종특별자치시 도움8로 81",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:워낭2013 대한민국"
+        "arcgis:세종특별자치시 도움8로 81"
       ],
-      "updated_at": "2026-09-18T05:24:09+00:00"
+      "updated_at": "2026-09-22T07:35:14+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -13195,22 +13195,22 @@
       "updated_at": "2026-09-17T23:04:43+00:00"
     },
     "일품당샤브샤브|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "일품당샤브샤브",
-      "fingerprint": "f21de8fadbb08500",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 당주동 세종대로23길 25",
+      "fingerprint": "2720cbcf4ef5fa47",
       "geocoder_version": 4,
-      "lat": 37.57150917,
-      "lon": 126.975053666,
-      "match_mode": "name",
+      "lat": 37.571515993947,
+      "lon": 126.975050543889,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "일품당샤브샤브 대한민국",
-      "result_name": "일품당샤브샤브",
+      "query": "서울특별시 종로구 세종대로23길 25",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:일품당샤브샤브 대한민국"
+        "arcgis:서울특별시 종로구 세종대로23길 25"
       ],
-      "updated_at": "2026-09-18T13:43:08+00:00"
+      "updated_at": "2026-09-22T07:35:11+00:00"
     },
     "일품당프리미엄|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -14377,22 +14377,22 @@
       "updated_at": "2026-09-17T23:02:13+00:00"
     },
     "중원내자점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "중원내자점",
-      "fingerprint": "1908c9ed374254ca",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 내자동 178-1",
+      "fingerprint": "99d73609db79fa0e",
       "geocoder_version": 4,
-      "lat": 37.574840351,
-      "lon": 126.970815141,
-      "match_mode": "name",
+      "lat": 37.574830240372,
+      "lon": 126.970830423278,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "중원내자점 대한민국",
-      "result_name": "중원내자점",
+      "query": "서울특별시 종로구 내자동 178-1",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:중원내자점 대한민국"
+        "arcgis:서울특별시 종로구 내자동 178-1"
       ],
-      "updated_at": "2026-09-18T13:43:04+00:00"
+      "updated_at": "2026-09-22T07:35:10+00:00"
     },
     "중화요리 온|강서구": {
       "addr_type": "PointAddress",
@@ -15932,22 +15932,22 @@
       "updated_at": "2026-09-21T07:28:24+00:00"
     },
     "크리스탈제이드 서머셋점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "크리스탈제이드 서머셋점",
-      "fingerprint": "6ac261c68916e63f",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 수송동 율곡로2길 7",
+      "fingerprint": "430bd2f72eec33d8",
       "geocoder_version": 4,
-      "lat": 37.575014122,
-      "lon": 126.981229064,
-      "match_mode": "name",
+      "lat": 37.575011792395,
+      "lon": 126.981249715658,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "크리스탈제이드 서머셋점 대한민국",
-      "result_name": "크리스탈제이드 서머셋점",
-      "score": 100.0,
+      "query": "서울특별시 종로구 율곡로2길 7, 서머셋팰리스 1층",
+      "result_name": "",
+      "score": 96.36,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:크리스탈제이드 서머셋점 대한민국"
+        "arcgis:서울특별시 종로구 율곡로2길 7, 서머셋팰리스 1층"
       ],
-      "updated_at": "2026-09-17T23:05:04+00:00"
+      "updated_at": "2026-09-22T07:35:15+00:00"
     },
     "키사라|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -16087,22 +16087,22 @@
       "updated_at": "2026-09-17T23:03:59+00:00"
     },
     "태진복집|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "태진복집",
-      "fingerprint": "1dd0eb6088d85008",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 통의동 자하문로10길 10-24",
+      "fingerprint": "b33ddf065e6439b8",
       "geocoder_version": 4,
-      "lat": 37.579027592,
-      "lon": 126.972082762,
-      "match_mode": "name",
+      "lat": 37.579026221102,
+      "lon": 126.972084775088,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "태진복집 대한민국",
-      "result_name": "태진복집",
+      "query": "서울특별시 종로구 자하문로10길 10-24",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:태진복집 대한민국"
+        "arcgis:서울특별시 종로구 자하문로10길 10-24"
       ],
-      "updated_at": "2026-09-18T13:42:59+00:00"
+      "updated_at": "2026-09-22T07:35:12+00:00"
     },
     "태진옥|서울시청": {
       "addr_type": "PointAddress",
@@ -16177,22 +16177,22 @@
       "updated_at": "2026-09-17T23:02:15+00:00"
     },
     "테이엔|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "테이엔",
-      "fingerprint": "4a2030e6f411eec0",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 내수동 경희궁2길 14-6",
+      "fingerprint": "4e8627cf3ad93da6",
       "geocoder_version": 4,
-      "lat": 37.572711531,
-      "lon": 126.971496978,
-      "match_mode": "name",
+      "lat": 37.572726508404,
+      "lon": 126.971502819551,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "테이엔 대한민국",
-      "result_name": "테이엔",
+      "query": "서울특별시 종로구 경희궁2길 14-6",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:테이엔 대한민국"
+        "arcgis:서울특별시 종로구 경희궁2길 14-6"
       ],
-      "updated_at": "2026-09-18T23:15:55+00:00"
+      "updated_at": "2026-09-22T07:35:14+00:00"
     },
     "토리키치 자양역점|광진구": {
       "addr_type": "POI",
