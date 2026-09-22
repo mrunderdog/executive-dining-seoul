@@ -24,6 +24,15 @@ NON_DINING_MERCHANT_WORDS=(
 )
 
 
+def plausible_transaction(r):
+    amount=r.get('amount')
+    people=r.get('people')
+    if isinstance(amount,(int,float)) and isinstance(people,(int,float)):
+        if amount>0 and people>=2 and amount/people<1000:
+            return False
+    return True
+
+
 def looks_meal(r):
     purpose=str(r.get('purpose') or '')
     merchant=str(r.get('merchant') or '')
@@ -48,7 +57,7 @@ def role_bucket(role, include_committees=False):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--source',required=True); ap.add_argument('--top',type=int,default=50); args=ap.parse_args()
     d=json.loads((RAW/f'{args.source}_expense.json').read_text(encoding='utf-8'))
-    rows=[r for r in d.get('rows',[]) if r.get('date_quality')=='in_period' and looks_meal(r)]
+    rows=[r for r in d.get('rows',[]) if r.get('date_quality')=='in_period' and looks_meal(r) and plausible_transaction(r)]
     groups=defaultdict(list)
     include_committees=args.source in {'gyeonggi_council','incheon_council'}
     leadership_rows=0
