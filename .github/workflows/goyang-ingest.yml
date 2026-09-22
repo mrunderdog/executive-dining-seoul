@@ -9,6 +9,11 @@ on:
       - 'pipeline/capital_backfill.py'
       - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
+    inputs:
+      source:
+        description: 'Optional single council source key to refresh (blank = all)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -37,6 +42,14 @@ jobs:
         run: |
           set +e
           SOURCES="goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju anseong icheon osan pocheon yangpyeong yongin gwangju guri uiwang gunpo dongducheon gwacheon gapyeong siheung yeoju yangju hanam yeoncheon michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
+          REQUESTED_SOURCE="${{ github.event.inputs.source }}"
+          if [[ -n "$REQUESTED_SOURCE" ]]; then
+            case " $SOURCES " in
+              *" $REQUESTED_SOURCE "*) SOURCES="$REQUESTED_SOURCE" ;;
+              *) echo "Unknown source: $REQUESTED_SOURCE"; exit 2 ;;
+            esac
+          fi
+          echo "Refreshing sources: $SOURCES"
           refresh_one() {
             SOURCE="$1"
             LOG="/tmp/council-$SOURCE.log"
