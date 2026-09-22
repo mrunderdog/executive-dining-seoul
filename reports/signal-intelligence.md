@@ -1,14 +1,14 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-09-22T11:54:07
-- Published restaurant entities: **908**
+- Generated: 2026-09-22T12:07:30
+- Published restaurant entities: **945**
 - Cross-institution restaurants: **100**
 - Cross-origin restaurants: **20**
 - Central top-official restaurants: **118**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **31**
 - Merge audit groups: **30**
-- Cross-origin review candidates: **5**
+- Cross-origin review candidates: **7**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
 
@@ -159,8 +159,10 @@
 | 1 | 은주식당 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 94 | 1 | exact name + single published address + QA A |
 | 2 | 연타발 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 78 | 1 | exact name + single published address + QA A |
 | 3 | 취홍 | REVIEW | 서울시청 · 인천시청 | 39 | 1 | exact name + single published address |
-| 4 | 소풍 | REVIEW | 강서구 · 양주시 | 17 | 1 | exact name + single published address |
-| 5 | 우리네코다리 | REVIEW | 고양시 · 양천구 | 13 | 1 | exact name + single published address |
+| 4 | 만리장성 | REVIEW | 관악구 · 포천시 | 22 | 1 | exact name + single published address |
+| 5 | 소풍 | REVIEW | 강서구 · 양주시 | 17 | 1 | exact name + single published address |
+| 6 | 우리네코다리 | REVIEW | 고양시 · 양천구 | 13 | 1 | exact name + single published address |
+| 7 | 한양갈비 | REVIEW | 관악구 · 포천시 | 9 | 1 | exact name + single published address |
 
 ## Central top-official dining signal
 

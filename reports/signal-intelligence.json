@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-22T11:54:07",
-  "dataset_records": 908,
+  "generated_at": "2026-09-22T12:07:30",
+  "dataset_records": 945,
   "cross_institution_count": 100,
   "cross_origin_count": 20,
   "top_official_count": 118,
@@ -656,7 +656,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 5,
+  "cross_origin_review_count": 7,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -723,6 +723,25 @@
       "qa_a": false
     },
     {
+      "name": "만리장성",
+      "strict_name": "만리장성",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "관악구",
+        "포천시"
+      ],
+      "institutions": [
+        "포천시의회"
+      ],
+      "visits": 22,
+      "addresses": [
+        "서울특별시 관악구 관악로 146"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
       "name": "소풍",
       "strict_name": "소풍",
       "confidence": "REVIEW",
@@ -756,6 +775,25 @@
       "visits": 13,
       "addresses": [
         "양천구 목동서로"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "한양갈비",
+      "strict_name": "한양갈비",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "관악구",
+        "포천시"
+      ],
+      "institutions": [
+        "포천시의회"
+      ],
+      "visits": 9,
+      "addresses": [
+        "경기 안양시 만안구 삼막로24번길 115"
       ],
       "address_entity_count": 1,
       "qa_a": false
