@@ -409,6 +409,30 @@ SOURCE_ENTITY_OVERRIDES = {
     },
 }
 
+ENRICHMENT_FILE = ROOT / "sources" / "entity_enrichment.json"
+
+def _apply_external_enrichment():
+    if not ENRICHMENT_FILE.exists():
+        return
+    try:
+        doc = json.loads(ENRICHMENT_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    for name, row in (doc.get("global") or {}).items():
+        base = dict(ENTITY_OVERRIDES.get(name) or {})
+        base.update(row or {})
+        ENTITY_OVERRIDES[name] = base
+    for compound, row in (doc.get("source") or {}).items():
+        if "|" not in compound:
+            continue
+        source, name = compound.split("|", 1)
+        key = (source, name)
+        base = dict(SOURCE_ENTITY_OVERRIDES.get(key) or {})
+        base.update(row or {})
+        SOURCE_ENTITY_OVERRIDES[key] = base
+
+_apply_external_enrichment()
+
 CATEGORY_RULES = [
     (("참치",), "일식·참치"), (("스시", "초밥"), "일식·스시/초밥"),
     (("횟집", "회집", "세꼬시", "수산", "사시미", "어촌", "막회"), "회·해산물"),
