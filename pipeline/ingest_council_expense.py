@@ -196,6 +196,40 @@ def infer_leadership_role(title):
     return ""
 
 
+def infer_pdf_context_role(rows):
+    """Infer a leadership section title from the top of a PDF page.
+
+    Council PDF disclosures often put a heading such as "의장 업무추진비
+    집행내역" on a page that has no table header, followed by several pages of
+    tables with no repeated role label. Only inspect the top/title area and
+    require explicit leadership wording near 업무추진비/집행내역 so merchant or
+    purpose text containing '의장협의회' cannot change the payer role.
+    """
+    head = " ".join(
+        clean_text(cell)
+        for row in rows[:14]
+        for cell in row
+        if clean_text(cell)
+    )
+    if not head:
+        return ""
+    patterns = [
+        (r"(?:업무추진비|집행내역)[^\n]{0,40}\b1\s*부의장\b", "1부의장"),
+        (r"\b1\s*부의장\b[^\n]{0,40}(?:업무추진비|집행내역)", "1부의장"),
+        (r"(?:업무추진비|집행내역)[^\n]{0,40}\b2\s*부의장\b", "2부의장"),
+        (r"\b2\s*부의장\b[^\n]{0,40}(?:업무추진비|집행내역)", "2부의장"),
+        (r"(?:업무추진비|집행내역)[^\n]{0,40}\b부의장\b", "부의장"),
+        (r"\b부의장\b[^\n]{0,40}(?:업무추진비|집행내역)", "부의장"),
+        (r"(?:업무추진비|집행내역)[^\n]{0,40}(?:^|[^가-힣])의장(?:$|[^가-힣])", "의장"),
+        (r"(?:^|[^가-힣])의장(?:$|[^가-힣])[^\n]{0,40}(?:업무추진비|집행내역)", "의장"),
+    ]
+    for pattern, role in patterns:
+        if re.search(pattern, head):
+            return role
+    # Parenthetical labels in a title are also sufficiently explicit.
+    return infer_leadership_role_from_purpose(head)
+
+
 def infer_leadership_role_from_purpose(value):
     """Recover payer leadership only from explicit parenthetical/bracket labels.
 
@@ -354,13 +388,25 @@ def main():
             try:
                 blob = fetch_binary(url)
                 per_file = {"title": post.get("title"), "url": url, "name": name, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(), "sheets": []}
+                carried_pdf_role = ""
                 for sheet_name, rows in workbook_rows(blob, name):
+                    page_role = infer_pdf_context_role(rows) if sheet_name.startswith("pdf-page-") else ""
+                    if page_role:
+                        carried_pdf_role = page_role
                     meta = {
                         "source": post["source"], "region": post["region"], "jurisdiction": post["jurisdiction"], "institution": post["institution"],
                         "post_url": post["post_url"], "attachment_url": url, "attachment_name": name, "period": post.get("period"),
-                        "default_role": infer_leadership_role(name) or infer_leadership_role(post.get("title")),
+                        "default_role": (
+                            page_role
+                            or carried_pdf_role
+                            or infer_leadership_role(name)
+                            or infer_leadership_role(post.get("title"))
+                        ),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
+                    if sheet_name.startswith("pdf-page-"):
+                        info["pdf_page_role"] = page_role
+                        info["carried_pdf_role"] = carried_pdf_role
                     per_file["sheets"].append(info)
                     all_rows.extend(normalized)
                 files.append(per_file)
