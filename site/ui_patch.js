@@ -125,7 +125,13 @@
     const total=Number(STATS.total||DATA.length);
     const mapped=Number(STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length);
     const a=Number(STATS.location_grade_a||0),b=Number(STATS.location_grade_b||0),c=Number(STATS.location_grade_c||Math.max(0,total-mapped));
-    alert('현재 공개 식당 '+total.toLocaleString('ko-KR')+'곳\n\n지도 표시 '+mapped.toLocaleString('ko-KR')+'곳\n위치 미확인 '+Math.max(0,total-mapped).toLocaleString('ko-KR')+'곳\n\nA 주소·위치 확인 '+a.toLocaleString('ko-KR')+'곳\nB 위치 확인·주소 미확인 '+b.toLocaleString('ko-KR')+'곳\nC 원자료만·위치 미확인 '+c.toLocaleString('ko-KR')+'곳\n\n위치 미확인 식당은 잘못된 마커를 만들지 않기 위해 지도에 표시하지 않습니다.');
+    const hs=STATS.source_health_summary||{};
+    const published=Number(hs.PUBLISHED||0);
+    const discovery=Number(hs.DISCOVERY_REVIEW||0);
+    const ingestion=Number(hs.INGESTION_REVIEW||0);
+    const parser=Number(hs.ROLE_OR_SOURCE_SCOPE_REVIEW||0)+Number(hs.NO_CANDIDATES||0);
+    const below=Number(hs.BELOW_PUBLICATION_THRESHOLDS||0);
+    alert('현재 공개 식당 '+total.toLocaleString('ko-KR')+'곳\n\n지도 표시 '+mapped.toLocaleString('ko-KR')+'곳\n위치 미확인 '+Math.max(0,total-mapped).toLocaleString('ko-KR')+'곳\n\nA 주소·위치 확인 '+a.toLocaleString('ko-KR')+'곳\nB 위치 확인·주소 미확인 '+b.toLocaleString('ko-KR')+'곳\nC 원자료만·위치 미확인 '+c.toLocaleString('ko-KR')+'곳\n\n기관 데이터 상태\n게시 중 '+published+'개\n수집·인입 점검 '+ingestion+'개\n파서/역할 점검 '+parser+'개\n소스 탐색 '+discovery+'개\n게시 기준 미달 '+below+'개\n\n위치 미확인 식당은 잘못된 마커를 만들지 않기 위해 지도에 표시하지 않습니다.');
   });
   summary.appendChild(dataHelp);
 
