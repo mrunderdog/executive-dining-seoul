@@ -93,6 +93,25 @@ def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None,
             return matched[0][0], matched[0][1], meta
         return None, None, meta
 
+    # National-level records with no published/verified address are too
+    # ambiguous for name-only geocoding. A generic restaurant name such as
+    # "낙원" can resolve to an unrelated POI anywhere in Korea and create a
+    # convincing but false marker. Keep the record/list evidence, but suppress
+    # the map coordinate until a street address is verified.
+    if t(record.get("jurisdiction")) in {"대한민국", "전국"} or t(record.get("cohort")) in {"central_executive", "national_legislator"}:
+        for key, row in candidates:
+            meta["rejected_candidates"].append({
+                "key": key,
+                "match_mode": row.get("match_mode"),
+                "addr_type": row.get("addr_type"),
+                "query": row.get("query"),
+                "display_name": row.get("display_name"),
+                "lat": row.get("lat"),
+                "lon": row.get("lon"),
+                "reason": "national_record_without_verified_address",
+            })
+        return None, None, meta
+
     # No published address: never accept a name-only hit that is actually a
     # locality/region/etc. ArcGIS can score a place name such as "운산 대한민국"
     # at 100 even though it is not a restaurant.
