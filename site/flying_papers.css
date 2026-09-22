@@ -746,3 +746,145 @@ body{
 .ui-v2 .explorer-toggle.is-floating:hover{
   background:var(--butter)!important;
 }
+
+
+/* Data status modal */
+.data-status-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(26,26,26,.42);
+  opacity:0;
+  transition:opacity .15s ease;
+}
+.data-status-backdrop.is-open{opacity:1}
+.data-status-modal{
+  width:min(920px,94vw);
+  max-height:min(780px,90dvh);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:8px;
+  box-shadow:0 18px 60px rgba(0,0,0,.25);
+}
+.data-status-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 20px 14px;
+  border-bottom:1.5px solid var(--ink);
+  background:var(--yellow);
+}
+.data-status-head h2{
+  margin:2px 0 4px;
+  font-size:28px;
+  line-height:1;
+  font-weight:900;
+}
+.data-status-head p{margin:0;font-size:12px;color:var(--muted)}
+.data-status-close{
+  flex:0 0 auto;
+  width:36px;height:36px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-size:24px;
+  line-height:28px;
+  font-weight:900;
+  cursor:pointer;
+}
+.data-status-metrics{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  border-bottom:1.5px solid var(--ink);
+}
+.data-status-metrics>div{
+  padding:12px 14px;
+  border-right:1px solid var(--ink);
+  background:var(--paper);
+}
+.data-status-metrics>div:nth-child(even){background:var(--pink)}
+.data-status-metrics>div:last-child{border-right:0}
+.data-status-metrics span{
+  display:block;
+  font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--muted);
+}
+.data-status-metrics strong{
+  display:block;
+  margin-top:4px;
+  font-size:22px;
+  font-weight:900;
+}
+.data-status-note{
+  padding:10px 14px;
+  border-bottom:1px solid var(--ink);
+  background:var(--butter);
+  font-size:12px;
+  line-height:1.45;
+}
+.data-status-table-wrap{
+  overflow:auto;
+  min-height:0;
+}
+.data-status-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.data-status-table th,
+.data-status-table td{
+  padding:9px 11px;
+  border-bottom:1px solid rgba(26,26,26,.35);
+  text-align:right;
+  white-space:nowrap;
+}
+.data-status-table th:first-child,
+.data-status-table td:first-child,
+.data-status-table th:nth-child(2),
+.data-status-table td:nth-child(2){text-align:left}
+.data-status-table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:var(--matcha);
+  border-bottom:1.5px solid var(--ink);
+  font-weight:900;
+}
+.data-status-pill{
+  display:inline-flex;
+  align-items:center;
+  height:22px;
+  padding:0 8px;
+  border:1px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  font-size:10px;
+  font-weight:800;
+}
+.data-status-pill.state-published{background:var(--matcha)}
+.data-status-pill.state-ingestion_review,
+.data-status-pill.state-candidate_build_review,
+.data-status-pill.state-publish_pipeline_review{background:var(--butter)}
+.data-status-pill.state-role_or_source_scope_review,
+.data-status-pill.state-no_candidates{background:var(--pink)}
+.data-status-pill.state-discovery_review{background:var(--canvas);color:var(--paper)}
+.data-status-pill.state-below_publication_thresholds{background:var(--paper)}
+@media(max-width:760px){
+  .data-status-backdrop{padding:8px}
+  .data-status-modal{width:100%;max-height:94dvh}
+  .data-status-head{padding:14px}
+  .data-status-head h2{font-size:22px}
+  .data-status-metrics{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .data-status-metrics>div{border-bottom:1px solid var(--ink)}
+  .data-status-metrics>div:nth-child(2n){border-right:0}
+  .data-status-table th,.data-status-table td{padding:8px}
+}
