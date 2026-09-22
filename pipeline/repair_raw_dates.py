@@ -25,6 +25,8 @@ def parse_date_text(s):
     raw=str(s or '').strip()
     if not raw:
         return None
+    # Time is frequently stored in the same disclosure cell as the date.
+    raw=re.sub(r"\s+\d{1,2}:\d{2}(?::\d{2})?\s*$","",raw).strip()
     # Common council shorthand: 25.11.05. -> 2025-11-05.
     m=re.fullmatch(r"(\d{2})[./-](\d{1,2})[./-](\d{1,2})[.]?",raw)
     if m:
@@ -76,6 +78,8 @@ def self_test():
         '2026.1.5':'2026-01-05',
         '2026/01/05':'2026-01-05',
         '25.11.05.':'2025-11-05',
+        '25.11.18. 14:37':'2025-11-18',
+        '25.11.24 19:54':'2025-11-24',
     }
     for raw,expected in samples.items():
         got=parse_date_text(raw)
