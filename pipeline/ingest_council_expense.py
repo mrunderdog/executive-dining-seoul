@@ -70,6 +70,30 @@ def parse_people(v):
     return int(m.group(1)) if m else None
 
 
+def valid_transaction_merchant(v) -> bool:
+    s = clean_text(v)
+    if not s or s in {"-", "–", "—"}:
+        return False
+    if re.fullmatch(r"[0-9,.:\-\s]+", s):
+        return False
+    compact_s = re.sub(r"\s+", "", s)
+    structural = (
+        "업무추진비집행내역",
+        "업무추진비사용내역",
+        "의회운영업무추진비집행내역",
+        "기관운영업무추진비집행내역",
+        "시책추진업무추진비집행내역",
+        "인원사용방법",
+        "단위:원",
+        "단위：원",
+    )
+    if any(token in compact_s for token in structural):
+        return False
+    if compact_s in {"합계", "총계", "누계", "계", "사용처", "집행장소", "장소"}:
+        return False
+    return True
+
+
 def recover_date_from_row(row, source_period):
     """Recover a transaction date from common abbreviated council formats.
 
@@ -444,6 +468,8 @@ def normalize_sheet(rows, sheet_name, source_meta):
         blank_run = 0
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
+        if merchant and not valid_transaction_merchant(merchant):
+            continue
         raw_date_value = cell(row, mapping, "date")
         used_date = parse_date(raw_date_value)
         date_inferred = False
