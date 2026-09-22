@@ -7,6 +7,11 @@ on:
     workflows:
       - Build static coordinate cache
       - Monthly data refresh
+      - Signal intelligence reports
+      - Central + National refresh
+      - Rebuild council candidates
+      - Regional executive refresh
+      - Capital council expense ingestion
     types: [completed]
   workflow_dispatch:
 
