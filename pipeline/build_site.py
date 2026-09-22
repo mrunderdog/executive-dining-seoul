@@ -20,6 +20,7 @@ MAP_CSS = ROOT / "site" / "maplibre.css"
 THEME_CSS = ROOT / "site" / "flying_papers.css"
 UI_PATCH_JS = ROOT / "site" / "ui_patch.js"
 GEO_CACHE = ROOT / "data" / "geocode_cache.json"
+QUALITY_REPORT = ROOT / "reports" / "quality.json"
 
 
 def load_geo_cache():
@@ -102,6 +103,18 @@ def main():
     stats["location_grade_b"] = sum((r.get("location_verification") or {}).get("grade") == "B" for r in records)
     stats["location_grade_c"] = sum((r.get("location_verification") or {}).get("grade") == "C" for r in records)
     stats["coordinate_candidates_rejected"] = coord_rejected
+    if QUALITY_REPORT.exists():
+        try:
+            quality = json.loads(QUALITY_REPORT.read_text(encoding="utf-8"))
+            source_health = ((quality.get("checks") or {}).get("source_health") or {})
+            stats["source_health"] = source_health
+            summary = {}
+            for row in source_health.values():
+                state = str((row or {}).get("diagnosis") or "UNKNOWN")
+                summary[state] = summary.get(state, 0) + 1
+            stats["source_health_summary"] = summary
+        except (OSError, json.JSONDecodeError):
+            pass
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
 
     html = inject_maplibre(TEMPLATE.read_text(encoding="utf-8"))
