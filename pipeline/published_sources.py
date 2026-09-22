@@ -645,7 +645,7 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
             "name":name,"origin":spec["origin"],"region":spec["region"],"jurisdiction":spec["jurisdiction"],"institution":spec["institution"],
             "type":"both" if destination else "executive","destination":destination,"executive":executive,"address":address,
             "search_query":" ".join(x for x in (_txt(override.get("display")) or name,address or spec["jurisdiction"]) if x),
-            "business":{"display":_txt(override.get("display")) or name,"category":_txt(override.get("category")) or _category(name),"phone":_txt(override.get("phone")),"status":"업무추진비 원자료 + 업체정보 보강" if override else "공개 원자료상 업소명 확인","rating":"","note":f"{spec['institution']} 공개 업무추진비 원자료 기반. 업체 주소/업종은 확인 가능한 경우 별도 보강.","url":_txt(override.get("url"))},
+            "business":{"display":_txt(override.get("display")) or name,"category":_txt(override.get("category")) or _category(name),"phone":_txt(override.get("phone")),"status":"업무추진비 원자료 + 업체정보 보강" if override else "공개 원자료상 업소명 확인","rating":"","note":f"{spec['institution']} 공개 업무추진비 원자료 기반. 업체 주소/업종은 확인 가능한 경우 별도 보강.","url":_txt(override.get("url")),"verified_at":_txt(override.get("verified_at")),"verification_confidence":_txt(override.get("confidence"))},
             "evidence":{"visits":visits,"spend":spend,"people":people,"months":len(months_set),"evening":evening,"evening_ratio":evening_ratio,"ppc":round(spend/people) if people else 0,"date_min":rows[0].get("used_date") or "","date_max":rows[-1].get("used_date") or "","roles":roles,"purposes":purposes,"recent":recent,"source_rows":[r.get("row_id") for r in rows if r.get("row_id")]},
             "why":why,"published_source":source,
         })
