@@ -69,6 +69,48 @@ def parse_people(v):
     return int(m.group(1)) if m else None
 
 
+def recover_date_from_row(row, source_period):
+    """Recover a transaction date from common abbreviated council formats.
+
+    Only uses the source publication year/month/quarter as context; it never
+    invents a day. This is mainly for PDF/XLS rows where the date header is
+    split or the row uses forms such as '8. 5.' or '5일'.
+    """
+    if not source_period or not source_period[0]:
+        return ""
+    year, month_hint, _quarter = source_period
+    vals = [clean_text(x) for x in row[:4]]
+    probes = [v for v in vals if v]
+    probes += [f"{vals[i]} {vals[i+1]}".strip() for i in range(min(3, len(vals)-1)) if vals[i] or vals[i+1]]
+    for s in probes:
+        m = re.search(r"(20\d{2})[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})", s)
+        if m:
+            try:
+                return date(int(m.group(1)), int(m.group(2)), int(m.group(3))).isoformat()
+            except ValueError:
+                pass
+        m = re.fullmatch(r"\s*(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[.]?\s*(?:\([^)]*\))?\s*", s)
+        if m:
+            try:
+                return date(int(year), int(m.group(1)), int(m.group(2))).isoformat()
+            except ValueError:
+                pass
+        m = re.fullmatch(r"\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일(?:\s*\([^)]*\))?\s*", s)
+        if m:
+            try:
+                return date(int(year), int(m.group(1)), int(m.group(2))).isoformat()
+            except ValueError:
+                pass
+        if month_hint:
+            m = re.fullmatch(r"\s*(\d{1,2})\s*일(?:\s*\([^)]*\))?\s*", s)
+            if m:
+                try:
+                    return date(int(year), int(month_hint), int(m.group(1))).isoformat()
+                except ValueError:
+                    pass
+    return ""
+
+
 def parse_date(v):
     if isinstance(v, datetime):
         return v.date().isoformat()
@@ -353,6 +395,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         amount = parse_amount(cell(row, mapping, "amount"))
         used_date = parse_date(cell(row, mapping, "date"))
         date_inferred = False
+        if not used_date:
+            recovered_date = recover_date_from_row(row, source_meta.get("period"))
+            if recovered_date:
+                used_date = recovered_date
+                date_inferred = True
         # Excel disclosure sheets frequently merge the date cell across several
         # transaction rows. openpyxl/xlrd expose only the first merged-cell value,
         # leaving following merchant rows blank. Carry the immediately preceding
