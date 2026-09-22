@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "policy": "Manual, auditable bridge for addressless exact merchant names. Applied only when the exact normalized name has a currently published addressed entity whose canonical address equals this verified address.",
-  "verified_on": "2026-09-21",
+  "verified_on": "2026-09-22",
   "bridges": {
     "남도마루": {
       "address": "서울 영등포구 은행로 3",
@@ -47,6 +47,41 @@
       "address": "서울 영등포구 은행로 3",
       "rationale": "Current restaurant and employer listings confirm 천지명 at 익스콘벤처타워 2층, 은행로 3.",
       "source_url": "https://www.tabling.co.kr/restaurant/1403"
+    },
+    "화담": {
+      "address": "서울 영등포구 국회대로 800",
+      "rationale": "Current restaurant listings and commercial-district data confirm 화담 at 여의도파라곤, 국회대로 800.",
+      "source_url": "https://www.diningcode.com/profile.php?rid=oDesTC7W02Md"
+    },
+    "운산": {
+      "address": "서울 영등포구 여의공원로 101",
+      "rationale": "Current/local business records confirm 운산 at CCMM빌딩 지하1층 102호, 여의공원로 101.",
+      "source_url": "https://findby.co.kr/details/07241-115603118018-st-652c09ebf27008be2c4ecd82"
+    },
+    "황금복국": {
+      "address": "서울 영등포구 국회대로70길 7",
+      "rationale": "Current restaurant listing confirms 황금복국 여의도점 at 동아빌딩, 국회대로70길 7.",
+      "source_url": "https://autoreserve.com/ko/restaurants/v8jYDf3fFWYXpn6TKPMv"
+    },
+    "버드나무집": {
+      "address": "서울 영등포구 국회대로70길 7",
+      "rationale": "Public commercial-district data confirms 버드나무집 at 국회대로70길 7, 여의도동.",
+      "source_url": "https://smi.purpleo.kr/article/42595"
+    },
+    "사조참치": {
+      "address": "서울 영등포구 국회대로62길 9",
+      "rationale": "Recent restaurant/business records confirm 사조참치 at 국회대로62길 9.",
+      "source_url": "https://place.clariosync.com/p/857831/%EC%82%AC%EC%A1%B0%EC%B0%B8%EC%B9%98"
+    },
+    "김삼보": {
+      "address": "서울 영등포구 국회대로 780",
+      "rationale": "Current restaurant listing confirms 김삼보 여의도점 at LG여의도에클라트, 국회대로 780.",
+      "source_url": "https://polle.com/place/3PJ5nR/%EA%B9%80%EC%82%BC%EB%B3%B4"
+    },
+    "생태명가": {
+      "address": "서울 영등포구 국회대로72길 22",
+      "rationale": "Current restaurant listing confirms 생태명가 여의도지점 at 가든빌딩, 국회대로72길 22.",
+      "source_url": "https://www.diningcode.com/profile.php?rid=tnbbVcdFv3Ur"
     }
   }
 }
