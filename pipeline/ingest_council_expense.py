@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import http.cookiejar
 import io
 import json
 import re
@@ -85,10 +86,55 @@ def parse_date(v):
     return s
 
 
-def fetch_binary(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
+def fetch_binary(url: str, referer: str = "") -> bytes:
+    """Download public-board attachments with browser-like session semantics.
+
+    Several council file endpoints require a Referer and/or a session cookie
+    established by visiting the board page first. Retry transient server errors
+    and reject HTML error/login pages before they reach the spreadsheet parser.
+    """
+    jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    base_headers = {
+        "User-Agent": UA,
+        "Accept": "application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv,*/*;q=0.8",
+        "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.6",
+    }
+    if referer:
+        base_headers["Referer"] = referer
+        try:
+            warm = urllib.request.Request(
+                referer,
+                headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8", "Accept-Language": base_headers["Accept-Language"]},
+            )
+            with opener.open(warm, timeout=25) as r:
+                r.read(2048)
+        except Exception:
+            # Referer is still useful even when the warm-up page times out.
+            pass
+
+    last_exc = None
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers=base_headers)
+            with opener.open(req, timeout=75) as r:
+                blob = r.read()
+                ctype = (r.headers.get("Content-Type") or "").lower()
+            head = blob[:512].lstrip().lower()
+            if (
+                "text/html" in ctype
+                or head.startswith(b"<!doctype html")
+                or head.startswith(b"<html")
+            ):
+                raise ValueError(f"attachment endpoint returned HTML ({ctype or 'unknown content-type'})")
+            if len(blob) < 32:
+                raise ValueError(f"attachment response too small ({len(blob)} bytes)")
+            return blob
+        except Exception as exc:
+            last_exc = exc
+            if attempt == 2:
+                break
+    raise last_exc
 
 
 def workbook_rows(blob: bytes, filename: str):
@@ -386,7 +432,7 @@ def main():
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
             try:
-                blob = fetch_binary(url)
+                blob = fetch_binary(url, post.get("post_url") or "")
                 per_file = {"title": post.get("title"), "url": url, "name": name, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(), "sheets": []}
                 carried_pdf_role = ""
                 for sheet_name, rows in workbook_rows(blob, name):
