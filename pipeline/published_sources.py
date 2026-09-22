@@ -374,6 +374,41 @@ ENTITY_OVERRIDES = {
     "진국한식부페": {"address":"경기도 고양시 덕양구 고양시청로 5","phone":"","category":"한식 · 한식뷔페","url":"https://www.diningcode.com/profile.php?rid=8RrQuUfVlLi6"},
 }
 
+SOURCE_ENTITY_OVERRIDES = {
+    ("suwon", "해화참치"): {
+        "address": "경기도 수원시 팔달구 경수대로 424",
+        "phone": "031-234-8880",
+        "category": "일식·참치",
+        "url": "https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=c1df40e1-6d11-4180-8d8a-94590d8863c2",
+    },
+    ("suwon", "글림"): {
+        "display": "카페 글림",
+        "address": "경기도 수원시 팔달구 권광로175번길 44",
+        "phone": "0507-1405-4983",
+        "category": "카페·베이커리",
+        "url": "https://www.tabling.co.kr/place/68103bab60fa39d16f0c5bed",
+    },
+    ("gwangmyeong", "소들녘"): {
+        "display": "소들녘 광명점",
+        "address": "경기도 광명시 오리로876번길 6",
+        "phone": "02-2618-0660",
+        "category": "고기·구이 · 갈비/한우",
+        "url": "https://www.tabling.co.kr/place/677cccf766de5f06988018dd",
+    },
+    ("gwangmyeong", "시청앞두루치기"): {
+        "address": "경기도 광명시 시청로 34",
+        "phone": "0507-1341-9544",
+        "category": "한식 · 두루치기",
+        "url": "https://www.diningcode.com/profile.php?rid=kOKhzZFqQUUX",
+    },
+    ("gwacheon", "이대감"): {
+        "address": "경기도 과천시 찬우물로 28",
+        "phone": "0507-1380-5016",
+        "category": "한식 · 철판요리/코스요리",
+        "url": "https://www.diningcode.com/profile.php?rid=EOzoe0Lcnlbq",
+    },
+}
+
 CATEGORY_RULES = [
     (("참치",), "일식·참치"), (("스시", "초밥"), "일식·스시/초밥"),
     (("횟집", "회집", "세꼬시", "수산", "사시미", "어촌", "막회"), "회·해산물"),
@@ -561,7 +596,7 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
         months_set = sorted({(r.get("used_date") or "")[:7] for r in rows if re.match(r"20\d{2}-\d{2}", r.get("used_date") or "")})
         evening = sum(_is_evening(r.get("used_time") or "") for r in rows); evening_ratio = round(evening/visits, 3) if visits else 0
         raw_address = _most_common([r.get("address") or "" for r in rows])
-        override = ENTITY_OVERRIDES.get(name, {})
+        override = SOURCE_ENTITY_OVERRIDES.get((source, name), ENTITY_OVERRIDES.get(name, {}))
         address = _txt(override.get("address")) or raw_address
         role_map = defaultdict(lambda: {"visits":0,"people":0,"spend":0})
         for r in rows:
@@ -585,8 +620,8 @@ def _build_source_records(source: str, spec: dict) -> list[dict]:
         out.append({
             "name":name,"origin":spec["origin"],"region":spec["region"],"jurisdiction":spec["jurisdiction"],"institution":spec["institution"],
             "type":"both" if destination else "executive","destination":destination,"executive":executive,"address":address,
-            "search_query":" ".join(x for x in (name,address or spec["jurisdiction"]) if x),
-            "business":{"display":name,"category":_category(name),"phone":_txt(override.get("phone")),"status":"업무추진비 원자료 + 업체정보 보강" if override else "공개 원자료상 업소명 확인","rating":"","note":f"{spec['institution']} 공개 업무추진비 원자료 기반. 업체 주소/업종은 확인 가능한 경우 별도 보강.","url":_txt(override.get("url"))},
+            "search_query":" ".join(x for x in (_txt(override.get("display")) or name,address or spec["jurisdiction"]) if x),
+            "business":{"display":_txt(override.get("display")) or name,"category":_txt(override.get("category")) or _category(name),"phone":_txt(override.get("phone")),"status":"업무추진비 원자료 + 업체정보 보강" if override else "공개 원자료상 업소명 확인","rating":"","note":f"{spec['institution']} 공개 업무추진비 원자료 기반. 업체 주소/업종은 확인 가능한 경우 별도 보강.","url":_txt(override.get("url"))},
             "evidence":{"visits":visits,"spend":spend,"people":people,"months":len(months_set),"evening":evening,"evening_ratio":evening_ratio,"ppc":round(spend/people) if people else 0,"date_min":rows[0].get("used_date") or "","date_max":rows[-1].get("used_date") or "","roles":roles,"purposes":purposes,"recent":recent,"source_rows":[r.get("row_id") for r in rows if r.get("row_id")]},
             "why":why,"published_source":source,
         })
