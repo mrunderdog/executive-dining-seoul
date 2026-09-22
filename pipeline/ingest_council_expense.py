@@ -24,7 +24,7 @@ DISCOVERY = REPORTS / "capital-backfill-discovery.json"
 UA = "ExecutiveDiningSeoul/1.0 (+https://github.com/mrunderdog/executive-dining-seoul)"
 
 ALIASES = {
-    "date": ["사용일", "사용일자", "집행일", "집행일자", "일자", "사용일시", "집행일시"],
+    "date": ["사용일", "사용일자", "집행일", "집행일자", "일자", "일시", "날짜", "사용일시", "집행일시", "결제일", "이용일", "승인일"],
     "time": ["사용시간", "집행시간", "시간"],
     "merchant": ["집행장소", "사용처", "사용장소", "장소", "업소명", "상호", "가맹점명"],
     "address": ["주소", "소재지", "집행장소주소", "사용처주소"],
@@ -393,9 +393,14 @@ def normalize_sheet(rows, sheet_name, source_meta):
         blank_run = 0
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
-        used_date = parse_date(cell(row, mapping, "date"))
+        raw_date_value = cell(row, mapping, "date")
+        used_date = parse_date(raw_date_value)
         date_inferred = False
-        if not used_date:
+        # parse_date deliberately preserves unknown text for structural-row
+        # detection. For transaction rows, however, abbreviated values such as
+        # "8. 5." must still reach the context-aware recovery logic.
+        full_date = bool(re.fullmatch(r"20\d{2}-\d{2}-\d{2}", used_date or ""))
+        if not full_date:
             recovered_date = recover_date_from_row(row, source_meta.get("period"))
             if recovered_date:
                 used_date = recovered_date
