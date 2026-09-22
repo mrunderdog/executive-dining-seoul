@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T11:43:13",
+  "generated_at": "2026-09-22T13:45:34",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -138,18 +138,8 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=974b68ddde0709aeb09cdc0d2f452756f15da47c5c3085ad4a8d70859a2cc5b6d9b5f49dc439069a&pageNum=1&flag=all&keyword=",
-      "attachments": [
-        {
-          "text": "3월 시책추진업무추진비 사용내역_의회사무과.pdf 3월 시책추진업무추진비 사용내역_의회사무과.pdf",
-          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=44407a9e798d3b46b05ae61c2932e4d1499c7c07e57a234820c91c6631baa9c62e239501a0e61ad4",
-          "onclick": ""
-        },
-        {
-          "text": "3월 의회운영업무추진비 사용내역_의왕시의회.pdf 3월 의회운영업무추진비 사용내역_의왕시의회.pdf",
-          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=b65e5785c306424522de3cc2ff03d1bc2d0be867f3d8bd7ccd1b1aae7b1f77729683d742f7fed936",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "uiwang",
@@ -188,8 +178,18 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=feab675dcf5dd4cb760291f62c0367bfc209941c8ce1f88cb1796adf7b94008c882cc613987594b1&pageNum=1&flag=all&keyword=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "1월 시책추진업무추진비 사용내역_의회사무과.pdf 1월 시책추진업무추진비 사용내역_의회사무과.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=319a9264dff3b7577868543bbfa22da552ee66211403ceab415c1652c74d52bbfc51080461292f43",
+          "onclick": ""
+        },
+        {
+          "text": "1월 의회운영업무추진비 사용내역_의왕시의회.pdf 1월 의회운영업무추진비 사용내역_의왕시의회.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=104d332187f6dab07683ccedb07480e66f4d50132ec235090c0c476aae9d868306fa65f699c4d72a",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "uiwang",
@@ -228,8 +228,53 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=0e42bcb6037de8e68a06a78e86eef4cfe2f57b32324664e8d69479bb179da3803b0fa7761d8238f5&pageNum=1&flag=all&keyword=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "2025년 1월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 1월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=2a151372ecf0c9503d0ef039ee44d7f6b188290c0829d54b0397b3faef4bd91411b1c8afac79b163",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 2월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 2월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=d1d183671227353942e095a861365b5af6a401cc30a684f4961147be35b5ed218e54531d083ba8ea",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 3월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 3월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=4914a7186920dfc60ee88e5c76c06f53cf54d8f34d1c3d6ae41f6216c34093247f3478de322b3512",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 4월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 4월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=488bfa74337130c43b6a48c260bc66be1bf031e2f4fc0f67c297ce2558a014c6b784e332757f4dfe",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 5월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 5월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=7448d1b278271deaed297da2bffca1721ef639e8e0e9626ecbcb55b69189f98e087d5c016f997f7c",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 6월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 6월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=7e8cce2411f74e8f95b8c264153dda6d25dfd47606f45bfab973c3b0638de8a44b70b278295c526b",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 7월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 7월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=87b710198b993d1c8cdf32984bff338dd4466f1bc02c9db45836dce257af534bb3069acf6c8a212c",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 8월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 8월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=6a7f0e9e803b0c12d99450608a47721d22ad7e9923e2d7de1c020f497006d211654b1549cee16b19",
+          "onclick": ""
+        },
+        {
+          "text": "2025년 9월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 9월 시책추진업무추진비 사용내역(의회사무과).pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=0ffdba4d1db0b27418e31b4adf06da169c71390161b07217b0fc9a1059415eaa44845b6d9bf93cf9",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "uiwang",
@@ -293,13 +338,8 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=d6eba439cd2e28d5d9df403d27707fa2e31df40c11ae8594eaffe92ea87dec56bd15735150147011&pageNum=2&flag=all&keyword=",
-      "attachments": [
-        {
-          "text": "9월 의회운영업무추진비 사용내역_의왕시의회.pdf 9월 의회운영업무추진비 사용내역_의왕시의회.pdf",
-          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=105063ff13e6fbe944efb7454d6c8e3a82f8d7b64e83babebf04cf791e803c133ac724f7eccfde84",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "uiwang",
@@ -313,13 +353,8 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=dca2a1d9c898aadf8645dec20aeab16b29ea3a572b49172cb091b91acf89192e778a1ef7099b0925&pageNum=2&flag=all&keyword=",
-      "attachments": [
-        {
-          "text": "8월 의회운영업무추진비 사용내역_의왕시의회.pdf 8월 의회운영업무추진비 사용내역_의왕시의회.pdf",
-          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=56f0a2d1bd8c3070f032c2584f077922fc5aac30e798b1a195d541cd95e7eb9b8a3820c952230d34",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "uiwang",
@@ -353,13 +388,8 @@
         null
       ],
       "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=6e38ceddd71951f3de97aa9669456de9edb91d6d6526e1a1ae0142867d7f3741c189e7c3ae1bd641&pageNum=2&flag=all&keyword=",
-      "attachments": [
-        {
-          "text": "6월 의회운영업무추진비 사용내역.pdf 6월 의회운영업무추진비 사용내역.pdf",
-          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=ed0390d7d389c97cd5edc8d813fbab6f0d0ee4803a6b0c9266f3c69690f359363bf89ea0de6a4d81",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
     },
     {
       "source": "uiwang",
@@ -378,8 +408,103 @@
     },
     {
       "source": "uiwang",
-      "listing_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?flag=all&pageNum=3",
-      "error": "listing URLError: <urlopen error timed out>"
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "title": "2025년 4월 업무추진비 사용내역 공개",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=8e9eb0f28a9d248364f56b188c6e20809931a40dd8d2851411953c1cbd5889e12ccd114e03dc6452&pageNum=3&flag=all&keyword=",
+      "attachments": [
+        {
+          "text": "의회운영업무추진비 사용내역.pdf 의회운영업무추진비 사용내역.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=62c77409aaa526979e7b1ef40d246c8c3bfe21f3550466e34e5d5a30cbd06304d12f2189ca9992fb",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "uiwang",
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "title": "2025년 3월 업무추진비 사용내역 공개",
+      "period": [
+        2025,
+        3,
+        null
+      ],
+      "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=2274c5e28f62ce61a2687bcefaf8a181783f62764a92f9ae0d641335fe6f4286d6f2f7934737ec8d&pageNum=3&flag=all&keyword=",
+      "attachments": [
+        {
+          "text": "3월 의회운영업무추진비 사용내역..pdf 3월 의회운영업무추진비 사용내역..pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=4341fd6fb304faf85af2c434e404f66bbfe37800e783e20f139c74dc8e121c03a9db358e9d89ef36",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "uiwang",
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "title": "2025년 2월 업무추진비 사용내역 공개",
+      "period": [
+        2025,
+        2,
+        null
+      ],
+      "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=017819415db83a7eae189e81a375bc365fed78b06ad438d7a469eb4d88c313fd3cd3bd341e9d3310&pageNum=3&flag=all&keyword=",
+      "attachments": [
+        {
+          "text": "2월 의회운영업무추진비 사용내역.pdf 2월 의회운영업무추진비 사용내역.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=62d6a0b5146c87849adbb23acf646511f539e31a4b0e90a6ad5d5b584cb36cd6a24ed7362fe180bd",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "uiwang",
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "title": "2025년 1월 업무추진비 사용내역 공개",
+      "period": [
+        2025,
+        1,
+        null
+      ],
+      "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=e1bdf3ac89f2b800537e8cb2f5a48501fe23fd540935fd4fe0558e48cdb4ecd0e2a24121a8a09f4c&pageNum=3&flag=all&keyword=",
+      "attachments": [
+        {
+          "text": "1월 의회운영업무추진비 사용내역.pdf 1월 의회운영업무추진비 사용내역.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=5068c2e15966016cec10f35e44a3e30a26c653c59f5b1c81baafba60beb7465e1a277bc64feb1fe2",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "uiwang",
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "title": "2024년 12월 업무추진비 사용내역 공개",
+      "period": [
+        2024,
+        12,
+        null
+      ],
+      "post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=cacbb45114509bde4ba23150bcbb58b2e78943ae4b237a9a90a23a4b2415de92360053ee5a292731&pageNum=3&flag=all&keyword=",
+      "attachments": [
+        {
+          "text": "12월 의회운영업무추진비 사용내역_의왕시의회.pdf 12월 의회운영업무추진비 사용내역_의왕시의회.pdf",
+          "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=d61a8836729b4e3351d37449c0e8a266e27cd88cc984bbbb4174a804fe95527dda83229d82ddcd12",
+          "onclick": ""
+        }
+      ]
     }
   ]
 }

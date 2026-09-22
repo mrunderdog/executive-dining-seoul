@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "gunpo",
-  "generated_at": "2026-09-22T11:47:03",
+  "generated_at": "2026-09-22T13:50:56",
   "row_count": 820,
   "rows": [
     {
@@ -25967,224 +25967,6 @@
       ]
     },
     {
-      "title": "2026년 3월 업무추진비 공개 상세보기 2026년 3월 업무추진비 공개",
-      "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=712EE575178419D4FE093E4313B9018C",
-      "name": "2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx",
-      "bytes": 44503,
-      "sha256": "c274731df5adbbd6e4042c8afce9ac4b1d89b739e7e8e6e6b0a2d29c0f78cf58",
-      "sheets": [
-        {
-          "sheet": "의장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "의장",
-          "parsed_rows": 27
-        },
-        {
-          "sheet": "부의장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "부의장",
-          "parsed_rows": 26
-        },
-        {
-          "sheet": "예결특위위원장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "",
-          "parsed_rows": 3
-        },
-        {
-          "sheet": "의회운영위원장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "의회운영위원회위원장",
-          "parsed_rows": 5
-        },
-        {
-          "sheet": "행정복지위원장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "행정복지위원회위원장",
-          "parsed_rows": 15
-        },
-        {
-          "sheet": "산업건설위원장",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "산업건설위원회위원장",
-          "parsed_rows": 10
-        },
-        {
-          "sheet": "교섭단체대표의원1",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "",
-          "parsed_rows": 7
-        },
-        {
-          "sheet": "교섭단체대표의원2",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 10,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 2,
-            "purpose": 3,
-            "amount": 4,
-            "people": 5
-          },
-          "section_role": "",
-          "parsed_rows": 3
-        },
-        {
-          "sheet": "의정운영공통경비",
-          "status": "OK",
-          "header_row": 3,
-          "header_span": 1,
-          "header_score": 11,
-          "matched": [
-            "amount",
-            "date",
-            "merchant",
-            "people",
-            "purpose",
-            "role"
-          ],
-          "mapping": {
-            "date": 0,
-            "merchant": 3,
-            "purpose": 4,
-            "amount": 5,
-            "people": 6,
-            "role": 2
-          },
-          "section_role": "",
-          "parsed_rows": 29
-        }
-      ]
-    },
-    {
       "title": "'2026년 3월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
       "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=712EE575178419D4FE093E4313B9018C",
       "name": "'2026년 3월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
@@ -26839,6 +26621,224 @@
       ]
     },
     {
+      "title": "2026년 1월 업무추진비 공개 상세보기 2026년 1월 업무추진비 공개",
+      "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=28BC701E6CB1FDF49CF1EBA5A88C9065",
+      "name": "2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx",
+      "bytes": 40798,
+      "sha256": "2fdd62df445c7bd5fe897c05c8d9b5d3fdb3ae75451a3f590e4eefe592921a93",
+      "sheets": [
+        {
+          "sheet": "의장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "의장",
+          "parsed_rows": 26
+        },
+        {
+          "sheet": "부의장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "부의장",
+          "parsed_rows": 15
+        },
+        {
+          "sheet": "예결특위위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 0
+        },
+        {
+          "sheet": "의회운영위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "의회운영위원회위원장",
+          "parsed_rows": 6
+        },
+        {
+          "sheet": "행정복지위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "행정복지위원회위원장",
+          "parsed_rows": 4
+        },
+        {
+          "sheet": "산업건설위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "산업건설위원회위원장",
+          "parsed_rows": 7
+        },
+        {
+          "sheet": "교섭단체대표의원1",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 3
+        },
+        {
+          "sheet": "교섭단체대표의원2",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 10
+        },
+        {
+          "sheet": "의정운영공통경비",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 11,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose",
+            "role"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 3,
+            "purpose": 4,
+            "amount": 5,
+            "people": 6,
+            "role": 2
+          },
+          "section_role": "",
+          "parsed_rows": 9
+        }
+      ]
+    },
+    {
       "title": "'2026년 1월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
       "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=28BC701E6CB1FDF49CF1EBA5A88C9065",
       "name": "'2026년 1월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
@@ -27271,6 +27271,224 @@
           },
           "section_role": "",
           "parsed_rows": 46
+        }
+      ]
+    },
+    {
+      "title": "2025년 11월 업무추진비 공개 상세보기 2025년 11월 업무추진비 공개",
+      "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DCD6964BB1DC27F76D70BCBF54075355",
+      "name": "2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx",
+      "bytes": 43853,
+      "sha256": "10f18dbb51b7c978b1d2188f57e6a03567353ea068f651d9812100d3eebc3b9f",
+      "sheets": [
+        {
+          "sheet": "의장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "의장",
+          "parsed_rows": 27
+        },
+        {
+          "sheet": "부의장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "부의장",
+          "parsed_rows": 11
+        },
+        {
+          "sheet": "예결특위위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 3
+        },
+        {
+          "sheet": "의회운영위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "의회운영위원회위원장",
+          "parsed_rows": 6
+        },
+        {
+          "sheet": "행정복지위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "행정복지위원회위원장",
+          "parsed_rows": 3
+        },
+        {
+          "sheet": "산업건설위원장",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "산업건설위원회위원장",
+          "parsed_rows": 3
+        },
+        {
+          "sheet": "교섭단체대표의원1",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 4
+        },
+        {
+          "sheet": "교섭단체대표의원2",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 10,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 2,
+            "purpose": 3,
+            "amount": 4,
+            "people": 5
+          },
+          "section_role": "",
+          "parsed_rows": 4
+        },
+        {
+          "sheet": "의정운영공통경비",
+          "status": "OK",
+          "header_row": 3,
+          "header_span": 1,
+          "header_score": 11,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "people",
+            "purpose",
+            "role"
+          ],
+          "mapping": {
+            "date": 0,
+            "merchant": 3,
+            "purpose": 4,
+            "amount": 5,
+            "people": 6,
+            "role": 2
+          },
+          "section_role": "",
+          "parsed_rows": 41
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T11:42:48",
+  "generated_at": "2026-09-22T13:44:49",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -213,13 +213,8 @@
         null
       ],
       "post_url": "https://www.gunpocouncil.go.kr/kr/costBBSview.do?uid=A19D04941B977BC037805CCF6D1A3AB9&NOT_ANCMT_MGT_NO=&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [
-        {
-          "text": "2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx",
-          "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=712EE575178419D4FE093E4313B9018C",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "gunpo",
@@ -291,8 +286,13 @@
         null
       ],
       "post_url": "https://www.gunpocouncil.go.kr/kr/costBBSview.do?uid=302561825DFD0EBC2709BA80A45A631D&NOT_ANCMT_MGT_NO=&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx",
+          "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=28BC701E6CB1FDF49CF1EBA5A88C9065",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "gunpo",
@@ -359,8 +359,13 @@
         null
       ],
       "post_url": "https://www.gunpocouncil.go.kr/kr/costBBSview.do?uid=E5A809BF5E877F1DBCED45A3D6C0BFB9&NOT_ANCMT_MGT_NO=&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx",
+          "url": "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DCD6964BB1DC27F76D70BCBF54075355",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "gunpo",

@@ -1,19 +1,19 @@
 # ganghwa expense ingestion
 
-- Normalized rows: **864**
+- Normalized rows: **837**
 - Source posts: **34**
-- Downloaded files: **32**
+- Downloaded files: **29**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 36
-- 2025: 525
-- 2026: 277
+- 2025: 508
+- 2026: 267
 
 ## Top roles / sheets
 
-- 의장: 469
+- 의장: 442
 - 강화군의회: 225
 - 부의장: 143
 - 예결위원장: 23
@@ -61,10 +61,6 @@
   - 예산결산특별위원회: OK / parsed 2 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 공통경비: OK / parsed 12 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 시책: OK / parsed 1 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-- `업무추진비 사용내역(2026년 2월).xlsx 업무추진비 사용내역(2026년 2월).xlsx 업무추진비 사용내역(2026년 2월).xlsx` — 325,591 bytes — 30 rows
-  - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 부의장: OK / parsed 6 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 공통경비: OK / parsed 10 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
 - `'업무추진비 사용내역(2026년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 325,591 bytes — 30 rows
   - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 부의장: OK / parsed 6 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
@@ -89,21 +85,11 @@
   - 예결: OK / parsed 6 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 공통경비: OK / parsed 53 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 시책추진: OK / parsed 2 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-- `업무추진비 사용내역(2025년 9월).xlsx 업무추진비 사용내역(2025년 9월).xlsx 업무추진비 사용내역(2025년 9월).xlsx` — 1,834,503 bytes — 30 rows
-  - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 부의장: OK / parsed 2 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 예결: OK / parsed 4 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 공통경비: OK / parsed 10 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
 - `'업무추진비 사용내역(2025년 9월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 1,834,503 bytes — 30 rows
   - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 부의장: OK / parsed 2 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 예결: OK / parsed 4 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 공통경비: OK / parsed 10 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-- `업무추진비 사용내역(2025년 8월).xlsx 업무추진비 사용내역(2025년 8월).xlsx 업무추진비 사용내역(2025년 8월).xlsx` — 1,656,163 bytes — 25 rows
-  - 의장: OK / parsed 15 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 부의장: OK / parsed 3 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 예결: OK / parsed 0 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
-  - 공통경비: OK / parsed 7 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
 - `'업무추진비 사용내역(2025년 8월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 1,656,163 bytes — 25 rows
   - 의장: OK / parsed 15 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}
   - 부의장: OK / parsed 3 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 1}

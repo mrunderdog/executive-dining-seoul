@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T11:43:05",
+  "generated_at": "2026-09-22T13:44:36",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -369,8 +369,13 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=111&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [],
-      "error": "detail RemoteDisconnected: Remote end closed connection without response"
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.11월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E11%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "michuhol",
@@ -442,8 +447,13 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=109&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [],
-      "error": "detail RemoteDisconnected: Remote end closed connection without response"
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.9월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E9%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "michuhol",
@@ -510,8 +520,13 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=107&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.7월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E7%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "michuhol",
@@ -545,7 +560,7 @@
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=106&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
       "attachments": [],
-      "error": "detail URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "detail RemoteDisconnected: Remote end closed connection without response"
     },
     {
       "source": "michuhol",
@@ -802,8 +817,8 @@
     },
     {
       "source": "michuhol",
-      "listing_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=4&keyfield=&keyword=",
-      "error": "listing RemoteDisconnected: Remote end closed connection without response"
+      "listing_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=3&keyfield=&keyword=",
+      "error": "listing URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     }
   ]
 }

@@ -4,55 +4,55 @@
   "candidates": [
     {
       "merchant": "마쯔",
-      "visits": 30,
+      "visits": 28,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 15,
-      "spend": 4644000,
-      "people": 266,
+      "spend": 4307000,
+      "people": 243,
       "evening_ratio": 0.0,
       "score": 90.0
     },
     {
       "merchant": "고을식당",
-      "visits": 25,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 16,
-      "spend": 4372000,
-      "people": 288,
-      "evening_ratio": 0.0,
-      "score": 90.0
-    },
-    {
-      "merchant": "수라면옥",
       "visits": 22,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 13,
-      "spend": 3066000,
-      "people": 230,
+      "months": 14,
+      "spend": 4009000,
+      "people": 261,
       "evening_ratio": 0.0,
       "score": 90.0
     },
     {
-      "merchant": "아구명가",
-      "visits": 17,
+      "merchant": "수라면옥",
+      "visits": 21,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 12,
-      "spend": 3068000,
-      "people": 190,
+      "spend": 2949000,
+      "people": 218,
       "evening_ratio": 0.0,
-      "score": 90.0
+      "score": 89.8
+    },
+    {
+      "merchant": "아구명가",
+      "visits": 15,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 11,
+      "spend": 2738000,
+      "people": 168,
+      "evening_ratio": 0.0,
+      "score": 89.1
     },
     {
       "merchant": "강화솥밥집",
@@ -82,29 +82,29 @@
     },
     {
       "merchant": "양푼생돼지김치찌개 강화점",
-      "visits": 15,
+      "visits": 14,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 10,
-      "spend": 1984000,
-      "people": 116,
+      "months": 9,
+      "spend": 1825000,
+      "people": 106,
       "evening_ratio": 0.0,
-      "score": 86.6
+      "score": 86.1
     },
     {
       "merchant": "용흥궁",
-      "visits": 13,
+      "visits": 11,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 10,
-      "spend": 1822000,
-      "people": 167,
+      "months": 8,
+      "spend": 1602000,
+      "people": 145,
       "evening_ratio": 0.0,
-      "score": 86.1
+      "score": 85.3
     },
     {
       "merchant": "돈마당",
@@ -197,30 +197,6 @@
       "score": 60.9
     },
     {
-      "merchant": "해돋이",
-      "visits": 6,
-      "roles": [
-        "의장"
-      ],
-      "months": 6,
-      "spend": 938000,
-      "people": 71,
-      "evening_ratio": 0.0,
-      "score": 59.1
-    },
-    {
-      "merchant": "하루정식",
-      "visits": 6,
-      "roles": [
-        "의장"
-      ],
-      "months": 5,
-      "spend": 560000,
-      "people": 44,
-      "evening_ratio": 0.0,
-      "score": 57.9
-    },
-    {
       "merchant": "왕자정",
       "visits": 5,
       "roles": [
@@ -231,19 +207,6 @@
       "people": 36,
       "evening_ratio": 0.0,
       "score": 55.6
-    },
-    {
-      "merchant": "깨랑",
-      "visits": 4,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 4,
-      "spend": 404000,
-      "people": 29,
-      "evening_ratio": 0.0,
-      "score": 55.3
     },
     {
       "merchant": "하가돈",
@@ -271,6 +234,18 @@
       "score": 52.0
     },
     {
+      "merchant": "하루정식",
+      "visits": 5,
+      "roles": [
+        "의장"
+      ],
+      "months": 4,
+      "spend": 464000,
+      "people": 36,
+      "evening_ratio": 0.0,
+      "score": 49.0
+    },
+    {
       "merchant": "강화섬 진이쫄우동",
       "visits": 5,
       "roles": [
@@ -294,6 +269,31 @@
       "people": 35,
       "evening_ratio": 0.0,
       "score": 46.9
+    },
+    {
+      "merchant": "깨랑",
+      "visits": 3,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 308000,
+      "people": 21,
+      "evening_ratio": 0.0,
+      "score": 46.5
+    },
+    {
+      "merchant": "해돋이",
+      "visits": 4,
+      "roles": [
+        "의장"
+      ],
+      "months": 4,
+      "spend": 710000,
+      "people": 56,
+      "evening_ratio": 0.0,
+      "score": 46.4
     },
     {
       "merchant": "안다미로",

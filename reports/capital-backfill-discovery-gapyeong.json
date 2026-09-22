@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T11:42:01",
+  "generated_at": "2026-09-22T13:43:55",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -105,11 +105,6 @@
           "onclick": ""
         }
       ]
-    },
-    {
-      "source": "gapyeong",
-      "listing_url": "https://www.gpassem.go.kr/kr/operations2BBS.do?flag=all&page=2",
-      "error": "listing TimeoutError: The read operation timed out"
     }
   ]
 }
