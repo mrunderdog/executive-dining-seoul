@@ -308,11 +308,30 @@ def header_score(row):
 
 
 def find_header(rows):
-    best = (-1, -1, set())
-    for i, row in enumerate(rows[:40]):
+    """Find a single- or two-row table header.
+
+    Some council spreadsheets split labels across merged rows, e.g. "사용" /
+    "일시" or "집행" / "장소". Score both the original row and a column-wise
+    concatenation with the following row, but keep the same conservative score
+    threshold before parsing transactions.
+    """
+    best = (-1, -1, set(), [], 1)
+    limit = min(len(rows), 40)
+    for i in range(limit):
+        row = rows[i]
         score, matched = header_score(row)
         if score > best[0]:
-            best = (score, i, matched)
+            best = (score, i, matched, list(row), 1)
+        if i + 1 < len(rows):
+            width = max(len(row), len(rows[i + 1]))
+            combined = []
+            for j in range(width):
+                a = clean_text(row[j]) if j < len(row) else ""
+                b = clean_text(rows[i + 1][j]) if j < len(rows[i + 1]) else ""
+                combined.append(" ".join(x for x in (a, b) if x))
+            score2, matched2 = header_score(combined)
+            if score2 > best[0]:
+                best = (score2, i, matched2, combined, 2)
     return best if best[0] >= 4 else None
 
 
@@ -431,8 +450,8 @@ def normalize_sheet(rows, sheet_name, source_meta):
     found = find_header(rows)
     if not found:
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
-    score, hi, matched = found
-    mapping = map_columns(rows[hi])
+    score, hi, matched, header_row, header_span = found
+    mapping = map_columns(header_row)
     # PDF disclosures often put the accountable role in a section title above
     # the repeated table header, e.g. "업무추진비 집행내역(부의장)", while the
     # table itself contains only 대상인원. Preserve that page/section context.
@@ -449,10 +468,10 @@ def normalize_sheet(rows, sheet_name, source_meta):
     # recognizable leadership title; otherwise allow sheet/file context to
     # supply the role instead of polluting the dataset with category labels.
     role_idx = mapping.get("role")
-    if role_idx is not None and norm_header(rows[hi][role_idx] if role_idx < len(rows[hi]) else "") == "구분":
+    if role_idx is not None and norm_header(header_row[role_idx] if role_idx < len(header_row) else "") == "구분":
         samples = [
             clean_text(r[role_idx])
-            for r in rows[hi + 1:hi + 31]
+            for r in rows[hi + header_span:hi + header_span + 30]
             if role_idx < len(r) and clean_text(r[role_idx])
         ]
         if samples and not any(infer_leadership_role(v) for v in samples):
@@ -460,7 +479,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
     out = []
     blank_run = 0
     last_used_date = ""
-    for ri, row in enumerate(rows[hi + 1:], start=hi + 2):
+    for ri, row in enumerate(rows[hi + header_span:], start=hi + header_span + 1):
         if not any(clean_text(x) for x in row):
             blank_run += 1
             if blank_run >= 8 and out: break
@@ -544,7 +563,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "|".join(str(raw.get(k, "")) for k in ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
         ).hexdigest()[:20]
         out.append(raw)
-    info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_score": score, "matched": sorted(matched), "mapping": mapping, "section_role": section_role, "parsed_rows": len(out)}
+    info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_span": header_span, "header_score": score, "matched": sorted(matched), "mapping": mapping, "section_role": section_role, "parsed_rows": len(out)}
     return out, info
 
 
