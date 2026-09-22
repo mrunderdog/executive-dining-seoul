@@ -308,31 +308,37 @@ def header_score(row):
 
 
 def find_header(rows):
-    """Find a single- or two-row table header.
+    """Find a single-row header first; fall back to a two-row merged header.
 
-    Some council spreadsheets split labels across merged rows, e.g. "사용" /
-    "일시" or "집행" / "장소". Score both the original row and a column-wise
-    concatenation with the following row, but keep the same conservative score
-    threshold before parsing transactions.
+    A valid one-line header must always win. This prevents a page title above a
+    normal header from being mistaken for the first half of a two-row header.
+    Only when no single row reaches the conservative threshold do we concatenate
+    adjacent rows column-by-column (e.g. "사용" + "일시").
     """
-    best = (-1, -1, set(), [], 1)
     limit = min(len(rows), 40)
+    best_single = (-1, -1, set(), [], 1)
     for i in range(limit):
         row = rows[i]
         score, matched = header_score(row)
-        if score > best[0]:
-            best = (score, i, matched, list(row), 1)
-        if i + 1 < len(rows):
-            width = max(len(row), len(rows[i + 1]))
-            combined = []
-            for j in range(width):
-                a = clean_text(row[j]) if j < len(row) else ""
-                b = clean_text(rows[i + 1][j]) if j < len(rows[i + 1]) else ""
-                combined.append(" ".join(x for x in (a, b) if x))
-            score2, matched2 = header_score(combined)
-            if score2 > best[0]:
-                best = (score2, i, matched2, combined, 2)
-    return best if best[0] >= 4 else None
+        if score > best_single[0]:
+            best_single = (score, i, matched, list(row), 1)
+    if best_single[0] >= 4:
+        return best_single
+
+    best_pair = (-1, -1, set(), [], 2)
+    for i in range(max(0, limit - 1)):
+        row = rows[i]
+        nxt = rows[i + 1]
+        width = max(len(row), len(nxt))
+        combined = []
+        for j in range(width):
+            a = clean_text(row[j]) if j < len(row) else ""
+            b = clean_text(nxt[j]) if j < len(nxt) else ""
+            combined.append(" ".join(x for x in (a, b) if x))
+        score, matched = header_score(combined)
+        if score > best_pair[0]:
+            best_pair = (score, i, matched, combined, 2)
+    return best_pair if best_pair[0] >= 4 else None
 
 
 def map_columns(row):
