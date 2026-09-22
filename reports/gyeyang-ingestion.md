@@ -1,0 +1,410 @@
+# gyeyang expense ingestion
+
+- Normalized rows: **1932**
+- Source posts: **40**
+- Downloaded files: **40**
+- Errors: **0**
+
+## Rows by year
+
+- 2024: 111
+- 2025: 1229
+- 2026: 592
+
+## Top roles / sheets
+
+- 의정운영공통경비: 507
+- 의장: 446
+- 기획복지위원장: 297
+- 부의장: 236
+- 자치도시위원장: 147
+- 의회운영위원장: 121
+- 공통경비: 52
+- 의정운영공통경비_교섭단체(국민의힘): 47
+- 의정운영공통경비_교섭단체(더불어민주당): 36
+- 자차도시위원장: 17
+- 예산결산위원장: 14
+- 운영위원장: 12
+
+## Files
+
+- `2026.7월 업무추진비 사용내역.xlsx 2026.7월 업무추진비 사용내역.xlsx 2026.7월 업무추진비 사용내역.xlsx` — 27,415 bytes — 86 rows
+  - 의장: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 52 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.7월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 27,415 bytes — 86 rows
+  - 의장: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 52 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.6월 업무추진비 사용내역.xlsx 2026.6월 업무추진비 사용내역.xlsx 2026.6월 업무추진비 사용내역.xlsx` — 33,757 bytes — 43 rows
+  - 의장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.6월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 33,757 bytes — 43 rows
+  - 의장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.5월 업무추진비 사용내역.xlsx 2026.5월 업무추진비 사용내역.xlsx 2026.5월 업무추진비 사용내역.xlsx` — 31,900 bytes — 30 rows
+  - 의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.5월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 31,900 bytes — 30 rows
+  - 의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.4월 업무추진비 사용내역.xlsx 2026.4월 업무추진비 사용내역.xlsx 2026.4월 업무추진비 사용내역.xlsx` — 37,399 bytes — 90 rows
+  - 의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.4월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 37,399 bytes — 90 rows
+  - 의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.3월 업무추진비 사용내역.xlsx 2026.3월 업무추진비 사용내역.xlsx 2026.3월 업무추진비 사용내역.xlsx` — 40,328 bytes — 124 rows
+  - 의장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 31 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.3월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,328 bytes — 124 rows
+  - 의장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 31 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.2월 업무추진비 사용내역.xlsx 2026.2월 업무추진비 사용내역.xlsx 2026.2월 업무추진비 사용내역.xlsx` — 40,009 bytes — 110 rows
+  - 의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 27 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 26 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.2월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,009 bytes — 110 rows
+  - 의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 27 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 26 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2026.1월 업무추진비 사용내역.xlsx 2026.1월 업무추진비 사용내역.xlsx 2026.1월 업무추진비 사용내역.xlsx` — 40,591 bytes — 109 rows
+  - 의장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2026.1월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,591 bytes — 109 rows
+  - 의장: OK / parsed 28 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.12월 업무추진비 사용내역.xlsx 2025.12월 업무추진비 사용내역.xlsx 2025.12월 업무추진비 사용내역.xlsx` — 42,758 bytes — 139 rows
+  - 의장: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 62 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.12월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 42,758 bytes — 139 rows
+  - 의장: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 62 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.11월 업무추진비 사용내역.xlsx 2025.11월 업무추진비 사용내역.xlsx 2025.11월 업무추진비 사용내역.xlsx` — 42,012 bytes — 125 rows
+  - 의장: OK / parsed 38 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.11월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 42,012 bytes — 125 rows
+  - 의장: OK / parsed 38 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.10월 업무추진비 사용내역.xlsx 2025.10월 업무추진비 사용내역.xlsx 2025.10월 업무추진비 사용내역.xlsx` — 40,968 bytes — 115 rows
+  - 의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 58 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.10월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,968 bytes — 115 rows
+  - 의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 58 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.9월 업무추진비 사용내역.xlsx 2025.9월 업무추진비 사용내역.xlsx 2025.9월 업무추진비 사용내역.xlsx` — 39,908 bytes — 100 rows
+  - 의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.9월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 39,908 bytes — 100 rows
+  - 의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 25 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.8월 업무추진비 사용내역.xlsx 2025.8월 업무추진비 사용내역.xlsx 2025.8월 업무추진비 사용내역.xlsx` — 37,401 bytes — 75 rows
+  - 의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.8월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 37,401 bytes — 75 rows
+  - 의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 24 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.7월 업무추진비 사용내역.xlsx 2025.7월 업무추진비 사용내역.xlsx 2025.7월 업무추진비 사용내역.xlsx` — 37,585 bytes — 77 rows
+  - 의장: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.7월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 37,585 bytes — 77 rows
+  - 의장: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.6월 업무추진비 사용내역.xlsx 2025.6월 업무추진비 사용내역.xlsx 2025.6월 업무추진비 사용내역.xlsx` — 41,729 bytes — 124 rows
+  - 의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 64 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.6월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 41,729 bytes — 124 rows
+  - 의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 64 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.5월 업무추진비 사용내역.xlsx 2025.5월 업무추진비 사용내역.xlsx 2025.5월 업무추진비 사용내역.xlsx` — 37,482 bytes — 76 rows
+  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.5월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 37,482 bytes — 76 rows
+  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.4월 업무추진비 사용내역.xlsx 2025.4월 업무추진비 사용내역.xlsx 2025.4월 업무추진비 사용내역.xlsx` — 35,686 bytes — 104 rows
+  - 의장: OK / parsed 27 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.4월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 35,686 bytes — 104 rows
+  - 의장: OK / parsed 27 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.3월 업무추진비 사용내역.xlsx 2025.3월 업무추진비 사용내역.xlsx 2025.3월 업무추진비 사용내역.xlsx` — 33,834 bytes — 89 rows
+  - 의장: OK / parsed 34 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자차도시위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.3월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 33,834 bytes — 89 rows
+  - 의장: OK / parsed 34 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자차도시위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.2월 업무추진비 사용내역.xlsx 2025.2월 업무추진비 사용내역.xlsx 2025.2월 업무추진비 사용내역.xlsx` — 35,243 bytes — 112 rows
+  - 의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자차도시위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 56 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.2월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 35,243 bytes — 112 rows
+  - 의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자차도시위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 56 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2025.1월 업무추진비 사용내역.xlsx 2025.1월 업무추진비 사용내역.xlsx 2025.1월 업무추진비 사용내역.xlsx` — 34,479 bytes — 93 rows
+  - 의장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 운영위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지: OK / parsed 32 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 공통경비: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2025.1월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 34,479 bytes — 93 rows
+  - 의장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 운영위원장: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지: OK / parsed 32 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 공통경비: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `2024.12월 업무추진비 사용내역.xlsx 2024.12월 업무추진비 사용내역.xlsx 2024.12월 업무추진비 사용내역.xlsx` — 35,802 bytes — 111 rows
+  - 의장: OK / parsed 34 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 공통경비: OK / parsed 47 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+- `'2024.12월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 35,802 bytes — 111 rows
+  - 의장: OK / parsed 34 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 운영위원장: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 공통경비: OK / parsed 47 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}

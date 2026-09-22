@@ -1,0 +1,250 @@
+# gyeonggi_council expense ingestion
+
+- Normalized rows: **3283**
+- Source posts: **90**
+- Downloaded files: **90**
+- Errors: **0**
+
+## Rows by year
+
+- 2022: 116
+- 2023: 205
+- 2025: 625
+- 2026: 2275
+
+## Top roles / sheets
+
+- 부의장: 321
+- 대표의원: 286
+- 의회운영업무추진비: 214
+- 의장: 209
+- 언론홍보과장: 178
+- 예산결산특별위원장: 155
+- 의정국장: 135
+- 수석전문위원: 132
+- 2부의장: 126
+- 사무처장: 124
+- 상임위원장: 115
+- 시책추진업무추진비: 111
+- 위원장: 110
+- 경제노동위원회: 98
+- 1부의장: 93
+- 총무과장: 90
+- 사무처장직무대리: 79
+- 의회운영 업무추진비: 78
+- 언론팀장: 74
+- 내역: 64
+
+## Files
+
+- `2026년 2분기 시책추진업무추진비 사용내역(의정지원과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(의정지원과)` — 14,823 bytes — 20 rows
+  - 시책추진(의정지원과): OK / parsed 17 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 시책추진(의정정책추진단): OK / parsed 3 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+- `2026년 2분기 업무추진비 사용내역(의장).xlsx 2026년 2분기 의회운영업무추진비 사용내역(의장)` — 22,003 bytes — 81 rows
+  - 의장업무추진비: OK / parsed 81 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2026년 2분기 의회운영업무추진비 사용내역(안전행정위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(안전행정위원장)` — 13,526 bytes — 14 rows
+  - 의회운영업무추진비: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비 사용내역(안전행정위원회).xlsx 2026년도 2분기 시책추진업무추진비 사용내역(안전행정전문위원실)` — 12,657 bytes — 9 rows
+  - 시책추진업무추진비: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비 사용내역(언론홍보과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(언론홍보과)` — 18,818 bytes — 94 rows
+  - 시책추진업무추진비: OK / parsed 94 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+- `2026년도 2분기 의회운영업무추진비 공개자료(보건복지위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(보건복지위원회)` — 15,926 bytes — 31 rows
+  - 의정공통: OK / parsed 31 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년도 2분기 시책추진업무추진비 공개자료(보건복지위원회).xlsx 2026년 2분기 시책추진업무추진비 사용내역(보건복지위원회)` — 12,348 bytes — 5 rows
+  - 시책추진업무추진비: OK / parsed 5 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 2분기 의회운영업무추진비.xlsx 2026년 2분기 의회운영업무추진비 사용내역(의회운영위원회)` — 27,479 bytes — 113 rows
+  - 의회운영업무추진비(의회운영위원회): OK / parsed 33 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 의회운영업무추진비(국힘): OK / parsed 50 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 2}
+  - 의회운영업무추진비(민주): OK / parsed 30 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+- `2026년 2분기 의회운영업무추진비 사용내역(농정해양위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(농정해양위원회)` — 13,667 bytes — 20 rows
+  - 내역: OK / parsed 20 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비 사용내역(농정해양전문위원실).xlsx 2026년 2분기 시책추진업무추진비 사용내역(농정해양전문위원실)` — 11,775 bytes — 4 rows
+  - 내역: OK / parsed 4 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비.xlsx 2026년 2분기 시책추진업무추진비 사용내역(의회운영위원회)` — 21,461 bytes — 25 rows
+  - 시책추진업무추진비(의회운영위원회): OK / parsed 14 / mapping {'date': 4, 'merchant': 5, 'purpose': 6, 'amount': 9, 'method': 10, 'role': 3}
+  - 시책추진업무추진비(국힘): OK / parsed 9 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 시책추진업무추진비(민주): OK / parsed 2 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+- `2026년 2분기 시책추진 업무추진비 공개자료(법제과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(법제과)` — 13,949 bytes — 11 rows
+  - 시책추진업무추진비: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년도 2분기 의회운영업무추진비 공개자료(예산결산특별위원장).xlsx 2026년도 2분기 의회운영업무추진비 사용내역(특별전문위원실)` — 19,649 bytes — 62 rows
+  - 의회운영업무추진비-도청: OK / parsed 42 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+  - 의회운영업무추진비-교육청: OK / parsed 20 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년도 2분기 시책추진업무추진비 공개자료(특별전문위원실).xlsx 2026년도 2분기 시책추진업무추진비 사용내역(특별전문위원실)` — 13,036 bytes — 14 rows
+  - 시책추진업무추진비: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 2분기 시책추진업무추진비(문체위).xlsx 2026년 2분기 시책추진업무추진비 사용내역(문화체육관광전문위원실)` — 13,627 bytes — 9 rows
+  - 시책추진업무추진비: OK / parsed 9 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'people': 4, 'amount': 5, 'method': 6}
+- `2026년 2분기 의회운영업무추진비(문체위).xlsx 2026년 2분기 의회운영업무추진비 사용내역(문화체육관광위원회)` — 15,392 bytes — 34 rows
+  - 의회운영업무추진비: OK / parsed 34 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비 사용내역(예산분석과).xlsx 2026년 2분기 업무추진비 사용내역(예산분석과)` — 13,341 bytes — 12 rows
+  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진업무추진비 사용내역(기획재정위원회).xlsx 2026년 2분기 시책추진업무추진비 사용내역(기획재정위원회)` — 13,144 bytes — 5 rows
+  - 시책추진업무추진비: OK / parsed 5 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'amount': 5, 'method': 6}
+- `2026년 2분기 시책추진업무추진비 사용내역(교육행정전문위원실).xlsx 2026년 2분기 시책추진업무추진비 사용내역(교육행정전문위원실)` — 14,315 bytes — 17 rows
+  - 시책추진: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 0}
+- `2026년 2분기 의회운영업무추진비 사용내역(기획재정위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(기획재정위원회)` — 14,508 bytes — 23 rows
+  - 의회운영업무추진비: OK / parsed 23 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'amount': 5, 'method': 6}
+- `2026년 2분기 의회운영 업무추진비 사용내역(교육행정위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(교육행정위원회)` — 15,247 bytes — 26 rows
+  - 의회운영: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 0}
+- `2026년 2분기 시책추진업무추진비 공개자료(공간정보화과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(공간정보화과)` — 31,692 bytes — 19 rows
+  - 시책추진업무추진비: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - 시책추진업무추진비 (2): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 2분기 의회운영 업무추진비 사용내역(교육기획위원회).xlsx 2026년 2분기 의회운영 업무추진비 사용내역(교육기획위원회)` — 18,974 bytes — 37 rows
+  - 의회운영 업무추진비: OK / parsed 37 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 4, 'amount': 5, 'method': 6}
+- `2026년 2분기 시책추진 업무추진비 사용내역(교육기획위원회).xlsx 2026년 2분기 시책추진 업무추진비 사용내역(교육기획위원회)` — 12,553 bytes — 7 rows
+  - 시책추진 업무추진비: OK / parsed 7 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 2분기 의회운영업무추진비 집행내역(미래위).xlsx 2026년 2분기 의회운영업무추진비 사용내역(미래과학협력위원장)` — 14,562 bytes — 25 rows
+  - 의회운영업무추진비: OK / parsed 25 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 2분기 시책추진업무추진비 공개자료(인사과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(인사과)` — 20,837 bytes — 11 rows
+  - 시책추진업무추진비: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 2분기 시책추진업무추진비 집행내역(미래위).xlsx 2026년 2분기 시책추진업무추진비 사용내역(미래과학협력전문위원실)` — 13,468 bytes — 5 rows
+  - 시책추진업무추진비: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `업무추진비 공개자료_시책추진 업무추진비(26.2분기).xlsx 2026년 2분기 시책추진업무추진비 사용내역(경제노동위원회)` — 11,892 bytes — 8 rows
+  - 시책추진 업무추진비: OK / parsed 8 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `업무추진비 공개자료_의정운영 공통경비(26.2분기).xlsx 2026년 2분기 의정운영공통경비 사용내역(경제노동위원회)` — 15,574 bytes — 60 rows
+  - 의정운영 공통경비: OK / parsed 60 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `업무추진비 공개자료_의회운영 업무추진비(26.2분기).xlsx 2026년 2분기 의회운영업무추진비 사용내역(경제노동위원회)` — 14,005 bytes — 25 rows
+  - 의정운영 공통경비: OK / parsed 25 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 2분기 업무추진비 사용내역(의회사무처).xlsx 2026년 2분기 업무추진비 사용내역(의회사무처)` — 2,623,351 bytes — 119 rows
+  - 시책추진업무추진비(의회사무처): OK / parsed 86 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의회사무처): OK / parsed 33 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 2분기 업무추진비 사용내역(총무과).xlsx 2026년 2분기 업무추진비 사용내역(총무과)` — 18,526 bytes — 70 rows
+  - 시책추진업무추진비(총무과): OK / parsed 70 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 2분기 업무추진비 사용내역(의정국).xlsx 2026년 2분기 업무추진비 사용내역(의정국)` — 2,618,783 bytes — 56 rows
+  - 시책추진업무추진비(의정국): OK / parsed 23 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의정국): OK / parsed 33 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 2분기 의회운영업무추진비 사용내역(1부의장).xlsx 2026년 2분기 의회운영업무추진비 사용내역(1부의장)` — 15,215 bytes — 35 rows
+  - 의회운영업무추진비: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2026년 2분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 2분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,181 bytes — 13 rows
+  - 시책추진업무추진비: OK / parsed 13 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 2분기 의회운영업무추진비 사용내역(건설교통위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(건설교통위원회)` — 13,676 bytes — 17 rows
+  - 업무추진비: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 2분기 시책추진업무추진비 사용내역(건설교통위원회).xlsx 2026년 2분기 시책추진업무추진비 사용내역(건설교통위원회)` — 12,426 bytes — 9 rows
+  - Sheet1: OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 2분기 의회운영업무추진비 사용내역(도시환경위원회).xlsx 2026년 2분기 의회운영업무추진비 사용내역(도시환경위원회)` — 13,779 bytes — 21 rows
+  - 의회운영업무추진비: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6}
+- `2026년 2분기 시책추진업무추진비 사용내역(도시환경위원회).xlsx 2026년 2분기 시책추진업무추진비 사용내역(도시환경위원회)` — 12,962 bytes — 12 rows
+  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6}
+- `2026년 1분기 시책추진 업무추진비 공개자료(법제과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(법제과)` — 13,799 bytes — 12 rows
+  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 1분기 시책추진업무추진비 사용내역(의정지원과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(의정지원과)` — 15,656 bytes — 33 rows
+  - 시책추진(의정지원과): OK / parsed 15 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 시책추진(의정정책추진단): OK / parsed 18 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+- `2026년 1분기 시책추진 업무추진비 사용내역(교육기획위원회).xlsx 2026년 1분기 시책추진 업무추진비 사용내역(교육기획위원회)` — 13,589 bytes — 23 rows
+  - 시책추진 업무추진비: OK / parsed 23 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 시책추진업무추진비 사용내역(예산분석과).xlsx 2026년 1분기 업무추진비 사용내역(예산분석과)` — 13,722 bytes — 17 rows
+  - 시책추진업무추진비: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년도 1분기 업무추진비 사용내역.xlsx 2026년 1분기 의회운영업무추진비 사용내역(2부의장)` — 47,977 bytes — 395 rows
+  - 2022.8: OK / parsed 105 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2022.11.25(공통): OK / parsed 11 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2023: OK / parsed 205 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2026: OK / parsed 74 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2026년 1분기 의회운영업무추진비 사용내역(1부의장).xlsx 2026년 1분기 의회운영업무추진비 사용내역(1부의장)` — 16,951 bytes — 58 rows
+  - 의회운영업무추진비: OK / parsed 58 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2026년 1분기 의회운영업무추진비 사용내역(건설교통위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(건설교통위원회)` — 13,569 bytes — 15 rows
+  - 업무추진비: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 1분기 시책추진업무추진비 사용내역(건설교통위원회).xlsx 2026년 1분기 시책추진업무추진비 사용내역(건설교통위원회)` — 12,006 bytes — 4 rows
+  - Sheet1: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 1분기 시책추진업무추진비 사용내역(안전행정위원회).xlsx 2026년도 1분기 시책추진업무추진비 사용내역(안전행정전문위원실)` — 12,979 bytes — 13 rows
+  - 시책추진업무추진비: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 의회운영업무추진비 사용내역(안전행정위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(안전행정위원장)` — 16,163 bytes — 40 rows
+  - 의회운영업무추진비: OK / parsed 40 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 업무추진비 사용내역(언론홍보과).xlsx 2026년 1분기 업무추진비 사용내역(언론홍보과)` — 18,187 bytes — 89 rows
+  - 시책추진업무추진비: OK / parsed 89 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 1분기 업무추진비 사용내역(총무과).xlsx 2026년도 1/4분기 업무추진비 사용 내역(총무과)` — 17,730 bytes — 37 rows
+  - 시책추진업무추진비(총무과): OK / parsed 37 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 1분기 업무추진비 사용내역(의회사무처).xlsx 2026년도 1/4분기 업무추진비 사용 내역(의회사무처)` — 2,622,188 bytes — 75 rows
+  - 시책추진업무추진비(의회사무처): OK / parsed 42 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의회사무처): OK / parsed 33 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 1분기 업무추진비 사용내역(의정국).xlsx 2026년도 1/4분기 업무추진비 사용 내역(의정국)` — 2,619,423 bytes — 41 rows
+  - 시책추진업무추진비(의정국): OK / parsed 16 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의정국): OK / parsed 25 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 1분기 업무추진비 사용내역(의장).xlsx 2026년 1분기 의회운영업무추진비 사용내역(의장)` — 19,823 bytes — 62 rows
+  - 의장업무추진비: OK / parsed 62 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2026년 1분기 시책추진업무추진비 공개자료(공간정보화과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(공간정보화과)` — 32,188 bytes — 18 rows
+  - 시책추진업무추진비: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - 시책추진업무추진비 (2): OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 1분기 시책추진업무추진비 집행내역(미래위).xlsx 2026년 1분기 시책추진업무추진비 사용내역(미래과학협력전문위원실)` — 13,752 bytes — 8 rows
+  - 시책추진업무추진비: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 1분기 의회운영업무추진비 집행내역(미래위).xlsx 2026년 1분기 의회운영업무추진비 사용내역(미래과학협력위원장)` — 14,599 bytes — 26 rows
+  - 의회운영업무추진비: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 6, 'amount': 7, 'method': 8}
+- `2026년 1분기 시책추진 업무추진비 공개자료(디지털의사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(디지털의사과)` — 14,124 bytes — 12 rows
+  - 시책추진업무추진비: OK / parsed 12 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년도 1분기 시책추진업무추진비 공개자료(특별전문위원실).xlsx 2026년도 1분기 시책추진업무추진비 사용내역(특별전문위원실)` — 12,630 bytes — 9 rows
+  - 시책추진업무추진비: OK / parsed 9 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년도 1분기 의회운영업무추진비 공개자료(예산결산특별위원장).xlsx 2026년도 1분기 의회운영업무추진비 사용내역(특별전문위원실)` — 21,965 bytes — 96 rows
+  - 의회운영업무추진비-도청: OK / parsed 64 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+  - 의회운영업무추진비-교육청: OK / parsed 32 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2026년 1분기 의회운영 업무추진비 사용내역(교육행정위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(교육행정위원회)` — 16,162 bytes — 35 rows
+  - 의회운영: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 0}
+- `2026년 1분기 시책추진업무추진비 사용내역(교육행정전문위원실).xlsx 2026년 1분기 시책추진업무추진비 사용내역(교육행정전문위원실)` — 14,151 bytes — 14 rows
+  - 시책추진: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 0}
+- `2026년 1분기 의회운영업무추진비 사용내역(도시환경위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(도시환경위원회)` — 16,447 bytes — 59 rows
+  - 의회운영업무추진비: OK / parsed 59 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6}
+- `2026년 1분기 시책추진업무추진비 사용내역(도시환경위원회).xlsx 2026년 1분기 시책추진업무추진비 사용내역(도시환경위원회)` — 12,255 bytes — 6 rows
+  - 시책추진업무추진비: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6}
+- `2026년 1분기 의회운영업무추진비 사용내역(농정해양위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(농정해양위원회)` — 14,805 bytes — 34 rows
+  - 내역: OK / parsed 34 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 시책추진업무추진비.xlsx 2026년 1분기 시책추진업무추진비 사용내역(의회운영위원회)` — 20,599 bytes — 15 rows
+  - 시책추진업무추진비(의회운영위원회): OK / parsed 11 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 시책추진업무추진비(국힘): OK / parsed 3 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 시책추진업무추진비(민주): OK / parsed 1 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+- `2026년 1분기 의회운영업무추진비.xlsx 2026년 1분기 의회운영업무추진비 사용내역(의회운영위원회)` — 29,946 bytes — 142 rows
+  - 의회운영업무추진비(의회운영위원회): OK / parsed 43 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 의회운영업무추진비(국힘): OK / parsed 53 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 의회운영업무추진비(민주): OK / parsed 46 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+- `2026년 1분기 시책추진업무추진비 사용내역(농정해양전문위원실).xlsx 2026년도 1분기 시책추진업무추진비 사용내역(농정해양전문위원실)` — 12,558 bytes — 6 rows
+  - 내역: OK / parsed 6 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년도 1분기 시책추진업무추진비 공개자료(보건복지위원회).xlsx 2026년도 1분기 시책추진업무추진비 공개자료(보건복지위원회)` — 12,068 bytes — 2 rows
+  - 시책추진업무추진비: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년도 1분기 의회운영업무추진비 공개자료(보건복지위원회).xlsx 2026년도 1분기 의회운영업무추진비 공개자료(보건복지위원회)` — 15,992 bytes — 30 rows
+  - 의정공통: OK / parsed 30 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2026년 1분기 시책추진업무추진비 사용내역(기획재정위원회).xlsx 2026년 1분기 시책추진업무추진비 사용내역(기획재정위원회)` — 13,457 bytes — 8 rows
+  - 시책추진업무추진비: OK / parsed 8 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'amount': 5, 'method': 6}
+- `2026년 1분기 의회운영업무추진비 사용내역(기획재정위원회).xlsx 2026년 1분기 의회운영업무추진비 사용내역(기획재정위원회)` — 16,180 bytes — 47 rows
+  - 의회운영업무추진비: OK / parsed 47 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'amount': 5, 'method': 6}
+- `2026년 1분기 의회운영업무추진비(문체위).xlsx 2026년 1분기 의회운영업무추진비 사용내역(문화체육관광위원회)` — 14,781 bytes — 30 rows
+  - 의회운영업무추진비: OK / parsed 30 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 시책추진업무추진비(문체위).xlsx 2026년 1분기 시책추진업무추진비 사용내역(문화체육관광위원회)` — 13,152 bytes — 7 rows
+  - 시책추진업무추진비: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'merchant': 2, 'people': 4, 'amount': 5, 'method': 6}
+- `2025년 4분기 시책추진 업무추진비 사용내역(교육기획위원회).xlsx 2025년 4분기 시책추진 업무추진비 사용내역(교육기획위원회)` — 12,451 bytes — 8 rows
+  - 시책추진 업무추진비: OK / parsed 8 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년 1분기 의회운영 업무추진비 사용내역(교육기획위원회).xlsx 2026년 1분기 의회운영 업무추진비 사용내역(교육기획위원회)` — 18,610 bytes — 41 rows
+  - 의회운영 업무추진비: OK / parsed 41 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 4, 'amount': 5, 'method': 6}
+- `2026년 1분기 시책추진업무추진비 공개자료(인사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(인사과)` — 21,305 bytes — 16 rows
+  - 시책추진업무추진비: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `2026년 1분기 교육연수위원장 시책추진업무추진비 공개자료(인사과).xlsx 2026년 1분기 시책추진업무추진비 사용내역(교육연수위원회)` — 19,789 bytes — 1 rows
+  - 시책추진업무추진비: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+- `업무추진비 공개자료_시책추진 업무추진비(25.4분기).xlsx 2025년 4분기 시책추진업무추진비 사용내역(경제노동위원회)` — 12,387 bytes — 14 rows
+  - 시책추진 업무추진비: OK / parsed 14 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `업무추진비 공개자료_시책추진 업무추진비(26.1분기).xlsx 2026년 1분기 시책추진업무추진비 사용내역(경제노동위원회)` — 11,909 bytes — 8 rows
+  - 시책추진 업무추진비: OK / parsed 8 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `업무추진비 공개자료_의정운영 공통경비(26.1분기).xlsx 2026년 1분기 의정운영공통경비 사용내역(경제노동위원회)` — 14,254 bytes — 38 rows
+  - 의정운영 공통경비: OK / parsed 38 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `업무추진비 공개자료_의회운영 업무추진비(26.1분기).xlsx 2026년 1분기 의회운영업무추진비 사용내역(경제노동위원회)` — 14,671 bytes — 29 rows
+  - 의정운영 공통경비: OK / parsed 29 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2025년도 4분기 업무추진비 사용내역.xlsx 2025년 4분기 의회운영업무추진비 등 사용내역(2부의장)` — 50,570 bytes — 373 rows
+  - 2022.8: OK / parsed 105 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2022.11.25(공통): OK / parsed 11 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2023: OK / parsed 205 / mapping {'date': 1, 'purpose': 2, 'merchant': 3, 'people': 5, 'amount': 6}
+  - 2025: OK / parsed 39 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+  - 2025 (공통): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6}
+- `2025년 4분기 업무추진비 사용내역(언론홍보과).xlsx 2025년 4분기 업무추진비 사용내역(언론홍보과)` — 17,549 bytes — 69 rows
+  - 시책추진업무추진비: OK / parsed 69 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7, 'role': 1}
+- `2025년 4분기 업무추진비 사용내역(의정국)_251013.xlsx 2025년도 4/4분기 업무추진비 사용 내역(의정국)` — 2,621,193 bytes — 79 rows
+  - 시책추진업무추진비(의정국): OK / parsed 19 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의정국): OK / parsed 60 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2025년 4분기 업무추진비 사용내역(총무과)_251013.xlsx 2025년도 4/4분기 업무추진비 사용 내역(총무과)` — 18,558 bytes — 62 rows
+  - 시책추진업무추진비(총무담당관): OK / parsed 62 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2025년 4분기 업무추진비 사용내역(의회사무처)_251013.xlsx 2025년도 4/4분기 업무추진비 사용 내역(의회사무처)` — 2,620,434 bytes — 84 rows
+  - 시책추진업무추진비(의회사무처): OK / parsed 39 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관운영업무추진비(의회사무처): OK / parsed 45 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'merchant': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+- `2025년 4분기 업무추진비 사용내역(의장).xlsx 2025년 4분기 의회운영업무추진비 사용내역(의장)` — 20,156 bytes — 66 rows
+  - 의장업무추진비: OK / parsed 66 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'amount': 6, 'method': 7}
+- `2025년 4분기 의회운영업무추진비.xlsx 2025년 4분기 의회운영업무추진비 사용내역(의회운영위원회)` — 30,767 bytes — 141 rows
+  - 의회운영업무추진비(의회운영위원회): OK / parsed 34 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 의회운영업무추진비(국힘): OK / parsed 62 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 의회운영업무추진비(민주): OK / parsed 45 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+- `2025년 4분기 시책추진업무추진비.xlsx 2025년 4분기 시책추진업무추진비 사용내역(의회운영위원회)` — 21,456 bytes — 32 rows
+  - 시책추진업무추진비(의회운영위원회): OK / parsed 17 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 시책추진업무추진비(국힘): OK / parsed 7 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}
+  - 시책추진업무추진비(민주): OK / parsed 8 / mapping {'date': 3, 'merchant': 4, 'purpose': 5, 'amount': 8, 'method': 9, 'role': 2}

@@ -1,25 +1,32 @@
 # gunpo expense ingestion
 
-- Normalized rows: **820**
-- Source posts: **20**
-- Downloaded files: **16**
+- Normalized rows: **2025**
+- Source posts: **40**
+- Downloaded files: **32**
 - Errors: **0**
 
 ## Rows by year
 
+- 2024: 300
+- 2025: 461
 - 2026: 597
 
 ## Top roles / sheets
 
-- 군포시의회: 191
-- 의장: 170
-- 부의장: 143
-- 행정복지위원장: 78
-- 산업건설위원장: 71
-- 의회운영위원장: 57
-- 교섭단체대표의원2: 49
-- 교섭단체대표의원1: 49
-- 예결특위위원장: 12
+- 군포시의회: 462
+- 의장: 418
+- 부의장: 365
+- 행정복지위원장: 237
+- 산업건설위원장: 147
+- 의회운영위원장: 136
+- 교섭단체대표의원2: 121
+- 교섭단체대표의원1: 83
+- 예결특위위원장: 22
+- 지방한시임기제8호: 15
+- 의회사무과장: 11
+- 의정운영공통경비: 3
+- 행정 7급: 3
+- 행정7급: 2
 
 ## Files
 
@@ -113,16 +120,6 @@
   - 교섭단체대표의원1: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 13 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx` — 44,503 bytes — 125 rows
-  - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 부의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 의회운영위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 행정복지위원장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 산업건설위원장: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 교섭단체대표의원1: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 교섭단체대표의원2: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 의정운영공통경비: OK / parsed 29 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
 - `'2026년 3월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 44,503 bytes — 125 rows
   - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -133,16 +130,6 @@
   - 교섭단체대표의원1: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 29 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `2026년 2월 업무추진비 집행내역.xlsx 2026년 2월 업무추진비 집행내역.xlsx 2026년 2월 업무추진비 집행내역.xlsx` — 41,934 bytes — 91 rows
-  - 의장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 부의장: OK / parsed 25 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 의회운영위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 행정복지위원장: OK / parsed 12 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 산업건설위원장: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 교섭단체대표의원2: OK / parsed 9 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
-  - 의정운영공통경비: OK / parsed 8 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
 - `'2026년 2월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 41,934 bytes — 91 rows
   - 의장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 25 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -153,6 +140,16 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 9 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 8 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx 2026년 1월 업무추진비 집행내역.xlsx` — 40,798 bytes — 80 rows
+  - 의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 9 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
 - `'2026년 1월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,798 bytes — 80 rows
   - 의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -163,6 +160,16 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 9 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 12월 업무추진비 집행내역.xlsx 2025년 12월 업무추진비 집행내역.xlsx 2025년 12월 업무추진비 집행내역.xlsx` — 44,362 bytes — 121 rows
+  - 의장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 12 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 13 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 9 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 46 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
 - `'2025년 12월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 44,362 bytes — 121 rows
   - 의장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -173,6 +180,16 @@
   - 교섭단체대표의원1: OK / parsed 13 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 9 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 46 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx 2025년 11월 업무추진비 집행내역.xlsx` — 43,853 bytes — 102 rows
+  - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 41 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
 - `'2025년 11월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 43,853 bytes — 102 rows
   - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -183,3 +200,153 @@
   - 교섭단체대표의원1: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 41 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 10월 업무추진비 집행내역.xlsx 2025년 10월 업무추진비 집행내역.xlsx 2025년 10월 업무추진비 집행내역.xlsx` — 40,210 bytes — 59 rows
+  - 의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 6 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 10월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,210 bytes — 59 rows
+  - 의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 6 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 9월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 42,372 bytes — 89 rows
+  - 의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 33 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 8월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 42,891 bytes — 93 rows
+  - 의장: OK / parsed 33 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 17 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 13 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 1 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 9 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 7월 업무추진비 집행내역.xlsx 2025년 7월 업무추진비 집행내역.xlsx 2025년 7월 업무추진비 집행내역.xlsx` — 44,432 bytes — 114 rows
+  - 의장: OK / parsed 23 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 24 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 7월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 44,432 bytes — 114 rows
+  - 의장: OK / parsed 23 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 24 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 6월 업무추진비 집행내역 .xlsx 2025년 6월 업무추진비 집행내역 .xlsx 2025년 6월 업무추진비 집행내역 .xlsx` — 42,538 bytes — 101 rows
+  - 의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 22 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 42 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 6월 업무추진비 집행내역 .xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 42,538 bytes — 101 rows
+  - 의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 22 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 42 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 5월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,326 bytes — 60 rows
+  - 의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 1 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 4 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 4월 업무추진비 집행내역.xlsx 2025년 4월 업무추진비 집행내역.xlsx 2025년 4월 업무추진비 집행내역.xlsx` — 43,772 bytes — 106 rows
+  - 의장: OK / parsed 29 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 17 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 27 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2025년 4월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 43,772 bytes — 106 rows
+  - 의장: OK / parsed 29 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 17 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 27 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 1월 업무추진비 집행내역.xlsx 2025년 1월 업무추진비 집행내역.xlsx 2025년 1월 업무추진비 집행내역.xlsx` — 40,357 bytes — 87 rows
+  - 의장: OK / parsed 21 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 13 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 1 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 12 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 2월 업무추진비 집행내역.xlsx 2025년 2월 업무추진비 집행내역.xlsx 2025년 2월 업무추진비 집행내역.xlsx` — 41,651 bytes — 103 rows
+  - 의장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 23 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 18 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 1 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 18 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `2025년 3월 업무추진비 집행내역.xlsx 2025년 3월 업무추진비 집행내역.xlsx 2025년 3월 업무추진비 집행내역.xlsx` — 39,245 bytes — 70 rows
+  - 의장: OK / parsed 19 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 부의장: OK / parsed 11 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의회운영위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 행정복지위원장: OK / parsed 14 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 산업건설위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 교섭단체대표의원2: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
+  - 의정운영공통경비: OK / parsed 7 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
+- `'2024년 4분기 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 56,204 bytes — 323 rows
+  - 의장: OK / parsed 36 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 부의장: OK / parsed 48 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 예결특위위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 의회운영위원장: OK / parsed 25 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 행정복지위원장: OK / parsed 35 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 산업건설위원장: OK / parsed 21 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 교섭단체대표의원1: OK / parsed 10 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 교섭단체대표의원2: OK / parsed 20 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
+  - 의정운영공통경비: OK / parsed 123 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5, 'role': 1}

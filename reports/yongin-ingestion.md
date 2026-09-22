@@ -13,23 +13,14 @@
 
 ## Top roles / sheets
 
-- pdf-page-1: 97
-- pdf-page-8: 79
-- pdf-page-2: 68
-- pdf-page-6: 54
-- pdf-page-4: 51
-- pdf-page-3: 49
-- pdf-page-7: 44
-- pdf-page-5: 37
+- 부의장: 166
+- 의장: 109
+- 경제환경위원장: 62
+- 의회운영위원장: 59
+- 도시건설위원장: 58
+- 자치행정위원장: 55
+- 문화복지위원장: 44
 - 의회사무국장(4급): 15
-- 도시건설위원장: 14
-- 의장: 12
-- 의회운영위원장: 10
-- 부의장: 10
-- pdf-page-9: 9
-- 경제환경위원장: 8
-- 문화복지위원장: 7
-- 자치행정위원장: 4
 - 의정담당관(5급): 2
 
 ## Files
@@ -117,37 +108,37 @@
 
 ## Errors
 
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=171078
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=171078
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=33E14A14637CAB838E42CE3A6E6E2D9A
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169841
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169841
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=75C15E530851EA41C7DCB21DEF5C5B9C
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169543
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169543
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=134C369ADC1A8CF78CC045EB402C96CD
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169715
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169715
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=95BF41E9E2A5A05C9CB617F87A340E8E
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168545
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168545
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=48B65BF070EA64AAF46ED1AD58E98587
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169716
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169716
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=F8BA16A49799CA4C8E6C1EB4A176D08D
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168358
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168358
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1559DDB45DA2A3F7BCA2BC597E3133C9
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169717
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169717
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=0BDAED213D9640439D456D9B3FC44F80
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169718
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169718
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DD5B371C48E2F1BA09683D9BA600BBBC
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=167865
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=167865
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=55E2052C462C4043BEF68B84F20B58B4
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162465
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162465
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E61B204159E2D3443B64C1E1DD967687
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162409
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162409
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E1FA442EFE231C63CF53157398E1E060
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=158907
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=158907
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=021F12CAE05B5507647DFAA66063C52E
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157849
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157849
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=460A13CCB0DD5A1AD62A1693B5CBD42D
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157276
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155889
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155021
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=152291
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=151818
-- PdfStreamError: Stream has ended unexpectedly — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=150911
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157276
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155889
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155021
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=152291
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=151818
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=150911

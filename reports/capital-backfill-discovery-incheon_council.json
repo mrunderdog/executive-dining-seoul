@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T02:34:06",
+  "generated_at": "2026-09-22T10:43:37",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -174,8 +174,13 @@
         null
       ],
       "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1317&bcd=infordisc&pgno=1",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 pdf 산업경제위원장_업무추진비(2026-8월).pdf",
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&msg_seq=1317&fileno=1",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "incheon_council",

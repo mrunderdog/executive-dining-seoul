@@ -1,6 +1,6 @@
 # bupyeong Executive-repeat candidates
 
-Rows considered: 1559
+Rows considered: 1560
 
 > Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.
 

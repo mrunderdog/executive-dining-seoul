@@ -13,13 +13,13 @@
 
 ## Top roles / sheets
 
-- 의장: 685
-- 부의장: 395
+- 의장: 696
+- 부의장: 450
 - 복지문화건설위원장: 302
 - 자치행정교육위원장: 296
 - 운영위원장: 215
-- 더불어민주당 대표의원: 207
-- 국민의힘 대표의원: 192
+- 더불어민주당 대표의원: 171
+- 국민의힘 대표의원: 162
 - 예결위원장: 16
 - 예산결산특별위원장: 12
 
@@ -134,11 +134,11 @@
 
 ## Errors
 
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065
-- PdfStreamError: Stream has ended unexpectedly — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065
+- ValueError: attachment endpoint returned HTML (text/html;charset=utf-8) — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "uiwang",
-  "generated_at": "2026-09-18T23:21:35",
-  "row_count": 24,
+  "generated_at": "2026-09-22T10:45:32",
+  "row_count": 30,
   "rows": [
     {
       "region": "경기",
@@ -20,6 +20,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 5,
       "used_date": "2025-12-19",
+      "date_inferred_from_previous_row": false,
       "used_time": "2025. 12. 19. 12:03",
       "role": "pdf-page-1",
       "merchant": "뒤란",
@@ -48,6 +49,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 6,
       "used_date": "2025-12-22",
+      "date_inferred_from_previous_row": false,
       "used_time": "2025. 12. 22. 12:35",
       "role": "pdf-page-1",
       "merchant": "능이옥",
@@ -76,6 +78,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 7,
       "used_date": "2025-12-24",
+      "date_inferred_from_previous_row": false,
       "used_time": "2025. 12. 24. 12:34",
       "role": "pdf-page-1",
       "merchant": "개성손만두",
@@ -104,6 +107,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 5,
       "used_date": "2026-01-06",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 1. 6. 12:33",
       "role": "pdf-page-1",
       "merchant": "농군의집",
@@ -132,6 +136,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 5,
       "used_date": "2026-01-23",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 1. 23. 17:06",
       "role": "pdf-page-2",
       "merchant": "신전떡볶이 오전동점",
@@ -142,6 +147,180 @@
       "payment_method": "카드",
       "parse_confidence": "high",
       "row_id": "1ca6306ddff6787f0ec9",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-1",
+      "source_row": 5,
+      "used_date": "2026-04-03",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 3. 12:09",
+      "role": "pdf-page-1",
+      "merchant": "소플러스 모락산점",
+      "address": "",
+      "purpose": "효율적인 의회업무추진 논의를 위한 간담",
+      "people": null,
+      "amount": 75000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "9c390a5d766aa49167dc",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-1",
+      "source_row": 6,
+      "used_date": "2026-04-06",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 6. 12:22",
+      "role": "pdf-page-1",
+      "merchant": "시카고 부대찌개 군포에이스",
+      "address": "",
+      "purpose": "효율적인 의회업무추진 논의를 위한 간담",
+      "people": null,
+      "amount": 48000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "42738ac273cc8fee0803",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-2",
+      "source_row": 5,
+      "used_date": "2026-04-06",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 6. 12:27",
+      "role": "pdf-page-2",
+      "merchant": "농군의 집",
+      "address": "",
+      "purpose": "의안심사관련 관계자 업무논의",
+      "people": null,
+      "amount": 112000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "fa9bb51cbef04c85c271",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-1",
+      "source_row": 8,
+      "used_date": "2026-04-22",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 22. 11:40",
+      "role": "pdf-page-1",
+      "merchant": "몽짬뽕",
+      "address": "",
+      "purpose": "효율적인 의회 홍보 업무추진 논의를 위한 간담",
+      "people": null,
+      "amount": 39000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "5300240502ac33999c13",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-2",
+      "source_row": 6,
+      "used_date": "2026-04-23",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 23. 12:40",
+      "role": "pdf-page-2",
+      "merchant": "소플러스",
+      "address": "",
+      "purpose": "의안심사관련 관계자 업무논의",
+      "people": null,
+      "amount": 181000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "d1b27fce3b5e4da2edfd",
+      "date_quality": "in_period"
+    },
+    {
+      "region": "경기",
+      "jurisdiction": "의왕시",
+      "institution": "의왕시의회",
+      "source_key": "uiwang",
+      "source_post_url": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=be76372729c32b5a02ef9f1c52e6096392129305589a22e096df3b6689a125db56137445a0d52281&pageNum=1&flag=all&keyword=",
+      "source_attachment_url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "source_attachment_name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "source_period": [
+        2026,
+        4,
+        null
+      ],
+      "source_sheet": "pdf-page-2",
+      "source_row": 7,
+      "used_date": "2026-04-27",
+      "date_inferred_from_previous_row": false,
+      "used_time": "2026. 4. 27. 12:15",
+      "role": "pdf-page-2",
+      "merchant": "행복식당",
+      "address": "",
+      "purpose": "의안심사관련 관계자 업무논의",
+      "people": null,
+      "amount": 60000,
+      "payment_method": "카드",
+      "parse_confidence": "high",
+      "row_id": "abccd92615fa5d7b6bf1",
       "date_quality": "in_period"
     },
     {
@@ -160,6 +339,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 5,
       "used_date": "2026-06-01",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 6. 1. 12:15",
       "role": "pdf-page-1",
       "merchant": "양귀임순대국",
@@ -188,6 +368,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 5,
       "used_date": "2026-06-02",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 6. 2. 12:25",
       "role": "pdf-page-2",
       "merchant": "명인칼국수(군포당정점)",
@@ -216,6 +397,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 6,
       "used_date": "2026-06-05",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 6. 5. 12:42",
       "role": "pdf-page-2",
       "merchant": "청록미나리식당",
@@ -244,6 +426,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 6,
       "used_date": "2026-06-18",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 6. 18. 12:24",
       "role": "pdf-page-1",
       "merchant": "능이옥",
@@ -272,6 +455,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 7,
       "used_date": "2026-06-25",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 6. 25. 12:25",
       "role": "pdf-page-2",
       "merchant": "파라디조",
@@ -300,6 +484,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 5,
       "used_date": "2026-07-09",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 7. 9. 12:32",
       "role": "pdf-page-2",
       "merchant": "물총칼국수 군포점",
@@ -328,6 +513,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 6,
       "used_date": "2026-07-21",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 7. 21. 16:49",
       "role": "pdf-page-2",
       "merchant": "이삭토스트 의왕오전점",
@@ -356,6 +542,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 7,
       "used_date": "2026-07-24",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 7. 24. 12:26",
       "role": "pdf-page-2",
       "merchant": "바다상회해물칼국수본점",
@@ -384,6 +571,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 8,
       "used_date": "2026-07-28",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 7. 28. 12:12",
       "role": "pdf-page-2",
       "merchant": "백채김치찌개 의왕오전점",
@@ -412,6 +600,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 5,
       "used_date": "2026-07-28",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 7. 28. 12:14",
       "role": "pdf-page-1",
       "merchant": "푼푼",
@@ -440,6 +629,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 5,
       "used_date": "2026-08-11",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 11. 12:30",
       "role": "pdf-page-2",
       "merchant": "조가네 갑오징어",
@@ -468,6 +658,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 5,
       "used_date": "2026-08-11",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 11. 12:16",
       "role": "pdf-page-1",
       "merchant": "능이옥",
@@ -496,6 +687,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 6,
       "used_date": "2026-08-14",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 14. 12:27",
       "role": "pdf-page-2",
       "merchant": "능이옥",
@@ -524,6 +716,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 6,
       "used_date": "2026-08-19",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 19. 12:14",
       "role": "pdf-page-1",
       "merchant": "주)채운불고기",
@@ -552,6 +745,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 7,
       "used_date": "2026-08-25",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 25. 12:22",
       "role": "pdf-page-2",
       "merchant": "채운불고기",
@@ -580,6 +774,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 8,
       "used_date": "2026-08-26",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 26. 12:31",
       "role": "pdf-page-2",
       "merchant": "스시코코마루",
@@ -608,6 +803,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 7,
       "used_date": "2026-08-27",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 27. 20:06",
       "role": "pdf-page-1",
       "merchant": "역북집",
@@ -636,6 +832,7 @@
       "source_sheet": "pdf-page-1",
       "source_row": 8,
       "used_date": "2026-08-28",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 28. 12:24",
       "role": "pdf-page-1",
       "merchant": "바다향왕코다리 백운호수점",
@@ -664,6 +861,7 @@
       "source_sheet": "pdf-page-2",
       "source_row": 9,
       "used_date": "2026-08-31",
+      "date_inferred_from_previous_row": false,
       "used_time": "2026. 8. 31. 12:09",
       "role": "pdf-page-2",
       "merchant": "월수금통돼지김치찌개",
@@ -706,7 +904,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 4
+          "section_role": "",
+          "parsed_rows": 4,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         },
         {
           "sheet": "pdf-page-2",
@@ -729,7 +930,47 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 5
+          "section_role": "",
+          "parsed_rows": 5,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
+        }
+      ]
+    },
+    {
+      "title": "2026년 8월 업무추진비 사용내역 공개",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=42b2c5366f2c05875cf874d5b459ee33bc9aed47fe9a14592bc85b3c52ef51f63a7b570c532bd8e1",
+      "name": "8월 의회운영업무추진비 사용내역_의왕시의회.pdf 8월 의회운영업무추진비 사용내역_의왕시의회.pdf",
+      "bytes": 303300,
+      "sha256": "e175375b752fdc70b408a5a0dce22cf4317358c4780935496a58ba63b3b4dc58",
+      "sheets": [
+        {
+          "sheet": "pdf-page-1",
+          "status": "NO_HEADER",
+          "rows": 29,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
+        },
+        {
+          "sheet": "pdf-page-2",
+          "status": "NO_HEADER",
+          "rows": 9,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
+        },
+        {
+          "sheet": "pdf-page-3",
+          "status": "NO_HEADER",
+          "rows": 12,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
+        },
+        {
+          "sheet": "pdf-page-4",
+          "status": "NO_HEADER",
+          "rows": 8,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     },
@@ -761,7 +1002,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 1
+          "section_role": "",
+          "parsed_rows": 1,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         },
         {
           "sheet": "pdf-page-2",
@@ -784,7 +1028,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 4
+          "section_role": "",
+          "parsed_rows": 4,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         }
       ]
     },
@@ -798,22 +1045,30 @@
         {
           "sheet": "pdf-page-1",
           "status": "NO_HEADER",
-          "rows": 25
+          "rows": 25,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
         },
         {
           "sheet": "pdf-page-2",
           "status": "NO_HEADER",
-          "rows": 12
+          "rows": 12,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-3",
           "status": "NO_HEADER",
-          "rows": 20
+          "rows": 20,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-4",
           "status": "NO_HEADER",
-          "rows": 6
+          "rows": 6,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     },
@@ -845,7 +1100,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 2
+          "section_role": "",
+          "parsed_rows": 2,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         },
         {
           "sheet": "pdf-page-2",
@@ -868,7 +1126,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 3
+          "section_role": "",
+          "parsed_rows": 3,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         }
       ]
     },
@@ -882,17 +1143,23 @@
         {
           "sheet": "pdf-page-1",
           "status": "NO_HEADER",
-          "rows": 38
+          "rows": 38,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
         },
         {
           "sheet": "pdf-page-2",
           "status": "NO_HEADER",
-          "rows": 22
+          "rows": 22,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-3",
           "status": "NO_HEADER",
-          "rows": 7
+          "rows": 7,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     },
@@ -906,27 +1173,142 @@
         {
           "sheet": "pdf-page-1",
           "status": "NO_HEADER",
-          "rows": 11
+          "rows": 11,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
         },
         {
           "sheet": "pdf-page-2",
           "status": "NO_HEADER",
-          "rows": 6
+          "rows": 6,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-3",
           "status": "NO_HEADER",
-          "rows": 6
+          "rows": 6,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-4",
           "status": "NO_HEADER",
-          "rows": 5
+          "rows": 5,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-5",
           "status": "NO_HEADER",
-          "rows": 5
+          "rows": 5,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
+        }
+      ]
+    },
+    {
+      "title": "2026년 4월 업무추진비 사용내역 공개",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=a747c27fb1116a1c670b9510f1cd28a9bea8942a657d9909128a71814e1f2b4eb774d63da02be19f",
+      "name": "4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "bytes": 161861,
+      "sha256": "4b76ce63c9a2e71ac1dacfdabbf4c04134ca953a9116aab189f0324b21ab7dfd",
+      "sheets": [
+        {
+          "sheet": "pdf-page-1",
+          "status": "OK",
+          "header_row": 3,
+          "header_score": 11,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "method",
+            "purpose",
+            "time"
+          ],
+          "mapping": {
+            "date": 0,
+            "time": 0,
+            "purpose": 1,
+            "merchant": 3,
+            "amount": 4,
+            "method": 5
+          },
+          "section_role": "",
+          "parsed_rows": 3,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
+        },
+        {
+          "sheet": "pdf-page-2",
+          "status": "OK",
+          "header_row": 3,
+          "header_score": 11,
+          "matched": [
+            "amount",
+            "date",
+            "merchant",
+            "method",
+            "purpose",
+            "time"
+          ],
+          "mapping": {
+            "date": 0,
+            "time": 0,
+            "purpose": 1,
+            "merchant": 3,
+            "amount": 4,
+            "method": 5
+          },
+          "section_role": "",
+          "parsed_rows": 3,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
+        }
+      ]
+    },
+    {
+      "title": "2026년 4월 업무추진비 사용내역 공개",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=3d9d10245b16dac3237d68fe2f3f6a66af5d71b5528642fb46778cda70f076ba85e183471bc093a9",
+      "name": "4월 의회운영업무추진비 사용내역_의왕시의회.pdf 4월 의회운영업무추진비 사용내역_의왕시의회.pdf",
+      "bytes": 285763,
+      "sha256": "689bd95d07da5b2ee710c3b7158711510933bfed3428a27a4f969b38dbf162c1",
+      "sheets": [
+        {
+          "sheet": "pdf-page-1",
+          "status": "NO_HEADER",
+          "rows": 32,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
+        },
+        {
+          "sheet": "pdf-page-2",
+          "status": "NO_HEADER",
+          "rows": 14,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
+        },
+        {
+          "sheet": "pdf-page-3",
+          "status": "NO_HEADER",
+          "rows": 5,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
+        },
+        {
+          "sheet": "pdf-page-4",
+          "status": "NO_HEADER",
+          "rows": 5,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
+        },
+        {
+          "sheet": "pdf-page-5",
+          "status": "NO_HEADER",
+          "rows": 15,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     },
@@ -958,7 +1340,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 1
+          "section_role": "",
+          "parsed_rows": 1,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         },
         {
           "sheet": "pdf-page-2",
@@ -981,7 +1366,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 1
+          "section_role": "",
+          "parsed_rows": 1,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         }
       ]
     },
@@ -995,22 +1383,30 @@
         {
           "sheet": "pdf-page-1",
           "status": "NO_HEADER",
-          "rows": 39
+          "rows": 39,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
         },
         {
           "sheet": "pdf-page-2",
           "status": "NO_HEADER",
-          "rows": 26
+          "rows": 26,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-3",
           "status": "NO_HEADER",
-          "rows": 16
+          "rows": 16,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-4",
           "status": "NO_HEADER",
-          "rows": 10
+          "rows": 10,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     },
@@ -1042,7 +1438,10 @@
             "amount": 4,
             "method": 5
           },
-          "parsed_rows": 3
+          "section_role": "",
+          "parsed_rows": 3,
+          "pdf_page_role": "",
+          "carried_pdf_role": ""
         }
       ]
     },
@@ -1056,46 +1455,52 @@
         {
           "sheet": "pdf-page-1",
           "status": "NO_HEADER",
-          "rows": 39
+          "rows": 39,
+          "pdf_page_role": "의장",
+          "carried_pdf_role": "의장"
         },
         {
           "sheet": "pdf-page-2",
           "status": "NO_HEADER",
-          "rows": 29
+          "rows": 29,
+          "pdf_page_role": "부의장",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-3",
           "status": "NO_HEADER",
-          "rows": 14
+          "rows": 14,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-4",
           "status": "NO_HEADER",
-          "rows": 15
+          "rows": 15,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-5",
           "status": "NO_HEADER",
-          "rows": 25
+          "rows": 25,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         },
         {
           "sheet": "pdf-page-6",
           "status": "NO_HEADER",
-          "rows": 8
+          "rows": 8,
+          "pdf_page_role": "",
+          "carried_pdf_role": "부의장"
         }
       ]
     }
   ],
-  "errors": [
-    {
-      "post": "2026년 8월 업무추진비 사용내역 공개",
-      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=42b2c5366f2c05875cf874d5b459ee33bc9aed47fe9a14592bc85b3c52ef51f63a7b570c532bd8e1",
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
-    }
-  ],
+  "errors": [],
   "raw_quality": {
-    "rows": 24,
-    "transaction_rows": 24,
+    "rows": 30,
+    "transaction_rows": 30,
     "repaired_excel_serial_dates": 0,
     "normalized_text_dates": 0,
     "valid_date_coverage": 1.0,

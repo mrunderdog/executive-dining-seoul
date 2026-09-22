@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T02:34:49",
+  "generated_at": "2026-09-22T10:44:06",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -68,8 +68,18 @@
         null
       ],
       "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=B4E00CD2971949697A949F3AC0D138C0&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [],
-      "error": "detail URLError: <urlopen error timed out>"
+      "attachments": [
+        {
+          "text": "부서운영업무추진비 집행내역(6월).xlsx 부서운영업무추진비 집행내역(6월).xlsx 부서운영업무추진비 집행내역(6월).xlsx",
+          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=218BC1C5837497DB32BCBF1915661BD8",
+          "onclick": ""
+        },
+        {
+          "text": "업무추진비 집행내역(6월).xlsx 업무추진비 집행내역(6월).xlsx 업무추진비 집행내역(6월).xlsx",
+          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=ED89C09A4428EEA655438FB6E064904C",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "anseong",
@@ -298,18 +308,8 @@
         null
       ],
       "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=2CBF1C0A4A425F2611FCF620E7D055DA&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 8월).xlsx 부서운영업무추진비 집행내역(25년 8월).xlsx 부서운영업무추진비 집행내역(25년 8월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=D8ECA0FFBE6FE03FA42B4DBF0096C9CB",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 8월).xlsx 업무추진비 집행내역(25년 8월).xlsx 업무추진비 집행내역(25년 8월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=B48362859F6E8BF53E4625405CCB285F",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "anseong",
@@ -373,18 +373,8 @@
         null
       ],
       "post_url": "https://anseongcl.go.kr/kr/costBBSview.do?uid=0BA1412C2713FDDFC53FCF71CE8F4A43&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "부서운영업무추진비 집행내역(25년 5월).xlsx 부서운영업무추진비 집행내역(25년 5월).xlsx 부서운영업무추진비 집행내역(25년 5월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=F6A1FAD45A7698054E8573E394CF62C5",
-          "onclick": ""
-        },
-        {
-          "text": "업무추진비 집행내역(25년 5월).xlsx 업무추진비 집행내역(25년 5월).xlsx 업무추진비 집행내역(25년 5월).xlsx",
-          "url": "https://anseongcl.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A3A0151D7363AE0112FEEC764B686F0E",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "anseong",
