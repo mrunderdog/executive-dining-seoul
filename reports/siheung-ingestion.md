@@ -1,0 +1,155 @@
+# siheung expense ingestion
+
+- Normalized rows: **2150**
+- Source posts: **7**
+- Downloaded files: **7**
+- Errors: **0**
+
+## Rows by year
+
+- 2024: 269
+- 2025: 1059
+- 2026: 822
+
+## Top roles / sheets
+
+- pdf-page-12: 246
+- 시흥시의회: 223
+- pdf-page-10: 205
+- pdf-page-14: 179
+- 교섭단체: 176
+- pdf-page-6: 176
+- pdf-page-7: 159
+- pdf-page-11: 150
+- pdf-page-8: 148
+- pdf-page-9: 133
+- pdf-page-13: 85
+- pdf-page-16: 67
+- pdf-page-15: 48
+- 연구단체: 41
+- pdf-page-17: 16
+- pdf-page-18: 11
+- 시흥시의: 10
+- 시: 7
+- 시흥: 5
+- 시흥시청점: 4
+
+## Files
+
+- `Array 첨부파일을 다운받습니다. pdf 2026년 2분기 시흥시의회 업무추진비 집행내역 공개.pdf` — 769,088 bytes — 350 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: OK / parsed 49 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-4: OK / parsed 49 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-5: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-6: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-7: OK / parsed 42 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-8: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-9: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-10: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-14: OK / parsed 16 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2026년 1분기 시흥시의회 업무추진비 집행내역 공개.pdf` — 281,262 bytes — 472 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: OK / parsed 49 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-4: OK / parsed 49 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-5: OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-6: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-7: OK / parsed 29 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-8: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-9: OK / parsed 19 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-10: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-14: OK / parsed 35 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-15: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-16: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2025년 4분기 시흥시의회 업무추진비 집행내역 공개.pdf` — 958,029 bytes — 235 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-7: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-8: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-9: OK / parsed 31 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-10: OK / parsed 21 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 40 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: OK / parsed 18 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-14: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-15: OK / parsed 10 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2025년 3분기 시흥시의회 업무추진비 집행내역 공개.pdf` — 969,701 bytes — 281 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-7: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-8: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-9: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-10: OK / parsed 41 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-14: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-15: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-16: OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-17: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-18: OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2025년 2분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf` — 902,378 bytes — 265 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-7: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-8: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-9: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-10: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-11: OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-14: OK / parsed 29 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-15: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-16: OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-17: OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2025년 1분기 시흥시의회 업무추진비 집행내역 공개(수정).pdf` — 777,944 bytes — 278 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-7: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-8: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-9: OK / parsed 24 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-10: OK / parsed 40 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 38 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 32 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-14: OK / parsed 24 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `Array 첨부파일을 다운받습니다. pdf 2024년 4분기 시흥시의회 업무추진비 집행내역 공개.pdf` — 184,265 bytes — 269 rows
+  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-2: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'amount': 6, 'method': 7, 'role': 5}
+  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-6: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-7: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-8: OK / parsed 44 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-9: NO_HEADER / parsed 0 / mapping {}
+  - pdf-page-10: OK / parsed 39 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-11: OK / parsed 22 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-12: OK / parsed 37 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-13: OK / parsed 42 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-14: OK / parsed 30 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-15: OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - pdf-page-16: OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}

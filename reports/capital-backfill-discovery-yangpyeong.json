@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T23:18:46",
+  "generated_at": "2026-09-22T02:35:10",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -83,18 +83,8 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5119&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=1&integrDeptCode=",
-      "attachments": [
-        {
-          "text": "pdf 문서 2026년 업무추진비사용내역(2월)_부의장.pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4370",
-          "onclick": ""
-        },
-        {
-          "text": "pdf 문서 2026년 업무추진비사용내역(2월)_의장.pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4371",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
     },
     {
       "source": "yangpyeong",
@@ -108,17 +98,422 @@
         null
       ],
       "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5108&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=1&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2026년 1월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2026,
+        1,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5107&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2026년 1월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2026,
+        1,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5106&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4분기 양평군의회 업무추진비 집행내역(기관운영·시책추진 업무추진비)",
+      "period": [
+        2025,
+        null,
+        4
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5081&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
       "attachments": [
         {
-          "text": "pdf 문서 업무추진비 사용내역 공개(1월)_기관운영업무추진비.pdf",
-          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4357",
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4320",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_시책).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4321",
           "onclick": ""
         }
       ]
     },
     {
       "source": "yangpyeong",
-      "listing_url": "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex=2&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4분기 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        null,
+        4
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5080&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4319",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 4분기 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        null,
+        4
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=5079&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4317",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(10월~12월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4318",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 9월 양평군의회 업무추진비 집행내역(기관운영·시책추진 업무추진비)",
+      "period": [
+        2025,
+        9,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4959&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(9월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4235",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(9월_시책업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4236",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 9월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        9,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4958&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(9월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4234",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 9월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        9,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4957&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(9월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4232",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(9월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4233",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 8월 양평군의회 업무추진비 집행내역(기관운영 업무추진비)",
+      "period": [
+        2025,
+        8,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4912&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(8월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4186",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 8월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        8,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4911&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=2&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 8월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        8,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4910&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(8월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4183",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(8월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4184",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 7월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        7,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4874&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(7월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4120",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 7월 양평군의회 업무추진비 집행내역(기관운영·시책추진 업무추진비)",
+      "period": [
+        2025,
+        7,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4873&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 7월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        7,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4872&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(7월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4116",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(7월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4117",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 6월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        6,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4861&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(6월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4103",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 6월 양평군의회 업무추진비 집행내역(기관운영·시책추진 업무추진비)",
+      "period": [
+        2025,
+        6,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4860&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(6월_기관운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4101",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(6월_시책운영업무추진비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4102",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 6월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        6,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4859&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(6월_의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4099",
+          "onclick": ""
+        },
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(6월_부의장).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4100",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 5월 양평군의회 업무추진비 집행내역(의정운영공통경비)",
+      "period": [
+        2025,
+        5,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4858&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [
+        {
+          "text": "pdf 문서 업무추진비 사용내역 공개(5월_의정운영공통경비).pdf",
+          "url": "https://www.ypcouncil.go.kr/main/downloadBbsFile.do?atchmnflNo=4098",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 5월 양평군의회 업무추진비 집행내역(기관운영업무추진비)",
+      "period": [
+        2025,
+        5,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4857&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "region": "경기",
+      "jurisdiction": "양평군",
+      "institution": "양평군의회",
+      "title": "2025년 5월 양평군의회 업무추진비 집행내역(의장, 부의장)",
+      "period": [
+        2025,
+        5,
+        null
+      ],
+      "post_url": "https://www.ypcouncil.go.kr/main/selectBbsNttView.do?key=43&bbsNo=9&nttNo=4856&searchCtgry=&searchCnd=all&searchKrwd=&pageIndex=3&integrDeptCode=",
+      "attachments": [],
+      "error": "detail URLError: <urlopen error timed out>"
+    },
+    {
+      "source": "yangpyeong",
+      "listing_url": "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex=4&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=",
       "error": "listing URLError: <urlopen error timed out>"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T08:53:25",
+  "generated_at": "2026-09-22T02:32:12",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -9,7 +9,7 @@
     {
       "source": "seongnam",
       "listing_url": "https://www.sncouncil.go.kr/kr/news/bbsCost.do?pageNum=1",
-      "error": "listing URLError: <urlopen error timed out>"
+      "error": "listing URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)>"
     }
   ]
 }

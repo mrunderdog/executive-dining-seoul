@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T23:20:02",
+  "generated_at": "2026-09-22T02:33:52",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -213,13 +213,8 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=115&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [
-        {
-          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2026.3월).zip",
-          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282026%2E3%EC%9B%94%29%2Ezip&filepath=board_189",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail RemoteDisconnected: Remote end closed connection without response"
     },
     {
       "source": "michuhol",
@@ -252,8 +247,13 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=114&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [],
-      "error": "detail RemoteDisconnected: Remote end closed connection without response"
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2026.2월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282026%2E2%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "michuhol",
@@ -320,8 +320,13 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=112&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [],
-      "error": "detail RemoteDisconnected: Remote end closed connection without response"
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.12월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E12%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "michuhol",
@@ -389,7 +394,7 @@
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=110&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
       "attachments": [],
-      "error": "detail URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+      "error": "detail RemoteDisconnected: Remote end closed connection without response"
     },
     {
       "source": "michuhol",
@@ -422,13 +427,8 @@
         null
       ],
       "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=109&gotopage=1&keyfield=&keyword=&dept_idx=&bbs_category=",
-      "attachments": [
-        {
-          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.9월).zip",
-          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E9%EC%9B%94%29%2Ezip&filepath=board_189",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
     },
     {
       "source": "michuhol",
@@ -563,8 +563,237 @@
     },
     {
       "source": "michuhol",
-      "listing_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
-      "error": "listing RemoteDisconnected: Remote end closed connection without response"
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2025. 5월",
+      "period": [
+        2025,
+        5,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=105&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.5월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E5%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 5월",
+      "period": [
+        2025,
+        5,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 5월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E5%EC%9B%94%29%2Ezip"
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2025. 4월",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=104&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.4월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E4%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 4월",
+      "period": [
+        2025,
+        4,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 4월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E4%EC%9B%94%29%2Ezip"
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2025. 3월",
+      "period": [
+        2025,
+        3,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=103&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.3월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E3%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 3월",
+      "period": [
+        2025,
+        3,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 3월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E3%EC%9B%94%29%2Ezip"
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2025. 2월",
+      "period": [
+        2025,
+        2,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=102&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.2월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E2%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 2월",
+      "period": [
+        2025,
+        2,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 2월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025%2E2%EC%9B%94%29%2Ezip"
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2025. 1월",
+      "period": [
+        2025,
+        1,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=101&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.1월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E1%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 1월",
+      "period": [
+        2025,
+        1,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2025. 1월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025%2E1%EC%9B%94%29%2Ezip"
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "의장단 업무추진비 사용내역2024. 12월",
+      "period": [
+        2024,
+        12,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_view.asp?bbs_code=board_189&class_code=&seq=100&gotopage=2&keyfield=&keyword=&dept_idx=&bbs_category=",
+      "attachments": [
+        {
+          "text": "새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2024. 12월).zip",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282024%2E+12%EC%9B%94%29%2Ezip&filepath=board_189",
+          "onclick": ""
+        }
+      ]
+    },
+    {
+      "source": "michuhol",
+      "region": "인천",
+      "jurisdiction": "미추홀구",
+      "institution": "미추홀구의회",
+      "title": "첨부파일 다운로드 의장단 업무추진비 사용내역2024. 12월",
+      "period": [
+        2024,
+        12,
+        null
+      ],
+      "post_url": "https://www.michuhol.go.kr/ndsys/ndBBs/bbs_list.asp?bbs_category=&bbs_code=board_189&class_code=&dept_idx=&gotopage=2&keyfield=&keyword=",
+      "attachments": [
+        {
+          "text": "첨부파일 다운로드 의장단 업무추진비 사용내역2024. 12월",
+          "url": "https://www.michuhol.go.kr/ShareEtc/download.asp?filepath=board_189&class_code=&filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282024%2E+12%EC%9B%94%29%2Ezip"
+        }
+      ]
     }
   ]
 }

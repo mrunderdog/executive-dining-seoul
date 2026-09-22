@@ -15,23 +15,20 @@
 
 ## Top roles / sheets
 
-- 의장: 698
+- 의장: 905
+- 부의장: 330
 - 환경안전위원장: 266
 - 기획경제위원장: 170
 - 의회운영위원장: 169
 - 보건복지위원장: 163
-- 부의장: 159
-- 도시미래위원회: 159
-- 문화체육교육위원회: 140
-- 교섭단체 대표의원(국민의힘): 74
-- 교섭단체 대표의원(더불어민주당): 71
 - 도시미래위원장: 67
+- 도시미래위원회: 50
+- 문화체육교육위원회: 45
 - 예산결산특별위원장: 42
 - 문화체육위원장: 32
-- 문화체육위원회: 27
 - 의회운영위원회: 15
 - 문화체육교육위원장: 15
-- 부의장 김정렬: 12
+- 문화체육위원회: 10
 - 예결특위위원장: 7
 
 ## Files
@@ -39,436 +36,436 @@
 - `2026. 8월 업무추진비 집행내역(의장단).xlsx 2026. 8월 업무추진비 집행내역(의장단).xlsx 2026. 8월 업무추진비 집행내역(의장단).xlsx` — 51,240 bytes — 104 rows
   - 의장: OK / parsed 24 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 9 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 8월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 51,240 bytes — 104 rows
   - 의장: OK / parsed 24 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 9 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 7월 업무추진비 집행내역(의장단).xlsx 2026. 7월 업무추진비 집행내역(의장단).xlsx 2026. 7월 업무추진비 집행내역(의장단).xlsx` — 51,757 bytes — 137 rows
   - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 8 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 7월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 51,757 bytes — 137 rows
   - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 8 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 6월 업무추진비 집행내역(의장단).xlsx 2026. 6월 업무추진비 집행내역(의장단).xlsx 2026. 6월 업무추진비 집행내역(의장단).xlsx` — 50,686 bytes — 120 rows
   - 의장: OK / parsed 25 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 6월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 50,686 bytes — 120 rows
   - 의장: OK / parsed 25 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 5월 업무추진비 집행내역(의장단).xlsx 2026. 5월 업무추진비 집행내역(의장단).xlsx 2026. 5월 업무추진비 집행내역(의장단).xlsx` — 48,060 bytes — 70 rows
   - 의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 8 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 5월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 48,060 bytes — 70 rows
   - 의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 8 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 4월 업무추진비 집행내역(의장단).xlsx 2026. 4월 업무추진비 집행내역(의장단).xlsx 2026. 4월 업무추진비 집행내역(의장단).xlsx` — 50,209 bytes — 105 rows
   - 의장: OK / parsed 29 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 4월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 50,209 bytes — 105 rows
   - 의장: OK / parsed 29 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예산결산특위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx 2026. 3월 업무추진비 집행내역(의장단).xlsx` — 50,058 bytes — 135 rows
   - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 3월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 50,058 bytes — 135 rows
   - 의장: OK / parsed 31 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 18 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 2월 업무추진비 집행내역(의장단).xlsx 2026. 2월 업무추진비 집행내역(의장단).xlsx 2026. 2월 업무추진비 집행내역(의장단).xlsx` — 47,087 bytes — 102 rows
   - 의장: OK / parsed 22 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 2월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 47,087 bytes — 102 rows
   - 의장: OK / parsed 22 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 1월 업무추진비 집행내역(의장단).xlsx 2026. 1월 업무추진비 집행내역(의장단).xlsx 2026. 1월 업무추진비 집행내역(의장단).xlsx` — 52,016 bytes — 111 rows
   - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 6 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2026. 1월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일` — 52,016 bytes — 111 rows
   - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 6 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육교육: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영위: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `※ 2025년 12월 업무추진비 내역공개(의장단).xlsx ※ 2025년 12월 업무추진비 내역공개(의장단).xlsx ※ 2025년 12월 업무추진비 내역공개(의장단).xlsx` — 43,310 bytes — 138 rows
-  - 의장: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 22 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 26 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 17 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 26 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'※ 2025년 12월 업무추진비 내역공개(의장단).xlsx' 파일 내려받기 첨부 파일` — 43,310 bytes — 138 rows
-  - 의장: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 22 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 26 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 17 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 22 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 26 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `※ 2025년 11월 업무추진비 내역공개_의장단.xlsx ※ 2025년 11월 업무추진비 내역공개_의장단.xlsx ※ 2025년 11월 업무추진비 내역공개_의장단.xlsx` — 36,281 bytes — 73 rows
-  - 의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'※ 2025년 11월 업무추진비 내역공개_의장단.xlsx' 파일 내려받기 첨부 파일` — 36,281 bytes — 73 rows
-  - 의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 2 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `★2025년 10월 업무추진비 내역공개(상임위).xlsx ★2025년 10월 업무추진비 내역공개(상임위).xlsx ★2025년 10월 업무추진비 내역공개(상임위).xlsx` — 35,244 bytes — 67 rows
-  - 의장: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'★2025년 10월 업무추진비 내역공개(상임위).xlsx' 파일 내려받기 첨부 파일` — 35,244 bytes — 67 rows
-  - 의장: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `★2025년 9월 업무추진비 내역공개(수원시의회).xlsx ★2025년 9월 업무추진비 내역공개(수원시의회).xlsx ★2025년 9월 업무추진비 내역공개(수원시의회).xlsx` — 35,466 bytes — 89 rows
-  - 의장: OK / parsed 36 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 36 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'★2025년 9월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일` — 35,466 bytes — 89 rows
-  - 의장: OK / parsed 36 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 36 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 8월 업무추진비 내역공개(수원시의회).xlsx 2025년 8월 업무추진비 내역공개(수원시의회).xlsx 2025년 8월 업무추진비 내역공개(수원시의회).xlsx` — 41,061 bytes — 111 rows
-  - 의장: OK / parsed 43 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 43 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 8월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일` — 41,061 bytes — 111 rows
-  - 의장: OK / parsed 43 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 43 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 7월 업무추진비 내역공개(수원시의회).xlsx 2025년 7월 업무추진비 내역공개(수원시의회).xlsx 2025년 7월 업무추진비 내역공개(수원시의회).xlsx` — 41,961 bytes — 128 rows
-  - 의장: OK / parsed 42 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 42 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 7월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일` — 41,961 bytes — 128 rows
-  - 의장: OK / parsed 42 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 1 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 42 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 6월 업무추진비 내역공개(수원시의회).xlsx 2025년 6월 업무추진비 내역공개(수원시의회).xlsx 2025년 6월 업무추진비 내역공개(수원시의회).xlsx` — 41,545 bytes — 111 rows
-  - 의장: OK / parsed 42 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 42 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 6월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일` — 41,545 bytes — 111 rows
-  - 의장: OK / parsed 42 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 42 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 5월 업무추진비 내역공개(의장, 부의장 및 상임위원장).xlsx 2025년 5월 업무추진비 내역공개(의장, 부의장 및 상임위원장).xlsx 2025년 5월 업무추진비 내역공개(의장, 부의장 및 상임위원장)` — 40,049 bytes — 96 rows
-  - 의장: OK / parsed 47 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 47 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 5월 업무추진비 내역공개(의장, 부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 40,049 bytes — 96 rows
-  - 의장: OK / parsed 47 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 0 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 47 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx 2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장)` — 42,517 bytes — 149 rows
-  - 의장: OK / parsed 44 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 20 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 17 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 44 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 4월 업무추진비 내역공개(의장， 부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 42,517 bytes — 149 rows
-  - 의장: OK / parsed 44 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 20 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 18 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 17 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 4 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 44 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 18 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 17 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx 2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xl` — 38,104 bytes — 110 rows
-  - 의장: OK / parsed 29 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 3월 업무추진비 내역공개(의장,부의장 및 상임위원장).xlsx' 파일 내려받기 첨부 파일` — 38,104 bytes — 110 rows
-  - 의장: OK / parsed 29 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 11 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2025년 2월 업무추진비 내역공개(수원시의회).xlsx 2025년 2월 업무추진비 내역공개(수원시의회).xlsx 2025년 2월 업무추진비 내역공개(수원시의회).xlsx` — 36,172 bytes — 83 rows
-  - 의장: OK / parsed 30 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 30 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'2025년 2월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일` — 36,172 bytes — 83 rows
-  - 의장: OK / parsed 30 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 8 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 9 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 5 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 10 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 6 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 30 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 8 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 5 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `★2025년 1월 업무추진비 내역공개_수원시의회.xlsx ★2025년 1월 업무추진비 내역공개_수원시의회.xlsx ★2025년 1월 업무추진비 내역공개_수원시의회.xlsx` — 37,487 bytes — 98 rows
-  - 의장: OK / parsed 21 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'★2025년 1월 업무추진비 내역공개_수원시의회.xlsx' 파일 내려받기 첨부 파일` — 37,487 bytes — 98 rows
-  - 의장: OK / parsed 21 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 3 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 21 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 3 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `★2024년 12월 업무추진비 내역공개_수원시의회.xlsx ★2024년 12월 업무추진비 내역공개_수원시의회.xlsx ★2024년 12월 업무추진비 내역공개_수원시의회.xlsx` — 39,847 bytes — 149 rows
-  - 의장: OK / parsed 33 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 20 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `'★2024년 12월 업무추진비 내역공개_수원시의회.xlsx' 파일 내려받기 첨부 파일` — 39,847 bytes — 149 rows
-  - 의장: OK / parsed 33 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 부의장: OK / parsed 15 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 의회운영: OK / parsed 14 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 기획경제: OK / parsed 12 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 도시미래: OK / parsed 19 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 환경안전: OK / parsed 20 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 문화체육: OK / parsed 16 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 보건복지: OK / parsed 13 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
-  - 예결특위: OK / parsed 7 / mapping {'role': 0, 'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6}
+  - 의장: OK / parsed 33 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 부의장: OK / parsed 15 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 기획경제: OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 20 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예결특위: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "seohae",
-  "generated_at": "2026-09-18T23:18:35",
+  "generated_at": "2026-09-22T02:32:27",
   "row_count": 95,
   "rows": [
     {
@@ -2687,12 +2687,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 15
         },
@@ -2710,12 +2710,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 7
         },
@@ -2733,12 +2733,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 6
         },
@@ -2756,12 +2756,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 2
         },
@@ -2779,12 +2779,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 4
         },
@@ -2803,13 +2803,13 @@
             "time"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "time": 2,
             "merchant": 3,
             "purpose": 4,
             "amount": 5,
-            "people": 6
+            "people": 6,
+            "role": 0
           },
           "parsed_rows": 0
         },
@@ -2827,12 +2827,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 9
         },
@@ -2880,12 +2880,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 11
         },
@@ -2903,12 +2903,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 2
         },
@@ -2926,12 +2926,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 3
         },
@@ -2949,12 +2949,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 1
         },
@@ -2972,12 +2972,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 2
         },
@@ -2996,13 +2996,13 @@
             "time"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "time": 2,
             "merchant": 3,
             "purpose": 4,
             "amount": 5,
-            "people": 6
+            "people": 6,
+            "role": 0
           },
           "parsed_rows": 0
         },
@@ -3020,12 +3020,12 @@
             "role"
           ],
           "mapping": {
-            "role": 0,
             "date": 1,
             "merchant": 2,
             "purpose": 3,
             "amount": 4,
-            "people": 5
+            "people": 5,
+            "role": 0
           },
           "parsed_rows": 5
         },
