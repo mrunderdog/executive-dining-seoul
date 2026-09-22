@@ -262,6 +262,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             mapping.pop("role", None)
     out = []
     blank_run = 0
+    last_used_date = ""
     for ri, row in enumerate(rows[hi + 1:], start=hi + 2):
         if not any(clean_text(x) for x in row):
             blank_run += 1
@@ -271,6 +272,16 @@ def normalize_sheet(rows, sheet_name, source_meta):
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
         used_date = parse_date(cell(row, mapping, "date"))
+        date_inferred = False
+        # Excel disclosure sheets frequently merge the date cell across several
+        # transaction rows. openpyxl/xlrd expose only the first merged-cell value,
+        # leaving following merchant rows blank. Carry the immediately preceding
+        # valid transaction date within the same table only.
+        if used_date and re.match(r"20\d{2}", used_date):
+            last_used_date = used_date
+        elif not used_date and merchant and last_used_date:
+            used_date = last_used_date
+            date_inferred = True
         if not merchant and amount is None:
             continue
         # Skip structural/header/subtotal rows that carry a numeric amount but
@@ -298,6 +309,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "source_sheet": sheet_name,
             "source_row": ri,
             "used_date": used_date,
+            "date_inferred_from_previous_row": date_inferred,
             "used_time": clean_text(cell(row, mapping, "time")),
             "role": resolve_role(
                 cell(row, mapping, "role"),
