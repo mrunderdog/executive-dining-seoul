@@ -49,6 +49,6 @@ function clearSelection(){
 }
 function resetFilters(){ds.value='all';ori.value='all';q.value='';sort.value='signal';clearSelection();renderList(true)}
 function switchStyle(){styleMode=styleMode==='positron'?'liberty':'positron';mapReady=false;map.setStyle(STYLES[styleMode]);map.once('style.load',()=>{mapReady=true;addLayers();updateMap(false)})}
-map.on('load',()=>{mapReady=true;addLayers();updateMap(true)});ds.onchange=ori.onchange=()=>{clearSelection();renderList(true)};q.oninput=()=>{clearSelection();renderList(true)};sort.onchange=()=>renderList(false);$('reset').onclick=resetFilters;$('fit').onclick=fitMap;$('selectedBtn').onclick=()=>{const r=recordByKey(selected);if(r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon))map.flyTo({center:[r.lon,r.lat],zoom:Math.max(map.getZoom(),15.2),duration:450})};
+map.on('load',()=>{mapReady=true;addLayers();updateMap(true)});ds.onchange=ori.onchange=()=>{clearSelection();renderList(true)};q.oninput=()=>{clearSelection();renderList(true)};sort.onchange=()=>renderList(false);$('reset').onclick=resetFilters;$('fit').onclick=fitMap;
 const styleBtn=document.createElement('button');styleBtn.className='map-btn';styleBtn.textContent='지도톤';styleBtn.onclick=switchStyle;document.querySelector('.map-actions')?.prepend(styleBtn);
 updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length}/${DATA.length} · 첫 접속 추가 지오코딩 없음`;
