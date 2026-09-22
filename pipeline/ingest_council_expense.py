@@ -13,6 +13,7 @@ import io
 import json
 import re
 import urllib.request
+import zipfile
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -181,6 +182,25 @@ def fetch_binary(url: str, referer: str = "") -> bytes:
 
 def workbook_rows(blob: bytes, filename: str):
     lower = filename.lower()
+    # Some councils publish monthly disclosures as a ZIP containing one or
+    # more XLS/XLSX/PDF files. Expand those archives before treating PK bytes
+    # as an Office Open XML workbook.
+    if lower.endswith(".zip"):
+        with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+            yielded = False
+            for member in zf.namelist():
+                if member.endswith("/") or member.startswith("__MACOSX/"):
+                    continue
+                ml = member.lower()
+                if not ml.endswith((".xlsx", ".xls", ".pdf", ".csv")):
+                    continue
+                inner = zf.read(member)
+                for sheet_name, rows in workbook_rows(inner, member):
+                    yielded = True
+                    yield f"{member}::{sheet_name}", rows
+            if not yielded:
+                raise ValueError("ZIP contained no supported spreadsheet/PDF files")
+        return
     if blob.startswith(b"PK") or lower.endswith(".xlsx"):
         import openpyxl
         wb = openpyxl.load_workbook(io.BytesIO(blob), read_only=True, data_only=True)
