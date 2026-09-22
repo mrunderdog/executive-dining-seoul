@@ -468,9 +468,15 @@ def normalize_sheet(rows, sheet_name, source_meta):
         blank_run = 0
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
-        if merchant and not valid_transaction_merchant(merchant):
-            continue
         raw_date_value = cell(row, mapping, "date")
+        raw_date_text = clean_text(raw_date_value)
+        if any(token in raw_date_text.replace(" ", "") for token in ("사용내역없음", "해당없음", "내역없음")):
+            continue
+        if merchant and (
+            not valid_transaction_merchant(merchant)
+            or merchant.replace(" ", "") in {"신용카드", "카드", "현금", "계좌이체"}
+        ):
+            continue
         used_date = parse_date(raw_date_value)
         date_inferred = False
         # parse_date deliberately preserves unknown text for structural-row
