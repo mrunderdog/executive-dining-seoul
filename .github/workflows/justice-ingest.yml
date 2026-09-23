@@ -1,0 +1,86 @@
+name: Justice leadership expense ingestion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sources/justice_leadership_registry.json'
+      - 'pipeline/justice_leadership_discovery.py'
+      - 'pipeline/ingest_justice_leadership_expense.py'
+      - 'pipeline/build_justice_leadership_candidates.py'
+      - 'pipeline/ingest_central_executive_expense.py'
+      - 'pipeline/central_executive_discovery.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/geocode_extra_cache.py'
+      - '.github/workflows/justice-ingest.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: published-data-writer
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+
+      - name: Discover justice leadership sources
+        run: python pipeline/justice_leadership_discovery.py
+
+      - name: Ingest justice leadership expenses
+        run: python pipeline/ingest_justice_leadership_expense.py
+
+      - name: Build justice leadership dining candidates
+        run: python pipeline/build_justice_leadership_candidates.py
+
+      - name: Validate justice output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          raw=json.loads(Path('data/raw/justice_leadership_expense.json').read_text(encoding='utf-8'))
+          cand=json.loads(Path('reports/justice-leadership-candidates.json').read_text(encoding='utf-8'))
+          rows=raw.get('rows',[])
+          merchant=[r for r in rows if str(r.get('merchant') or '').strip()]
+          print({'rows':len(rows),'merchant_rows':len(merchant),'eligible':cand.get('eligible_count',0)})
+          if not rows:
+              raise SystemExit('justice pipeline produced zero rows')
+          if not merchant:
+              raise SystemExit('justice pipeline produced zero merchant rows')
+          PY
+
+      - name: Geocode supplemental cohorts
+        run: python pipeline/geocode_extra_cache.py
+
+      - name: Quality gate public dataset
+        run: python pipeline/quality_gate.py
+
+      - name: Verify site build
+        run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Commit justice data and reports
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/justice_leadership_expense.json reports/justice-leadership-* data/geocode_cache.json || true
+          if git diff --cached --quiet; then
+            echo "No justice data changes."
+            exit 0
+          fi
+          git commit -m "data: refresh justice leadership cohort"
+          git pull --rebase origin main
+          git push origin HEAD:main
