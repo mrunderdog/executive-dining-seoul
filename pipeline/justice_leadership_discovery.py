@@ -9,11 +9,12 @@ from collections import deque
 from datetime import datetime
 from pathlib import Path
 
-from central_executive_discovery import fetch, parse_links, looks_file, extract_year_month
+from central_executive_discovery import fetch, parse_links, looks_file, extract_year_month, discover_source as discover_central_source
 
 ROOT=Path(__file__).resolve().parents[1]
 REGISTRY=ROOT/"sources"/"justice_leadership_registry.json"
 REPORTS=ROOT/"reports"
+CENTRAL_REGISTRY=ROOT/"sources"/"central_executive_registry.json"
 PARSEABLE_EXTS=(".xlsx",".xls",".csv",".hwpx",".pdf")
 
 
@@ -95,21 +96,29 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); args=ap.parse_args()
     reg=json.loads(REGISTRY.read_text(encoding="utf-8"))
     rows=[discover(src,args.year) for src in reg.get("sources",[])]
-    # Surface inherited central sources in the same status report without duplicating discovery work.
-    central_path=REPORTS/"central-executive-discovery.json"
+    # Refresh the two legal-administration sources directly so this pipeline is
+    # independent from the broader central-government refresh cadence.
     inherited=[]
-    if central_path.exists():
-        central=json.loads(central_path.read_text(encoding="utf-8"))
-        by_key={x.get("key"):x for x in central.get("sources",[])}
-        for item in reg.get("inherited_central_sources",[]):
-            src=by_key.get(item.get("source_key")) or {}
+    central_reg=json.loads(CENTRAL_REGISTRY.read_text(encoding="utf-8"))
+    central_by_key={x.get("key"):x for x in central_reg.get("sources",[])}
+    for item in reg.get("inherited_central_sources",[]):
+        base=central_by_key.get(item.get("source_key"))
+        if not base:
             inherited.append({
                 "key":item.get("source_key"),"institution":item.get("institution"),
                 "default_role":"","source_type":item.get("source_type","official_routine"),
                 "inherited_from":"central_executive","role_scope":item.get("role_scope",""),
-                "attachments":src.get("attachments",[]),"parseable_attachments":src.get("parseable_attachments",0),
-                "status":src.get("status","CENTRAL_DISCOVERY_MISSING"),"errors":src.get("errors",[])
+                "attachments":[],"parseable_attachments":0,"status":"CENTRAL_REGISTRY_MISSING","errors":[]
             })
+            continue
+        src=discover_central_source(base,args.year)
+        inherited.append({
+            **src,
+            "default_role":"",
+            "source_type":item.get("source_type","official_routine"),
+            "inherited_from":"central_executive",
+            "role_scope":item.get("role_scope",""),
+        })
     payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,
              "cohort":"justice_leadership","inherited_sources":inherited,"sources":rows}
     REPORTS.mkdir(exist_ok=True)
