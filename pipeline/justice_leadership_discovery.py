@@ -123,6 +123,16 @@ def main():
     inherited=[]
     central_reg=json.loads(CENTRAL_REGISTRY.read_text(encoding="utf-8"))
     central_by_key={x.get("key"):x for x in central_reg.get("sources",[])}
+    # A ministry site can transiently time out. Keep the most recent committed
+    # discovery as a lineage-preserving fallback rather than dropping a source.
+    central_last_by_key={}
+    central_last_path=REPORTS/"central-executive-discovery.json"
+    if central_last_path.exists():
+        try:
+            central_last=json.loads(central_last_path.read_text(encoding="utf-8"))
+            central_last_by_key={x.get("key"):x for x in central_last.get("sources",[])}
+        except (OSError,json.JSONDecodeError):
+            central_last_by_key={}
     inherited_cfg=reg.get("inherited_central_sources",[])
     def run_inherited(item):
         base=central_by_key.get(item.get("source_key"))
@@ -134,6 +144,15 @@ def main():
                 "attachments":[],"parseable_attachments":0,"status":"CENTRAL_REGISTRY_MISSING","errors":[]
             }
         src=discover_central_source(base,args.year)
+        if not src.get("attachments"):
+            previous=central_last_by_key.get(item.get("source_key")) or {}
+            if previous.get("attachments"):
+                src={
+                    **previous,
+                    "status":"STALE_OK",
+                    "fallback_reason":src.get("status") or "live_discovery_empty",
+                    "live_errors":src.get("errors",[]),
+                }
         return {
             **src,
             "default_role":"",
