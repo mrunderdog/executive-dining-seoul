@@ -442,6 +442,14 @@ def discover_source(src: Source, since, until):
                 found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
                 if not found:
                     found = regex_attachment_fallback(a["url"], detail)
+                if src.key == "icheon":
+                    # Icheon publishes operating common-expense and business-
+                    # promotion expense PDFs together. Only the latter belongs
+                    # in this dataset.
+                    found = [
+                        x for x in found
+                        if "업무추진비" in str(x.get("text") or "")
+                    ]
                 row["attachments"] = found
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
