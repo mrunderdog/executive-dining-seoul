@@ -4,6 +4,7 @@ from pathlib import Path
 
 from coordinate_selection import select_coordinate
 from build_source_candidates import plausible_transaction
+from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
 from repair_raw_dates import parse_date_text
 from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_amount_from_row, recover_date_from_row, resolve_role, valid_transaction_merchant
 
