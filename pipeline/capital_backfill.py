@@ -444,7 +444,10 @@ def main():
     # previously usable source map with a zero-result discovery.
     fresh_posts = [x for x in rows if x.get("post_url")]
     fresh_downloadable = sum(
-        1 for x in fresh_posts for a in x.get("attachments", []) if a.get("url")
+        1
+        for x in fresh_posts
+        for a in x.get("attachments", [])
+        if canonical_attachment_url(a.get("url"))
     )
     if args.source and out_json.exists() and (not fresh_posts or fresh_downloadable == 0):
         try:
@@ -453,7 +456,10 @@ def main():
             previous = {}
         previous_posts = [x for x in previous.get("posts", []) if x.get("post_url")]
         previous_downloadable = sum(
-            1 for x in previous_posts for a in x.get("attachments", []) if a.get("url")
+            1
+            for x in previous_posts
+            for a in x.get("attachments", [])
+            if canonical_attachment_url(a.get("url"))
         )
         if previous_posts and previous_downloadable:
             print(json.dumps({
