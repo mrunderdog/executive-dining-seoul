@@ -3,7 +3,7 @@
 - Normalized rows: **2316**
 - Source posts: **14**
 - Downloaded files: **7**
-- Errors: **8**
+- Errors: **0**
 
 ## Rows by year
 
@@ -131,14 +131,3 @@
   - pdf-page-14: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-15: OK / parsed 24 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-16: OK / parsed 12 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
-
-## Errors
-
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33364
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33365
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=33075
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=32439
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=31538
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30727
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=30065
-- NameError: name 'html' is not defined — https://council.gm.go.kr/viewer/pdf.do?group=bbs&uid=29367

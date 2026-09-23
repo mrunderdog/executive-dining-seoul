@@ -2,8 +2,8 @@
 
 - Normalized rows: **1586**
 - Source posts: **33**
-- Downloaded files: **34**
-- Errors: **1**
+- Downloaded files: **33**
+- Errors: **2**
 
 ## Rows by year
 
@@ -33,11 +33,6 @@
 
 ## Files
 
-- `업무추진비 사용내역[2026년7월].xlsx(다운로드) 업무추진비 사용내역[2026년7월].xlsx 업무추진비 사용내역[2026년7월].xlsx` — 27,240 bytes — 85 rows
-  - 의회운영업무추진비: OK / parsed 49 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 2 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 24 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `'업무추진비 사용내역[2026년7월].xlsx' 파일 내려받기 첨부 파일` — 27,240 bytes — 85 rows
   - 의회운영업무추진비: OK / parsed 49 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -194,4 +189,5 @@
 
 ## Errors
 
+- URLError: <urlopen error [Errno -3] Temporary failure in name resolution> — https://www.gjcouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A97B4D799C4DEFDB7AA785E39B34D23A
 - NameError: name 'html' is not defined — https://www.gjcouncil.go.kr/common/downloadSelector.do?type=bbs&uid=39578DAC697A9A330F2A1DED80E5BF8E

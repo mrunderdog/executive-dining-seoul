@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T13:43:59",
+  "generated_at": "2026-09-23T01:43:31",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -9,7 +9,8 @@
     {
       "source": "yeoju",
       "listing_url": "https://yeojucouncil.go.kr/kr/costBBS.do?flag=all&page=1",
-      "error": "listing URLError: <urlopen error timed out>"
+      "error": "listing URLError: <urlopen error timed out>",
+      "attachments": []
     }
   ]
 }

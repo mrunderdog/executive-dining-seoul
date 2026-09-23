@@ -2,8 +2,8 @@
 
 - Normalized rows: **432**
 - Source posts: **42**
-- Downloaded files: **8**
-- Errors: **34**
+- Downloaded files: **7**
+- Errors: **14**
 
 ## Rows by year
 
@@ -65,16 +65,6 @@
   - 도시건설위원장: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - 의회사무국장(4급): OK / parsed 15 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
   - 의정담당관(5급): OK / parsed 2 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-- `'2025년 3월 업무추진비 집행내역(용인시의회).xlsx' 파일 내려받기 '2025년 3월 업무추진비 집행내역(용인시의회).xlsx' 파일 내려받기` — 57,289 bytes — 82 rows
-  - 의장: OK / parsed 12 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - 부의장: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - 의회운영위원장: OK / parsed 10 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - 자치행정위원장: OK / parsed 4 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - 문화복지위원장: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
-  - 경제환경위원장: OK / parsed 8 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - 도시건설위원장: OK / parsed 14 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - 의회사무국장(4급): OK / parsed 15 / mapping {'date': 0, 'purpose': 1, 'people': 2, 'amount': 3, 'merchant': 4}
-  - 의정담당관(5급): OK / parsed 2 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
 - `'2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기 '2025년 2월 업무추진비 집행내역(용인시의회).pdf' 파일 내려받기` — 57,596 bytes — 56 rows
   - pdf-page-1: OK / parsed 15 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
   - pdf-page-2: OK / parsed 7 / mapping {'date': 0, 'purpose': 1, 'people': 1, 'amount': 3, 'merchant': 4}
@@ -108,37 +98,17 @@
 
 ## Errors
 
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=171078
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=33E14A14637CAB838E42CE3A6E6E2D9A
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169841
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=75C15E530851EA41C7DCB21DEF5C5B9C
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169543
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=134C369ADC1A8CF78CC045EB402C96CD
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169715
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=95BF41E9E2A5A05C9CB617F87A340E8E
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168545
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=48B65BF070EA64AAF46ED1AD58E98587
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169716
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=F8BA16A49799CA4C8E6C1EB4A176D08D
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=168358
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=1559DDB45DA2A3F7BCA2BC597E3133C9
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169717
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=0BDAED213D9640439D456D9B3FC44F80
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=169718
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=DD5B371C48E2F1BA09683D9BA600BBBC
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=167865
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=55E2052C462C4043BEF68B84F20B58B4
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162465
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E61B204159E2D3443B64C1E1DD967687
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=162409
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=E1FA442EFE231C63CF53157398E1E060
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=158907
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=021F12CAE05B5507647DFAA66063C52E
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157849
 - ValueError: PDF contained no extractable text rows — https://council.yongin.go.kr/kr/bbs/download.do?bbs_id=cost&uid=460A13CCB0DD5A1AD62A1693B5CBD42D
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=157276
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155889
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=155021
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=152291
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=151818
-- NameError: name 'html' is not defined — https://council.yongin.go.kr/viewer/pdf.do?group=bbs&uid=150911

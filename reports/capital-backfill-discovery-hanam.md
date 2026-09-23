@@ -3,8 +3,8 @@
 ## 하남시의회
 
 - Posts: 20
-- Attachment records: 18
-- Downloadable attachment URLs: 18
+- Attachment records: 15
+- Downloadable attachment URLs: 15
 
 - [기관운영, 시책추진업무추진비 집행내역(2026년 8월)](https://council.hanam.go.kr/content/community/business.html?fidx=11399>id=business&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [의회운영업무추진비 집행내역(2026년 8월)](https://council.hanam.go.kr/content/community/business.html?fidx=11398>id=business&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
@@ -17,13 +17,13 @@
 - [기관운영, 시책추진업무추진비 집행내역(2026년 4월)](https://council.hanam.go.kr/content/community/business.html?fidx=11342>id=business&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [의회운영업무추진비 집행내역(2026년 4월)](https://council.hanam.go.kr/content/community/business.html?fidx=11341>id=business&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [기관운영, 시책추진업무추진비 집행내역(2026년 3월)](https://council.hanam.go.kr/content/community/business.html?fidx=11340>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
-- [의회운영업무추진비 집행내역(2026년 3월)](https://council.hanam.go.kr/content/community/business.html?fidx=11339>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
-- [기관운영, 시책추진업무추진비 집행내역(2026년 2월)](https://council.hanam.go.kr/content/community/business.html?fidx=11338>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
+- [의회운영업무추진비 집행내역(2026년 3월)](https://council.hanam.go.kr/content/community/business.html?fidx=11339>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
+- [기관운영, 시책추진업무추진비 집행내역(2026년 2월)](https://council.hanam.go.kr/content/community/business.html?fidx=11338>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
 - [의회운영업무추진비 집행내역(2026년 2월)](https://council.hanam.go.kr/content/community/business.html?fidx=11337>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
 - [기관운영, 시책추진업무추진비 집행내역(2026년 1월)](https://council.hanam.go.kr/content/community/business.html?fidx=11336>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
 - [의회운영업무추진비 집행내역(2026년 1월)](https://council.hanam.go.kr/content/community/business.html?fidx=11335>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
-- [기관운영, 시책추진업무추진비 집행내역(2025년 12월)](https://council.hanam.go.kr/content/community/business.html?fidx=11334>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
-- [의회운영업무추진비 집행내역(2025년 12월)](https://council.hanam.go.kr/content/community/business.html?fidx=11333>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
-- [기관운영, 시책추진업무추진비 집행내역(2025년 11월)](https://council.hanam.go.kr/content/community/business.html?fidx=11332>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
+- [기관운영, 시책추진업무추진비 집행내역(2025년 12월)](https://council.hanam.go.kr/content/community/business.html?fidx=11334>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
+- [의회운영업무추진비 집행내역(2025년 12월)](https://council.hanam.go.kr/content/community/business.html?fidx=11333>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
+- [기관운영, 시책추진업무추진비 집행내역(2025년 11월)](https://council.hanam.go.kr/content/community/business.html?fidx=11332>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 0
 - [의회운영업무추진비 집행내역(2025년 11월)](https://council.hanam.go.kr/content/community/business.html?fidx=11331>id=business&pg=vv&sid=1000&page=2&opt=&sword=) — attachments 1
 

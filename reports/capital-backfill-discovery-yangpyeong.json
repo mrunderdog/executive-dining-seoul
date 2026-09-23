@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T13:44:05",
+  "generated_at": "2026-09-23T01:43:39",
   "since": "2024-12",
   "until": "2026-09",
   "sources": [
@@ -119,7 +119,8 @@
     {
       "source": "yangpyeong",
       "listing_url": "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex=2&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=",
-      "error": "listing URLError: <urlopen error timed out>"
+      "error": "listing URLError: <urlopen error timed out>",
+      "attachments": []
     }
   ]
 }

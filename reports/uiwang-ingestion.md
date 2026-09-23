@@ -1,21 +1,19 @@
 # uiwang expense ingestion
 
-- Normalized rows: **91**
-- Source posts: **22**
-- Downloaded files: **34**
+- Normalized rows: **81**
+- Source posts: **10**
+- Downloaded files: **24**
 - Errors: **0**
 
 ## Rows by year
 
-- 2025: 58
+- 2025: 48
 - 2026: 33
 
 ## Top roles / sheets
 
 - pdf-page-1: 65
-- pdf-page-2: 20
-- 의회사무과장: 4
-- 수석전문위원: 2
+- pdf-page-2: 16
 
 ## Files
 
@@ -48,15 +46,14 @@
   - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
   - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
   - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
-- `4월 시책추진업무추진비 사용내역_의회사무과.pdf 4월 시책추진업무추진비 사용내역_의회사무과.pdf` — 161,861 bytes — 6 rows
-  - pdf-page-1: OK / parsed 3 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
-  - pdf-page-2: OK / parsed 3 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
-- `4월 의회운영업무추진비 사용내역_의왕시의회.pdf 4월 의회운영업무추진비 사용내역_의왕시의회.pdf` — 285,763 bytes — 0 rows
+- `3월 시책추진업무추진비 사용내역_의회사무과.pdf 3월 시책추진업무추진비 사용내역_의회사무과.pdf` — 161,318 bytes — 6 rows
+  - pdf-page-1: OK / parsed 4 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
+  - pdf-page-2: OK / parsed 2 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
+- `3월 의회운영업무추진비 사용내역_의왕시의회.pdf 3월 의회운영업무추진비 사용내역_의왕시의회.pdf` — 283,602 bytes — 0 rows
   - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
   - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
   - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
   - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
 - `2월 시책추진업무추진비 사용내역_의회사무과.pdf 2월 시책추진업무추진비 사용내역_의회사무과.pdf` — 163,325 bytes — 6 rows
   - pdf-page-1: OK / parsed 5 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
   - pdf-page-2: OK / parsed 1 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
@@ -100,45 +97,3 @@
   - pdf-page-1: OK / parsed 5 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
 - `2025년 9월 시책추진업무추진비 사용내역(의회사무과).pdf 2025년 9월 시책추진업무추진비 사용내역(의회사무과).pdf` — 109,329 bytes — 9 rows
   - pdf-page-1: OK / parsed 9 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
-- `11월 시책추진업무추진비 사용내역_의회사무과.pdf 11월 시책추진업무추진비 사용내역_의회사무과.pdf` — 176,540 bytes — 4 rows
-  - pdf-page-1: OK / parsed 1 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
-  - pdf-page-2: OK / parsed 3 / mapping {'date': 0, 'time': 0, 'purpose': 1, 'merchant': 3, 'amount': 4, 'method': 5}
-- `11월 의회운영업무추진비 사용내역_의왕시의회.pdf 11월 의회운영업무추진비 사용내역_의왕시의회.pdf` — 274,301 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-5: NO_HEADER / parsed 0 / mapping {}
-- `10월 의회운영업무추진비 사용내역_의왕시의회.xlsx 10월 의회운영업무추진비 사용내역_의왕시의회.xlsx` — 27,903 bytes — 0 rows
-  - 의장 업무추진비: NO_HEADER / parsed 0 / mapping {}
-  - 부의장 업무추진비: NO_HEADER / parsed 0 / mapping {}
-  - 의정공통: NO_HEADER / parsed 0 / mapping {}
-- `10월 시책추진업무추진비 사용내역_의회사무과.xlsx 10월 시책추진업무추진비 사용내역_의회사무과.xlsx` — 15,378 bytes — 6 rows
-  - 의회사무과장: OK / parsed 4 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 4, 'amount': 5, 'method': 6}
-  - 수석전문위원: OK / parsed 2 / mapping {'date': 0, 'time': 1, 'purpose': 2, 'merchant': 4, 'amount': 5, 'method': 6}
-- `7월 의회운영업무추진비 사용내역.pdf 7월 의회운영업무추진비 사용내역.pdf` — 175,962 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-- `의회운영업무추진비 사용내역.pdf 의회운영업무추진비 사용내역.pdf` — 205,268 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
-- `3월 의회운영업무추진비 사용내역..pdf 3월 의회운영업무추진비 사용내역..pdf` — 162,415 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-- `2월 의회운영업무추진비 사용내역.pdf 2월 의회운영업무추진비 사용내역.pdf` — 169,932 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-- `1월 의회운영업무추진비 사용내역.pdf 1월 의회운영업무추진비 사용내역.pdf` — 169,997 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-- `12월 의회운영업무추진비 사용내역_의왕시의회.pdf 12월 의회운영업무추진비 사용내역_의왕시의회.pdf` — 212,274 bytes — 0 rows
-  - pdf-page-1: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-2: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-3: NO_HEADER / parsed 0 / mapping {}
-  - pdf-page-4: NO_HEADER / parsed 0 / mapping {}
