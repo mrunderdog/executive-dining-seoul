@@ -7,6 +7,8 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/repair_raw_dates.py'
       - 'pipeline/capital_backfill.py'
+      - 'pipeline/build_source_candidates.py'
+      - 'pipeline/regression_checks.py'
       - '.github/workflows/goyang-ingest.yml'
   workflow_dispatch:
     inputs:
@@ -36,6 +38,9 @@ jobs:
 
       - name: Install spreadsheet parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+
+      - name: Run regression checks
+        run: python pipeline/regression_checks.py
 
       - name: Refresh supported councils in parallel
         shell: bash
