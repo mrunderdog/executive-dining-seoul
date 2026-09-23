@@ -34,9 +34,9 @@ def canon_addr(v):
 def role_weight(role:str)->float:
     s=t(role)
     if "대법원장" in s or "헌법재판소장" in s or "검찰총장" in s: return 1.0
-    if "법무부 장관" in s or "고위공직자범죄수사처장" in s: return .95
-    if "법원행정처장" in s or "고등법원장" in s or "지방법원장" in s: return .9
-    if "검사장" in s or "법제처장" in s: return .88
+    if "고검장" in s or "법무부 장관" in s or "고위공직자범죄수사처장" in s: return .95
+    if "법원행정처장" in s or "고등법원장" in s or "지방법원장" in s or "특허법원장" in s or "행정법원장" in s or "회생법원장" in s: return .9
+    if "검사장" in s or "지청장" in s or "법제처장" in s: return .88
     if "헌법재판소사무처장" in s or "법무부 차관" in s or "법제처차장" in s: return .85
     if any(x in s for x in ("법무실장","검찰국장","국제법무국장","감찰관","본부장","기획조정실장")): return .78
     if any(x in s for x in ("국장","정책관","조정관")): return .65
