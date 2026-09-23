@@ -54,7 +54,7 @@ def discover(src:dict,year:int)->dict:
                 probe_doc=fetch(src["listing_urls"][0])
                 snippets=[]
                 for m in re.finditer("업무추진비", probe_doc):
-                    snippets.append(probe_doc[max(0,m.start()-1400):min(len(probe_doc),m.end()+1800)])
+                    snippets.append(probe_doc[max(0,m.start()-6000):min(len(probe_doc),m.end()+3000)])
                     if len(snippets)>=6:
                         break
                 out["adapter_probe"]=snippets
