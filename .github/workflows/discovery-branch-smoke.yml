@@ -9,6 +9,10 @@ on:
       - 'pipeline/regression_checks.py'
       - '.github/workflows/discovery-branch-smoke.yml'
 
+concurrency:
+  group: targeted-discovery-branch-smoke
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
