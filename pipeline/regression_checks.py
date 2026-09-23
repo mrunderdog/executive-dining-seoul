@@ -5,7 +5,7 @@ from pathlib import Path
 from coordinate_selection import select_coordinate
 from build_source_candidates import plausible_transaction
 from repair_raw_dates import parse_date_text
-from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_date_from_row, resolve_role, valid_transaction_merchant
+from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_amount_from_row, recover_date_from_row, resolve_role, valid_transaction_merchant
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -142,6 +142,15 @@ def test_abbreviated_date_recovery():
     assert normalized and normalized[0]["used_date"] == "2026-08-05", normalized
 
 
+
+def test_shifted_amount_recovery():
+    mapping = {"date": 0, "merchant": 1, "people": 3, "amount": 4}
+    row = ["2026-08-05", "테스트식당", "간담회 식비", "5명", "", "125,000원", "카드"]
+    assert recover_amount_from_row(row, mapping) == 125000
+    noisy = ["2026-08-05", "테스트식당", "간담회", "5", "", "18", "카드"]
+    assert recover_amount_from_row(noisy, mapping) is None
+
+
 def test_implausible_amount_is_quarantined():
     assert plausible_transaction({"amount": 180000, "people": 8})
     assert not plausible_transaction({"amount": 18, "people": 8})
@@ -209,6 +218,7 @@ def main():
         test_pdf_preamble_role_and_merged_date,
         test_pdf_role_context_can_carry_across_pages,
         test_abbreviated_date_recovery,
+        test_shifted_amount_recovery,
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
         test_date_time_suffix_normalization,
