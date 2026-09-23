@@ -47,6 +47,19 @@ def discover(src:dict,year:int)->dict:
         out["parseable_attachments"]=0
         return out
     if src.get("adapter_required"):
+        # Probe only the Supreme Prosecutors' Office markup so we can derive the
+        # shared AnnounceInfo tab/query contract without crawling every office.
+        if src.get("key") == "prosecution_supreme" and src.get("listing_urls"):
+            try:
+                probe_doc=fetch(src["listing_urls"][0])
+                snippets=[]
+                for m in re.finditer("업무추진비", probe_doc):
+                    snippets.append(probe_doc[max(0,m.start()-1400):min(len(probe_doc),m.end()+1800)])
+                    if len(snippets)>=6:
+                        break
+                out["adapter_probe"]=snippets
+            except Exception as e:
+                out["adapter_probe_error"]=f"{type(e).__name__}: {e}"
         out["status"]="ADAPTER_REQUIRED"
         out["parseable_attachments"]=0
         return out
