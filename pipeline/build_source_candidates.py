@@ -27,8 +27,6 @@ NON_DINING_MERCHANT_WORDS=(
 def normalize_merchant_name(value):
     s=' '.join(str(value or '').split())
     parts=s.split()
-    # PDF extraction can insert spaces between every Hangul syllable.
-    # Collapse only when most whitespace-separated tokens are one Hangul char.
     if len(parts) >= 3:
         singles=sum(bool(re.fullmatch(r'[가-힣]', p)) for p in parts)
         if singles/len(parts) >= .7:
