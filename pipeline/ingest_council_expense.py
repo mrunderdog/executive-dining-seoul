@@ -118,6 +118,15 @@ def valid_transaction_merchant(v) -> bool:
         return False
     if compact_s in {"합계", "총계", "누계", "계", "사용처", "집행장소", "장소"}:
         return False
+    pseudo_patterns = (
+        r"^의원(?:및)?직원\d+명$",
+        r"^직원\d+명$",
+        r"^참석자\d+명$",
+    )
+    if any(re.fullmatch(pattern, compact_s) for pattern in pseudo_patterns):
+        return False
+    if any(token in compact_s for token in ("간담회식비지출", "의정활동추진을위한간담회식비", "직원노고격려를위한식비지출")):
+        return False
     return True
 
 
@@ -529,9 +538,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
         amount_inferred = False
-        if amount is None and source_meta.get("source") in {"michuhol", "incheon_council"}:
-            amount = recover_amount_from_row(row, mapping)
-            amount_inferred = amount is not None
+        if source_meta.get("source") in {"michuhol", "incheon_council"} and (amount is None or amount < 1000):
+            recovered_amount = recover_amount_from_row(row, mapping)
+            if recovered_amount is not None:
+                amount = recovered_amount
+                amount_inferred = True
         raw_date_value = cell(row, mapping, "date")
         raw_date_text = clean_text(raw_date_value)
         if any(token in raw_date_text.replace(" ", "") for token in ("사용내역없음", "해당없음", "내역없음")):
