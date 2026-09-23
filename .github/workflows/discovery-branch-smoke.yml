@@ -60,6 +60,19 @@ jobs:
           PY
           done
 
+      - name: Diagnose Ansan listing markup
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pipeline.capital_backfill import fetch_text
+          url="https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406"
+          doc=fetch_text(url)
+          needle="2026년도 2분기 업무추진비"
+          i=doc.find(needle)
+          print("ANSAN_MARKUP_INDEX", i)
+          print(doc[max(0,i-1600):i+2200] if i >= 0 else doc[:4000])
+          PY
+
       - name: End-to-end Paju ingestion
         shell: bash
         run: |
