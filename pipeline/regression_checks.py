@@ -4,7 +4,7 @@ from pathlib import Path
 
 from coordinate_selection import select_coordinate
 from build_source_candidates import plausible_transaction
-from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
+from capital_backfill import Source, canonical_attachment_url, post_like, sanitize_discovered_posts, title_period
 from repair_raw_dates import parse_date_text
 from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_amount_from_row, recover_date_from_row, resolve_role, valid_transaction_merchant
 
@@ -145,6 +145,24 @@ def test_abbreviated_date_recovery():
 
 
 
+
+def test_quarter_title_and_detail_routes():
+    assert title_period("2026년 파주시의회 업무추진비 내역(1분기)") == (2026, None, 1)
+    assert title_period("안산시의회 2026년도 2분기 업무추진비 집행내역 공개") == (2026, None, 2)
+
+    paju = Source("paju", "경기", "파주시", "파주시의회", "https://example.invalid", 1, "quarterly")
+    assert post_like({
+        "text": "2026년 파주시의회 업무추진비 내역(2분기)",
+        "url": "https://www.pajucouncil.go.kr/content/data/operatingExpense.html?fidx=21770&gtid=chujin&pg=vv",
+    }, paju)
+
+    icheon = Source("icheon", "경기", "이천시", "이천시의회", "https://example.invalid", 1, "monthly")
+    assert post_like({
+        "text": "이천시의회 의회운영업무추진비 집행내역(2026년 7월)",
+        "url": "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv",
+    }, icheon)
+
+
 def test_attachment_discovery_deduplication():
     assert canonical_attachment_url("https://x.test/attach") is None
     assert canonical_attachment_url("https://x.test/bbsAttachDownload.do") is None
@@ -244,6 +262,7 @@ def main():
         test_abbreviated_date_recovery,
         test_shifted_amount_recovery,
         test_attachment_discovery_deduplication,
+        test_quarter_title_and_detail_routes,
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
         test_date_time_suffix_normalization,
