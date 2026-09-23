@@ -41,7 +41,13 @@ jobs:
             "posts":len(posts),
             "attachments":sum(len(x.get("attachments",[])) for x in posts),
             "sample":[
-              {"title":x.get("title"),"post_url":x.get("post_url"),"attachments":x.get("attachments",[])[:2]}
+              {
+                "title":x.get("title"),
+                "post_url":x.get("post_url"),
+                "attachments":x.get("attachments",[])[:2],
+                "listing_url":x.get("listing_url"),
+                "error":x.get("error"),
+              }
               for x in posts[:3]
             ],
           },ensure_ascii=False))
