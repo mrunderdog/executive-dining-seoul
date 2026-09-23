@@ -63,6 +63,33 @@ def parse_amount(v):
         return None
 
 
+def recover_amount_from_row(row, mapping):
+    """Recover a shifted amount cell conservatively from a broken PDF row.
+
+    Only accept cells that are themselves currency-like numbers. Exclude known
+    date/time/people columns and require at least 1,000 won so attendee counts,
+    days and times cannot be mistaken for spend.
+    """
+    excluded = {
+        idx for field, idx in mapping.items()
+        if field in {"date", "time", "people", "role"} and isinstance(idx, int)
+    }
+    candidates = []
+    for idx, value in enumerate(row):
+        if idx in excluded:
+            continue
+        s = clean_text(value)
+        if not s:
+            continue
+        if not re.fullmatch(r"\s*(?:₩\s*)?\d[\d,]*\s*(?:원)?\s*", s):
+            continue
+        n = parse_amount(s)
+        if n is None or n < 1000 or n > 50_000_000:
+            continue
+        candidates.append(n)
+    return max(candidates) if candidates else None
+
+
 def parse_people(v):
     if isinstance(v, (int, float)) and not isinstance(v, bool):
         return int(v)
@@ -501,6 +528,10 @@ def normalize_sheet(rows, sheet_name, source_meta):
         blank_run = 0
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
+        amount_inferred = False
+        if amount is None and source_meta.get("source") in {"michuhol", "incheon_council"}:
+            amount = recover_amount_from_row(row, mapping)
+            amount_inferred = amount is not None
         raw_date_value = cell(row, mapping, "date")
         raw_date_text = clean_text(raw_date_value)
         if any(token in raw_date_text.replace(" ", "") for token in ("사용내역없음", "해당없음", "내역없음")):
@@ -570,8 +601,13 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "purpose": purpose,
             "people": parse_people(cell(row, mapping, "people")),
             "amount": amount,
+            "amount_inferred_from_row": amount_inferred,
             "payment_method": clean_text(cell(row, mapping, "method")),
-            "parse_confidence": "high" if {"date", "merchant", "amount"}.issubset(mapping) else "medium",
+            "parse_confidence": (
+                "medium" if amount_inferred
+                else "high" if {"date", "merchant", "amount"}.issubset(mapping)
+                else "medium"
+            ),
         }
         raw["row_id"] = hashlib.sha256(
             "|".join(str(raw.get(k, "")) for k in ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
