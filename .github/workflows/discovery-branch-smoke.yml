@@ -71,4 +71,10 @@ jobs:
           i=doc.find(needle)
           print("ANSAN_MARKUP_INDEX", i)
           print(doc[max(0,i-1600):i+2200] if i >= 0 else doc[:4000])
+          for pattern in ("function fnGoDetail", "fnGoDetail =", "fnGoDetail("):
+              j=doc.find(pattern)
+              print("ANSAN_FN_INDEX", pattern, j)
+              if j >= 0:
+                  print(doc[max(0,j-1000):j+2600])
+                  break
           PY
