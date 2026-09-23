@@ -20,7 +20,7 @@ permissions:
 
 concurrency:
   group: published-data-writer
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   ingest:
