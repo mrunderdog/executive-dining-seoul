@@ -1,13 +1,39 @@
 {
-  "generated_at": "2026-09-23T10:23:54",
-  "dataset_records": 943,
-  "cross_institution_count": 100,
-  "cross_origin_count": 20,
-  "top_official_count": 118,
+  "generated_at": "2026-09-23T10:50:53",
+  "dataset_records": 992,
+  "cross_institution_count": 91,
+  "cross_origin_count": 24,
+  "top_official_count": 169,
   "regional_head_count": 20,
-  "entity_merges": 31,
-  "entity_merge_audit_count": 30,
+  "entity_merges": 38,
+  "entity_merge_audit_count": 35,
   "entity_merge_audit": [
+    {
+      "name": "운산",
+      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "운산|중앙정부",
+        "운산|법조·법률행정",
+        "운산|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 3,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 2,
+      "visits": 110,
+      "spend": 23850500
+    },
     {
       "name": "외계인키친",
       "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
@@ -30,8 +56,33 @@
       "source_key_count": 3,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 1,
-      "visits": 99,
-      "spend": 4253300
+      "visits": 97,
+      "spend": 4164600
+    },
+    {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부"
+      ],
+      "source_keys": [
+        "황금복국|중앙정부",
+        "황금복국|법조·법률행정",
+        "황금복국|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 3,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 2,
+      "visits": 65,
+      "spend": 11075000
     },
     {
       "name": "남도마루",
@@ -53,8 +104,8 @@
       "source_key_count": 2,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 1,
-      "visits": 197,
-      "spend": 45023000
+      "visits": 196,
+      "spend": 44698000
     },
     {
       "name": "화담",
@@ -79,30 +130,6 @@
       "corroborated_address_bridges": 1,
       "visits": 184,
       "spend": 44620000
-    },
-    {
-      "name": "운산",
-      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "source_keys": [
-        "운산|중앙정부",
-        "운산|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 111,
-      "spend": 24251500
     },
     {
       "name": "대방골",
@@ -193,31 +220,8 @@
       "source_key_count": 2,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 1,
-      "visits": 67,
-      "spend": 18170000
-    },
-    {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법제처",
-        "보건복지부"
-      ],
-      "source_keys": [
-        "황금복국|중앙정부",
-        "황금복국|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 65,
-      "spend": 11075000
+      "visits": 64,
+      "spend": 18001000
     },
     {
       "name": "노조미",
@@ -238,8 +242,31 @@
       "source_key_count": 2,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 1,
-      "visits": 59,
-      "spend": 15836000
+      "visits": 57,
+      "spend": 15204000
+    },
+    {
+      "name": "신안촌 본점",
+      "address": "서울특별시 종로구 사직로12길 8",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "법제처",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "신안촌|중앙정부",
+        "신안촌|법조·법률행정"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 54,
+      "spend": 14442500
     },
     {
       "name": "포도나무",
@@ -249,7 +276,6 @@
         "중앙정부"
       ],
       "institutions": [
-        "산업통상부",
         "서울특별시 본청",
         "통일부"
       ],
@@ -260,8 +286,8 @@
       "source_key_count": 2,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 1,
-      "visits": 52,
-      "spend": 13345000
+      "visits": 51,
+      "spend": 13045000
     },
     {
       "name": "해초가",
@@ -399,6 +425,30 @@
       "spend": 8190000
     },
     {
+      "name": "마키노차야 더가우",
+      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "마키노차야 더가우|중앙정부",
+        "마키노차야 더가우|법조·법률행정"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 36,
+      "spend": 11281000
+    },
+    {
       "name": "버드나무집",
       "address": "서울 영등포구 국회대로70길 7",
       "origins": [
@@ -440,28 +490,6 @@
       "spend": 4590000
     },
     {
-      "name": "사조참치",
-      "address": "서울 영등포구 국회대로62길9(여의도동)",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "산업통상부"
-      ],
-      "source_keys": [
-        "사조참치|중앙정부",
-        "사조참치|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 25,
-      "spend": 4349000
-    },
-    {
       "name": "김삼보",
       "address": "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층",
       "origins": [
@@ -485,6 +513,52 @@
       "spend": 2261000
     },
     {
+      "name": "생태명가",
+      "address": "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "생태명가|중앙정부",
+        "생태명가|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 24,
+      "spend": 3202000
+    },
+    {
+      "name": "오롯이",
+      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국가보훈부",
+        "농림축산식품부",
+        "법제처",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "source_keys": [
+        "오롯이|중앙정부",
+        "오롯이|법조·법률행정"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 20,
+      "spend": 2786000
+    },
+    {
       "name": "탱글낙지마당",
       "address": "서울 양천구 등촌로 186",
       "origins": [
@@ -501,6 +575,29 @@
       "corroborated_address_bridges": 0,
       "visits": 16,
       "spend": 2888000
+    },
+    {
+      "name": "비프다이닝 온도",
+      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "source_keys": [
+        "비프다이닝 온도|중앙정부",
+        "비프다이닝 온도|법조·법률행정"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 13,
+      "spend": 3422000
     },
     {
       "name": "생선명가거북명태",
@@ -637,6 +734,25 @@
       "spend": 4384500
     },
     {
+      "name": "챠이797청계천점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "source_keys": [
+        "챠이797청계천점|중앙정부",
+        "챠이797 청계천점|중앙정부"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 9,
+      "spend": 1973000
+    },
+    {
       "name": "공존파인땡큐다이닝",
       "address": "",
       "origins": [
@@ -659,6 +775,30 @@
   "cross_origin_review_count": 7,
   "cross_origin_review": [
     {
+      "name": "연타발",
+      "strict_name": "연타발",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "visits": 78,
+      "addresses": [
+        "서울 영등포구 국회대로70길 18 (여의도동, 한양빌딩) 1층"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
+    {
       "name": "은주식당",
       "strict_name": "은주식당",
       "confidence": "HIGH",
@@ -672,32 +812,9 @@
         "산업통상부",
         "통일부"
       ],
-      "visits": 94,
+      "visits": 93,
       "addresses": [
         "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
-      "name": "연타발",
-      "strict_name": "연타발",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "visits": 78,
-      "addresses": [
-        "서울 영등포구 국회대로70길 18 (여의도동, 한양빌딩) 1층"
       ],
       "address_entity_count": 1,
       "qa_a": true
@@ -801,6 +918,79 @@
   ],
   "cross_institution": [
     {
+      "name": "운산",
+      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator"
+      ],
+      "visits": 110,
+      "spend": 23850500,
+      "date_min": "2024-01-04",
+      "date_max": "2026-08-24",
+      "consensus_score": 97.2,
+      "institution_count": 5,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator"
+      ],
+      "visits": 65,
+      "spend": 11075000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 97.2,
+      "institution_count": 4,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "외계인키친",
       "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
       "origins": [
@@ -818,8 +1008,8 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 99,
-      "spend": 4253300,
+      "visits": 97,
+      "spend": 4164600,
       "date_min": "2024-01-09",
       "date_max": "2026-04-08",
       "consensus_score": 90.6,
@@ -871,41 +1061,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "운산",
-      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 111,
-      "spend": 24251500,
-      "date_min": "2024-01-04",
-      "date_max": "2026-08-24",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "대방골",
       "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
       "origins": [
@@ -941,6 +1096,76 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "마키노차야 더가우",
+      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 36,
+      "spend": 11281000,
+      "date_min": "2024-07-01",
+      "date_max": "2026-08-27",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 11,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "오롯이",
+      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국가보훈부",
+        "농림축산식품부",
+        "법제처",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 20,
+      "spend": 2786000,
+      "date_min": "2024-08-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 10,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "남도마루",
       "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
       "origins": [
@@ -957,8 +1182,8 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 197,
-      "spend": 45023000,
+      "visits": 196,
+      "spend": 44698000,
       "date_min": "2024-01-03",
       "date_max": "2026-05-07",
       "consensus_score": 87.0,
@@ -1025,9 +1250,9 @@
         "central_executive",
         "regional_executive"
       ],
-      "visits": 67,
-      "spend": 18170000,
-      "date_min": "2024-04-11",
+      "visits": 64,
+      "spend": 18001000,
+      "date_min": "2024-08-06",
       "date_max": "2026-07-20",
       "consensus_score": 87.0,
       "institution_count": 4,
@@ -1043,36 +1268,36 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "name": "신안촌 본점",
+      "address": "서울특별시 종로구 사직로12길 8",
       "origins": [
-        "국회의원(정치자금 2024)",
+        "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "국회의원",
         "법제처",
-        "보건복지부"
+        "산업통상부",
+        "통일부"
       ],
       "cohorts": [
         "central_executive",
-        "national_legislator"
+        "justice_leadership"
       ],
-      "visits": 65,
-      "spend": 11075000,
-      "date_min": "2024-01-09",
-      "date_max": "2026-08-31",
+      "visits": 54,
+      "spend": 14442500,
+      "date_min": "2024-07-02",
+      "date_max": "2026-08-11",
       "consensus_score": 87.0,
       "institution_count": 4,
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 4,
+      "top_official_visits": 20,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 4,
+      "vice_minister_visits": 19,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1247,6 +1472,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "비프다이닝 온도",
+      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 13,
+      "spend": 3422000,
+      "date_min": "2024-08-01",
+      "date_max": "2026-07-22",
+      "consensus_score": 83.7,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 8,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "참복집",
       "address": "서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층",
       "origins": [
@@ -1295,8 +1554,8 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 59,
-      "spend": 15836000,
+      "visits": 57,
+      "spend": 15204000,
       "date_min": "2024-01-14",
       "date_max": "2025-12-24",
       "consensus_score": 82.1,
@@ -1309,39 +1568,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "포도나무",
-      "address": "서울 종로구 사직로 108-1",
-      "origins": [
-        "서울시청",
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "서울특별시 본청",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "regional_executive"
-      ],
-      "visits": 52,
-      "spend": 13345000,
-      "date_min": "2024-12-11",
-      "date_max": "2026-08-10",
-      "consensus_score": 82.1,
-      "institution_count": 3,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 25,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 25,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1379,8 +1605,8 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "사조참치",
-      "address": "서울 영등포구 국회대로62길9(여의도동)",
+      "name": "생태명가",
+      "address": "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층",
       "origins": [
         "국회의원(정치자금 2024)",
         "중앙정부"
@@ -1394,10 +1620,10 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 25,
-      "spend": 4349000,
-      "date_min": "2024-03-25",
-      "date_max": "2026-04-08",
+      "visits": 24,
+      "spend": 3202000,
+      "date_min": "2024-01-03",
+      "date_max": "2026-04-07",
       "consensus_score": 82.1,
       "institution_count": 3,
       "source_count": 2,
@@ -1408,6 +1634,38 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "포도나무",
+      "address": "서울 종로구 사직로 108-1",
+      "origins": [
+        "서울시청",
+        "중앙정부"
+      ],
+      "institutions": [
+        "서울특별시 본청",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "regional_executive"
+      ],
+      "visits": 51,
+      "spend": 13045000,
+      "date_min": "2024-12-11",
+      "date_max": "2026-08-10",
+      "consensus_score": 75.9,
+      "institution_count": 2,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 25,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 25,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1476,164 +1734,34 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "마키노차야 더가우",
-      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
+      "name": "식원",
+      "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
         "농림축산식품부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 39,
-      "spend": 11562000,
-      "date_min": "2024-04-15",
-      "date_max": "2026-08-27",
-      "consensus_score": 75.3,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 7,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오롯이",
-      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "국가보훈부",
-        "농림축산식품부",
-        "법제처",
         "산업통상부",
         "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 21,
-      "spend": 2869000,
-      "date_min": "2024-08-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 75.3,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "신안촌 본점",
-      "address": "서울특별시 종로구 사직로12길 8",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 58,
-      "spend": 16093500,
-      "date_min": "2024-05-02",
-      "date_max": "2026-08-11",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 19,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 19,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해담채 시청점",
-      "address": "서울특별시 중구 칠패로 37, HSBC빌딩 지하 1층",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 24,
-      "spend": 5863000,
-      "date_min": "2024-04-03",
-      "date_max": "2026-05-06",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "비프다이닝 온도",
-      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
       "visits": 15,
-      "spend": 3869000,
-      "date_min": "2024-05-01",
-      "date_max": "2026-07-22",
+      "spend": 4738000,
+      "date_min": "2024-04-22",
+      "date_max": "2026-08-24",
       "consensus_score": 73.0,
       "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 7,
+      "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 7,
+      "vice_minister_visits": 1,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1670,38 +1798,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "식원",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 12,
-      "spend": 3522000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-08-24",
-      "consensus_score": 71.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "강구미주구리",
       "address": "",
       "origins": [
@@ -1715,9 +1811,9 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 26,
-      "spend": 4575000,
-      "date_min": "2024-05-03",
+      "visits": 28,
+      "spend": 4787000,
+      "date_min": "2024-09-20",
       "date_max": "2026-08-11",
       "consensus_score": 70.4,
       "institution_count": 3,
@@ -1746,9 +1842,9 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 25,
-      "spend": 3876500,
-      "date_min": "2024-04-05",
+      "visits": 23,
+      "spend": 3445500,
+      "date_min": "2024-07-12",
       "date_max": "2026-08-20",
       "consensus_score": 70.4,
       "institution_count": 3,
@@ -1764,120 +1860,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "오발탄 세종점",
-      "address": "세종특별자치시 도움1로 7, 2층 213~219호",
+      "name": "해담채 시청점",
+      "address": "서울특별시 중구 칠패로 37, HSBC빌딩 지하 1층",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "법제처",
+        "고용노동부",
         "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 20,
-      "spend": 5767000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-07-13",
-      "consensus_score": 70.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이윽고",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "법제처",
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 1908000,
-      "date_min": "2024-10-31",
-      "date_max": "2026-07-02",
-      "consensus_score": 69.2,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "동원참치",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 16,
-      "spend": 2369000,
-      "date_min": "2024-06-28",
-      "date_max": "2026-08-18",
-      "consensus_score": 68.7,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 8,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 8,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "대선칼국수",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
         "산업통상부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 16,
-      "spend": 2550000,
-      "date_min": "2024-06-07",
-      "date_max": "2026-08-27",
-      "consensus_score": 68.7,
-      "institution_count": 3,
+      "visits": 10,
+      "spend": 2524000,
+      "date_min": "2024-07-24",
+      "date_max": "2026-05-06",
+      "consensus_score": 70.0,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -1886,38 +1888,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "세종 오이시",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "법제처",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1897000,
-      "date_min": "2025-08-18",
-      "date_max": "2026-08-04",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1935,11 +1905,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 14,
-      "spend": 3220000,
-      "date_min": "2025-09-17",
+      "visits": 15,
+      "spend": 3490000,
+      "date_min": "2025-03-14",
       "date_max": "2026-05-18",
-      "consensus_score": 67.7,
+      "consensus_score": 68.2,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -1984,34 +1954,65 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "이태형의 메구미",
+      "name": "이윽고",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
-        "국가보훈부",
-        "법제처",
-        "산업통상부"
+        "농림축산식품부",
+        "보건복지부",
+        "산업통상부",
+        "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 6,
-      "spend": 1669000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-08-21",
-      "consensus_score": 66.3,
+      "visits": 7,
+      "spend": 1573000,
+      "date_min": "2024-10-31",
+      "date_max": "2026-07-02",
+      "consensus_score": 67.4,
       "institution_count": 4,
       "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
-      "minister_visits": 2,
-      "vice_minister_visits": 1,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "동원참치",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 11,
+      "spend": 1570000,
+      "date_min": "2024-10-23",
+      "date_max": "2026-08-18",
+      "consensus_score": 65.8,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 8,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 8,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2030,7 +2031,7 @@
         "central_executive"
       ],
       "visits": 11,
-      "spend": 3397500,
+      "spend": 3560000,
       "date_min": "2024-12-27",
       "date_max": "2026-06-05",
       "consensus_score": 65.8,
@@ -2060,11 +2061,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 10,
-      "spend": 2347000,
+      "visits": 9,
+      "spend": 2111000,
       "date_min": "2025-07-24",
       "date_max": "2026-07-26",
-      "consensus_score": 65.1,
+      "consensus_score": 64.3,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -2074,132 +2075,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "백정한우",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "법제처",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 10,
-      "spend": 349000,
-      "date_min": "2024-04-15",
-      "date_max": "2026-08-05",
-      "consensus_score": 65.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "만복림",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 10,
-      "spend": 3666000,
-      "date_min": "2024-05-09",
-      "date_max": "2026-04-21",
-      "consensus_score": 65.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "정민복집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 551000,
-      "date_min": "2025-07-21",
-      "date_max": "2026-07-27",
-      "consensus_score": 65.0,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "연타발",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1611000,
-      "date_min": "2024-07-05",
-      "date_max": "2026-08-21",
-      "consensus_score": 65.0,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2246,8 +2121,8 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 21,
-      "spend": 4042000,
+      "visits": 20,
+      "spend": 3184000,
       "date_min": "2024-11-29",
       "date_max": "2026-08-26",
       "consensus_score": 64.2,
@@ -2294,23 +2169,23 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "크리스탈제이드 광화문 상하이 팰리스점",
-      "address": "서울특별시 종로구 율곡로2길 7, 서머셋팰리스 1층",
+      "name": "오발탄 세종점",
+      "address": "세종특별자치시 도움1로 7, 2층 213~219호",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "산업통상부",
-        "통일부"
+        "보건복지부",
+        "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 19,
-      "spend": 5062700,
-      "date_min": "2024-04-05",
-      "date_max": "2026-05-22",
-      "consensus_score": 63.8,
+      "visits": 18,
+      "spend": 6158000,
+      "date_min": "2024-07-01",
+      "date_max": "2026-07-13",
+      "consensus_score": 63.3,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -2320,192 +2195,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "란이",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "법제처",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 4,
-      "spend": 455000,
-      "date_min": "2024-04-09",
-      "date_max": "2026-08-12",
-      "consensus_score": 63.5,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "agency_head",
-      "top_role_label": "기관장·본부장급",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "광화문아띠/설가온",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 2064000,
-      "date_min": "2024-05-24",
-      "date_max": "2026-05-07",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "평가옥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 800000,
-      "date_min": "2025-07-31",
-      "date_max": "2026-08-13",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 7,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "일품진진수라 광화문점",
-      "address": "서울특별시 종로구 종로5길 7, 타워8빌딩 지하 2층",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 2606400,
-      "date_min": "2025-08-13",
-      "date_max": "2026-03-26",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "저림숙성그릴",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 2751000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-06-22",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "컨퍼런스하우스달개비 정동점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 18,
-      "spend": 3818400,
-      "date_min": "2024-04-03",
-      "date_max": "2026-07-22",
-      "consensus_score": 63.3,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2524,7 +2213,7 @@
       ],
       "visits": 17,
       "spend": 5031000,
-      "date_min": "2024-05-28",
+      "date_min": "2025-02-06",
       "date_max": "2026-04-21",
       "consensus_score": 62.9,
       "institution_count": 2,
@@ -2540,33 +2229,32 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "삼도회집",
-      "address": "",
+      "name": "크리스탈제이드 광화문 상하이 팰리스점",
+      "address": "서울특별시 종로구 율곡로2길 7, 서머셋팰리스 1층",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
         "산업통상부",
-        "해양수산부"
+        "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 7,
-      "spend": 1504000,
-      "date_min": "2025-04-28",
-      "date_max": "2026-03-03",
-      "consensus_score": 62.5,
-      "institution_count": 3,
+      "visits": 17,
+      "spend": 4382700,
+      "date_min": "2024-08-23",
+      "date_max": "2026-05-22",
+      "consensus_score": 62.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 5,
+      "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 5,
+      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2598,6 +2286,37 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "저림숙성그릴",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 7,
+      "spend": 2373000,
+      "date_min": "2024-10-02",
+      "date_max": "2026-06-22",
+      "consensus_score": 62.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2663,66 +2382,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "한일관",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 16,
-      "spend": 4126000,
-      "date_min": "2024-04-23",
-      "date_max": "2026-06-15",
-      "consensus_score": 62.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 7,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "경성한우국밥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 16,
-      "spend": 3403000,
-      "date_min": "2024-11-18",
-      "date_max": "2026-05-13",
-      "consensus_score": 62.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "중원내자점",
       "address": "서울특별시 종로구 내자동 178-1",
       "origins": [
@@ -2749,6 +2408,66 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 14,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "한일관",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 15,
+      "spend": 3883000,
+      "date_min": "2024-07-04",
+      "date_max": "2026-06-15",
+      "consensus_score": 61.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "컨퍼런스하우스달개비 정동점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 15,
+      "spend": 3457900,
+      "date_min": "2024-11-18",
+      "date_max": "2026-07-22",
+      "consensus_score": 61.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2784,25 +2503,55 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "복성각",
-      "address": "",
+      "name": "일품진진수라 광화문점",
+      "address": "서울특별시 종로구 종로5길 7, 타워8빌딩 지하 2층",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
+        "보건복지부",
         "산업통상부",
-        "해양수산부"
+        "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 6,
-      "spend": 1761000,
-      "date_min": "2024-05-03",
-      "date_max": "2026-04-29",
+      "spend": 2056900,
+      "date_min": "2025-10-10",
+      "date_max": "2026-03-26",
       "consensus_score": 61.4,
       "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "경성한우국밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 12,
+      "spend": 2876000,
+      "date_min": "2024-11-18",
+      "date_max": "2026-05-13",
+      "consensus_score": 60.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -2815,94 +2564,32 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "세종대박장어",
+      "name": "소쿠리밥상세종청사점",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "농림축산식품부",
-        "법제처"
+        "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 6,
-      "spend": 1019000,
-      "date_min": "2026-03-04",
-      "date_max": "2026-08-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "분당만강원",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 762000,
-      "date_min": "2024-04-03",
-      "date_max": "2026-08-25",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "능라도 광화문점",
-      "address": "서울특별시 종로구 새문안로3길 15",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 13,
-      "spend": 2099500,
-      "date_min": "2025-08-19",
-      "date_max": "2026-08-12",
-      "consensus_score": 60.8,
+      "visits": 12,
+      "spend": 2603000,
+      "date_min": "2024-09-30",
+      "date_max": "2026-03-04",
+      "consensus_score": 60.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 12,
+      "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 12,
+      "vice_minister_visits": 1,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2938,6 +2625,37 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "만복림",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 2075800,
+      "date_min": "2024-07-11",
+      "date_max": "2026-04-21",
+      "consensus_score": 60.1,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "아리연",
       "address": "",
       "origins": [
@@ -2969,63 +2687,92 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "일품진진수라",
+      "name": "대선칼국수",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "보건복지부",
         "산업통상부",
-        "해양수산부"
+        "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 5,
-      "spend": 1003500,
-      "date_min": "2024-11-22",
-      "date_max": "2026-01-30",
-      "consensus_score": 60.1,
-      "institution_count": 3,
+      "visits": 11,
+      "spend": 1650000,
+      "date_min": "2024-07-02",
+      "date_max": "2026-08-27",
+      "consensus_score": 59.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 1,
+      "top_official_visits": 5,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 1,
+      "vice_minister_visits": 5,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
     {
-      "name": "마구로 정",
+      "name": "통영굴밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 10,
+      "spend": 1836000,
+      "date_min": "2024-07-18",
+      "date_max": "2026-03-06",
+      "consensus_score": 58.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이태형의 메구미",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "법제처",
+        "국가보훈부",
         "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 4,
-      "spend": 1685000,
-      "date_min": "2024-10-21",
-      "date_max": "2026-08-26",
+      "spend": 1145000,
+      "date_min": "2026-01-27",
+      "date_max": "2026-08-21",
       "consensus_score": 58.6,
       "institution_count": 3,
       "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
+      "minister_visits": 2,
       "vice_minister_visits": 1,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
@@ -3062,13 +2809,44 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "대상해",
+      "name": "연타발",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1294000,
+      "date_min": "2024-07-05",
+      "date_max": "2026-05-14",
+      "consensus_score": 58.6,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "정민복집",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
         "산업통상부",
         "해양수산부"
       ],
@@ -3076,11 +2854,72 @@
         "central_executive"
       ],
       "visits": 4,
-      "spend": 505000,
-      "date_min": "2024-04-12",
-      "date_max": "2025-07-16",
+      "spend": 493000,
+      "date_min": "2025-07-21",
+      "date_max": "2026-05-20",
       "consensus_score": 58.6,
       "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일품진진수라",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 558000,
+      "date_min": "2024-11-22",
+      "date_max": "2026-01-30",
+      "consensus_score": 58.6,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "백정한우",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "농림축산식품부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 273000,
+      "date_min": "2024-04-15",
+      "date_max": "2026-08-05",
+      "consensus_score": 58.1,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -3105,11 +2944,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2885000,
-      "date_min": "2025-07-18",
+      "visits": 8,
+      "spend": 2425000,
+      "date_min": "2025-10-28",
       "date_max": "2026-05-12",
-      "consensus_score": 58.1,
+      "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -3119,36 +2958,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "통영굴밥",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 1561000,
-      "date_min": "2024-07-18",
-      "date_max": "2026-03-06",
-      "consensus_score": 58.1,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3165,11 +2974,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2905500,
-      "date_min": "2024-04-19",
-      "date_max": "2025-08-05",
-      "consensus_score": 58.1,
+      "visits": 8,
+      "spend": 2988000,
+      "date_min": "2024-09-03",
+      "date_max": "2025-07-21",
+      "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -3195,40 +3004,10 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2579000,
-      "date_min": "2024-05-28",
-      "date_max": "2026-04-07",
-      "consensus_score": 58.1,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "브이아이피참치(주)",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
       "visits": 8,
-      "spend": 2424000,
-      "date_min": "2024-04-05",
-      "date_max": "2026-06-11",
+      "spend": 2565000,
+      "date_min": "2024-07-29",
+      "date_max": "2026-04-07",
       "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
@@ -3243,33 +3022,32 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "모도우 광화문점",
+      "name": "평가옥",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "보건복지부",
-        "산업통상부",
+        "고용노동부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 3,
-      "spend": 1036000,
-      "date_min": "2024-05-21",
-      "date_max": "2026-06-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "visits": 7,
+      "spend": 689000,
+      "date_min": "2025-07-31",
+      "date_max": "2026-08-13",
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 2,
+      "top_official_visits": 7,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 2,
+      "vice_minister_visits": 7,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3287,8 +3065,8 @@
         "central_executive"
       ],
       "visits": 7,
-      "spend": 1637000,
-      "date_min": "2024-05-01",
+      "spend": 1577000,
+      "date_min": "2024-10-29",
       "date_max": "2025-12-17",
       "consensus_score": 56.2,
       "institution_count": 2,
@@ -3334,97 +3112,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "방원양갈비양꼬치",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 2534000,
-      "date_min": "2024-05-27",
-      "date_max": "2026-06-30",
-      "consensus_score": 56.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "도담도담 민물장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 2965000,
-      "date_min": "2024-04-08",
-      "date_max": "2026-02-26",
-      "consensus_score": 56.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소쿠리밥상세종청사점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1469000,
-      "date_min": "2024-09-30",
-      "date_max": "2026-03-04",
-      "consensus_score": 56.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "서순금류복요리전문점",
+      "name": "브이아이피참치(주)",
       "address": "",
       "origins": [
         "중앙정부"
@@ -3436,10 +3124,70 @@
       "cohorts": [
         "central_executive"
       ],
+      "visits": 7,
+      "spend": 2219000,
+      "date_min": "2024-07-04",
+      "date_max": "2026-06-11",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "광화문아띠/설가온",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
       "visits": 6,
-      "spend": 830000,
-      "date_min": "2024-05-17",
-      "date_max": "2026-08-26",
+      "spend": 1370000,
+      "date_min": "2025-11-03",
+      "date_max": "2026-05-07",
+      "consensus_score": 55.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "삼도회집",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 6,
+      "spend": 1327000,
+      "date_min": "2025-04-28",
+      "date_max": "2026-03-03",
       "consensus_score": 55.2,
       "institution_count": 2,
       "source_count": 1,
@@ -3450,36 +3198,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "경희궁 참치집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1712000,
-      "date_min": "2024-04-09",
-      "date_max": "2025-11-25",
-      "consensus_score": 55.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3604,67 +3322,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "동해도본점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1083000,
-      "date_min": "2025-02-05",
-      "date_max": "2026-04-01",
-      "consensus_score": 53.9,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "보돌미역 세종청사점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 660000,
-      "date_min": "2024-06-25",
-      "date_max": "2026-08-12",
-      "consensus_score": 53.9,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "agency_head",
-      "top_role_label": "기관장·본부장급",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "나주소 나주곰탕",
+      "name": "봉피양(경복궁)",
       "address": "",
       "origins": [
         "중앙정부"
@@ -3677,9 +3335,99 @@
         "central_executive"
       ],
       "visits": 5,
-      "spend": 789000,
-      "date_min": "2024-08-21",
-      "date_max": "2026-04-11",
+      "spend": 677000,
+      "date_min": "2024-09-24",
+      "date_max": "2026-07-06",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세종대박장어",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 944000,
+      "date_min": "2026-03-04",
+      "date_max": "2026-08-24",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "효동스타지오네",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 1307000,
+      "date_min": "2024-11-04",
+      "date_max": "2026-03-19",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "분당만강원",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 634000,
+      "date_min": "2024-04-03",
+      "date_max": "2025-12-29",
       "consensus_score": 53.9,
       "institution_count": 2,
       "source_count": 1,
@@ -3754,22 +3502,22 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "사천이모집",
+      "name": "복성각",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "법제처",
-        "통일부"
+        "고용노동부",
+        "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 4,
-      "spend": 950000,
-      "date_min": "2025-08-27",
-      "date_max": "2026-08-14",
+      "spend": 1205000,
+      "date_min": "2024-11-12",
+      "date_max": "2026-04-29",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -3780,6 +3528,36 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세종 오이시",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1312000,
+      "date_min": "2025-11-20",
+      "date_max": "2026-07-27",
+      "consensus_score": 52.4,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3844,7 +3622,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "봉피양(경복궁)",
+      "name": "안성또순이",
       "address": "",
       "origins": [
         "중앙정부"
@@ -3857,9 +3635,9 @@
         "central_executive"
       ],
       "visits": 4,
-      "spend": 603000,
-      "date_min": "2024-09-24",
-      "date_max": "2026-07-06",
+      "spend": 554000,
+      "date_min": "2025-03-21",
+      "date_max": "2026-08-19",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -3874,7 +3652,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "동원참치광화문본점",
+      "name": "경희궁 참치집",
       "address": "",
       "origins": [
         "중앙정부"
@@ -3887,9 +3665,9 @@
         "central_executive"
       ],
       "visits": 4,
-      "spend": 463000,
-      "date_min": "2024-05-20",
-      "date_max": "2025-12-05",
+      "spend": 1186000,
+      "date_min": "2025-08-07",
+      "date_max": "2025-11-25",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -3932,6 +3710,66 @@
       "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
+    },
+    {
+      "name": "고우가광화문",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 3,
+      "spend": 752000,
+      "date_min": "2024-11-13",
+      "date_max": "2026-07-24",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "뚜리삼",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 3,
+      "spend": 244000,
+      "date_min": "2025-02-10",
+      "date_max": "2026-01-28",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
     }
   ],
   "top_official": [
@@ -3943,7 +3781,6 @@
         "중앙정부"
       ],
       "institutions": [
-        "산업통상부",
         "서울특별시 본청",
         "통일부"
       ],
@@ -3951,12 +3788,12 @@
         "central_executive",
         "regional_executive"
       ],
-      "visits": 52,
-      "spend": 13345000,
+      "visits": 51,
+      "spend": 13045000,
       "date_min": "2024-12-11",
       "date_max": "2026-08-10",
-      "consensus_score": 82.1,
-      "institution_count": 3,
+      "consensus_score": 75.9,
+      "institution_count": 2,
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4052,9 +3889,9 @@
         "central_executive",
         "regional_executive"
       ],
-      "visits": 67,
-      "spend": 18170000,
-      "date_min": "2024-04-11",
+      "visits": 64,
+      "spend": 18001000,
+      "date_min": "2024-08-06",
       "date_max": "2026-07-20",
       "consensus_score": 87.0,
       "institution_count": 4,
@@ -4100,6 +3937,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "신안촌 본점",
+      "address": "서울특별시 종로구 사직로12길 8",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "법제처",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 54,
+      "spend": 14442500,
+      "date_min": "2024-07-02",
+      "date_max": "2026-08-11",
+      "consensus_score": 87.0,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 20,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 19,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "소문/(주)을정",
       "address": "",
       "origins": [
@@ -4113,9 +3984,9 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 25,
-      "spend": 3876500,
-      "date_min": "2024-04-05",
+      "visits": 23,
+      "spend": 3445500,
+      "date_min": "2024-07-12",
       "date_max": "2026-08-20",
       "consensus_score": 70.4,
       "institution_count": 3,
@@ -4127,38 +3998,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 20,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "신안촌 본점",
-      "address": "서울특별시 종로구 사직로12길 8",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 58,
-      "spend": 16093500,
-      "date_min": "2024-05-02",
-      "date_max": "2026-08-11",
-      "consensus_score": 75.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 19,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 19,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4205,9 +4044,9 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 26,
-      "spend": 4575000,
-      "date_min": "2024-05-03",
+      "visits": 28,
+      "spend": 4787000,
+      "date_min": "2024-09-20",
       "date_max": "2026-08-11",
       "consensus_score": 70.4,
       "institution_count": 3,
@@ -4385,10 +4224,41 @@
       ],
       "visits": 17,
       "spend": 5031000,
-      "date_min": "2024-05-28",
+      "date_min": "2025-02-06",
       "date_max": "2026-04-21",
       "consensus_score": 62.9,
       "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 12,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 12,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "태진복집",
+      "address": "서울특별시 종로구 자하문로10길 10-24",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 15,
+      "spend": 3490000,
+      "date_min": "2025-03-14",
+      "date_max": "2026-05-18",
+      "consensus_score": 68.2,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4433,25 +4303,23 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "태진복집",
-      "address": "서울특별시 종로구 자하문로10길 10-24",
+      "name": "능라도 광화문점",
+      "address": "서울특별시 종로구 새문안로3길 15",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "보건복지부",
-        "산업통상부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 14,
-      "spend": 3220000,
-      "date_min": "2025-09-17",
-      "date_max": "2026-05-18",
-      "consensus_score": 67.7,
-      "institution_count": 3,
+      "visits": 12,
+      "spend": 2015500,
+      "date_min": "2025-09-02",
+      "date_max": "2026-08-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4464,32 +4332,72 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "능라도 광화문점",
-      "address": "서울특별시 종로구 새문안로3길 15",
+      "name": "마키노차야 더가우",
+      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
       "origins": [
+        "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
-        "산업통상부",
-        "통일부"
+        "고용노동부",
+        "농림축산식품부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "justice_leadership"
       ],
-      "visits": 13,
-      "spend": 2099500,
-      "date_min": "2025-08-19",
-      "date_max": "2026-08-12",
-      "consensus_score": 60.8,
-      "institution_count": 2,
-      "source_count": 1,
+      "visits": 36,
+      "spend": 11281000,
+      "date_min": "2024-07-01",
+      "date_max": "2026-08-27",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 12,
+      "top_official_visits": 11,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 12,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "오롯이",
+      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국가보훈부",
+        "농림축산식품부",
+        "법제처",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 20,
+      "spend": 2786000,
+      "date_min": "2024-08-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 10,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4581,6 +4489,40 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "비프다이닝 온도",
+      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 13,
+      "spend": 3422000,
+      "date_min": "2024-08-01",
+      "date_max": "2026-07-22",
+      "consensus_score": 83.7,
+      "institution_count": 4,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 8,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "동원참치",
       "address": "",
       "origins": [
@@ -4594,11 +4536,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 16,
-      "spend": 2369000,
-      "date_min": "2024-06-28",
+      "visits": 11,
+      "spend": 1570000,
+      "date_min": "2024-10-23",
       "date_max": "2026-08-18",
-      "consensus_score": 68.7,
+      "consensus_score": 65.8,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -4670,39 +4612,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "마키노차야 더가우",
-      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 39,
-      "spend": 11562000,
-      "date_min": "2024-04-15",
-      "date_max": "2026-08-27",
-      "consensus_score": 75.3,
-      "institution_count": 5,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 7,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "한일관",
       "address": "",
       "origins": [
@@ -4715,44 +4624,12 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 16,
-      "spend": 4126000,
-      "date_min": "2024-04-23",
-      "date_max": "2026-06-15",
-      "consensus_score": 62.4,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 7,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "비프다이닝 온도",
-      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
       "visits": 15,
-      "spend": 3869000,
-      "date_min": "2024-05-01",
-      "date_max": "2026-07-22",
-      "consensus_score": 73.0,
-      "institution_count": 4,
+      "spend": 3883000,
+      "date_min": "2024-07-04",
+      "date_max": "2026-06-15",
+      "consensus_score": 61.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4778,11 +4655,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 10,
-      "spend": 2347000,
+      "visits": 9,
+      "spend": 2111000,
       "date_min": "2025-07-24",
       "date_max": "2026-07-26",
-      "consensus_score": 65.1,
+      "consensus_score": 64.3,
       "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -4803,18 +4680,17 @@
       ],
       "institutions": [
         "고용노동부",
-        "산업통상부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 8,
-      "spend": 800000,
+      "visits": 7,
+      "spend": 689000,
       "date_min": "2025-07-31",
       "date_max": "2026-08-13",
-      "consensus_score": 63.5,
-      "institution_count": 3,
+      "consensus_score": 56.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4903,8 +4779,8 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 21,
-      "spend": 4042000,
+      "visits": 20,
+      "spend": 3184000,
       "date_min": "2024-11-29",
       "date_max": "2026-08-26",
       "consensus_score": 64.2,
@@ -4933,12 +4809,41 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 18,
-      "spend": 3818400,
-      "date_min": "2024-04-03",
+      "visits": 15,
+      "spend": 3457900,
+      "date_min": "2024-11-18",
       "date_max": "2026-07-22",
-      "consensus_score": 63.3,
+      "consensus_score": 61.9,
       "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "챠이797청계천점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 9,
+      "spend": 1973000,
+      "date_min": "2025-01-17",
+      "date_max": "2026-06-16",
+      "consensus_score": 0.0,
+      "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -4963,43 +4868,12 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2885000,
-      "date_min": "2025-07-18",
-      "date_max": "2026-05-12",
-      "consensus_score": 58.1,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 6,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "광화문아띠/설가온",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
       "visits": 8,
-      "spend": 2064000,
-      "date_min": "2024-05-24",
-      "date_max": "2026-05-07",
-      "consensus_score": 63.5,
-      "institution_count": 3,
+      "spend": 2425000,
+      "date_min": "2025-10-28",
+      "date_max": "2026-05-12",
+      "consensus_score": 57.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5100,6 +4974,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "광화문아띠/설가온",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 6,
+      "spend": 1370000,
+      "date_min": "2025-11-03",
+      "date_max": "2026-05-07",
+      "consensus_score": 55.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "본도시락 종각점",
       "address": "",
       "origins": [
@@ -5129,6 +5033,101 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "마오",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 6,
+      "spend": 1999800,
+      "date_min": "2025-06-10",
+      "date_max": "2025-07-11",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 6,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법제처",
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator"
+      ],
+      "visits": 65,
+      "spend": 11075000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 97.2,
+      "institution_count": 4,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "대선칼국수",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 11,
+      "spend": 1650000,
+      "date_min": "2024-07-02",
+      "date_max": "2026-08-27",
+      "consensus_score": 59.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "해담채 시청점",
       "address": "서울특별시 중구 칠패로 37, HSBC빌딩 지하 1층",
       "origins": [
@@ -5143,76 +5142,12 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 24,
-      "spend": 5863000,
-      "date_min": "2024-04-03",
+      "visits": 10,
+      "spend": 2524000,
+      "date_min": "2024-07-24",
       "date_max": "2026-05-06",
-      "consensus_score": 75.3,
+      "consensus_score": 70.0,
       "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "대선칼국수",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "법제처",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 16,
-      "spend": 2550000,
-      "date_min": "2024-06-07",
-      "date_max": "2026-08-27",
-      "consensus_score": 68.7,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이윽고",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "농림축산식품부",
-        "법제처",
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 9,
-      "spend": 1908000,
-      "date_min": "2024-10-31",
-      "date_max": "2026-07-02",
-      "consensus_score": 69.2,
-      "institution_count": 5,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5254,13 +5189,14 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "삼도회집",
+      "name": "이윽고",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
+        "농림축산식품부",
+        "보건복지부",
         "산업통상부",
         "해양수산부"
       ],
@@ -5268,41 +5204,11 @@
         "central_executive"
       ],
       "visits": 7,
-      "spend": 1504000,
-      "date_min": "2025-04-28",
-      "date_max": "2026-03-03",
-      "consensus_score": 62.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "서순금류복요리전문점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 830000,
-      "date_min": "2024-05-17",
-      "date_max": "2026-08-26",
-      "consensus_score": 55.2,
-      "institution_count": 2,
+      "spend": 1573000,
+      "date_min": "2024-10-31",
+      "date_max": "2026-07-02",
+      "consensus_score": 67.4,
+      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5346,6 +5252,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "삼도회집",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 6,
+      "spend": 1327000,
+      "date_min": "2025-04-28",
+      "date_max": "2026-03-03",
+      "consensus_score": 55.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "고래",
       "address": "",
       "origins": [
@@ -5361,6 +5297,35 @@
       "spend": 1070000,
       "date_min": "2025-09-18",
       "date_max": "2026-08-31",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "서순금류복요리전문점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 635000,
+      "date_min": "2025-09-23",
+      "date_max": "2026-08-26",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -5420,6 +5385,64 @@
       "spend": 959600,
       "date_min": "2026-01-23",
       "date_max": "2026-07-06",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "매생이굴국밥",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 378000,
+      "date_min": "2026-03-20",
+      "date_max": "2026-06-23",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "삼정하누광화문점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 765000,
+      "date_min": "2025-06-11",
+      "date_max": "2026-06-15",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -5529,36 +5552,39 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "name": "운산",
+      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
       "origins": [
         "국회의원(정치자금 2024)",
+        "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
         "국회의원",
         "법제처",
-        "보건복지부"
+        "보건복지부",
+        "산업통상부"
       ],
       "cohorts": [
         "central_executive",
+        "justice_leadership",
         "national_legislator"
       ],
-      "visits": 65,
-      "spend": 11075000,
-      "date_min": "2024-01-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 87.0,
-      "institution_count": 4,
-      "source_count": 2,
+      "visits": 110,
+      "spend": 23850500,
+      "date_min": "2024-01-04",
+      "date_max": "2026-08-24",
+      "consensus_score": 97.2,
+      "institution_count": 5,
+      "source_count": 3,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 4,
+      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -5586,69 +5612,6 @@
       "consensus_score": 87.0,
       "institution_count": 4,
       "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "세종 오이시",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "법제처",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 1897000,
-      "date_min": "2025-08-18",
-      "date_max": "2026-08-04",
-      "consensus_score": 68.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "일품진진수라 광화문점",
-      "address": "서울특별시 종로구 종로5길 7, 타워8빌딩 지하 2층",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 8,
-      "spend": 2606400,
-      "date_min": "2025-08-13",
-      "date_max": "2026-03-26",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 4,
@@ -5691,23 +5654,25 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "챠이797청계천점",
-      "address": "",
+      "name": "일품진진수라 광화문점",
+      "address": "서울특별시 종로구 종로5길 7, 타워8빌딩 지하 2층",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부"
+        "보건복지부",
+        "산업통상부",
+        "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 6,
-      "spend": 1216000,
-      "date_min": "2026-02-13",
-      "date_max": "2026-06-16",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 2056900,
+      "date_min": "2025-10-10",
+      "date_max": "2026-03-26",
+      "consensus_score": 61.4,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5780,36 +5745,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "동해도본점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1083000,
-      "date_min": "2025-02-05",
-      "date_max": "2026-04-01",
-      "consensus_score": 53.9,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "광화문 더덕순대",
       "address": "",
       "origins": [
@@ -5827,6 +5762,36 @@
       "date_max": "2026-08-18",
       "consensus_score": 0.0,
       "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세종 오이시",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1312000,
+      "date_min": "2025-11-20",
+      "date_max": "2026-07-27",
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5898,6 +5863,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "동해도본점",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 927000,
+      "date_min": "2025-02-05",
+      "date_max": "2026-04-01",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "남도마루",
       "address": "서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워)",
       "origins": [
@@ -5914,47 +5908,12 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 197,
-      "spend": 45023000,
+      "visits": 196,
+      "spend": 44698000,
       "date_min": "2024-01-03",
       "date_max": "2026-05-07",
       "consensus_score": 87.0,
       "institution_count": 4,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "운산",
-      "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 111,
-      "spend": 24251500,
-      "date_min": "2024-01-04",
-      "date_max": "2026-08-24",
-      "consensus_score": 87.0,
-      "institution_count": 5,
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -5984,8 +5943,8 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 99,
-      "spend": 4253300,
+      "visits": 97,
+      "spend": 4164600,
       "date_min": "2024-01-09",
       "date_max": "2026-04-08",
       "consensus_score": 90.6,
@@ -6050,8 +6009,8 @@
         "central_executive",
         "national_legislator"
       ],
-      "visits": 59,
-      "spend": 15836000,
+      "visits": 57,
+      "spend": 15204000,
       "date_min": "2024-01-14",
       "date_max": "2025-12-24",
       "consensus_score": 82.1,
@@ -6146,7 +6105,7 @@
         "central_executive"
       ],
       "visits": 11,
-      "spend": 3397500,
+      "spend": 3560000,
       "date_min": "2024-12-27",
       "date_max": "2026-06-05",
       "consensus_score": 65.8,
@@ -6176,74 +6135,12 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 8,
-      "spend": 2751000,
-      "date_min": "2024-04-01",
+      "visits": 7,
+      "spend": 2373000,
+      "date_min": "2024-10-02",
       "date_max": "2026-06-22",
-      "consensus_score": 63.5,
+      "consensus_score": 62.5,
       "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이태형의 메구미",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국가보훈부",
-        "법제처",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1669000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-08-21",
-      "consensus_score": 66.3,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 2,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "경희궁 참치집",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1712000,
-      "date_min": "2024-04-09",
-      "date_max": "2025-11-25",
-      "consensus_score": 55.2,
-      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6268,10 +6165,71 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 4,
-      "spend": 603000,
+      "visits": 5,
+      "spend": 677000,
       "date_min": "2024-09-24",
       "date_max": "2026-07-06",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이태형의 메구미",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국가보훈부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1145000,
+      "date_min": "2026-01-27",
+      "date_max": "2026-08-21",
+      "consensus_score": 58.6,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 2,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "안성또순이",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 554000,
+      "date_min": "2025-03-21",
+      "date_max": "2026-08-19",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -6315,7 +6273,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "동원참치광화문본점",
+      "name": "경희궁 참치집",
       "address": "",
       "origins": [
         "중앙정부"
@@ -6328,9 +6286,9 @@
         "central_executive"
       ],
       "visits": 4,
-      "spend": 463000,
-      "date_min": "2024-05-20",
-      "date_max": "2025-12-05",
+      "spend": 1186000,
+      "date_min": "2025-08-07",
+      "date_max": "2025-11-25",
       "consensus_score": 52.4,
       "institution_count": 2,
       "source_count": 1,
@@ -6363,6 +6321,209 @@
       "date_max": "2025-09-09",
       "consensus_score": 52.4,
       "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "샐요일 베스트웨스턴호텔 세종점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 3,
+      "spend": 711000,
+      "date_min": "2026-07-09",
+      "date_max": "2026-08-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "소라",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 3,
+      "spend": 384000,
+      "date_min": "2026-07-03",
+      "date_max": "2026-08-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법제정책국장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "윤가 한웃국",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 3,
+      "spend": 272000,
+      "date_min": "2026-07-13",
+      "date_max": "2026-08-16",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법령해석국장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "토라",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 3,
+      "spend": 400000,
+      "date_min": "2026-07-13",
+      "date_max": "2026-08-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법제정책국장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "보돌미역 세종청사점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 3,
+      "spend": 325000,
+      "date_min": "2026-06-24",
+      "date_max": "2026-08-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일미장어",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 3,
+      "spend": 360000,
+      "date_min": "2026-01-09",
+      "date_max": "2026-07-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "충무칼국수",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 3,
+      "spend": 255000,
+      "date_min": "2026-03-17",
+      "date_max": "2026-05-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6473,39 +6634,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "사조참치",
-      "address": "서울 영등포구 국회대로62길9(여의도동)",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 25,
-      "spend": 4349000,
-      "date_min": "2024-03-25",
-      "date_max": "2026-04-08",
-      "consensus_score": 82.1,
-      "institution_count": 3,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "김삼보",
       "address": "서울 영등포구 국회대로 780 (여의도동, 엘지에클라트오피스텔) 1층",
       "origins": [
@@ -6540,28 +6668,28 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "오롯이",
-      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
+      "name": "생태명가",
+      "address": "서울 영등포구 국회대로72길 22 (여의도동, 가든빌딩) 1층",
       "origins": [
+        "국회의원(정치자금 2024)",
         "중앙정부"
       ],
       "institutions": [
-        "국가보훈부",
-        "농림축산식품부",
-        "법제처",
-        "산업통상부",
-        "해양수산부"
+        "고용노동부",
+        "국회의원",
+        "산업통상부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "national_legislator"
       ],
-      "visits": 21,
-      "spend": 2869000,
-      "date_min": "2024-08-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 75.3,
-      "institution_count": 5,
-      "source_count": 1,
+      "visits": 24,
+      "spend": 3202000,
+      "date_min": "2024-01-03",
+      "date_max": "2026-04-07",
+      "consensus_score": 82.1,
+      "institution_count": 3,
+      "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 2,
@@ -6579,19 +6707,18 @@
         "중앙정부"
       ],
       "institutions": [
-        "법제처",
         "보건복지부",
         "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 20,
-      "spend": 5767000,
-      "date_min": "2024-04-01",
+      "visits": 18,
+      "spend": 6158000,
+      "date_min": "2024-07-01",
       "date_max": "2026-07-13",
-      "consensus_score": 70.4,
-      "institution_count": 3,
+      "consensus_score": 63.3,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6616,11 +6743,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 19,
-      "spend": 5062700,
-      "date_min": "2024-04-05",
+      "visits": 17,
+      "spend": 4382700,
+      "date_min": "2024-08-23",
       "date_max": "2026-05-22",
-      "consensus_score": 63.8,
+      "consensus_score": 62.9,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -6646,43 +6773,12 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 16,
-      "spend": 3403000,
+      "visits": 12,
+      "spend": 2876000,
       "date_min": "2024-11-18",
       "date_max": "2026-05-13",
-      "consensus_score": 62.4,
+      "consensus_score": 60.2,
       "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "만복림",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 10,
-      "spend": 3666000,
-      "date_min": "2024-05-09",
-      "date_max": "2026-04-21",
-      "consensus_score": 65.1,
-      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6707,11 +6803,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 1561000,
+      "visits": 10,
+      "spend": 1836000,
       "date_min": "2024-07-18",
       "date_max": "2026-03-06",
-      "consensus_score": 58.1,
+      "consensus_score": 58.9,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -6738,74 +6834,11 @@
         "central_executive"
       ],
       "visits": 7,
-      "spend": 1637000,
-      "date_min": "2024-05-01",
+      "spend": 1577000,
+      "date_min": "2024-10-29",
       "date_max": "2025-12-17",
       "consensus_score": 56.2,
       "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "복성각",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1761000,
-      "date_min": "2024-05-03",
-      "date_max": "2026-04-29",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "연타발",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1611000,
-      "date_min": "2024-07-05",
-      "date_max": "2026-08-21",
-      "consensus_score": 65.0,
-      "institution_count": 4,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6849,23 +6882,54 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "사천이모집",
+      "name": "만복림",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "법제처",
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 5,
+      "spend": 2075800,
+      "date_min": "2024-07-11",
+      "date_max": "2026-04-21",
+      "consensus_score": 60.1,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "효동스타지오네",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "산업통상부",
         "통일부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 4,
-      "spend": 950000,
-      "date_min": "2025-08-27",
-      "date_max": "2026-08-14",
-      "consensus_score": 52.4,
+      "visits": 5,
+      "spend": 1307000,
+      "date_min": "2024-11-04",
+      "date_max": "2026-03-19",
+      "consensus_score": 53.9,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -6909,6 +6973,67 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "연타발",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1294000,
+      "date_min": "2024-07-05",
+      "date_max": "2026-05-14",
+      "consensus_score": 58.6,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "복성각",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 1205000,
+      "date_min": "2024-11-12",
+      "date_max": "2026-04-29",
+      "consensus_score": 52.4,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "한뫼촌",
       "address": "",
       "origins": [
@@ -6939,25 +7064,24 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "모도우 광화문점",
+      "name": "고우가광화문",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "보건복지부",
-        "산업통상부",
-        "통일부"
+        "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 3,
-      "spend": 1036000,
-      "date_min": "2024-05-21",
-      "date_max": "2026-06-30",
-      "consensus_score": 56.8,
-      "institution_count": 3,
+      "spend": 752000,
+      "date_min": "2024-11-13",
+      "date_max": "2026-07-24",
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6966,6 +7090,383 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "팔선생세종점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 493000,
+      "date_min": "2026-06-05",
+      "date_max": "2026-08-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "마구로 정",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 883000,
+      "date_min": "2026-08-19",
+      "date_max": "2026-08-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "타마스시",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 684000,
+      "date_min": "2026-07-23",
+      "date_max": "2026-08-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "고쿠",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 113000,
+      "date_min": "2026-07-09",
+      "date_max": "2026-08-19",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법제정보지원국장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "사천이모집",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 453000,
+      "date_min": "2026-07-24",
+      "date_max": "2026-08-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "우나기칸세종점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 750000,
+      "date_min": "2026-07-16",
+      "date_max": "2026-08-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "윤가네남원추어탕",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 147000,
+      "date_min": "2026-08-07",
+      "date_max": "2026-08-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "가장맛있는족발 도담점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 144000,
+      "date_min": "2026-07-08",
+      "date_max": "2026-08-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세종 오이시",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 270000,
+      "date_min": "2026-07-14",
+      "date_max": "2026-08-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "파리바게뜨 정부세종청사점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 124400,
+      "date_min": "2026-07-16",
+      "date_max": "2026-08-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "만세곱창",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 294300,
+      "date_min": "2026-07-07",
+      "date_max": "2026-07-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "기획조정관",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "토정삼계탕청사관",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 202000,
+      "date_min": "2026-06-17",
+      "date_max": "2026-07-16",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "빠스타스 by 파인드파인",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 705400,
+      "date_min": "2026-07-10",
+      "date_max": "2026-07-15",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -6993,6 +7494,38 @@
       "consensus_score": 87.0,
       "institution_count": 4,
       "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "식원",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 15,
+      "spend": 4738000,
+      "date_min": "2024-04-22",
+      "date_max": "2026-08-24",
+      "consensus_score": 73.0,
+      "institution_count": 4,
+      "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
       "top_official_visits": 1,
@@ -7035,26 +7568,24 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "식원",
+      "name": "소쿠리밥상세종청사점",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "농림축산식품부",
-        "산업통상부",
-        "해양수산부"
+        "산업통상부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 12,
-      "spend": 3522000,
-      "date_min": "2024-04-01",
-      "date_max": "2026-08-24",
-      "consensus_score": 71.3,
-      "institution_count": 4,
+      "spend": 2603000,
+      "date_min": "2024-09-30",
+      "date_max": "2026-03-04",
+      "consensus_score": 60.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -7074,18 +7605,17 @@
       ],
       "institutions": [
         "농림축산식품부",
-        "법제처",
         "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 10,
-      "spend": 349000,
+      "visits": 9,
+      "spend": 273000,
       "date_min": "2024-04-15",
       "date_max": "2026-08-05",
-      "consensus_score": 65.1,
-      "institution_count": 3,
+      "consensus_score": 58.1,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -7110,11 +7640,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2579000,
-      "date_min": "2024-05-28",
+      "visits": 8,
+      "spend": 2565000,
+      "date_min": "2024-07-29",
       "date_max": "2026-04-07",
-      "consensus_score": 58.1,
+      "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -7140,11 +7670,11 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 9,
-      "spend": 2905500,
-      "date_min": "2024-04-19",
-      "date_max": "2025-08-05",
-      "consensus_score": 58.1,
+      "visits": 8,
+      "spend": 2988000,
+      "date_min": "2024-09-03",
+      "date_max": "2025-07-21",
+      "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
@@ -7170,100 +7700,10 @@
       "cohorts": [
         "central_executive"
       ],
-      "visits": 8,
-      "spend": 2424000,
-      "date_min": "2024-04-05",
+      "visits": 7,
+      "spend": 2219000,
+      "date_min": "2024-07-04",
       "date_max": "2026-06-11",
-      "consensus_score": 57.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "방원양갈비양꼬치",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 2534000,
-      "date_min": "2024-05-27",
-      "date_max": "2026-06-30",
-      "consensus_score": 56.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소쿠리밥상세종청사점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 1469000,
-      "date_min": "2024-09-30",
-      "date_max": "2026-03-04",
-      "consensus_score": 56.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "도담도담 민물장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 7,
-      "spend": 2965000,
-      "date_min": "2024-04-08",
-      "date_max": "2026-02-26",
       "consensus_score": 56.2,
       "institution_count": 2,
       "source_count": 1,
@@ -7309,68 +7749,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "분당만강원",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 762000,
-      "date_min": "2024-04-03",
-      "date_max": "2026-08-25",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "세종대박장어",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "법제처"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 6,
-      "spend": 1019000,
-      "date_min": "2026-03-04",
-      "date_max": "2026-08-24",
-      "consensus_score": 61.4,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "서울관",
       "address": "",
       "origins": [
@@ -7401,54 +7779,22 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "정민복집",
+      "name": "세종대박장어",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "법제처",
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
+        "고용노동부",
+        "농림축산식품부"
       ],
       "cohorts": [
         "central_executive"
       ],
       "visits": 5,
-      "spend": 551000,
-      "date_min": "2025-07-21",
-      "date_max": "2026-07-27",
-      "consensus_score": 65.0,
-      "institution_count": 4,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "나주소 나주곰탕",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 789000,
-      "date_min": "2024-08-21",
-      "date_max": "2026-04-11",
+      "spend": 944000,
+      "date_min": "2026-03-04",
+      "date_max": "2026-08-24",
       "consensus_score": 53.9,
       "institution_count": 2,
       "source_count": 1,
@@ -7463,56 +7809,24 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "일품진진수라",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "보건복지부",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1003500,
-      "date_min": "2024-11-22",
-      "date_max": "2026-01-30",
-      "consensus_score": 60.1,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "마구로 정",
+      "name": "분당만강원",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
         "고용노동부",
-        "법제처",
-        "산업통상부"
+        "해양수산부"
       ],
       "cohorts": [
         "central_executive"
       ],
-      "visits": 4,
-      "spend": 1685000,
-      "date_min": "2024-10-21",
-      "date_max": "2026-08-26",
-      "consensus_score": 58.6,
-      "institution_count": 3,
+      "visits": 5,
+      "spend": 634000,
+      "date_min": "2024-04-03",
+      "date_max": "2025-12-29",
+      "consensus_score": 53.9,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -7556,13 +7870,42 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "대상해",
+      "name": "금반 김해뒷고기",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 4,
+      "spend": 557000,
+      "date_min": "2026-07-06",
+      "date_max": "2026-07-30",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "정민복집",
       "address": "",
       "origins": [
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
+        "보건복지부",
         "산업통상부",
         "해양수산부"
       ],
@@ -7570,9 +7913,9 @@
         "central_executive"
       ],
       "visits": 4,
-      "spend": 505000,
-      "date_min": "2024-04-12",
-      "date_max": "2025-07-16",
+      "spend": 493000,
+      "date_min": "2025-07-21",
+      "date_max": "2026-05-20",
       "consensus_score": 58.6,
       "institution_count": 3,
       "source_count": 1,
@@ -7583,6 +7926,966 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일품진진수라",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "보건복지부",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 4,
+      "spend": 558000,
+      "date_min": "2024-11-22",
+      "date_max": "2026-01-30",
+      "consensus_score": 58.6,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "뚜리삼",
+      "address": "",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 3,
+      "spend": 244000,
+      "date_min": "2025-02-10",
+      "date_max": "2026-01-28",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "디스 이즈 평양(This is 평양)",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 191000,
+      "date_min": "2026-07-03",
+      "date_max": "2026-07-22",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법령해석국장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "관산성한우 세종나성점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 311000,
+      "date_min": "2026-06-15",
+      "date_max": "2026-07-16",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법령해석국장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "청솔횟집",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 338000,
+      "date_min": "2026-06-23",
+      "date_max": "2026-07-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법령해석국장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "스시나고미",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 297000,
+      "date_min": "2026-08-25",
+      "date_max": "2026-08-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "연타발",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 317000,
+      "date_min": "2026-08-21",
+      "date_max": "2026-08-21",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "백령도횟집",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 250000,
+      "date_min": "2026-08-18",
+      "date_max": "2026-08-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "돼지고기 김치찌개",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 55000,
+      "date_min": "2026-08-18",
+      "date_max": "2026-08-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "궁궐",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 495000,
+      "date_min": "2026-08-14",
+      "date_max": "2026-08-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "고기명작",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 145000,
+      "date_min": "2026-08-13",
+      "date_max": "2026-08-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세종대박장어",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 75000,
+      "date_min": "2026-08-13",
+      "date_max": "2026-08-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "워커스버거",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 139000,
+      "date_min": "2026-08-12",
+      "date_max": "2026-08-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "차이킹",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 263000,
+      "date_min": "2026-08-10",
+      "date_max": "2026-08-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "세경호텔(주)",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 120000,
+      "date_min": "2026-08-03",
+      "date_max": "2026-08-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "보보식당광화문",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 338000,
+      "date_min": "2026-07-28",
+      "date_max": "2026-07-28",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "정민복집",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 58000,
+      "date_min": "2026-07-27",
+      "date_max": "2026-07-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "예원",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 150000,
+      "date_min": "2026-07-24",
+      "date_max": "2026-07-24",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "완미족발 도담점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 55900,
+      "date_min": "2026-07-23",
+      "date_max": "2026-07-23",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "우미상관",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 260000,
+      "date_min": "2026-07-22",
+      "date_max": "2026-07-22",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "란이",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 187000,
+      "date_min": "2026-07-20",
+      "date_max": "2026-07-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "부다스벨리",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 168000,
+      "date_min": "2026-07-17",
+      "date_max": "2026-07-17",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "로마네꽁띠",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 387000,
+      "date_min": "2026-07-14",
+      "date_max": "2026-07-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "본도시락 세종시청점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 150000,
+      "date_min": "2026-07-14",
+      "date_max": "2026-07-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "채고램",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 111000,
+      "date_min": "2026-07-14",
+      "date_max": "2026-07-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "청담초밥 문정점",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 130000,
+      "date_min": "2026-07-13",
+      "date_max": "2026-07-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "다담",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 78000,
+      "date_min": "2026-07-10",
+      "date_max": "2026-07-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "시오 두번째 이야기",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 330000,
+      "date_min": "2026-07-08",
+      "date_max": "2026-07-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "너드버거클럽",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 205400,
+      "date_min": "2026-07-08",
+      "date_max": "2026-07-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "들풀",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 232000,
+      "date_min": "2026-07-07",
+      "date_max": "2026-07-07",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "대선칼국수",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 174000,
+      "date_min": "2026-07-07",
+      "date_max": "2026-07-07",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "아리네 식탁",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 432000,
+      "date_min": "2026-07-06",
+      "date_max": "2026-07-06",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이윽고",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 195000,
+      "date_min": "2026-07-02",
+      "date_max": "2026-07-02",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     }
