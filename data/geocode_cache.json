@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1267,
-    "success_count": 1052,
-    "updated_at": "2026-09-23T00:42:32+00:00"
+    "record_count": 1271,
+    "success_count": 1056,
+    "updated_at": "2026-09-23T04:36:59+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -2654,6 +2654,24 @@
         "arcgis:서울 중구 남대문로 17"
       ],
       "updated_at": "2026-09-17T23:04:03+00:00"
+    },
+    "깨랑|강화군": {
+      "addr_type": "POI",
+      "display_name": "깨랑",
+      "fingerprint": "819e0822e8944172",
+      "geocoder_version": 4,
+      "lat": 37.748048107,
+      "lon": 126.488029631,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "깨랑 인천광역시 강화군",
+      "result_name": "깨랑",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:깨랑 인천광역시 강화군"
+      ],
+      "updated_at": "2026-09-23T04:36:58+00:00"
     },
     "꾸덕해|연수구": {
       "addr_type": "POI",
@@ -16471,6 +16489,24 @@
       ],
       "updated_at": "2026-09-23T00:42:15+00:00"
     },
+    "중앙가든|안성시": {
+      "addr_type": "POI",
+      "display_name": "중앙가든",
+      "fingerprint": "b9933b038220d4e9",
+      "geocoder_version": 4,
+      "lat": 37.010349005,
+      "lon": 127.208363993,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "중앙가든 안성시",
+      "result_name": "중앙가든",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:중앙가든 안성시"
+      ],
+      "updated_at": "2026-09-23T04:36:57+00:00"
+    },
     "중원내자점|중앙정부": {
       "addr_type": "PointAddress",
       "display_name": "서울특별시 종로구 내자동 178-1",
@@ -19347,6 +19383,24 @@
       ],
       "updated_at": "2026-09-17T23:05:33+00:00"
     },
+    "하루정식|강화군": {
+      "addr_type": "POI",
+      "display_name": "하루정식",
+      "fingerprint": "738aef024813b941",
+      "geocoder_version": 4,
+      "lat": 37.746800837,
+      "lon": 126.486750291,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "하루정식 인천광역시 강화군",
+      "result_name": "하루정식",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:하루정식 인천광역시 강화군"
+      ],
+      "updated_at": "2026-09-23T04:36:59+00:00"
+    },
     "하오런|강북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강북구 번동 오현로 137",
@@ -20060,6 +20114,24 @@
         "nominatim:해담채여의도 대한민국"
       ],
       "updated_at": "2026-09-18T05:24:19+00:00"
+    },
+    "해돋이|강화군": {
+      "addr_type": "POI",
+      "display_name": "해돋이",
+      "fingerprint": "1d86da6a16d3eb65",
+      "geocoder_version": 4,
+      "lat": 37.744917324,
+      "lon": 126.487067031,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "해돋이 인천광역시 강화군",
+      "result_name": "해돋이",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:해돋이 인천광역시 강화군"
+      ],
+      "updated_at": "2026-09-23T04:36:59+00:00"
     },
     "해동복국|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
