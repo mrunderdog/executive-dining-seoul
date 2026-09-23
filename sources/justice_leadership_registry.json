@@ -23,6 +23,10 @@
       "institution": "헌법재판소",
       "verified": true,
       "listing_urls": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264985&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266204&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267061&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267740&cbIdx=1118",
         "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118"
       ],
       "include_terms": [
@@ -36,13 +40,17 @@
       "format_hint": "pdf_hwp",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 12
+      "max_pages": 8
     },
     {
       "key": "constitutional_court_secretary_general",
       "institution": "헌법재판소",
       "verified": true,
       "listing_urls": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264986&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266205&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267062&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267741&cbIdx=1118",
         "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118"
       ],
       "include_terms": [
@@ -53,13 +61,14 @@
       "format_hint": "pdf_hwp",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 12
+      "max_pages": 8
     },
     {
       "key": "cio_chief",
       "institution": "고위공직자범죄수사처",
       "verified": true,
       "listing_urls": [
+        "https://www.cio.go.kr/board/view/202?cid=5319&page=",
         "https://www.cio.go.kr/board/list/202"
       ],
       "include_terms": [
@@ -71,7 +80,7 @@
       "source_type": "official_routine",
       "merchant_expectation": "aggregate_only_observed",
       "note": "2026 Q1 disclosure was observed to omit merchant/place details; keep staged unless newer files expose merchant-level rows.",
-      "max_pages": 8
+      "max_pages": 5
     },
     {
       "key": "prosecution_supreme",
