@@ -149,11 +149,27 @@ def fetch_text(url: str) -> str:
     return decode_html(raw, charset)
 
 
+def unescape_url_attr(value: str) -> str:
+    """Decode HTML ampersand escapes without corrupting query keys like &gtid=.
+
+    html.unescape("&gtid=...") interprets the leading "&gt" as the greater-than
+    entity and turns a valid gtid query parameter into ">id". URLs only need
+    ampersand/numeric ampersand decoding here.
+    """
+    s = str(value or "")
+    return (
+        s.replace("&amp;", "&")
+         .replace("&#38;", "&")
+         .replace("&#x26;", "&")
+         .replace("&#X26;", "&")
+    )
+
+
 def onclick_url(base: str, onclick: str) -> str | None:
     if not onclick:
         return None
     # Capture a URL/string used by location.href, window.open, fn_view('...') etc.
-    candidates = re.findall(r"['\"]([^'\"]+(?:\.do|/bbs|download|file)[^'\"]*)['\"]", html.unescape(onclick), flags=re.I)
+    candidates = re.findall(r"['\"]([^'\"]+(?:\.do|/bbs|download|file)[^'\"]*)['\"]", unescape_url_attr(onclick), flags=re.I)
     if not candidates:
         return None
     return urllib.parse.urljoin(base, candidates[0])
@@ -163,7 +179,7 @@ def anchors(url: str, text: str):
     p = AnchorParser(); p.feed(text)
     out = []
     for a in p.anchors:
-        href = html.unescape(a.get("href", "")).strip()
+        href = unescape_url_attr(a.get("href", "")).strip()
         resolved = None
         if href and href != "#" and not href.lower().startswith("javascript:"):
             resolved = urllib.parse.urljoin(url, href)
@@ -177,7 +193,7 @@ def anchors(url: str, text: str):
             haystacks = [a.get("onclick", "")] + [str(v) for v in attrs.values()]
             key = ""
             for raw in haystacks:
-                m = re.search(r"(?:key\s*[=:]\s*|['\"])([0-9a-f]{32,128})(?:['\"]|$)", html.unescape(str(raw)), flags=re.I)
+                m = re.search(r"(?:key\s*[=:]\s*|['\"])([0-9a-f]{32,128})(?:['\"]|$)", unescape_url_attr(str(raw)), flags=re.I)
                 if m:
                     key = m.group(1)
                     break
@@ -259,7 +275,7 @@ def regex_attachment_fallback(base: str, text: str):
     seen = set()
     # Recover download URLs embedded in onclick/script attributes.
     for m in re.finditer(r"['\"]([^'\"]*(?:download|filedown|attach|atchfile|bbsfile)[^'\"]*)['\"]", text, flags=re.I):
-        raw = html.unescape(m.group(1))
+        raw = unescape_url_attr(m.group(1))
         url = urllib.parse.urljoin(base, raw)
         if "bbsattachdownload.do" in url.lower() and "key=" not in url.lower():
             nearby = text[max(0, m.start()-500):min(len(text), m.end()+500)]
@@ -280,7 +296,7 @@ def regex_attachment_fallback(base: str, text: str):
 
 def canonical_attachment_url(url: str) -> str | None:
     """Normalize real attachment URLs and reject obvious HTML/CSS pseudo-links."""
-    raw = html.unescape(str(url or "")).strip()
+    raw = unescape_url_attr(str(url or "")).strip()
     if not raw or " " in raw:
         return None
     p = urllib.parse.urlsplit(raw)
