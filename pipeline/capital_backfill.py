@@ -267,6 +267,53 @@ def regex_attachment_fallback(base: str, text: str):
     return results
 
 
+def canonical_attachment_url(url: str) -> str | None:
+    """Normalize real attachment URLs and reject obvious HTML/CSS pseudo-links."""
+    raw = html.unescape(str(url or "")).strip()
+    if not raw or " " in raw:
+        return None
+    p = urllib.parse.urlsplit(raw)
+    path = p.path.lower().rstrip("/")
+    query = urllib.parse.parse_qsl(p.query, keep_blank_values=False)
+    # Bare route names and UI fragments are not downloadable files.
+    if path.endswith("/attach"):
+        return None
+    if path.endswith("/bbsattachdownload.do") and not query:
+        return None
+    if not (
+        re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
+        or any(token in path for token in ("download", "filedown", "attach", "atchfile", "bbsfile"))
+    ):
+        return None
+    query.sort()
+    return urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, urllib.parse.urlencode(query), ""))
+
+
+def sanitize_discovered_posts(posts):
+    """De-duplicate attachments globally within one source discovery.
+
+    Some council list pages repeat the same download controls on every paged
+    result. Keeping them once avoids dozens of identical downloads and prevents
+    a list-page wrapper from being treated as many distinct expense files.
+    """
+    seen = set()
+    cleaned = []
+    for post in posts:
+        row = dict(post)
+        atts = []
+        for att in post.get("attachments", []):
+            canon = canonical_attachment_url(att.get("url"))
+            if not canon or canon in seen:
+                continue
+            seen.add(canon)
+            item = dict(att)
+            item["url"] = canon
+            atts.append(item)
+        row["attachments"] = atts
+        cleaned.append(row)
+    return cleaned
+
+
 def discover_source(src: Source, since, until):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -368,7 +415,7 @@ def discover_source(src: Source, since, until):
             empty_pages += 1
             if posts and empty_pages >= 2:
                 break
-    return posts
+    return sanitize_discovered_posts(posts)
 
 
 def ym(s: str):
