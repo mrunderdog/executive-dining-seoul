@@ -194,6 +194,97 @@ def central_records(max_records: int = 120) -> list[dict]:
     return out
 
 
+def justice_records(max_records: int = 120) -> list[dict]:
+    p = REPORTS / "justice-leadership-candidates.json"
+    if not p.exists():
+        return []
+    d = json.loads(p.read_text(encoding="utf-8"))
+    out = []
+    for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
+        name = t(c.get("merchant"))
+        if not name:
+            continue
+        override = ENTITY_OVERRIDES.get(name, {})
+        address = t(c.get("address")) or t(override.get("address"))
+        display_name = t(override.get("display")) or name
+        inst = c.get("institutions") or []
+        visits = int(c.get("visits") or 0)
+        months = int(c.get("months") or 0)
+        spend = int(c.get("spend") or 0)
+        score = float(c.get("score") or 0)
+        high_visits = int(c.get("high_official_visits") or 0)
+        roles = [
+            {"role": t(x.get("role")), "visits": int(x.get("visits") or 0), "people": 0, "spend": 0}
+            for x in (c.get("role_stats") or []) if t(x.get("role"))
+        ]
+        recent = [
+            {
+                "date": t(x.get("date")),
+                "time": t(x.get("time")),
+                "role": f"{t(x.get('institution'))} {t(x.get('role'))}".strip(),
+                "people": int(x.get("people") or 0),
+                "amount": int(x.get("amount") or 0),
+                "purpose": t(x.get("purpose")),
+                "source": t(x.get("source")),
+            }
+            for x in (c.get("recent") or [])
+        ]
+        out.append({
+            "name": name,
+            "origin": "법조·법률행정",
+            "region": "전국",
+            "jurisdiction": "대한민국",
+            "institution": " · ".join(inst[:4]) or "법조·법률행정기관",
+            "institutions": inst,
+            "type": "executive",
+            "destination": None,
+            "executive": {
+                "rank": rank,
+                "score": round(score, 1),
+                "exec_events": visits,
+                "roles": int(c.get("role_count") or 0),
+                "months": months,
+                "evening_ratio": 0,
+                "source": "justice_leadership",
+                "top_official_visits": high_visits,
+                "top_role_tier": t(c.get("top_role_tier")),
+                "top_role_label": t(c.get("top_role")),
+            },
+            "address": address,
+            "search_query": f"{display_name} {address or '대한민국'}",
+            "business": {
+                "display": display_name,
+                "category": _category(name),
+                "phone": t(override.get("phone")),
+                "status": "법조·법률행정기관 공식 업무추진비 원자료상 사용처",
+                "rating": "",
+                "note": "법무부·법제처·검찰·법원·헌법재판소·공수처 등 고위직 공개 업무추진비에서 추출한 식사성 사용처입니다.",
+                "url": t(override.get("url")),
+                "verified_at": t(override.get("verified_at")),
+                "verification_confidence": t(override.get("confidence")),
+            },
+            "evidence": {
+                "visits": visits,
+                "spend": spend,
+                "people": 0,
+                "months": months,
+                "evening": 0,
+                "evening_ratio": 0,
+                "ppc": 0,
+                "date_min": t(c.get("date_min")),
+                "date_max": t(c.get("date_max")),
+                "roles": roles,
+                "purposes": c.get("purpose_stats") or [],
+                "recent": recent,
+                "source_rows": [],
+            },
+            "why": f"법조·법률행정 고위직 공개 업무추진비에서 {visits}회 확인된 사용처입니다. 고위직 직접 사용 신호는 {high_visits}회입니다.",
+            "published_source": "justice_leadership",
+            "cohort": "justice_leadership",
+        })
+    return out
+
+
 def _legislator_record(c: dict, published_rank: int | None = None, qa_grade: str = "") -> dict:
     name = t(c.get("merchant"))
     address = t(c.get("address"))
@@ -313,7 +404,7 @@ def merge_extra_published(payload: dict) -> dict:
     base = list(payload.get("records", []))
     seen = {(t(r.get("name")), t(r.get("origin"))) for r in base}
     added = []
-    for r in central_records() + legislator_records():
+    for r in central_records() + justice_records() + legislator_records():
         k = (t(r.get("name")), t(r.get("origin")))
         if k in seen:
             continue
@@ -335,8 +426,9 @@ def merge_extra_published(payload: dict) -> dict:
     meta = dict(payload.get("meta") or {})
     ps = dict(meta.get("published_supplements") or {})
     ps["central_executive"] = sum(r.get("published_source") == "central_executive" for r in added)
+    ps["justice_leadership"] = sum(r.get("published_source") == "justice_leadership" for r in added)
     ps["national_legislator_2024"] = sum(r.get("published_source") == "national_legislator_2024" for r in added)
     meta["published_supplements"] = ps
-    meta["scope"] = "수도권·중앙정부·국회 공공부문 Executive Dining"
+    meta["scope"] = "수도권·중앙정부·법조·국회 공공부문 Executive Dining"
     payload["meta"] = meta
     return payload
