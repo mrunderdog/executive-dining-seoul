@@ -200,6 +200,11 @@ def title_period(title: str):
     if m:
         year = int((m.group(1) or "20") + m.group(2))
         return year, None, int(m.group(3))
+    # Some boards put institution/purpose words between year and quarter,
+    # e.g. "2026년 파주시의회 업무추진비 내역(1분기)".
+    m = re.search(r"(20\d{2})[^\n]{0,100}?([1-4])\s*분기", title)
+    if m:
+        return int(m.group(1)), None, int(m.group(2))
     return None
 
 
@@ -220,6 +225,12 @@ def post_like(a, src: Source):
         return False
     if src.key in {"suwon", "goyang", "jemulpo", "yongin", "gwangju", "gunpo", "gwacheon", "yeoju", "dongducheon"}:
         return "costBBSview" in u or "costbbsview" in u.lower()
+    if src.key in {"icheon", "paju"}:
+        low = u.lower()
+        return "operatingexpense.html" in low and "fidx=" in low and "pg=vv" in low
+    if src.key == "ansan":
+        low = u.lower()
+        return "selectbbsdetail.do" in low and "bbs_code=b0406" in low
     if src.key == "michuhol":
         return "bbs_view.asp" in u.lower() and "board_189" in u.lower()
     if src.key == "bupyeong":
