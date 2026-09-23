@@ -218,7 +218,7 @@ def post_like(a, src: Source):
     t, u = a["text"], a["url"]
     if "업무추진비" not in t:
         return False
-    if src.key in {"suwon", "goyang", "jemulpo", "yongin", "gwangju", "gunpo", "gwacheon", "yeoju"}:
+    if src.key in {"suwon", "goyang", "jemulpo", "yongin", "gwangju", "gunpo", "gwacheon", "yeoju", "dongducheon"}:
         return "costBBSview" in u or "costbbsview" in u.lower()
     if src.key == "michuhol":
         return "bbs_view.asp" in u.lower() and "board_189" in u.lower()
