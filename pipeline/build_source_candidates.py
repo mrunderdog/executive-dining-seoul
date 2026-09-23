@@ -63,14 +63,20 @@ def plausible_merchant(value):
     # PDF table shifts often put the attendee column into merchant. These
     # strings are not businesses even when they contain many Hangul chars.
     has_headcount = bool(re.search(r"(?:\d+명|명\d+)", compact))
-    if has_headcount and any(token in compact for token in ATTENDEE_TOKENS):
+    attendee_hits = sum(token in compact for token in ATTENDEE_TOKENS)
+    if has_headcount and attendee_hits:
+        return False
+    if "명" in compact and attendee_hits >= 2:
         return False
 
     purpose_markers = (
         "간담회식비", "식비지출", "다과비지출", "의정활동지원",
         "현안논의", "노고격려", "물품구입", "특별회비납부",
+        "행사에따른관계자식비", "관계자식비",
     )
     if any(token in compact for token in purpose_markers):
+        return False
+    if len(compact) >= 16 and compact.endswith(("식비", "다과비")):
         return False
     if len(s) > 40 and any(word in s for word in ("간담회", "업무추진비", "의정활동", "직원", "의원")):
         return False
