@@ -87,8 +87,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter.",
-      "max_pages": 10
+      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter. Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling.",
+      "max_pages": 10,
+      "adapter_required": true
     },
     {
       "key": "supreme_court",
@@ -119,7 +120,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_high_suwon",
@@ -135,7 +138,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_high_daejeon",
@@ -151,7 +156,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_high_daegu",
@@ -167,7 +174,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_high_busan",
@@ -183,7 +192,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_high_gwangju",
@@ -199,7 +210,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_seoul",
@@ -215,7 +228,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_eastseoul",
@@ -231,7 +246,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_southseoul",
@@ -247,7 +264,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_northseoul",
@@ -263,7 +282,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_westseoul",
@@ -279,7 +300,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_uijeongbu",
@@ -295,7 +318,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_incheon",
@@ -311,7 +336,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_chuncheon",
@@ -327,7 +354,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_suwon",
@@ -343,7 +372,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_daejeon",
@@ -359,7 +390,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_cheongju",
@@ -375,7 +408,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_daegu",
@@ -391,7 +426,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_busan",
@@ -407,7 +444,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_ulsan",
@@ -423,7 +462,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_changwon",
@@ -439,7 +480,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_gwangju",
@@ -455,7 +498,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_jeonju",
@@ -471,7 +516,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     },
     {
       "key": "prosecution_district_jeju",
@@ -487,7 +534,9 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "max_pages": 8
+      "max_pages": 8,
+      "adapter_required": true,
+      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
     }
   ]
 }
