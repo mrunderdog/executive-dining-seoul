@@ -46,6 +46,10 @@ def discover(src:dict,year:int)->dict:
         out["status"]="DISCOVERY_REQUIRED"
         out["parseable_attachments"]=0
         return out
+    if src.get("adapter_required"):
+        out["status"]="ADAPTER_REQUIRED"
+        out["parseable_attachments"]=0
+        return out
     q=deque((u,0,"") for u in (src.get("listing_urls") or []))
     seen_pages=set(); seen_files=set(); max_pages=int(src.get("max_pages") or 60)
     while q and len(seen_pages)<max_pages:
