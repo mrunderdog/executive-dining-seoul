@@ -143,6 +143,29 @@ def test_abbreviated_date_recovery():
 
 
 
+
+def test_attachment_discovery_deduplication():
+    assert canonical_attachment_url("https://x.test/attach") is None
+    assert canonical_attachment_url("https://x.test/bbsAttachDownload.do") is None
+    assert canonical_attachment_url("https://x.test/download.do?fileName=a.xlsx") == "https://x.test/download.do?fileName=a.xlsx"
+    posts = [
+        {"attachments": [
+            {"url": "https://x.test/download.do?fileName=a.xlsx", "text": "a"},
+            {"url": "https://x.test/fa fa-download text-warning", "text": "fake"},
+        ]},
+        {"attachments": [
+            {"url": "https://x.test/download.do?fileName=a.xlsx", "text": "a again"},
+            {"url": "https://x.test/download.do?fileName=b.xlsx", "text": "b"},
+        ]},
+    ]
+    cleaned = sanitize_discovered_posts(posts)
+    urls = [a["url"] for p in cleaned for a in p["attachments"]]
+    assert urls == [
+        "https://x.test/download.do?fileName=a.xlsx",
+        "https://x.test/download.do?fileName=b.xlsx",
+    ]
+
+
 def test_shifted_amount_recovery():
     mapping = {"date": 0, "merchant": 1, "people": 3, "amount": 4}
     row = ["2026-08-05", "테스트식당", "간담회 식비", "5명", "", "125,000원", "카드"]
@@ -219,6 +242,7 @@ def main():
         test_pdf_role_context_can_carry_across_pages,
         test_abbreviated_date_recovery,
         test_shifted_amount_recovery,
+        test_attachment_discovery_deduplication,
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
         test_date_time_suffix_normalization,
