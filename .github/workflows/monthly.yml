@@ -190,6 +190,18 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_central_executive_candidates.py
 
+      - name: Discover justice leadership expense files
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/justice_leadership_discovery.py
+
+      - name: Ingest justice leadership expense files
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/ingest_justice_leadership_expense.py
+
+      - name: Build justice leadership dining candidates
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/build_justice_leadership_candidates.py
+
       - name: Ingest 2024 National Assembly political-fund spending
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/ingest_national_legislator_expense.py
