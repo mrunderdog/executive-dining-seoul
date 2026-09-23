@@ -20,7 +20,8 @@ NON_DINING_MERCHANT_WORDS = (
     "인쇄", "광고", "디자인", "문구", "사무용", "우체국", "택배", "통신",
     "마트", "슈퍼", "편의점", "백화점", "면세점", "꽃집", "화원", "기념품",
     "후원회", "정당", "위원회", "의원실", "연구소", "포럼",
-    "파리바게뜨", "뚜레쥬르", "배스킨라빈스", "적십자사", "국군복지단",
+    "파리바게뜨", "뚜레쥬르", "배스킨라빈스", "적십자사", "적십자", "국군복지단",
+    "부의금", "조의금", "축의금", "특별회비", "회비납부", "격려물품",
 )
 
 NON_MERCHANT_PATTERNS = (
@@ -29,6 +30,14 @@ NON_MERCHANT_PATTERNS = (
     r"^참석자\b.*$",
     r".*(?:간담회|회의|논의|협의|의정활동|현안).*(?:식비|다과비|지출).*$",
     r".*(?:식비|다과비)\s*지출.*$",
+    r".*(?:특별)?회비\s*납부.*$",
+    r"^(?:부의금|조의금|축의금)(?:\b|\().*$",
+    r"^[가-힣]{1,2}\*{2}$",
+)
+
+ATTENDEE_TOKENS = (
+    "의장", "부의장", "위원장", "의원", "동료의원", "직원",
+    "의회사무국", "의정지원팀", "수행직원", "관계자", "대표단",
 )
 
 
@@ -48,6 +57,20 @@ def plausible_merchant(value):
     if not s or s in {"-", "미상", "상호없음", "상호 없음", "확인불가", "확인 불가"}:
         return False
     if any(re.fullmatch(pattern, s) for pattern in NON_MERCHANT_PATTERNS):
+        return False
+
+    compact = re.sub(r"[\s,./·ㆍ()]+", "", s)
+    # PDF table shifts often put the attendee column into merchant. These
+    # strings are not businesses even when they contain many Hangul chars.
+    has_headcount = bool(re.search(r"(?:\d+명|명\d+)", compact))
+    if has_headcount and any(token in compact for token in ATTENDEE_TOKENS):
+        return False
+
+    purpose_markers = (
+        "간담회식비", "식비지출", "다과비지출", "의정활동지원",
+        "현안논의", "노고격려", "물품구입", "특별회비납부",
+    )
+    if any(token in compact for token in purpose_markers):
         return False
     if len(s) > 40 and any(word in s for word in ("간담회", "업무추진비", "의정활동", "직원", "의원")):
         return False
