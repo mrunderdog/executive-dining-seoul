@@ -87,9 +87,16 @@ def score(visits,roles,months,institutions,weight,senior_ratio,spend):
 def main():
     if not RAW.exists():
         print("central executive raw missing; no candidates built");return
-    d=json.loads(RAW.read_text(encoding="utf-8"));rows=[
+    d=json.loads(RAW.read_text(encoding="utf-8"))
+    # Legal-administration rows are owned by the dedicated justice_leadership
+    # cohort. Excluding them here prevents the same official transaction from
+    # being counted once as 중앙정부 and again as 법조·법률행정.
+    justice_owned_sources={"ministry_justice","government_legislation"}
+    rows=[
         r for r in d.get("rows",[])
-        if meal(r) and re.fullmatch(r"20\d{2}-\d{2}-\d{2}",t(r.get("used_date")))
+        if r.get("source_key") not in justice_owned_sources
+        and meal(r)
+        and re.fullmatch(r"20\d{2}-\d{2}-\d{2}",t(r.get("used_date")))
     ]
     if not rows:
         previous=REPORTS/"central-executive-candidates.json"
