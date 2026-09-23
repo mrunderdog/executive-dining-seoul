@@ -1,6 +1,6 @@
 # yangju Executive-repeat candidates
 
-Rows considered: 1203
+Rows considered: 1202
 
 > Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.
 

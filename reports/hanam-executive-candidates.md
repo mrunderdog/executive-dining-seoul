@@ -1,6 +1,6 @@
 # hanam Executive-repeat candidates
 
-Rows considered: 419
+Rows considered: 417
 
 > Exploratory candidate ranking only. It is not a food-quality score and is not yet published to the map.
 
