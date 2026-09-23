@@ -307,6 +307,39 @@ def regex_attachment_fallback(base: str, text: str):
     return results
 
 
+def ansan_listing_posts(base_url: str, doc: str):
+    """Recover Ansan council posts whose list links are JS-only fnGoDetail(id)."""
+    out = []
+    seen = set()
+    for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
+        plain = " ".join(re.sub(r"<[^>]+>", " ", html.unescape(tr)).split())
+        if "업무추진비" not in plain:
+            continue
+        m = re.search(r"fnGoDetail\(\s*(\d+)\s*\)", tr, flags=re.I)
+        if not m:
+            continue
+        seq = m.group(1)
+        if seq in seen:
+            continue
+        seen.add(seq)
+        detail = urllib.parse.urljoin(
+            base_url,
+            f"selectBbsDetail.do?bbs_code=B0406&bbs_seq={seq}",
+        )
+        # Strip leading row number/date metadata where possible; period parsing
+        # only needs the substantive title text.
+        title_match = re.search(
+            r"([^<>]*업무추진비[^<>]*)",
+            tr,
+            flags=re.I,
+        )
+        title = " ".join(
+            re.sub(r"<[^>]+>", " ", html.unescape(title_match.group(1) if title_match else plain)).split()
+        )
+        out.append({"text": title or plain, "url": detail, "onclick": f"fnGoDetail({seq})"})
+    return out
+
+
 def canonical_attachment_url(url: str) -> str | None:
     """Normalize real attachment URLs and reject obvious HTML/CSS pseudo-links."""
     raw = unescape_url_attr(str(url or "")).strip()
@@ -367,6 +400,29 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+
+        if src.key == "ansan":
+            for a in ansan_listing_posts(url, doc):
+                period = title_period(a["text"])
+                if not period_overlaps(period, effective_since, until):
+                    continue
+                if a["url"] in seen_posts:
+                    continue
+                seen_posts.add(a["url"])
+                row = {
+                    "source": src.key, "region": src.region, "jurisdiction": src.jurisdiction,
+                    "institution": src.institution, "title": a["text"], "period": period,
+                    "post_url": a["url"], "attachments": [],
+                }
+                try:
+                    detail = fetch_text(a["url"])
+                    found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
+                    if not found:
+                        found = regex_attachment_fallback(a["url"], detail)
+                    row["attachments"] = found
+                except Exception as exc:
+                    row["error"] = f"detail {type(exc).__name__}: {exc}"
+                posts.append(row)
 
         if src.key == "gimpo":
             for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I|re.S):
