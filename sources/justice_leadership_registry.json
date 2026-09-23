@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-23",
+  "cohort": "justice_leadership",
+  "notes": "High-level legal/judicial leadership expense sources. Dining publication requires merchant-level rows; aggregate-only disclosures remain staged but are not map-publishable.",
+  "inherited_central_sources": [
+    {
+      "source_key": "ministry_justice",
+      "institution": "법무부",
+      "role_scope": "장관·차관·법무실장·검찰국장·국제법무국장·감찰관·기획조정실장·본부장 등",
+      "source_type": "official_routine"
+    },
+    {
+      "source_key": "government_legislation",
+      "institution": "법제처",
+      "role_scope": "처장·차장·기획조정관·법제정책국장·행정법제국장·경제법제국장·법령해석국장·법제조정정책관 등",
+      "source_type": "official_routine"
+    }
+  ],
+  "sources": [
+    {
+      "key": "constitutional_court_chief",
+      "institution": "헌법재판소",
+      "verified": true,
+      "listing_urls": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118"
+      ],
+      "include_terms": [
+        "헌법재판소장",
+        "업무추진비"
+      ],
+      "exclude_terms": [
+        "사무처장"
+      ],
+      "default_role": "헌법재판소장",
+      "format_hint": "pdf_hwp",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "constitutional_court_secretary_general",
+      "institution": "헌법재판소",
+      "verified": true,
+      "listing_urls": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118"
+      ],
+      "include_terms": [
+        "헌법재판소사무처장",
+        "업무추진비"
+      ],
+      "default_role": "헌법재판소사무처장",
+      "format_hint": "pdf_hwp",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "cio_chief",
+      "institution": "고위공직자범죄수사처",
+      "verified": true,
+      "listing_urls": [
+        "https://www.cio.go.kr/board/list/202"
+      ],
+      "include_terms": [
+        "업무추진비",
+        "고위공직자범죄수사처장"
+      ],
+      "default_role": "고위공직자범죄수사처장",
+      "format_hint": "pdf",
+      "source_type": "official_routine",
+      "merchant_expectation": "aggregate_only_observed",
+      "note": "2026 Q1 disclosure was observed to omit merchant/place details; keep staged unless newer files expose merchant-level rows."
+    },
+    {
+      "key": "prosecution_supreme",
+      "institution": "대검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/spo/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "검찰총장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter."
+    },
+    {
+      "key": "prosecution_seoul_central",
+      "institution": "서울중앙지방검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/central/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "서울중앙지방검찰청 검사장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "prosecution_seoul_east",
+      "institution": "서울동부지방검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/eastseoul/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "서울동부지방검찰청 검사장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "prosecution_seoul_north",
+      "institution": "서울북부지방검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/northseoul/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "서울북부지방검찰청 검사장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "prosecution_suwon",
+      "institution": "수원지방검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/suwon/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "수원지방검찰청 검사장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "prosecution_incheon",
+      "institution": "인천지방검찰청",
+      "verified": true,
+      "listing_urls": [
+        "https://www.spo.go.kr/site/incheon/ex/announce/AnnounceInfo.do"
+      ],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "인천지방검찰청 검사장",
+      "format_hint": "mixed",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown"
+    },
+    {
+      "key": "supreme_court",
+      "institution": "대법원",
+      "verified": false,
+      "listing_urls": [],
+      "include_terms": [
+        "업무추진비"
+      ],
+      "default_role": "대법원장",
+      "format_hint": "discovery_required",
+      "source_type": "official_disclosure",
+      "merchant_expectation": "merchant_level_reported",
+      "note": "Detailed Supreme Court Chief Justice expense material is known to exist, but a stable official machine-download surface is not yet pinned."
+    }
+  ]
+}
