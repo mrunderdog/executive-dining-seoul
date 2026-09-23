@@ -6,6 +6,7 @@ import json
 import re
 import urllib.parse
 from collections import deque
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -95,30 +96,63 @@ def discover(src:dict,year:int)->dict:
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); args=ap.parse_args()
     reg=json.loads(REGISTRY.read_text(encoding="utf-8"))
-    rows=[discover(src,args.year) for src in reg.get("sources",[])]
+    direct_sources=reg.get("sources",[])
+    rows=[]
+    with ThreadPoolExecutor(max_workers=min(8,max(1,len(direct_sources)))) as pool:
+        futures={pool.submit(discover,src,args.year):src for src in direct_sources}
+        for fut in as_completed(futures):
+            src=futures[fut]
+            try:
+                rows.append(fut.result())
+            except Exception as e:
+                rows.append({
+                    "key":src.get("key"),"institution":src.get("institution"),"verified":bool(src.get("verified")),
+                    "default_role":src.get("default_role",""),"source_type":src.get("source_type","official_routine"),
+                    "merchant_expectation":src.get("merchant_expectation","unknown"),"format_hint":src.get("format_hint",""),
+                    "pages":[],"attachments":[],"errors":[f"worker {type(e).__name__}: {e}"],
+                    "parseable_attachments":0,"status":"FETCH_FAILED"
+                })
+    order={x.get("key"):i for i,x in enumerate(direct_sources)}
+    rows.sort(key=lambda x:order.get(x.get("key"),999))
     # Refresh the two legal-administration sources directly so this pipeline is
     # independent from the broader central-government refresh cadence.
     inherited=[]
     central_reg=json.loads(CENTRAL_REGISTRY.read_text(encoding="utf-8"))
     central_by_key={x.get("key"):x for x in central_reg.get("sources",[])}
-    for item in reg.get("inherited_central_sources",[]):
+    inherited_cfg=reg.get("inherited_central_sources",[])
+    def run_inherited(item):
         base=central_by_key.get(item.get("source_key"))
         if not base:
-            inherited.append({
+            return {
                 "key":item.get("source_key"),"institution":item.get("institution"),
                 "default_role":"","source_type":item.get("source_type","official_routine"),
                 "inherited_from":"central_executive","role_scope":item.get("role_scope",""),
                 "attachments":[],"parseable_attachments":0,"status":"CENTRAL_REGISTRY_MISSING","errors":[]
-            })
-            continue
+            }
         src=discover_central_source(base,args.year)
-        inherited.append({
+        return {
             **src,
             "default_role":"",
             "source_type":item.get("source_type","official_routine"),
             "inherited_from":"central_executive",
             "role_scope":item.get("role_scope",""),
-        })
+        }
+    with ThreadPoolExecutor(max_workers=max(1,len(inherited_cfg))) as pool:
+        futures={pool.submit(run_inherited,item):item for item in inherited_cfg}
+        for fut in as_completed(futures):
+            item=futures[fut]
+            try:
+                inherited.append(fut.result())
+            except Exception as e:
+                inherited.append({
+                    "key":item.get("source_key"),"institution":item.get("institution"),
+                    "default_role":"","source_type":item.get("source_type","official_routine"),
+                    "inherited_from":"central_executive","role_scope":item.get("role_scope",""),
+                    "attachments":[],"parseable_attachments":0,"status":"FETCH_FAILED",
+                    "errors":[f"worker {type(e).__name__}: {e}"]
+                })
+    inherited_order={x.get("source_key"):i for i,x in enumerate(inherited_cfg)}
+    inherited.sort(key=lambda x:inherited_order.get(x.get("key"),999))
     payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,
              "cohort":"justice_leadership","inherited_sources":inherited,"sources":rows}
     REPORTS.mkdir(exist_ok=True)
