@@ -72,30 +72,3 @@ jobs:
           print("ANSAN_MARKUP_INDEX", i)
           print(doc[max(0,i-1600):i+2200] if i >= 0 else doc[:4000])
           PY
-
-      - name: End-to-end Paju ingestion
-        shell: bash
-        run: |
-          set -e
-          python pipeline/capital_backfill.py --since 2024-12 --source paju
-          python pipeline/ingest_council_expense.py --source paju
-          python pipeline/repair_raw_dates.py --source paju --min-valid 0.95
-          python pipeline/build_source_candidates.py --source paju --top 30
-          python - <<'PY'
-          import json
-          d=json.load(open("data/raw/paju_expense.json",encoding="utf-8"))
-          c=json.load(open("reports/paju-executive-candidates.json",encoding="utf-8"))
-          rows=d.get("rows",[])
-          tx=[r for r in rows if str(r.get("merchant") or "").strip()]
-          print(json.dumps({
-            "rows":len(rows),
-            "files":len(d.get("files",[])),
-            "errors":len(d.get("errors",[])),
-            "amount_coverage":(
-              sum(isinstance(r.get("amount"),int) and r["amount"]>=0 for r in tx)/len(tx)
-              if tx else 0
-            ),
-            "candidate_count":c.get("candidate_count"),
-            "top":c.get("candidates",[])[:5],
-          },ensure_ascii=False))
-          PY
