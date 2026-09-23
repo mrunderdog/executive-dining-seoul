@@ -10,6 +10,7 @@ import argparse
 import html
 import json
 import re
+import ssl
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -143,7 +144,19 @@ def decode_html(raw: bytes, header_charset: str | None) -> str:
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
-    with urllib.request.urlopen(req, timeout=15) as r:
+    try:
+        response = urllib.request.urlopen(req, timeout=15)
+    except urllib.error.URLError as exc:
+        reason = str(getattr(exc, "reason", exc)).lower()
+        if "handshake failure" not in reason and "ssl" not in reason:
+            raise
+        # Compatibility retry for a small number of official council servers
+        # that cannot negotiate OpenSSL 3's default security profile. Keep CA
+        # verification enabled; only lower cipher security level on fallback.
+        ctx = ssl.create_default_context()
+        ctx.set_ciphers("DEFAULT:@SECLEVEL=1")
+        response = urllib.request.urlopen(req, timeout=20, context=ctx)
+    with response as r:
         raw = r.read()
         charset = r.headers.get_content_charset()
     return decode_html(raw, charset)
