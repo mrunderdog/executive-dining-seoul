@@ -1,0 +1,49 @@
+name: Targeted discovery branch smoke
+
+on:
+  push:
+    branches:
+      - fix/discovery-zero-batch-2
+    paths:
+      - 'pipeline/capital_backfill.py'
+      - 'pipeline/regression_checks.py'
+      - '.github/workflows/discovery-branch-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Regression checks
+        run: python pipeline/regression_checks.py
+      - name: Targeted discoveries
+        shell: bash
+        run: |
+          set -e
+          for SOURCE in paju icheon ansan; do
+            echo "===== $SOURCE ====="
+            python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
+            python - "$SOURCE" <<'PY'
+          import json,sys
+          from pathlib import Path
+          s=sys.argv[1]
+          p=Path(f"reports/capital-backfill-discovery-{s}.json")
+          d=json.loads(p.read_text())
+          posts=d.get("posts",[])
+          print(json.dumps({
+            "source":s,
+            "posts":len(posts),
+            "attachments":sum(len(x.get("attachments",[])) for x in posts),
+            "sample":[
+              {"title":x.get("title"),"post_url":x.get("post_url"),"attachments":x.get("attachments",[])[:2]}
+              for x in posts[:3]
+            ],
+          },ensure_ascii=False))
+          PY
+          done
