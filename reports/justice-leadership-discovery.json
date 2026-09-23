@@ -1,0 +1,704 @@
+{
+  "generated_at": "2026-09-23T10:33:23",
+  "year": 2026,
+  "cohort": "justice_leadership",
+  "inherited_sources": [
+    {
+      "key": "ministry_justice",
+      "institution": "법무부",
+      "verified": true,
+      "role_scope": "장관·차관·법무실장·검찰국장·국제법무국장·감찰관·기획조정실장·본부장 등",
+      "format_hint": "hwpx_mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [
+        "listing https://www.moj.go.kr/moj/150/subview.do: URLError: <urlopen error timed out>"
+      ],
+      "parseable_attachments": 0,
+      "status": "FETCH_FAILED",
+      "default_role": "",
+      "source_type": "official_routine",
+      "inherited_from": "central_executive"
+    },
+    {
+      "key": "government_legislation",
+      "institution": "법제처",
+      "verified": true,
+      "role_scope": "처장·차장·기획조정관·법제정책국장·행정법제국장·경제법제국장·법령해석국장·법제조정정책관 등",
+      "format_hint": "hwpx_mixed",
+      "pages": [
+        "https://www.moleg.go.kr/board.es?bid=0004&cg_code=&keyField=&keyWord=&mid=a10704060000&nPage=1&pageCntBySelf=50&srch_data01=&srch_data02=&tabNo=0"
+      ],
+      "attachments": [
+        {
+          "text": "기획조정관 업무추진비 집행내역(2026년 8월) 새글 기획조정관 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(기획조정관).hwpx 2026년_8월_업무추진비_집행내역(기획조정관).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157497&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157497&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "기획조정관 업무추진비 집행내역(2026년 8월) 새글 기획조정관 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(기획조정관).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=157497&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157497&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처장 업무추진비 집행내역 2026년 8월 새글 법제처장 업무추진비 집행내역 2026년 8월 (처장★) 2026년_8월_업무추진비_집행내역.hwpx (처장★) 2026년_8월_업무추진비_집행내역.hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157442&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157442&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처장 업무추진비 집행내역 2026년 8월 새글 법제처장 업무추진비 집행내역 2026년 8월 (처장★) 2026년_8월_업무추진비_집행내역.hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=157442&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157442&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처차장 업무추진비 집행내역 2026년 8월 새글 법제처차장 업무추진비 집행내역 2026년 8월 (차장☆)_2026년_8월_업무추진비_집행내역.hwpx (차장☆)_2026년_8월_업무추진비_집행내역.hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157439&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157439&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처차장 업무추진비 집행내역 2026년 8월 새글 법제처차장 업무추진비 집행내역 2026년 8월 (차장☆)_2026년_8월_업무추진비_집행내역.hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=157439&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157439&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "기획조정관 업무추진비 집행내역(2026년 7월) 새글 기획조정관 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(기획조정관).hwpx 2026년_7월_업무추진비_집행내역(기획조정관).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157177&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157177&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "기획조정관 업무추진비 집행내역(2026년 7월) 새글 기획조정관 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(기획조정관).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=157177&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=157177&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정보지원국장 업무추진비 집행내역(2026년 8월) 법제정보지원국장 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(법제정보지원국장).hwpx 2026년_8월_업무추진비_집행내역(법제정보지원국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156504&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156504&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정보지원국장 업무추진비 집행내역(2026년 8월) 법제정보지원국장 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(법제정보지원국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156504&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156504&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제자문조정관관 업무추진비 집행내역(2026년 8월) 법제자문조정관관 업무추진비 집행내역(2026년 8월) 법제자문조정관 업무추진비 집행내역(2026년 8월).hwpx 법제자문조정관 업무추진비 집행내역(2026년 8월).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156496&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156496&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제자문조정관관 업무추진비 집행내역(2026년 8월) 법제자문조정관관 업무추진비 집행내역(2026년 8월) 법제자문조정관 업무추진비 집행내역(2026년 8월).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156496&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156496&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정책국장 업무추진비 집행내역(2026년 8월) 법제정책국장 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(법제정책국장).hwpx 2026년_8월_업무추진비_집행내역(법제정책국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156383&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156383&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정책국장 업무추진비 집행내역(2026년 8월) 법제정책국장 업무추진비 집행내역(2026년 8월) 2026년_8월_업무추진비_집행내역(법제정책국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156383&seq=1",
+          "year": 2026,
+          "month": 8,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156383&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령해석국장 업무추진비 집행내역 (2026년 7월) 법령해석국장 업무추진비 집행내역 (2026년 7월) 2026년_7월_업무추진비_집행내역(법령해석국장).hwpx 2026년_7월_업무추진비_집행내역(법령해석국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156912&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156912&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령해석국장 업무추진비 집행내역 (2026년 7월) 법령해석국장 업무추진비 집행내역 (2026년 7월) 2026년_7월_업무추진비_집행내역(법령해석국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156912&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156912&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처차장 업무추진비 집행내역 2026년 7월 법제처차장 업무추진비 집행내역 2026년 7월 (차장☆)_2026년_7월_업무추진비_집행내역.hwpx (차장☆)_2026년_7월_업무추진비_집행내역.hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156301&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156301&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처차장 업무추진비 집행내역 2026년 7월 법제처차장 업무추진비 집행내역 2026년 7월 (차장☆)_2026년_7월_업무추진비_집행내역.hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156301&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156301&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처장 업무추진비 집행내역 2026년 7월 법제처장 업무추진비 집행내역 2026년 7월 (처장★) 2026년_7월_업무추진비_집행내역.hwpx (처장★) 2026년_7월_업무추진비_집행내역.hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156300&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156300&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제처장 업무추진비 집행내역 2026년 7월 법제처장 업무추진비 집행내역 2026년 7월 (처장★) 2026년_7월_업무추진비_집행내역.hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156300&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156300&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령정비국장 업무추진비 집행내역(2026년 7월) 법령정비국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법령정비국장).hwpx 2026년_7월_업무추진비_집행내역(법령정비국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156100&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156100&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령정비국장 업무추진비 집행내역(2026년 7월) 법령정비국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법령정비국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156100&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156100&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "사회문화법제국 업무추진비 집행내역(2026년 7월) 사회문화법제국 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(사회문화법제국).hwpx 2026년_7월_업무추진비_집행내역(사회문화법제국).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156748&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156748&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "사회문화법제국 업무추진비 집행내역(2026년 7월) 사회문화법제국 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(사회문화법제국).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156748&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156748&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정보지원국장 업무추진비 집행내역(2026년 7월) 법제정보지원국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법제정보지원국장).hwpx 2026년_7월_업무추진비_집행내역(법제정보지원국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156499&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156499&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정보지원국장 업무추진비 집행내역(2026년 7월) 법제정보지원국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법제정보지원국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=156499&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=156499&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제조정정책관 업무추진비 집행내역(2026년 7월) 법제조정정책관 업무추진비 집행내역(2026년 7월) 2026년 7월 업무추진비 집행내역(법제조정정책관).hwpx 2026년 7월 업무추진비 집행내역(법제조정정책관).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=154745&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154745&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제조정정책관 업무추진비 집행내역(2026년 7월) 법제조정정책관 업무추진비 집행내역(2026년 7월) 2026년 7월 업무추진비 집행내역(법제조정정책관).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=154745&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154745&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정책국장 업무추진비 집행내역(2026년 7월) 법제정책국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법제정책국장).hwpx 2026년_7월_업무추진비_집행내역(법제정책국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=154643&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154643&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법제정책국장 업무추진비 집행내역(2026년 7월) 법제정책국장 업무추진비 집행내역(2026년 7월) 2026년_7월_업무추진비_집행내역(법제정책국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=154643&seq=1",
+          "year": 2026,
+          "month": 7,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154643&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령해석국장 업무추진비 집행내역 (2026년 6월) 법령해석국장 업무추진비 집행내역 (2026년 6월) 2026년_6월_업무추진비_집행내역(법령해석국장).hwpx 2026년_6월_업무추진비_집행내역(법령해석국장).hwpx",
+          "url": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=154741&seq=1",
+          "year": 2026,
+          "month": 6,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154741&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        },
+        {
+          "text": "법령해석국장 업무추진비 집행내역 (2026년 6월) 법령해석국장 업무추진비 집행내역 (2026년 6월) 2026년_6월_업무추진비_집행내역(법령해석국장).hwpx 바로보기(새창) 바로보기",
+          "url": "https://www.moleg.go.kr/SynapView.es?bid=0004&list_no=154741&seq=1",
+          "year": 2026,
+          "month": 6,
+          "parent": "https://www.moleg.go.kr/board.es?mid=a10704060000&bid=0004&act=view&list_no=154741&tag=&pageCntBySelf=50&nPage=1&keyField=&keyWord=&cg_code=&tabNo=0&srch_data01=&srch_data02="
+        }
+      ],
+      "errors": [],
+      "parseable_attachments": 32,
+      "status": "PARSEABLE_FOUND",
+      "default_role": "",
+      "source_type": "official_routine",
+      "inherited_from": "central_executive"
+    }
+  ],
+  "sources": [
+    {
+      "key": "constitutional_court_chief",
+      "institution": "헌법재판소",
+      "verified": true,
+      "default_role": "헌법재판소장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "pdf_hwp",
+      "pages": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#gnb",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#container",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1097",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1098",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1105",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1106",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1147",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1148",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1149",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1150"
+      ],
+      "attachments": [],
+      "errors": [],
+      "parseable_attachments": 0,
+      "status": "NO_FILES_FOUND"
+    },
+    {
+      "key": "constitutional_court_secretary_general",
+      "institution": "헌법재판소",
+      "verified": true,
+      "default_role": "헌법재판소사무처장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "pdf_hwp",
+      "pages": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#gnb",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#container",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1097",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1098",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1105",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1106",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1147",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1148",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1149",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1150"
+      ],
+      "attachments": [],
+      "errors": [],
+      "parseable_attachments": 0,
+      "status": "NO_FILES_FOUND"
+    },
+    {
+      "key": "cio_chief",
+      "institution": "고위공직자범죄수사처",
+      "verified": true,
+      "default_role": "고위공직자범죄수사처장",
+      "source_type": "official_routine",
+      "merchant_expectation": "aggregate_only_observed",
+      "format_hint": "pdf",
+      "pages": [
+        "https://www.cio.go.kr/board/list/202"
+      ],
+      "attachments": [],
+      "errors": [
+        "https://www.cio.go.kr/board/list/202: URLError: <urlopen error timed out>"
+      ],
+      "parseable_attachments": 0,
+      "status": "FETCH_FAILED"
+    },
+    {
+      "key": "prosecution_supreme",
+      "institution": "대검찰청",
+      "verified": true,
+      "default_role": "검찰총장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "supreme_court",
+      "institution": "대법원",
+      "verified": false,
+      "default_role": "대법원장",
+      "source_type": "official_disclosure",
+      "merchant_expectation": "merchant_level_reported",
+      "format_hint": "discovery_required",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "DISCOVERY_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_seoul",
+      "institution": "서울고등검찰청",
+      "verified": true,
+      "default_role": "서울고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_suwon",
+      "institution": "수원고등검찰청",
+      "verified": true,
+      "default_role": "수원고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_daejeon",
+      "institution": "대전고등검찰청",
+      "verified": true,
+      "default_role": "대전고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_daegu",
+      "institution": "대구고등검찰청",
+      "verified": true,
+      "default_role": "대구고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_busan",
+      "institution": "부산고등검찰청",
+      "verified": true,
+      "default_role": "부산고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_high_gwangju",
+      "institution": "광주고등검찰청",
+      "verified": true,
+      "default_role": "광주고등검찰청 고검장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_seoul",
+      "institution": "서울중앙지방검찰청",
+      "verified": true,
+      "default_role": "서울중앙지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_eastseoul",
+      "institution": "서울동부지방검찰청",
+      "verified": true,
+      "default_role": "서울동부지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_southseoul",
+      "institution": "서울남부지방검찰청",
+      "verified": true,
+      "default_role": "서울남부지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_northseoul",
+      "institution": "서울북부지방검찰청",
+      "verified": true,
+      "default_role": "서울북부지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_westseoul",
+      "institution": "서울서부지방검찰청",
+      "verified": true,
+      "default_role": "서울서부지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_uijeongbu",
+      "institution": "의정부지방검찰청",
+      "verified": true,
+      "default_role": "의정부지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_incheon",
+      "institution": "인천지방검찰청",
+      "verified": true,
+      "default_role": "인천지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_chuncheon",
+      "institution": "춘천지방검찰청",
+      "verified": true,
+      "default_role": "춘천지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_suwon",
+      "institution": "수원지방검찰청",
+      "verified": true,
+      "default_role": "수원지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_daejeon",
+      "institution": "대전지방검찰청",
+      "verified": true,
+      "default_role": "대전지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_cheongju",
+      "institution": "청주지방검찰청",
+      "verified": true,
+      "default_role": "청주지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_daegu",
+      "institution": "대구지방검찰청",
+      "verified": true,
+      "default_role": "대구지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_busan",
+      "institution": "부산지방검찰청",
+      "verified": true,
+      "default_role": "부산지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_ulsan",
+      "institution": "울산지방검찰청",
+      "verified": true,
+      "default_role": "울산지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_changwon",
+      "institution": "창원지방검찰청",
+      "verified": true,
+      "default_role": "창원지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_gwangju",
+      "institution": "광주지방검찰청",
+      "verified": true,
+      "default_role": "광주지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_jeonju",
+      "institution": "전주지방검찰청",
+      "verified": true,
+      "default_role": "전주지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    },
+    {
+      "key": "prosecution_district_jeju",
+      "institution": "제주지방검찰청",
+      "verified": true,
+      "default_role": "제주지방검찰청 검사장",
+      "source_type": "official_routine",
+      "merchant_expectation": "unknown",
+      "format_hint": "mixed",
+      "pages": [],
+      "attachments": [],
+      "errors": [],
+      "status": "ADAPTER_REQUIRED",
+      "parseable_attachments": 0
+    }
+  ]
+}
