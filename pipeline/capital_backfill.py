@@ -47,7 +47,7 @@ SOURCES = [
     Source("ansan", "경기", "안산시", "안산시의회", "https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406", 1, "quarterly"),
     Source("paju", "경기", "파주시", "파주시의회", "https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page={page}", 4, "quarterly"),
     Source("anseong", "경기", "안성시", "안성시의회", "https://anseongcl.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
-    Source("icheon", "경기", "이천시", "이천시의회", "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?page={page}", 12, "monthly"),
+    Source("icheon", "경기", "이천시", "이천시의회", "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?page={page}", 4, "monthly"),
     Source("osan", "경기", "오산시", "오산시의회", "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&page={page}", 15, "monthly"),
     Source("pocheon", "경기", "포천시", "포천시의회", "https://council.pocheon.go.kr/kr/news/bbsBusiness.do?flag=all&pageNum={page}", 15, "monthly"),
     Source("yangpyeong", "경기", "양평군", "양평군의회", "https://www.ypcouncil.go.kr/main/selectBbsNttList.do?bbsNo=9&integrDeptCode=&key=43&pageIndex={page}&pageUnit=10&searchCnd=all&searchCtgry=&searchKrwd=", 12, "monthly"),
