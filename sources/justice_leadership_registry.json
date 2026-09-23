@@ -35,7 +35,8 @@
       "default_role": "헌법재판소장",
       "format_hint": "pdf_hwp",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 12
     },
     {
       "key": "constitutional_court_secretary_general",
@@ -51,7 +52,8 @@
       "default_role": "헌법재판소사무처장",
       "format_hint": "pdf_hwp",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 12
     },
     {
       "key": "cio_chief",
@@ -68,7 +70,8 @@
       "format_hint": "pdf",
       "source_type": "official_routine",
       "merchant_expectation": "aggregate_only_observed",
-      "note": "2026 Q1 disclosure was observed to omit merchant/place details; keep staged unless newer files expose merchant-level rows."
+      "note": "2026 Q1 disclosure was observed to omit merchant/place details; keep staged unless newer files expose merchant-level rows.",
+      "max_pages": 8
     },
     {
       "key": "prosecution_supreme",
@@ -84,7 +87,8 @@
       "format_hint": "mixed",
       "source_type": "official_routine",
       "merchant_expectation": "unknown",
-      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter."
+      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter.",
+      "max_pages": 10
     },
     {
       "key": "prosecution_seoul_central",
@@ -99,7 +103,8 @@
       "default_role": "서울중앙지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 10
     },
     {
       "key": "prosecution_seoul_east",
@@ -114,7 +119,8 @@
       "default_role": "서울동부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 10
     },
     {
       "key": "prosecution_seoul_north",
@@ -129,7 +135,8 @@
       "default_role": "서울북부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 10
     },
     {
       "key": "prosecution_suwon",
@@ -144,7 +151,8 @@
       "default_role": "수원지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 10
     },
     {
       "key": "prosecution_incheon",
@@ -159,7 +167,8 @@
       "default_role": "인천지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown"
+      "merchant_expectation": "unknown",
+      "max_pages": 10
     },
     {
       "key": "supreme_court",
@@ -173,7 +182,8 @@
       "format_hint": "discovery_required",
       "source_type": "official_disclosure",
       "merchant_expectation": "merchant_level_reported",
-      "note": "Detailed Supreme Court Chief Justice expense material is known to exist, but a stable official machine-download surface is not yet pinned."
+      "note": "Detailed Supreme Court Chief Justice expense material is known to exist, but a stable official machine-download surface is not yet pinned.",
+      "max_pages": 8
     }
   ]
 }
