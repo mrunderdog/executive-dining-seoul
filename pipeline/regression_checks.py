@@ -169,9 +169,9 @@ def test_attachment_discovery_deduplication():
 
 def test_shifted_amount_recovery():
     mapping = {"date": 0, "merchant": 1, "people": 3, "amount": 4}
-    row = ["2026-08-05", "테스트식당", "간담회 식비", "5명", "", "125,000원", "카드"]
+    row = ["2026-08-05", "테스트식당", "간담회 식비", "5명", "5명", "125,000원", "카드"]
     assert recover_amount_from_row(row, mapping) == 125000
-    noisy = ["2026-08-05", "테스트식당", "간담회", "5", "", "18", "카드"]
+    noisy = ["2026-08-05", "테스트식당", "간담회", "5", "5명", "18", "카드"]
     assert recover_amount_from_row(noisy, mapping) is None
 
 
