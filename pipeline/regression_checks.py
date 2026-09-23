@@ -4,7 +4,7 @@ from pathlib import Path
 
 from coordinate_selection import select_coordinate
 from build_source_candidates import plausible_transaction
-from capital_backfill import Source, canonical_attachment_url, post_like, sanitize_discovered_posts, title_period
+from capital_backfill import Source, canonical_attachment_url, post_like, sanitize_discovered_posts, title_period, unescape_url_attr
 from repair_raw_dates import parse_date_text
 from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_amount_from_row, recover_date_from_row, resolve_role, valid_transaction_merchant
 
@@ -146,6 +146,12 @@ def test_abbreviated_date_recovery():
 
 
 
+
+def test_url_ampersand_unescape_preserves_gtid():
+    raw = "https://example.invalid/file?fid=1&gtid=chujin&amp;page=1"
+    assert unescape_url_attr(raw) == "https://example.invalid/file?fid=1&gtid=chujin&page=1"
+
+
 def test_quarter_title_and_detail_routes():
     assert title_period("2026년 파주시의회 업무추진비 내역(1분기)") == (2026, None, 1)
     assert title_period("안산시의회 2026년도 2분기 업무추진비 집행내역 공개") == (2026, None, 2)
@@ -263,6 +269,7 @@ def main():
         test_shifted_amount_recovery,
         test_attachment_discovery_deduplication,
         test_quarter_title_and_detail_routes,
+        test_url_ampersand_unescape_preserves_gtid,
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
         test_date_time_suffix_normalization,
