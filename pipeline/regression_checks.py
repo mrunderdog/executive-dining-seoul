@@ -3,7 +3,7 @@
 from pathlib import Path
 
 from coordinate_selection import select_coordinate
-from build_source_candidates import plausible_transaction
+from build_source_candidates import plausible_merchant, plausible_transaction
 from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
 from repair_raw_dates import parse_date_text
 from ingest_council_expense import infer_pdf_context_role, map_columns, normalize_sheet, recover_amount_from_row, recover_date_from_row, resolve_role, valid_transaction_merchant
@@ -189,6 +189,23 @@ def test_structural_merchant_rows_are_rejected():
     assert valid_transaction_merchant("1973 산꼼장어")
 
 
+def test_candidate_builder_rejects_pdf_shift_noise():
+    bad = [
+        "의원 및 직원 명4",
+        "의장 및 의회사무국 직원 명3",
+        "부의장동료의원명직원명,",
+        "의회 당면 현안 논의를 위한 간담회 식비",
+        "2026년도 적십자 특별회비 납부",
+        "부의금(직원 외조부상)",
+        "임**",
+    ]
+    for value in bad:
+        assert not plausible_merchant(value), value
+    good = ["1973 산꼼장어", "정대솔일식당", "우나기노켄"]
+    for value in good:
+        assert plausible_merchant(value), value
+
+
 def test_date_time_suffix_normalization():
     assert parse_date_text("25.11.18. 14:37").isoformat() == "2025-11-18"
     assert parse_date_text("25.11.24 19:54").isoformat() == "2025-11-24"
@@ -246,6 +263,7 @@ def main():
         test_attachment_discovery_deduplication,
         test_implausible_amount_is_quarantined,
         test_structural_merchant_rows_are_rejected,
+        test_candidate_builder_rejects_pdf_shift_noise,
         test_date_time_suffix_normalization,
         test_two_row_header_parsing,
         test_removed_selected_location_button,
