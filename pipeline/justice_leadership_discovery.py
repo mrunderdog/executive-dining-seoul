@@ -77,7 +77,7 @@ def discover(src:dict,year:int)->dict:
                 continue
             probe=label+" "+target
             # Follow only expense/detail/list routes to avoid crawling the whole institution.
-            if ("업무추진비" in probe or "announce" in target.lower()
+            if ("업무추진비" in probe
                     or "/bbs/" in target.lower() or "/board/" in target.lower()):
                 q.append((target,depth+1,label))
     out["parseable_attachments"]=sum(
