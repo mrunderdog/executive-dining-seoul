@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1327,
-    "success_count": 1105,
-    "updated_at": "2026-09-23T10:34:24+00:00"
+    "record_count": 1328,
+    "success_count": 1106,
+    "updated_at": "2026-09-23T10:42:17+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -19837,6 +19837,24 @@
         "nominatim:평양옥 인천광역시 옹진군"
       ],
       "updated_at": "2026-09-23T00:41:49+00:00"
+    },
+    "평양원냉면|법조·법률행정": {
+      "addr_type": "POI",
+      "display_name": "평양원냉면",
+      "fingerprint": "5c080b93f7c6e285",
+      "geocoder_version": 4,
+      "lat": 36.510429655,
+      "lon": 127.21689437,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "평양원냉면 대한민국",
+      "result_name": "평양원냉면",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:평양원냉면 대한민국"
+      ],
+      "updated_at": "2026-09-23T10:42:17+00:00"
     },
     "포도나무|서울시청": {
       "addr_type": "PointAddress",

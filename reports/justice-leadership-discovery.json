@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T10:33:23",
+  "generated_at": "2026-09-23T10:41:20",
   "year": 2026,
   "cohort": "justice_leadership",
   "inherited_sources": [
@@ -9,13 +9,70 @@
       "verified": true,
       "role_scope": "장관·차관·법무실장·검찰국장·국제법무국장·감찰관·기획조정실장·본부장 등",
       "format_hint": "hwpx_mixed",
-      "pages": [],
-      "attachments": [],
-      "errors": [
-        "listing https://www.moj.go.kr/moj/150/subview.do: URLError: <urlopen error timed out>"
+      "pages": [
+        "https://www.moj.go.kr/moj/150/subview.do"
       ],
-      "parseable_attachments": 0,
-      "status": "FETCH_FAILED",
+      "attachments": [
+        {
+          "text": "2026년 2분기 감찰관 업무추진비 집행내역 다운로드 2026년_2분기_업무추진비_감찰관.pdf",
+          "url": "https://www.moj.go.kr/bbs/moj/98/498016/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/609220/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 교정본부장 업무추진비 집행내역 다운로드 ★2026년 2분기(4~6월) 업무추진비 교정본부장.hwp",
+          "url": "https://www.moj.go.kr/bbs/moj/98/497962/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/609165/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 장관 업무추진비 집행내역 다운로드 2026년 2분기 업무추진비(장관).hwpx",
+          "url": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608926/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 국제법무국장 업무추진비 집행내역 다운로드 260707_2026년_2분기_업무추진비_국제법무국장.hwp",
+          "url": "https://www.moj.go.kr/bbs/moj/98/497336/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608658/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 검찰국장 업무추진비 집행내역 다운로드 2026년_2분기_업무추진비_검찰국장.hwp",
+          "url": "https://www.moj.go.kr/bbs/moj/98/497334/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608654/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 범죄예방정책국장 업무추진비 집행내역 다운로드 2026년 2분기 범죄예방정책국장 업무추진비 사용내역.hwp",
+          "url": "https://www.moj.go.kr/bbs/moj/98/496996/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608381/artclView.do"
+        },
+        {
+          "text": "2026년도 2분기 출입국·외국인정책본부장 업무추진비 집행내역 다운로드 2026년 2분기(4월~6월) 업무추진비 출입국외국인정책본부장.hwp",
+          "url": "https://www.moj.go.kr/bbs/moj/98/496923/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608326/artclView.do"
+        },
+        {
+          "text": "2026년 2분기 법무실장 업무추진비 집행내역 다운로드 2026년 2분기 업무추진비 법무실장.pdf",
+          "url": "https://www.moj.go.kr/bbs/moj/98/496853/download.do",
+          "year": 2026,
+          "month": null,
+          "parent": "https://www.moj.go.kr/bbs/moj/98/608273/artclView.do"
+        }
+      ],
+      "errors": [],
+      "parseable_attachments": 3,
+      "status": "PARSEABLE_FOUND",
       "default_role": "",
       "source_type": "official_routine",
       "inherited_from": "central_executive"
@@ -273,23 +330,48 @@
       "merchant_expectation": "unknown",
       "format_hint": "pdf_hwp",
       "pages": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264985&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266204&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267061&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267740&cbIdx=1118",
         "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#gnb",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#container",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1097",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1098",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1105",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1106",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1147",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1148",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1149",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1150"
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264985&cbIdx=1118#gnb",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264985&cbIdx=1118#container",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195"
       ],
-      "attachments": [],
+      "attachments": [
+        {
+          "text": "2026년_1·2월_헌법재판소장_업무추진비_집행내역_공개.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4264985&cbIdx=1118&streFileNm=07ac9ba5-d3f5-41ed-8dfa-00a0b42eebe8.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264985&cbIdx=1118"
+        },
+        {
+          "text": "2026년_3·4월_헌법재판소장_업무추진비_집행내역_공개_00.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4266204&cbIdx=1118&streFileNm=b5fe2312-2b20-493b-9927-12aa10ba2366.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266204&cbIdx=1118"
+        },
+        {
+          "text": "2026년_5·6월_헌법재판소장_업무추진비_집행내역_공개_00.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4267061&cbIdx=1118&streFileNm=f8a766fe-e948-4c68-9dd1-ce589470064e.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267061&cbIdx=1118"
+        },
+        {
+          "text": "2026년_7·8월_헌법재판소장_업무추진비_집행내역_공개.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4267740&cbIdx=1118&streFileNm=5191ed13-96fd-4cdc-bfa5-f5a50e5c1248.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267740&cbIdx=1118"
+        }
+      ],
       "errors": [],
-      "parseable_attachments": 0,
-      "status": "NO_FILES_FOUND"
+      "parseable_attachments": 4,
+      "status": "PARSEABLE_FOUND"
     },
     {
       "key": "constitutional_court_secretary_general",
@@ -300,23 +382,48 @@
       "merchant_expectation": "unknown",
       "format_hint": "pdf_hwp",
       "pages": [
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264986&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266205&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267062&cbIdx=1118",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267741&cbIdx=1118",
         "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#gnb",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1118#container",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1097",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1098",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1105",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1106",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1147",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1148",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1149",
-        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1150"
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264986&cbIdx=1118#gnb",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264986&cbIdx=1118#container",
+        "https://www.ccourt.go.kr/site/kor/ex/bbs/List.do?cbIdx=1195"
       ],
-      "attachments": [],
+      "attachments": [
+        {
+          "text": "2026년_1·2월_헌법재판소사무처장_업무추진비_집행내역_공개.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4264986&cbIdx=1118&streFileNm=a3cee1a0-e141-455c-b26a-adaa348d9898.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4264986&cbIdx=1118"
+        },
+        {
+          "text": "2026년_3·4월_헌법재판소사무처장_업무추진비_집행내역_공개_00.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4266205&cbIdx=1118&streFileNm=953ba765-83be-4426-ae2d-fcbe6f91589f.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4266205&cbIdx=1118"
+        },
+        {
+          "text": "2026년_5·6월_헌법재판소사무처장_업무추진비_집행내역_공개_00.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4267062&cbIdx=1118&streFileNm=af06ea5c-129a-4b19-81c6-7923802c294b.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267062&cbIdx=1118"
+        },
+        {
+          "text": "2026년_7·8월_헌법재판소사무처장_업무추진비_집행내역_공개.pdf",
+          "url": "https://www.ccourt.go.kr/common/board/Download.do?bcIdx=4267741&cbIdx=1118&streFileNm=53fc559b-cd35-40d5-999d-632932de13ec.pdf",
+          "year": null,
+          "month": null,
+          "parent": "https://www.ccourt.go.kr/site/kor/ex/bbs/View.do?bcIdx=4267741&cbIdx=1118"
+        }
+      ],
       "errors": [],
-      "parseable_attachments": 0,
-      "status": "NO_FILES_FOUND"
+      "parseable_attachments": 4,
+      "status": "PARSEABLE_FOUND"
     },
     {
       "key": "cio_chief",
@@ -327,14 +434,16 @@
       "merchant_expectation": "aggregate_only_observed",
       "format_hint": "pdf",
       "pages": [
-        "https://www.cio.go.kr/board/list/202"
+        "https://www.cio.go.kr/board/view/202?cid=5319&page=",
+        "https://www.cio.go.kr/board/list/202",
+        "https://www.cio.go.kr/board/view/202?cid=5319&page=#subContents",
+        "https://www.cio.go.kr/board/view/202?cid=5319&page=#mainGnb",
+        "https://www.cio.go.kr/board/list/276"
       ],
       "attachments": [],
-      "errors": [
-        "https://www.cio.go.kr/board/list/202: URLError: <urlopen error timed out>"
-      ],
+      "errors": [],
       "parseable_attachments": 0,
-      "status": "FETCH_FAILED"
+      "status": "NO_FILES_FOUND"
     },
     {
       "key": "prosecution_supreme",
@@ -347,6 +456,10 @@
       "pages": [],
       "attachments": [],
       "errors": [],
+      "adapter_probe": [
+        ": function(data) {\r\n\t\t\t\t\t$(\"#boardList\").html(data);\r\n\t\t\t\t\t//alert(\"data : \" + data);\r\n\t\t\t\t\t//document.announceFVo.action = \"/site/spo/ex/announce/AnnounceContentList.do\";\r\n\t\t\t\t\t//document.announceFVo.submit();\r\n\t\t\t},error : function(code, msg, error) {\r\n\t \t\t\t\tvar str = code.status + \" : \" + msg + \" : \" + error;\r\n\t \t\t\t\t//console.log(str);\r\n\t \t\t}\r\n\t\t});\r\n\t}\r\n\t\r\n\tfunction doAnnounceInfoView(seqId,infoId,infoSeq){\t\r\n\t\t$(\"#boardList\").html('');\r\n\t\t$(\"#aContView\").html('');\t\t\r\n\t\t$.ajax({\r\n\t\t\turl : \"/site/spo/ex/announce/AnnounceInfoView.do\"\r\n\t\t\t, data : { \"seqId\" : seqId,\"infoId\" : infoId,\"infoSeq\" : infoSeq}\r\n\t\t\t, type : \"POST\"\r\n\t\t\t, dataType : \"html\"\r\n\t\t\t, async : false\r\n\t\t\t, success : function(data) {\r\n\t\t\t\t\t$(\"#aContView\").html(data);\r\n\t\t\t\t\t\r\n\t\t\t},error : function(code, msg, error) {\r\n\t \t\t\t\tvar str = code.status + \" : \" + msg + \" : \" + error;\r\n\t \t\t\t\t//console.log(str);\r\n\t \t\t}\r\n\t\t});\r\n\t}\r\n</script>\r\n\r\n<form id=\"announceFVo\" action=\"/site/spo/ex/announce/AnnounceInfo.do\" method=\"post\">\r\n<div class=\"tabArea\">\r\n\t\r\n\t\t<ul class=\"tab tabMax5\">\r\n\t\t\r\n\t \r\n\t\t\r\n\t\t\t<li id=\"tabNo0\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"국민생활에 영향을 미치는 정책에 관한 정보|100|0\">국민생활에 영향을 미치는 정책에 관한 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo1\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"주요정책의 추진과정에서 생산되는 정보|200|1\">주요정책의 추진과정에서 생산되는 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo2\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"업무추진비 집행내역|300|2\">업무추진비 집행내역</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo3\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"각종 평가결과 및 통계자료 등의 정보|400|3\">각종 평가결과 및 통계자료 등의 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo4\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"기타 정보|500|4\">기타 정보</a></li>\r\n\t\t\r\n\t</ul>\r\n</div>\r\n\r\n<h4 class=\"cont\" id=\"infoTitle\"></h4>\r\n\r\n<!-- 공표대상 상세목록 -->\r\n<div id=\"boardList\"></div>\r\n<!-- 공표 게시판 리스트목록 -->\r\n<div id=\"aContList\"></div>\r\n<!-- 공표 게시판 상세 -->\r\n<div id=\"aContView\"></div>\r\n\r\n</form>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<script type=\"text/javascript\">\r\nfunction fn_update(){\r\n\t// wdigm 체크 시작\r\n\tif(!beScan_api(document.fSatisfaction)) return;\r\n\t// wdigm 체크 끝\r\n\t\r\n\tvar comchk = -1;\r\n\tvar comfrm = document.fSatisfaction;\t\r\n\tfor(var c=0;c < comfrm.recommendScore.length; c++){\r\n\t\r\n\t\t\tif(comfrm.recommendScore[c].checked) {\r\n\t\t   comchk = c;\t\r\n\t\t}\r\n\t}\r\n\t\r\n\tif(comchk == -1){\r\n\t\talert(\"평가하기 값을 선택하세요\");\r\n\t\treturn ;\r\n\t} else {\r\n\t\t\r\n\t\tif(comchk == 0) document.fSatisfaction.recommendScore.value = 5;\r\n\t\tif(comchk == 1) document.fSatisfaction.recommendScore.value = 4;\r\n\t\tif(comchk == 2) document.fSatisfaction.recommendScore.value = 3;\r\n\t\tif(comchk == 3) document.fSatisfaction.recommendScore.value = 2;\r\n\t\tif(comchk == 4) document.fSatisfaction.recommendScore.value = 1;\t\r\n\t\t\t\r\n\t\tvar pageDetail = document.fSatisfaction.pageDetail.value;\r\n\t\tvar recommendText =  document.getElementById(\"satisText\").value;\r\n\t\tvar recommendScore = document.fSatisfaction.recommendScore.value ;\r\n\t\tvar pageNm =  document.getElementById(\"pageNm\").value;\r\n\t\tvar siteCd = \"spo\";\r\n\t\tvar strArg = \"pageDetail=\" +pageDetail + \"&recommendText=\" +recommendText + \"&recommendScore=\" +recommendScore  + \"&pageNm=\" +pageNm + \"&siteCd=\" +siteCd;\r\n\r\n\t\t$.ajax({\r\n\t\t\turl : \"/site/spo/user/Test-insertSatisfaction.do\",\r\n\t\t\ttype : \"POST\",\r\n\t\t\tdata",
+        "\r\n\t\t\t\t\t$(\"#boardList\").html(data);\r\n\t\t\t\t\t//alert(\"data : \" + data);\r\n\t\t\t\t\t//document.announceFVo.action = \"/site/spo/ex/announce/AnnounceContentList.do\";\r\n\t\t\t\t\t//document.announceFVo.submit();\r\n\t\t\t},error : function(code, msg, error) {\r\n\t \t\t\t\tvar str = code.status + \" : \" + msg + \" : \" + error;\r\n\t \t\t\t\t//console.log(str);\r\n\t \t\t}\r\n\t\t});\r\n\t}\r\n\t\r\n\tfunction doAnnounceInfoView(seqId,infoId,infoSeq){\t\r\n\t\t$(\"#boardList\").html('');\r\n\t\t$(\"#aContView\").html('');\t\t\r\n\t\t$.ajax({\r\n\t\t\turl : \"/site/spo/ex/announce/AnnounceInfoView.do\"\r\n\t\t\t, data : { \"seqId\" : seqId,\"infoId\" : infoId,\"infoSeq\" : infoSeq}\r\n\t\t\t, type : \"POST\"\r\n\t\t\t, dataType : \"html\"\r\n\t\t\t, async : false\r\n\t\t\t, success : function(data) {\r\n\t\t\t\t\t$(\"#aContView\").html(data);\r\n\t\t\t\t\t\r\n\t\t\t},error : function(code, msg, error) {\r\n\t \t\t\t\tvar str = code.status + \" : \" + msg + \" : \" + error;\r\n\t \t\t\t\t//console.log(str);\r\n\t \t\t}\r\n\t\t});\r\n\t}\r\n</script>\r\n\r\n<form id=\"announceFVo\" action=\"/site/spo/ex/announce/AnnounceInfo.do\" method=\"post\">\r\n<div class=\"tabArea\">\r\n\t\r\n\t\t<ul class=\"tab tabMax5\">\r\n\t\t\r\n\t \r\n\t\t\r\n\t\t\t<li id=\"tabNo0\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"국민생활에 영향을 미치는 정책에 관한 정보|100|0\">국민생활에 영향을 미치는 정책에 관한 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo1\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"주요정책의 추진과정에서 생산되는 정보|200|1\">주요정책의 추진과정에서 생산되는 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo2\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"업무추진비 집행내역|300|2\">업무추진비 집행내역</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo3\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"각종 평가결과 및 통계자료 등의 정보|400|3\">각종 평가결과 및 통계자료 등의 정보</a></li>\r\n\t\t\r\n\t\t\t<li id=\"tabNo4\"><a href=\"#\" class=\"btn_announceInfo\" data-param=\"기타 정보|500|4\">기타 정보</a></li>\r\n\t\t\r\n\t</ul>\r\n</div>\r\n\r\n<h4 class=\"cont\" id=\"infoTitle\"></h4>\r\n\r\n<!-- 공표대상 상세목록 -->\r\n<div id=\"boardList\"></div>\r\n<!-- 공표 게시판 리스트목록 -->\r\n<div id=\"aContList\"></div>\r\n<!-- 공표 게시판 상세 -->\r\n<div id=\"aContView\"></div>\r\n\r\n</form>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<script type=\"text/javascript\">\r\nfunction fn_update(){\r\n\t// wdigm 체크 시작\r\n\tif(!beScan_api(document.fSatisfaction)) return;\r\n\t// wdigm 체크 끝\r\n\t\r\n\tvar comchk = -1;\r\n\tvar comfrm = document.fSatisfaction;\t\r\n\tfor(var c=0;c < comfrm.recommendScore.length; c++){\r\n\t\r\n\t\t\tif(comfrm.recommendScore[c].checked) {\r\n\t\t   comchk = c;\t\r\n\t\t}\r\n\t}\r\n\t\r\n\tif(comchk == -1){\r\n\t\talert(\"평가하기 값을 선택하세요\");\r\n\t\treturn ;\r\n\t} else {\r\n\t\t\r\n\t\tif(comchk == 0) document.fSatisfaction.recommendScore.value = 5;\r\n\t\tif(comchk == 1) document.fSatisfaction.recommendScore.value = 4;\r\n\t\tif(comchk == 2) document.fSatisfaction.recommendScore.value = 3;\r\n\t\tif(comchk == 3) document.fSatisfaction.recommendScore.value = 2;\r\n\t\tif(comchk == 4) document.fSatisfaction.recommendScore.value = 1;\t\r\n\t\t\t\r\n\t\tvar pageDetail = document.fSatisfaction.pageDetail.value;\r\n\t\tvar recommendText =  document.getElementById(\"satisText\").value;\r\n\t\tvar recommendScore = document.fSatisfaction.recommendScore.value ;\r\n\t\tvar pageNm =  document.getElementById(\"pageNm\").value;\r\n\t\tvar siteCd = \"spo\";\r\n\t\tvar strArg = \"pageDetail=\" +pageDetail + \"&recommendText=\" +recommendText + \"&recommendScore=\" +recommendScore  + \"&pageNm=\" +pageNm + \"&siteCd=\" +siteCd;\r\n\r\n\t\t$.ajax({\r\n\t\t\turl : \"/site/spo/user/Test-insertSatisfaction.do\",\r\n\t\t\ttype : \"POST\",\r\n\t\t\tdata : strArg,\r\n\t\t\tdat"
+      ],
       "status": "ADAPTER_REQUIRED",
       "parseable_attachments": 0
     },

@@ -2,11 +2,11 @@
 
 | Institution | Source | Status | Files | Parseable | Merchant expectation |
 |---|---|---|---:|---:|---|
-| 법무부 | inherited | FETCH_FAILED | 0 | 0 | merchant-level |
+| 법무부 | inherited | PARSEABLE_FOUND | 8 | 3 | merchant-level |
 | 법제처 | inherited | PARSEABLE_FOUND | 32 | 32 | merchant-level |
-| 헌법재판소 | direct | NO_FILES_FOUND | 0 | 0 | unknown |
-| 헌법재판소 | direct | NO_FILES_FOUND | 0 | 0 | unknown |
-| 고위공직자범죄수사처 | direct | FETCH_FAILED | 0 | 0 | aggregate_only_observed |
+| 헌법재판소 | direct | PARSEABLE_FOUND | 4 | 4 | unknown |
+| 헌법재판소 | direct | PARSEABLE_FOUND | 4 | 4 | unknown |
+| 고위공직자범죄수사처 | direct | NO_FILES_FOUND | 0 | 0 | aggregate_only_observed |
 | 대검찰청 | direct | ADAPTER_REQUIRED | 0 | 0 | unknown |
 | 대법원 | direct | DISCOVERY_REQUIRED | 0 | 0 | merchant_level_reported |
 | 서울고등검찰청 | direct | ADAPTER_REQUIRED | 0 | 0 | unknown |
