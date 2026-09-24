@@ -5,6 +5,7 @@ import argparse
 import json
 import re
 import urllib.parse
+import urllib.request
 from collections import deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -31,6 +32,55 @@ def source_match(src:dict,label:str)->bool:
     return all(x in s for x in includes) if includes else ("업무추진비" in s)
 
 
+def fetch_post(url:str,data:dict)->str:
+    body=urllib.parse.urlencode(data).encode("utf-8")
+    req=urllib.request.Request(url,data=body,headers={
+        "User-Agent":"ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)",
+        "Accept":"text/html,*/*;q=0.8",
+        "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With":"XMLHttpRequest",
+    })
+    with urllib.request.urlopen(req,timeout=30) as resp:
+        raw=resp.read()
+        for enc in [resp.headers.get_content_charset(),"utf-8","cp949","euc-kr"]:
+            if not enc: continue
+            try: return raw.decode(enc)
+            except (LookupError,UnicodeDecodeError): pass
+        return raw.decode("utf-8",errors="replace")
+
+
+def prosecution_adapter_probe(src:dict)->dict:
+    listing=(src.get("listing_urls") or [""])[0]
+    m=re.search(r"/site/([^/]+)/ex/announce/AnnounceInfo\.do",listing)
+    if not m:
+        return {"error":"site_code_not_found"}
+    site=m.group(1)
+    base=f"https://www.spo.go.kr/site/{site}/ex/announce"
+    detail_url=f"{base}/AnnounceDetailInfo.do"
+    try:
+        doc=fetch_post(detail_url,{"infoId":"300"})
+    except Exception as e:
+        return {"error":f"{type(e).__name__}: {e}","detail_url":detail_url}
+    data_params=[]
+    for raw in re.findall(r'''data-param=["']([^"']+)["']''',doc,re.I):
+        val=txt(raw)
+        if val and val not in data_params:data_params.append(val)
+    onclicks=[]
+    for raw in re.findall(r'''onclick=["']([^"']+)["']''',doc,re.I):
+        val=txt(raw)
+        if any(k in val for k in ("announce","Announce","doAnnounce")) and val not in onclicks:
+            onclicks.append(val)
+    forms=[]
+    for raw in re.findall(r'''<form[^>]+action=["']([^"']+)["']''',doc,re.I):
+        val=urllib.parse.urljoin(detail_url,raw)
+        if val not in forms:forms.append(val)
+    return {
+        "site":site,"detail_url":detail_url,"bytes":len(doc.encode("utf-8")),
+        "data_params":data_params[:50],"onclicks":onclicks[:50],"forms":forms[:20],
+        "html_probe":doc[:30000],
+    }
+
+
 def same_host(a:str,b:str)->bool:
     return urllib.parse.urlsplit(a).netloc==urllib.parse.urlsplit(b).netloc
 
@@ -47,20 +97,10 @@ def discover(src:dict,year:int)->dict:
         out["parseable_attachments"]=0
         return out
     if src.get("adapter_required"):
-        # Probe only the Supreme Prosecutors' Office markup so we can derive the
-        # shared AnnounceInfo tab/query contract without crawling every office.
-        if src.get("key") == "prosecution_supreme" and src.get("listing_urls"):
-            try:
-                probe_doc=fetch(src["listing_urls"][0])
-                snippets=[]
-                for m in re.finditer("업무추진비", probe_doc):
-                    snippets.append(probe_doc[max(0,m.start()-6000):min(len(probe_doc),m.end()+3000)])
-                    if len(snippets)>=6:
-                        break
-                out["adapter_probe"]=snippets
-            except Exception as e:
-                out["adapter_probe_error"]=f"{type(e).__name__}: {e}"
-        out["status"]="ADAPTER_REQUIRED"
+        probe=prosecution_adapter_probe(src)
+        if src.get("key") == "prosecution_supreme":
+            out["adapter_probe"]=probe
+        out["status"]="ADAPTER_PROBED" if not probe.get("error") else "ADAPTER_REQUIRED"
         out["parseable_attachments"]=0
         return out
     q=deque((u,0,"") for u in (src.get("listing_urls") or []))
