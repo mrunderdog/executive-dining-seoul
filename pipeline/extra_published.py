@@ -285,6 +285,100 @@ def justice_records(max_records: int = 120) -> list[dict]:
     return out
 
 
+def prosecution_archive_records(max_records: int = 120) -> list[dict]:
+    p = REPORTS / "prosecution-archive-candidates.json"
+    if not p.exists():
+        return []
+    d = json.loads(p.read_text(encoding="utf-8"))
+    out = []
+    for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
+        name = t(c.get("merchant"))
+        if not name:
+            continue
+        address = t(c.get("address"))
+        visits = int(c.get("visits") or 0)
+        spend = int(c.get("spend") or 0)
+        score = float(c.get("score") or 0)
+        actor_stats = c.get("actor_stats") or []
+        roles = [
+            {
+                "role": f"{t(x.get('person'))} · {t(x.get('role'))}".strip(" ·"),
+                "visits": int(x.get("visits") or 0),
+                "people": 0,
+                "spend": 0,
+            }
+            for x in actor_stats if t(x.get("person")) and int(x.get("visits") or 0) > 0
+        ]
+        out.append({
+            "name": name,
+            "origin": "검찰(정보공개 2017–2019)",
+            "region": "전국",
+            "jurisdiction": "대한민국",
+            "institution": "대검찰청 · 서울중앙지방검찰청",
+            "institutions": ["대검찰청", "서울중앙지방검찰청"],
+            "type": "executive",
+            "destination": None,
+            "executive": {
+                "rank": rank,
+                "score": round(score, 1),
+                "exec_events": visits,
+                "roles": len(roles),
+                "months": 0,
+                "evening_ratio": 0,
+                "source": "prosecution_archive_2017_2019",
+                "top_official_visits": visits,
+                "top_role_tier": "prosecution_leadership",
+                "top_role_label": "검찰총장·서울중앙지검장",
+            },
+            "address": address,
+            "lat": c.get("lat"),
+            "lon": c.get("lon"),
+            "source_verified_coordinate": (
+                isinstance(c.get("lat"), (int, float))
+                and isinstance(c.get("lon"), (int, float))
+            ),
+            "source_coordinate_provenance": "뉴스타파 공개 GeoJSON",
+            "search_query": f"{name} {address or '대한민국'}",
+            "business": {
+                "display": name,
+                "category": _category(name),
+                "phone": "",
+                "status": "법원 판결에 따른 검찰 업무추진비 공개자료에서 복원된 사용처",
+                "rating": "",
+                "note": (
+                    "2017년 1월~2019년 9월 검찰 업무추진비 영수증을 뉴스타파·시민단체가 "
+                    "주소·전화번호·사업자정보 등으로 복원한 historical dataset입니다. "
+                    "현재 검찰 정기공표 자료와는 분리해 표시합니다."
+                ),
+                "url": t(c.get("source_url")),
+            },
+            "evidence": {
+                "visits": visits,
+                "spend": spend,
+                "people": 0,
+                "months": 0,
+                "evening": 0,
+                "evening_ratio": 0,
+                "ppc": int(c.get("avg_per_visit") or 0),
+                "date_min": "2017-01",
+                "date_max": "2019-09",
+                "roles": roles,
+                "purposes": [],
+                "recent": [],
+                "source_rows": [],
+            },
+            "why": (
+                f"2017~2019년 검찰 업무추진비 공개자료 복원 데이터에서 총 {visits}회, "
+                f"{len(roles)}명의 검찰 고위직 사용 기록이 집계된 사용처입니다."
+            ),
+            "published_source": "prosecution_archive_2017_2019",
+            "cohort": "justice_leadership",
+            "historical": True,
+            "source_type": t(c.get("source_type")),
+        })
+    return out
+
+
 def _legislator_record(c: dict, published_rank: int | None = None, qa_grade: str = "") -> dict:
     name = t(c.get("merchant"))
     address = t(c.get("address"))
@@ -404,7 +498,7 @@ def merge_extra_published(payload: dict) -> dict:
     base = list(payload.get("records", []))
     seen = {(t(r.get("name")), t(r.get("origin"))) for r in base}
     added = []
-    for r in central_records() + justice_records() + legislator_records():
+    for r in central_records() + justice_records() + prosecution_archive_records() + legislator_records():
         k = (t(r.get("name")), t(r.get("origin")))
         if k in seen:
             continue
@@ -427,6 +521,7 @@ def merge_extra_published(payload: dict) -> dict:
     ps = dict(meta.get("published_supplements") or {})
     ps["central_executive"] = sum(r.get("published_source") == "central_executive" for r in added)
     ps["justice_leadership"] = sum(r.get("published_source") == "justice_leadership" for r in added)
+    ps["prosecution_archive_2017_2019"] = sum(r.get("published_source") == "prosecution_archive_2017_2019" for r in added)
     ps["national_legislator_2024"] = sum(r.get("published_source") == "national_legislator_2024" for r in added)
     meta["published_supplements"] = ps
     meta["scope"] = "수도권·중앙정부·법조·국회 공공부문 Executive Dining"
