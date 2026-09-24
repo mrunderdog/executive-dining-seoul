@@ -1,0 +1,52 @@
+name: Prosecution archive probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/prosecution-archive-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Inspect Newstapa prosecution page assets
+        run: |
+          python - <<'PY'
+          import html, re, urllib.parse, urllib.request
+          UA='Mozilla/5.0 ExecutiveDiningSeoulProbe/1.0'
+          page='https://pages.newstapa.org/2023/07_prosecution/expense.html'
+          req=urllib.request.Request(page,headers={'User-Agent':UA})
+          with urllib.request.urlopen(req,timeout=20) as r:
+              raw=r.read(); enc=r.headers.get_content_charset() or 'utf-8'
+          doc=raw.decode(enc,errors='replace')
+          print('PAGE_BYTES',len(raw))
+          scripts=re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',doc,re.I)
+          links=re.findall(r'<link[^>]+href=["\']([^"\']+)["\']',doc,re.I)
+          for s in scripts:
+              print('SCRIPT',urllib.parse.urljoin(page,html.unescape(s)))
+          for x in sorted(set(re.findall(r'''(?:https?:)?//[^"'\s<>]+|[^"'\s<>]+\.(?:json|csv)(?:\?[^"'\s<>]*)?''',doc,re.I))):
+              print('DATAREF',x[:1000])
+          for s in scripts:
+              url=urllib.parse.urljoin(page,html.unescape(s))
+              try:
+                  q=urllib.request.Request(url,headers={'User-Agent':UA})
+                  with urllib.request.urlopen(q,timeout=15) as rr:
+                      blob=rr.read()
+                  text=blob.decode('utf-8',errors='replace')
+                  hits=[]
+                  for line in text.splitlines():
+                      if any(k in line.lower() for k in ('restaurant','식당','merchant','.json','.csv','expense','yoon','moon','mapdata','store')):
+                          hits.append(line.strip())
+                  print('ASSET',url,'BYTES',len(blob),'HITS',len(hits))
+                  for line in hits[:80]:
+                      print('HIT',line[:2000])
+              except Exception as e:
+                  print('ASSET_ERROR',url,type(e).__name__,e)
+          PY
