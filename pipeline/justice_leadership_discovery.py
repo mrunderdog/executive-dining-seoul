@@ -169,6 +169,10 @@ def discover(src:dict,year:int)->dict:
         out["parseable_attachments"]=0
         return out
     if src.get("key","").startswith("prosecution_"):
+        if src.get("merchant_expectation") == "aggregate_only_observed":
+            out["status"]="AGGREGATE_ONLY_TRACKED"
+            out["parseable_attachments"]=0
+            return out
         return discover_prosecution(src,year)
     if src.get("adapter_required"):
         out["status"]="ADAPTER_REQUIRED"
