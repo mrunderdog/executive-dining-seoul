@@ -97,10 +97,11 @@
       "default_role": "검찰총장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
-      "note": "Official prosecution pre-disclosure surface; site routing may require a dedicated adapter. Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling.",
+      "merchant_expectation": "aggregate_only_observed",
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
       "max_pages": 10,
-      "adapter_required": true
+      "adapter_required": true,
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "supreme_court",
@@ -130,10 +131,11 @@
       "default_role": "서울고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_high_suwon",
@@ -148,10 +150,11 @@
       "default_role": "수원고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_high_daejeon",
@@ -166,10 +169,11 @@
       "default_role": "대전고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_high_daegu",
@@ -184,10 +188,11 @@
       "default_role": "대구고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_high_busan",
@@ -202,10 +207,11 @@
       "default_role": "부산고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_high_gwangju",
@@ -220,10 +226,11 @@
       "default_role": "광주고등검찰청 고검장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_seoul",
@@ -238,10 +245,11 @@
       "default_role": "서울중앙지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_eastseoul",
@@ -256,10 +264,11 @@
       "default_role": "서울동부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_southseoul",
@@ -274,10 +283,11 @@
       "default_role": "서울남부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_northseoul",
@@ -292,10 +302,11 @@
       "default_role": "서울북부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_westseoul",
@@ -310,10 +321,11 @@
       "default_role": "서울서부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_uijeongbu",
@@ -328,10 +340,11 @@
       "default_role": "의정부지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_incheon",
@@ -346,10 +359,11 @@
       "default_role": "인천지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_chuncheon",
@@ -364,10 +378,11 @@
       "default_role": "춘천지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_suwon",
@@ -382,10 +397,11 @@
       "default_role": "수원지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_daejeon",
@@ -400,10 +416,11 @@
       "default_role": "대전지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_cheongju",
@@ -418,10 +435,11 @@
       "default_role": "청주지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_daegu",
@@ -436,10 +454,11 @@
       "default_role": "대구지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_busan",
@@ -454,10 +473,11 @@
       "default_role": "부산지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_ulsan",
@@ -472,10 +492,11 @@
       "default_role": "울산지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_changwon",
@@ -490,10 +511,11 @@
       "default_role": "창원지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_gwangju",
@@ -508,10 +530,11 @@
       "default_role": "광주지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_jeonju",
@@ -526,10 +549,11 @@
       "default_role": "전주지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
     },
     {
       "key": "prosecution_district_jeju",
@@ -544,10 +568,26 @@
       "default_role": "제주지방검찰청 검사장",
       "format_hint": "mixed",
       "source_type": "official_routine",
-      "merchant_expectation": "unknown",
+      "merchant_expectation": "aggregate_only_observed",
       "max_pages": 8,
       "adapter_required": true,
-      "note": "Official pre-disclosure surface confirmed; dedicated AnnounceInfo adapter required before attachment crawling."
+      "note": "Routine prosecution expense disclosures use the shared AnnounceInfo system and current sampled PDFs expose date/purpose/amount but not merchant/place. Track availability without map ingestion; merchant-level data comes from separate information-disclosure archives.",
+      "recheck_policy": "annual_or_format_change"
+    }
+  ],
+  "archive_sources": [
+    {
+      "key": "prosecution_newstapa_2017_2019",
+      "institution": "대검찰청·서울중앙지방검찰청",
+      "cohort": "justice_leadership",
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "verified": true,
+      "period": "2017-01~2019-09",
+      "landing_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps",
+      "role_scope": "검찰총장·서울중앙지검장",
+      "merchant_expectation": "merchant_level_reconstructed",
+      "note": "NewsTapa and three civic groups reconstructed 79 restaurants from court-ordered expense receipts; keep provenance distinct from routine official disclosure."
     }
   ]
 }
