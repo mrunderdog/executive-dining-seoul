@@ -55,13 +55,22 @@ jobs:
                   with urllib.request.urlopen(q,timeout=15) as rr:
                       blob=rr.read()
                   text=blob.decode('utf-8',errors='replace')
-                  hits=[]
-                  for line in text.splitlines():
-                      if any(k in line.lower() for k in ('restaurant','식당','merchant','.json','.csv','expense','yoon','moon','mapdata','store')):
-                          hits.append(line.strip())
-                  print('ASSET',url,'BYTES',len(blob),'HITS',len(hits))
-                  for line in hits[:80]:
-                      print('HIT',line[:2000])
+                  needles=('늘봄','청계산','윤석열','문무일','restaurant','merchant','.json','.csv','mapbox','kakao','latitude','longitude','37.','127.','store','place')
+                  print('ASSET',url,'BYTES',len(blob))
+                  for needle in needles:
+                      low=text.lower(); nlow=needle.lower()
+                      count=low.count(nlow)
+                      if not count: continue
+                      print('ASSET_NEEDLE',needle,'COUNT',count)
+                      start=0
+                      for _ in range(min(count,8)):
+                          pos=low.find(nlow,start)
+                          if pos<0: break
+                          print('SNIP',needle,text[max(0,pos-900):pos+2200].replace('\\n',' ')[:3200])
+                          start=pos+len(nlow)
+                  refs=sorted(set(re.findall(r'''(?:https?:)?//[^"'\\s<>]+|[^"'\\s<>]+\\.(?:json|csv)(?:\\?[^"'\\s<>]*)?''',text,re.I)))
+                  for ref in refs[:120]:
+                      print('CHUNK_REF',ref[:1600])
               except Exception as e:
                   print('ASSET_ERROR',url,type(e).__name__,e)
           PY
