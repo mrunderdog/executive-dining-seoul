@@ -95,6 +95,9 @@ def justice_domain(institution:str,source_key:str)->str:
 
 
 def parse_source(src:dict,all_rows:list,files:list,errors:list):
+    if src.get("merchant_expectation") == "aggregate_only_observed":
+        files.append({"institution":src.get("institution"),"key":src.get("key"),"status":"AGGREGATE_ONLY_SKIPPED","sheets":[]})
+        return
     for a in src.get("attachments",[]):
         label=text(a.get("text")) or a.get("url","")
         url=a.get("url") or ""
