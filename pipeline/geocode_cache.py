@@ -302,6 +302,14 @@ def main() -> None:
     records=merge_extra_published(merge_published_sources(load_payload())).get("records",[])
     cache=load_cache(); items=cache.setdefault("records",{}); todo=[]
     for r in records:
+        # Some datasets publish vetted coordinates directly. Do not re-geocode
+        # those rows and risk replacing a source coordinate with a weaker POI match.
+        if (
+            r.get("source_verified_coordinate")
+            and isinstance(r.get("lat"), (int, float))
+            and isinstance(r.get("lon"), (int, float))
+        ):
+            continue
         key=f"{r.get('name','')}|{r.get('origin','')}"; old=items.get(key) if isinstance(items.get(key),dict) else {}; fp=fingerprint(r)
         if cache_current(old,r,fp,args.retry_all):
             continue
