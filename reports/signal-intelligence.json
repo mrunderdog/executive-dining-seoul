@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-23T10:50:53",
-  "dataset_records": 992,
+  "generated_at": "2026-09-24T23:53:49",
+  "dataset_records": 985,
   "cross_institution_count": 91,
-  "cross_origin_count": 24,
-  "top_official_count": 169,
+  "cross_origin_count": 23,
+  "top_official_count": 162,
   "regional_head_count": 20,
-  "entity_merges": 38,
-  "entity_merge_audit_count": 35,
+  "entity_merges": 37,
+  "entity_merge_audit_count": 34,
   "entity_merge_audit": [
     {
       "name": "운산",
@@ -445,8 +445,8 @@
       "source_key_count": 2,
       "match_basis": "strict_entity_key",
       "corroborated_address_bridges": 0,
-      "visits": 36,
-      "spend": 11281000
+      "visits": 34,
+      "spend": 11000000
     },
     {
       "name": "버드나무집",
@@ -555,8 +555,8 @@
       "source_key_count": 2,
       "match_basis": "strict_entity_key",
       "corroborated_address_bridges": 0,
-      "visits": 20,
-      "spend": 2786000
+      "visits": 17,
+      "spend": 2381000
     },
     {
       "name": "탱글낙지마당",
@@ -575,29 +575,6 @@
       "corroborated_address_bridges": 0,
       "visits": 16,
       "spend": 2888000
-    },
-    {
-      "name": "비프다이닝 온도",
-      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
-      "origins": [
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "source_keys": [
-        "비프다이닝 온도|중앙정부",
-        "비프다이닝 온도|법조·법률행정"
-      ],
-      "source_key_count": 2,
-      "match_basis": "strict_entity_key",
-      "corroborated_address_bridges": 0,
-      "visits": 13,
-      "spend": 3422000
     },
     {
       "name": "생선명가거북명태",
@@ -1113,8 +1090,8 @@
         "central_executive",
         "justice_leadership"
       ],
-      "visits": 36,
-      "spend": 11281000,
+      "visits": 34,
+      "spend": 11000000,
       "date_min": "2024-07-01",
       "date_max": "2026-08-27",
       "consensus_score": 87.0,
@@ -1122,46 +1099,11 @@
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 11,
+      "top_official_visits": 9,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오롯이",
-      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
-      "origins": [
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국가보훈부",
-        "농림축산식품부",
-        "법제처",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "justice_leadership"
-      ],
-      "visits": 20,
-      "spend": 2786000,
-      "date_min": "2024-08-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 10,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1472,36 +1414,37 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "비프다이닝 온도",
-      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "name": "오롯이",
+      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
       "origins": [
         "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
+        "국가보훈부",
+        "농림축산식품부",
         "법제처",
-        "보건복지부",
-        "산업통상부"
+        "산업통상부",
+        "해양수산부"
       ],
       "cohorts": [
         "central_executive",
         "justice_leadership"
       ],
-      "visits": 13,
-      "spend": 3422000,
-      "date_min": "2024-08-01",
-      "date_max": "2026-07-22",
-      "consensus_score": 83.7,
-      "institution_count": 4,
+      "visits": 17,
+      "spend": 2381000,
+      "date_min": "2024-08-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 85.7,
+      "institution_count": 5,
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 8,
+      "top_official_visits": 7,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 7,
+      "vice_minister_visits": 2,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1982,6 +1925,37 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 5,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "비프다이닝 온도",
+      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 12,
+      "spend": 3342000,
+      "date_min": "2024-08-01",
+      "date_max": "2026-07-20",
+      "consensus_score": 66.5,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4332,76 +4306,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "마키노차야 더가우",
-      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
-      "origins": [
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "농림축산식품부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "justice_leadership"
-      ],
-      "visits": 36,
-      "spend": 11281000,
-      "date_min": "2024-07-01",
-      "date_max": "2026-08-27",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 11,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오롯이",
-      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
-      "origins": [
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국가보훈부",
-        "농림축산식품부",
-        "법제처",
-        "산업통상부",
-        "해양수산부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "justice_leadership"
-      ],
-      "visits": 20,
-      "spend": 2786000,
-      "date_min": "2024-08-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 10,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "툇마루",
       "address": "",
       "origins": [
@@ -4427,6 +4331,41 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 10,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "마키노차야 더가우",
+      "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "농림축산식품부",
+        "법제처",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 34,
+      "spend": 11000000,
+      "date_min": "2024-07-01",
+      "date_max": "2026-08-27",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 9,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4485,40 +4424,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "비프다이닝 온도",
-      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
-      "origins": [
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "법제처",
-        "보건복지부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "justice_leadership"
-      ],
-      "visits": 13,
-      "spend": 3422000,
-      "date_min": "2024-08-01",
-      "date_max": "2026-07-22",
-      "consensus_score": 83.7,
-      "institution_count": 4,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 8,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 7,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4612,6 +4517,41 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "오롯이",
+      "address": "세종특별자치시 시청대로 163, 리버애비뉴 303~304호",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국가보훈부",
+        "농림축산식품부",
+        "법제처",
+        "산업통상부",
+        "해양수산부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership"
+      ],
+      "visits": 17,
+      "spend": 2381000,
+      "date_min": "2024-08-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 85.7,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 2,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "한일관",
       "address": "",
       "origins": [
@@ -4630,6 +4570,37 @@
       "date_max": "2026-06-15",
       "consensus_score": 61.9,
       "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 7,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "비프다이닝 온도",
+      "address": "세종특별자치시 가름로 143, KT&G세종타워B 207~208호",
+      "origins": [
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "보건복지부",
+        "산업통상부"
+      ],
+      "cohorts": [
+        "central_executive"
+      ],
+      "visits": 12,
+      "spend": 3342000,
+      "date_min": "2024-08-01",
+      "date_max": "2026-07-20",
+      "consensus_score": 66.5,
+      "institution_count": 3,
       "source_count": 1,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -6449,7 +6420,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "보돌미역 세종청사점",
+      "name": "금반 김해뒷고기",
       "address": "",
       "origins": [
         "법조·법률행정"
@@ -6461,14 +6432,14 @@
         "justice_leadership"
       ],
       "visits": 3,
-      "spend": 325000,
-      "date_min": "2026-06-24",
-      "date_max": "2026-08-12",
+      "spend": 454000,
+      "date_min": "2026-07-06",
+      "date_max": "2026-07-15",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "court_or_prosecution_agency_head",
-      "top_role_label": "법제처장",
+      "top_role_tier": "director_level",
+      "top_role_label": "법령정비국장",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -7094,35 +7065,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "팔선생세종점",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 2,
-      "spend": 493000,
-      "date_min": "2026-06-05",
-      "date_max": "2026-08-27",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "court_or_prosecution_agency_head",
-      "top_role_label": "법제처장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "마구로 정",
       "address": "",
       "origins": [
@@ -7297,7 +7239,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "가장맛있는족발 도담점",
+      "name": "보돌미역 세종청사점",
       "address": "",
       "origins": [
         "법조·법률행정"
@@ -7309,43 +7251,14 @@
         "justice_leadership"
       ],
       "visits": 2,
-      "spend": 144000,
-      "date_min": "2026-07-08",
-      "date_max": "2026-08-10",
+      "spend": 257000,
+      "date_min": "2026-08-07",
+      "date_max": "2026-08-12",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "세종 오이시",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 2,
-      "spend": 270000,
-      "date_min": "2026-07-14",
-      "date_max": "2026-08-04",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -7384,6 +7297,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "평양원냉면",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 100000,
+      "date_min": "2026-07-03",
+      "date_max": "2026-07-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "director_level",
+      "top_role_label": "법령정비국장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "만세곱창",
       "address": "",
       "origins": [
@@ -7404,35 +7346,6 @@
       "source_count": 1,
       "top_role_tier": "director_level",
       "top_role_label": "기획조정관",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "토정삼계탕청사관",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 2,
-      "spend": 202000,
-      "date_min": "2026-06-17",
-      "date_max": "2026-07-16",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -7870,35 +7783,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "금반 김해뒷고기",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 4,
-      "spend": 557000,
-      "date_min": "2026-07-06",
-      "date_max": "2026-07-30",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "정민복집",
       "address": "",
       "origins": [
@@ -8020,7 +7904,7 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "관산성한우 세종나성점",
+      "name": "팔선생세종점",
       "address": "",
       "origins": [
         "법조·법률행정"
@@ -8031,44 +7915,15 @@
       "cohorts": [
         "justice_leadership"
       ],
-      "visits": 2,
-      "spend": 311000,
-      "date_min": "2026-06-15",
-      "date_max": "2026-07-16",
+      "visits": 1,
+      "spend": 359000,
+      "date_min": "2026-08-27",
+      "date_max": "2026-08-27",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "director_level",
-      "top_role_label": "법령해석국장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "청솔횟집",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 2,
-      "spend": 338000,
-      "date_min": "2026-06-23",
-      "date_max": "2026-07-13",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "director_level",
-      "top_role_label": "법령해석국장",
+      "top_role_tier": "court_or_prosecution_agency_head",
+      "top_role_label": "법제처장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8339,6 +8194,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "세종 오이시",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법제처"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 150000,
+      "date_min": "2026-08-04",
+      "date_max": "2026-08-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "deputy_head",
+      "top_role_label": "법제처차장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "세경호텔(주)",
       "address": "",
       "origins": [
@@ -8446,35 +8330,6 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "완미족발 도담점",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 1,
-      "spend": 55900,
-      "date_min": "2026-07-23",
-      "date_max": "2026-07-23",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8629,35 +8484,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "채고램",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 1,
-      "spend": 111000,
-      "date_min": "2026-07-14",
-      "date_max": "2026-07-14",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "청담초밥 문정점",
       "address": "",
       "origins": [
@@ -8678,35 +8504,6 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "다담",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 1,
-      "spend": 78000,
-      "date_min": "2026-07-10",
-      "date_max": "2026-07-10",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8794,35 +8591,6 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "대선칼국수",
-      "address": "",
-      "origins": [
-        "법조·법률행정"
-      ],
-      "institutions": [
-        "법제처"
-      ],
-      "cohorts": [
-        "justice_leadership"
-      ],
-      "visits": 1,
-      "spend": 174000,
-      "date_min": "2026-07-07",
-      "date_max": "2026-07-07",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "deputy_head",
-      "top_role_label": "법제처차장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
