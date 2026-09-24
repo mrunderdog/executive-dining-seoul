@@ -92,11 +92,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # The repository may advance while network ingestion is running.
+          # Preserve only generated outputs, reset onto the newest main, then
+          # re-apply those outputs. This avoids rebase conflicts with code commits.
+          tar -cf /tmp/justice-generated.tar             data/raw/justice_leadership_expense.json             data/raw/prosecution_archive_restaurants.json             reports/justice-leadership-discovery.json             reports/justice-leadership-discovery.md             reports/justice-leadership-ingestion.md             reports/justice-leadership-candidates.json             reports/justice-leadership-candidates.md             reports/prosecution-archive-candidates.json             reports/prosecution-archive-candidates.md             data/geocode_cache.json
+
+          git fetch origin main
+          git reset --hard origin/main
+          tar -xf /tmp/justice-generated.tar
+
           git add data/raw/justice_leadership_expense.json data/raw/prosecution_archive_restaurants.json reports/justice-leadership-* reports/prosecution-archive-* data/geocode_cache.json || true
           if git diff --cached --quiet; then
             echo "No justice data changes."
             exit 0
           fi
           git commit -m "data: refresh justice leadership cohort"
-          git pull --rebase origin main
           git push origin HEAD:main
