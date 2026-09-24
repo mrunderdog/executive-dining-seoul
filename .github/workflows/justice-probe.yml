@@ -33,7 +33,7 @@ jobs:
                   h['Content-Type']='application/x-www-form-urlencoded; charset=UTF-8'
                   h['X-Requested-With']='XMLHttpRequest'
               request=urllib.request.Request(url,data=data,headers=h)
-              return (opener or urllib.request).open(request,timeout=25)
+              return opener.open(request,timeout=25) if opener else urllib.request.urlopen(request,timeout=25)
 
           print('=== SPO AJAX ===')
           url='https://www.spo.go.kr/site/spo/ex/announce/AnnounceDetailInfo.do'
