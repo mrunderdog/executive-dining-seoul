@@ -1,0 +1,35 @@
+name: SPO adapter test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/spo-adapter-test.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Test three prosecution sources
+        run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0,'pipeline')
+          from justice_leadership_discovery import discover_prosecution
+          reg=json.load(open('sources/justice_leadership_registry.json',encoding='utf-8'))
+          keys={'prosecution_supreme','prosecution_high_seoul','prosecution_district_seoul'}
+          for src in reg['sources']:
+              if src.get('key') not in keys: continue
+              r=discover_prosecution(src,2026)
+              print('\nSOURCE',src['key'],r['status'],'files',len(r['attachments']),'parseable',r['parseable_attachments'])
+              print('errors',r['errors'])
+              for a in r['attachments'][:8]:
+                  print(a)
+          PY
