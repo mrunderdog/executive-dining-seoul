@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import re
 import urllib.parse
@@ -81,6 +82,77 @@ def prosecution_adapter_probe(src:dict)->dict:
     }
 
 
+def discover_prosecution(src:dict,year:int)->dict:
+    out={
+        "key":src["key"],"institution":src["institution"],"verified":True,
+        "default_role":src.get("default_role",""),"source_type":src.get("source_type","official_routine"),
+        "merchant_expectation":src.get("merchant_expectation","unknown"),"format_hint":src.get("format_hint","mixed"),
+        "pages":[],"attachments":[],"errors":[]
+    }
+    listing=(src.get("listing_urls") or [""])[0]
+    m=re.search(r"/site/([^/]+)/ex/announce/AnnounceInfo\.do",listing)
+    if not m:
+        out["status"]="ADAPTER_FAILED"; out["parseable_attachments"]=0
+        out["errors"].append("site_code_not_found")
+        return out
+    site=m.group(1)
+    base=f"https://www.spo.go.kr/site/{site}/ex/announce"
+    detail_info=f"{base}/AnnounceDetailInfo.do"
+    content_list=f"{base}/AnnounceContentList.do"
+    view_url=f"{base}/AnnounceInfoView.do"
+    out["pages"]=[listing]
+    try:
+        detail_doc=fetch_post(detail_info,{"infoId":"300"})
+        mseq=re.search(r'''data-param=["']300\|(\d+)\|''',detail_doc,re.I)
+        info_seq=mseq.group(1) if mseq else "1"
+        list_doc=fetch_post(content_list,{"infoId":"300","infoSeq":info_seq,"pageIndex":"1","searchKeyword":""})
+        entries=[]
+        for seq,title_html in re.findall(
+            r'''href=["']javascript:doAnnounceInfoView\(['"]?(\d+)['"]?,['"][^'"]*['"]\);?["'][^>]*>(.*?)</a>''',
+            list_doc,re.I|re.S
+        ):
+            title=html_lib.unescape(re.sub(r"<[^>]+>"," ",title_html))
+            title=txt(title)
+            if not title: continue
+            ym=re.search(r"(20\d{2})",title)
+            if ym and int(ym.group(1)) not in {year,year-1}: continue
+            entries.append((seq,title))
+        if not entries:
+            # The site currently renders 10 quarterly entries on page 1.
+            # Keep a diagnostic snippet if markup changes.
+            out["adapter_probe"]=list_doc[:12000]
+        seen=set()
+        for seq,title in entries:
+            try:
+                view=fetch_post(view_url,{"seqId":seq,"infoId":"300","infoSeq":info_seq})
+            except Exception as e:
+                out["errors"].append(f"view {seq}: {type(e).__name__}: {e}")
+                continue
+            for href,inner in re.findall(r'''<a[^>]+href=["']([^"']*FileDown\.do\?[^"']+)["'][^>]*>(.*?)</a>''',view,re.I|re.S):
+                url=urllib.parse.urljoin("https://www.spo.go.kr/",html_lib.unescape(href))
+                if url in seen: continue
+                seen.add(url)
+                filename=txt(html_lib.unescape(re.sub(r"<[^>]+>"," ",inner)))
+                label=txt(title+" "+filename)
+                y,mth=extract_year_month(label)
+                out["attachments"].append({
+                    "text":label,"url":url,"year":y,"month":mth,
+                    "parent":listing,"seq_id":seq,"detail_endpoint":view_url
+                })
+        out["parseable_attachments"]=sum(
+            any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in PARSEABLE_EXTS)
+            for a in out["attachments"]
+        )
+        out["status"]="PARSEABLE_FOUND" if out["parseable_attachments"] else (
+            "FILES_FOUND_UNSUPPORTED" if out["attachments"] else "NO_FILES_FOUND"
+        )
+    except Exception as e:
+        out["errors"].append(f"{type(e).__name__}: {e}")
+        out["parseable_attachments"]=0
+        out["status"]="FETCH_FAILED"
+    return out
+
+
 def same_host(a:str,b:str)->bool:
     return urllib.parse.urlsplit(a).netloc==urllib.parse.urlsplit(b).netloc
 
@@ -96,15 +168,10 @@ def discover(src:dict,year:int)->dict:
         out["status"]="DISCOVERY_REQUIRED"
         out["parseable_attachments"]=0
         return out
+    if src.get("key","").startswith("prosecution_"):
+        return discover_prosecution(src,year)
     if src.get("adapter_required"):
-        # The AnnounceInfo AJAX contract is shared across prosecution sites.
-        # Probe only SPO once; probing every office adds 25 network round trips.
-        if src.get("key") == "prosecution_supreme":
-            probe=prosecution_adapter_probe(src)
-            out["adapter_probe"]=probe
-            out["status"]="ADAPTER_PROBED" if not probe.get("error") else "ADAPTER_REQUIRED"
-        else:
-            out["status"]="ADAPTER_REQUIRED"
+        out["status"]="ADAPTER_REQUIRED"
         out["parseable_attachments"]=0
         return out
     q=deque((u,0,"") for u in (src.get("listing_urls") or []))
