@@ -1,0 +1,31 @@
+name: Prosecution archive ingest test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/prosecution-archive-ingest-test.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run archive ingestion
+        run: |
+          python pipeline/ingest_prosecution_archive.py
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/prosecution-archive-candidates.json',encoding='utf-8'))
+          raw=json.load(open('data/raw/prosecution_archive_restaurants.json',encoding='utf-8'))
+          print('RAW',raw['row_count'])
+          print('ELIGIBLE',d['eligible_count'])
+          print('TOP',[(x['merchant'],x['visits'],x['spend'],x['actor_count']) for x in d['candidates'][:10]])
+          print('COORDS',sum(isinstance(x.get('lat'),(int,float)) and isinstance(x.get('lon'),(int,float)) for x in d['candidates']))
+          PY
