@@ -263,24 +263,29 @@ def main():
             central_last_by_key={}
     inherited_cfg=reg.get("inherited_central_sources",[])
     def run_inherited(item):
-        base=central_by_key.get(item.get("source_key"))
+        key=item.get("source_key")
+        base=central_by_key.get(key)
         if not base:
             return {
-                "key":item.get("source_key"),"institution":item.get("institution"),
+                "key":key,"institution":item.get("institution"),
                 "default_role":"","source_type":item.get("source_type","official_routine"),
                 "inherited_from":"central_executive","role_scope":item.get("role_scope",""),
                 "attachments":[],"parseable_attachments":0,"status":"CENTRAL_REGISTRY_MISSING","errors":[]
             }
-        src=discover_central_source(base,args.year)
-        if not src.get("attachments"):
-            previous=central_last_by_key.get(item.get("source_key")) or {}
-            if previous.get("attachments"):
-                src={
-                    **previous,
-                    "status":"STALE_OK",
-                    "fallback_reason":src.get("status") or "live_discovery_empty",
-                    "live_errors":src.get("errors",[]),
-                }
+
+        # Reuse the central-government discovery output when available. In the
+        # monthly workflow it was generated immediately before this step; in the
+        # standalone justice workflow it is the latest committed snapshot.
+        previous=central_last_by_key.get(key) or {}
+        if previous.get("attachments"):
+            src={
+                **previous,
+                "status":"REUSED_CENTRAL_DISCOVERY",
+                "reused_central_status":previous.get("status",""),
+            }
+        else:
+            src=discover_central_source(base,args.year)
+
         return {
             **src,
             "default_role":"",
