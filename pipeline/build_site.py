@@ -66,8 +66,25 @@ def main():
     coord_count = 0
     coord_rejected = 0
     for r in records:
-        key, g, meta = select_coordinate(r, geo)
         has_address = bool(str(r.get("address") or "").strip())
+        source_coord = (
+            bool(r.get("source_verified_coordinate"))
+            and isinstance(r.get("lat"), (int, float))
+            and isinstance(r.get("lon"), (int, float))
+        )
+        if source_coord:
+            r["coordinate_source_key"] = (
+                "source:" + str(r.get("source_coordinate_source") or r.get("published_source") or "verified")
+            )
+            coord_count += 1
+            r["location_verification"] = (
+                {"grade": "A", "label": "출처 좌표·주소 확인"}
+                if has_address else
+                {"grade": "B", "label": "출처 좌표 확인 · 주소 미확인"}
+            )
+            continue
+
+        key, g, meta = select_coordinate(r, geo)
         if g:
             r["lat"] = float(g["lat"])
             r["lon"] = float(g["lon"])
