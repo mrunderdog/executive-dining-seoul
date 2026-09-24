@@ -29,3 +29,25 @@ jobs:
           print('TOP',[(x['merchant'],x['visits'],x['spend'],x['actor_count']) for x in d['candidates'][:10]])
           print('COORDS',sum(isinstance(x.get('lat'),(int,float)) and isinstance(x.get('lon'),(int,float)) for x in d['candidates']))
           PY
+      - name: Validate merged public dataset
+        run: |
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/index.html
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0,'pipeline')
+          from data_io import load_payload
+          from published_sources import merge_published_sources
+          from extra_published import merge_extra_published
+          from global_entities import merge_global_entities
+          p=merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
+          rows=p['records']
+          arc=[r for r in rows if 'prosecution_archive_2017_2019' in (r.get('published_sources') or []) or r.get('published_source')=='prosecution_archive_2017_2019']
+          source_coords=[r for r in arc if r.get('source_verified_coordinate') and isinstance(r.get('lat'),(int,float)) and isinstance(r.get('lon'),(int,float))]
+          meta=json.load(open('/tmp/build-meta.json',encoding='utf-8'))
+          print('MERGED_ARCHIVE',len(arc))
+          print('MERGED_SOURCE_COORDS',len(source_coords))
+          print('BUILD_TOTAL',meta['dataset_total'],'BUILD_COORDS',meta['coordinates'])
+          if len(arc) < 70 or len(source_coords) < 70:
+              raise SystemExit('archive records or source coordinates lost during merge')
+          PY
