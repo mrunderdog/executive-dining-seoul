@@ -97,10 +97,14 @@ def discover(src:dict,year:int)->dict:
         out["parseable_attachments"]=0
         return out
     if src.get("adapter_required"):
-        probe=prosecution_adapter_probe(src)
+        # The AnnounceInfo AJAX contract is shared across prosecution sites.
+        # Probe only SPO once; probing every office adds 25 network round trips.
         if src.get("key") == "prosecution_supreme":
+            probe=prosecution_adapter_probe(src)
             out["adapter_probe"]=probe
-        out["status"]="ADAPTER_PROBED" if not probe.get("error") else "ADAPTER_REQUIRED"
+            out["status"]="ADAPTER_PROBED" if not probe.get("error") else "ADAPTER_REQUIRED"
+        else:
+            out["status"]="ADAPTER_REQUIRED"
         out["parseable_attachments"]=0
         return out
     q=deque((u,0,"") for u in (src.get("listing_urls") or []))
