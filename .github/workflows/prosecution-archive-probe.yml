@@ -27,6 +27,11 @@ jobs:
               raw=r.read(); enc=r.headers.get_content_charset() or 'utf-8'
           doc=raw.decode(enc,errors='replace')
           print('PAGE_BYTES',len(raw))
+          for needle in ('늘봄','청계산','윤석열','문무일','restaurant','latitude','longitude','lat','lng','__next_f'):
+              print('NEEDLE',needle,'COUNT',doc.lower().count(needle.lower()))
+              pos=doc.lower().find(needle.lower())
+              if pos>=0:
+                  print('CONTEXT',doc[max(0,pos-1500):pos+5000])
           scripts=re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',doc,re.I)
           links=re.findall(r'<link[^>]+href=["\']([^"\']+)["\']',doc,re.I)
           for s in scripts:
