@@ -46,6 +46,15 @@ jobs:
                   s=' '.join(line.split())
                   if any(k in s for k in ('data-param','announceBoardList','AnnounceContent','doAnnounceInfoView','seqId','infoSeq','cbIdx')):
                       print(s[:1200])
+              list_url='https://www.spo.go.kr/site/spo/ex/announce/AnnounceContentList.do'
+              with req(list_url,{'infoId':'300','infoSeq':'1'}) as r:
+                  lraw=r.read(); lenc=r.headers.get_content_charset() or 'utf-8'
+                  ldoc=lraw.decode(lenc,errors='replace')
+              print('CONTENT LIST bytes',len(lraw))
+              for line in ldoc.splitlines():
+                  s=' '.join(line.split())
+                  if any(k in s for k in ('doAnnounceInfoView','seqId','infoSeq','pageIndex','attach','download','업무추진비')):
+                      print('LIST',s[:1600])
           except Exception as e:
               print('SPO ERROR',type(e).__name__,e)
 
