@@ -335,6 +335,25 @@ def merge_global_entities(payload: dict) -> dict:
     merged_groups = 0
     for key, rows in groups.items():
         primary = deepcopy(_best_record(rows))
+
+        # Preserve coordinates that were published by a source dataset itself
+        # (for example, the reconstructed prosecution restaurant GeoJSON).
+        # Entity grouping is already address-conservative, so a source coordinate
+        # may be inherited only inside the same resolved physical entity.
+        source_coords = [
+            r for r in rows
+            if r.get("source_verified_coordinate")
+            and isinstance(r.get("lat"), (int, float))
+            and isinstance(r.get("lon"), (int, float))
+        ]
+        if source_coords:
+            coord_row = max(source_coords, key=lambda r: bool(t(r.get("address"))))
+            primary["lat"] = float(coord_row["lat"])
+            primary["lon"] = float(coord_row["lon"])
+            primary["source_verified_coordinate"] = True
+            primary["source_coordinate_provenance"] = t(coord_row.get("source_coordinate_provenance"))
+            primary["source_coordinate_source"] = t(coord_row.get("published_source"))
+
         origins = sorted({
             t(o)
             for r in rows
