@@ -55,6 +55,15 @@ jobs:
                   s=' '.join(line.split())
                   if any(k in s for k in ('doAnnounceInfoView','seqId','infoSeq','pageIndex','attach','download','업무추진비')):
                       print('LIST',s[:1600])
+              view_url='https://www.spo.go.kr/site/spo/ex/announce/AnnounceInfoView.do'
+              with req(view_url,{'seqId':'715441','infoId':'300','infoSeq':'1'}) as r:
+                  vraw=r.read(); venc=r.headers.get_content_charset() or 'utf-8'
+                  vdoc=vraw.decode(venc,errors='replace')
+              print('VIEW bytes',len(vraw))
+              for line in vdoc.splitlines():
+                  s=' '.join(line.split())
+                  if any(k in s.lower() for k in ('attach','download','.pdf','.hwp','.hwpx','.xlsx','.xls','file','업무추진비')):
+                      print('VIEW',s[:2000])
           except Exception as e:
               print('SPO ERROR',type(e).__name__,e)
 
