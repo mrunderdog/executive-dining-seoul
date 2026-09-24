@@ -202,6 +202,22 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_justice_leadership_candidates.py
 
+      - name: Ingest historical prosecution restaurant archive
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/ingest_prosecution_archive.py
+
+      - name: Validate prosecution archive extraction
+        if: steps.mode.outputs.full == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('reports/prosecution-archive-candidates.json').read_text(encoding='utf-8'))
+          print({'entities':d.get('entity_count',0),'eligible':d.get('eligible_count',0)})
+          if int(d.get('entity_count') or 0) < 70:
+              raise SystemExit('prosecution archive extraction degraded below 70 entities')
+          PY
+
       - name: Ingest 2024 National Assembly political-fund spending
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/ingest_national_legislator_expense.py
