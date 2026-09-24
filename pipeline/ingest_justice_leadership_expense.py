@@ -5,6 +5,8 @@ import argparse
 import hashlib
 import json
 import re
+import http.cookiejar
+import urllib.request
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -68,6 +70,21 @@ def detailed_role(label:str,institution:str,default_role:str="")->str:
     return text(default_role)
 
 
+def fetch_attachment(url:str,parent_url:str=""):
+    if "moj.go.kr/" not in url:
+        return fetch(url)
+    # MOJ download.do requires the session cookies issued by the article page.
+    jar=http.cookiejar.CookieJar()
+    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    headers={"User-Agent":"ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)","Accept":"*/*"}
+    if parent_url:
+        with opener.open(urllib.request.Request(parent_url,headers=headers),timeout=30) as r:
+            r.read(256)
+        headers["Referer"]=parent_url
+    with opener.open(urllib.request.Request(url,headers=headers),timeout=60) as r:
+        return r.read()
+
+
 def justice_domain(institution:str,source_key:str)->str:
     if institution in {"법무부","법제처"}: return "legal_administration"
     if "검찰" in institution or source_key.startswith("prosecution_"): return "prosecution"
@@ -85,7 +102,7 @@ def parse_source(src:dict,all_rows:list,files:list,errors:list):
         if "synapview" in url.lower() or not any(ext in low for ext in SUPPORTED):
             continue
         try:
-            blob=fetch(url)
+            blob=fetch_attachment(url,a.get("parent",""))
             info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
             role_hint=detailed_role(label,src["institution"],src.get("default_role",""))
             for sheet,rows in rows_from(blob,label):
