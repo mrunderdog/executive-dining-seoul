@@ -1,0 +1,2146 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-24T23:59:21",
+  "source": "newstapa_prosecution_expense_map",
+  "source_page": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+  "source_chunk": "https://pages.newstapa.org/2023/07_prosecution/_next/static/chunks/app/expense/page-cc4acc218f06929d.js",
+  "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps",
+  "period": "2017-01~2019-09",
+  "row_count": 79,
+  "rows": [
+    {
+      "merchant": "대검찰청 구내식당",
+      "address": "서울시 서초구 반포대로 157",
+      "lat": 37.493616,
+      "lon": 127.0047688,
+      "visits": 81,
+      "spend": 40298400,
+      "avg_per_visit": 497511,
+      "actor_count": 3,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 3
+        },
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 59
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 19
+        }
+      ],
+      "source_tag": "both",
+      "source_no": 1,
+      "score": 100.0,
+      "internal_venue": true,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "늘봄웰봄 서초점",
+      "address": "서울시 서초중앙로 188 아크로비스타상가",
+      "lat": 37.498912,
+      "lon": 127.0128599,
+      "visits": 20,
+      "spend": 8768000,
+      "avg_per_visit": 438400,
+      "actor_count": 3,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 15
+        },
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 4
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 3,
+      "score": 95.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "스미즈",
+      "address": "서울시 강남구 역삼동 720-19 지상 2층",
+      "lat": 37.5018985,
+      "lon": 127.0427384,
+      "visits": 13,
+      "spend": 7368000,
+      "avg_per_visit": 566769,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 7
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 6
+        }
+      ],
+      "source_tag": "both",
+      "source_no": 5,
+      "score": 80.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "Chai797 서래마을점",
+      "address": "서울시 서초구 동광로 78, 2층",
+      "lat": 37.4928021,
+      "lon": 126.9911408,
+      "visits": 12,
+      "spend": 8620500,
+      "avg_per_visit": 718375,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 2
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 10
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 4,
+      "score": 79.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "샌드프레소",
+      "address": "서울시 서초구 반포대로 158 서울지방검찰청 2층",
+      "lat": 37.494988,
+      "lon": 127.007858,
+      "visits": 12,
+      "spend": 4870000,
+      "avg_per_visit": 405833,
+      "actor_count": 3,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 2
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 6
+        },
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 4
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 6,
+      "score": 86.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "청계산장",
+      "address": "경기도 성남시 수정구 청계산로 440(상적동)",
+      "lat": 37.4302946,
+      "lon": 127.0711765,
+      "visits": 7,
+      "spend": 9434000,
+      "avg_per_visit": 1347714,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 7
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 2,
+      "score": 62.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "벽제갈비 서래마을점",
+      "address": "서울시 서초구 방배동 797-7 베로니스타운지하1층",
+      "lat": 37.4937337,
+      "lon": 126.9919977,
+      "visits": 7,
+      "spend": 3521000,
+      "avg_per_visit": 503000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 7
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 7,
+      "score": 61.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "일일향6호점",
+      "address": "서울시 서초구 강남대로 309",
+      "lat": 37.4905906,
+      "lon": 127.0304516,
+      "visits": 7,
+      "spend": 3380000,
+      "avg_per_visit": 482857,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 1
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 6
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 8,
+      "score": 70.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "퀸즈파크 반포서래점",
+      "address": "서울시 서초구 방배동 797-13",
+      "lat": 37.493834,
+      "lon": 126.9925897,
+      "visits": 6,
+      "spend": 1761100,
+      "avg_per_visit": 293517,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 6
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 15,
+      "score": 58.6,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "본도시락",
+      "address": "서울시 서초구 서래로 49(반포동)",
+      "lat": 37.497323,
+      "lon": 126.9982521,
+      "visits": 6,
+      "spend": 1010500,
+      "avg_per_visit": 168417,
+      "actor_count": 3,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 2
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        },
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 3
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 17,
+      "score": 74.6,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "거제지심도 서초점",
+      "address": "서울시 서초구 서초대로49길 5 승보빌딩",
+      "lat": 37.4937046,
+      "lon": 127.0120299,
+      "visits": 5,
+      "spend": 1505000,
+      "avg_per_visit": 301000,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 1
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 4
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 11,
+      "score": 64.1,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "예향",
+      "address": "서울시 강남구 언주로107길 7",
+      "lat": 37.5071788,
+      "lon": 127.0365141,
+      "visits": 4,
+      "spend": 2979000,
+      "avg_per_visit": 744750,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 4
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 9,
+      "score": 53.5,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "함지박",
+      "address": "서울시 서초구 방배동 807-1",
+      "lat": 37.4931976,
+      "lon": 126.9919753,
+      "visits": 4,
+      "spend": 2160000,
+      "avg_per_visit": 540000,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        },
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 10,
+      "score": 61.5,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "서울중앙지검 매점",
+      "address": "서울시 서초구 서초동 1725",
+      "lat": 37.4950884,
+      "lon": 127.0082618,
+      "visits": 4,
+      "spend": 382820,
+      "avg_per_visit": 95705,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 4
+        }
+      ],
+      "source_tag": "",
+      "source_no": 51,
+      "score": 51.1,
+      "internal_venue": true,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "파로그랜드",
+      "address": "서울시 중구 을지로5길 26",
+      "lat": 37.5674207,
+      "lon": 126.9851783,
+      "visits": 3,
+      "spend": 1234000,
+      "avg_per_visit": 411333,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 3
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 13,
+      "score": 48.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "가이후",
+      "address": "서울시 서초구 서초동 1698-8",
+      "lat": 37.4961531,
+      "lon": 127.0141211,
+      "visits": 3,
+      "spend": 1230000,
+      "avg_per_visit": 410000,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 2
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "both",
+      "source_no": 14,
+      "score": 57.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "명성헌",
+      "address": "서울시 서초구 서초동 1344-12",
+      "lat": 37.487387,
+      "lon": 127.0284522,
+      "visits": 3,
+      "spend": 1093000,
+      "avg_per_visit": 364333,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 16,
+      "score": 56.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "수퍼판",
+      "address": "서울시 용산구 이촌로64길 61",
+      "lat": 37.5200744,
+      "lon": 126.9676856,
+      "visits": 3,
+      "spend": 949000,
+      "avg_per_visit": 316333,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 3
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 19,
+      "score": 48.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "샘밭막국수",
+      "address": "서울시 서초구 서초중앙로24길 27(서초동 G5센트럴프라자)지하 1층)",
+      "lat": 37.4954055,
+      "lon": 127.0164657,
+      "visits": 3,
+      "spend": 937000,
+      "avg_per_visit": 312333,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 3
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 25,
+      "score": 48.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "스시진수",
+      "address": "서울시 서초구 서초중앙로24길 27 1층 4호",
+      "lat": 37.4954055,
+      "lon": 127.0164657,
+      "visits": 3,
+      "spend": 921000,
+      "avg_per_visit": 307000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 3
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 20,
+      "score": 48.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "하노이의 아침",
+      "address": "서울시 서초구 서래로6길 4 (반포동 5층)",
+      "lat": 37.4977009,
+      "lon": 126.9985152,
+      "visits": 2,
+      "spend": 1264000,
+      "avg_per_visit": 632000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 12,
+      "score": 43.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "청연",
+      "address": "서울시 서초구 반포동 74-3",
+      "lat": 37.4975831,
+      "lon": 127.0000566,
+      "visits": 2,
+      "spend": 889000,
+      "avg_per_visit": 444500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 21,
+      "score": 43.5,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "황제",
+      "address": "서울시 서초구 반포동 105-1 201호",
+      "lat": 37.4986473,
+      "lon": 126.9971933,
+      "visits": 2,
+      "spend": 785000,
+      "avg_per_visit": 392500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 22,
+      "score": 43.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "장사랑",
+      "address": "서울시 서초구 법원로1길 7 (서초동, Tower C)",
+      "lat": 37.4930038,
+      "lon": 127.0097479,
+      "visits": 2,
+      "spend": 731900,
+      "avg_per_visit": 365950,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 23,
+      "score": 43.2,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "서귀포오분작뚝배기",
+      "address": "서울시 서초구 서초동 1555-2",
+      "lat": 37.4918465,
+      "lon": 127.0103281,
+      "visits": 2,
+      "spend": 591000,
+      "avg_per_visit": 295500,
+      "actor_count": 2,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        },
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 24,
+      "score": 51.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "양양메밀막국수",
+      "address": "서울시 서초구 동광로15길 10, 1층",
+      "lat": 37.4924951,
+      "lon": 126.9882952,
+      "visits": 2,
+      "spend": 551000,
+      "avg_per_visit": 275500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 26,
+      "score": 42.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "아그라",
+      "address": "서울시 서초구 서래로 13 반포동 2층",
+      "lat": 37.4962547,
+      "lon": 126.9979698,
+      "visits": 2,
+      "spend": 530000,
+      "avg_per_visit": 265000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 28,
+      "score": 42.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "민어사랑",
+      "address": "서울시 서초구 효령로 182-8(방배동, 우진빌딩1)",
+      "lat": 37.4822015,
+      "lon": 127.0040161,
+      "visits": 2,
+      "spend": 425000,
+      "avg_per_visit": 212500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 2
+        }
+      ],
+      "source_tag": "",
+      "source_no": 46,
+      "score": 42.6,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "돈블랑 교대역점",
+      "address": "서울시 서초구 서초대로 351 1,2",
+      "lat": 37.4957747,
+      "lon": 127.0196147,
+      "visits": 1,
+      "spend": 960000,
+      "avg_per_visit": 960000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 18,
+      "score": 36.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "대전고등검찰청(주소 불일치)",
+      "address": "서울시 종로구 청계천로 71, 7층 703호 (관철동)",
+      "lat": 37.5689104,
+      "lon": 126.985345,
+      "visits": 1,
+      "spend": 522000,
+      "avg_per_visit": 522000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 29,
+      "score": 36.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "부산지방검찰청 동부지청",
+      "address": "부산시 해운대구 재반로112번길 19 부산지방검찰청 동부지청",
+      "lat": 35.1895821,
+      "lon": 129.1290529,
+      "visits": 1,
+      "spend": 493000,
+      "avg_per_visit": 493000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 30,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "정원",
+      "address": "서울시 서초구 서초대로46길 19-17",
+      "lat": 37.4918365,
+      "lon": 127.0110328,
+      "visits": 1,
+      "spend": 490000,
+      "avg_per_visit": 490000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 31,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "에이원",
+      "address": "서울시 서초구 서초대로 255 1층",
+      "lat": 37.4927268,
+      "lon": 127.0097752,
+      "visits": 1,
+      "spend": 490000,
+      "avg_per_visit": 490000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 32,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "한우명가 노고단",
+      "address": "서울시 서초구 서초동 1704-1 동관지하1층",
+      "lat": 37.4944767,
+      "lon": 127.0108137,
+      "visits": 1,
+      "spend": 483000,
+      "avg_per_visit": 483000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 33,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "삿뽀로 서초점",
+      "address": "서울시 서초구 서초중앙로 195",
+      "lat": 37.4991938,
+      "lon": 127.0120303,
+      "visits": 1,
+      "spend": 480000,
+      "avg_per_visit": 480000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 34,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "오발탄 서초점",
+      "address": "서울시 서초구 서초동 1720-1, 1720-4번지 1,2층",
+      "lat": 37.4937656,
+      "lon": 127.0071059,
+      "visits": 1,
+      "spend": 480000,
+      "avg_per_visit": 480000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 35,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "인천지검 구내식당",
+      "address": "인천광역시 미추홀구 학익동 278-1",
+      "lat": 37.4431687,
+      "lon": 126.6693249,
+      "visits": 1,
+      "spend": 480000,
+      "avg_per_visit": 480000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 36,
+      "score": 35.9,
+      "internal_venue": true,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "소호정",
+      "address": "서울시 서초구 서초동 1327-1 홍우제2빌딩 2F",
+      "lat": 37.4958279,
+      "lon": 127.0273532,
+      "visits": 1,
+      "spend": 474000,
+      "avg_per_visit": 474000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 37,
+      "score": 35.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "긴자",
+      "address": "서울시 서초구 서초동 1697-11 희경빌딩 지하1층",
+      "lat": 37.4968988,
+      "lon": 127.0148315,
+      "visits": 1,
+      "spend": 466000,
+      "avg_per_visit": 466000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 38,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "서울서부지검 구내식당",
+      "address": "서울시 마포구 공덕동 105-1 서울서부지방검찰청 1층 구내식당",
+      "lat": 37.5494386,
+      "lon": 126.9554936,
+      "visits": 1,
+      "spend": 460000,
+      "avg_per_visit": 460000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 39,
+      "score": 35.8,
+      "internal_venue": true,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "레스토랑생클레어",
+      "address": "서울시 송파구 위례성대로12길 27",
+      "lat": 37.5111472,
+      "lon": 127.1216785,
+      "visits": 1,
+      "spend": 458000,
+      "avg_per_visit": 458000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 40,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "명동참치",
+      "address": "서울시 동작구 동작대로1길 18 (사당동)",
+      "lat": 37.4774316,
+      "lon": 126.9802279,
+      "visits": 1,
+      "spend": 450000,
+      "avg_per_visit": 450000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 41,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "반포 윤칼치",
+      "address": "서울시 서초구 고무래로 14-6",
+      "lat": 37.5032053,
+      "lon": 127.0097824,
+      "visits": 1,
+      "spend": 450000,
+      "avg_per_visit": 450000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 42,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "토박이",
+      "address": "서울시 서초구 반포동 549-16",
+      "lat": 37.4984839,
+      "lon": 127.0019915,
+      "visits": 1,
+      "spend": 450000,
+      "avg_per_visit": 450000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 43,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "필경재",
+      "address": "서울시 강남구 수서동 739-1",
+      "lat": 37.4848698,
+      "lon": 127.0952321,
+      "visits": 1,
+      "spend": 447200,
+      "avg_per_visit": 447200,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 44,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "리향",
+      "address": "서울시 서초구 서초동 1552-7 1층 (반포대로28길 15)",
+      "lat": 37.4906237,
+      "lon": 127.0092867,
+      "visits": 1,
+      "spend": 436000,
+      "avg_per_visit": 436000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 45,
+      "score": 35.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "혜림",
+      "address": "서울시 서초구 서초동 1717-10 지하1층(고덕빌딩)",
+      "lat": 37.4927388,
+      "lon": 127.0097463,
+      "visits": 1,
+      "spend": 418000,
+      "avg_per_visit": 418000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 47,
+      "score": 35.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "바다풍경",
+      "address": "서울시 강남구 언주로85길 29 (역삼동) 1층",
+      "lat": 37.5005682,
+      "lon": 127.0408527,
+      "visits": 1,
+      "spend": 416000,
+      "avg_per_visit": 416000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 48,
+      "score": 35.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "옛날집",
+      "address": "부산시 영도구 태종로73번길 6-1",
+      "lat": 35.0927633,
+      "lon": 129.0392772,
+      "visits": 1,
+      "spend": 405000,
+      "avg_per_visit": 405000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 49,
+      "score": 35.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "시골보쌈감자옹심이",
+      "address": "서울시 서초구 방배동 방배천로 12",
+      "lat": 37.4777561,
+      "lon": 126.9829874,
+      "visits": 1,
+      "spend": 400000,
+      "avg_per_visit": 400000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 50,
+      "score": 35.6,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "JS가든 잠원점",
+      "address": "서울시 서초구 신반포로33길 27",
+      "lat": 37.5100065,
+      "lon": 127.0097255,
+      "visits": 1,
+      "spend": 372000,
+      "avg_per_visit": 372000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "김수남",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 52,
+      "score": 35.6,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "복있는집",
+      "address": "서울시 서초동 1451-88",
+      "lat": 37.4817038,
+      "lon": 127.0135668,
+      "visits": 1,
+      "spend": 333000,
+      "avg_per_visit": 333000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 54,
+      "score": 35.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "함평원",
+      "address": "서울시 서초구 서초대로 287 (서초동) 석정빌딩 B1",
+      "lat": 37.4937791,
+      "lon": 127.0130103,
+      "visits": 1,
+      "spend": 331000,
+      "avg_per_visit": 331000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 55,
+      "score": 35.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "여의도 싱카이",
+      "address": "서울시 영등포구 여의도동 20번지",
+      "lat": 37.5278847,
+      "lon": 126.9292303,
+      "visits": 1,
+      "spend": 317600,
+      "avg_per_visit": 317600,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 56,
+      "score": 35.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "CONGBUIN(콩부인)",
+      "address": "서울시 서초구 서래로 5길 33",
+      "lat": 37.4978111,
+      "lon": 126.996314,
+      "visits": 1,
+      "spend": 317500,
+      "avg_per_visit": 317500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 57,
+      "score": 35.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "만발",
+      "address": "서울시 서초구 서초대로29길 32(방배동)",
+      "lat": 37.4896084,
+      "lon": 126.9950574,
+      "visits": 1,
+      "spend": 312000,
+      "avg_per_visit": 312000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 58,
+      "score": 35.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "일일향3호점",
+      "address": "서울시 서초구 서초동 1327-2",
+      "lat": 37.4958649,
+      "lon": 127.0274643,
+      "visits": 1,
+      "spend": 301000,
+      "avg_per_visit": 301000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 59,
+      "score": 35.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "금강산",
+      "address": "서울시 서초구 서초대로51길 28 1층",
+      "lat": 37.4964488,
+      "lon": 127.0140242,
+      "visits": 1,
+      "spend": 300000,
+      "avg_per_visit": 300000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 60,
+      "score": 35.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "행자골",
+      "address": "서울시 서초구 법원로2길",
+      "lat": 37.4939389,
+      "lon": 127.0128238,
+      "visits": 1,
+      "spend": 300000,
+      "avg_per_visit": 300000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 61,
+      "score": 35.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "한국관 도곡정",
+      "address": "서울시 강남구 도곡동 193-40",
+      "lat": 37.486919,
+      "lon": 127.044927,
+      "visits": 1,
+      "spend": 288000,
+      "avg_per_visit": 288000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 62,
+      "score": 35.2,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "이솔라 레스토랑",
+      "address": "서울시 서초구 올림픽대로 683",
+      "lat": 37.5117827,
+      "lon": 126.9949223,
+      "visits": 1,
+      "spend": 279000,
+      "avg_per_visit": 279000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 63,
+      "score": 35.2,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "서라벌",
+      "address": "서울시 서초구 법원로3길 6-9 지하1층 103호",
+      "lat": 37.4942707,
+      "lon": 127.0092585,
+      "visits": 1,
+      "spend": 276000,
+      "avg_per_visit": 276000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 64,
+      "score": 35.2,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "우동명가기리야마본진",
+      "address": "서울시 강남구 강남대로84길 23 한라클래식 지하1층",
+      "lat": 37.4971347,
+      "lon": 127.0303771,
+      "visits": 1,
+      "spend": 265000,
+      "avg_per_visit": 265000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 65,
+      "score": 35.1,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "그릴데미그라스",
+      "address": "서울시 중구 예장동 2-19 오리엔스호텔 지하 1층",
+      "lat": 37.5600558,
+      "lon": 126.9912803,
+      "visits": 1,
+      "spend": 260000,
+      "avg_per_visit": 260000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 66,
+      "score": 35.1,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "도미노피자 / 청오디피케이(주)동서초점",
+      "address": "서울시 서초구 서초동 1302-2",
+      "lat": 37.5027349,
+      "lon": 127.0217858,
+      "visits": 1,
+      "spend": 234020,
+      "avg_per_visit": 234020,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 67,
+      "score": 35.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "부산복집",
+      "address": "서울시 용산구 장문로 18, 3층",
+      "lat": 37.528433,
+      "lon": 126.9923557,
+      "visits": 1,
+      "spend": 230000,
+      "avg_per_visit": 230000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 68,
+      "score": 35.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "제주식당",
+      "address": "서울시 용산구 대사관로 48",
+      "lat": 37.5333127,
+      "lon": 127.0034591,
+      "visits": 1,
+      "spend": 218000,
+      "avg_per_visit": 218000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 69,
+      "score": 34.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "목천집",
+      "address": "서울시 서초구 효령로52길 69",
+      "lat": 37.4812983,
+      "lon": 127.0134068,
+      "visits": 1,
+      "spend": 213500,
+      "avg_per_visit": 213500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 70,
+      "score": 34.9,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "소호정 본점 (주)보따리",
+      "address": "서울시 서초구 양재동 392-1",
+      "lat": 37.4724712,
+      "lon": 127.0471551,
+      "visits": 1,
+      "spend": 203000,
+      "avg_per_visit": 203000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 71,
+      "score": 34.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "스시킨",
+      "address": "서울시 강남구 신사동 664-3",
+      "lat": 37.5271828,
+      "lon": 127.0398824,
+      "visits": 1,
+      "spend": 200000,
+      "avg_per_visit": 200000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 72,
+      "score": 34.8,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "단비",
+      "address": "서울시 용산구 한남대로20길 21-12, 1층",
+      "lat": 37.5352381,
+      "lon": 127.0087522,
+      "visits": 1,
+      "spend": 190000,
+      "avg_per_visit": 190000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 73,
+      "score": 34.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "분지로 사운즈한남점",
+      "address": "서울시 용산구 대사관로 35",
+      "lat": 37.5337671,
+      "lon": 127.0020666,
+      "visits": 1,
+      "spend": 145000,
+      "avg_per_visit": 145000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 74,
+      "score": 34.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "일미칼국수",
+      "address": "서울시 서초구 방배본동 778-8",
+      "lat": 37.4939085,
+      "lon": 126.986052,
+      "visits": 1,
+      "spend": 132000,
+      "avg_per_visit": 132000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 75,
+      "score": 34.3,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "국회 식당",
+      "address": "서울시 영등포구 의사당대로1 국회본관 3층",
+      "lat": 37.5310582,
+      "lon": 126.9153816,
+      "visits": 1,
+      "spend": 120000,
+      "avg_per_visit": 120000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "문무일",
+          "role": "검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "moon",
+      "source_no": 76,
+      "score": 34.2,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "든든한우가",
+      "address": "서울시 서초구 서초동 1591-11 2층",
+      "lat": 37.4863574,
+      "lon": 127.0123654,
+      "visits": 1,
+      "spend": 111000,
+      "avg_per_visit": 111000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 77,
+      "score": 34.1,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "(주)호텔롯데 롯데호텔월드",
+      "address": "서울시 송파구 올림픽로 240",
+      "lat": 37.5112862,
+      "lon": 127.0979392,
+      "visits": 1,
+      "spend": 100000,
+      "avg_per_visit": 100000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "이영렬",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 78,
+      "score": 34.0,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "김가네 반포1호점",
+      "address": "서울시 서초구 서초중앙로33길 1",
+      "lat": 37.5012992,
+      "lon": 127.0115384,
+      "visits": 1,
+      "spend": 82500,
+      "avg_per_visit": 82500,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "배성범",
+          "role": "서울중앙지검장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "",
+      "source_no": 79,
+      "score": 33.7,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "커피나무 서래마을점",
+      "address": "서울시 서초구 서래로12",
+      "lat": 37.4959843,
+      "lon": 126.9983457,
+      "visits": 1,
+      "spend": 61700,
+      "avg_per_visit": 61700,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 80,
+      "score": 33.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    },
+    {
+      "merchant": "스윗빈",
+      "address": "서울시 서초구 서래로7길 20 1층",
+      "lat": 37.4988412,
+      "lon": 126.9971907,
+      "visits": 1,
+      "spend": 60000,
+      "avg_per_visit": 60000,
+      "actor_count": 1,
+      "actor_stats": [
+        {
+          "person": "윤석열",
+          "role": "서울중앙지검장·검찰총장",
+          "visits": 1
+        }
+      ],
+      "source_tag": "yoon",
+      "source_no": 81,
+      "score": 33.4,
+      "internal_venue": false,
+      "period": "2017-01~2019-09",
+      "historical": true,
+      "source_type": "court_ordered_disclosure_secondary_archive",
+      "source_url": "https://pages.newstapa.org/2023/07_prosecution/expense.html",
+      "original_docs_url": "https://drive.google.com/drive/folders/1lhDRPNe-cuDM9Zzo0hjbJE8OBCTVOTps"
+    }
+  ]
+}
