@@ -1,13 +1,40 @@
 {
-  "generated_at": "2026-09-25T08:02:15",
-  "dataset_records": 1064,
+  "generated_at": "2026-09-25T08:23:28",
+  "dataset_records": 1097,
   "cross_institution_count": 164,
   "cross_origin_count": 25,
-  "top_official_count": 242,
+  "top_official_count": 275,
   "regional_head_count": 20,
-  "entity_merges": 39,
+  "entity_merges": 40,
   "entity_merge_audit_count": 36,
   "entity_merge_audit": [
+    {
+      "name": "화담",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "법무부",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "화담|중앙정부",
+        "화담|법조·법률행정",
+        "화담|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 3,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 2,
+      "visits": 186,
+      "spend": 45297000
+    },
     {
       "name": "운산",
       "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
@@ -70,6 +97,7 @@
       "institutions": [
         "고용노동부",
         "국회의원",
+        "법무부",
         "법제처",
         "보건복지부"
       ],
@@ -81,8 +109,8 @@
       "source_key_count": 3,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 2,
-      "visits": 65,
-      "spend": 11075000
+      "visits": 66,
+      "spend": 11351000
     },
     {
       "name": "남도마루",
@@ -106,30 +134,6 @@
       "corroborated_address_bridges": 1,
       "visits": 196,
       "spend": 44698000
-    },
-    {
-      "name": "화담",
-      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "농림축산식품부",
-        "산업통상부",
-        "통일부"
-      ],
-      "source_keys": [
-        "화담|중앙정부",
-        "화담|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 185,
-      "spend": 44837000
     },
     {
       "name": "대방골",
@@ -794,8 +798,31 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 9,
+  "cross_origin_review_count": 11,
   "cross_origin_review": [
+    {
+      "name": "은주식당",
+      "strict_name": "은주식당",
+      "confidence": "HIGH",
+      "reason": "exact name + single published address + QA A",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "법무부",
+        "산업통상부",
+        "통일부"
+      ],
+      "visits": 94,
+      "addresses": [
+        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
+      ],
+      "address_entity_count": 1,
+      "qa_a": true
+    },
     {
       "name": "외백",
       "strict_name": "외백",
@@ -819,27 +846,6 @@
       "qa_a": true
     },
     {
-      "name": "은주식당",
-      "strict_name": "은주식당",
-      "confidence": "HIGH",
-      "reason": "exact name + single published address + QA A",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "산업통상부",
-        "통일부"
-      ],
-      "visits": 93,
-      "addresses": [
-        "서울 영등포구 국회대로 750 (여의도동, 금산빌딩)"
-      ],
-      "address_entity_count": 1,
-      "qa_a": true
-    },
-    {
       "name": "연타발",
       "strict_name": "연타발",
       "confidence": "HIGH",
@@ -858,6 +864,26 @@
       ],
       "address_entity_count": 1,
       "qa_a": true
+    },
+    {
+      "name": "이대감",
+      "strict_name": "이대감",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "과천시",
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "과천시의회",
+        "법무부"
+      ],
+      "visits": 46,
+      "addresses": [
+        "경기도 과천시 찬우물로 28"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
     },
     {
       "name": "취홍",
@@ -956,6 +982,25 @@
       "qa_a": false
     },
     {
+      "name": "더푸짐",
+      "strict_name": "더푸짐",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "관악구",
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "visits": 3,
+      "addresses": [
+        "경기 과천시 매봉로 72"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
       "name": "소호정",
       "strict_name": "소호정",
       "confidence": "AMBIGUOUS",
@@ -979,6 +1024,44 @@
     }
   ],
   "cross_institution": [
+    {
+      "name": "화담",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "농림축산식품부",
+        "법무부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator"
+      ],
+      "visits": 186,
+      "spend": 45297000,
+      "date_min": "2024-01-02",
+      "date_max": "2026-08-24",
+      "consensus_score": 97.2,
+      "institution_count": 6,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
     {
       "name": "운산",
       "address": "서울 영등포구 여의공원로 101 (여의도동, C.C.M.M빌딩) 지하1층 102호",
@@ -1027,6 +1110,7 @@
       "institutions": [
         "고용노동부",
         "국회의원",
+        "법무부",
         "법제처",
         "보건복지부"
       ],
@@ -1035,16 +1119,16 @@
         "justice_leadership",
         "national_legislator"
       ],
-      "visits": 65,
-      "spend": 11075000,
+      "visits": 66,
+      "spend": 11351000,
       "date_min": "2024-01-09",
       "date_max": "2026-08-31",
       "consensus_score": 97.2,
-      "institution_count": 4,
+      "institution_count": 5,
       "source_count": 3,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
-      "top_official_visits": 5,
+      "top_official_visits": 6,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
@@ -1084,41 +1168,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "화담",
-      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "농림축산식품부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 185,
-      "spend": 44837000,
-      "date_min": "2024-01-02",
-      "date_max": "2026-08-24",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -7231,6 +7280,43 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법무부",
+        "법제처",
+        "보건복지부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator"
+      ],
+      "visits": 66,
+      "spend": 11351000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 97.2,
+      "institution_count": 5,
+      "source_count": 3,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "낙원",
       "address": "",
       "origins": [
@@ -7556,8 +7642,8 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "name": "화담",
+      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
       "origins": [
         "국회의원(정치자금 2024)",
         "법조·법률행정",
@@ -7566,20 +7652,22 @@
       "institutions": [
         "고용노동부",
         "국회의원",
-        "법제처",
-        "보건복지부"
+        "농림축산식품부",
+        "법무부",
+        "산업통상부",
+        "통일부"
       ],
       "cohorts": [
         "central_executive",
         "justice_leadership",
         "national_legislator"
       ],
-      "visits": 65,
-      "spend": 11075000,
-      "date_min": "2024-01-09",
-      "date_max": "2026-08-31",
+      "visits": 186,
+      "spend": 45297000,
+      "date_min": "2024-01-02",
+      "date_max": "2026-08-24",
       "consensus_score": 97.2,
-      "institution_count": 4,
+      "institution_count": 6,
       "source_count": 3,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
@@ -8004,41 +8092,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "화담",
-      "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "농림축산식품부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 185,
-      "spend": 44837000,
-      "date_min": "2024-01-02",
-      "date_max": "2026-08-24",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -10320,6 +10373,93 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "수미수작",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 541000,
+      "date_min": "2026-04-23",
+      "date_max": "2026-06-29",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "국무위원식당",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 775000,
+      "date_min": "2026-05-18",
+      "date_max": "2026-05-21",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "팔팔낙지",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 2,
+      "spend": 653000,
+      "date_min": "2026-04-06",
+      "date_max": "2026-04-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "서귀포오분작뚝배기",
       "address": "서울시 서초구 서초동 1555-2",
       "origins": [
@@ -11947,6 +12087,876 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "해남천일관",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 390000,
+      "date_min": "2026-06-26",
+      "date_max": "2026-06-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "고릴라",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 268000,
+      "date_min": "2026-06-25",
+      "date_max": "2026-06-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "더호",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 430000,
+      "date_min": "2026-06-24",
+      "date_max": "2026-06-24",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "뜰안채2",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 470000,
+      "date_min": "2026-06-22",
+      "date_max": "2026-06-22",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "서초삿뽀로",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 346000,
+      "date_min": "2026-06-18",
+      "date_max": "2026-06-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "별당",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 1487000,
+      "date_min": "2026-06-12",
+      "date_max": "2026-06-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "벨라로사",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 291000,
+      "date_min": "2026-06-10",
+      "date_max": "2026-06-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "두부고을해마루",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 286000,
+      "date_min": "2026-06-08",
+      "date_max": "2026-06-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "복어촌",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 430000,
+      "date_min": "2026-06-01",
+      "date_max": "2026-06-01",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "신가예촌",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 187000,
+      "date_min": "2026-05-29",
+      "date_max": "2026-05-29",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "일품진진수라",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 480000,
+      "date_min": "2026-05-28",
+      "date_max": "2026-05-28",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "보리촌곤드레",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 366500,
+      "date_min": "2026-05-27",
+      "date_max": "2026-05-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "락앤웍",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 410000,
+      "date_min": "2026-05-26",
+      "date_max": "2026-05-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "도취 하녹식당",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 126000,
+      "date_min": "2026-05-20",
+      "date_max": "2026-05-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "칸지고고",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 450000,
+      "date_min": "2026-05-19",
+      "date_max": "2026-05-19",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "쌍교숯불갈비",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 530000,
+      "date_min": "2026-05-15",
+      "date_max": "2026-05-15",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "엘타워",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 407000,
+      "date_min": "2026-05-11",
+      "date_max": "2026-05-11",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "은주식당",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 460000,
+      "date_min": "2026-05-06",
+      "date_max": "2026-05-06",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "소청일식",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 327000,
+      "date_min": "2026-05-04",
+      "date_max": "2026-05-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "백운원",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 420000,
+      "date_min": "2026-04-30",
+      "date_max": "2026-04-30",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이대감",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 317500,
+      "date_min": "2026-04-29",
+      "date_max": "2026-04-29",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "수석식당",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 190000,
+      "date_min": "2026-04-28",
+      "date_max": "2026-04-28",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "부팔라스테이크",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 420000,
+      "date_min": "2026-04-24",
+      "date_max": "2026-04-24",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "자연",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 595800,
+      "date_min": "2026-04-23",
+      "date_max": "2026-04-23",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "더푸짐",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 322000,
+      "date_min": "2026-04-22",
+      "date_max": "2026-04-22",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "토성한정식",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 490000,
+      "date_min": "2026-04-20",
+      "date_max": "2026-04-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "60계치킨",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 1500000,
+      "date_min": "2026-04-15",
+      "date_max": "2026-04-15",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "인덕원긴자",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 428000,
+      "date_min": "2026-04-13",
+      "date_max": "2026-04-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "좋구먼",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 475000,
+      "date_min": "2026-04-09",
+      "date_max": "2026-04-09",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "봉우리",
+      "address": "",
+      "origins": [
+        "법조·법률행정"
+      ],
+      "institutions": [
+        "법무부"
+      ],
+      "cohorts": [
+        "justice_leadership"
+      ],
+      "visits": 1,
+      "spend": 350000,
+      "date_min": "2026-04-01",
+      "date_max": "2026-04-01",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_label": "법무부 장관",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
