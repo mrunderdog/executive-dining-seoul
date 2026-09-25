@@ -258,7 +258,11 @@ def justice_records(max_records: int = 120) -> list[dict]:
                 "phone": t(override.get("phone")),
                 "status": "법조·법률행정기관 공식 업무추진비 원자료상 사용처",
                 "rating": "",
-                "note": "법무부·법제처·검찰·법원·헌법재판소·공수처 등 고위직 공개 업무추진비에서 추출한 식사성 사용처입니다.",
+                "note": (
+                    (" · ".join(inst) + "의 공식 업무추진비에서 추출한 식사성 사용처입니다.")
+                    if inst else
+                    "법조·법률행정기관 공식 업무추진비에서 추출한 식사성 사용처입니다."
+                ),
                 "url": t(override.get("url")),
                 "verified_at": t(override.get("verified_at")),
                 "verification_confidence": t(override.get("confidence")),
