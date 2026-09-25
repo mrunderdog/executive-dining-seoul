@@ -2,7 +2,7 @@
 
 | Institution | Source | Status | Files | Parseable | Merchant expectation |
 |---|---|---|---:|---:|---|
-| 법무부 | inherited | REUSED_CENTRAL_DISCOVERY | 10 | 5 | merchant-level |
+| 법무부 | inherited | REUSED_CENTRAL_DISCOVERY | 8 | 4 | merchant-level |
 | 법제처 | inherited | REUSED_CENTRAL_DISCOVERY | 32 | 32 | merchant-level |
 | 헌법재판소 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 헌법재판소 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
