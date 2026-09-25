@@ -60,7 +60,7 @@ jobs:
 
       - name: Install spreadsheet parsers
         if: steps.mode.outputs.full == 'true'
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
 
       - name: Build target arguments
         if: steps.mode.outputs.full == 'true'
