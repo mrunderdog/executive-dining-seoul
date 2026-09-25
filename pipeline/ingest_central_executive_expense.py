@@ -7,6 +7,8 @@ import io
 import json
 import re
 import statistics
+import subprocess
+import tempfile
 import time
 import urllib.request
 import zipfile
@@ -105,6 +107,45 @@ def hwpx_tables(blob):
                     tables.append((f"section{sec_no}-table{tno}",rows))
     return tables
 
+
+def hwp5_tables(blob):
+    """Convert legacy HWP v5 to XHTML with pyhwp and recover table cells."""
+    tables=[]
+    with tempfile.TemporaryDirectory(prefix="exec-dining-hwp-") as td:
+        src=Path(td)/"source.hwp"
+        out=Path(td)/"source.xhtml"
+        src.write_bytes(blob)
+        proc=subprocess.run(
+            ["hwp5html","--html","--output",str(out),str(src)],
+            stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,timeout=60,
+        )
+        if proc.returncode != 0 or not out.exists():
+            detail=(proc.stderr or proc.stdout or "").strip()[-1500:]
+            raise ValueError(f"HWP5 conversion failed: {detail}")
+        try:
+            root=ET.fromstring(out.read_bytes())
+        except Exception as e:
+            raise ValueError(f"HWP5 XHTML parse failed: {e}")
+        tno=0
+        for tbl in root.iter():
+            if _local(tbl.tag)!="table":
+                continue
+            tno+=1; rows=[]
+            for tr in tbl.iter():
+                if _local(tr.tag)!="tr":
+                    continue
+                cells=[]
+                for tc in tr:
+                    if _local(tc.tag) not in {"td","th"}:
+                        continue
+                    value=" ".join(" ".join(tc.itertext()).split())
+                    cells.append(value)
+                if any(clean(x) for x in cells):
+                    rows.append(cells)
+            if rows:
+                tables.append((f"hwp5-table{tno}",rows))
+    return tables
+
 def pdf_rows(blob):
     from pypdf import PdfReader
     reader=PdfReader(io.BytesIO(blob))
@@ -142,13 +183,20 @@ def rows_from(blob,name):
         for item in tables:
             yield item
         return
+    if ".hwp" in lower and ".hwpx" not in lower:
+        tables=hwp5_tables(blob)
+        if not tables:
+            raise ValueError("HWP contained no parseable tables")
+        for item in tables:
+            yield item
+        return
     if ".xlsx" in lower:
         import openpyxl
         wb=openpyxl.load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
         for ws in wb.worksheets:
             yield ws.title,[list(r) for r in ws.iter_rows(values_only=True)]
         return
-    if blob.startswith(bytes.fromhex("D0CF11E0A1B11AE1")) or ".xls" in lower:
+    if ".xls" in lower:
         import xlrd
         book=xlrd.open_workbook(file_contents=blob)
         for sh in book.sheets():
@@ -305,7 +353,7 @@ def main():
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
             s=(a.get("text","")+" "+a.get("url","")).lower()
-            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwpx",".pdf")):continue
+            if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwp",".hwpx",".pdf")):continue
             try:
                 blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
                 label=a.get("text") or a["url"]
