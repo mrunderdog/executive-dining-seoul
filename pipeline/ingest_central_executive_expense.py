@@ -7,6 +7,7 @@ import io
 import json
 import re
 import statistics
+import time
 import urllib.request
 import zipfile
 import xml.etree.ElementTree as ET
@@ -222,10 +223,20 @@ def normalize(rows,sheet,meta):
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
     score,hi,_=h;m=mapping(rows[hi]);out=[]
 
+    # MOJ HWPX uses merged labels such as "사용 일자" and "사용 방법".
+    # XML text extraction collapses both to "사용", so repair the known
+    # six-column transaction table by column position.
+    moj_detail_table=False
+    if meta.get("key") == "ministry_justice":
+        hdr=[nh(x) for x in rows[hi]]
+        if len(hdr) >= 6 and hdr[:6] == ["사용","장소","내역","금액","인원","사용"]:
+            m={"date":0,"merchant":1,"purpose":2,"amount":3,"people":4,"method":5}
+            moj_detail_table=True
+
     # Some MOEL HWPX tables express amounts in thousand won while the unit
     # label lives outside the parsed table. Infer that unit only when the
     # amount column itself is consistently in the tens/hundreds range.
-    if scale == 1 and meta.get("key") == "ministry_employment_labor" and "amount" in m:
+    if scale == 1 and meta.get("key") in {"ministry_employment_labor","ministry_justice"} and "amount" in m:
         sample=[]
         for probe in rows[hi+1:]:
             v=amount(cell(probe,m,"amount"))
@@ -236,9 +247,20 @@ def normalize(rows,sheet,meta):
 
     for ri,row in enumerate(rows[hi+1:],start=hi+2):
         if not any(clean(x) for x in row):continue
-        merchant=clean(cell(row,m,"merchant")); amt=amount(cell(row,m,"amount")); d=pdate(cell(row,m,"date"))
+        merchant=clean(cell(row,m,"merchant"))
+        raw_amount=cell(row,m,"amount")
+        amt=amount(raw_amount)
+        d=pdate(cell(row,m,"date"))
+        if moj_detail_table and re.fullmatch(r"\d{1,2}/\d{1,2}", d or "") and meta.get("source_year"):
+            mm,dd=(int(x) for x in d.split("/"))
+            try:d=date(int(meta["source_year"]),mm,dd).isoformat()
+            except ValueError:pass
+        if moj_detail_table and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
+            continue
         if amt is not None and scale != 1:
-            amt *= scale
+            raw_num=re.sub(r"[^0-9.\-]","",clean(raw_amount))
+            try:amt=int(round(float(raw_num)*scale))
+            except (TypeError,ValueError):amt*=scale
         if not merchant and amt is None:continue
         joined=" ".join(clean(x) for x in row[:10])
         if any(k in joined for k in ("합계","총계","누계")) and not d:continue
@@ -286,7 +308,7 @@ def main():
                 # documentation of possible roles and must never be treated as row evidence.
                 default_role=infer_role(label)
                 for sheet,rows in rows_from(blob,label):
-                    norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role}); all_rows.extend(norm);info["sheets"].append(si)
+                    norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role,"source_year":a.get("year")}); all_rows.extend(norm);info["sheets"].append(si)
                 files.append(info)
             except Exception as e: errors.append({"institution":src["institution"],"url":a.get("url"),"error":f"{type(e).__name__}: {e}"})
     unique={r["row_id"]:r for r in all_rows}; rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
