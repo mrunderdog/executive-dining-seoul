@@ -229,7 +229,11 @@ def normalize(rows,sheet,meta):
     moj_detail_table=False
     if meta.get("key") == "ministry_justice":
         hdr=[nh(x) for x in rows[hi]]
-        if len(hdr) >= 6 and hdr[:6] == ["사용","장소","내역","금액","인원","사용"]:
+        # HWPX: 사용/장소/내역/금액/인원/사용
+        # PDF layout text may split "내 역" into two cells, shifting all
+        # following mapped indexes. Both represent the same six logical cols.
+        if (len(hdr) >= 6 and hdr[0] == "사용" and hdr[1] == "장소"
+                and "금액" in hdr and "인원" in hdr):
             m={"date":0,"merchant":1,"purpose":2,"amount":3,"people":4,"method":5}
             moj_detail_table=True
 
@@ -251,10 +255,11 @@ def normalize(rows,sheet,meta):
         raw_amount=cell(row,m,"amount")
         amt=amount(raw_amount)
         d=pdate(cell(row,m,"date"))
-        if moj_detail_table and re.fullmatch(r"\d{1,2}/\d{1,2}", d or "") and meta.get("source_year"):
-            mm,dd=(int(x) for x in d.split("/"))
-            try:d=date(int(meta["source_year"]),mm,dd).isoformat()
-            except ValueError:pass
+        if moj_detail_table and meta.get("source_year"):
+            short=re.fullmatch(r"\s*(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[.]?\s*", d or "")
+            if short:
+                try:d=date(int(meta["source_year"]),int(short.group(1)),int(short.group(2))).isoformat()
+                except ValueError:pass
         if moj_detail_table and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
             continue
         if amt is not None and scale != 1:
