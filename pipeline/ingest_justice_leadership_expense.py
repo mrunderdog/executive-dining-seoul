@@ -116,7 +116,13 @@ def parse_attachment(src:dict,a:dict):
         info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
         role_hint=detailed_role(label,src["institution"],src.get("default_role",""))
         parsed=[]
-        for sheet,rows in rows_from(blob,label):
+        parsed_sheets=list(rows_from(blob,label))
+        if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
+            combined=[]
+            for _,page_rows in parsed_sheets:
+                combined.extend(page_rows)
+            parsed_sheets=[("pdf-combined",combined)]
+        for sheet,rows in parsed_sheets:
             norm,si=normalize(rows,sheet,{
                 "key":src["key"],"institution":src["institution"],"url":url,
                 "default_role":role_hint,"source_year":a.get("year")
