@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'pipeline/ingest_central_executive_expense.py'
+      - 'pipeline/ingest_justice_leadership_expense.py'
+      - 'pipeline/justice_leadership_discovery.py'
+      - 'sources/justice_leadership_registry.json'
       - '.github/workflows/justice-fast-validate.yml'
 
 permissions:
