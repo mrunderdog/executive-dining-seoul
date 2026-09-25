@@ -39,7 +39,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
 
       - name: Discover justice leadership sources
         run: python pipeline/justice_leadership_discovery.py
