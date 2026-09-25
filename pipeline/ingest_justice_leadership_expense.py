@@ -9,6 +9,7 @@ import http.cookiejar
 import urllib.request
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -77,21 +78,21 @@ def fetch_attachment(url:str,parent_url:str=""):
     # MOJ download.do requires a fresh session cookie. The server also closes
     # some downloads transiently, so retry with a new session each time.
     last=None
-    for attempt in range(3):
+    for attempt in range(2):
         try:
             jar=http.cookiejar.CookieJar()
             opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
             headers={"User-Agent":"ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)","Accept":"*/*"}
             if parent_url:
-                with opener.open(urllib.request.Request(parent_url,headers=headers),timeout=30) as r:
+                with opener.open(urllib.request.Request(parent_url,headers=headers),timeout=15) as r:
                     r.read(256)
                 headers["Referer"]=parent_url
-            with opener.open(urllib.request.Request(url,headers=headers),timeout=60) as r:
+            with opener.open(urllib.request.Request(url,headers=headers),timeout=30) as r:
                 return r.read()
         except Exception as e:
             last=e
-            if attempt < 2:
-                time.sleep(1.0 + attempt)
+            if attempt < 1:
+                time.sleep(1.0)
     raise last
 
 
@@ -104,47 +105,66 @@ def justice_domain(institution:str,source_key:str)->str:
     return "justice_other"
 
 
+def parse_attachment(src:dict,a:dict):
+    label=text(a.get("text")) or a.get("url","")
+    url=a.get("url") or ""
+    low=(label+" "+url).lower()
+    if "synapview" in url.lower() or not any(ext in low for ext in SUPPORTED):
+        return [],None,None
+    try:
+        blob=fetch_attachment(url,a.get("parent",""))
+        info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
+        role_hint=detailed_role(label,src["institution"],src.get("default_role",""))
+        parsed=[]
+        for sheet,rows in rows_from(blob,label):
+            norm,si=normalize(rows,sheet,{
+                "key":src["key"],"institution":src["institution"],"url":url,
+                "default_role":role_hint,"source_year":a.get("year")
+            })
+            for row in norm:
+                role=text(row.get("role"))
+                if role in GENERIC_ROLES and role_hint:
+                    row["role"]=role_hint
+                row["cohort"]="justice_leadership"
+                row["justice_domain"]=justice_domain(src["institution"],src["key"])
+                row["source_type"]=src.get("source_type","official_routine")
+                row["payer_role"]=row.get("role") or role_hint
+                row["payer_person"]=""
+                row["payer_attribution_confidence"]="role_only"
+                row["source_parent_url"]=a.get("parent","")
+                row["source_attachment_label"]=label
+                row["row_id"]=hashlib.sha256(
+                    "|".join(str(row.get(k,"")) for k in (
+                        "source_key","payer_role","used_date","merchant","amount","source_url","source_sheet","source_row"
+                    )).encode()
+                ).hexdigest()[:20]
+            parsed.extend(norm); info["sheets"].append(si)
+        return parsed,info,None
+    except Exception as e:
+        return [],None,{
+            "institution":src.get("institution"),"source_key":src.get("key"),"url":url,
+            "error":f"{type(e).__name__}: {e}"
+        }
+
+
 def parse_source(src:dict,all_rows:list,files:list,errors:list):
     if src.get("merchant_expectation") == "aggregate_only_observed":
         files.append({"institution":src.get("institution"),"key":src.get("key"),"status":"AGGREGATE_ONLY_SKIPPED","sheets":[]})
         return
-    for a in src.get("attachments",[]):
-        label=text(a.get("text")) or a.get("url","")
-        url=a.get("url") or ""
-        low=(label+" "+url).lower()
-        if "synapview" in url.lower() or not any(ext in low for ext in SUPPORTED):
-            continue
-        try:
-            blob=fetch_attachment(url,a.get("parent",""))
-            info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
-            role_hint=detailed_role(label,src["institution"],src.get("default_role",""))
-            for sheet,rows in rows_from(blob,label):
-                norm,si=normalize(rows,sheet,{
-                    "key":src["key"],"institution":src["institution"],"url":url,
-                    "default_role":role_hint,"source_year":a.get("year")
-                })
-                for row in norm:
-                    role=text(row.get("role"))
-                    if role in GENERIC_ROLES and role_hint:
-                        row["role"]=role_hint
-                    row["cohort"]="justice_leadership"
-                    row["justice_domain"]=justice_domain(src["institution"],src["key"])
-                    row["source_type"]=src.get("source_type","official_routine")
-                    row["payer_role"]=row.get("role") or role_hint
-                    row["payer_person"]=""
-                    row["payer_attribution_confidence"]="role_only"
-                    row["source_parent_url"]=a.get("parent","")
-                    row["source_attachment_label"]=label
-                    row["row_id"]=hashlib.sha256(
-                        "|".join(str(row.get(k,"")) for k in (
-                            "source_key","payer_role","used_date","merchant","amount","source_url","source_sheet","source_row"
-                        )).encode()
-                    ).hexdigest()[:20]
-                all_rows.extend(norm); info["sheets"].append(si)
-            files.append(info)
-        except Exception as e:
-            errors.append({"institution":src.get("institution"),"source_key":src.get("key"),"url":url,
-                           "error":f"{type(e).__name__}: {e}"})
+    attachments=list(src.get("attachments",[]))
+    if not attachments:
+        return
+    # Public attachment servers are the slowest part of the refresh. Keep a
+    # small bounded pool: enough to avoid serial 40-file downloads without
+    # hammering government sites.
+    workers=min(4,len(attachments))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures=[pool.submit(parse_attachment,src,a) for a in attachments]
+        for fut in as_completed(futures):
+            parsed,info,error=fut.result()
+            all_rows.extend(parsed)
+            if info: files.append(info)
+            if error: errors.append(error)
 
 
 def main():
