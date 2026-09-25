@@ -1,0 +1,49 @@
+name: Justice fast validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/justice-fast-validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run latest justice pipeline
+        run: |
+          python pipeline/justice_leadership_discovery.py
+          python pipeline/ingest_justice_leadership_expense.py
+          python pipeline/build_justice_leadership_candidates.py
+      - name: Print MOJ validation
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          raw=json.loads(Path('data/raw/justice_leadership_expense.json').read_text(encoding='utf-8'))
+          cand=json.loads(Path('reports/justice-leadership-candidates.json').read_text(encoding='utf-8'))
+          moj=[r for r in raw.get('rows',[]) if r.get('institution')=='법무부']
+          mc=[c for c in cand.get('candidates',[]) if '법무부' in (c.get('institutions') or [])]
+          print('TOTAL',raw.get('row_count'),'ERRORS',len(raw.get('errors',[])))
+          print('MOJ_ROWS',len(moj))
+          print('MOJ_ROLES',dict(Counter(r.get('role') for r in moj)))
+          print('MOJ_VALID_DATES',sum(bool(r.get('used_date')) for r in moj))
+          print('MOJ_VALID_AMOUNTS',sum(isinstance(r.get('amount'),int) and r['amount']>=1000 for r in moj))
+          print('MOJ_CANDIDATES',len(mc))
+          print('ERRORS_DETAIL',json.dumps(raw.get('errors',[]),ensure_ascii=False))
+          print('MOJ_SAMPLE')
+          for r in moj[:40]:
+              print(r.get('used_date'),r.get('role'),r.get('merchant'),r.get('amount'),r.get('people'),r.get('purpose'))
+          print('CANDIDATE_SAMPLE')
+          for x in mc[:30]:
+              print(x.get('merchant'),x.get('visits'),x.get('top_role'),x.get('spend'))
+          PY
