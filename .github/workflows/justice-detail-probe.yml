@@ -1,0 +1,50 @@
+name: Justice detail probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/justice-detail-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probe prosecution detail attachment
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re, urllib.parse, urllib.request
+          UA='Mozilla/5.0 ExecutiveDiningSeoulProbe/1.0'
+          def post(url,data):
+              body=urllib.parse.urlencode(data).encode()
+              req=urllib.request.Request(url,data=body,headers={
+                  'User-Agent':UA,
+                  'Accept':'text/html,*/*;q=0.8',
+                  'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+                  'X-Requested-With':'XMLHttpRequest',
+              })
+              with urllib.request.urlopen(req,timeout=25) as r:
+                  raw=r.read()
+                  enc=r.headers.get_content_charset() or 'utf-8'
+                  return raw.decode(enc,errors='replace')
+          doc=post('https://www.spo.go.kr/site/spo/ex/announce/AnnounceInfoView.do',{
+              'seqId':'715441','infoId':'300','infoSeq':'1'
+          })
+          print('BYTES',len(doc.encode()))
+          for line in doc.splitlines():
+              s=' '.join(line.split())
+              lo=s.lower()
+              if any(k in lo for k in ('download','attach','file','hwp','hwpx','pdf','xlsx','xls','715441','업무추진비')):
+                  print(s[:2000])
+          print('LINKS')
+          for href in re.findall(r'''(?:href|src)=["']([^"']+)["']''',doc,re.I):
+              if any(k in href.lower() for k in ('download','attach','file','.pdf','.hwp','.hwpx','.xls','.xlsx')):
+                  print(href)
+          PY
