@@ -1,0 +1,39 @@
+name: HWP5 parser probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hwp5-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install pyhwp
+        run: pip install --disable-pip-version-check --pre pyhwp
+      - name: Download and extract MOJ legacy HWP
+        shell: bash
+        run: |
+          python - <<'PY'
+          import http.cookiejar, urllib.request
+          parent='https://www.moj.go.kr/bbs/moj/98/608654/artclView.do'
+          url='https://www.moj.go.kr/bbs/moj/98/497334/download.do'
+          jar=http.cookiejar.CookieJar()
+          op=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+          h={'User-Agent':'ExecutiveDiningSeoulProbe/1.0','Accept':'*/*'}
+          with op.open(urllib.request.Request(parent,headers=h),timeout=30) as r:r.read(256)
+          h['Referer']=parent
+          with op.open(urllib.request.Request(url,headers=h),timeout=60) as r:blob=r.read()
+          print('HWP BYTES',len(blob),blob[:8])
+          open('/tmp/sample.hwp','wb').write(blob)
+          PY
+          hwp5txt --output /tmp/sample.txt /tmp/sample.hwp
+          echo '--- EXTRACTED ---'
+          sed -n '1,180p' /tmp/sample.txt
