@@ -1,0 +1,103 @@
+name: Police source probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/police-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pypdf==6.1.1
+      - name: Probe national and Seoul police expense sources
+        shell: bash
+        run: |
+          python - <<'PY'
+          import io,re,html,http.cookiejar,urllib.parse,urllib.request
+          from pypdf import PdfReader
+
+          UA='Mozilla/5.0 ExecutiveDiningSeoulProbe/1.0'
+          def opener():
+              jar=http.cookiejar.CookieJar()
+              return urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+          def get(op,url,referer=''):
+              h={'User-Agent':UA,'Accept':'text/html,application/pdf,*/*;q=0.8'}
+              if referer:h['Referer']=referer
+              req=urllib.request.Request(url,headers=h)
+              with op.open(req,timeout=25) as r:
+                  return r.read(),r.geturl(),r.headers.get_content_type(),r.headers.get_content_charset()
+
+          print('=== NATIONAL DETAIL ===')
+          op=opener()
+          url='https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20260526101949232'
+          try:
+              raw,final,ct,enc=get(op,url)
+              doc=raw.decode(enc or 'utf-8',errors='replace')
+              print('DETAIL',len(raw),final,ct)
+              for line in doc.splitlines():
+                  s=' '.join(line.split())
+                  if any(k in s.lower() for k in ('2026년 4월 경찰청차장','download','file','atch','pdf','바로보기')):
+                      print('D',s[:2200])
+              hrefs=[]
+              for h in re.findall(r'''(?:href|src)=["']([^"']+)["']''',doc,re.I):
+                  hu=html.unescape(h)
+                  if any(k in hu.lower() for k in ('download','file','attach','.pdf','atch')):
+                      hrefs.append(urllib.parse.urljoin(final,hu))
+              print('NATIONAL_HREFS',hrefs[:20])
+              for h in hrefs:
+                  try:
+                      blob,f2,ct2,e2=get(op,h,final)
+                      print('TRY',h,'=>',len(blob),f2,ct2,blob[:8])
+                      if blob.startswith(b'%PDF'):
+                          reader=PdfReader(io.BytesIO(blob))
+                          print('PDFPAGES',len(reader.pages))
+                          for pageno,p in enumerate(reader.pages[:2],1):
+                              try:t=p.extract_text(extraction_mode='layout') or p.extract_text() or ''
+                              except TypeError:t=p.extract_text() or ''
+                              print('PDFPAGE',pageno)
+                              print(t[:10000])
+                          break
+                  except Exception as e: print('TRYERR',h,type(e).__name__,e)
+          except Exception as e:
+              print('NATIONAL ERROR',type(e).__name__,e)
+
+          print('=== NATIONAL LIST ===')
+          op2=opener()
+          lurl='https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1025&q_code=005003&q_detailCode=005003006&q_searchKeyTy=sj___1002'
+          try:
+              raw,final,ct,enc=get(op2,lurl)
+              doc=raw.decode(enc or 'utf-8',errors='replace')
+              print('LIST',len(raw),final,ct)
+              for line in doc.splitlines():
+                  s=' '.join(line.split())
+                  if '업무추진비' in s or 'q_bbscttSn' in s:
+                      print('L',s[:2400])
+          except Exception as e: print('LIST ERROR',type(e).__name__,e)
+
+          print('=== SEOUL LIST ===')
+          op3=opener()
+          surl='https://www.smpa.go.kr/user/action/declareBoardList.do?boardInfoNo=0043'
+          try:
+              raw,final,ct,enc=get(op3,surl)
+              doc=raw.decode(enc or 'utf-8',errors='replace')
+              print('SLIST',len(raw),final,ct)
+              for line in doc.splitlines():
+                  s=' '.join(line.split())
+                  if '서울청장 업무추진비' in s or 'declareBoard' in s or 'boardInfoNo=0043' in s:
+                      print('S',s[:2400])
+              hrefs=[]
+              for h in re.findall(r'''href=["']([^"']+)["']''',doc,re.I):
+                  hu=html.unescape(h)
+                  if '0043' in hu or 'declareBoard' in hu:
+                      hrefs.append(urllib.parse.urljoin(final,hu))
+              print('SEOUL_HREFS',hrefs[:30])
+          except Exception as e: print('SEOUL ERROR',type(e).__name__,e)
+          PY
