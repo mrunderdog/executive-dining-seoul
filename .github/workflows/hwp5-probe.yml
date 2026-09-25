@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install pyhwp
-        run: pip install --disable-pip-version-check --pre pyhwp
+        run: pip install --disable-pip-version-check --pre pyhwp six
       - name: Download and extract MOJ legacy HWP
         shell: bash
         run: |
