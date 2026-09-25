@@ -9,14 +9,14 @@
 | 과학기술정보통신부 | NO_FILES_FOUND | 0 | 0 |
 | 외교부 | FETCH_FAILED | 0 | 0 |
 | 통일부 | PARSEABLE_FOUND | 41 | 41 |
-| 법무부 | PARSEABLE_FOUND | 10 | 5 |
-| 국방부 | PARSEABLE_FOUND | 27 | 14 |
+| 법무부 | PARSEABLE_FOUND | 8 | 4 |
+| 국방부 | PARSEABLE_FOUND | 25 | 13 |
 | 행정안전부 | NO_FILES_FOUND | 0 | 0 |
 | 국가보훈부 | PARSEABLE_FOUND | 10 | 10 |
 | 문화체육관광부 | FILES_FOUND_UNSUPPORTED | 1 | 0 |
 | 농림축산식품부 | PARSEABLE_FOUND | 22 | 22 |
 | 산업통상부 | PARSEABLE_FOUND | 10 | 10 |
-| 보건복지부 | PARSEABLE_FOUND | 30 | 30 |
+| 보건복지부 | PARSEABLE_FOUND | 28 | 28 |
 | 기후에너지환경부 | NO_FILES_FOUND | 0 | 0 |
 | 고용노동부 | PARSEABLE_FOUND | 22 | 16 |
 | 성평등가족부 | NO_FILES_FOUND | 0 | 0 |
