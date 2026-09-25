@@ -1,0 +1,55 @@
+name: MOJ HWPX probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/moj-hwpx-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Inspect MOJ minister HWPX tables
+        shell: bash
+        run: |
+          python - <<'PY'
+          import io, zipfile, urllib.request, http.cookiejar, xml.etree.ElementTree as ET
+          parent='https://www.moj.go.kr/bbs/moj/98/608926/artclView.do'
+          url='https://www.moj.go.kr/bbs/moj/98/497692/download.do'
+          jar=http.cookiejar.CookieJar()
+          op=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+          h={'User-Agent':'ExecutiveDiningSeoulProbe/1.0','Accept':'*/*'}
+          with op.open(urllib.request.Request(parent,headers=h),timeout=30) as r:r.read(256)
+          h['Referer']=parent
+          with op.open(urllib.request.Request(url,headers=h),timeout=60) as r:blob=r.read()
+          print('BYTES',len(blob),blob[:8])
+          def local(tag):return tag.split('}',1)[-1] if '}' in tag else tag
+          with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+              names=sorted(n for n in zf.namelist() if n.lower().startswith('contents/section') and n.lower().endswith('.xml'))
+              print('SECTIONS',names)
+              for name in names:
+                  root=ET.fromstring(zf.read(name)); tno=0
+                  for tbl in root.iter():
+                      if local(tbl.tag)!='tbl':continue
+                      tno+=1; rows=[]
+                      for tr in tbl.iter():
+                          if local(tr.tag)!='tr':continue
+                          row=[]
+                          for tc in tr:
+                              if local(tc.tag)!='tc':continue
+                              parts=[]
+                              for node in tc.iter():
+                                  if local(node.tag)=='t' and node.text:parts.append(node.text)
+                              row.append(' '.join(' '.join(parts).split()))
+                          if any(row):rows.append(row)
+                      if rows:
+                          print('TABLE',name,tno,'ROWS',len(rows))
+                          for i,row in enumerate(rows[:80],1):print(i,repr(row))
+          PY
