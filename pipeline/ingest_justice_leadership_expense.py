@@ -7,6 +7,7 @@ import json
 import re
 import http.cookiejar
 import urllib.request
+import time
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -73,16 +74,25 @@ def detailed_role(label:str,institution:str,default_role:str="")->str:
 def fetch_attachment(url:str,parent_url:str=""):
     if "moj.go.kr/" not in url:
         return fetch(url)
-    # MOJ download.do requires the session cookies issued by the article page.
-    jar=http.cookiejar.CookieJar()
-    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-    headers={"User-Agent":"ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)","Accept":"*/*"}
-    if parent_url:
-        with opener.open(urllib.request.Request(parent_url,headers=headers),timeout=30) as r:
-            r.read(256)
-        headers["Referer"]=parent_url
-    with opener.open(urllib.request.Request(url,headers=headers),timeout=60) as r:
-        return r.read()
+    # MOJ download.do requires a fresh session cookie. The server also closes
+    # some downloads transiently, so retry with a new session each time.
+    last=None
+    for attempt in range(3):
+        try:
+            jar=http.cookiejar.CookieJar()
+            opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+            headers={"User-Agent":"ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)","Accept":"*/*"}
+            if parent_url:
+                with opener.open(urllib.request.Request(parent_url,headers=headers),timeout=30) as r:
+                    r.read(256)
+                headers["Referer"]=parent_url
+            with opener.open(urllib.request.Request(url,headers=headers),timeout=60) as r:
+                return r.read()
+        except Exception as e:
+            last=e
+            if attempt < 2:
+                time.sleep(1.0 + attempt)
+    raise last
 
 
 def justice_domain(institution:str,source_key:str)->str:
@@ -111,7 +121,7 @@ def parse_source(src:dict,all_rows:list,files:list,errors:list):
             for sheet,rows in rows_from(blob,label):
                 norm,si=normalize(rows,sheet,{
                     "key":src["key"],"institution":src["institution"],"url":url,
-                    "default_role":role_hint
+                    "default_role":role_hint,"source_year":a.get("year")
                 })
                 for row in norm:
                     role=text(row.get("role"))
