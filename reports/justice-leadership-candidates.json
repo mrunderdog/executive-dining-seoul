@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-25T08:03:40",
+  "generated_at": "2026-09-25T08:07:54",
   "source": "justice_leadership",
   "cohort": "justice_leadership",
-  "meal_rows": 137,
-  "entity_count": 95,
-  "eligible_count": 57,
+  "meal_rows": 187,
+  "entity_count": 141,
+  "eligible_count": 91,
   "candidates": [
     {
       "merchant": "오롯이",
@@ -553,6 +553,141 @@
       ]
     },
     {
+      "merchant": "황금복국",
+      "address": "",
+      "score": 69.2,
+      "visits": 2,
+      "months": 2,
+      "spend": 609000,
+      "role_count": 2,
+      "institution_count": 2,
+      "institutions": [
+        "법무부",
+        "법제처"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 2,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        },
+        {
+          "role": "법제처장",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국회 법사위 전체회의 참석자 간담회",
+          "count": 1
+        },
+        {
+          "text": "예결위 전체회의 관련 업무 협의",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-08",
+      "date_max": "2026-08-31",
+      "recent": [
+        {
+          "date": "2026-08-31",
+          "time": "18:56",
+          "institution": "법제처",
+          "role": "법제처장",
+          "amount": 333000,
+          "people": 12,
+          "purpose": "예결위 전체회의 관련 업무 협의",
+          "source": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157442&seq=1",
+          "source_type": "official_routine"
+        },
+        {
+          "date": "2026-04-08",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 276000,
+          "people": 11,
+          "purpose": "국회 법사위 전체회의 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "수미수작",
+      "address": "",
+      "score": 69.1,
+      "visits": 2,
+      "months": 2,
+      "spend": 541000,
+      "role_count": 2,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 2,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "기획조정실장",
+          "visits": 1
+        },
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국제 법무 업무 협의",
+          "count": 1
+        },
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-23",
+      "date_max": "2026-06-29",
+      "recent": [
+        {
+          "date": "2026-06-29",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 288000,
+          "people": 10,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        },
+        {
+          "date": "2026-04-23",
+          "time": "",
+          "institution": "법무부",
+          "role": "기획조정실장",
+          "amount": 253000,
+          "people": 8,
+          "purpose": "국제 법무 업무 협의",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497705/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
       "merchant": "타마스시",
       "address": "",
       "score": 67.5,
@@ -682,6 +817,73 @@
           "people": 6,
           "purpose": "2026 법령해석국 업무계획 관련 협의",
           "source": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=154741&seq=1",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "팔팔낙지",
+      "address": "",
+      "score": 66.7,
+      "visits": 2,
+      "months": 1,
+      "spend": 653000,
+      "role_count": 2,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 2,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "기획조정실장",
+          "visits": 1
+        },
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국정과제 업무 간담회",
+          "count": 1
+        },
+        {
+          "text": "검찰국 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-06",
+      "date_max": "2026-04-10",
+      "recent": [
+        {
+          "date": "2026-04-10",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 497000,
+          "people": 21,
+          "purpose": "검찰국 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        },
+        {
+          "date": "2026-04-06",
+          "time": "",
+          "institution": "법무부",
+          "role": "기획조정실장",
+          "amount": 156000,
+          "people": 6,
+          "purpose": "국정과제 업무 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497705/download.do",
           "source_type": "official_routine"
         }
       ]
@@ -1028,6 +1230,69 @@
           "people": 8,
           "purpose": "파견 직원 격려",
           "source": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156300&seq=1",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "국무위원식당",
+      "address": "",
+      "score": 64.8,
+      "visits": 2,
+      "months": 1,
+      "spend": 775000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 2,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        },
+        {
+          "text": "교정본부 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-18",
+      "date_max": "2026-05-21",
+      "recent": [
+        {
+          "date": "2026-05-21",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 295000,
+          "people": 15,
+          "purpose": "교정본부 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        },
+        {
+          "date": "2026-05-18",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 480000,
+          "people": 16,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
           "source_type": "official_routine"
         }
       ]
@@ -1642,6 +1907,1494 @@
       ]
     },
     {
+      "merchant": "60계치킨",
+      "address": "",
+      "score": 60.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 1500000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "교정시설 현장진단 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-15",
+      "date_max": "2026-04-15",
+      "recent": [
+        {
+          "date": "2026-04-15",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 1500000,
+          "people": 44,
+          "purpose": "교정시설 현장진단 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "별당",
+      "address": "",
+      "score": 60.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 1487000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "의정부지역 법무유관단체 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-12",
+      "date_max": "2026-06-12",
+      "recent": [
+        {
+          "date": "2026-06-12",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 1487000,
+          "people": 32,
+          "purpose": "의정부지역 법무유관단체 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "자연",
+      "address": "",
+      "score": 60.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 595800,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "인천공항 정책현장방문 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-23",
+      "date_max": "2026-04-23",
+      "recent": [
+        {
+          "date": "2026-04-23",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 595800,
+          "people": 18,
+          "purpose": "인천공항 정책현장방문 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "쌍교숯불갈비",
+      "address": "",
+      "score": 60.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 530000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국립 5·18국립묘지 참배 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-15",
+      "date_max": "2026-05-15",
+      "recent": [
+        {
+          "date": "2026-05-15",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 530000,
+          "people": 27,
+          "purpose": "국립 5·18국립묘지 참배 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "토성한정식",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 490000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무실 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-20",
+      "date_max": "2026-04-20",
+      "recent": [
+        {
+          "date": "2026-04-20",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 490000,
+          "people": 20,
+          "purpose": "법무실 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "일품진진수라",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 480000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "대변인실 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-28",
+      "date_max": "2026-05-28",
+      "recent": [
+        {
+          "date": "2026-05-28",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 480000,
+          "people": 10,
+          "purpose": "대변인실 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "좋구먼",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 475000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "검찰국 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-09",
+      "date_max": "2026-04-09",
+      "recent": [
+        {
+          "date": "2026-04-09",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 475000,
+          "people": 19,
+          "purpose": "검찰국 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "뜰안채2",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 470000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "장기근속 직원 격려 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-22",
+      "date_max": "2026-06-22",
+      "recent": [
+        {
+          "date": "2026-06-22",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 470000,
+          "people": 16,
+          "purpose": "장기근속 직원 격려 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "은주식당",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 460000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국회 법사위 전체회의 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-06",
+      "date_max": "2026-05-06",
+      "recent": [
+        {
+          "date": "2026-05-06",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 460000,
+          "people": 20,
+          "purpose": "국회 법사위 전체회의 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "화담",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 460000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "대변인실 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-29",
+      "date_max": "2026-05-29",
+      "recent": [
+        {
+          "date": "2026-05-29",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 460000,
+          "people": 9,
+          "purpose": "대변인실 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "칸지고고",
+      "address": "",
+      "score": 59.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 450000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-19",
+      "date_max": "2026-05-19",
+      "recent": [
+        {
+          "date": "2026-05-19",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 450000,
+          "people": 15,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "복어촌",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 430000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-01",
+      "date_max": "2026-06-01",
+      "recent": [
+        {
+          "date": "2026-06-01",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 430000,
+          "people": 20,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "더호",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 430000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "장기근속 직원 격려 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-24",
+      "date_max": "2026-06-24",
+      "recent": [
+        {
+          "date": "2026-06-24",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 430000,
+          "people": 15,
+          "purpose": "장기근속 직원 격려 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "인덕원긴자",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 428000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-13",
+      "date_max": "2026-04-13",
+      "recent": [
+        {
+          "date": "2026-04-13",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 428000,
+          "people": 16,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "부팔라스테이크",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 420000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "범죄예방정책국 주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-24",
+      "date_max": "2026-04-24",
+      "recent": [
+        {
+          "date": "2026-04-24",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 420000,
+          "people": 14,
+          "purpose": "범죄예방정책국 주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "백운원",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 420000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-30",
+      "date_max": "2026-04-30",
+      "recent": [
+        {
+          "date": "2026-04-30",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 420000,
+          "people": 13,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "락앤웍",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 410000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-26",
+      "date_max": "2026-05-26",
+      "recent": [
+        {
+          "date": "2026-05-26",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 410000,
+          "people": 9,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "엘타워",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 407000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 정책위원회 회의 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-11",
+      "date_max": "2026-05-11",
+      "recent": [
+        {
+          "date": "2026-05-11",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 407000,
+          "people": 10,
+          "purpose": "법무부 정책위원회 회의 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "해남천일관",
+      "address": "",
+      "score": 59.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 390000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-26",
+      "date_max": "2026-06-26",
+      "recent": [
+        {
+          "date": "2026-06-26",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 390000,
+          "people": 6,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "보리촌곤드레",
+      "address": "",
+      "score": 59.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 366500,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-27",
+      "date_max": "2026-05-27",
+      "recent": [
+        {
+          "date": "2026-05-27",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 366500,
+          "people": 13,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "봉우리",
+      "address": "",
+      "score": 59.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 350000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-01",
+      "date_max": "2026-04-01",
+      "recent": [
+        {
+          "date": "2026-04-01",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 350000,
+          "people": 10,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "서초삿뽀로",
+      "address": "",
+      "score": 59.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 346000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-18",
+      "date_max": "2026-06-18",
+      "recent": [
+        {
+          "date": "2026-06-18",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 346000,
+          "people": 10,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "소청일식",
+      "address": "",
+      "score": 59.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 327000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-04",
+      "date_max": "2026-05-04",
+      "recent": [
+        {
+          "date": "2026-05-04",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 327000,
+          "people": 10,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "더푸짐",
+      "address": "",
+      "score": 59.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 322000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-22",
+      "date_max": "2026-04-22",
+      "recent": [
+        {
+          "date": "2026-04-22",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 322000,
+          "people": 14,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "이대감",
+      "address": "",
+      "score": 59.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 317500,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "운전직 직원 격려 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-29",
+      "date_max": "2026-04-29",
+      "recent": [
+        {
+          "date": "2026-04-29",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 317500,
+          "people": 13,
+          "purpose": "운전직 직원 격려 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "벨라로사",
+      "address": "",
+      "score": 59.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 291000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "직원 격려 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-10",
+      "date_max": "2026-06-10",
+      "recent": [
+        {
+          "date": "2026-06-10",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 291000,
+          "people": 7,
+          "purpose": "직원 격려 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "두부고을해마루",
+      "address": "",
+      "score": 59.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 286000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "소망교도소 정책현장방문 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-08",
+      "date_max": "2026-06-08",
+      "recent": [
+        {
+          "date": "2026-06-08",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 286000,
+          "people": 11,
+          "purpose": "소망교도소 정책현장방문 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "고릴라",
+      "address": "",
+      "score": 59.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 268000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "법무부 실·국·본부장 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-06-25",
+      "date_max": "2026-06-25",
+      "recent": [
+        {
+          "date": "2026-06-25",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 268000,
+          "people": 18,
+          "purpose": "법무부 실·국·본부장 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "수석식당",
+      "address": "",
+      "score": 59.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 190000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "국회 조작기소 국조특위 참석자 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-04-28",
+      "date_max": "2026-04-28",
+      "recent": [
+        {
+          "date": "2026-04-28",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 190000,
+          "people": 10,
+          "purpose": "국회 조작기소 국조특위 참석자 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "신가예촌",
+      "address": "",
+      "score": 59.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 187000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-29",
+      "date_max": "2026-05-29",
+      "recent": [
+        {
+          "date": "2026-05-29",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 187000,
+          "people": 5,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
+      "merchant": "도취 하녹식당",
+      "address": "",
+      "score": 59.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 126000,
+      "role_count": 1,
+      "institution_count": 1,
+      "institutions": [
+        "법무부"
+      ],
+      "domains": [
+        "legal_administration"
+      ],
+      "top_role": "법무부 장관",
+      "top_role_tier": "cabinet_or_investigative_head",
+      "top_role_weight": 0.95,
+      "high_official_visits": 1,
+      "high_official_ratio": 1.0,
+      "role_stats": [
+        {
+          "role": "법무부 장관",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [
+        {
+          "text": "주요 현안 관련 간담회",
+          "count": 1
+        }
+      ],
+      "date_min": "2026-05-20",
+      "date_max": "2026-05-20",
+      "recent": [
+        {
+          "date": "2026-05-20",
+          "time": "",
+          "institution": "법무부",
+          "role": "법무부 장관",
+          "amount": 126000,
+          "people": 2,
+          "purpose": "주요 현안 관련 간담회",
+          "source": "https://www.moj.go.kr/bbs/moj/98/497692/download.do",
+          "source_type": "official_routine"
+        }
+      ]
+    },
+    {
       "merchant": "고쿠",
       "address": "",
       "score": 58.6,
@@ -1940,54 +3693,6 @@
           "people": 7,
           "purpose": "기자간담회",
           "source": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=156300&seq=1",
-          "source_type": "official_routine"
-        }
-      ]
-    },
-    {
-      "merchant": "황금복국",
-      "address": "",
-      "score": 57.9,
-      "visits": 1,
-      "months": 1,
-      "spend": 333000,
-      "role_count": 1,
-      "institution_count": 1,
-      "institutions": [
-        "법제처"
-      ],
-      "domains": [
-        "legal_administration"
-      ],
-      "top_role": "법제처장",
-      "top_role_tier": "court_or_prosecution_agency_head",
-      "top_role_weight": 0.88,
-      "high_official_visits": 1,
-      "high_official_ratio": 1.0,
-      "role_stats": [
-        {
-          "role": "법제처장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [
-        {
-          "text": "예결위 전체회의 관련 업무 협의",
-          "count": 1
-        }
-      ],
-      "date_min": "2026-08-31",
-      "date_max": "2026-08-31",
-      "recent": [
-        {
-          "date": "2026-08-31",
-          "time": "18:56",
-          "institution": "법제처",
-          "role": "법제처장",
-          "amount": 333000,
-          "people": 12,
-          "purpose": "예결위 전체회의 관련 업무 협의",
-          "source": "https://www.moleg.go.kr/boardDownload.es?bid=0004&list_no=157442&seq=1",
           "source_type": "official_routine"
         }
       ]
