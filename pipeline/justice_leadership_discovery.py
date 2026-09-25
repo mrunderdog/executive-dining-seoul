@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[1]
 REGISTRY=ROOT/"sources"/"justice_leadership_registry.json"
 REPORTS=ROOT/"reports"
 CENTRAL_REGISTRY=ROOT/"sources"/"central_executive_registry.json"
-PARSEABLE_EXTS=(".xlsx",".xls",".csv",".hwpx",".pdf")
+PARSEABLE_EXTS=(".xlsx",".xls",".csv",".hwp",".hwpx",".pdf")
 
 
 def txt(v): return " ".join(str(v or "").split()).strip()
