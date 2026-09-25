@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1328,
-    "success_count": 1106,
-    "updated_at": "2026-09-25T00:03:32+00:00"
+    "record_count": 1329,
+    "success_count": 1107,
+    "updated_at": "2026-09-25T08:02:22+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -16877,6 +16877,24 @@
         "arcgis:제주항 과천시"
       ],
       "updated_at": "2026-09-18T23:15:35+00:00"
+    },
+    "조선호텔앤리조트|중앙정부": {
+      "display_name": "(주)조선호텔앤리조트 포포인츠 조선 명동 라운지&바, 36, 수표로, 저동2가, 을지로동, 중구, 서울특별시, 04552, 대한민국",
+      "fingerprint": "088bbbab171b258a",
+      "geocoder_version": 4,
+      "lat": 37.565581,
+      "lon": 126.9894282,
+      "match_mode": "name",
+      "osm_type": "restaurant",
+      "policy_version": 3,
+      "query": "조선호텔앤리조트 대한민국",
+      "result_name": "(주)조선호텔앤리조트 포포인츠 조선 명동 라운지&바",
+      "source": "nominatim",
+      "tried_queries": [
+        "arcgis:조선호텔앤리조트 대한민국",
+        "nominatim:조선호텔앤리조트 대한민국"
+      ],
+      "updated_at": "2026-09-25T08:02:22+00:00"
     },
     "조피디(PD)키친|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
