@@ -25,6 +25,12 @@ ACTORS={
     "e":{"person":"이영렬","role":"서울중앙지검장"},
 }
 INTERNAL_WORDS=("구내식당","매점")
+NON_RESTAURANT_MARKERS=("주소 불일치",)
+INSTITUTION_ONLY_PATTERNS=(
+    r"(?:고등|지방)?검찰청(?:\s+\S+지청)?$",
+    r"(?:지검|지청)$",
+)
+INSTITUTIONAL_DINING_NAMES={"국회 식당"}
 
 
 def fetch_text(url:str)->str:
@@ -106,6 +112,11 @@ def normalize_feature(feature:dict)->dict|None:
         "source_no":props.get("no"),
         "score":score(visits,len(actor_stats),spend),
         "internal_venue":any(word in name for word in INTERNAL_WORDS),
+        "non_restaurant_entity":(
+            any(marker in name for marker in NON_RESTAURANT_MARKERS)
+            or any(re.search(pattern,name) for pattern in INSTITUTION_ONLY_PATTERNS)
+            or name in INSTITUTIONAL_DINING_NAMES
+        ),
         "period":"2017-01~2019-09",
         "historical":True,
         "source_type":"court_ordered_disclosure_secondary_archive",
@@ -140,7 +151,12 @@ def main():
         json.dumps(raw,ensure_ascii=False,indent=2),encoding="utf-8"
     )
 
-    published=[r for r in rows if not r["internal_venue"] and r["visits"]>0]
+    published=[
+        r for r in rows
+        if not r["internal_venue"]
+        and not r["non_restaurant_entity"]
+        and r["visits"]>0
+    ]
     report={
         "generated_at":generated,
         "source":"prosecution_archive_2017_2019",
