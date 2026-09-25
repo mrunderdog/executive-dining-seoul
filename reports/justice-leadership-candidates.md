@@ -1,7 +1,7 @@
 # Justice leadership dining candidates
 
-- Meal-like rows: **187**
-- Entities: **141**
+- Meal-like rows: **180**
+- Entities: **134**
 - Eligible: **91**
 
 > 법조·법률행정 고위직의 공개 업무추진비에 나타난 사용처 후보입니다. 점수는 식당 품질 평가가 아니라 반복·직위·기간 신호입니다.
