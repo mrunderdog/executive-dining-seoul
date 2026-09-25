@@ -1,18 +1,18 @@
 # Justice leadership expense ingestion
 
-- Rows: **212**
-- Merchant rows: **212**
-- Files: **47**
+- Rows: **332**
+- Merchant rows: **332**
+- Files: **51**
 - Errors: **1**
 
 ## Rows by institution
 
+- 법무부: 174
 - 법제처: 158
-- 법무부: 54
 
 ## Rows by domain
 
-- legal_administration: 212
+- legal_administration: 332
 
 ## Errors
 
