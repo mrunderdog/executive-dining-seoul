@@ -303,12 +303,14 @@ def normalize(rows,sheet,meta):
         raw_amount=cell(row,m,"amount")
         amt=amount(raw_amount)
         d=pdate(cell(row,m,"date"))
-        if moj_detail_table and meta.get("source_year"):
+        if meta.get("key") == "ministry_justice" and meta.get("source_year"):
             short=re.fullmatch(r"\s*(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[.]?\s*", d or "")
             if short:
                 try:d=date(int(meta["source_year"]),int(short.group(1)),int(short.group(2))).isoformat()
                 except ValueError:pass
-        if moj_detail_table and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
+        # MOJ disclosure rows are transaction tables. Requiring a real date
+        # removes subtotal/header rows such as ["소계","18건",...].
+        if meta.get("key") == "ministry_justice" and "date" in m and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
             continue
         if amt is not None and scale != 1:
             raw_num=re.sub(r"[^0-9.\-]","",clean(raw_amount))
@@ -360,7 +362,12 @@ def main():
                 # Infer only from the concrete attachment/detail label. role_scope is
                 # documentation of possible roles and must never be treated as row evidence.
                 default_role=infer_role(label)
-                for sheet,rows in rows_from(blob,label):
+                parsed_sheets=list(rows_from(blob,label))
+                if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
+                    combined=[]
+                    for _,page_rows in parsed_sheets: combined.extend(page_rows)
+                    parsed_sheets=[("pdf-combined",combined)]
+                for sheet,rows in parsed_sheets:
                     norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role,"source_year":a.get("year")}); all_rows.extend(norm);info["sheets"].append(si)
                 files.append(info)
             except Exception as e: errors.append({"institution":src["institution"],"url":a.get("url"),"error":f"{type(e).__name__}: {e}"})
