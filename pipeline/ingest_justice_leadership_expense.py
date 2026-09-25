@@ -19,7 +19,7 @@ REPORTS=ROOT/"reports"
 RAW_DIR=ROOT/"data"/"raw"
 DISCOVERY=REPORTS/"justice-leadership-discovery.json"
 REGISTRY=ROOT/"sources"/"justice_leadership_registry.json"
-SUPPORTED=(".xlsx",".xls",".csv",".hwpx",".pdf")
+SUPPORTED=(".xlsx",".xls",".csv",".hwp",".hwpx",".pdf")
 
 ROLE_PATTERNS=[
     ("헌법재판소사무처장","헌법재판소사무처장"),
