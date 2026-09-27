@@ -128,7 +128,7 @@ jobs:
         if: steps.mode.outputs.mode == 'incremental'
         shell: bash
         run: |
-          python pipeline/justice_leadership_discovery.py
+          python pipeline/justice_leadership_discovery.py --incremental
           OUT="$(python pipeline/ingest_justice_leadership_expense.py --incremental)"
           echo "$OUT"
           if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
