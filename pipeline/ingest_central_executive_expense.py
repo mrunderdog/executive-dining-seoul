@@ -14,6 +14,7 @@ import urllib.request
 import zipfile
 import xml.etree.ElementTree as ET
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime
 from pathlib import Path
 
@@ -348,6 +349,30 @@ def normalize(rows,sheet,meta):
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
 
+def parse_attachment(src:dict,a:dict):
+    url=a.get("url") or ""
+    label=a.get("text") or url
+    try:
+        blob=fetch(url)
+        info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
+        default_role=infer_role(label)
+        parsed_sheets=list(rows_from(blob,label))
+        if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
+            combined=[]
+            for _,page_rows in parsed_sheets:combined.extend(page_rows)
+            parsed_sheets=[("pdf-combined",combined)]
+        parsed=[]
+        for sheet,rows in parsed_sheets:
+            norm,si=normalize(rows,sheet,{
+                "key":src["key"],"institution":src["institution"],"url":url,
+                "default_role":default_role,"source_year":a.get("year")
+            })
+            parsed.extend(norm);info["sheets"].append(si)
+        return parsed,info,None
+    except Exception as e:
+        return [],None,{"institution":src.get("institution"),"url":url,"error":f"{type(e).__name__}: {e}"}
+
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--year",type=int,default=datetime.now().year)
@@ -375,31 +400,25 @@ def main():
         return
 
     all_rows=[]; files=[]; errors=[]
+    jobs=[]
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
             url=a.get("url") or ""
             s=(a.get("text","")+" "+url).lower()
             if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwp",".hwpx",".pdf")):continue
             if args.incremental and url in known_urls:continue
-            try:
-                blob=fetch(url)
-                info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
-                label=a.get("text") or url
-                default_role=infer_role(label)
-                parsed_sheets=list(rows_from(blob,label))
-                if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
-                    combined=[]
-                    for _,page_rows in parsed_sheets:combined.extend(page_rows)
-                    parsed_sheets=[("pdf-combined",combined)]
-                for sheet,rows in parsed_sheets:
-                    norm,si=normalize(rows,sheet,{
-                        "key":src["key"],"institution":src["institution"],"url":url,
-                        "default_role":default_role,"source_year":a.get("year")
-                    })
-                    all_rows.extend(norm);info["sheets"].append(si)
-                files.append(info)
-            except Exception as e:
-                errors.append({"institution":src["institution"],"url":url,"error":f"{type(e).__name__}: {e}"})
+            jobs.append((src,a))
+
+    # Government attachment servers have high latency. Four workers keeps the
+    # load polite while avoiding a 100+ file full refresh becoming serial.
+    if jobs:
+        with ThreadPoolExecutor(max_workers=min(4,len(jobs))) as pool:
+            future_map={pool.submit(parse_attachment,src,a):(src,a) for src,a in jobs}
+            for fut in as_completed(future_map):
+                parsed,info,error=fut.result()
+                all_rows.extend(parsed)
+                if info:files.append(info)
+                if error:errors.append(error)
 
     if args.incremental and not files and not errors:
         print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False))
