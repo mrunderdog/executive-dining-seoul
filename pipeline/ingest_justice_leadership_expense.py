@@ -174,44 +174,91 @@ def parse_source(src:dict,all_rows:list,files:list,errors:list):
 
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); args=ap.parse_args()
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--year",type=int,default=datetime.now().year)
+    ap.add_argument("--incremental",action="store_true",
+                    help="Skip previously successful attachment URLs and merge only new/retried data.")
+    args=ap.parse_args()
     if not DISCOVERY.exists():
         raise SystemExit("run justice_leadership_discovery.py first")
     d=json.loads(DISCOVERY.read_text(encoding="utf-8"))
     reg=json.loads(REGISTRY.read_text(encoding="utf-8"))
     inherited_cfg={x.get("source_key"):x for x in reg.get("inherited_central_sources",[])}
+
+    RAW_DIR.mkdir(exist_ok=True)
+    out=RAW_DIR/"justice_leadership_expense.json"
+    previous={}
+    if args.incremental and out.exists():
+        try: previous=json.loads(out.read_text(encoding="utf-8"))
+        except (OSError,json.JSONDecodeError): previous={}
+    previous_rows=list(previous.get("rows",[]))
+    previous_files=list(previous.get("files",[]))
+    previous_errors=list(previous.get("errors",[]))
+    known_urls={str(f.get("url") or "") for f in previous_files if f.get("url")}
+
     all_rows=[]; files=[]; errors=[]
+
+    def filtered_source(src):
+        if not args.incremental:return src
+        return {**src,"attachments":[
+            a for a in src.get("attachments",[])
+            if str(a.get("url") or "") not in known_urls
+        ]}
 
     for src in d.get("inherited_sources",[]):
         cfg=inherited_cfg.get(src.get("key"),{})
-        merged={**src,"source_type":cfg.get("source_type","official_routine")}
+        merged={**filtered_source(src),"source_type":cfg.get("source_type","official_routine")}
         parse_source(merged,all_rows,files,errors)
     for src in d.get("sources",[]):
-        parse_source(src,all_rows,files,errors)
+        parse_source(filtered_source(src),all_rows,files,errors)
 
-    unique={r["row_id"]:r for r in all_rows}
+    # Aggregate-only sources append bookkeeping entries without URLs; they are
+    # not "new files" and should not prevent the no-change fast path.
+    new_files=[f for f in files if f.get("url")]
+    if args.incremental and not new_files and not errors:
+        print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False))
+        return
+
+    unique={r["row_id"]:r for r in previous_rows+all_rows}
     rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
-    RAW_DIR.mkdir(exist_ok=True)
+
+    success_urls={str(f.get("url") or "") for f in new_files if f.get("url")}
+    file_map={str(f.get("url") or ""):f for f in previous_files if f.get("url")}
+    for f in new_files:
+        file_map[str(f["url"])]=f
+    merged_files=list(file_map.values()) if args.incremental else files
+
+    merged_errors=[e for e in previous_errors if str(e.get("url") or "") not in success_urls] if args.incremental else []
+    seen={(str(e.get("url") or ""),str(e.get("error") or "")) for e in merged_errors}
+    for e in errors:
+        key=(str(e.get("url") or ""),str(e.get("error") or ""))
+        if key not in seen:
+            merged_errors.append(e);seen.add(key)
+    merged_errors=merged_errors[-100:] if args.incremental else errors
+
     payload={"schema_version":1,"generated_at":datetime.now().isoformat(timespec="seconds"),
-             "cohort":"justice_leadership","row_count":len(rows),"rows":rows,"files":files,"errors":errors}
-    (RAW_DIR/"justice_leadership_expense.json").write_text(
-        json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8"
-    )
+             "cohort":"justice_leadership","refresh_mode":"incremental" if args.incremental else "full",
+             "new_files":len(new_files),"row_count":len(rows),"rows":rows,
+             "files":merged_files,"errors":merged_errors}
+    out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+
     by_inst=Counter(r.get("institution") or "(unknown)" for r in rows)
     by_domain=Counter(r.get("justice_domain") or "(unknown)" for r in rows)
     merchant_rows=sum(bool(text(r.get("merchant"))) for r in rows)
     report=["# Justice leadership expense ingestion","",f"- Rows: **{len(rows)}**",
-            f"- Merchant rows: **{merchant_rows}**",f"- Files: **{len(files)}**",f"- Errors: **{len(errors)}**",
-            "","## Rows by institution",""]
+            f"- Merchant rows: **{merchant_rows}**",f"- Refresh mode: **{payload['refresh_mode']}**",
+            f"- New files: **{len(new_files)}**",f"- Files retained: **{len(merged_files)}**",
+            f"- Errors: **{len(merged_errors)}**","","## Rows by institution",""]
     for k,v in by_inst.most_common(): report.append(f"- {k}: {v}")
     report+=["","## Rows by domain",""]
     for k,v in by_domain.most_common(): report.append(f"- {k}: {v}")
-    if errors:
+    if merged_errors:
         report+=["","## Errors",""]
-        for e in errors[:80]: report.append(f"- {e['institution']} / {e['source_key']}: {e['error']} — {e['url']}")
+        for e in merged_errors[:80]: report.append(f"- {e['institution']} / {e['source_key']}: {e['error']} — {e['url']}")
     (REPORTS/"justice-leadership-ingestion.md").write_text("\n".join(report)+"\n",encoding="utf-8")
-    print(json.dumps({"rows":len(rows),"merchant_rows":merchant_rows,"files":len(files),"errors":len(errors),
-                      "institutions":dict(by_inst)},ensure_ascii=False))
+    print(json.dumps({"status":"UPDATED" if new_files else "RETRIED_ERRORS","rows":len(rows),
+                      "merchant_rows":merchant_rows,"new_files":len(new_files),"files":len(merged_files),
+                      "errors":len(merged_errors),"institutions":dict(by_inst)},ensure_ascii=False))
 
 
 if __name__=="__main__": main()
