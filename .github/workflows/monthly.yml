@@ -120,7 +120,7 @@ jobs:
           python pipeline/central_executive_discovery.py --incremental --detail-limit 8
           OUT="$(python pipeline/ingest_central_executive_expense.py --incremental)"
           echo "$OUT"
-          if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
+          if echo "$OUT" | grep -Eq '"status": "(UPDATED|RETRIED_ERRORS)"'; then
             python pipeline/build_central_executive_candidates.py
           fi
 
