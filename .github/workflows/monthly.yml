@@ -81,6 +81,47 @@ jobs:
           fi
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
 
+      - name: Incremental council refresh
+        if: steps.mode.outputs.mode == 'incremental'
+        run: python pipeline/incremental_monthly_refresh.py --lookback-months 5 --workers 6
+
+      - name: Incremental regional executive refresh
+        if: steps.mode.outputs.mode == 'incremental'
+        shell: bash
+        run: |
+          set +e
+          python pipeline/gyeonggi_executive_discovery.py --pages 3
+          GG_DISC=$?
+          if [[ $GG_DISC -eq 0 ]]; then
+            python pipeline/ingest_gyeonggi_executive.py --incremental &&
+            python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95 &&
+            python pipeline/build_gyeonggi_candidates.py || true
+          fi
+
+          python pipeline/incheon_executive_discovery.py --pages 2
+          IC_DISC=$?
+          if [[ $IC_DISC -eq 0 ]]; then
+            python pipeline/ingest_incheon_executive.py --incremental &&
+            python pipeline/repair_raw_dates.py --source incheon_province --min-valid 0.95 &&
+            python pipeline/build_incheon_candidates.py || true
+          fi
+
+      - name: Incremental central-government refresh
+        if: steps.mode.outputs.mode == 'incremental'
+        shell: bash
+        run: |
+          python pipeline/central_executive_discovery.py
+          python pipeline/ingest_central_executive_expense.py --incremental
+          python pipeline/build_central_executive_candidates.py
+
+      - name: Incremental justice leadership refresh
+        if: steps.mode.outputs.mode == 'incremental'
+        shell: bash
+        run: |
+          python pipeline/justice_leadership_discovery.py
+          python pipeline/ingest_justice_leadership_expense.py --incremental
+          python pipeline/build_justice_leadership_candidates.py
+
       - name: Check official monthly council sources
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/monthly_update.py ${{ steps.target.outputs.args }}
@@ -333,8 +374,8 @@ jobs:
               raise SystemExit('no usable council source is available')
           PY
 
-      - name: Geocode central and National Assembly pre-QA candidates
-        if: steps.mode.outputs.full == 'true'
+      - name: Geocode supplemental public-sector candidates
+        if: steps.mode.outputs.ingest == 'true'
         run: python pipeline/geocode_extra_cache.py
 
       - name: QA National Assembly restaurant entities and map coordinates
@@ -342,12 +383,12 @@ jobs:
         run: python pipeline/qa_national_legislator_map.py
 
       - name: Refresh static coordinates for QA-approved public dataset
-        if: steps.mode.outputs.full == 'true'
+        if: steps.mode.outputs.ingest == 'true'
         run: python pipeline/geocode_cache.py --mode auto
 
-      - name: Fast-mode note
-        if: steps.mode.outputs.full != 'true'
-        run: echo "FAST mode uses committed reports/data and only validates the publish pipeline."
+      - name: Validate-only note
+        if: steps.mode.outputs.mode == 'validate'
+        run: echo "VALIDATE mode uses committed reports/data and only validates the publish pipeline."
 
       - name: Audit published coordinates
         run: python pipeline/audit_coordinates.py
@@ -359,7 +400,7 @@ jobs:
         run: python pipeline/build_site.py --output /tmp/index.html
 
       - name: Commit generated monthly data and reports
-        if: steps.mode.outputs.full == 'true'
+        if: steps.mode.outputs.ingest == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -369,5 +410,5 @@ jobs:
             echo "No generated changes to publish."
             exit 0
           fi
-          git commit -m "chore: monthly data refresh"
+          git commit -m "data: ${{ steps.mode.outputs.mode }} monthly refresh"
           git push origin HEAD:main
