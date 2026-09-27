@@ -48,7 +48,7 @@ jobs:
 
       - name: Smoke justice incremental
         run: |
-          python pipeline/justice_leadership_discovery.py
+          python pipeline/justice_leadership_discovery.py --incremental
           python pipeline/ingest_justice_leadership_expense.py --incremental
           python pipeline/build_justice_leadership_candidates.py
 
