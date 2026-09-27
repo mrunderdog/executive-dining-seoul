@@ -144,10 +144,38 @@ def main():
             previous_by_key={}
 
     rows=[]
-    workers=min(8,max(1,len(sources)))
     detail_limit=max(0,args.detail_limit if args.incremental else 40)
+
+    refresh_sources=list(sources)
+    if args.incremental and not args.source and previous_by_key:
+        # Monthly incremental refreshes only sources that have historically
+        # produced parseable files. Discovery of new/previously unsupported
+        # ministries belongs to the quarterly full reconciliation.
+        # Legal-administration sources are refreshed by justice_leadership.
+        justice_owned={"ministry_justice","government_legislation"}
+        refresh_sources=[
+            src for src in sources
+            if src.get("key") not in justice_owned
+            and int((previous_by_key.get(src.get("key")) or {}).get("parseable_attachments") or 0) > 0
+        ]
+        refresh_keys={src.get("key") for src in refresh_sources}
+        for src in sources:
+            if src.get("key") in refresh_keys:
+                continue
+            old=previous_by_key.get(src.get("key"))
+            if old:
+                rows.append({**old,"status":"SKIPPED_INCREMENTAL:"+str(old.get("status",""))})
+            else:
+                rows.append({
+                    "key":src["key"],"institution":src["institution"],
+                    "verified":bool(src.get("verified")),"role_scope":src.get("role_scope",""),
+                    "format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
+                    "errors":[],"parseable_attachments":0,"status":"SKIPPED_INCREMENTAL"
+                })
+
+    workers=min(8,max(1,len(refresh_sources)))
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        future_map={pool.submit(discover_source,x,args.year,detail_limit):x for x in sources}
+        future_map={pool.submit(discover_source,x,args.year,detail_limit):x for x in refresh_sources}
         for fut in as_completed(future_map):
             src=future_map[fut]
             try:
@@ -188,11 +216,12 @@ def main():
         "year":args.year,
         "refresh_mode":"incremental" if args.incremental else "full",
         "detail_limit":detail_limit,
+        "refreshed_sources":len(refresh_sources),
         "sources":rows,
     },ensure_ascii=False,indent=2),encoding="utf-8")
     md=[f"# Central executive source discovery — {args.year}","","| Institution | Status | Files | Parseable |","|---|---|---:|---:|"]
     for r in rows: md.append(f"| {r['institution']} | {r['status']} | {len(r['attachments'])} | {r.get('parseable_attachments',0)} |")
     (REPORTS / "central-executive-discovery.md").write_text("\n".join(md)+"\n",encoding="utf-8")
-    print(json.dumps({"sources":len(rows),"parseable_sources":sum(r.get('parseable_attachments',0)>0 for r in rows),"files":sum(len(r['attachments']) for r in rows)},ensure_ascii=False))
+    print(json.dumps({"sources":len(rows),"refreshed_sources":len(refresh_sources),"parseable_sources":sum(r.get('parseable_attachments',0)>0 for r in rows),"files":sum(len(r['attachments']) for r in rows)},ensure_ascii=False))
 
 if __name__=="__main__": main()
