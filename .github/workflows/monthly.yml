@@ -2,21 +2,26 @@ name: Monthly data refresh
 
 on:
   schedule:
-    # 03:00 UTC = 12:00 KST on the 15th of every month.
-    # Scheduled runs are always FULL refreshes.
-    - cron: '0 3 15 * *'
+    # 03:00 UTC = 12:00 KST on the 15th.
+    # Ordinary months are incremental; Jan/Apr/Jul/Oct run a full reconciliation.
+    - cron: '0 3 15 2,3,5,6,8,9,11,12 *'
+    - cron: '0 3 15 1,4,7,10 *'
   workflow_dispatch:
     inputs:
-      full_refresh:
-        description: 'FULL refresh: re-fetch all official/public sources (may take 10-20 min)'
-        required: false
-        type: boolean
-        default: false
+      refresh_mode:
+        description: 'Refresh mode'
+        required: true
+        type: choice
+        options:
+          - incremental
+          - full
+          - validate
+        default: incremental
       year:
-        description: 'Target year (optional, FULL refresh only)'
+        description: 'Target year (optional, full refresh only)'
         required: false
       month:
-        description: 'Target month 1-12 (optional, FULL refresh only)'
+        description: 'Target month 1-12 (optional, full refresh only)'
         required: false
 
 permissions:
@@ -47,19 +52,22 @@ jobs:
         id: mode
         shell: bash
         run: |
-          FULL=false
-          if [[ "${{ github.event_name }}" == "schedule" || "${{ inputs.full_refresh }}" == "true" ]]; then
-            FULL=true
+          MODE="${{ github.event.inputs.refresh_mode }}"
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            if [[ "${{ github.event.schedule }}" == "0 3 15 1,4,7,10 *" ]]; then
+              MODE="full"
+            else
+              MODE="incremental"
+            fi
           fi
-          echo "full=$FULL" >> "$GITHUB_OUTPUT"
-          if [[ "$FULL" == "true" ]]; then
-            echo "FULL refresh: official/public sources will be re-fetched."
-          else
-            echo "FAST validation: source crawling/API ingestion is skipped."
-          fi
+          [[ -z "$MODE" ]] && MODE="incremental"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          [[ "$MODE" == "full" ]] && echo "full=true" >> "$GITHUB_OUTPUT" || echo "full=false" >> "$GITHUB_OUTPUT"
+          [[ "$MODE" != "validate" ]] && echo "ingest=true" >> "$GITHUB_OUTPUT" || echo "ingest=false" >> "$GITHUB_OUTPUT"
+          echo "Refresh mode: $MODE"
 
       - name: Install spreadsheet parsers
-        if: steps.mode.outputs.full == 'true'
+        if: steps.mode.outputs.ingest == 'true'
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
 
       - name: Build target arguments
