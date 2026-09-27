@@ -82,12 +82,18 @@ def prosecution_adapter_probe(src:dict)->dict:
     }
 
 
-def discover_prosecution(src:dict,year:int)->dict:
+def discover_prosecution(src:dict,year:int,previous:dict|None=None,incremental:bool=False)->dict:
     out={
         "key":src["key"],"institution":src["institution"],"verified":True,
         "default_role":src.get("default_role",""),"source_type":src.get("source_type","official_routine"),
         "merchant_expectation":src.get("merchant_expectation","unknown"),"format_hint":src.get("format_hint","mixed"),
         "pages":[],"attachments":[],"errors":[]
+    }
+    previous=previous or {}
+    previous_attachments=list(previous.get("attachments",[]))
+    known_seq={
+        str(a.get("seq_id")) for a in previous_attachments
+        if a.get("seq_id") is not None
     }
     listing=(src.get("listing_urls") or [""])[0]
     m=re.search(r"/site/([^/]+)/ex/announce/AnnounceInfo\.do",listing)
@@ -121,8 +127,10 @@ def discover_prosecution(src:dict,year:int)->dict:
             # The site currently renders 10 quarterly entries on page 1.
             # Keep a diagnostic snippet if markup changes.
             out["adapter_probe"]=list_doc[:12000]
-        seen=set()
+        seen={str(a.get("url") or "") for a in previous_attachments if a.get("url")}
         for seq,title in entries:
+            if incremental and str(seq) in known_seq:
+                continue
             try:
                 view=fetch_post(view_url,{"seqId":seq,"infoId":"300","infoSeq":info_seq})
             except Exception as e:
@@ -139,6 +147,11 @@ def discover_prosecution(src:dict,year:int)->dict:
                     "text":label,"url":url,"year":y,"month":mth,
                     "parent":listing,"seq_id":seq,"detail_endpoint":view_url
                 })
+        if incremental and previous_attachments:
+            att_map={str(a.get("url") or ""):a for a in previous_attachments if a.get("url")}
+            for a in out["attachments"]:
+                if a.get("url"): att_map[str(a["url"])]=a
+            out["attachments"]=list(att_map.values())
         out["parseable_attachments"]=sum(
             any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in PARSEABLE_EXTS)
             for a in out["attachments"]
@@ -148,8 +161,16 @@ def discover_prosecution(src:dict,year:int)->dict:
         )
     except Exception as e:
         out["errors"].append(f"{type(e).__name__}: {e}")
-        out["parseable_attachments"]=0
-        out["status"]="FETCH_FAILED"
+        if incremental and previous_attachments:
+            out["attachments"]=previous_attachments
+            out["parseable_attachments"]=sum(
+                any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in PARSEABLE_EXTS)
+                for a in previous_attachments
+            )
+            out["status"]="STALE_OK:FETCH_FAILED"
+        else:
+            out["parseable_attachments"]=0
+            out["status"]="FETCH_FAILED"
     return out
 
 
@@ -157,7 +178,7 @@ def same_host(a:str,b:str)->bool:
     return urllib.parse.urlsplit(a).netloc==urllib.parse.urlsplit(b).netloc
 
 
-def discover(src:dict,year:int)->dict:
+def discover(src:dict,year:int,previous:dict|None=None,incremental:bool=False)->dict:
     out={
         "key":src["key"],"institution":src["institution"],"verified":bool(src.get("verified")),
         "default_role":src.get("default_role",""),"source_type":src.get("source_type","official_routine"),
@@ -173,7 +194,7 @@ def discover(src:dict,year:int)->dict:
         out["parseable_attachments"]=0
         return out
     if src.get("key","").startswith("prosecution_"):
-        return discover_prosecution(src,year)
+        return discover_prosecution(src,year,previous=previous,incremental=incremental)
     if src.get("adapter_required"):
         out["status"]="ADAPTER_REQUIRED"
         out["parseable_attachments"]=0
@@ -226,12 +247,32 @@ def discover(src:dict,year:int)->dict:
 
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); args=ap.parse_args()
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--year",type=int,default=datetime.now().year)
+    ap.add_argument("--incremental",action="store_true",
+                    help="Reuse known prosecution seqIds and fetch detail pages only for new entries.")
+    args=ap.parse_args()
     reg=json.loads(REGISTRY.read_text(encoding="utf-8"))
     direct_sources=reg.get("sources",[])
+
+    previous_direct_by_key={}
+    previous_path=REPORTS/"justice-leadership-discovery.json"
+    if args.incremental and previous_path.exists():
+        try:
+            previous_payload=json.loads(previous_path.read_text(encoding="utf-8"))
+            previous_direct_by_key={x.get("key"):x for x in previous_payload.get("sources",[])}
+        except (OSError,json.JSONDecodeError):
+            previous_direct_by_key={}
+
     rows=[]
     with ThreadPoolExecutor(max_workers=min(8,max(1,len(direct_sources)))) as pool:
-        futures={pool.submit(discover,src,args.year):src for src in direct_sources}
+        futures={
+            pool.submit(
+                discover,src,args.year,
+                previous_direct_by_key.get(src.get("key")),
+                args.incremental
+            ):src for src in direct_sources
+        }
         for fut in as_completed(futures):
             src=futures[fut]
             try:
@@ -310,7 +351,8 @@ def main():
     inherited_order={x.get("source_key"):i for i,x in enumerate(inherited_cfg)}
     inherited.sort(key=lambda x:inherited_order.get(x.get("key"),999))
     payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,
-             "cohort":"justice_leadership","inherited_sources":inherited,"sources":rows}
+             "cohort":"justice_leadership","refresh_mode":"incremental" if args.incremental else "full",
+             "inherited_sources":inherited,"sources":rows}
     REPORTS.mkdir(exist_ok=True)
     (REPORTS/"justice-leadership-discovery.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     md=[f"# Justice leadership source discovery — {args.year}","",
