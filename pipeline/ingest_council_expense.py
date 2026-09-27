@@ -631,6 +631,8 @@ def normalize_sheet(rows, sheet_name, source_meta):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", default="goyang")
+    ap.add_argument("--incremental", action="store_true",
+                    help="Only download attachment URLs not already present in the committed raw file, then merge.")
     args = ap.parse_args()
     source_discovery = REPORTS / f"capital-backfill-discovery-{args.source}.json"
     discovery_path = source_discovery if source_discovery.exists() else DISCOVERY
@@ -639,11 +641,25 @@ def main():
     if not posts:
         raise SystemExit(f"no discovered posts for source={args.source}")
 
+    out = RAW_DIR / f"{args.source}_expense.json"
+    previous = {}
+    if args.incremental and out.exists():
+        try:
+            previous = json.loads(out.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+    previous_rows = list(previous.get("rows", []))
+    previous_files = list(previous.get("files", []))
+    previous_errors = list(previous.get("errors", []))
+    known_urls = {str(f.get("url") or "") for f in previous_files if f.get("url")}
+
     all_rows, files, errors = [], [], []
     for post in posts:
         for att in post.get("attachments", []):
             url = att.get("url") or ""
             if not url:
+                continue
+            if args.incremental and url in known_urls:
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
             try:
@@ -674,21 +690,50 @@ def main():
             except Exception as e:
                 errors.append({"post": post.get("title"), "url": url, "error": f"{type(e).__name__}: {e}"})
 
-    # Stable de-dupe across repeated publication/file discovery.
-    unique = {r["row_id"]: r for r in all_rows}
+    if args.incremental and not files and not errors:
+        print(json.dumps({
+            "source": args.source, "status": "NO_CHANGE",
+            "known_files": len(previous_files), "rows": len(previous_rows),
+        }, ensure_ascii=False))
+        print(out)
+        return
+
+    # Stable merge: old rows remain authoritative until a newly discovered
+    # attachment produces rows with the same row_id.
+    unique = {r["row_id"]: r for r in previous_rows + all_rows}
     all_rows = sorted(unique.values(), key=lambda r: (r.get("used_date") or "", r.get("institution") or "", r.get("row_id")))
+
+    success_urls = {str(f.get("url") or "") for f in files if f.get("url")}
+    file_map = {str(f.get("url") or ""): f for f in previous_files if f.get("url")}
+    for f in files:
+        if f.get("url"): file_map[str(f["url"])] = f
+    merged_files = list(file_map.values())
+
+    # A previously failing attachment disappears from the error set once it is
+    # successfully parsed. Keep only recent distinct unresolved failures.
+    merged_errors = [e for e in previous_errors if str(e.get("url") or "") not in success_urls]
+    seen_err = {(str(e.get("url") or ""), str(e.get("error") or "")) for e in merged_errors}
+    for e in errors:
+        key=(str(e.get("url") or ""), str(e.get("error") or ""))
+        if key not in seen_err:
+            merged_errors.append(e); seen_err.add(key)
+    merged_errors = merged_errors[-100:]
+
     payload = {
         "schema_version": 1,
         "source": args.source,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "refresh_mode": "incremental" if args.incremental else "full",
+        "new_files": len(files),
         "row_count": len(all_rows),
         "rows": all_rows,
-        "files": files,
-        "errors": errors,
+        "files": merged_files if args.incremental else files,
+        "errors": merged_errors if args.incremental else errors,
     }
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    out = RAW_DIR / f"{args.source}_expense.json"
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    files = payload["files"]
+    errors = payload["errors"]
 
     by_role = Counter(r.get("role") or "(unknown)" for r in all_rows)
     by_year = Counter((r.get("used_date") or "")[:4] for r in all_rows if re.match(r"20\d{2}", r.get("used_date") or ""))
@@ -698,7 +743,9 @@ def main():
         "",
         f"- Normalized rows: **{len(all_rows)}**",
         f"- Source posts: **{len(posts)}**",
-        f"- Downloaded files: **{len(files)}**",
+        f"- Refresh mode: **{'incremental' if args.incremental else 'full'}**",
+        f"- Files retained: **{len(files)}**",
+        f"- New files downloaded: **{payload.get('new_files', len(files))}**",
         f"- Errors: **{len(errors)}**",
         "",
         "## Rows by year",
