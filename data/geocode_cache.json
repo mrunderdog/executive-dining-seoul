@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 230,
+    "failed_count": 231,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1363,
-    "success_count": 1133,
-    "updated_at": "2026-09-25T08:20:33+00:00"
+    "record_count": 1367,
+    "success_count": 1136,
+    "updated_at": "2026-09-27T04:37:25+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -4288,6 +4288,17 @@
         "nominatim:대풍숯불갈비 수원특례시"
       ],
       "updated_at": "2026-09-18T04:33:30+00:00"
+    },
+    "대한순두부|중앙정부": {
+      "failed": true,
+      "fingerprint": "5926dab35dbe10fe",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:대한순두부 대한민국",
+        "nominatim:대한순두부 대한민국"
+      ],
+      "updated_at": "2026-09-27T04:37:22+00:00"
     },
     "더구십사(THE 94)|중앙정부": {
       "addr_type": "POI",
@@ -8873,6 +8884,24 @@
       ],
       "updated_at": "2026-09-17T23:01:20+00:00"
     },
+    "비소원|법조·법률행정": {
+      "addr_type": "POI",
+      "display_name": "비소원",
+      "fingerprint": "047a6bd33ab12ada",
+      "geocoder_version": 4,
+      "lat": 37.40520779,
+      "lon": 126.968943649,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "비소원 대한민국",
+      "result_name": "비소원",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:비소원 대한민국"
+      ],
+      "updated_at": "2026-09-27T04:37:23+00:00"
+    },
     "비스테까|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 용산구 이태원동 회나무로 49",
@@ -9247,6 +9276,24 @@
         "arcgis:산정화로숯불장어 광주시"
       ],
       "updated_at": "2026-09-23T00:40:46+00:00"
+    },
+    "산타루치아|법조·법률행정": {
+      "addr_type": "POI",
+      "display_name": "산타루치아",
+      "fingerprint": "3bf1f24841a3945b",
+      "geocoder_version": 4,
+      "lat": 33.509291196,
+      "lon": 126.474381345,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "산타루치아 대한민국",
+      "result_name": "산타루치아",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:산타루치아 대한민국"
+      ],
+      "updated_at": "2026-09-27T04:37:25+00:00"
     },
     "삼관왕수산|부천시": {
       "failed": true,
@@ -16846,6 +16893,24 @@
         "arcgis:전라본가 인천광역시 계양구"
       ],
       "updated_at": "2026-09-23T00:41:27+00:00"
+    },
+    "전복명가|법조·법률행정": {
+      "addr_type": "POI",
+      "display_name": "전복명가",
+      "fingerprint": "33a35fba59357b6b",
+      "geocoder_version": 4,
+      "lat": 37.603210806,
+      "lon": 126.823344249,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "전복명가 대한민국",
+      "result_name": "전복명가",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:전복명가 대한민국"
+      ],
+      "updated_at": "2026-09-27T04:37:24+00:00"
     },
     "전복촌|인천시청": {
       "addr_type": "POI",
