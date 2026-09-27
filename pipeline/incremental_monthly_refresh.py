@@ -61,7 +61,7 @@ def refresh_one(source:str,since:str,until:str)->dict:
     result={"source":source,"status":"UNKNOWN","stages":{}}
 
     # 1) Discovery
-    ok,out=run([sys.executable,"pipeline/capital_backfill.py","--since",since,"--until",until,"--source",source],90)
+    ok,out=run([sys.executable,"pipeline/capital_backfill.py","--since",since,"--until",until,"--source",source],35)
     result["stages"]["discovery"]={"ok":ok,"tail":out[-1500:]}
     if not ok:
         restore_source(source)
@@ -70,7 +70,7 @@ def refresh_one(source:str,since:str,until:str)->dict:
 
     # 2) Incremental ingest. If every attachment URL is already known there is
     # nothing else to validate/rebuild for this source.
-    ok,out=run([sys.executable,"pipeline/ingest_council_expense.py","--source",source,"--incremental"],150)
+    ok,out=run([sys.executable,"pipeline/ingest_council_expense.py","--source",source,"--incremental"],75)
     result["stages"]["ingest"]={"ok":ok,"tail":out[-1500:]}
     if not ok:
         restore_source(source)
@@ -82,8 +82,8 @@ def refresh_one(source:str,since:str,until:str)->dict:
 
     # 3) QA/build only when fresh rows or retried errors changed the raw layer.
     for name,cmd,timeout in [
-        ("dates",[sys.executable,"pipeline/repair_raw_dates.py","--source",source,"--min-valid","0.95"],45),
-        ("candidates",[sys.executable,"pipeline/build_source_candidates.py","--source",source,"--top","100"],45),
+        ("dates",[sys.executable,"pipeline/repair_raw_dates.py","--source",source,"--min-valid","0.95"],30),
+        ("candidates",[sys.executable,"pipeline/build_source_candidates.py","--source",source,"--top","100"],30),
     ]:
         ok,out=run(cmd,timeout)
         result["stages"][name]={"ok":ok,"tail":out[-1500:]}
