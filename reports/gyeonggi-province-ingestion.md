@@ -1,7 +1,9 @@
 # Gyeonggi Province expense ingestion
 
 - Normalized rows: **503**
-- Files: **9**
+- Refresh mode: **full**
+- New files: **9**
+- Files retained: **9**
 - Errors: **2**
 
 ## Files
@@ -18,5 +20,5 @@
 
 ## Errors
 
-- {'post': '2026년 1분기 시책추진업무추진비 사용내역(건설정책과)', 'url': 'https://www.gg.go.kr/cmmn/download.do?idx=891854', 'error': 'BadZipFile: File is not a zip file'}
-- {'post': '2026년 1분기 시책추진업무추진비 사용내역(기획예산담당관)', 'url': 'https://www.gg.go.kr/cmmn/download.do?idx=891679', 'error': 'BadZipFile: File is not a zip file'}
+- {'post': '2026년 1분기 시책추진업무추진비 사용내역(건설정책과)', 'url': 'https://www.gg.go.kr/cmmn/download.do?idx=891854', 'error': 'ValueError: attachment response too small (0 bytes)'}
+- {'post': '2026년 1분기 시책추진업무추진비 사용내역(기획예산담당관)', 'url': 'https://www.gg.go.kr/cmmn/download.do?idx=891679', 'error': 'ValueError: attachment response too small (0 bytes)'}
