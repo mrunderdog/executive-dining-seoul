@@ -42,7 +42,7 @@ jobs:
 
       - name: Smoke central-government incremental
         run: |
-          python pipeline/central_executive_discovery.py
+          python pipeline/central_executive_discovery.py --incremental --detail-limit 8
           python pipeline/ingest_central_executive_expense.py --incremental
           python pipeline/build_central_executive_candidates.py
 
