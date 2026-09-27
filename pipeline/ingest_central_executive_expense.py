@@ -367,6 +367,13 @@ def main():
     previous_errors=list(previous.get("errors",[]))
     known_urls={str(f.get("url") or "") for f in previous_files if f.get("url")}
 
+    if args.incremental and not previous_rows:
+        print(json.dumps({
+            "status":"BASELINE_MISSING",
+            "reason":"run a successful full central refresh once; existing committed candidate report is preserved"
+        },ensure_ascii=False))
+        return
+
     all_rows=[]; files=[]; errors=[]
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
@@ -423,6 +430,30 @@ def main():
         "row_count":len(rows),"rows":rows,
         "files":merged_files,"errors":merged_errors,
     }
+
+    # Never let a transient government-site outage replace a healthy baseline
+    # with an empty or severely degraded full refresh.
+    if not args.incremental:
+        baseline={}
+        if out.exists():
+            try: baseline=json.loads(out.read_text(encoding="utf-8"))
+            except (OSError,json.JSONDecodeError): baseline={}
+        baseline_rows=list(baseline.get("rows",[]))
+        if not rows:
+            print(json.dumps({
+                "status":"STALE_OK:EMPTY_FULL",
+                "baseline_rows":len(baseline_rows),
+                "reason":"full discovery/ingestion produced zero rows; existing candidates/baseline preserved"
+            },ensure_ascii=False))
+            return
+        if baseline_rows and len(rows) < max(100,int(len(baseline_rows)*0.5)):
+            print(json.dumps({
+                "status":"STALE_OK:DEGRADED_FULL",
+                "fresh_rows":len(rows),"baseline_rows":len(baseline_rows),
+                "reason":"fresh full output fell below 50% of baseline; baseline preserved"
+            },ensure_ascii=False))
+            return
+
     out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     cc=Counter(r.get("institution") or "(unknown)" for r in rows)
     md=["# Central executive expense ingestion","",f"- Rows: **{len(rows)}**",
