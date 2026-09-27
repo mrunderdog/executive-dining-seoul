@@ -1,19 +1,6 @@
 name: Central + National refresh
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'pipeline/ingest_national_legislator_expense.py'
-      - 'pipeline/build_national_legislator_candidates.py'
-      - 'pipeline/central_executive_discovery.py'
-      - 'pipeline/ingest_central_executive_expense.py'
-      - 'pipeline/build_central_executive_candidates.py'
-      - 'pipeline/extra_published.py'
-      - 'pipeline/geocode_extra_cache.py'
-      - 'pipeline/qa_national_legislator_map.py'
-      - 'sources/central_executive_registry.json'
-      - '.github/workflows/central-national-refresh.yml'
   workflow_dispatch:
     inputs:
       year:
