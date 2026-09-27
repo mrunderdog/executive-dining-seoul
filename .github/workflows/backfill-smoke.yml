@@ -1,10 +1,6 @@
 name: Capital source adapter smoke test
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'pipeline/capital_backfill.py'
   workflow_dispatch:
 
 permissions:
