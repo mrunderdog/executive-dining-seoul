@@ -1,18 +1,6 @@
 name: Regional executive refresh
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'pipeline/gyeonggi_executive_discovery.py'
-      - 'pipeline/ingest_gyeonggi_executive.py'
-      - 'pipeline/build_gyeonggi_candidates.py'
-      - 'pipeline/incheon_executive_discovery.py'
-      - 'pipeline/ingest_incheon_executive.py'
-      - 'pipeline/build_incheon_candidates.py'
-      - 'pipeline/repair_raw_dates.py'
-      - 'sources/supplemental_registry.json'
-      - '.github/workflows/regional-executive-refresh.yml'
   workflow_dispatch:
 
 permissions:
