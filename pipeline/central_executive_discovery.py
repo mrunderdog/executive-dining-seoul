@@ -90,7 +90,7 @@ def extract_year_month(text: str):
     return None, None
 
 
-def discover_source(src: dict, year: int) -> dict:
+def discover_source(src: dict, year: int, detail_limit: int = 40) -> dict:
     result={"key":src["key"], "institution":src["institution"], "verified":bool(src.get("verified")), "role_scope":src.get("role_scope", ""), "format_hint":src.get("format_hint", ""), "pages":[], "attachments":[], "errors":[]}
     if not src.get("verified"):
         result["status"]="DISCOVERY_REQUIRED"; return result
@@ -102,7 +102,7 @@ def discover_source(src: dict, year: int) -> dict:
         links=parse_links(listing, doc)
         result["pages"].append(listing)
         direct=[x for x in links if looks_file(x) and relevant(x, year)]
-        detail=[x for x in links if not looks_file(x) and relevant(x, year)][:40]
+        detail=[x for x in links if not looks_file(x) and relevant(x, year)][:max(0, detail_limit)]
         for x in direct:
             if x["url"] not in seen_att:
                 seen_att.add(x["url"]); y,m=extract_year_month(x["text"]); result["attachments"].append({**x,"year":y,"month":m,"parent":listing})
@@ -124,28 +124,72 @@ def discover_source(src: dict, year: int) -> dict:
 
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,default=datetime.now().year); ap.add_argument("--source"); args=ap.parse_args()
-    reg=json.loads(REGISTRY.read_text(encoding="utf-8")); sources=[x for x in reg.get("sources",[]) if not args.source or x.get("key")==args.source]
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--year",type=int,default=datetime.now().year)
+    ap.add_argument("--source")
+    ap.add_argument("--incremental",action="store_true",
+                    help="Inspect only a few recent detail links per listing and merge with the committed discovery map.")
+    ap.add_argument("--detail-limit",type=int,default=8)
+    args=ap.parse_args()
+    reg=json.loads(REGISTRY.read_text(encoding="utf-8"))
+    sources=[x for x in reg.get("sources",[]) if not args.source or x.get("key")==args.source]
+
+    previous_by_key={}
+    out=REPORTS / "central-executive-discovery.json"
+    if args.incremental and out.exists():
+        try:
+            prev=json.loads(out.read_text(encoding="utf-8"))
+            previous_by_key={x.get("key"):x for x in prev.get("sources",[])}
+        except (OSError,json.JSONDecodeError):
+            previous_by_key={}
+
     rows=[]
     workers=min(8,max(1,len(sources)))
+    detail_limit=max(0,args.detail_limit if args.incremental else 40)
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        future_map={pool.submit(discover_source,x,args.year):x for x in sources}
+        future_map={pool.submit(discover_source,x,args.year,detail_limit):x for x in sources}
         for fut in as_completed(future_map):
             src=future_map[fut]
             try:
-                rows.append(fut.result())
+                fresh=fut.result()
             except Exception as e:
-                rows.append({
+                fresh={
                     "key":src["key"],"institution":src["institution"],
                     "verified":bool(src.get("verified")),"role_scope":src.get("role_scope",""),
                     "format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
                     "errors":[f"worker {type(e).__name__}: {e}"],"parseable_attachments":0,
                     "status":"FETCH_FAILED",
-                })
+                }
+
+            if args.incremental:
+                old=previous_by_key.get(src.get("key")) or {}
+                att_map={str(a.get("url") or ""):a for a in old.get("attachments",[]) if a.get("url")}
+                for a in fresh.get("attachments",[]):
+                    if a.get("url"):att_map[str(a["url"])]=a
+                merged_atts=list(att_map.values())
+                fresh["attachments"]=merged_atts
+                fresh["pages"]=list(dict.fromkeys((old.get("pages") or [])+(fresh.get("pages") or [])))
+                fresh["parseable_attachments"]=sum(
+                    any(ext in (a.get("text","")+" "+a.get("url","")).lower()
+                        for ext in (".xlsx",".xls",".csv",".hwp",".hwpx",".pdf"))
+                    for a in merged_atts
+                )
+                if fresh["parseable_attachments"]:
+                    fresh["status"]="PARSEABLE_FOUND"
+                elif old.get("status") and fresh.get("status") in {"FETCH_FAILED","NO_FILES_FOUND"}:
+                    fresh["status"]="STALE_OK:"+str(old.get("status"))
+            rows.append(fresh)
+
     order={x.get("key"):i for i,x in enumerate(sources)}
     rows.sort(key=lambda r:order.get(r.get("key"),9999))
     REPORTS.mkdir(exist_ok=True)
-    out=REPORTS / "central-executive-discovery.json"; out.write_text(json.dumps({"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,"sources":rows},ensure_ascii=False,indent=2),encoding="utf-8")
+    out.write_text(json.dumps({
+        "generated_at":datetime.now().isoformat(timespec="seconds"),
+        "year":args.year,
+        "refresh_mode":"incremental" if args.incremental else "full",
+        "detail_limit":detail_limit,
+        "sources":rows,
+    },ensure_ascii=False,indent=2),encoding="utf-8")
     md=[f"# Central executive source discovery — {args.year}","","| Institution | Status | Files | Parseable |","|---|---|---:|---:|"]
     for r in rows: md.append(f"| {r['institution']} | {r['status']} | {len(r['attachments'])} | {r.get('parseable_attachments',0)} |")
     (REPORTS / "central-executive-discovery.md").write_text("\n".join(md)+"\n",encoding="utf-8")
