@@ -90,20 +90,27 @@ jobs:
         shell: bash
         run: |
           set +e
+
           python pipeline/gyeonggi_executive_discovery.py --pages 3
-          GG_DISC=$?
-          if [[ $GG_DISC -eq 0 ]]; then
-            python pipeline/ingest_gyeonggi_executive.py --incremental &&
-            python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95 &&
-            python pipeline/build_gyeonggi_candidates.py || true
+          if [[ $? -eq 0 ]]; then
+            GG_OUT="$(python pipeline/ingest_gyeonggi_executive.py --incremental)"
+            GG_RC=$?
+            echo "$GG_OUT"
+            if [[ $GG_RC -eq 0 ]] && ! echo "$GG_OUT" | grep -q '"status": "NO_CHANGE"'; then
+              python pipeline/repair_raw_dates.py --source gyeonggi_province --min-valid 0.95 &&
+              python pipeline/build_gyeonggi_candidates.py || true
+            fi
           fi
 
           python pipeline/incheon_executive_discovery.py --pages 2
-          IC_DISC=$?
-          if [[ $IC_DISC -eq 0 ]]; then
-            python pipeline/ingest_incheon_executive.py --incremental &&
-            python pipeline/repair_raw_dates.py --source incheon_province --min-valid 0.95 &&
-            python pipeline/build_incheon_candidates.py || true
+          if [[ $? -eq 0 ]]; then
+            IC_OUT="$(python pipeline/ingest_incheon_executive.py --incremental)"
+            IC_RC=$?
+            echo "$IC_OUT"
+            if [[ $IC_RC -eq 0 ]] && ! echo "$IC_OUT" | grep -q '"status": "NO_CHANGE"'; then
+              python pipeline/repair_raw_dates.py --source incheon_province --min-valid 0.95 &&
+              python pipeline/build_incheon_candidates.py || true
+            fi
           fi
 
       - name: Incremental central-government refresh
@@ -111,16 +118,22 @@ jobs:
         shell: bash
         run: |
           python pipeline/central_executive_discovery.py
-          python pipeline/ingest_central_executive_expense.py --incremental
-          python pipeline/build_central_executive_candidates.py
+          OUT="$(python pipeline/ingest_central_executive_expense.py --incremental)"
+          echo "$OUT"
+          if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
+            python pipeline/build_central_executive_candidates.py
+          fi
 
       - name: Incremental justice leadership refresh
         if: steps.mode.outputs.mode == 'incremental'
         shell: bash
         run: |
           python pipeline/justice_leadership_discovery.py
-          python pipeline/ingest_justice_leadership_expense.py --incremental
-          python pipeline/build_justice_leadership_candidates.py
+          OUT="$(python pipeline/ingest_justice_leadership_expense.py --incremental)"
+          echo "$OUT"
+          if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
+            python pipeline/build_justice_leadership_candidates.py
+          fi
 
       - name: Check official monthly council sources
         if: steps.mode.outputs.full == 'true'
