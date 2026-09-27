@@ -1,0 +1,58 @@
+name: Incremental refresh smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/incremental_monthly_refresh.py'
+      - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/central_executive_discovery.py'
+      - 'pipeline/ingest_central_executive_expense.py'
+      - 'pipeline/justice_leadership_discovery.py'
+      - 'pipeline/ingest_justice_leadership_expense.py'
+      - 'pipeline/ingest_gyeonggi_executive.py'
+      - 'pipeline/ingest_incheon_executive.py'
+      - '.github/workflows/monthly.yml'
+      - '.github/workflows/incremental-refresh-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: incremental-refresh-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+
+      - name: Smoke representative council incrementals
+        run: |
+          python pipeline/incremental_monthly_refresh.py             --lookback-months 5 --workers 4             --source goyang --source suwon --source michuhol --source incheon_council
+
+      - name: Smoke central-government incremental
+        run: |
+          python pipeline/central_executive_discovery.py
+          python pipeline/ingest_central_executive_expense.py --incremental
+          python pipeline/build_central_executive_candidates.py
+
+      - name: Smoke justice incremental
+        run: |
+          python pipeline/justice_leadership_discovery.py
+          python pipeline/ingest_justice_leadership_expense.py --incremental
+          python pipeline/build_justice_leadership_candidates.py
+
+      - name: Verify publication pipeline
+        run: |
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/index.html
