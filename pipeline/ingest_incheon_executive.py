@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import urllib.request
@@ -23,6 +24,9 @@ def fetch_binary(url: str) -> bytes:
 
 
 def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--incremental",action="store_true")
+    args=ap.parse_args()
     if not DISCOVERY.exists():
         raise SystemExit(f"missing discovery report: {DISCOVERY}")
     d=json.loads(DISCOVERY.read_text(encoding="utf-8"))
@@ -30,11 +34,23 @@ def main():
     if not posts:
         raise SystemExit("no Incheon executive posts to ingest")
 
+    RAW_DIR.mkdir(exist_ok=True)
+    out=RAW_DIR/"incheon_province_expense.json"
+    previous={}
+    if args.incremental and out.exists():
+        try: previous=json.loads(out.read_text(encoding="utf-8"))
+        except (OSError,json.JSONDecodeError): previous={}
+    previous_rows=list(previous.get("rows",[]))
+    previous_files=list(previous.get("files",[]))
+    previous_errors=list(previous.get("errors",[]))
+    known_urls={str(f.get("url") or "") for f in previous_files if f.get("url")}
+
     all_rows=[]; files=[]; errors=[]
     for post in posts:
         for att in post.get("attachments") or []:
             url=att.get("url") or ""
             if not url: continue
+            if args.incremental and url in known_urls: continue
             label=clean(att.get("text")) or url
             try:
                 blob=fetch_binary(url)
@@ -78,28 +94,46 @@ def main():
             except Exception as e:
                 errors.append({"post":post.get("title"),"url":url,"error":f"{type(e).__name__}: {e}"})
 
-    unique={r["row_id"]:r for r in all_rows}
+    if args.incremental and not files and not errors:
+        print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False))
+        return
+
+    unique={r["row_id"]:r for r in previous_rows+all_rows}
     rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("role") or "",r["row_id"]))
     if not rows:
         raise SystemExit(f"Incheon executive ingestion produced no rows; files={len(files)} errors={len(errors)}")
 
-    RAW_DIR.mkdir(exist_ok=True)
+    success_urls={str(f.get("url") or "") for f in files if f.get("url")}
+    file_map={str(f.get("url") or ""):f for f in previous_files if f.get("url")}
+    for f in files:
+        if f.get("url"): file_map[str(f["url"])]=f
+    merged_files=list(file_map.values()) if args.incremental else files
+    merged_errors=[e for e in previous_errors if str(e.get("url") or "") not in success_urls] if args.incremental else []
+    seen={(str(e.get("url") or ""),str(e.get("error") or "")) for e in merged_errors}
+    for e in errors:
+        key=(str(e.get("url") or ""),str(e.get("error") or ""))
+        if key not in seen:
+            merged_errors.append(e);seen.add(key)
+    merged_errors=merged_errors[-100:] if args.incremental else errors
+
     payload={
         "schema_version":1,
         "source":"incheon_province",
         "generated_at":datetime.now().isoformat(timespec="seconds"),
-        "row_count":len(rows),
-        "rows":rows,
-        "files":files,
-        "errors":errors,
+        "refresh_mode":"incremental" if args.incremental else "full",
+        "new_files":len(files),
+        "row_count":len(rows),"rows":rows,
+        "files":merged_files,"errors":merged_errors,
     }
-    out=RAW_DIR/"incheon_province_expense.json"
     out.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+    files=merged_files;errors=merged_errors
 
     md=[
         "# Incheon Metropolitan Government expense ingestion","",
         f"- Normalized rows: **{len(rows)}**",
-        f"- Files: **{len(files)}**",
+        f"- Refresh mode: **{'incremental' if args.incremental else 'full'}**",
+        f"- New files: **{payload.get('new_files', len(files))}**",
+        f"- Files retained: **{len(files)}**",
         f"- Errors: **{len(errors)}**","",
         "## Files","",
     ]
@@ -109,7 +143,7 @@ def main():
         md += ["","## Errors",""]
         md.extend(f"- {e}" for e in errors)
     (REPORTS/"incheon-province-ingestion.md").write_text("\n".join(md)+"\n",encoding="utf-8")
-    print(json.dumps({"rows":len(rows),"files":len(files),"errors":len(errors)},ensure_ascii=False))
+    print(json.dumps({"status":"UPDATED" if payload.get("new_files") else "RETRIED_ERRORS","rows":len(rows),"new_files":payload.get("new_files"),"files":len(files),"errors":len(errors)},ensure_ascii=False))
 
 
 if __name__=="__main__":
