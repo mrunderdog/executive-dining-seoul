@@ -1,0 +1,35 @@
+name: Cancel stale refreshes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cancel-stale-refreshes.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  cancel-council:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: capital-council-ingest
+      cancel-in-progress: true
+    steps:
+      - run: echo "Supersede stale council refresh"
+
+  cancel-central:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: central-national-refresh
+      cancel-in-progress: true
+    steps:
+      - run: echo "Supersede stale central refresh"
+
+  cancel-regional:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: regional-executive-refresh
+      cancel-in-progress: true
+    steps:
+      - run: echo "Supersede stale regional refresh"
