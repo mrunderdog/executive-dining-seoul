@@ -59,22 +59,40 @@ def restore_source(source:str):
 
 def refresh_one(source:str,since:str,until:str)->dict:
     result={"source":source,"status":"UNKNOWN","stages":{}}
-    stages=[
-        ("discovery",[sys.executable,"pipeline/capital_backfill.py","--since",since,"--until",until,"--source",source],90),
-        ("ingest",[sys.executable,"pipeline/ingest_council_expense.py","--source",source,"--incremental"],150),
+
+    # 1) Discovery
+    ok,out=run([sys.executable,"pipeline/capital_backfill.py","--since",since,"--until",until,"--source",source],90)
+    result["stages"]["discovery"]={"ok":ok,"tail":out[-1500:]}
+    if not ok:
+        restore_source(source)
+        result["status"]="STALE_OK:DISCOVERY" if (ROOT/f"data/raw/{source}_expense.json").exists() else "FAILED:DISCOVERY"
+        return result
+
+    # 2) Incremental ingest. If every attachment URL is already known there is
+    # nothing else to validate/rebuild for this source.
+    ok,out=run([sys.executable,"pipeline/ingest_council_expense.py","--source",source,"--incremental"],150)
+    result["stages"]["ingest"]={"ok":ok,"tail":out[-1500:]}
+    if not ok:
+        restore_source(source)
+        result["status"]="STALE_OK:INGEST" if (ROOT/f"data/raw/{source}_expense.json").exists() else "FAILED:INGEST"
+        return result
+    if '"status": "NO_CHANGE"' in out or '"status":"NO_CHANGE"' in out:
+        result["status"]="NO_CHANGE"
+        return result
+
+    # 3) QA/build only when fresh rows or retried errors changed the raw layer.
+    for name,cmd,timeout in [
         ("dates",[sys.executable,"pipeline/repair_raw_dates.py","--source",source,"--min-valid","0.95"],45),
         ("candidates",[sys.executable,"pipeline/build_source_candidates.py","--source",source,"--top","100"],45),
-    ]
-    for name,cmd,timeout in stages:
+    ]:
         ok,out=run(cmd,timeout)
         result["stages"][name]={"ok":ok,"tail":out[-1500:]}
         if not ok:
             restore_source(source)
             result["status"]=f"STALE_OK:{name.upper()}" if (ROOT/f"data/raw/{source}_expense.json").exists() else f"FAILED:{name.upper()}"
             return result
-    # Detect the fast no-change path from ingestor output for observability.
-    ingest_tail=result["stages"]["ingest"]["tail"]
-    result["status"]="NO_CHANGE" if '"status": "NO_CHANGE"' in ingest_tail or '"status":"NO_CHANGE"' in ingest_tail else "UPDATED"
+
+    result["status"]="UPDATED"
     return result
 
 
