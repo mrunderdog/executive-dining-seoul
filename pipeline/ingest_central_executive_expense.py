@@ -349,33 +349,91 @@ def normalize(rows,sheet,meta):
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--year",type=int,default=datetime.now().year);args=ap.parse_args()
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--year",type=int,default=datetime.now().year)
+    ap.add_argument("--incremental",action="store_true",
+                    help="Skip attachment URLs already parsed in the committed raw file and merge new rows.")
+    args=ap.parse_args()
     if not DISCOVERY.exists():raise SystemExit("run central_executive_discovery.py first")
-    d=json.loads(DISCOVERY.read_text(encoding="utf-8")); all_rows=[]; files=[]; errors=[]
+    d=json.loads(DISCOVERY.read_text(encoding="utf-8"))
+    RAW_DIR.mkdir(exist_ok=True)
+    out=RAW_DIR/"central_executive_expense.json"
+    previous={}
+    if args.incremental and out.exists():
+        try: previous=json.loads(out.read_text(encoding="utf-8"))
+        except (OSError,json.JSONDecodeError): previous={}
+    previous_rows=list(previous.get("rows",[]))
+    previous_files=list(previous.get("files",[]))
+    previous_errors=list(previous.get("errors",[]))
+    known_urls={str(f.get("url") or "") for f in previous_files if f.get("url")}
+
+    all_rows=[]; files=[]; errors=[]
     for src in d.get("sources",[]):
         for a in src.get("attachments",[]):
-            s=(a.get("text","")+" "+a.get("url","")).lower()
+            url=a.get("url") or ""
+            s=(a.get("text","")+" "+url).lower()
             if not any(ext in s for ext in (".xlsx",".xls",".csv",".hwp",".hwpx",".pdf")):continue
+            if args.incremental and url in known_urls:continue
             try:
-                blob=fetch(a["url"]); info={"institution":src["institution"],"key":src["key"],"url":a["url"],"bytes":len(blob),"sheets":[]}
-                label=a.get("text") or a["url"]
-                # Infer only from the concrete attachment/detail label. role_scope is
-                # documentation of possible roles and must never be treated as row evidence.
+                blob=fetch(url)
+                info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
+                label=a.get("text") or url
                 default_role=infer_role(label)
                 parsed_sheets=list(rows_from(blob,label))
                 if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
                     combined=[]
-                    for _,page_rows in parsed_sheets: combined.extend(page_rows)
+                    for _,page_rows in parsed_sheets:combined.extend(page_rows)
                     parsed_sheets=[("pdf-combined",combined)]
                 for sheet,rows in parsed_sheets:
-                    norm,si=normalize(rows,sheet,{"key":src["key"],"institution":src["institution"],"url":a["url"],"default_role":default_role,"source_year":a.get("year")}); all_rows.extend(norm);info["sheets"].append(si)
+                    norm,si=normalize(rows,sheet,{
+                        "key":src["key"],"institution":src["institution"],"url":url,
+                        "default_role":default_role,"source_year":a.get("year")
+                    })
+                    all_rows.extend(norm);info["sheets"].append(si)
                 files.append(info)
-            except Exception as e: errors.append({"institution":src["institution"],"url":a.get("url"),"error":f"{type(e).__name__}: {e}"})
-    unique={r["row_id"]:r for r in all_rows}; rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
-    RAW_DIR.mkdir(exist_ok=True); out=RAW_DIR/"central_executive_expense.json"; out.write_text(json.dumps({"schema_version":1,"generated_at":datetime.now().isoformat(timespec="seconds"),"row_count":len(rows),"rows":rows,"files":files,"errors":errors},ensure_ascii=False,separators=(",",":")),encoding="utf-8")
-    c=Counter(r.get("institution") or "(unknown)" for r in rows);md=["# Central executive expense ingestion","",f"- Rows: **{len(rows)}**",f"- Files: **{len(files)}**",f"- Errors: **{len(errors)}**","","## Rows by institution",""]
-    for k,v in c.most_common():md.append(f"- {k}: {v}")
+            except Exception as e:
+                errors.append({"institution":src["institution"],"url":url,"error":f"{type(e).__name__}: {e}"})
+
+    if args.incremental and not files and not errors:
+        print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False))
+        return
+
+    unique={r["row_id"]:r for r in previous_rows+all_rows}
+    rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
+
+    success_urls={str(f.get("url") or "") for f in files if f.get("url")}
+    file_map={str(f.get("url") or ""):f for f in previous_files if f.get("url")}
+    for f in files:
+        if f.get("url"):file_map[str(f["url"])]=f
+    merged_files=list(file_map.values()) if args.incremental else files
+
+    merged_errors=[e for e in previous_errors if str(e.get("url") or "") not in success_urls] if args.incremental else []
+    seen={(str(e.get("url") or ""),str(e.get("error") or "")) for e in merged_errors}
+    for e in errors:
+        key=(str(e.get("url") or ""),str(e.get("error") or ""))
+        if key not in seen:
+            merged_errors.append(e);seen.add(key)
+    merged_errors=merged_errors[-100:] if args.incremental else errors
+
+    payload={
+        "schema_version":1,
+        "generated_at":datetime.now().isoformat(timespec="seconds"),
+        "refresh_mode":"incremental" if args.incremental else "full",
+        "new_files":len(files),
+        "row_count":len(rows),"rows":rows,
+        "files":merged_files,"errors":merged_errors,
+    }
+    out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+    cc=Counter(r.get("institution") or "(unknown)" for r in rows)
+    md=["# Central executive expense ingestion","",f"- Rows: **{len(rows)}**",
+        f"- Refresh mode: **{payload['refresh_mode']}**",f"- New files: **{len(files)}**",
+        f"- Files retained: **{len(merged_files)}**",f"- Errors: **{len(merged_errors)}**",
+        "","## Rows by institution",""]
+    for k,v in cc.most_common():md.append(f"- {k}: {v}")
     (REPORTS/"central-executive-ingestion.md").write_text("\n".join(md)+"\n",encoding="utf-8")
-    print(json.dumps({"rows":len(rows),"files":len(files),"errors":len(errors),"institutions":len(c)},ensure_ascii=False))
+    print(json.dumps({"status":"UPDATED" if files else "RETRIED_ERRORS","rows":len(rows),
+                      "new_files":len(files),"files":len(merged_files),"errors":len(merged_errors),
+                      "institutions":len(cc)},ensure_ascii=False))
+
 
 if __name__=="__main__":main()
