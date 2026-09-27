@@ -187,10 +187,11 @@ def main():
 
     RAW_DIR.mkdir(exist_ok=True)
     out=RAW_DIR/"justice_leadership_expense.json"
-    previous={}
-    if args.incremental and out.exists():
-        try: previous=json.loads(out.read_text(encoding="utf-8"))
-        except (OSError,json.JSONDecodeError): previous={}
+    stored={}
+    if out.exists():
+        try: stored=json.loads(out.read_text(encoding="utf-8"))
+        except (OSError,json.JSONDecodeError): stored={}
+    previous=stored if args.incremental else {}
     previous_rows=list(previous.get("rows",[]))
     previous_files=list(previous.get("files",[]))
     previous_errors=list(previous.get("errors",[]))
@@ -240,6 +241,23 @@ def main():
              "cohort":"justice_leadership","refresh_mode":"incremental" if args.incremental else "full",
              "new_files":len(new_files),"row_count":len(rows),"rows":rows,
              "files":merged_files,"errors":merged_errors}
+
+    if not args.incremental:
+        baseline_rows=list(stored.get("rows",[]))
+        if not rows:
+            print(json.dumps({
+                "status":"STALE_OK:EMPTY_FULL","baseline_rows":len(baseline_rows),
+                "reason":"fresh full justice output was empty; committed baseline preserved"
+            },ensure_ascii=False))
+            return
+        if baseline_rows and len(rows) < max(50,int(len(baseline_rows)*0.5)):
+            print(json.dumps({
+                "status":"STALE_OK:DEGRADED_FULL","fresh_rows":len(rows),
+                "baseline_rows":len(baseline_rows),
+                "reason":"fresh full justice output fell below 50% of baseline"
+            },ensure_ascii=False))
+            return
+
     out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
 
     by_inst=Counter(r.get("institution") or "(unknown)" for r in rows)
