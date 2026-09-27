@@ -117,7 +117,7 @@ jobs:
         if: steps.mode.outputs.mode == 'incremental'
         shell: bash
         run: |
-          python pipeline/central_executive_discovery.py
+          python pipeline/central_executive_discovery.py --incremental --detail-limit 8
           OUT="$(python pipeline/ingest_central_executive_expense.py --incremental)"
           echo "$OUT"
           if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
