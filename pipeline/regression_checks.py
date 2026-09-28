@@ -257,7 +257,12 @@ def test_responsive_map_and_compact_header():
     header = css.split(".ui-v2 .topbar{", 1)[1].split("}", 1)[0]
     assert "display:grid!important" in header, header
     assert "grid-template-columns:minmax(0,1fr)" in header, header
-    assert "@media(min-width:961px)" in css
+    workspace = css.split(".workspace{", 1)[1].split("}", 1)[0]
+    assert "display:grid!important" in workspace, workspace
+    assert "grid-template-columns:" in workspace, workspace
+    desktop = css.split("@media(min-width:961px)", 1)[1]
+    desktop_workspace = desktop.split(".ui-v2 .workspace{", 1)[1].split("}", 1)[0]
+    assert "grid-template-columns:minmax(300px,340px) minmax(0,1fr)!important" in desktop_workspace, desktop_workspace
     assert "@media(max-width:960px)" in css
     assert "@media(max-width:1120px)" not in css
     mobile = css.split("/* Mobile/tablet: detail becomes normal stacked content again. */", 1)[1]
