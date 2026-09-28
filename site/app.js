@@ -44,38 +44,13 @@ function addLayers(){
   if(map.getSource('places'))map.removeSource('places');
   map.addSource('places',{
     type:'geojson',
-    data:geojson(),
-    cluster:true,
-    clusterMaxZoom:14,
-    clusterRadius:46
-  });
-  map.addLayer({
-    id:'clusters',
-    type:'circle',
-    source:'places',
-    filter:['has','point_count'],
-    paint:{
-      'circle-color':'#171717',
-      'circle-opacity':.9,
-      'circle-stroke-color':'#fff',
-      'circle-stroke-width':2,
-      'circle-radius':['step',['get','point_count'],16,10,20,30,24,80,29]
-    }
-  });
-  map.addLayer({
-    id:'cluster-count',
-    type:'symbol',
-    source:'places',
-    filter:['has','point_count'],
-    layout:{'text-field':['get','point_count_abbreviated'],'text-size':12},
-    paint:{'text-color':'#fff'}
+    data:geojson()
   });
   // Invisible but generous hit target so touch/click does not depend on a tiny dot.
   map.addLayer({
     id:'place-hitbox',
     type:'circle',
     source:'places',
-    filter:['!',['has','point_count']],
     paint:{
       'circle-radius':['case',['==',['get','selected'],1],18,14],
       'circle-color':'rgba(0,0,0,0.001)',
@@ -86,7 +61,6 @@ function addLayers(){
     id:'places',
     type:'circle',
     source:'places',
-    filter:['!',['has','point_count']],
     paint:{
       'circle-radius':['case',['==',['get','selected'],1],11,7.5],
       'circle-color':['match',['get','kind'],'executive','#0a0a0a','destination','#fff','both','#737373','#525252'],
@@ -98,7 +72,6 @@ function addLayers(){
     id:'place-labels',
     type:'symbol',
     source:'places',
-    filter:['!',['has','point_count']],
     minzoom:13.5,
     layout:{
       'text-field':['get','display'],
@@ -114,12 +87,6 @@ function addLayers(){
 function bindInteractions(){
   if(bound)return;
   bound=true;
-  map.on('click','clusters',async e=>{
-    const f=e.features?.[0];
-    if(!f)return;
-    const zoom=await map.getSource('places').getClusterExpansionZoom(f.properties.cluster_id);
-    map.easeTo({center:f.geometry.coordinates,zoom});
-  });
   map.on('mouseenter','place-hitbox',e=>{
     map.getCanvas().style.cursor='pointer';
     const f=e.features?.[0],r=f&&recordByKey(f.properties.id);

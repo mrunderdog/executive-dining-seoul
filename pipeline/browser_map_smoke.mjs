@@ -88,8 +88,8 @@ for (let i = 0; i < 60; i++) {
     const layerIds=['clusters','cluster-count','place-hitbox','places','place-labels'];
     const source=map.getSource('places');
     const rect=map.getContainer().getBoundingClientRect();
-    let rendered=[];
-    try { rendered=map.queryRenderedFeatures({layers:['clusters','places']}); } catch (e) {}
+    let renderedAll=[];
+    try { renderedAll=map.queryRenderedFeatures(); } catch (e) {}
     let sourceFeatures=[];
     try { sourceFeatures=source ? map.querySourceFeatures('places') : []; } catch (e) {}
     return {
@@ -98,7 +98,8 @@ for (let i = 0; i < 60; i++) {
       source: !!source,
       sourceLoaded: source ? map.isSourceLoaded('places') : false,
       layers: Object.fromEntries(layerIds.map(id=>[id,!!map.getLayer(id)])),
-      rendered: rendered.length,
+      renderedAll: renderedAll.length,
+      renderedLayerCounts: renderedAll.reduce((acc,f)=>{const id=f.layer?.id||'unknown';acc[id]=(acc[id]||0)+1;return acc;},{}),
       sourceFeatures: sourceFeatures.length,
       width: rect.width,
       height: rect.height,
@@ -106,7 +107,7 @@ for (let i = 0; i < 60; i++) {
       center: [map.getCenter().lng,map.getCenter().lat]
     };
   })()`);
-  if (snapshot?.sourceLoaded && snapshot?.rendered > 0) break;
+  if (snapshot?.sourceLoaded && ((snapshot?.renderedLayerCounts?.places||0)+(snapshot?.renderedLayerCounts?.clusters||0)) > 0) break;
   await sleep(250);
 }
 
@@ -116,13 +117,14 @@ if (browserErrors.length) console.log('BROWSER_MESSAGES\n' + browserErrors.join(
 if (!snapshot) throw new Error('No map snapshot');
 if (snapshot.current < 1 || snapshot.geojsonFeatures < 1) throw new Error('Published map data is empty');
 if (!snapshot.source) throw new Error('places source missing');
-for (const id of ['clusters','place-hitbox','places']) {
+for (const id of ['place-hitbox','places']) {
   if (!snapshot.layers?.[id]) throw new Error('required map layer missing: ' + id);
 }
 if (snapshot.width < 400 || snapshot.height < 300) {
   throw new Error('map container collapsed: ' + snapshot.width + 'x' + snapshot.height);
 }
-if (snapshot.rendered < 1) {
+const renderedMarkers=(snapshot.renderedLayerCounts?.places||0)+(snapshot.renderedLayerCounts?.clusters||0);
+if (renderedMarkers < 1) {
   throw new Error('zero rendered restaurant markers/clusters');
 }
 
