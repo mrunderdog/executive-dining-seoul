@@ -250,6 +250,20 @@ def test_template_has_no_legacy_leaflet_runtime():
     assert 'APP_CSS = ROOT / "site" / "app.css"' in build
 
 
+
+def test_responsive_map_and_compact_header():
+    css = (ROOT / "site" / "app.css").read_text(encoding="utf-8")
+    assert ".ui-v2 .topbar{" in css
+    header = css.split(".ui-v2 .topbar{", 1)[1].split("}", 1)[0]
+    assert "display:grid!important" in header, header
+    assert "grid-template-columns:minmax(0,1fr)" in header, header
+    assert "@media(min-width:961px)" in css
+    assert "@media(max-width:960px)" in css
+    assert "@media(max-width:1120px)" not in css
+    mobile = css.split("/* Mobile/tablet: detail becomes normal stacked content again. */", 1)[1]
+    assert "min-height:430px!important" in mobile
+    assert ".ui-v2 #map" in mobile
+
 def main():
     tests = [
         test_role_column_priority,
@@ -268,6 +282,7 @@ def main():
         test_two_row_header_parsing,
         test_removed_selected_location_button,
         test_template_has_no_legacy_leaflet_runtime,
+        test_responsive_map_and_compact_header,
     ]
     for fn in tests:
         fn()
