@@ -38,7 +38,7 @@ function recordByKey(k){return DATA.find(r=>key(r)===k)}
 function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:[r.lon,r.lat]},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0}}))}}
 function addLayers(){
   if(!map.isStyleLoaded())return;
-  ['place-labels','places','place-hitbox','cluster-count','clusters'].forEach(id=>{
+  ['place-labels','places','place-halo','place-hitbox','cluster-count','clusters'].forEach(id=>{
     if(map.getLayer(id))map.removeLayer(id);
   });
   if(map.getSource('places'))map.removeSource('places');
@@ -46,7 +46,18 @@ function addLayers(){
     type:'geojson',
     data:geojson()
   });
-  // Invisible but generous hit target so touch/click does not depend on a tiny dot.
+  // Soft paper halo keeps colored markers legible on both basemap tones.
+  map.addLayer({
+    id:'place-halo',
+    type:'circle',
+    source:'places',
+    paint:{
+      'circle-radius':['case',['==',['get','selected'],1],12,8],
+      'circle-color':'#f9f5f2',
+      'circle-opacity':['case',['==',['get','selected'],1],1,.9]
+    }
+  });
+  // Invisible but generous hit target so touch/click does not depend on the visible dot size.
   map.addLayer({
     id:'place-hitbox',
     type:'circle',
@@ -62,10 +73,16 @@ function addLayers(){
     type:'circle',
     source:'places',
     paint:{
-      'circle-radius':['case',['==',['get','selected'],1],11,7.5],
-      'circle-color':['match',['get','kind'],'executive','#0a0a0a','destination','#fff','both','#737373','#525252'],
-      'circle-stroke-color':['case',['==',['get','selected'],1],'#fff','#0a0a0a'],
-      'circle-stroke-width':['case',['==',['get','selected'],1],4,['==',['get','kind'],'destination'],2.5,2]
+      'circle-radius':['case',['==',['get','selected'],1],9,5.5],
+      'circle-color':['match',['get','kind'],
+        'executive','#ac4f98',
+        'destination','#f4ed36',
+        'both','#c94245',
+        '#61609a'
+      ],
+      'circle-opacity':['case',['==',['get','selected'],1],1,.94],
+      'circle-stroke-color':'#1a1a1a',
+      'circle-stroke-width':['case',['==',['get','selected'],1],2.6,1.15]
     }
   });
   map.addLayer({
@@ -94,7 +111,7 @@ function bindInteractions(){
     if(hoverPopup)hoverPopup.remove();
     hoverPopup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12})
       .setLngLat(f.geometry.coordinates)
-      .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#737373;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`)
+      .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#61609a;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`)
       .addTo(map);
   });
   map.on('mouseleave','place-hitbox',()=>{
