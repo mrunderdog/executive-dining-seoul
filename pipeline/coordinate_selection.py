@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from global_entities import canonical_address, t
+import re
 
 
 def has_coords(row: dict) -> bool:
@@ -140,3 +141,72 @@ def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None,
         -(float(item[1].get("score") or 0)),
     ))
     return safe[0][0], safe[0][1], meta
+
+
+def _norm_business_name(v: str) -> str:
+    s = t(v).lower()
+    s = re.sub(r"^(?:주식회사|유한회사|\\(주\\)|㈜)\\s*", "", s)
+    return re.sub(r"[^0-9a-z가-힣]", "", s)
+
+
+def _nominatim_street_address(display_name: str) -> str:
+    """Convert a Nominatim POI display name to a compact Korean street address."""
+    parts = [t(x) for x in str(display_name or "").split(",") if t(x)]
+    if not parts:
+        return ""
+    parts = [x for x in parts if x != "대한민국" and not re.fullmatch(r"\\d{5}", x)]
+    road_idx = next((i for i, x in enumerate(parts) if re.search(r"(?:대로|로|길)(?:\\d+번길)?$", x)), None)
+    if road_idx is None:
+        return ""
+    road = parts[road_idx]
+    number = parts[road_idx - 1] if road_idx > 0 and re.fullmatch(r"\\d+(?:-\\d+)?", parts[road_idx - 1]) else ""
+    provinces = [x for x in parts[road_idx + 1:] if re.search(r"(?:특별시|광역시|특별자치시|특별자치도|도)$", x)]
+    cities = [x for x in parts[road_idx + 1:] if re.search(r"(?:시)$", x) and x not in provinces]
+    districts = [x for x in parts[road_idx + 1:] if re.search(r"(?:구|군)$", x)]
+    admin = []
+    for bucket in (provinces[-1:] if provinces else [], cities[-1:] if cities else [], districts[-1:] if districts else []):
+        for x in bucket:
+            if x not in admin:
+                admin.append(x)
+    if not admin:
+        return ""
+    street = f"{road} {number}".strip()
+    return " ".join(admin + [street]).strip()
+
+
+def safe_geocoder_address(record: dict, geo: dict) -> tuple[str, str]:
+    """Return a conservative address inferred from an exact-name Nominatim POI hit.
+
+    This never overwrites a published address. National records require an exact
+    normalized business-name match; local records may allow a narrow prefix match
+    when the resolved address contains the record's locality.
+    """
+    if t(record.get("address")):
+        return "", ""
+    wanted = {
+        _norm_business_name(record.get("name")),
+        _norm_business_name((record.get("business") or {}).get("display")),
+    }
+    wanted.discard("")
+    if not wanted:
+        return "", ""
+    national = t(record.get("jurisdiction")) in {"대한민국", "전국"} or t(record.get("cohort")) in {"central_executive", "national_legislator"}
+    locality = t(record.get("origin")) if not national else ""
+    for key, row in coordinate_candidates(record, geo):
+        if t(row.get("source")).lower() != "nominatim" or t(row.get("match_mode")).lower() != "name":
+            continue
+        got = _norm_business_name(row.get("result_name"))
+        if not got:
+            continue
+        exact = got in wanted
+        narrow_local = (
+            not national
+            and any((w in got or got in w) and min(len(w), len(got)) >= 4 for w in wanted)
+            and (not locality or locality in t(row.get("display_name")))
+        )
+        if not exact and not narrow_local:
+            continue
+        address = _nominatim_street_address(row.get("display_name"))
+        if address:
+            return address, key
+    return "", ""
