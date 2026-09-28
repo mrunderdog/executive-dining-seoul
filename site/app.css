@@ -1028,3 +1028,44 @@ body{
 @media(max-width:760px){
   .restaurant-lookup-backdrop{padding:5dvh 8px 12px}.restaurant-lookup{width:100%;max-height:90dvh}.restaurant-lookup-head{padding:14px}.restaurant-lookup-meta{padding-left:14px;padding-right:14px}.restaurant-lookup-meta span:last-child{display:none}.restaurant-lookup-open{padding:0 9px}
 }
+
+
+/* Global restaurant lookup placement + explicit cross-filter escape */
+.filters-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:6px;
+}
+.filters-head .section-eyebrow{margin:0!important}
+.filters-head .restaurant-lookup-open{
+  height:28px;
+  padding:0 9px;
+  background:var(--yellow);
+  font-size:10px;
+}
+.filters-head .restaurant-lookup-open:hover{background:var(--butter)}
+.ui-v2 .summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.summary-all-restaurants{
+  flex:0 0 auto;
+  height:26px;
+  padding:0 9px;
+  border:1.5px solid var(--ink);
+  border-radius:999px;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+}
+.summary-all-restaurants:hover{background:var(--yellow)}
+@media(max-width:760px){
+  .filters-head .restaurant-lookup-open{font-size:9px;padding:0 8px}
+  .summary-all-restaurants{font-size:9px;padding:0 7px}
+}
