@@ -194,54 +194,6 @@ const styleBtn=document.createElement('button');styleBtn.className='map-btn';sty
 updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length}/${DATA.length} · 첫 접속 추가 지오코딩 없음`;
 
 
-/* Restaurant lookup: global existence search, independent from Explore filters. */
-(function(){
-  const openBtn=$('restaurantLookupBtn'),backdrop=$('restaurantLookupBackdrop'),closeBtn=$('restaurantLookupClose');
-  const input=$('restaurantLookupInput'),results=$('restaurantLookupResults'),count=$('restaurantLookupCount');
-  if(!openBtn||!backdrop||!closeBtn||!input||!results||!count)return;
-  function normalizeLookup(v){return String(v||'').normalize('NFKC').toLowerCase().replace(/[\\s\\-_.·,()\\[\\]{}'\"]/g,'')}
-  function namesFor(r){return [r.name,r.business?.display,...(r.aliases||[]),...(r.business?.aliases||[])].filter(Boolean)}
-  function matchLookup(r,query){
-    const qn=normalizeLookup(query);if(!qn)return null;
-    const normalized=namesFor(r).map(normalizeLookup);
-    let rank=0,label='';
-    if(normalized.some(v=>v===qn)){rank=400;label='정확 일치'}
-    else if(normalized.some(v=>v.startsWith(qn))){rank=320;label='이름 앞부분'}
-    else if(normalized.some(v=>v.includes(qn))){rank=260;label='이름 포함'}
-    else{
-      const meta=normalizeLookup([r.address,r.business?.category,sourceLabel(r),...(r.institutions||[])].filter(Boolean).join(' '));
-      if(meta.includes(qn)){rank=140;label='주소·업종·기관'}
-    }
-    return rank?{r,rank,label}:null;
-  }
-  function renderLookup(){
-    const raw=input.value.trim(),qn=normalizeLookup(raw);
-    if(!qn){
-      count.textContent='식당명을 입력하세요';
-      results.innerHTML='<div class="restaurant-lookup-empty">알고 있는 식당 이름을 입력하면 현재 수집 데이터 전체에서 찾습니다.</div>';
-      return;
-    }
-    const matches=DATA.map(r=>matchLookup(r,raw)).filter(Boolean).sort((a,b)=>b.rank-a.rank||signalScore(b.r)-signalScore(a.r)||(b.r.evidence?.visits||0)-(a.r.evidence?.visits||0)||displayName(a.r).localeCompare(displayName(b.r),'ko-KR'));
-    count.textContent=matches.length?(matches.length.toLocaleString('ko-KR')+'개 결과 · 상위 '+Math.min(matches.length,10)+'개 표시'):'현재 수집 데이터에는 없음';
-    if(!matches.length){
-      results.innerHTML='<div class="restaurant-lookup-empty"><strong>“'+esc(raw)+'”</strong>과 일치하는 식당을 찾지 못했습니다.<br><span>띄어쓰기나 지점명을 줄여 다시 검색해보세요.</span></div>';
-      return;
-    }
-    results.innerHTML=matches.slice(0,10).map(({r,label})=>'<button type="button" class="restaurant-lookup-result" data-key="'+esc(key(r))+'"><span class="restaurant-lookup-name">'+esc(displayName(r))+'</span><span class="restaurant-lookup-match">'+esc(label)+'</span><span class="restaurant-lookup-address">'+esc(r.address||'주소 확인 필요')+'</span><span class="restaurant-lookup-source">'+esc(sourceLabel(r))+' · '+Number(r.evidence?.visits||0).toLocaleString('ko-KR')+'회</span></button>').join('');
-    results.querySelectorAll('.restaurant-lookup-result').forEach(btn=>{btn.onclick=()=>{
-      const r=recordByKey(btn.dataset.key);if(!r)return;
-      ds.value='all';ori.value='all';q.value=displayName(r);
-      clearSelection();renderList(false);selectRecord(r,true,true);closeLookup();
-      requestAnimationFrame(()=>list.querySelector('.restaurant-card.active')?.scrollIntoView({block:'nearest',behavior:'smooth'}));
-    }});
-  }
-  function openLookup(){backdrop.hidden=false;requestAnimationFrame(()=>backdrop.classList.add('is-open'));input.value='';renderLookup();setTimeout(()=>input.focus(),20)}
-  function closeLookup(){backdrop.classList.remove('is-open');setTimeout(()=>{backdrop.hidden=true},120)}
-  openBtn.onclick=openLookup;closeBtn.onclick=closeLookup;
-  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeLookup()});
-  input.addEventListener('input',renderLookup);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!backdrop.hidden)closeLookup()});
-})();
 /* Stable map layer lifecycle */
 // Keep a single MapLibre source/layer renderer. Basemap style swaps destroy custom
 // sources/layers, so restore them only after style.load.
@@ -411,7 +363,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
       showcase.className='cross-showcase cross-showcase-v2';
       topbar.insertAdjacentElement('afterend',showcase);
     }
-    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
+    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="restaurant-lookup-open" id="restaurantLookupBtn">식당 찾기</button><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
     const track=showcase.querySelector('.cross-showcase-track');
 
     crossOrigin.forEach(r=>{
@@ -598,4 +550,53 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
   // Initial empty detail is now hidden off-canvas rather than reserving a third column.
   workspace.classList.remove('detail-open');
   sync();
+})();
+
+/* Restaurant lookup: global existence search, independent from Explore filters. */
+(function(){
+  const openBtn=$('restaurantLookupBtn'),backdrop=$('restaurantLookupBackdrop'),closeBtn=$('restaurantLookupClose');
+  const input=$('restaurantLookupInput'),results=$('restaurantLookupResults'),count=$('restaurantLookupCount');
+  if(!openBtn||!backdrop||!closeBtn||!input||!results||!count)return;
+  function normalizeLookup(v){return String(v||'').normalize('NFKC').toLowerCase().replace(/[\\s\\-_.·,()\\[\\]{}'\"]/g,'')}
+  function namesFor(r){return [r.name,r.business?.display,...(r.aliases||[]),...(r.business?.aliases||[])].filter(Boolean)}
+  function matchLookup(r,query){
+    const qn=normalizeLookup(query);if(!qn)return null;
+    const normalized=namesFor(r).map(normalizeLookup);
+    let rank=0,label='';
+    if(normalized.some(v=>v===qn)){rank=400;label='정확 일치'}
+    else if(normalized.some(v=>v.startsWith(qn))){rank=320;label='이름 앞부분'}
+    else if(normalized.some(v=>v.includes(qn))){rank=260;label='이름 포함'}
+    else{
+      const meta=normalizeLookup([r.address,r.business?.category,sourceLabel(r),...(r.institutions||[])].filter(Boolean).join(' '));
+      if(meta.includes(qn)){rank=140;label='주소·업종·기관'}
+    }
+    return rank?{r,rank,label}:null;
+  }
+  function renderLookup(){
+    const raw=input.value.trim(),qn=normalizeLookup(raw);
+    if(!qn){
+      count.textContent='식당명을 입력하세요';
+      results.innerHTML='<div class="restaurant-lookup-empty">알고 있는 식당 이름을 입력하면 현재 수집 데이터 전체에서 찾습니다.</div>';
+      return;
+    }
+    const matches=DATA.map(r=>matchLookup(r,raw)).filter(Boolean).sort((a,b)=>b.rank-a.rank||signalScore(b.r)-signalScore(a.r)||(b.r.evidence?.visits||0)-(a.r.evidence?.visits||0)||displayName(a.r).localeCompare(displayName(b.r),'ko-KR'));
+    count.textContent=matches.length?(matches.length.toLocaleString('ko-KR')+'개 결과 · 상위 '+Math.min(matches.length,10)+'개 표시'):'현재 수집 데이터에는 없음';
+    if(!matches.length){
+      results.innerHTML='<div class="restaurant-lookup-empty"><strong>“'+esc(raw)+'”</strong>과 일치하는 식당을 찾지 못했습니다.<br><span>띄어쓰기나 지점명을 줄여 다시 검색해보세요.</span></div>';
+      return;
+    }
+    results.innerHTML=matches.slice(0,10).map(({r,label})=>'<button type="button" class="restaurant-lookup-result" data-key="'+esc(key(r))+'"><span class="restaurant-lookup-name">'+esc(displayName(r))+'</span><span class="restaurant-lookup-match">'+esc(label)+'</span><span class="restaurant-lookup-address">'+esc(r.address||'주소 확인 필요')+'</span><span class="restaurant-lookup-source">'+esc(sourceLabel(r))+' · '+Number(r.evidence?.visits||0).toLocaleString('ko-KR')+'회</span></button>').join('');
+    results.querySelectorAll('.restaurant-lookup-result').forEach(btn=>{btn.onclick=()=>{
+      const r=recordByKey(btn.dataset.key);if(!r)return;
+      ds.value='all';ori.value='all';q.value=displayName(r);
+      clearSelection();renderList(false);selectRecord(r,true,true);closeLookup();
+      requestAnimationFrame(()=>list.querySelector('.restaurant-card.active')?.scrollIntoView({block:'nearest',behavior:'smooth'}));
+    }});
+  }
+  function openLookup(){backdrop.hidden=false;requestAnimationFrame(()=>backdrop.classList.add('is-open'));input.value='';renderLookup();setTimeout(()=>input.focus(),20)}
+  function closeLookup(){backdrop.classList.remove('is-open');setTimeout(()=>{backdrop.hidden=true},120)}
+  openBtn.onclick=openLookup;closeBtn.onclick=closeLookup;
+  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeLookup()});
+  input.addEventListener('input',renderLookup);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!backdrop.hidden)closeLookup()});
 })();
