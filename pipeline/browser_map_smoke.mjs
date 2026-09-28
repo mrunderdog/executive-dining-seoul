@@ -137,6 +137,58 @@ if (!snapshot.lookupReady) {
   throw new Error('restaurant lookup UI is missing');
 }
 
+const pointerState=await evaluate(`(() => {
+  const backdrop=document.getElementById('restaurantLookupBackdrop');
+  const rect=map.getContainer().getBoundingClientRect();
+  const x=rect.left+rect.width/2,y=rect.top+rect.height/2;
+  const top=document.elementFromPoint(x,y);
+  return {
+    lookupHidden: backdrop?.hidden,
+    lookupDisplay: backdrop ? getComputedStyle(backdrop).display : null,
+    lookupPointer: backdrop ? getComputedStyle(backdrop).pointerEvents : null,
+    topTag: top?.tagName||'',
+    topClass: top?.className?.toString?.()||'',
+    scrollZoom: map.scrollZoom.isEnabled(),
+    dragPan: map.dragPan.isEnabled(),
+    zoom: map.getZoom(),
+    x,y
+  };
+})()`);
+console.log('POINTER_STATE',JSON.stringify(pointerState));
+if (!pointerState.lookupHidden || pointerState.lookupDisplay !== 'none' || pointerState.lookupPointer !== 'none') {
+  throw new Error('closed restaurant lookup overlay is intercepting pointer events');
+}
+if (!pointerState.scrollZoom || !pointerState.dragPan) {
+  throw new Error('MapLibre zoom/pan interactions are disabled');
+}
+
+const zoomBefore=pointerState.zoom;
+await cdp('Input.dispatchMouseEvent',{type:'mouseWheel',x:pointerState.x,y:pointerState.y,deltaX:0,deltaY:-420});
+await sleep(700);
+const zoomAfter=await evaluate('map.getZoom()');
+console.log('ZOOM_SMOKE',JSON.stringify({before:zoomBefore,after:zoomAfter}));
+if (!(zoomAfter > zoomBefore + 0.05)) {
+  throw new Error('mouse wheel did not zoom the map');
+}
+
+const markerTarget=await evaluate(`(() => {
+  const rect=map.getContainer().getBoundingClientRect();
+  const all=map.queryRenderedFeatures();
+  const f=all.find(x=>x.layer?.id==='places');
+  if(!f)return null;
+  const p=map.project(f.geometry.coordinates);
+  return {id:String(f.properties.id),x:rect.left+p.x,y:rect.top+p.y};
+})()`);
+if(!markerTarget) throw new Error('no rendered marker available for click smoke');
+await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x:markerTarget.x,y:markerTarget.y,button:'left',clickCount:1});
+await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:markerTarget.x,y:markerTarget.y,button:'left',clickCount:1});
+await sleep(500);
+const selectedAfterClick=await evaluate('selected');
+console.log('MARKER_CLICK_SMOKE',JSON.stringify({target:markerTarget.id,selected:selectedAfterClick}));
+if (!selectedAfterClick) {
+  throw new Error('marker click did not select a restaurant');
+}
+
 const lookupCheck=await evaluate(`(() => {
   const btn=document.getElementById('restaurantLookupBtn');
   btn.click();
