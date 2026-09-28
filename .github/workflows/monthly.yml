@@ -126,14 +126,7 @@ jobs:
 
       - name: Incremental justice leadership refresh
         if: steps.mode.outputs.mode == 'incremental'
-        shell: bash
-        run: |
-          python pipeline/justice_leadership_discovery.py --incremental
-          OUT="$(python pipeline/ingest_justice_leadership_expense.py --incremental)"
-          echo "$OUT"
-          if ! echo "$OUT" | grep -q '"status": "NO_CHANGE"'; then
-            python pipeline/build_justice_leadership_candidates.py
-          fi
+        run: python pipeline/refresh_justice.py --mode incremental
 
       - name: Check official monthly council sources
         if: steps.mode.outputs.full == 'true'
@@ -252,33 +245,9 @@ jobs:
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_central_executive_candidates.py
 
-      - name: Discover justice leadership expense files
+      - name: Full justice leadership refresh
         if: steps.mode.outputs.full == 'true'
-        run: python pipeline/justice_leadership_discovery.py
-
-      - name: Ingest justice leadership expense files
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/ingest_justice_leadership_expense.py
-
-      - name: Build justice leadership dining candidates
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/build_justice_leadership_candidates.py
-
-      - name: Ingest historical prosecution restaurant archive
-        if: steps.mode.outputs.full == 'true'
-        run: python pipeline/ingest_prosecution_archive.py
-
-      - name: Validate prosecution archive extraction
-        if: steps.mode.outputs.full == 'true'
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          d=json.loads(Path('reports/prosecution-archive-candidates.json').read_text(encoding='utf-8'))
-          print({'entities':d.get('entity_count',0),'eligible':d.get('eligible_count',0)})
-          if int(d.get('entity_count') or 0) < 70:
-              raise SystemExit('prosecution archive extraction degraded below 70 entities')
-          PY
+        run: python pipeline/refresh_justice.py --mode full
 
       - name: Ingest 2024 National Assembly political-fund spending
         if: steps.mode.outputs.full == 'true'
@@ -399,9 +368,9 @@ jobs:
         if: steps.mode.outputs.ingest == 'true'
         run: python pipeline/geocode_cache.py --mode auto
 
-      - name: Validate-only note
+      - name: Validate committed justice baselines
         if: steps.mode.outputs.mode == 'validate'
-        run: echo "VALIDATE mode uses committed reports/data and only validates the publish pipeline."
+        run: python pipeline/refresh_justice.py --mode validate
 
       - name: Audit published coordinates
         run: python pipeline/audit_coordinates.py

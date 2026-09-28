@@ -185,6 +185,10 @@ def discover(src:dict,year:int,previous:dict|None=None,incremental:bool=False)->
         "merchant_expectation":src.get("merchant_expectation","unknown"),"format_hint":src.get("format_hint",""),
         "pages":[],"attachments":[],"errors":[]
     }
+    if src.get("refresh_policy") == "manual_only":
+        out["status"]="MANUAL_ONLY_TRACKED"
+        out["parseable_attachments"]=0
+        return out
     if not src.get("verified"):
         out["status"]="DISCOVERY_REQUIRED"
         out["parseable_attachments"]=0
