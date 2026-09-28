@@ -269,6 +269,16 @@ def test_responsive_map_and_compact_header():
     assert "min-height:430px!important" in mobile
     assert ".ui-v2 #map" in mobile
 
+
+def test_map_marker_palette_matches_product_theme():
+    app = (ROOT / "site" / "app.js").read_text(encoding="utf-8")
+    assert "id:'place-halo'" in app
+    assert "'executive','#ac4f98'" in app
+    assert "'destination','#f4ed36'" in app
+    assert "'both','#c94245'" in app
+    assert "'#61609a'" in app
+    assert "'executive','#0a0a0a'" not in app
+
 def main():
     tests = [
         test_role_column_priority,
@@ -288,6 +298,7 @@ def main():
         test_removed_selected_location_button,
         test_template_has_no_legacy_leaflet_runtime,
         test_responsive_map_and_compact_header,
+        test_map_marker_palette_matches_product_theme,
     ]
     for fn in tests:
         fn()
