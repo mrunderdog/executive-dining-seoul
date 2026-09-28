@@ -89,7 +89,9 @@ for (let i = 0; i < 60; i++) {
     const source=map.getSource('places');
     const rect=map.getContainer().getBoundingClientRect();
     let rendered=[];
-    try { rendered=map.queryRenderedFeatures({layers:['clusters','places']}); } catch (e) {}
+    let renderedAll=[];
+    try { rendered=map.queryRenderedFeatures(undefined,{layers:['clusters','places']}); } catch (e) {}
+    try { renderedAll=map.queryRenderedFeatures(); } catch (e) {}
     let sourceFeatures=[];
     try { sourceFeatures=source ? map.querySourceFeatures('places') : []; } catch (e) {}
     return {
@@ -99,6 +101,8 @@ for (let i = 0; i < 60; i++) {
       sourceLoaded: source ? map.isSourceLoaded('places') : false,
       layers: Object.fromEntries(layerIds.map(id=>[id,!!map.getLayer(id)])),
       rendered: rendered.length,
+      renderedAll: renderedAll.length,
+      renderedLayerCounts: renderedAll.reduce((acc,f)=>{const id=f.layer?.id||'unknown';acc[id]=(acc[id]||0)+1;return acc;},{}),
       sourceFeatures: sourceFeatures.length,
       width: rect.width,
       height: rect.height,
