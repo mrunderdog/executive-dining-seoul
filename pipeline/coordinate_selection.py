@@ -92,6 +92,30 @@ def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None,
                 -(float(item[1].get("score") or 0)),
             ))
             return matched[0][0], matched[0][1], meta
+
+        # A manually verified HIGH-confidence business enrichment may add a
+        # street address after the original name-only POI coordinate was cached.
+        # Preserve that already accepted marker only when the cached POI name
+        # exactly matches the verified business/name; never use this for generic
+        # or ambiguous name hits.
+        b = record.get("business") or {}
+        if t(b.get("verification_confidence")).upper() == "HIGH":
+            wanted = {
+                _norm_business_name(record.get("name")),
+                _norm_business_name(b.get("display")),
+            }
+            wanted.discard("")
+            exact_name = []
+            for key, row in candidates:
+                if t(row.get("match_mode")).lower() != "name" or unsafe_name_geocode(row):
+                    continue
+                got = _norm_business_name(row.get("result_name"))
+                if got and got in wanted:
+                    exact_name.append((key, row))
+            if exact_name:
+                exact_name.sort(key=lambda item: -(float(item[1].get("score") or 0)))
+                meta["verified_name_coordinate_fallback"] = exact_name[0][0]
+                return exact_name[0][0], exact_name[0][1], meta
         return None, None, meta
 
     # National-level records with no published/verified address are too
