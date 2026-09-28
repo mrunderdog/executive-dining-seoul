@@ -212,18 +212,19 @@ const crossResetCheck=await evaluate(`(() => {
   document.getElementById('restaurantLookupClose')?.click();
   const all=document.querySelector('#crossShowcase .cross-all-btn');
   if(!all)return {error:'cross all button missing'};
+  const initialLabel=all.textContent.trim();
   all.click();
-  const during={mode:ds.value,count:current.length,resetVisible:!!document.getElementById('showAllRestaurants')};
-  document.getElementById('showAllRestaurants')?.click();
-  const after={mode:ds.value,origin:ori.value,query:q.value,sort:sort.value,count:current.length,total:DATA.length};
-  return {during,after};
+  const during={mode:ds.value,count:current.length,label:all.textContent.trim()};
+  all.click();
+  const after={mode:ds.value,origin:ori.value,query:q.value,sort:sort.value,count:current.length,total:DATA.length,label:all.textContent.trim()};
+  return {initialLabel,during,after};
 })()`);
 console.log('CROSS_RESET_SMOKE',JSON.stringify(crossResetCheck));
-if (crossResetCheck.error || crossResetCheck.during.mode!=='cross_origin' || !crossResetCheck.during.resetVisible) {
-  throw new Error('cross-origin view did not expose an explicit all-restaurants return');
+if (crossResetCheck.error || crossResetCheck.during.mode!=='cross_origin' || crossResetCheck.during.label!=='전체 식당 보기') {
+  throw new Error('cross-origin toggle did not switch into all-restaurants return state');
 }
-if (crossResetCheck.after.mode!=='all' || crossResetCheck.after.origin!=='all' || crossResetCheck.after.query!=='' || crossResetCheck.after.count!==crossResetCheck.after.total) {
-  throw new Error('all-restaurants return did not restore the full dataset');
+if (crossResetCheck.after.mode!=='all' || crossResetCheck.after.origin!=='all' || crossResetCheck.after.query!=='' || crossResetCheck.after.count!==crossResetCheck.after.total || !crossResetCheck.after.label.startsWith('기관교차 전체 ')) {
+  throw new Error('cross-origin toggle did not restore the full dataset');
 }
 
 ws.close();
