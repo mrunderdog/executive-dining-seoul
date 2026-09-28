@@ -145,7 +145,7 @@ def select_coordinate(record: dict, geo: dict) -> tuple[str | None, dict | None,
 
 def _norm_business_name(v: str) -> str:
     s = t(v).lower()
-    s = re.sub(r"^(?:주식회사|유한회사|\\(주\\)|㈜)\\s*", "", s)
+    s = re.sub(r"^(?:주식회사|유한회사|\(주\)|㈜)\s*", "", s)
     return re.sub(r"[^0-9a-z가-힣]", "", s)
 
 
@@ -154,12 +154,12 @@ def _nominatim_street_address(display_name: str) -> str:
     parts = [t(x) for x in str(display_name or "").split(",") if t(x)]
     if not parts:
         return ""
-    parts = [x for x in parts if x != "대한민국" and not re.fullmatch(r"\\d{5}", x)]
-    road_idx = next((i for i, x in enumerate(parts) if re.search(r"(?:대로|로|길)(?:\\d+번길)?$", x)), None)
+    parts = [x for x in parts if x != "대한민국" and not re.fullmatch(r"\d{5}", x)]
+    road_idx = next((i for i, x in enumerate(parts) if re.search(r"(?:대로|로|길)(?:\d+번길)?$", x)), None)
     if road_idx is None:
         return ""
     road = parts[road_idx]
-    number = parts[road_idx - 1] if road_idx > 0 and re.fullmatch(r"\\d+(?:-\\d+)?", parts[road_idx - 1]) else ""
+    number = parts[road_idx - 1] if road_idx > 0 and re.fullmatch(r"\d+(?:-\d+)?", parts[road_idx - 1]) else ""
     provinces = [x for x in parts[road_idx + 1:] if re.search(r"(?:특별시|광역시|특별자치시|특별자치도|도)$", x)]
     cities = [x for x in parts[road_idx + 1:] if re.search(r"(?:시)$", x) and x not in provinces]
     districts = [x for x in parts[road_idx + 1:] if re.search(r"(?:구|군)$", x)]
