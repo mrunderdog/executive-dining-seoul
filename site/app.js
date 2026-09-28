@@ -597,7 +597,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
     results.innerHTML=matches.slice(0,10).map(({r,label})=>'<button type="button" class="restaurant-lookup-result" data-key="'+esc(key(r))+'"><span class="restaurant-lookup-name">'+esc(displayName(r))+'</span><span class="restaurant-lookup-match">'+esc(label)+'</span><span class="restaurant-lookup-address">'+esc(r.address||'주소 확인 필요')+'</span><span class="restaurant-lookup-source">'+esc(sourceLabel(r))+' · '+Number(r.evidence?.visits||0).toLocaleString('ko-KR')+'회</span></button>').join('');
     results.querySelectorAll('.restaurant-lookup-result').forEach(btn=>{btn.onclick=()=>{
       const r=recordByKey(btn.dataset.key);if(!r)return;
-      ds.value='all';ori.value='all';q.value=displayName(r);
+      ds.value='all';ori.value='all';q.value='';sort.value='signal';
       clearSelection();renderList(false);selectRecord(r,true,true);closeLookup();
       requestAnimationFrame(()=>list.querySelector('.restaurant-card.active')?.scrollIntoView({block:'nearest',behavior:'smooth'}));
     }});

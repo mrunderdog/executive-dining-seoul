@@ -208,6 +208,25 @@ if (lookupCheck.targetCount > 1 && lookupCheck.uniqueTargetCoords < 2) {
   throw new Error('overlapping 싱카이 markers were not separated');
 }
 
+const lookupReturnCheck=await evaluate(`(() => {
+  const first=document.querySelector('.restaurant-lookup-result');
+  if(!first)return {error:'lookup result missing'};
+  first.click();
+  return {
+    query:q.value,
+    mode:ds.value,
+    origin:ori.value,
+    sort:sort.value,
+    current:current.length,
+    total:DATA.length,
+    selected
+  };
+})()`);
+console.log('LOOKUP_RETURN_SMOKE',JSON.stringify(lookupReturnCheck));
+if (lookupReturnCheck.error || lookupReturnCheck.query!=='' || lookupReturnCheck.mode!=='all' || lookupReturnCheck.origin!=='all' || lookupReturnCheck.current!==lookupReturnCheck.total || !lookupReturnCheck.selected) {
+  throw new Error('lookup selection did not return to the full restaurant set');
+}
+
 const crossResetCheck=await evaluate(`(() => {
   document.getElementById('restaurantLookupClose')?.click();
   const all=document.querySelector('#crossShowcase .cross-all-btn');

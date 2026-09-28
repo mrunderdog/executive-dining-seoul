@@ -6,7 +6,7 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
-from coordinate_selection import select_coordinate
+from coordinate_selection import select_coordinate, safe_geocoder_address
 from data_io import load_payload
 from published_sources import merge_published_sources
 from extra_published import merge_extra_published
@@ -65,6 +65,21 @@ def main():
     geo = load_geo_cache()
     coord_count = 0
     coord_rejected = 0
+    geocode_address_backfills = 0
+
+    def apply_safe_address_backfill(r):
+        nonlocal geocode_address_backfills
+        if str(r.get("address") or "").strip():
+            return
+        inferred_address, inferred_key = safe_geocoder_address(r, geo)
+        if not inferred_address:
+            return
+        r["address"] = inferred_address
+        r["search_query"] = f"{(r.get('business') or {}).get('display') or r.get('name') or ''} {inferred_address}".strip()
+        r["address_enrichment_source"] = "nominatim_exact_name"
+        r["address_enrichment_key"] = inferred_key
+        geocode_address_backfills += 1
+
     for r in records:
         has_address = bool(str(r.get("address") or "").strip())
         source_coord = (
@@ -77,6 +92,8 @@ def main():
                 "source:" + str(r.get("source_coordinate_source") or r.get("published_source") or "verified")
             )
             coord_count += 1
+            apply_safe_address_backfill(r)
+            has_address = bool(str(r.get("address") or "").strip())
             r["location_verification"] = (
                 {"grade": "A", "label": "출처 좌표·주소 확인"}
                 if has_address else
@@ -84,12 +101,16 @@ def main():
             )
             continue
 
+        # Select the already-vetted coordinate against the source record first.
+        # Display-only address enrichment must never make an existing marker disappear.
         key, g, meta = select_coordinate(r, geo)
         if g:
             r["lat"] = float(g["lat"])
             r["lon"] = float(g["lon"])
             r["coordinate_source_key"] = key
             coord_count += 1
+        apply_safe_address_backfill(r)
+        has_address = bool(str(r.get("address") or "").strip())
         if has_address and g:
             r["location_verification"] = {"grade": "A", "label": "주소·위치 확인"}
         elif g:
@@ -109,6 +130,7 @@ def main():
     stats["location_grade_b"] = sum((r.get("location_verification") or {}).get("grade") == "B" for r in records)
     stats["location_grade_c"] = sum((r.get("location_verification") or {}).get("grade") == "C" for r in records)
     stats["coordinate_candidates_rejected"] = coord_rejected
+    stats["geocode_address_backfills"] = geocode_address_backfills
     if QUALITY_REPORT.exists():
         try:
             quality = json.loads(QUALITY_REPORT.read_text(encoding="utf-8"))

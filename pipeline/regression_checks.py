@@ -2,7 +2,7 @@
 """Small dependency-free regression suite for bugs already seen in production."""
 from pathlib import Path
 
-from coordinate_selection import select_coordinate
+from coordinate_selection import select_coordinate, safe_geocoder_address, _nominatim_street_address
 from build_source_candidates import plausible_merchant, plausible_transaction
 from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
 from repair_raw_dates import parse_date_text
@@ -279,6 +279,29 @@ def test_map_marker_palette_matches_product_theme():
     assert "'#61609a'" in app
     assert "'executive','#0a0a0a'" not in app
 
+
+
+def test_safe_nominatim_address_backfill():
+    display = "가보정, 282, 장다리로, 인계동, 팔달구, 수원시, 경기도, 16481, 대한민국"
+    assert _nominatim_street_address(display) == "경기도 수원시 팔달구 장다리로 282"
+    record = {"name":"가보정","business":{"display":"가보정"},"origin":"경기도의회","jurisdiction":"경기도","address":""}
+    geo = {"가보정|경기도의회":{"lat":37.2,"lon":127.0,"source":"nominatim","match_mode":"name","result_name":"가보정","display_name":display}}
+    address,key = safe_geocoder_address(record, geo)
+    assert address == "경기도 수원시 팔달구 장다리로 282", (address,key)
+
+
+def test_national_generic_company_address_not_promoted():
+    record = {"name":"신화케이푸드","business":{"display":"신화케이푸드"},"origin":"중앙정부","jurisdiction":"대한민국","cohort":"central_executive","address":""}
+    geo = {"신화케이푸드|중앙정부":{"lat":37.5,"lon":127.1,"source":"nominatim","match_mode":"name","result_name":"긴자 올림픽점 (주)신화케이푸드","display_name":"긴자 올림픽점 (주)신화케이푸드, 223, 강동대로, 강동구, 서울특별시, 05407, 대한민국"}}
+    address,key = safe_geocoder_address(record, geo)
+    assert not address and not key, (address,key)
+
+
+def test_lookup_selection_does_not_leave_single_result_filter():
+    app = (ROOT / "site" / "app.js").read_text(encoding="utf-8")
+    assert "q.value='';sort.value='signal'" in app
+    assert "q.value=displayName(r)" not in app
+
 def main():
     tests = [
         test_role_column_priority,
@@ -299,6 +322,9 @@ def main():
         test_template_has_no_legacy_leaflet_runtime,
         test_responsive_map_and_compact_header,
         test_map_marker_palette_matches_product_theme,
+        test_safe_nominatim_address_backfill,
+        test_national_generic_company_address_not_promoted,
+        test_lookup_selection_does_not_leave_single_result_filter,
     ]
     for fn in tests:
         fn()
