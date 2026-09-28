@@ -992,3 +992,38 @@ body{
   outline-color:var(--yellow)!important;
   box-shadow:0 0 0 1px var(--magenta)!important;
 }
+
+/* Collision-safe marker note */
+.map-offset-note{
+  margin:7px 0 9px;padding:6px 8px;border:1px solid rgba(97,96,154,.32);border-radius:5px;
+  background:rgba(133,132,189,.10);color:var(--lilac);font-size:10px;line-height:1.35;
+}
+
+/* Restaurant lookup palette */
+.restaurant-lookup-open{height:30px;padding:0 12px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);color:var(--ink);font-weight:900;cursor:pointer;white-space:nowrap}
+.restaurant-lookup-open:hover{background:var(--pink)}
+.restaurant-lookup-backdrop{position:fixed;inset:0;z-index:6000;display:grid;place-items:start center;padding:10dvh 18px 24px;background:rgba(26,26,26,.38);opacity:0;transition:opacity .12s ease}
+.restaurant-lookup-backdrop.is-open{opacity:1}
+.restaurant-lookup{width:min(680px,96vw);max-height:min(720px,80dvh);display:flex;flex-direction:column;overflow:hidden;border:2px solid var(--ink);border-radius:8px;background:var(--paper);box-shadow:0 18px 60px rgba(26,26,26,.22)}
+.restaurant-lookup-head{display:flex;justify-content:space-between;gap:18px;padding:16px 18px 13px;border-bottom:1.5px solid var(--ink);background:var(--yellow)}
+.restaurant-lookup-head h2{margin:2px 0 4px;font-size:24px;line-height:1;letter-spacing:-.03em}
+.restaurant-lookup-head p{margin:0;font-size:11px;color:var(--muted)}
+.restaurant-lookup-close{flex:0 0 auto;width:34px;height:34px;border:1.5px solid var(--ink);border-radius:999px;background:var(--paper);font-size:23px;line-height:28px;font-weight:900;cursor:pointer}
+.restaurant-lookup-close:hover{background:var(--pink)}
+.restaurant-lookup-field{display:block;padding:14px 16px 9px}
+.restaurant-lookup-field span{display:block;margin:0 0 6px 2px;font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em}
+.restaurant-lookup-field input{width:100%;height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font-size:15px;font-weight:700;outline:none}
+.restaurant-lookup-field input:focus{border-color:var(--magenta);box-shadow:0 0 0 3px rgba(172,79,152,.13)}
+.restaurant-lookup-meta{display:flex;justify-content:space-between;gap:12px;padding:0 18px 9px;color:var(--muted);font-size:10px}
+.restaurant-lookup-results{overflow:auto;min-height:120px;padding:0 10px 10px}
+.restaurant-lookup-result{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;padding:11px 12px;margin:0 0 6px;text-align:left;border:1.5px solid rgba(26,26,26,.78);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
+.restaurant-lookup-result:hover{background:var(--pink);border-color:var(--magenta)}
+.restaurant-lookup-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px;font-weight:900}
+.restaurant-lookup-match{align-self:start;padding:2px 7px;border:1px solid var(--lilac);border-radius:999px;color:var(--lilac);font:800 9px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+.restaurant-lookup-address,.restaurant-lookup-source{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;color:var(--muted)}
+.restaurant-lookup-source{grid-column:1/-1}
+.restaurant-lookup-empty{padding:28px 16px;text-align:center;color:var(--muted);font-size:12px;line-height:1.55}
+.restaurant-lookup-empty strong{color:var(--ink)}
+@media(max-width:760px){
+  .restaurant-lookup-backdrop{padding:5dvh 8px 12px}.restaurant-lookup{width:100%;max-height:90dvh}.restaurant-lookup-head{padding:14px}.restaurant-lookup-meta{padding-left:14px;padding-right:14px}.restaurant-lookup-meta span:last-child{display:none}.restaurant-lookup-open{padding:0 9px}
+}
