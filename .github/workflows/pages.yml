@@ -54,6 +54,18 @@ jobs:
       - name: Build static site
         run: python pipeline/build_site.py --output dist/index.html
 
+      - name: Check frontend runtime syntax
+        run: |
+          node --check site/app.js
+          node --check <(python - <<'PY'
+          from pathlib import Path
+          html=Path('dist/index.html').read_text(encoding='utf-8')
+          start=html.rfind('<script>')+8
+          end=html.rfind('</script>')
+          print(html[start:end])
+          PY
+          )
+
       - name: Capture build identity
         id: buildinfo
         shell: bash

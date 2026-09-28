@@ -36,9 +36,122 @@ function cardHtml(r){const e=r.evidence||{},miss=Number.isFinite(r.lat)&&Number.
 function highlight(){for(const c of list.querySelectorAll('.restaurant-card'))c.classList.toggle('active',c.dataset.key===selected)}
 function recordByKey(k){return DATA.find(r=>key(r)===k)}
 function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:[r.lon,r.lat]},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0}}))}}
-function addLayers(){if(!map.isStyleLoaded())return;['place-labels','places','cluster-count','clusters'].forEach(id=>{if(map.getLayer(id))map.removeLayer(id)});if(map.getSource('places'))map.removeSource('places');map.addSource('places',{type:'geojson',data:geojson(),cluster:true,clusterMaxZoom:14,clusterRadius:42});map.addLayer({id:'clusters',type:'circle',source:'places',filter:['has','point_count'],paint:{'circle-color':'#171717','circle-opacity':.88,'circle-stroke-color':'#fff','circle-stroke-width':2,'circle-radius':['step',['get','point_count'],15,10,19,30,23,80,28]}});map.addLayer({id:'cluster-count',type:'symbol',source:'places',filter:['has','point_count'],layout:{'text-field':['get','point_count_abbreviated'],'text-size':12},paint:{'text-color':'#fff'}});map.addLayer({id:'places',type:'circle',source:'places',filter:['!',['has','point_count']],paint:{'circle-radius':['case',['==',['get','selected'],1],10,6.5],'circle-color':['match',['get','kind'],'executive','#0a0a0a','destination','#fff','both','#737373','#525252'],'circle-stroke-color':'#0a0a0a','circle-stroke-width':['case',['==',['get','selected'],1],4,['==',['get','kind'],'destination'],2.5,2]}});map.addLayer({id:'place-labels',type:'symbol',source:'places',filter:['!',['has','point_count']],minzoom:13.5,layout:{'text-field':['get','display'],'text-size':11,'text-offset':[0,1.25],'text-anchor':'top','text-allow-overlap':false},paint:{'text-color':'#171717','text-halo-color':'#fff','text-halo-width':1.6}});bindInteractions()}
-function bindInteractions(){if(bound)return;bound=true;map.on('click','clusters',async e=>{const f=e.features?.[0];if(!f)return;map.easeTo({center:f.geometry.coordinates,zoom:await map.getSource('places').getClusterExpansionZoom(f.properties.cluster_id)})});map.on('mouseenter','places',e=>{map.getCanvas().style.cursor='pointer';const f=e.features?.[0],r=f&&recordByKey(f.properties.id);if(!r)return;if(hoverPopup)hoverPopup.remove();hoverPopup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12}).setLngLat(f.geometry.coordinates).setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#737373;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`).addTo(map)});map.on('mouseleave','places',()=>{map.getCanvas().style.cursor='';if(hoverPopup){hoverPopup.remove();hoverPopup=null}});map.on('click','places',e=>{const f=e.features?.[0],r=f&&recordByKey(f.properties.id);if(r)selectRecord(r,false,true)})}
-function updateMap(fit=false){if(!mapReady||!map.getSource('places'))return;map.getSource('places').setData(geojson());const n=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;prog.textContent=`정적 좌표 ${n}/${current.length} · 브라우저 지오코딩 0건`;if(fit)fitMap()}
+function addLayers(){
+  if(!map.isStyleLoaded())return;
+  ['place-labels','places','place-hitbox','cluster-count','clusters'].forEach(id=>{
+    if(map.getLayer(id))map.removeLayer(id);
+  });
+  if(map.getSource('places'))map.removeSource('places');
+  map.addSource('places',{
+    type:'geojson',
+    data:geojson(),
+    cluster:true,
+    clusterMaxZoom:14,
+    clusterRadius:46
+  });
+  map.addLayer({
+    id:'clusters',
+    type:'circle',
+    source:'places',
+    filter:['has','point_count'],
+    paint:{
+      'circle-color':'#171717',
+      'circle-opacity':.9,
+      'circle-stroke-color':'#fff',
+      'circle-stroke-width':2,
+      'circle-radius':['step',['get','point_count'],16,10,20,30,24,80,29]
+    }
+  });
+  map.addLayer({
+    id:'cluster-count',
+    type:'symbol',
+    source:'places',
+    filter:['has','point_count'],
+    layout:{'text-field':['get','point_count_abbreviated'],'text-size':12},
+    paint:{'text-color':'#fff'}
+  });
+  // Invisible but generous hit target so touch/click does not depend on a tiny dot.
+  map.addLayer({
+    id:'place-hitbox',
+    type:'circle',
+    source:'places',
+    filter:['!',['has','point_count']],
+    paint:{
+      'circle-radius':['case',['==',['get','selected'],1],18,14],
+      'circle-color':'rgba(0,0,0,0.001)',
+      'circle-stroke-width':0
+    }
+  });
+  map.addLayer({
+    id:'places',
+    type:'circle',
+    source:'places',
+    filter:['!',['has','point_count']],
+    paint:{
+      'circle-radius':['case',['==',['get','selected'],1],11,7.5],
+      'circle-color':['match',['get','kind'],'executive','#0a0a0a','destination','#fff','both','#737373','#525252'],
+      'circle-stroke-color':['case',['==',['get','selected'],1],'#fff','#0a0a0a'],
+      'circle-stroke-width':['case',['==',['get','selected'],1],4,['==',['get','kind'],'destination'],2.5,2]
+    }
+  });
+  map.addLayer({
+    id:'place-labels',
+    type:'symbol',
+    source:'places',
+    filter:['!',['has','point_count']],
+    minzoom:13.5,
+    layout:{
+      'text-field':['get','display'],
+      'text-size':11,
+      'text-offset':[0,1.25],
+      'text-anchor':'top',
+      'text-allow-overlap':false
+    },
+    paint:{'text-color':'#171717','text-halo-color':'#fff','text-halo-width':1.6}
+  });
+  bindInteractions();
+}
+function bindInteractions(){
+  if(bound)return;
+  bound=true;
+  map.on('click','clusters',async e=>{
+    const f=e.features?.[0];
+    if(!f)return;
+    const zoom=await map.getSource('places').getClusterExpansionZoom(f.properties.cluster_id);
+    map.easeTo({center:f.geometry.coordinates,zoom});
+  });
+  map.on('mouseenter','place-hitbox',e=>{
+    map.getCanvas().style.cursor='pointer';
+    const f=e.features?.[0],r=f&&recordByKey(f.properties.id);
+    if(!r)return;
+    if(hoverPopup)hoverPopup.remove();
+    hoverPopup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12})
+      .setLngLat(f.geometry.coordinates)
+      .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#737373;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`)
+      .addTo(map);
+  });
+  map.on('mouseleave','place-hitbox',()=>{
+    map.getCanvas().style.cursor='';
+    if(hoverPopup){hoverPopup.remove();hoverPopup=null}
+  });
+  map.on('click','place-hitbox',e=>{
+    const f=e.features?.[0],r=f&&recordByKey(f.properties.id);
+    if(!r)return;
+    if(hoverPopup){hoverPopup.remove();hoverPopup=null}
+    // Center/zoom before the detail drawer opens so the selected marker stays visible.
+    selectRecord(r,true,true);
+  });
+}
+function updateMap(fit=false){
+  if(!mapReady||!map.isStyleLoaded())return;
+  if(!map.getSource('places'))addLayers();
+  const source=map.getSource('places');
+  if(source)source.setData(geojson());
+  const n=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;
+  const missing=current.length-n;
+  prog.textContent=`지도 표시 ${n}/${current.length}곳${missing?` · 좌표 보강 필요 ${missing}곳`:''} · 접속 시 지오코딩 0건`;
+  if(fit)fitMap();
+}
 function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
 function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){if(move)map.flyTo({center:[r.lon,r.lat],zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat([r.lon,r.lat]).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
 function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped;sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit)}
@@ -56,121 +169,16 @@ const styleBtn=document.createElement('button');styleBtn.className='map-btn';sty
 updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length}/${DATA.length} · 첫 접속 추가 지오코딩 없음`;
 
 
-/* Stable marker renderer */
-// Stable MapLibre marker renderer.
-// Restaurant markers are DOM overlays, so swapping the basemap style cannot remove them.
+/* Stable map layer lifecycle */
+// Keep a single MapLibre source/layer renderer. Basemap style swaps destroy custom
+// sources/layers, so restore them only after style.load.
 (function(){
-  const domMarkers=new Map();
-
-  function markerColors(r){
-    if(r.type==='both') return {bg:'#c94245',border:'#1a1a1a'};
-    if(r.type==='destination') return {bg:'#f4ed36',border:'#1a1a1a'};
-    if(r.type==='executive') return {bg:'#ac4f98',border:'#1a1a1a'};
-    return {bg:'#61609a',border:'#1a1a1a'};
-  }
-
-  function styleMarker(el,r){
-    const active=key(r)===selected;
-    const c=markerColors(r);
-    el.style.width=active?'16px':'11px';
-    el.style.height=active?'16px':'11px';
-    el.style.borderRadius='999px';
-    el.style.background=c.bg;
-    el.style.border=`${active?3:2}px solid ${active?'#fff':c.border}`;
-    el.style.boxShadow=active?'0 0 0 3px #1a1a1a,0 2px 8px rgba(0,0,0,.28)':'0 1px 5px rgba(0,0,0,.34)';
-    el.style.cursor='pointer';
-    el.style.padding='0';
-    el.style.margin='0';
-    el.style.outline='0';
-  }
-
-  function createDomMarker(r){
-    const el=document.createElement('button');
-    el.type='button';
-    el.setAttribute('aria-label',`${r.business?.display||r.name} 지도 마커`);
-    el.title=r.business?.display||r.name;
-    styleMarker(el,r);
-
-    el.addEventListener('mouseenter',()=>{
-      if(hoverPopup) hoverPopup.remove();
-      hoverPopup=new maplibregl.Popup({closeButton:false,closeOnClick:false,offset:12})
-        .setLngLat([r.lon,r.lat])
-        .setHTML(`<b>${esc(r.business?.display||r.name)}</b><br><span style="color:#61609a;font-size:12px">${esc(r.address||'주소 확인 필요')}</span>`)
-        .addTo(map);
-    });
-    el.addEventListener('mouseleave',()=>{
-      if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
-    });
-    el.addEventListener('click',event=>{
-      event.preventDefault();
-      event.stopPropagation();
-      selectRecord(r,false,true);
-    });
-
-    const marker=new maplibregl.Marker({element:el,anchor:'center'})
-      .setLngLat([r.lon,r.lat])
-      .addTo(map);
-    return {marker,el};
-  }
-
-  function cleanupLegacyLayers(){
-    if(!map.isStyleLoaded()) return;
-    ['place-labels','places','cluster-count','clusters'].forEach(id=>{
-      if(map.getLayer(id)) map.removeLayer(id);
-    });
-    if(map.getSource('places')) map.removeSource('places');
-  }
-
-  function renderDomMarkers(){
-    const wanted=new Set();
-    for(const r of current){
-      if(!Number.isFinite(r.lat)||!Number.isFinite(r.lon)) continue;
-      const k=key(r); wanted.add(k);
-      let item=domMarkers.get(k);
-      if(!item){
-        item=createDomMarker(r);
-        domMarkers.set(k,item);
-      }else{
-        item.marker.setLngLat([r.lon,r.lat]);
-        styleMarker(item.el,r);
-      }
-    }
-    for(const [k,item] of domMarkers){
-      if(!wanted.has(k)){
-        item.marker.remove();
-        domMarkers.delete(k);
-      }
-    }
-  }
-
-  addLayers=function(){
-    cleanupLegacyLayers();
-    renderDomMarkers();
-  };
-  bindInteractions=function(){};
-
-  fitMap=function(){
-    const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
-    if(!a.length) return;
-    const b=new maplibregl.LngLatBounds();
-    a.forEach(r=>b.extend([r.lon,r.lat]));
-    map.fitBounds(b,{padding:{top:90,bottom:45,left:45,right:45},maxZoom:12.2,duration:450});
-  };
-
-  updateMap=function(fit=false){
-    renderDomMarkers();
-    const n=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;
-    const missing=current.length-n;
-    prog.textContent=`지도 표시 ${n}/${current.length}곳${missing?` · 좌표 보강 필요 ${missing}곳`:''} · 접속 시 지오코딩 0건`;
-    if(fit) fitMap();
-  };
-
   const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
     .find(btn=>btn.textContent.trim().startsWith('지도톤'));
   let styleSwitchSeq=0;
 
   function updateStyleButton(loading=false){
-    if(!styleButton) return;
+    if(!styleButton)return;
     if(loading){
       styleButton.textContent='지도톤 · 전환 중…';
       styleButton.setAttribute('aria-busy','true');
@@ -188,53 +196,68 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
     styleButton.style.opacity='1';
   }
 
-  // Register style.load BEFORE setStyle(). The previous implementation did the
-  // opposite, so a cached/fast style could finish before the listener existed,
-  // leaving the button permanently disabled after the first click.
   switchStyle=function(){
+    const previousMode=styleMode;
     const nextMode=styleMode==='positron'?'liberty':'positron';
     const seq=++styleSwitchSeq;
-    if(hoverPopup){hoverPopup.remove();hoverPopup=null;}
+    if(hoverPopup){hoverPopup.remove();hoverPopup=null}
     if(styleButton){
       styleButton.disabled=true;
       updateStyleButton(true);
     }
 
     let finished=false;
+    let recoveryStarted=false;
     const finish=()=>{
-      if(finished||seq!==styleSwitchSeq) return;
+      if(finished||seq!==styleSwitchSeq)return;
       finished=true;
       mapReady=true;
-      cleanupLegacyLayers();
-      renderDomMarkers();
+      addLayers();
       updateMap(false);
       updateStyleButton(false);
-      if(styleButton) styleButton.disabled=false;
+      if(styleButton)styleButton.disabled=false;
+    };
+    const recover=()=>{
+      if(finished||seq!==styleSwitchSeq)return;
+      if(map.isStyleLoaded()){finish();return}
+      if(recoveryStarted){
+        // Do not strand the control if both external styles are unavailable.
+        styleMode=previousMode;
+        updateStyleButton(false);
+        if(styleButton)styleButton.disabled=false;
+        return;
+      }
+      recoveryStarted=true;
+      styleMode=previousMode;
+      map.setStyle(STYLES[previousMode]);
+      setTimeout(recover,3500);
     };
 
     map.once('style.load',finish);
+    mapReady=false;
     styleMode=nextMode;
-    map.setStyle(STYLES[styleMode]);
-
-    // Network/style errors must never strand the toggle in a disabled state.
-    setTimeout(finish,2500);
+    map.setStyle(STYLES[nextMode]);
+    setTimeout(recover,5000);
   };
 
   if(styleButton){
     styleButton.onclick=event=>{
       event.preventDefault();
-      if(styleButton.disabled) return;
+      if(styleButton.disabled)return;
       switchStyle();
     };
     updateStyleButton(false);
   }
 
-  if(map.loaded()){
-    mapReady=true;
-    cleanupLegacyLayers();
-    renderDomMarkers();
-    updateMap(false);
-  }
+  // Rebuild the custom source/layers after any style reload, including external
+  // calls not initiated by the toggle above.
+  map.on('style.load',()=>{
+    if(!mapReady)return;
+    if(!map.getSource('places')){
+      addLayers();
+      updateMap(false);
+    }
+  });
 })();
 
 
