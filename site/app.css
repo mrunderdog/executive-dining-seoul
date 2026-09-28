@@ -928,3 +928,67 @@ body{
   .data-status-metrics>div:nth-child(2n){border-right:0}
   .data-status-table th,.data-status-table td{padding:8px}
 }
+
+
+/* =========================
+   Visual QA: keep the product palette consistent without changing behavior
+   ========================= */
+.ui-v2 .map-panel{
+  background:var(--lilac)!important;
+}
+.ui-v2 #map{
+  border-color:rgba(26,26,26,.82)!important;
+}
+.ui-v2 .map-info,
+.ui-v2 .map-actions{
+  background:rgba(249,245,242,.96)!important;
+  border-color:rgba(26,26,26,.82)!important;
+}
+.ui-v2 .map-btn{
+  color:var(--ink)!important;
+  border-color:rgba(26,26,26,.82)!important;
+}
+.ui-v2 .map-btn:hover{
+  background:var(--butter)!important;
+}
+.ui-v2 .maplibregl-ctrl-group{
+  background:var(--paper)!important;
+  border-color:rgba(26,26,26,.82)!important;
+}
+.ui-v2 .maplibregl-ctrl-group button:hover{
+  background-color:var(--butter)!important;
+}
+.ui-v2 .maplibregl-popup-content{
+  background:var(--paper)!important;
+  border-color:var(--lilac)!important;
+  color:var(--ink)!important;
+}
+.ui-v2 .maplibregl-popup-tip{
+  border-top-color:var(--paper)!important;
+  border-bottom-color:var(--paper)!important;
+}
+.ui-v2 .popup .why{
+  background:var(--butter)!important;
+  border:1px solid rgba(26,26,26,.22);
+}
+.ui-v2 .popup a{
+  color:var(--lilac)!important;
+}
+.ui-v2 .restaurant-card{
+  transition:background-color .12s ease,border-color .12s ease!important;
+}
+.ui-v2 .restaurant-card:hover{
+  background:#fffdfa!important;
+}
+.ui-v2 .restaurant-card.active{
+  background:var(--yellow)!important;
+  border-color:var(--magenta)!important;
+}
+.ui-v2 .cross-showcase-card:hover{
+  background:var(--pink)!important;
+  border-color:var(--magenta)!important;
+}
+.ui-v2 .control:focus{
+  outline-color:var(--yellow)!important;
+  box-shadow:0 0 0 1px var(--magenta)!important;
+}
