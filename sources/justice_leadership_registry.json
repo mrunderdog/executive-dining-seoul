@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-23",
+  "as_of": "2026-09-28",
   "cohort": "justice_leadership",
-  "notes": "High-level legal/judicial leadership expense sources. Dining publication requires merchant-level rows; aggregate-only disclosures remain staged but are not map-publishable. Prosecution scope expanded to the Prosecutor General, all six High Prosecutors' Offices, and all 18 District Prosecutors' Offices.",
+  "notes": "High-level legal/judicial leadership expense sources. Dining publication requires merchant-level rows. Aggregate-only disclosures are tracked but not map-published; sources without a stable official public machine-download surface are explicitly manual-only so reruns stay deterministic.",
   "inherited_central_sources": [
     {
       "source_key": "ministry_justice",
@@ -106,7 +106,7 @@
     {
       "key": "supreme_court",
       "institution": "대법원",
-      "verified": false,
+      "verified": true,
       "listing_urls": [],
       "include_terms": [
         "업무추진비"
@@ -114,9 +114,13 @@
       "default_role": "대법원장",
       "format_hint": "discovery_required",
       "source_type": "official_disclosure",
-      "merchant_expectation": "merchant_level_reported",
-      "note": "Detailed Supreme Court Chief Justice expense material is known to exist, but a stable official machine-download surface is not yet pinned.",
-      "max_pages": 8
+      "merchant_expectation": "external_disclosure_only_observed",
+      "note": "Detailed Supreme Court Chief Justice expense material was disclosed to the National Assembly/press in September 2026, but no stable official public machine-download surface is available. Keep this source manual-only; do not scrape anonymized media reports into the map.",
+      "max_pages": 8,
+      "refresh_policy": "manual_only",
+      "external_reference_urls": [
+        "https://imnews.imbc.com/replay/2026/nwdesk/article/6853135_37005.html"
+      ]
     },
     {
       "key": "prosecution_high_seoul",
