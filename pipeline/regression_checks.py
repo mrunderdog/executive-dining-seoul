@@ -3,6 +3,7 @@
 from pathlib import Path
 
 from coordinate_selection import select_coordinate, safe_geocoder_address, _nominatim_street_address
+from global_entities import family_name, strict_name
 from build_source_candidates import plausible_merchant, plausible_transaction
 from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
 from repair_raw_dates import parse_date_text
@@ -302,6 +303,11 @@ def test_lookup_selection_does_not_leave_single_result_filter():
     assert "q.value='';sort.value='signal'" in app
     assert "q.value=displayName(r)" not in app
 
+
+def test_verified_name_alias_for_seolgaon():
+    assert family_name("광화문아띠/설가온") == family_name("설가온")
+    assert strict_name("광화문아띠/설가온") == strict_name("설가온")
+
 def main():
     tests = [
         test_role_column_priority,
@@ -325,6 +331,7 @@ def main():
         test_safe_nominatim_address_backfill,
         test_national_generic_company_address_not_promoted,
         test_lookup_selection_does_not_leave_single_result_filter,
+        test_verified_name_alias_for_seolgaon,
     ]
     for fn in tests:
         fn()
