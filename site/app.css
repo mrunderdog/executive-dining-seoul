@@ -36,7 +36,7 @@ body{font-family:Inter,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun
 .stat-label{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;color:var(--butter)!important;font-size:11px!important;letter-spacing:.06em!important}
 .stat-value{color:var(--paper)!important;font-size:27px!important;font-weight:900!important}
 .stat-sub{color:rgba(249,245,242,.82)!important}
-.workspace{gap:12px!important;grid-template-columns:360px minmax(520px,1fr) 410px!important;transition:grid-template-columns .22s ease}
+.workspace{display:grid!important;gap:12px!important;grid-template-columns:360px minmax(520px,1fr) 410px!important;transition:grid-template-columns .22s ease}
 .workspace.explorer-collapsed{grid-template-columns:0 minmax(650px,1fr) 410px!important}
 .workspace.explorer-collapsed .sidebar{opacity:0;pointer-events:none;border-width:0!important}
 .sidebar{background:var(--paper)!important;transition:opacity .18s ease}
