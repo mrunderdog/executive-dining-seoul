@@ -12,6 +12,47 @@ function esc(s){return(s??'').toString().replaceAll('&','&amp;').replaceAll('<',
 function won(n){return Number(n||0).toLocaleString('ko-KR')+'원'}
 function shortWon(n){n=Number(n||0);if(n>=1e8)return(n/1e8).toFixed(1).replace('.0','')+'억';if(n>=1e4)return Math.round(n/1e4).toLocaleString('ko-KR')+'만';return n.toLocaleString('ko-KR')}
 function pct(v){return Math.round(Number(v||0)*100)+'%'}function key(r){return r.entity_id||r.name+'|'+r.origin}function sourceLabel(r){const a=r.origins||[r.origin];return a.filter(Boolean).join(' · ')}function googleUrl(r){return'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r.search_query)}
+function meterDistance(a,b){
+  const lat=(Number(a.lat)+Number(b.lat))*Math.PI/360;
+  const dy=(Number(a.lat)-Number(b.lat))*111320;
+  const dx=(Number(a.lon)-Number(b.lon))*111320*Math.cos(lat);
+  return Math.hypot(dx,dy);
+}
+function buildDisplayCoordinateIndex(records,thresholdMeters=8){
+  const pts=records.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
+  const parent=pts.map((_,i)=>i);
+  const find=i=>{while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i]}return i};
+  const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a};
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      if(Math.abs(pts[i].lat-pts[j].lat)>.00015||Math.abs(pts[i].lon-pts[j].lon)>.00018)continue;
+      if(meterDistance(pts[i],pts[j])<=thresholdMeters)union(i,j);
+    }
+  }
+  const groups=new Map();
+  pts.forEach((r,i)=>{const root=find(i);if(!groups.has(root))groups.set(root,[]);groups.get(root).push(r)});
+  const out=new Map();
+  let collisionGroups=0,collisionRecords=0;
+  for(const group of groups.values()){
+    if(group.length===1){const r=group[0];out.set(key(r),{lon:r.lon,lat:r.lat,offset:false,groupSize:1});continue}
+    collisionGroups++;collisionRecords+=group.length;
+    const ordered=[...group].sort((a,b)=>key(a).localeCompare(key(b),'ko-KR'));
+    const n=ordered.length;
+    const radius=Math.min(58,Math.max(20,20+6*(n-2)));
+    const centerLat=ordered.reduce((s,r)=>s+r.lat,0)/n;
+    const centerLon=ordered.reduce((s,r)=>s+r.lon,0)/n;
+    ordered.forEach((r,i)=>{
+      const angle=-Math.PI/2+(Math.PI*2*i/n);
+      const north=Math.cos(angle)*radius;
+      const east=Math.sin(angle)*radius;
+      out.set(key(r),{lon:centerLon+east/(111320*Math.cos(centerLat*Math.PI/180)),lat:centerLat+north/111320,offset:true,groupSize:n});
+    });
+  }
+  return {coordinates:out,collisionGroups,collisionRecords};
+}
+const DISPLAY_LAYOUT=buildDisplayCoordinateIndex(DATA);
+function mapCoordinate(r){const p=DISPLAY_LAYOUT.coordinates.get(key(r));return p?[p.lon,p.lat]:[r.lon,r.lat]}
+function markerWasOffset(r){return !!DISPLAY_LAYOUT.coordinates.get(key(r))?.offset}
 function signalScore(r){return Math.max(r.destination?.score||0,r.executive?.score||0,r.cross_institution?.score||0)}
 function scoreLabel(r){const p=[];if(r.destination)p.push(`목적지 ${r.destination.score}`);if(r.executive)p.push(`반복 ${r.executive.score}`);if(r.cross_institution?.is_cross)p.push(`교차 ${r.cross_institution.score||0}`);return p.join(' · ')||'-'}
 function pass(r){const d=ds.value,o=ori.value,s=q.value.trim().toLowerCase();if(d==='both'&&r.type!=='both')return false;if(d==='destination'&&!r.destination)return false;if(d==='executive'&&!r.executive)return false;if(d==='consensus'&&!r.cross_institution?.is_cross)return false;if(d==='cross_origin'&&!(r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2))return false;if(d==='top_official'&&!(r.executive?.top_official_visits>0))return false;if(d==='regional_head'&&!(((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0))>0))return false;const origins=r.origins||[r.origin];if(o!=='all'&&!origins.includes(o))return false;return !s||[r.name,r.business?.display,r.address,...origins,...(r.institutions||[]),r.business?.category,r.why].join(' ').toLowerCase().includes(s)}
@@ -28,14 +69,14 @@ function sortRecords(a){return a.sort((x,y)=>{
   if(sort.value==='regional_head')return((y.executive?.mayor_visits||0)+(y.executive?.vice_mayor_visits||0))-((x.executive?.mayor_visits||0)+(x.executive?.vice_mayor_visits||0))||signalScore(y)-signalScore(x);
   return signalScore(y)-signalScore(x)||(y.evidence?.visits||0)-(x.evidence?.visits||0);
 })}
-function popupHtml(r){const e=r.evidence||{},roles=(e.roles||[]).slice(0,3).map(x=>`${esc(x.role)} ${x.visits}회`).join(' · ');return`<div class="popup"><h3>${esc(r.business?.display||r.name)}</h3><div class="muted">${esc(r.business?.category||'업종 확인 필요')} · ${esc(r.address||'주소 확인 필요')}</div><div class="why"><b>왜 선정됐나</b><br>${esc(r.why||'-')}</div><b>원자료</b> ${e.visits||0}회 · ${won(e.spend||0)}<br><b>직책</b> ${roles||'-'}<br><a href="${googleUrl(r)}" target="_blank" rel="noopener">Google Maps에서 확인</a></div>`}
+function popupHtml(r){const e=r.evidence||{},roles=(e.roles||[]).slice(0,3).map(x=>`${esc(x.role)} ${x.visits}회`).join(' · '),offsetNote=markerWasOffset(r)?'<div class="map-offset-note">※ 겹침 방지를 위해 지도 표시만 소폭 분리했습니다.</div>':'';return`<div class="popup"><h3>${esc(r.business?.display||r.name)}</h3><div class="muted">${esc(r.business?.category||'업종 확인 필요')} · ${esc(r.address||'주소 확인 필요')}</div><div class="why"><b>왜 선정됐나</b><br>${esc(r.why||'-')}</div>${offsetNote}<b>원자료</b> ${e.visits||0}회 · ${won(e.spend||0)}<br><b>직책</b> ${roles||'-'}<br><a href="${googleUrl(r)}" target="_blank" rel="noopener">Google Maps에서 확인</a></div>`}
 function renderEmpty(){detail.innerHTML='<div class="empty-detail"><div><strong>식당을 선택하세요</strong>왼쪽 목록이나 지도 마커를 누르면 업체 정보와 선정 근거를 표시합니다.</div></div>'}
 function renderDetail(r){if(!r){renderEmpty();return}const e=r.evidence||{},b=r.business||{},cross=r.cross_institution||{},roles=(e.roles||[]).map(x=>`<div class="role-row"><span><b>${esc(x.role)}</b><br><span style="color:var(--muted)">${x.visits}회 · ${x.people}명</span></span><span>${won(x.spend)}</span></div>`).join(''),pur=(e.purposes||[]).map(x=>`<div class="visit-row"><div class="date">${esc(x.text)}</div><div class="meta">${x.count}회 확인</div></div>`).join(''),vis=(e.recent||[]).map(x=>`<div class="visit-row"><div class="date">${esc(x.date)} ${esc(x.time)}</div><div class="meta">${esc(x.role)} · ${x.people}명 · ${won(x.amount)}<br>${esc(x.purpose)}${x.source?`<br><a href="${esc(x.source)}" target="_blank" rel="noopener">공식 원자료 보기</a>`:''}</div></div>`).join('');detail.innerHTML=`<div class="detail-top"><div><h2>${esc(b.display||r.name)}</h2><div class="detail-category">${esc(b.category||'업종 확인 필요')} · ${esc(sourceLabel(r))}</div></div><div class="detail-score">${esc(scoreLabel(r))}<br>${r.type==='both'?'Destination + Executive':r.type==='destination'?'Destination VIP':'Executive Repeat'}</div></div><div class="why-card"><div class="why-title">Why selected</div><div class="why-text">${esc(r.why||'선정 근거 요약 없음')}</div></div><div class="action-row"><a class="btn primary" href="${googleUrl(r)}" target="_blank" rel="noopener">Google Maps</a>${b.url?`<a class="btn ghost" href="${esc(b.url)}" target="_blank" rel="noopener">업체 정보 출처</a>`:''}</div>${cross.is_cross?`<div class="detail-section"><h3>교차기관 선택</h3><div class="cross-grid">${(cross.by_origin||[]).map(x=>`<div class="cross-row"><span><b>${esc(x.origin)}</b></span><span>${Number(x.visits||0).toLocaleString('ko-KR')}회 · ${shortWon(x.spend||0)}원</span></div>`).join('')}</div><div class="method-note">Consensus ${cross.score||0} · ${cross.institution_count||0}개 기관 · ${cross.source_count||0}개 출처 · ${cross.cohort_count||0}개 계층에서 동일 물리 식당으로 통합되었습니다.</div></div>`:''}<div class="detail-section"><h3>업체 정보</h3><div class="detail-grid"><div class="k">위치 검증</div><div class="v">${esc((r.location_verification||{}).label||'미분류')}</div><div class="k">주소</div><div class="v">${esc(r.address||'확인 필요')}</div><div class="k">전화</div><div class="v">${esc(b.phone||'-')}</div><div class="k">현재 업소</div><div class="v">${esc(b.status||'자동 확인 미실시')}</div><div class="k">업체정보 확인</div><div class="v">${b.verified_at?esc(b.verified_at+(b.verification_confidence?' · '+b.verification_confidence:'')):'별도 검증 기록 없음'}</div><div class="k">평점 정보</div><div class="v">${esc(b.rating||'-')}</div><div class="k">메모</div><div class="v">${esc(b.note||'-')}</div></div></div><div class="detail-section"><h3>업무추진비 원자료</h3><div class="metric-grid"><div class="metric-card"><div class="label">Visits</div><div class="value">${e.visits||0}회</div></div><div class="metric-card"><div class="label">Spend</div><div class="value">${shortWon(e.spend||0)}원</div></div><div class="metric-card"><div class="label">People</div><div class="value">${Number(e.people||0).toLocaleString('ko-KR')}명</div></div><div class="metric-card"><div class="label">Evening</div><div class="value">${pct(e.evening_ratio||0)}</div></div></div><div class="detail-grid" style="margin-top:12px"><div class="k">방문 기간</div><div class="v">${esc(e.date_min||'-')} ~ ${esc(e.date_max||'-')}</div><div class="k">방문 월</div><div class="v">${e.months||0}개월</div><div class="k">가중 1인당</div><div class="v">${won(e.ppc||0)}</div></div></div><div class="detail-section"><h3>어떤 공무원들이 갔나</h3>${roles||'<div class="method-note">원자료 매칭 정보 없음</div>'}</div><div class="detail-section"><h3>주요 집행 목적</h3>${pur||'<div class="method-note">목적 정보 없음</div>'}</div><div class="detail-section"><h3>최근 방문 원자료</h3>${vis||'<div class="method-note">방문내역 없음</div>'}</div><div class="method-note">※ 이 서비스의 점수는 식당의 맛이나 품질을 평가하는 평점이 아닙니다.</div>`}
 function badges(r){const a=[];const vg=r.location_verification||{};if(vg.grade)a.push(`<span class="badge ${vg.grade==='A'?'soft':'outline'}" title="A=주소와 좌표 확인 · B=좌표만 확인 · C=원자료 사용처만 확인">위치 ${esc(vg.grade)}</span>`);a.push(r.type==='both'?'<span class="badge solid">Destination + Executive</span>':r.type==='destination'?'<span class="badge outline">Destination VIP</span>':'<span class="badge solid">Executive Repeat</span>');if(r.cross_institution?.is_cross)a.push(`<span class="badge cross">기관 교차 ${r.cross_institution.institution_count}</span>`);if((r.executive?.top_official_visits||0)>0)a.push(`<span class="badge outline">${esc(r.executive.top_role_label||'장·차관급')} ${r.executive.top_official_visits}회</span>`);if((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0)>0)a.push(`<span class="badge outline">시장·부시장 ${(r.executive.mayor_visits||0)+(r.executive.vice_mayor_visits||0)}회</span>`);a.push(`<span class="badge soft">${esc(r.business?.category||'업종 확인 필요')}</span>`);return a.join('')}
 function cardHtml(r){const e=r.evidence||{},miss=Number.isFinite(r.lat)&&Number.isFinite(r.lon)?'':' · 좌표 미확인';return`<div class="card-head"><div class="card-title">${esc(r.business?.display||r.name)}</div><div class="score" title="맛 평점이 아닌 공개 지출기록 기반 신호 점수입니다. 반복=반복·고위직 사용, 교차=복수 기관 선택, 목적지=관외·목적지 선택">${esc(scoreLabel(r))}</div></div><div class="badge-row">${badges(r)}</div><div class="card-meta">${esc(r.address||'주소 확인 필요')}<br>${esc(sourceLabel(r))}${r.cross_institution?.is_cross?' · 기관 교차 선택':''}${miss}</div><div class="card-metrics"><div class="mini-metric"><div class="mini-label">방문</div><div class="mini-value">${e.visits||0}회</div></div><div class="mini-metric"><div class="mini-label">집행액</div><div class="mini-value">${shortWon(e.spend||0)}원</div></div><div class="mini-metric"><div class="mini-label">저녁</div><div class="mini-value">${pct(e.evening_ratio||0)}</div></div></div>`}
 function highlight(){for(const c of list.querySelectorAll('.restaurant-card'))c.classList.toggle('active',c.dataset.key===selected)}
 function recordByKey(k){return DATA.find(r=>key(r)===k)}
-function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:[r.lon,r.lat]},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0}}))}}
+function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:mapCoordinate(r)},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0,offset:markerWasOffset(r)?1:0}}))}}
 function addLayers(){
   if(!map.isStyleLoaded())return;
   ['place-labels','places','place-halo','place-hitbox','cluster-count','clusters'].forEach(id=>{
@@ -137,7 +178,7 @@ function updateMap(fit=false){
   if(fit)fitMap();
 }
 function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
-function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){if(move)map.flyTo({center:[r.lon,r.lat],zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat([r.lon,r.lat]).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
+function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){const point=mapCoordinate(r);if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
 function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped;sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit)}
 function updateStats(){const visits=DATA.reduce((s,r)=>s+Number(r.evidence?.visits||0),0),spend=DATA.reduce((s,r)=>s+Number(r.evidence?.spend||0),0),exec=DATA.filter(r=>!!r.executive).length;$('statRestaurants').textContent=(STATS.total||DATA.length).toLocaleString('ko-KR');$('statVisits').textContent=visits.toLocaleString('ko-KR');$('statSpend').textContent=shortWon(spend)+'원';$('statExec').textContent=exec.toLocaleString('ko-KR')}
 function clearSelection(){
@@ -322,7 +363,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
       showcase.className='cross-showcase cross-showcase-v2';
       topbar.insertAdjacentElement('afterend',showcase);
     }
-    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
+    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="restaurant-lookup-open" id="restaurantLookupBtn">식당 찾기</button><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
     const track=showcase.querySelector('.cross-showcase-track');
 
     crossOrigin.forEach(r=>{
@@ -509,4 +550,53 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
   // Initial empty detail is now hidden off-canvas rather than reserving a third column.
   workspace.classList.remove('detail-open');
   sync();
+})();
+
+/* Restaurant lookup: global existence search, independent from Explore filters. */
+(function(){
+  const openBtn=$('restaurantLookupBtn'),backdrop=$('restaurantLookupBackdrop'),closeBtn=$('restaurantLookupClose');
+  const input=$('restaurantLookupInput'),results=$('restaurantLookupResults'),count=$('restaurantLookupCount');
+  if(!openBtn||!backdrop||!closeBtn||!input||!results||!count)return;
+  function normalizeLookup(v){return String(v||'').normalize('NFKC').toLowerCase().replace(/[\\s\\-_.·,()\\[\\]{}'\"]/g,'')}
+  function namesFor(r){return [r.name,r.business?.display,...(r.aliases||[]),...(r.business?.aliases||[])].filter(Boolean)}
+  function matchLookup(r,query){
+    const qn=normalizeLookup(query);if(!qn)return null;
+    const normalized=namesFor(r).map(normalizeLookup);
+    let rank=0,label='';
+    if(normalized.some(v=>v===qn)){rank=400;label='정확 일치'}
+    else if(normalized.some(v=>v.startsWith(qn))){rank=320;label='이름 앞부분'}
+    else if(normalized.some(v=>v.includes(qn))){rank=260;label='이름 포함'}
+    else{
+      const meta=normalizeLookup([r.address,r.business?.category,sourceLabel(r),...(r.institutions||[])].filter(Boolean).join(' '));
+      if(meta.includes(qn)){rank=140;label='주소·업종·기관'}
+    }
+    return rank?{r,rank,label}:null;
+  }
+  function renderLookup(){
+    const raw=input.value.trim(),qn=normalizeLookup(raw);
+    if(!qn){
+      count.textContent='식당명을 입력하세요';
+      results.innerHTML='<div class="restaurant-lookup-empty">알고 있는 식당 이름을 입력하면 현재 수집 데이터 전체에서 찾습니다.</div>';
+      return;
+    }
+    const matches=DATA.map(r=>matchLookup(r,raw)).filter(Boolean).sort((a,b)=>b.rank-a.rank||signalScore(b.r)-signalScore(a.r)||(b.r.evidence?.visits||0)-(a.r.evidence?.visits||0)||displayName(a.r).localeCompare(displayName(b.r),'ko-KR'));
+    count.textContent=matches.length?(matches.length.toLocaleString('ko-KR')+'개 결과 · 상위 '+Math.min(matches.length,10)+'개 표시'):'현재 수집 데이터에는 없음';
+    if(!matches.length){
+      results.innerHTML='<div class="restaurant-lookup-empty"><strong>“'+esc(raw)+'”</strong>과 일치하는 식당을 찾지 못했습니다.<br><span>띄어쓰기나 지점명을 줄여 다시 검색해보세요.</span></div>';
+      return;
+    }
+    results.innerHTML=matches.slice(0,10).map(({r,label})=>'<button type="button" class="restaurant-lookup-result" data-key="'+esc(key(r))+'"><span class="restaurant-lookup-name">'+esc(displayName(r))+'</span><span class="restaurant-lookup-match">'+esc(label)+'</span><span class="restaurant-lookup-address">'+esc(r.address||'주소 확인 필요')+'</span><span class="restaurant-lookup-source">'+esc(sourceLabel(r))+' · '+Number(r.evidence?.visits||0).toLocaleString('ko-KR')+'회</span></button>').join('');
+    results.querySelectorAll('.restaurant-lookup-result').forEach(btn=>{btn.onclick=()=>{
+      const r=recordByKey(btn.dataset.key);if(!r)return;
+      ds.value='all';ori.value='all';q.value=displayName(r);
+      clearSelection();renderList(false);selectRecord(r,true,true);closeLookup();
+      requestAnimationFrame(()=>list.querySelector('.restaurant-card.active')?.scrollIntoView({block:'nearest',behavior:'smooth'}));
+    }});
+  }
+  function openLookup(){backdrop.hidden=false;requestAnimationFrame(()=>backdrop.classList.add('is-open'));input.value='';renderLookup();setTimeout(()=>input.focus(),20)}
+  function closeLookup(){backdrop.classList.remove('is-open');setTimeout(()=>{backdrop.hidden=true},120)}
+  openBtn.onclick=openLookup;closeBtn.onclick=closeLookup;
+  backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeLookup()});
+  input.addEventListener('input',renderLookup);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!backdrop.hidden)closeLookup()});
 })();

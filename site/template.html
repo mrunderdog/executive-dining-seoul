@@ -25,7 +25,7 @@
   <section id="crossShowcase" class="cross-showcase cross-showcase-v2">
     <div class="cross-showcase-head">
       <div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div>
-      <div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 보기</button></div>
+      <div class="cross-head-actions"><button type="button" class="restaurant-lookup-open" id="restaurantLookupBtn">식당 찾기</button><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 보기</button></div>
     </div>
     <div class="cross-showcase-track cross-loading" aria-label="기관 교차 선택 식당 목록"><span>교차 선택 데이터를 불러오는 중…</span></div>
   </section>
@@ -61,6 +61,26 @@
     </aside>
   </div>
 </div>
+  <div class="restaurant-lookup-backdrop" id="restaurantLookupBackdrop" hidden>
+    <section class="restaurant-lookup" role="dialog" aria-modal="true" aria-labelledby="restaurantLookupTitle">
+      <div class="restaurant-lookup-head">
+        <div>
+          <div class="section-eyebrow">RESTAURANT LOOKUP</div>
+          <h2 id="restaurantLookupTitle">이 식당이 기록에 있나요?</h2>
+          <p>정확한 이름을 먼저 찾고, 없으면 비슷한 이름·주소·업종까지 포함해서 찾습니다.</p>
+        </div>
+        <button type="button" class="restaurant-lookup-close" id="restaurantLookupClose" aria-label="검색 닫기">×</button>
+      </div>
+      <label class="restaurant-lookup-field" for="restaurantLookupInput">
+        <span>식당명 검색</span>
+        <input id="restaurantLookupInput" type="search" autocomplete="off" placeholder="예: 싱카이, 하동관, 남도마루">
+      </label>
+      <div class="restaurant-lookup-meta"><span id="restaurantLookupCount">식당명을 입력하세요</span><span>정확 일치 우선 · 포함 검색</span></div>
+      <div class="restaurant-lookup-results" id="restaurantLookupResults">
+        <div class="restaurant-lookup-empty">알고 있는 식당 이름을 입력하면 현재 수집 데이터 전체에서 찾습니다.</div>
+      </div>
+    </section>
+  </div>
 <!-- APP_RUNTIME -->
 </body>
 </html>

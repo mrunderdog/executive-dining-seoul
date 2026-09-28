@@ -104,7 +104,10 @@ for (let i = 0; i < 60; i++) {
       width: rect.width,
       height: rect.height,
       zoom: map.getZoom(),
-      center: [map.getCenter().lng,map.getCenter().lat]
+      center: [map.getCenter().lng,map.getCenter().lat],
+      collisionGroups: typeof DISPLAY_LAYOUT!=='undefined' ? DISPLAY_LAYOUT.collisionGroups : -1,
+      collisionRecords: typeof DISPLAY_LAYOUT!=='undefined' ? DISPLAY_LAYOUT.collisionRecords : -1,
+      lookupReady: !!document.getElementById('restaurantLookupBtn') && !!document.getElementById('restaurantLookupInput')
     };
   })()`);
   if (snapshot?.sourceLoaded && ((snapshot?.renderedLayerCounts?.places||0)+(snapshot?.renderedLayerCounts?.clusters||0)) > 0) break;
@@ -126,6 +129,31 @@ if (snapshot.width < 400 || snapshot.height < 300) {
 const renderedMarkers=(snapshot.renderedLayerCounts?.places||0)+(snapshot.renderedLayerCounts?.clusters||0);
 if (renderedMarkers < 1) {
   throw new Error('zero rendered restaurant markers/clusters');
+}
+if (snapshot.collisionGroups < 1 || snapshot.collisionRecords < 2) {
+  throw new Error('collision-safe display layout did not detect overlapping markers');
+}
+if (!snapshot.lookupReady) {
+  throw new Error('restaurant lookup UI is missing');
+}
+
+const lookupCheck=await evaluate(`(() => {
+  const btn=document.getElementById('restaurantLookupBtn');
+  btn.click();
+  const input=document.getElementById('restaurantLookupInput');
+  input.value='싱카이';
+  input.dispatchEvent(new Event('input',{bubbles:true}));
+  const names=[...document.querySelectorAll('.restaurant-lookup-result .restaurant-lookup-name')].map(x=>x.textContent.trim());
+  const target=DATA.filter(r=>String(r.name||'').includes('싱카이')||String(r.business?.display||'').includes('싱카이'));
+  const coords=target.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>mapCoordinate(r).map(v=>Number(v).toFixed(7)).join(','));
+  return {names, targetCount:target.length, uniqueTargetCoords:new Set(coords).size};
+})()`);
+console.log('LOOKUP_SMOKE',JSON.stringify(lookupCheck));
+if (!lookupCheck.names.some(n=>n.includes('싱카이'))) {
+  throw new Error('restaurant lookup failed to return 싱카이');
+}
+if (lookupCheck.targetCount > 1 && lookupCheck.uniqueTargetCoords < 2) {
+  throw new Error('overlapping 싱카이 markers were not separated');
 }
 
 ws.close();
