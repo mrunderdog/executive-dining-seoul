@@ -1,0 +1,28 @@
+name: Enrichment backlog QA
+
+on:
+  push:
+    branches:
+      - data/enrichment-batch-2
+
+permissions:
+  contents: read
+
+jobs:
+  backlog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build backlog
+        run: |
+          python pipeline/build_enrichment_backlog.py --limit 80
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/enrichment-backlog.json',encoding='utf-8'))
+          print('SUMMARY',json.dumps({k:d[k] for k in ['total_records','safe_address_backfills','missing_address','missing_category','missing_phone','missing_url']},ensure_ascii=False))
+          for i,r in enumerate(d['backlog'][:40],1):
+              print('ROW',i,json.dumps(r,ensure_ascii=False))
+          PY
