@@ -79,7 +79,7 @@ body{font-family:Inter,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun
 .explorer-toggle .state-open,.workspace.explorer-collapsed~.explorer-toggle .state-closed{display:inline}
 .explorer-toggle .state-closed,.workspace.explorer-collapsed~.explorer-toggle .state-open{display:none}
 .legend-dot.exec{background:var(--magenta)!important}.legend-dot.dest{background:var(--yellow)!important}.legend-dot.both{background:var(--red)!important}
-@media(max-width:1120px){.workspace,.workspace.explorer-collapsed{grid-template-columns:1fr!important}.workspace.explorer-collapsed .sidebar{display:none}.brand h1{font-size:36px!important}}
+@media(max-width:960px){.workspace,.workspace.explorer-collapsed{grid-template-columns:1fr!important}.workspace.explorer-collapsed .sidebar{display:none}.brand h1{font-size:36px!important}}
 
 /* Global entity / cross-institution UI */
 .brand,.stats,.stat{min-width:0}
@@ -106,7 +106,7 @@ body>.explorer-toggle{left:18px;bottom:18px}
 }
 
 /* Compact explorer: keep filters useful without hiding the restaurant list */
-@media(min-width:1001px){
+@media(min-width:961px){
   .filters{
     padding:16px 18px 12px!important;
   }
@@ -267,7 +267,7 @@ body{
 
 /* The desktop workspace should use the remainder of the viewport, not create
    another implicit page section below the fold. */
-@media(min-width:1121px){
+@media(min-width:961px){
   .workspace{
     height:max(620px,calc(100dvh - 330px));
     min-height:620px!important;
@@ -282,7 +282,7 @@ body{
 /* On narrower screens switch back to a normal document flow.  Explicitly
    reset the base template's fixed grid rows, otherwise the injected showcase
    leaves oversized/overlapping panels. */
-@media(max-width:1120px){
+@media(max-width:960px){
   body{
     overflow:auto!important;
   }
@@ -404,42 +404,60 @@ body{
   gap:10px!important;
 }
 .ui-v2 .topbar{
-  padding:12px 16px!important;
-  grid-template-columns:minmax(0,1.45fr) minmax(420px,.9fr)!important;
-  gap:18px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(420px,560px)!important;
+  gap:14px!important;
   align-items:center!important;
+  padding:10px 14px!important;
+  min-height:0!important;
+}
+.ui-v2 .brand{
+  min-width:0!important;
 }
 .ui-v2 .brand-kicker{
-  font-size:10px!important;
-  margin-bottom:3px!important;
+  font-size:9px!important;
+  margin-bottom:2px!important;
 }
 .ui-v2 .brand h1{
-  font-size:34px!important;
+  margin:0!important;
+  font-size:30px!important;
   line-height:1!important;
 }
 .ui-v2 .brand p{
-  margin-top:5px!important;
-  font-size:13px!important;
+  margin:5px 0 0!important;
+  max-width:920px!important;
+  font-size:12px!important;
   line-height:1.35!important;
 }
 .ui-v2 .brand-tagline{
-  margin-top:4px!important;
-  font-size:12px!important;
+  display:none!important;
 }
 .ui-v2 .stats{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
   gap:0!important;
+  min-width:0!important;
+  align-items:stretch!important;
 }
 .ui-v2 .stat{
-  padding:4px 10px!important;
+  padding:3px 10px!important;
+  min-width:0!important;
 }
 .ui-v2 .stat-label{
   font-size:9px!important;
+  white-space:nowrap;
 }
 .ui-v2 .stat-value{
+  margin-top:1px!important;
   font-size:20px!important;
+  line-height:1.05!important;
+  white-space:nowrap;
 }
 .ui-v2 .stat-sub{
-  font-size:10px!important;
+  margin-top:2px!important;
+  font-size:9px!important;
+  line-height:1.2!important;
+  white-space:nowrap;
 }
 
 .ui-v2 .cross-showcase-v2{
@@ -518,7 +536,7 @@ body{
 }
 
 /* Two-pane desktop workspace. Detail lives above the map as a drawer. */
-@media(min-width:1121px){
+@media(min-width:961px){
   .ui-v2 .workspace{
     position:relative!important;
     grid-template-columns:minmax(300px,340px) minmax(0,1fr)!important;
@@ -682,7 +700,7 @@ body{
 }
 
 /* Short-height desktop mode: preserve working room for the venue list/map. */
-@media(min-width:1121px) and (max-height:850px){
+@media(min-width:961px) and (max-height:850px){
   .ui-v2 .topbar{
     padding:9px 14px!important;
   }
@@ -712,9 +730,24 @@ body{
 }
 
 /* Mobile/tablet: detail becomes normal stacked content again. */
-@media(max-width:1120px){
+@media(max-width:960px){
   .ui-v2 .topbar{
+    display:grid!important;
     grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .ui-v2 .stats{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  .ui-v2 .map-panel{
+    display:block!important;
+    visibility:visible!important;
+    min-height:430px!important;
+  }
+  .ui-v2 #map{
+    display:block!important;
+    visibility:visible!important;
+    min-height:430px!important;
   }
   .ui-v2 .cross-showcase-track{
     display:flex!important;
