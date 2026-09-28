@@ -11,6 +11,7 @@ on:
       - 'pipeline/ingest_central_executive_expense.py'
       - 'pipeline/justice_leadership_discovery.py'
       - 'pipeline/ingest_justice_leadership_expense.py'
+      - 'pipeline/refresh_justice.py'
       - 'pipeline/ingest_gyeonggi_executive.py'
       - 'pipeline/ingest_incheon_executive.py'
       - '.github/workflows/monthly.yml'
@@ -48,10 +49,7 @@ jobs:
           python pipeline/build_central_executive_candidates.py
 
       - name: Smoke justice incremental
-        run: |
-          python pipeline/justice_leadership_discovery.py --incremental
-          python pipeline/ingest_justice_leadership_expense.py --incremental
-          python pipeline/build_justice_leadership_candidates.py
+        run: python pipeline/refresh_justice.py --mode incremental
 
       - name: Verify publication pipeline
         run: |
