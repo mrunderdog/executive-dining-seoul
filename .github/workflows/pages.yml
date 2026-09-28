@@ -57,14 +57,14 @@ jobs:
       - name: Check frontend runtime syntax
         run: |
           node --check site/app.js
-          node --check <(python - <<'PY'
+          python - <<'PY'
           from pathlib import Path
           html=Path('dist/index.html').read_text(encoding='utf-8')
           start=html.rfind('<script>')+8
           end=html.rfind('</script>')
-          print(html[start:end])
+          Path('/tmp/executive-dining-runtime.js').write_text(html[start:end], encoding='utf-8')
           PY
-          )
+          node --check /tmp/executive-dining-runtime.js
 
       - name: Capture build identity
         id: buildinfo
