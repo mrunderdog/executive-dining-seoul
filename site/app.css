@@ -1052,20 +1052,6 @@ body{
   justify-content:space-between;
   gap:8px;
 }
-.summary-all-restaurants{
-  flex:0 0 auto;
-  height:26px;
-  padding:0 9px;
-  border:1.5px solid var(--ink);
-  border-radius:999px;
-  background:var(--paper);
-  color:var(--ink);
-  font-size:10px;
-  font-weight:900;
-  cursor:pointer;
-}
-.summary-all-restaurants:hover{background:var(--yellow)}
 @media(max-width:760px){
   .filters-head .restaurant-lookup-open{font-size:9px;padding:0 8px}
-  .summary-all-restaurants{font-size:9px;padding:0 7px}
 }
