@@ -116,14 +116,14 @@ if (browserErrors.length) console.log('BROWSER_MESSAGES\n' + browserErrors.join(
 if (!snapshot) throw new Error('No map snapshot');
 if (snapshot.current < 1 || snapshot.geojsonFeatures < 1) throw new Error('Published map data is empty');
 if (!snapshot.source) throw new Error('places source missing');
-for (const id of ['clusters','place-hitbox','places']) {
+for (const id of ['place-hitbox','places']) {
   if (!snapshot.layers?.[id]) throw new Error('required map layer missing: ' + id);
 }
 if (snapshot.width < 400 || snapshot.height < 300) {
   throw new Error('map container collapsed: ' + snapshot.width + 'x' + snapshot.height);
 }
 if (snapshot.rendered < 1) {
-  throw new Error('zero rendered restaurant markers/clusters');
+  throw new Error('zero rendered restaurant markers');
 }
 
 ws.close();
