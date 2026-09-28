@@ -12,6 +12,47 @@ function esc(s){return(s??'').toString().replaceAll('&','&amp;').replaceAll('<',
 function won(n){return Number(n||0).toLocaleString('ko-KR')+'원'}
 function shortWon(n){n=Number(n||0);if(n>=1e8)return(n/1e8).toFixed(1).replace('.0','')+'억';if(n>=1e4)return Math.round(n/1e4).toLocaleString('ko-KR')+'만';return n.toLocaleString('ko-KR')}
 function pct(v){return Math.round(Number(v||0)*100)+'%'}function key(r){return r.entity_id||r.name+'|'+r.origin}function sourceLabel(r){const a=r.origins||[r.origin];return a.filter(Boolean).join(' · ')}function googleUrl(r){return'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r.search_query)}
+function meterDistance(a,b){
+  const lat=(Number(a.lat)+Number(b.lat))*Math.PI/360;
+  const dy=(Number(a.lat)-Number(b.lat))*111320;
+  const dx=(Number(a.lon)-Number(b.lon))*111320*Math.cos(lat);
+  return Math.hypot(dx,dy);
+}
+function buildDisplayCoordinateIndex(records,thresholdMeters=8){
+  const pts=records.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));
+  const parent=pts.map((_,i)=>i);
+  const find=i=>{while(parent[i]!==i){parent[i]=parent[parent[i]];i=parent[i]}return i};
+  const union=(a,b)=>{a=find(a);b=find(b);if(a!==b)parent[b]=a};
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      if(Math.abs(pts[i].lat-pts[j].lat)>.00015||Math.abs(pts[i].lon-pts[j].lon)>.00018)continue;
+      if(meterDistance(pts[i],pts[j])<=thresholdMeters)union(i,j);
+    }
+  }
+  const groups=new Map();
+  pts.forEach((r,i)=>{const root=find(i);if(!groups.has(root))groups.set(root,[]);groups.get(root).push(r)});
+  const out=new Map();
+  let collisionGroups=0,collisionRecords=0;
+  for(const group of groups.values()){
+    if(group.length===1){const r=group[0];out.set(key(r),{lon:r.lon,lat:r.lat,offset:false,groupSize:1});continue}
+    collisionGroups++;collisionRecords+=group.length;
+    const ordered=[...group].sort((a,b)=>key(a).localeCompare(key(b),'ko-KR'));
+    const n=ordered.length;
+    const radius=Math.min(58,Math.max(20,20+6*(n-2)));
+    const centerLat=ordered.reduce((s,r)=>s+r.lat,0)/n;
+    const centerLon=ordered.reduce((s,r)=>s+r.lon,0)/n;
+    ordered.forEach((r,i)=>{
+      const angle=-Math.PI/2+(Math.PI*2*i/n);
+      const north=Math.cos(angle)*radius;
+      const east=Math.sin(angle)*radius;
+      out.set(key(r),{lon:centerLon+east/(111320*Math.cos(centerLat*Math.PI/180)),lat:centerLat+north/111320,offset:true,groupSize:n});
+    });
+  }
+  return {coordinates:out,collisionGroups,collisionRecords};
+}
+const DISPLAY_LAYOUT=buildDisplayCoordinateIndex(DATA);
+function mapCoordinate(r){const p=DISPLAY_LAYOUT.coordinates.get(key(r));return p?[p.lon,p.lat]:[r.lon,r.lat]}
+function markerWasOffset(r){return !!DISPLAY_LAYOUT.coordinates.get(key(r))?.offset}
 function signalScore(r){return Math.max(r.destination?.score||0,r.executive?.score||0,r.cross_institution?.score||0)}
 function scoreLabel(r){const p=[];if(r.destination)p.push(`목적지 ${r.destination.score}`);if(r.executive)p.push(`반복 ${r.executive.score}`);if(r.cross_institution?.is_cross)p.push(`교차 ${r.cross_institution.score||0}`);return p.join(' · ')||'-'}
 function pass(r){const d=ds.value,o=ori.value,s=q.value.trim().toLowerCase();if(d==='both'&&r.type!=='both')return false;if(d==='destination'&&!r.destination)return false;if(d==='executive'&&!r.executive)return false;if(d==='consensus'&&!r.cross_institution?.is_cross)return false;if(d==='cross_origin'&&!(r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2))return false;if(d==='top_official'&&!(r.executive?.top_official_visits>0))return false;if(d==='regional_head'&&!(((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0))>0))return false;const origins=r.origins||[r.origin];if(o!=='all'&&!origins.includes(o))return false;return !s||[r.name,r.business?.display,r.address,...origins,...(r.institutions||[]),r.business?.category,r.why].join(' ').toLowerCase().includes(s)}
@@ -35,7 +76,7 @@ function badges(r){const a=[];const vg=r.location_verification||{};if(vg.grade)a
 function cardHtml(r){const e=r.evidence||{},miss=Number.isFinite(r.lat)&&Number.isFinite(r.lon)?'':' · 좌표 미확인';return`<div class="card-head"><div class="card-title">${esc(r.business?.display||r.name)}</div><div class="score" title="맛 평점이 아닌 공개 지출기록 기반 신호 점수입니다. 반복=반복·고위직 사용, 교차=복수 기관 선택, 목적지=관외·목적지 선택">${esc(scoreLabel(r))}</div></div><div class="badge-row">${badges(r)}</div><div class="card-meta">${esc(r.address||'주소 확인 필요')}<br>${esc(sourceLabel(r))}${r.cross_institution?.is_cross?' · 기관 교차 선택':''}${miss}</div><div class="card-metrics"><div class="mini-metric"><div class="mini-label">방문</div><div class="mini-value">${e.visits||0}회</div></div><div class="mini-metric"><div class="mini-label">집행액</div><div class="mini-value">${shortWon(e.spend||0)}원</div></div><div class="mini-metric"><div class="mini-label">저녁</div><div class="mini-value">${pct(e.evening_ratio||0)}</div></div></div>`}
 function highlight(){for(const c of list.querySelectorAll('.restaurant-card'))c.classList.toggle('active',c.dataset.key===selected)}
 function recordByKey(k){return DATA.find(r=>key(r)===k)}
-function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:[r.lon,r.lat]},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0}}))}}
+function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:mapCoordinate(r)},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0,offset:markerWasOffset(r)?1:0}}))}}
 function addLayers(){
   if(!map.isStyleLoaded())return;
   ['place-labels','places','place-halo','place-hitbox','cluster-count','clusters'].forEach(id=>{
@@ -137,7 +178,7 @@ function updateMap(fit=false){
   if(fit)fitMap();
 }
 function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
-function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){if(move)map.flyTo({center:[r.lon,r.lat],zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat([r.lon,r.lat]).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
+function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){const point=mapCoordinate(r);if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
 function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped;sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit)}
 function updateStats(){const visits=DATA.reduce((s,r)=>s+Number(r.evidence?.visits||0),0),spend=DATA.reduce((s,r)=>s+Number(r.evidence?.spend||0),0),exec=DATA.filter(r=>!!r.executive).length;$('statRestaurants').textContent=(STATS.total||DATA.length).toLocaleString('ko-KR');$('statVisits').textContent=visits.toLocaleString('ko-KR');$('statSpend').textContent=shortWon(spend)+'원';$('statExec').textContent=exec.toLocaleString('ko-KR')}
 function clearSelection(){
