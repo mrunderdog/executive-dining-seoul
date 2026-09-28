@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
-  "policy": "Manual, auditable bridge for addressless exact merchant names. Applied only when the exact normalized name has a currently published addressed entity whose canonical address equals this verified address.",
-  "verified_on": "2026-09-22",
+  "schema_version": 2,
+  "policy": "Manual, auditable entity bridges and exact name aliases. Name aliases are allowed only when public evidence establishes the labels as the same physical restaurant; address bridges remain address-conservative.",
+  "verified_on": "2026-09-29",
   "bridges": {
     "남도마루": {
       "address": "서울 영등포구 은행로 3",
@@ -97,6 +97,14 @@
       "address": "서울 중구 세종대로7길 43",
       "rationale": "Current restaurant listing confirms 취홍 at 순화타워 1층, 세종대로7길 43.",
       "source_url": "https://www.diningcode.com/profile.php?rid=TZ6Ci7Kd7lcl"
+    },
+    "설가온": {
+      "address": "서울 종로구 세종대로 175",
+      "rationale": "광화문아띠 lists 설가온 among its restaurants at 세종문화회관 지하1층, and current 설가온 listings confirm the same physical address and phone.",
+      "source_url": "https://www.daangn.com/kr/local-profile/%EA%B4%91%ED%99%94%EB%AC%B8%EC%95%84%EB%9D%A0-o37rhv5cgf6q/"
     }
+  },
+  "aliases": {
+    "광화문아띠/설가온": "설가온"
   }
 }
