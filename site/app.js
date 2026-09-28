@@ -179,7 +179,7 @@ function updateMap(fit=false){
 }
 function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
 function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){const point=mapCoordinate(r);if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
-function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped,crossMode=ds.value==='cross_origin';sum.innerHTML=`<span>목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}</span>${crossMode?'<button type="button" class="summary-all-restaurants" id="showAllRestaurants">전체 식당 보기</button>':''}`;const allBtn=$('showAllRestaurants');if(allBtn)allBtn.onclick=resetFilters;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit)}
+function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped;sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit);syncCrossAllButton()}
 function updateStats(){const visits=DATA.reduce((s,r)=>s+Number(r.evidence?.visits||0),0),spend=DATA.reduce((s,r)=>s+Number(r.evidence?.spend||0),0),exec=DATA.filter(r=>!!r.executive).length;$('statRestaurants').textContent=(STATS.total||DATA.length).toLocaleString('ko-KR');$('statVisits').textContent=visits.toLocaleString('ko-KR');$('statSpend').textContent=shortWon(spend)+'원';$('statExec').textContent=exec.toLocaleString('ko-KR')}
 function clearSelection(){
   selected=null;
@@ -188,6 +188,15 @@ function clearSelection(){
   renderEmpty();
 }
 function resetFilters(){ds.value='all';ori.value='all';q.value='';sort.value='signal';clearSelection();renderList(true)}
+function syncCrossAllButton(){
+  const btn=document.querySelector('#crossShowcase .cross-all-btn');
+  if(!btn)return;
+  const active=ds.value==='cross_origin';
+  const count=DATA.filter(r=>r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2).length;
+  btn.textContent=active?'전체 식당 보기':'기관교차 전체 '+count+'곳';
+  btn.setAttribute('aria-pressed',active?'true':'false');
+  btn.title=active?'전체 식당으로 돌아가기':'기관 교차 식당 전체 보기';
+}
 function switchStyle(){styleMode=styleMode==='positron'?'liberty':'positron';mapReady=false;map.setStyle(STYLES[styleMode]);map.once('style.load',()=>{mapReady=true;addLayers();updateMap(false)})}
 map.on('load',()=>{mapReady=true;addLayers();updateMap(true)});ds.onchange=ori.onchange=()=>{clearSelection();renderList(true)};q.oninput=()=>{clearSelection();renderList(true)};sort.onchange=()=>renderList(false);$('reset').onclick=resetFilters;$('fit').onclick=fitMap;
 const styleBtn=document.createElement('button');styleBtn.className='map-btn';styleBtn.textContent='지도톤';styleBtn.onclick=switchStyle;document.querySelector('.map-actions')?.prepend(styleBtn);
@@ -363,7 +372,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
       showcase.className='cross-showcase cross-showcase-v2';
       topbar.insertAdjacentElement('afterend',showcase);
     }
-    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
+    showcase.innerHTML='<div class="cross-showcase-head"><div class="cross-title-wrap"><div class="section-eyebrow">CROSS-ORIGIN PICKS</div><h2>기관 교차 선택</h2><p>여러 기관에서 반복해서 등장한 식당</p></div><div class="cross-head-actions"><button type="button" class="cross-nav cross-prev" aria-label="이전 식당">←</button><button type="button" class="cross-nav cross-next" aria-label="다음 식당">→</button><button type="button" class="cross-all-btn">기관교차 전체 '+crossOrigin.length+'곳</button></div></div><div class="cross-showcase-track" tabindex="0" aria-label="기관 교차 선택 식당 목록"></div>';
     const track=showcase.querySelector('.cross-showcase-track');
 
     crossOrigin.forEach(r=>{
@@ -383,7 +392,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
     };
     showcase.querySelector('.cross-prev').addEventListener('click',()=>scrollCards(-1));
     showcase.querySelector('.cross-next').addEventListener('click',()=>scrollCards(1));
-    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{ds.value='cross_origin';sort.value='consensus';if(typeof clearSelection==='function')clearSelection();else{selected=null;renderEmpty();}renderList(true);document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});
+    showcase.querySelector('.cross-all-btn').addEventListener('click',()=>{if(ds.value==='cross_origin'){resetFilters()}else{ds.value='cross_origin';sort.value='consensus';if(typeof clearSelection==='function')clearSelection();else{selected=null;renderEmpty();}renderList(true)}document.querySelector('.workspace')?.scrollIntoView({behavior:'smooth',block:'start'});});syncCrossAllButton();
   }else{
     const showcase=document.getElementById('crossShowcase');
     if(showcase) showcase.hidden=true;
