@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 231,
+    "failed_count": 228,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1367,
-    "success_count": 1136,
-    "updated_at": "2026-09-27T04:37:25+00:00"
+    "success_count": 1139,
+    "updated_at": "2026-09-28T11:29:10+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -1516,22 +1516,22 @@
       "updated_at": "2026-09-21T08:56:10+00:00"
     },
     "고을식당|강화군": {
-      "addr_type": "POI",
-      "display_name": "고을식당",
-      "fingerprint": "3d771605434f8fa7",
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 강화군 강화읍 관청리 강화대로 400",
+      "fingerprint": "a8a99a8f63afa05c",
       "geocoder_version": 4,
-      "lat": 37.746038697,
-      "lon": 126.486977228,
-      "match_mode": "name",
+      "lat": 37.746037360162,
+      "lon": 126.486976345296,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "고을식당 인천광역시 강화군",
-      "result_name": "고을식당",
+      "query": "인천광역시 강화군 강화읍 강화대로 400",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:고을식당 인천광역시 강화군"
+        "arcgis:인천광역시 강화군 강화읍 강화대로 400"
       ],
-      "updated_at": "2026-09-23T00:41:30+00:00"
+      "updated_at": "2026-09-28T11:29:09+00:00"
     },
     "고창복낙지|금천구": {
       "addr_type": "PointAddress",
@@ -1646,22 +1646,22 @@
       "updated_at": "2026-09-18T00:07:25+00:00"
     },
     "고향집숯불왕갈비|광명시": {
-      "addr_type": "POI",
-      "display_name": "고향집숯불왕갈비",
-      "fingerprint": "de5fb9e8f0478ee3",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 철산동 시청로 37",
+      "fingerprint": "7f18536235754b7c",
       "geocoder_version": 4,
-      "lat": 37.480138079,
-      "lon": 126.863909711,
-      "match_mode": "name",
+      "lat": 37.480137114171,
+      "lon": 126.863909273811,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "고향집숯불왕갈비 광명시",
-      "result_name": "고향집숯불왕갈비",
+      "query": "경기도 광명시 시청로 37",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:고향집숯불왕갈비 광명시"
+        "arcgis:경기도 광명시 시청로 37"
       ],
-      "updated_at": "2026-09-22T07:23:26+00:00"
+      "updated_at": "2026-09-28T11:29:01+00:00"
     },
     "고향한정식|옹진군": {
       "failed": true,
@@ -4337,22 +4337,22 @@
       "updated_at": "2026-09-17T23:01:32+00:00"
     },
     "더레이크뷰|경기도의회": {
-      "addr_type": "POI",
-      "display_name": "더레이크뷰",
-      "fingerprint": "fe4dddf84e2dbbdd",
+      "addr_type": "Subaddress",
+      "display_name": "경기도 수원시 영통구 하동 법조로 25 A동",
+      "fingerprint": "80892d1a43d82dcf",
       "geocoder_version": 4,
-      "lat": 37.287493525,
-      "lon": 127.059948299,
-      "match_mode": "name",
+      "lat": 37.287480871793,
+      "lon": 127.060178493643,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "더레이크뷰 경기도",
-      "result_name": "더레이크뷰",
-      "score": 100.0,
+      "query": "경기도 수원시 영통구 법조로 25, 광교SK뷰레이크 A동 4001호",
+      "result_name": "",
+      "score": 99.1,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:더레이크뷰 경기도"
+        "arcgis:경기도 수원시 영통구 법조로 25, 광교SK뷰레이크 A동 4001호"
       ],
-      "updated_at": "2026-09-23T00:42:10+00:00"
+      "updated_at": "2026-09-28T11:29:10+00:00"
     },
     "더몰트하우스 광교|경기도의회": {
       "addr_type": "POI",
@@ -6898,22 +6898,22 @@
       "updated_at": "2026-09-22T07:23:36+00:00"
     },
     "미담맛을논하다|부평구": {
-      "addr_type": "POI",
-      "display_name": "미담맛을논하다",
-      "fingerprint": "d2983d0a6ce5288c",
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 부평구 청천동 마장로384번길 12",
+      "fingerprint": "544daadd9603da3c",
       "geocoder_version": 4,
-      "lat": 37.51229754,
-      "lon": 126.704564935,
-      "match_mode": "name",
+      "lat": 37.512269978184,
+      "lon": 126.704612125971,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "미담맛을논하다 인천광역시 부평구",
-      "result_name": "미담맛을논하다",
+      "query": "인천광역시 부평구 마장로384번길 12",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:미담맛을논하다 인천광역시 부평구"
+        "arcgis:인천광역시 부평구 마장로384번길 12"
       ],
-      "updated_at": "2026-09-21T08:46:01+00:00"
+      "updated_at": "2026-09-28T11:29:08+00:00"
     },
     "미락복집|의정부시": {
       "failed": true,
@@ -8345,15 +8345,22 @@
       "updated_at": "2026-09-21T07:28:35+00:00"
     },
     "봉순언니 시골밥상|오산시": {
-      "failed": true,
-      "fingerprint": "6078df8c4f2c5342",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 오산시 오산동 운천로 80-5",
+      "fingerprint": "0d3083089ac57dfb",
       "geocoder_version": 4,
+      "lat": 37.149666038877,
+      "lon": 127.075441771688,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 오산시 운천로 80-5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:봉순언니 시골밥상 오산시",
-        "nominatim:봉순언니 시골밥상 오산시"
+        "arcgis:경기도 오산시 운천로 80-5"
       ],
-      "updated_at": "2026-09-22T07:24:15+00:00"
+      "updated_at": "2026-09-28T11:29:03+00:00"
     },
     "봉우리|법조·법률행정": {
       "addr_type": "POI",
@@ -11486,40 +11493,40 @@
       "updated_at": "2026-09-18T00:08:08+00:00"
     },
     "수라면옥|강화군": {
-      "addr_type": "POI",
-      "display_name": "수라면옥",
-      "fingerprint": "fecac92aca544f87",
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 강화군 강화읍 관청리 동문로12번길 1",
+      "fingerprint": "17aebb69f151fb88",
       "geocoder_version": 4,
-      "lat": 37.745550144,
-      "lon": 126.488851568,
-      "match_mode": "name",
+      "lat": 37.745548234203,
+      "lon": 126.488851460856,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "수라면옥 인천광역시 강화군",
-      "result_name": "수라면옥",
+      "query": "인천광역시 강화군 강화읍 동문로12번길 1",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:수라면옥 인천광역시 강화군"
+        "arcgis:인천광역시 강화군 강화읍 동문로12번길 1"
       ],
-      "updated_at": "2026-09-23T00:41:30+00:00"
+      "updated_at": "2026-09-28T11:29:09+00:00"
     },
     "수미수작|과천시": {
-      "addr_type": "POI",
-      "display_name": "수미수작",
-      "fingerprint": "5cd6d99d5a2d290a",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 과천시 중앙동 새술막길 38",
+      "fingerprint": "7a40ab54c2319199",
       "geocoder_version": 4,
-      "lat": 37.428989358,
-      "lon": 126.991456928,
-      "match_mode": "name",
+      "lat": 37.42899116009,
+      "lon": 126.991456526793,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "수미수작 과천시",
-      "result_name": "수미수작",
+      "query": "경기도 과천시 새술막길 38",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:수미수작 과천시"
+        "arcgis:경기도 과천시 새술막길 38"
       ],
-      "updated_at": "2026-09-18T23:15:38+00:00"
+      "updated_at": "2026-09-28T11:29:07+00:00"
     },
     "수미수작|법조·법률행정": {
       "addr_type": "POI",
@@ -12747,22 +12754,22 @@
       "updated_at": "2026-09-18T00:09:04+00:00"
     },
     "아구마을|오산시": {
-      "addr_type": "POI",
-      "display_name": "아구마을",
-      "fingerprint": "d98e64b04e077766",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 오산시 오산동 운암로 33",
+      "fingerprint": "8c952ff6974afd26",
       "geocoder_version": 4,
-      "lat": 37.149310835,
-      "lon": 127.076043344,
-      "match_mode": "name",
+      "lat": 37.149297612323,
+      "lon": 127.076043089421,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "아구마을 오산시",
-      "result_name": "아구마을",
-      "score": 100.0,
+      "query": "경기도 오산시 운암로 33, 한미프라자 2층",
+      "result_name": "",
+      "score": 96.11,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:아구마을 오산시"
+        "arcgis:경기도 오산시 운암로 33, 한미프라자 2층"
       ],
-      "updated_at": "2026-09-22T07:24:20+00:00"
+      "updated_at": "2026-09-28T11:29:04+00:00"
     },
     "아구명가|강화군": {
       "addr_type": "POI",
@@ -15766,22 +15773,22 @@
       "updated_at": "2026-09-17T23:07:49+00:00"
     },
     "이레향|광명시": {
-      "display_name": "이레향, 18, Hiking Path, 하안동, 하안1동, 광명시, 경기도, 14260, 대한민국",
-      "fingerprint": "0ea8c0c9ab6d6e2c",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 하안동 밤일안로 18",
+      "fingerprint": "5849cfbe18d12fbf",
       "geocoder_version": 4,
-      "lat": 37.4532778,
-      "lon": 126.8635297,
-      "match_mode": "name",
-      "osm_type": "restaurant",
+      "lat": 37.453272904946,
+      "lon": 126.863535273291,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "이레향 광명시",
-      "result_name": "이레향",
-      "source": "nominatim",
+      "query": "경기도 광명시 밤일안로 18",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:이레향 광명시",
-        "nominatim:이레향 광명시"
+        "arcgis:경기도 광명시 밤일안로 18"
       ],
-      "updated_at": "2026-09-22T07:23:33+00:00"
+      "updated_at": "2026-09-28T11:29:02+00:00"
     },
     "이리도담갈비|중앙정부": {
       "addr_type": "POI",
@@ -16289,22 +16296,22 @@
       "updated_at": "2026-09-16T16:08:53+00:00"
     },
     "일식 송수사|군포시": {
-      "addr_type": "POI",
-      "display_name": "일식 송수사",
-      "fingerprint": "3d5272bfac3ca9f1",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 군포시 산본동 산본로323번길 7",
+      "fingerprint": "1318c30416302336",
       "geocoder_version": 4,
-      "lat": 37.359302627,
-      "lon": 126.933160856,
-      "match_mode": "name",
+      "lat": 37.359307830855,
+      "lon": 126.933169023568,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "일식 송수사 군포시",
-      "result_name": "일식 송수사",
-      "score": 100.0,
+      "query": "경기도 군포시 산본로323번길 7, 금성프라자빌딩",
+      "result_name": "",
+      "score": 96.82,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:일식 송수사 군포시"
+        "arcgis:경기도 군포시 산본로323번길 7, 금성프라자빌딩"
       ],
-      "updated_at": "2026-09-21T07:28:47+00:00"
+      "updated_at": "2026-09-28T11:29:05+00:00"
     },
     "일식성진|중앙정부": {
       "failed": true,
@@ -17381,22 +17388,22 @@
       "updated_at": "2026-09-17T23:01:48+00:00"
     },
     "제주항|과천시": {
-      "addr_type": "POI",
-      "display_name": "제주항",
-      "fingerprint": "40d7095a06154d4f",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 과천시 중앙동 새술막길 36",
+      "fingerprint": "43372e6f667976ee",
       "geocoder_version": 4,
-      "lat": 37.429118706,
-      "lon": 126.991233032,
-      "match_mode": "name",
+      "lat": 37.42911927748,
+      "lon": 126.991231640331,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "제주항 과천시",
-      "result_name": "제주항",
-      "score": 100.0,
+      "query": "경기도 과천시 새술막길 36, 동성빌딩 2층 204호",
+      "result_name": "",
+      "score": 97.73,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:제주항 과천시"
+        "arcgis:경기도 과천시 새술막길 36, 동성빌딩 2층 204호"
       ],
-      "updated_at": "2026-09-18T23:15:35+00:00"
+      "updated_at": "2026-09-28T11:29:06+00:00"
     },
     "조선호텔앤리조트|중앙정부": {
       "display_name": "(주)조선호텔앤리조트 포포인츠 조선 명동 라운지&바, 36, 수표로, 저동2가, 을지로동, 중구, 서울특별시, 04552, 대한민국",
@@ -18171,33 +18178,40 @@
       "updated_at": "2026-09-17T23:02:51+00:00"
     },
     "진향 중화요리|부평구": {
-      "addr_type": "POI",
-      "display_name": "진향 중화요리",
-      "fingerprint": "0099f241b6779ea6",
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 부평구 부평동 신트리로6번길 3-1",
+      "fingerprint": "8846a253a460d11c",
       "geocoder_version": 4,
-      "lat": 37.506138154,
-      "lon": 126.72221792,
-      "match_mode": "name",
+      "lat": 37.506076883295,
+      "lon": 126.72209719509,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "진향 중화요리 인천광역시 부평구",
-      "result_name": "진향 중화요리",
+      "query": "인천광역시 부평구 신트리로6번길 3, 1층 107호",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:진향 중화요리 인천광역시 부평구"
+        "arcgis:인천광역시 부평구 신트리로6번길 3, 1층 107호"
       ],
-      "updated_at": "2026-09-21T08:46:14+00:00"
+      "updated_at": "2026-09-28T11:29:09+00:00"
     },
     "진향중화요리|부평구": {
-      "failed": true,
-      "fingerprint": "60311ff2ddd443ba",
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 부평구 부평동 신트리로6번길 3-1",
+      "fingerprint": "7d14453a38c635dd",
       "geocoder_version": 4,
+      "lat": 37.506076883295,
+      "lon": 126.72209719509,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "인천광역시 부평구 신트리로6번길 3, 1층 107호",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:진향중화요리 인천광역시 부평구",
-        "nominatim:진향중화요리 인천광역시 부평구"
+        "arcgis:인천광역시 부평구 신트리로6번길 3, 1층 107호"
       ],
-      "updated_at": "2026-09-21T08:46:01+00:00"
+      "updated_at": "2026-09-28T11:29:07+00:00"
     },
     "짬뽕지존 서오릉점|은평구": {
       "addr_type": "PointAddress",
@@ -18449,15 +18463,22 @@
       "updated_at": "2026-09-18T23:16:04+00:00"
     },
     "참우돈가|과천시": {
-      "failed": true,
-      "fingerprint": "e0e91b7241e4b790",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 과천시 갈현동 과천대로7길 12",
+      "fingerprint": "4ac538fb98943206",
       "geocoder_version": 4,
+      "lat": 37.413616277004,
+      "lon": 126.980673711272,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 과천시 과천대로7길 12",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:참우돈가 과천시",
-        "nominatim:참우돈가 과천시"
+        "arcgis:경기도 과천시 과천대로7길 12"
       ],
-      "updated_at": "2026-09-18T23:15:38+00:00"
+      "updated_at": "2026-09-28T11:29:06+00:00"
     },
     "참한우본가|노원구": {
       "addr_type": "POI",
@@ -19142,22 +19163,22 @@
       "updated_at": "2026-09-21T08:46:06+00:00"
     },
     "초심|오산시": {
-      "addr_type": "POI",
-      "display_name": "초심",
-      "fingerprint": "d6fcf59ada09ae4a",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 오산시 오산동 운천로 78",
+      "fingerprint": "eae9ff3ff2772dd4",
       "geocoder_version": 4,
-      "lat": 37.149744454,
-      "lon": 127.074787153,
-      "match_mode": "name",
+      "lat": 37.149751660018,
+      "lon": 127.074789659621,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "초심 오산시",
-      "result_name": "초심",
+      "query": "경기도 오산시 운천로 78",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:초심 오산시"
+        "arcgis:경기도 오산시 운천로 78"
       ],
-      "updated_at": "2026-09-22T07:24:32+00:00"
+      "updated_at": "2026-09-28T11:29:05+00:00"
     },
     "촌장골 주식회사|금천구": {
       "addr_type": "PointAddress",
@@ -20001,22 +20022,22 @@
       "updated_at": "2026-09-23T10:33:45+00:00"
     },
     "토지정육식당|오산시": {
-      "addr_type": "POI",
-      "display_name": "토지정육식당",
-      "fingerprint": "9c9aa427e154fb28",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 오산시 오산동 경기동로8번길 26",
+      "fingerprint": "1e76e76f3f8e76bc",
       "geocoder_version": 4,
-      "lat": 37.155938194,
-      "lon": 127.074438662,
-      "match_mode": "name",
+      "lat": 37.155957956405,
+      "lon": 127.074432087631,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "토지정육식당 오산시",
-      "result_name": "토지정육식당",
+      "query": "경기도 오산시 경기동로8번길 26",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:토지정육식당 오산시"
+        "arcgis:경기도 오산시 경기동로8번길 26"
       ],
-      "updated_at": "2026-09-22T07:24:20+00:00"
+      "updated_at": "2026-09-28T11:29:03+00:00"
     },
     "통영굴밥|중앙정부": {
       "addr_type": "POI",
