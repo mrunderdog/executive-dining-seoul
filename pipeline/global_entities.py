@@ -12,6 +12,23 @@ ROOT = Path(__file__).resolve().parents[1]
 ENTITY_BRIDGES = ROOT / "sources" / "entity_bridge_overrides.json"
 
 
+def _load_name_aliases() -> dict[str, str]:
+    if not ENTITY_BRIDGES.exists():
+        return {}
+    try:
+        doc = json.loads(ENTITY_BRIDGES.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return {
+        " ".join(str(k or "").split()).strip(): " ".join(str(v or "").split()).strip()
+        for k, v in (doc.get("aliases") or {}).items()
+        if " ".join(str(k or "").split()).strip() and " ".join(str(v or "").split()).strip()
+    }
+
+
+VERIFIED_NAME_ALIASES = _load_name_aliases()
+
+
 def t(v) -> str:
     return " ".join(str(v or "").split()).strip()
 
@@ -48,12 +65,14 @@ def canonical_address(v) -> str:
 def strict_name(v) -> str:
     """Normalized merchant name without collapsing branch/location suffixes."""
     s = t(v)
+    s = VERIFIED_NAME_ALIASES.get(s, s)
     s = re.sub(r"^(?:주식회사|유한회사|\\(주\\)|㈜)\\s*", "", s, flags=re.I)
     return compact(s)
 
 
 def family_name(v) -> str:
     s = t(v)
+    s = VERIFIED_NAME_ALIASES.get(s, s)
     s = re.sub(r"^(?:주식회사|유한회사|\(주\)|㈜)\s*", "", s, flags=re.I)
     s = re.sub(r"\([^)]*(?:점|지점|호점)\)\s*$", "", s)
     suffixes = (

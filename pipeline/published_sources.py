@@ -746,7 +746,7 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
     out = []
     rank = 0
     for x in publishable[:max_records]:
-        name = _txt(x.get("merchant")); address = _txt(x.get("address"))
+        name = _txt(x.get("merchant")); raw_address = _txt(x.get("address"))
         if not name or name in {"-", "미상", "상호없음", "상호 없음", "확인불가", "확인 불가"}:
             continue
         rank += 1
@@ -755,6 +755,9 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
         if m:
             location_hint = _txt(m.group(1))
         display_name = re.sub(r"\([^()]*\s*소재\)", "", name).strip() or name
+        override = SOURCE_ENTITY_OVERRIDES.get((source, display_name), ENTITY_OVERRIDES.get(display_name, {}))
+        address = _txt(override.get("address")) or raw_address
+        resolved_display = _txt(override.get("display")) or display_name
         visits = int(x.get("visits") or 0); months = int(x.get("months") or 0); spend = int(x.get("spend") or 0)
         raw_roles = x.get("role_stats") or x.get("department_stats") or []
         roles = []
@@ -794,13 +797,17 @@ def _build_regional_exec_records(source: str, spec: dict, max_records: int = 60)
             "type": "executive", "destination": None, "executive": executive,
             "address": address,
             "location_hint": location_hint,
-            "search_query": " ".join(x for x in (display_name, address or location_hint or spec["jurisdiction"]) if x),
+            "search_query": " ".join(x for x in (resolved_display, address or location_hint or spec["jurisdiction"]) if x),
             "business": {
-                "display": display_name, "category": _category(display_name), "phone": "",
-                "status": f"{spec['label']} 공식 업무추진비 원자료상 사용처",
+                "display": resolved_display,
+                "category": _txt(override.get("category")) or _category(display_name),
+                "phone": _txt(override.get("phone")),
+                "status": f"{spec['label']} 공식 업무추진비 원자료 + 업체정보 보강" if override else f"{spec['label']} 공식 업무추진비 원자료상 사용처",
                 "rating": "",
                 "note": "공식 업무추진비 공개자료 기반. 식당 품질 평가가 아니라 공개 지출에서 확인되는 선택 패턴 신호입니다.",
-                "url": "",
+                "url": _txt(override.get("url")),
+                "verified_at": _txt(override.get("verified_at")),
+                "verification_confidence": _txt(override.get("confidence")),
             },
             "evidence": {
                 "visits": visits, "spend": spend, "people": 0, "months": months,
