@@ -12,6 +12,7 @@ from urllib.parse import urlencode
 
 import requests
 from openpyxl import load_workbook
+import xlrd
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "sources" / "public_agency_registry.json"
@@ -90,11 +91,37 @@ def report_page(session: requests.Session, apba_id: str, root_no: str) -> tuple[
     return url,disclosure,files
 
 
-def read_xlsx(content: bytes) -> list[dict]:
-    wb=load_workbook(io.BytesIO(content),data_only=True,read_only=True)
+def workbook_rows(content: bytes) -> list[tuple[str, list[list]]]:
+    out=[]
+    if content.startswith(b"PK"):
+        wb=load_workbook(io.BytesIO(content),data_only=True,read_only=True)
+        for ws in wb.worksheets:
+            out.append((ws.title, [[x for x in r] for r in ws.iter_rows(values_only=True)]))
+        return out
+    if content.startswith(b"\xd0\xcf\x11\xe0"):
+        wb=xlrd.open_workbook(file_contents=content)
+        for ws in wb.sheets():
+            rows=[]
+            for ridx in range(ws.nrows):
+                vals=[]
+                for cidx in range(ws.ncols):
+                    cell=ws.cell(ridx,cidx)
+                    v=cell.value
+                    if cell.ctype==xlrd.XL_CELL_DATE:
+                        try:
+                            v=xlrd.xldate_as_datetime(v,wb.datemode)
+                        except Exception:
+                            pass
+                    vals.append(v)
+                rows.append(vals)
+            out.append((ws.name,rows))
+        return out
+    raise ValueError("unsupported_workbook_format")
+
+
+def read_workbook(content: bytes) -> list[dict]:
     parsed=[]
-    for ws in wb.worksheets:
-        rows=[[x for x in r] for r in ws.iter_rows(values_only=True)]
+    for sheet_name,rows in workbook_rows(content):
         if not rows:
             continue
         header_idx=None
@@ -126,7 +153,7 @@ def read_xlsx(content: bytes) -> list[dict]:
                 idx=mapping[k]
                 return row[idx] if idx is not None and idx<len(row) else None
             parsed.append({
-                "sheet":ws.title,
+                "sheet":sheet_name,
                 "merchant":merchant,
                 "date":parse_date(val("date")),
                 "amount":parse_amount(val("amount")),
@@ -137,13 +164,13 @@ def read_xlsx(content: bytes) -> list[dict]:
     return parsed
 
 
-def inspect_xlsx(content: bytes) -> dict:
-    wb=load_workbook(io.BytesIO(content),data_only=True,read_only=True)
+def inspect_workbook(content: bytes) -> dict:
+    sheets=workbook_rows(content)
     terms=Counter()
     nonempty=0
     header_hits=[]
-    for ws in wb.worksheets:
-        for ridx,row in enumerate(ws.iter_rows(values_only=True),1):
+    for sheet_name,rows in sheets:
+        for ridx,row in enumerate(rows,1):
             vals=[t(x) for x in row]
             if any(vals):
                 nonempty+=1
@@ -153,9 +180,8 @@ def inspect_xlsx(content: bytes) -> dict:
                     for a in MERCHANT_ALIASES:
                         if norm(a) in nv:
                             terms[a]+=1
-                            header_hits.append({"sheet":ws.title,"row":ridx,"value":v})
-    return {"sheets":wb.sheetnames,"nonempty_rows":nonempty,"merchant_header_terms":dict(terms),"merchant_header_hits":header_hits[:10]}
-
+                            header_hits.append({"sheet":sheet_name,"row":ridx,"value":v})
+    return {"sheets":[x[0] for x in sheets],"nonempty_rows":nonempty,"merchant_header_terms":dict(terms),"merchant_header_hits":header_hits[:10]}
 
 def meal_like(row: dict) -> bool:
     s=" ".join([t(row.get("merchant")),t(row.get("purpose"))])
@@ -187,18 +213,21 @@ def main():
             item["report_url"]=page_url
             item["disclosure_no"]=disclosure
             item["available_files"]=len(files)
-            selected=files[:max(1,args.latest_files)]
+            def file_year(x):
+                years=re.findall(r"20\d{2}",x.get("name") or "")
+                return max([int(y) for y in years],default=0)
+            selected=sorted(files,key=lambda x:(file_year(x),int(x.get("file_no") or 0)),reverse=True)[:max(1,args.latest_files)]
             merchant_total=0
             for f in selected:
                 url="https://alio.go.kr/download/file.json?"+urlencode({"f":f["file_no"],"d":disclosure})
                 resp=session.get(url,timeout=60)
                 file_info={"name":f["name"],"file_no":f["file_no"],"status":resp.status_code,"bytes":len(resp.content)}
-                if resp.status_code!=200 or not resp.content.startswith(b"PK"):
+                if resp.status_code!=200 or not (resp.content.startswith(b"PK") or resp.content.startswith(b"\xd0\xcf\x11\xe0")):
                     file_info["state"]="DOWNLOAD_FAILED"
                     item["files"].append(file_info)
                     continue
-                inspection=inspect_xlsx(resp.content)
-                parsed=read_xlsx(resp.content)
+                inspection=inspect_workbook(resp.content)
+                parsed=read_workbook(resp.content)
                 file_info["inspection"]=inspection
                 file_info["merchant_rows"]=len(parsed)
                 file_info["state"]="MERCHANT_LEVEL" if parsed else "AGGREGATE_ONLY"
