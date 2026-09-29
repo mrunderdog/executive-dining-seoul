@@ -109,7 +109,7 @@ def main():
         except Exception:previous={}
     rows=[]
     for src in sources:
-        fresh=discover_source(src,args.year,args.detail_limit if args.incremental else 60)
+        fresh=discover_source(src,args.year,args.detail_limit)
         old=previous.get(src.get("key")) or {}
         if args.incremental and old and fresh.get("status")!="TRACK_ONLY":
             amap={str(a.get("url") or ""):a for a in old.get("attachments",[]) if a.get("url")}
