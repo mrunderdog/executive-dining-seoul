@@ -7,6 +7,16 @@ from published_sources import _category, ENTITY_OVERRIDES
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
+PUBLIC_AGENCY_ENRICHMENT = ROOT / "sources" / "public_agency_entity_enrichment.json"
+
+
+def _public_agency_enrichment() -> dict:
+    if not PUBLIC_AGENCY_ENRICHMENT.exists():
+        return {}
+    try:
+        return (json.loads(PUBLIC_AGENCY_ENRICHMENT.read_text(encoding="utf-8")).get("records") or {})
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
 def t(v) -> str:
@@ -91,6 +101,7 @@ def central_records(max_records: int = 120) -> list[dict]:
         return []
     d = json.loads(p.read_text(encoding="utf-8"))
     out = []
+    enrichments = _public_agency_enrichment()
     for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
         name = t(c.get("merchant"))
         override = ENTITY_OVERRIDES.get(name, {})
@@ -166,7 +177,7 @@ def central_records(max_records: int = 120) -> list[dict]:
                     "중앙행정기관이 공개한 장·차관/고위직 업무추진비의 파싱 가능한 XLS/XLSX/CSV 원자료 기반."
                 ),
                 "url": t(override.get("url")),
-                "verified_at": t(override.get("verified_at")),
+                "verified_at": t(override.get("verified_at")) or ("2026-09-29" if scoped else ""),
                 "verification_confidence": t(override.get("confidence")),
             },
             "evidence": {
@@ -394,7 +405,13 @@ def public_agency_records(max_records: int = 120) -> list[dict]:
         name = t(c.get("merchant"))
         if not name:
             continue
-        override = ENTITY_OVERRIDES.get(name, {})
+        agency_ids = c.get("agency_ids") or []
+        scoped = {}
+        for agency_id in agency_ids:
+            scoped = enrichments.get(f"{agency_id}|{name}") or {}
+            if scoped:
+                break
+        override = scoped or ENTITY_OVERRIDES.get(name, {})
         display_name = t(override.get("display")) or name
         address = t(override.get("address"))
         inst = c.get("institutions") or []
