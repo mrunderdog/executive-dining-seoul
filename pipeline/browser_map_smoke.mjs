@@ -280,7 +280,7 @@ console.log('SIDEBAR_UI_SMOKE',JSON.stringify(sidebarUi));
 if (sidebarUi.sidebarWidth <= 520) {
   if (!sidebarUi.labelsAbove) throw new Error('narrow desktop sidebar fields are not stacked cleanly');
   for (const b of sidebarUi.buttonMetrics) {
-    if (b.width < 58 || b.height > 30 || b.scrollWidth > b.clientWidth + 1 || b.whiteSpace !== 'nowrap' || b.writingMode !== 'horizontal-tb') {
+    if (b.width < 64 || b.height > 30 || b.scrollWidth > b.clientWidth + 1 || b.whiteSpace !== 'nowrap' || b.writingMode !== 'horizontal-tb') {
       throw new Error('summary action label is squeezed or wrapped: '+JSON.stringify(b));
     }
   }
@@ -333,7 +333,7 @@ console.log('NARROW_UI_SMOKE',JSON.stringify(narrowUi));
 if (narrowUi.viewport!==504 || narrowUi.bodyOverflow>2 || narrowUi.sidebarOverflow>2 || !narrowUi.filtersFit || !narrowUi.summaryFit || !narrowUi.labelsAbove || !narrowUi.controlFits) {
   throw new Error('narrow explorer layout overflows or fields are misaligned');
 }
-if (narrowUi.buttonHeights.some(h=>h>30) || narrowUi.buttonWidths.some(w=>w<58) || !narrowUi.buttonTextFits || !narrowUi.buttonsNowrap || !narrowUi.badgesNowrap || narrowUi.metricCols!==3) {
+if (narrowUi.buttonHeights.some(h=>h>30) || narrowUi.buttonWidths.some(w=>w<64) || !narrowUi.buttonTextFits || !narrowUi.buttonsNowrap || !narrowUi.badgesNowrap || narrowUi.metricCols!==3) {
   throw new Error('narrow explorer buttons/badges/metrics are visually unstable');
 }
 
