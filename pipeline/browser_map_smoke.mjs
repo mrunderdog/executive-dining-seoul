@@ -246,4 +246,55 @@ if (crossResetCheck.after.mode!=='all' || crossResetCheck.after.origin!=='all' |
   throw new Error('cross-origin toggle did not restore the full dataset');
 }
 
+
+
+await cdp('Emulation.setDeviceMetricsOverride',{width:504,height:981,deviceScaleFactor:1,mobile:false});
+await sleep(500);
+await evaluate(`(() => { try{map.resize()}catch(e){} document.querySelector('.sidebar')?.scrollIntoView({block:'start'}); return true; })()`);
+await sleep(300);
+
+const narrowUi=await evaluate(`(() => {
+  const fits=el=>!el || el.scrollWidth<=el.clientWidth+2;
+  const rect=el=>el?.getBoundingClientRect();
+  const filters=document.querySelector('.filters');
+  const summary=document.querySelector('.summary');
+  const sidebar=document.querySelector('.sidebar');
+  const fields=[...document.querySelectorAll('.filters .field')];
+  const controls=[...document.querySelectorAll('.filters .control')];
+  const labelsAbove=fields.every(f=>{
+    const l=f.querySelector('label'),c=f.querySelector('.control');
+    if(!l||!c)return true;
+    return rect(c).top>=rect(l).bottom-1;
+  });
+  const controlFits=controls.every(c=>{
+    const cr=rect(c),fr=rect(c.closest('.filters'));
+    return cr.left>=fr.left-1 && cr.right<=fr.right+1;
+  });
+  const summaryButtons=[...summary.querySelectorAll('.score-help,.explorer-toggle')];
+  const buttonHeights=summaryButtons.map(b=>Math.round(rect(b).height));
+  const badges=[...document.querySelectorAll('.restaurant-card .badge')].slice(0,20);
+  const metrics=document.querySelector('.restaurant-card .card-metrics');
+  const metricCols=metrics?getComputedStyle(metrics).gridTemplateColumns.split(' ').filter(Boolean).length:0;
+  return {
+    viewport:innerWidth,
+    bodyOverflow:document.documentElement.scrollWidth-innerWidth,
+    sidebarOverflow:sidebar.scrollWidth-sidebar.clientWidth,
+    filtersFit:fits(filters),
+    summaryFit:fits(summary),
+    labelsAbove,
+    controlFits,
+    buttonHeights,
+    buttonsNowrap:summaryButtons.every(b=>getComputedStyle(b).whiteSpace==='nowrap'),
+    badgesNowrap:badges.every(b=>getComputedStyle(b).whiteSpace==='nowrap'),
+    metricCols
+  };
+})()`);
+console.log('NARROW_UI_SMOKE',JSON.stringify(narrowUi));
+if (narrowUi.viewport!==504 || narrowUi.bodyOverflow>2 || narrowUi.sidebarOverflow>2 || !narrowUi.filtersFit || !narrowUi.summaryFit || !narrowUi.labelsAbove || !narrowUi.controlFits) {
+  throw new Error('narrow explorer layout overflows or fields are misaligned');
+}
+if (narrowUi.buttonHeights.some(h=>h>30) || !narrowUi.buttonsNowrap || !narrowUi.badgesNowrap || narrowUi.metricCols!==3) {
+  throw new Error('narrow explorer buttons/badges/metrics are visually unstable');
+}
+
 ws.close();

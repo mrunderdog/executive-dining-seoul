@@ -407,7 +407,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
   const scoreHelp=document.createElement('button');
   scoreHelp.type='button';
   scoreHelp.className='score-help';
-  scoreHelp.textContent='점수 뜻 ?';
+  scoreHelp.textContent='점수 안내';
   scoreHelp.title='반복=반복·고위직 사용 신호 · 교차=복수 기관의 동일 식당 선택 신호 · 목적지=관외/목적지 선택 신호. 맛 평점이 아닙니다.';
   scoreHelp.addEventListener('click',()=>{
     alert('점수는 맛 평점이 아닙니다.\n\n반복: 반복 방문·사용기간·직책 다양성·저녁 비중·집행액 등을 반영한 신호\n교차: 여러 기관·출처에서 같은 식당이 선택된 정도를 반영한 신호\n목적지: 관외 이동·목적지성 선택 패턴을 반영한 신호');
