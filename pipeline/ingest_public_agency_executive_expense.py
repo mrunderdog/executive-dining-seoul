@@ -11,6 +11,8 @@ from pathlib import Path
 from urllib.parse import urlencode
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from openpyxl import load_workbook
 import xlrd
 
@@ -21,6 +23,15 @@ REPORT_JSON = ROOT / "reports" / "public-agency-executive-ingestion.json"
 REPORT_MD = ROOT / "reports" / "public-agency-executive-ingestion.md"
 
 UA = "Mozilla/5.0 (compatible; ExecutiveDining/1.0; +https://github.com/mrunderdog/executive-dining-seoul)"
+
+
+def robust_session() -> requests.Session:
+    s=requests.Session()
+    retry=Retry(total=4,connect=4,read=3,backoff_factor=1.2,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]))
+    s.mount("https://",HTTPAdapter(max_retries=retry))
+    s.mount("http://",HTTPAdapter(max_retries=retry))
+    s.headers.update({"User-Agent":UA,"Referer":"https://alio.go.kr/"})
+    return s
 
 MERCHANT_ALIASES = ("사용처","업체명","상호","가맹점","집행장소","장소","결제처","거래처","대상업체")
 DATE_ALIASES = ("일자","집행일","사용일","일시","집행일자","사용일자")
@@ -201,8 +212,7 @@ def main():
     agencies=[a for a in registry.get("agencies",[]) if a.get("enabled")]
     if args.agency:
         agencies=[a for a in agencies if a.get("id")==args.agency]
-    session=requests.Session()
-    session.headers.update({"User-Agent":UA,"Referer":"https://alio.go.kr/"})
+    session=robust_session()
 
     status=[]
     raw_rows=[]
