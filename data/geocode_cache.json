@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 222,
+    "failed_count": 221,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1380,
-    "success_count": 1158,
-    "updated_at": "2026-09-29T08:47:24+00:00"
+    "success_count": 1159,
+    "updated_at": "2026-09-29T08:51:21+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -5052,22 +5052,22 @@
       "updated_at": "2026-09-18T00:08:01+00:00"
     },
     "동해도본점|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "동해도본점",
-      "fingerprint": "039d0811b678d83b",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 은행로 25",
+      "fingerprint": "dfb950a022418a09",
       "geocoder_version": 4,
-      "lat": 37.528714406,
-      "lon": 126.921411588,
-      "match_mode": "name",
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "동해도본점 대한민국",
-      "result_name": "동해도본점",
+      "query": "서울특별시 영등포구 은행로 25",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:동해도본점 대한민국"
+        "arcgis:서울특별시 영등포구 은행로 25"
       ],
-      "updated_at": "2026-09-29T08:47:21+00:00"
+      "updated_at": "2026-09-29T08:51:20+00:00"
     },
     "동해도본점|중앙정부": {
       "addr_type": "POI",
@@ -5633,15 +5633,22 @@
       "updated_at": "2026-09-25T08:08:25+00:00"
     },
     "락원간제미타운|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "1fb5d56976d01489",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 동구 성남동 우암로171번길 19",
+      "fingerprint": "30276d999f3904ff",
       "geocoder_version": 4,
+      "lat": 36.342531468879,
+      "lon": 127.435490278264,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "대전광역시 동구 우암로171번길 19",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:락원간제미타운 대한민국",
-        "nominatim:락원간제미타운 대한민국"
+        "arcgis:대전광역시 동구 우암로171번길 19"
       ],
-      "updated_at": "2026-09-29T08:47:24+00:00"
+      "updated_at": "2026-09-29T08:51:21+00:00"
     },
     "락천수타|금천구": {
       "addr_type": "PointAddress",
@@ -5727,22 +5734,22 @@
       "updated_at": "2026-09-29T08:43:07+00:00"
     },
     "레몬|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "레몬",
-      "fingerprint": "c38c87c8836c4ed0",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 용산구 서계동 청파로 391",
+      "fingerprint": "9e047de54c5ce711",
       "geocoder_version": 4,
-      "lat": 35.134107598,
-      "lon": 126.895785821,
-      "match_mode": "name",
+      "lat": 37.554506639743,
+      "lon": 126.968744921949,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "레몬 대한민국",
-      "result_name": "레몬",
+      "query": "서울특별시 용산구 청파로 391",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:레몬 대한민국"
+        "arcgis:서울특별시 용산구 청파로 391"
       ],
-      "updated_at": "2026-09-29T08:47:18+00:00"
+      "updated_at": "2026-09-29T08:51:20+00:00"
     },
     "려기 양주점|양주시": {
       "addr_type": "POI",
@@ -8167,22 +8174,22 @@
       "updated_at": "2026-09-29T08:43:05+00:00"
     },
     "복성각|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "복성각",
-      "fingerprint": "e6e92ec64e31b9d6",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 중구 남대문로5가 통일로 10",
+      "fingerprint": "1a4577fa2195a7fa",
       "geocoder_version": 4,
-      "lat": 35.528509128,
-      "lon": 127.682618923,
-      "match_mode": "name",
+      "lat": 37.557096647824,
+      "lon": 126.973633583157,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "복성각 대한민국",
-      "result_name": "복성각",
+      "query": "서울특별시 중구 통일로 10",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:복성각 대한민국"
+        "arcgis:서울특별시 중구 통일로 10"
       ],
-      "updated_at": "2026-09-29T08:47:17+00:00"
+      "updated_at": "2026-09-29T08:51:19+00:00"
     },
     "복성각|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11470,22 +11477,22 @@
       "updated_at": "2026-09-18T13:42:47+00:00"
     },
     "송도갈매기|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "송도갈매기",
-      "fingerprint": "9af772403d765fa9",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 일직동 양지로 16",
+      "fingerprint": "f48bf5eb27f49822",
       "geocoder_version": 4,
-      "lat": 37.417103438,
-      "lon": 126.880947313,
-      "match_mode": "name",
+      "lat": 37.416290523213,
+      "lon": 126.881290155873,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "송도갈매기 대한민국",
-      "result_name": "송도갈매기",
+      "query": "경기도 광명시 양지로 16",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:송도갈매기 대한민국"
+        "arcgis:경기도 광명시 양지로 16"
       ],
-      "updated_at": "2026-09-29T08:47:19+00:00"
+      "updated_at": "2026-09-29T08:51:20+00:00"
     },
     "송도갈매기|인천시청": {
       "failed": true,
@@ -18079,22 +18086,22 @@
       "updated_at": "2026-09-17T23:01:17+00:00"
     },
     "지리산약초장어 서울본점|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "지리산약초장어 서울본점",
-      "fingerprint": "518ac785aa61f925",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 강남구 수서동 광평로 295",
+      "fingerprint": "04d8f964a0187a70",
       "geocoder_version": 4,
-      "lat": 37.488574349,
-      "lon": 127.104471635,
-      "match_mode": "name",
+      "lat": 37.488559082844,
+      "lon": 127.104470649317,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "지리산약초장어 서울본점 대한민국",
-      "result_name": "지리산약초장어 서울본점",
+      "query": "서울특별시 강남구 광평로 295",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:지리산약초장어 서울본점 대한민국"
+        "arcgis:서울특별시 강남구 광평로 295"
       ],
-      "updated_at": "2026-09-29T08:47:22+00:00"
+      "updated_at": "2026-09-29T08:51:21+00:00"
     },
     "지중해|동작구": {
       "addr_type": "Locality",
@@ -20772,22 +20779,12 @@
       "updated_at": "2026-09-23T00:40:27+00:00"
     },
     "푸른산호초|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "푸른산호초",
+      "failed": true,
       "fingerprint": "cfe05a3f6a4d73df",
       "geocoder_version": 4,
-      "lat": 35.203217684,
-      "lon": 128.814667764,
-      "match_mode": "name",
       "policy_version": 3,
-      "query": "푸른산호초 대한민국",
-      "result_name": "푸른산호초",
-      "score": 100.0,
-      "source": "arcgis",
-      "tried_queries": [
-        "arcgis:푸른산호초 대한민국"
-      ],
-      "updated_at": "2026-09-29T08:47:20+00:00"
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-29T08:51:18+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -20812,15 +20809,22 @@
       "updated_at": "2026-09-29T08:43:01+00:00"
     },
     "푸짐한활어회본점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "55a7d446b8e8b645",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 대덕구 송촌동 송촌남로56번길 1",
+      "fingerprint": "68cf525815636353",
       "geocoder_version": 4,
+      "lat": 36.355624001639,
+      "lon": 127.443627513686,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "대전광역시 대덕구 송촌남로56번길 1",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:푸짐한활어회본점 대한민국",
-        "nominatim:푸짐한활어회본점 대한민국"
+        "arcgis:대전광역시 대덕구 송촌남로56번길 1"
       ],
-      "updated_at": "2026-09-29T08:47:16+00:00"
+      "updated_at": "2026-09-29T08:51:18+00:00"
     },
     "풀무원푸드앤컬처 정부서울청사|중앙정부": {
       "addr_type": "POI",
