@@ -1,0 +1,82 @@
+name: Persist public agency baseline
+
+on:
+  push:
+    branches:
+      - feat/public-agency-executive-expense
+    paths:
+      - pipeline/ingest_public_agency_executive_expense.py
+      - pipeline/ingest_public_agency_detail_expense.py
+      - pipeline/build_public_agency_executive_candidates.py
+      - pipeline/extra_published.py
+      - pipeline/geocode_extra_cache.py
+      - sources/public_agency_registry.json
+      - sources/public_agency_entity_enrichment.json
+      - .github/workflows/persist-public-agency.yml
+
+permissions:
+  contents: write
+
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: feat/public-agency-executive-expense
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 beautifulsoup4 requests
+      - name: Refresh sources
+        run: |
+          python pipeline/ingest_public_agency_executive_expense.py --latest-files 1
+          python pipeline/ingest_public_agency_detail_expense.py --korail-pages 3 --korail-items 24
+          python pipeline/build_public_agency_executive_candidates.py
+      - name: Validate candidate baseline
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/public-agency-executive-candidates.json',encoding='utf-8'))
+          n=int(d.get('candidate_count') or 0)
+          print('candidate_count',n)
+          if n < 5: raise SystemExit('too few public agency candidates')
+          PY
+      - name: Geocode verified candidates
+        run: python pipeline/geocode_extra_cache.py
+      - name: Regression
+        run: python pipeline/regression_checks.py
+      - name: Coordinate and quality audit
+        run: |
+          python pipeline/audit_coordinates.py
+          python pipeline/quality_gate.py
+      - name: Build site
+        run: python pipeline/build_site.py --output dist/index.html
+      - name: Frontend syntax
+        run: node --check site/app.js
+      - name: Browser smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          python -m http.server 8765 --directory dist >/tmp/ed-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/ed-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/ed-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/browser_map_smoke.mjs
+      - name: Commit baseline
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             data/raw/public_agency_executive_expense.json             data/raw/public_agency_detail_expense.json             reports/public-agency-executive-ingestion.json             reports/public-agency-executive-ingestion.md             reports/public-agency-detail-ingestion.json             reports/public-agency-detail-ingestion.md             reports/public-agency-executive-candidates.json             reports/public-agency-executive-candidates.md             data/geocode_cache.json
+          if git diff --cached --quiet; then
+            echo "No baseline changes."
+            exit 0
+          fi
+          git commit -m "data: add public agency executive dining baseline"
+          git push origin HEAD:feat/public-agency-executive-expense
