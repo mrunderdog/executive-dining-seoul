@@ -38,6 +38,7 @@ def main():
     candidates=[]
     for merchant,rows in groups.items():
         agencies=sorted({t(r.get("agency_name")) for r in rows if t(r.get("agency_name"))})
+        agency_ids=sorted({t(r.get("agency_id")) for r in rows if t(r.get("agency_id"))})
         visits=len(rows)
         spend=sum(int(r.get("amount") or 0) for r in rows)
         purposes=Counter(t(r.get("purpose")) for r in rows if t(r.get("purpose")))
@@ -49,6 +50,7 @@ def main():
             "spend":spend,
             "institution_count":len(agencies),
             "institutions":agencies,
+            "agency_ids":agency_ids,
             "score":round(score,1),
             "date_min":min(dates) if dates else "",
             "date_max":max(dates) if dates else "",
