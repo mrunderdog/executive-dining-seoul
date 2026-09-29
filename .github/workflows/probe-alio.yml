@@ -16,25 +16,17 @@ jobs:
       - name: Probe
         run: |
           python - <<'PY'
-          import re,requests
-          urls=[
-            'https://alio.go.kr/upload/disclosure/2025/04/16/2025041602982953/doc.html',
-            'https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701',
-          ]
+          import requests,re,html
           h={'User-Agent':'Mozilla/5.0'}
-          for u in urls:
-            print('\nURL',u)
-            r=requests.get(u,headers=h,timeout=30)
-            print('STATUS',r.status_code,'LEN',len(r.text),'TYPE',r.headers.get('content-type'))
-            for pat in [r'.{0,160}xlsx.{0,260}',r'.{0,160}xls.{0,260}',r'.{0,160}fileNo.{0,260}',r'.{0,160}download.{0,260}',r'.{0,160}atch.{0,260}']:
-              for m in re.findall(pat,r.text,re.I|re.S)[:25]:
-                print('MATCH',re.sub(r'\s+',' ',m)[:700])
-          js='https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131'
-          rr=requests.get(js,headers=h,timeout=30)
-          print('\nJS',rr.status_code,len(rr.text))
-          page=requests.get('https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701',headers=h,timeout=30).text
-          for pat in [r\"disclosureNo\\s*[:=]\\s*['\\\"]([^'\\\"]+)\", r'option value=\"([^\"]+\\|[^\"]+)\"']:
-            print('DISC',re.findall(pat,page)[:20])
-          idx=rr.text.find('function downReportAttachFile')
-          print('JSFUNC',rr.text[idx:idx+1800].replace('\\n',' ') if idx>=0 else 'missing')
+          page_url='https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701'
+          page=requests.get(page_url,headers=h,timeout=30).text
+          print('PAGE_LEN',len(page))
+          for line in page.splitlines():
+              if 'disclosureNo' in line or 'selectedDisclosureNo' in line or 'reportFileDown' in line:
+                  s=' '.join(line.split())
+                  if s: print('PAGE_LINE',s[:2000])
+          js=requests.get('https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131',headers=h,timeout=30).text
+          idx=js.find('function downReportAttachFile')
+          print('FUNC_IDX',idx)
+          print('FUNC_BODY',' '.join(js[idx:idx+2200].split()) if idx>=0 else 'missing')
           PY
