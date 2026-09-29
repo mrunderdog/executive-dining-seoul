@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse, html, json, re, urllib.parse, urllib.request
+from datetime import datetime
+from html.parser import HTMLParser
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+REGISTRY=ROOT/"sources"/"public_enterprise_registry.json"
+REPORTS=ROOT/"reports"
+UA="ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
+FILE_EXTS=(".xlsx",".xls",".csv",".pdf",".hwp",".hwpx")
+
+class AnchorParser(HTMLParser):
+    def __init__(self):
+        super().__init__();self.stack=[];self.anchors=[]
+    def handle_starttag(self,tag,attrs):
+        attrs=dict(attrs)
+        if tag.lower()=="a":
+            self.stack.append({"href":attrs.get("href",""),"onclick":attrs.get("onclick",""),"title":attrs.get("title",""),"text":[]})
+        elif self.stack and tag.lower()=="img":
+            for k in ("alt","title"):
+                if attrs.get(k):self.stack[-1]["text"].append(attrs[k])
+    def handle_data(self,data):
+        if self.stack:self.stack[-1]["text"].append(data)
+    def handle_endtag(self,tag):
+        if tag.lower()=="a" and self.stack:
+            x=self.stack.pop();x["text"]=" ".join(" ".join([x.get("title",""),*x["text"]]).split());self.anchors.append(x)
+
+def decode(raw,charset=None):
+    for c in (charset,"utf-8","cp949","euc-kr"):
+        if not c:continue
+        try:return raw.decode(c)
+        except Exception:pass
+    return raw.decode("utf-8",errors="replace")
+
+def fetch(url):
+    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"text/html,*/*;q=0.8"})
+    with urllib.request.urlopen(req,timeout=35) as r:return decode(r.read(),r.headers.get_content_charset())
+
+def onclick_url(base,value):
+    if not value:return None
+    for raw in re.findall(r"['\"]([^'\"]+)['\"]",html.unescape(value)):
+        if any(x in raw.lower() for x in ("download","file","attach",".do",".jsp")):
+            return urllib.parse.urljoin(base,raw)
+    return None
+
+def parse_links(base,doc):
+    p=AnchorParser();p.feed(doc);out=[];seen=set()
+    for a in p.anchors:
+        href=html.unescape(a.get("href","")).strip();url=None
+        if href and href!="#" and not href.lower().startswith("javascript:"):url=urllib.parse.urljoin(base,href)
+        else:url=onclick_url(base,a.get("onclick",""))
+        if not url or url in seen:continue
+        seen.add(url);out.append({"text":a.get("text",""),"url":url})
+    return out
+
+def looks_file(x):
+    s=(x.get("text","")+" "+x.get("url","")).lower()
+    return any(ext in s for ext in FILE_EXTS) or any(t in s for t in ("download","filedown","attach","atchfile"))
+
+def relevant_detail(x,year):
+    s=(x.get("text","")+" "+x.get("url",""))
+    return ("기관장" in s or "사장직무대행" in s) and (str(year) in s or str(year-1) in s)
+
+def extract_year_month(text):
+    m=re.search(r"(20\d{2})\D{0,4}(1[0-2]|0?[1-9])\s*월",text)
+    return (int(m.group(1)),int(m.group(2))) if m else (None,None)
+
+def discover_source(src,year,detail_limit):
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"pages":[],"attachments":[],"errors":[]}
+    if not src.get("verified") or not src.get("publish"):
+        out["status"]="TRACK_ONLY";return out
+    seen_att=set();seen_page=set()
+    for listing in src.get("listing_urls") or []:
+        try:doc=fetch(listing)
+        except Exception as e:
+            out["errors"].append(f"listing {listing}: {type(e).__name__}: {e}");continue
+        out["pages"].append(listing)
+        links=parse_links(listing,doc)
+        details=[x for x in links if not looks_file(x) and relevant_detail(x,year)][:detail_limit]
+        direct=[x for x in links if looks_file(x) and relevant_detail(x,year)]
+        for x in direct:
+            if x["url"] in seen_att:continue
+            seen_att.add(x["url"]);y,m=extract_year_month(x["text"]);out["attachments"].append({**x,"year":y,"month":m,"parent":listing})
+        for x in details:
+            if x["url"] in seen_page:continue
+            seen_page.add(x["url"])
+            try:ddoc=fetch(x["url"])
+            except Exception as e:
+                out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
+            for a in parse_links(x["url"],ddoc):
+                if not looks_file(a):continue
+                label=(x.get("text","")+" "+a.get("text","")).strip()
+                if not relevant_detail({"text":label,"url":a["url"]},year):continue
+                if a["url"] in seen_att:continue
+                seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
+    parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in out["attachments"])
+    out["parseable_attachments"]=parseable
+    out["status"]="PARSEABLE_FOUND" if parseable else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
+    return out
+
+def main():
+    ap=argparse.ArgumentParser();ap.add_argument("--year",type=int,default=datetime.now().year);ap.add_argument("--incremental",action="store_true");ap.add_argument("--detail-limit",type=int,default=18);args=ap.parse_args()
+    reg=json.loads(REGISTRY.read_text(encoding="utf-8"));sources=reg.get("sources",[])
+    previous={};path=REPORTS/"public-enterprise-discovery.json"
+    if args.incremental and path.exists():
+        try:previous={x.get("key"):x for x in json.loads(path.read_text(encoding="utf-8")).get("sources",[])}
+        except Exception:previous={}
+    rows=[]
+    for src in sources:
+        fresh=discover_source(src,args.year,args.detail_limit if args.incremental else 60)
+        old=previous.get(src.get("key")) or {}
+        if args.incremental and old and fresh.get("status")!="TRACK_ONLY":
+            amap={str(a.get("url") or ""):a for a in old.get("attachments",[]) if a.get("url")}
+            for a in fresh.get("attachments",[]):
+                if a.get("url"):amap[str(a["url"])]=a
+            fresh["attachments"]=list(amap.values())
+            fresh["pages"]=list(dict.fromkeys((old.get("pages") or [])+(fresh.get("pages") or [])))
+            fresh["parseable_attachments"]=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in fresh["attachments"])
+            if fresh["parseable_attachments"]:fresh["status"]="PARSEABLE_FOUND"
+            elif old.get("status"):fresh["status"]="STALE_OK:"+str(old["status"])
+        rows.append(fresh)
+    REPORTS.mkdir(exist_ok=True)
+    payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"year":args.year,"refresh_mode":"incremental" if args.incremental else "full","sources":rows}
+    path.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+    print(json.dumps({"sources":len(rows),"parseable_sources":sum(x.get("parseable_attachments",0)>0 for x in rows),"files":sum(len(x.get("attachments",[])) for x in rows),"statuses":{x["key"]:x["status"] for x in rows}},ensure_ascii=False))
+
+if __name__=="__main__":main()
