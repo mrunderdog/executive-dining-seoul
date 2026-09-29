@@ -14,7 +14,13 @@ GENERIC={"상호없음","상호 없음","미상","확인불가","확인 불가",
 
 def t(v):return " ".join(str(v or "").split()).strip()
 def canon(v):
-    s=t(v);s=re.sub(r"^(?:주식회사|\(주\)|㈜)\s*","",s);return s.strip(" ,")
+    s=t(v);s=re.sub(r"^(?:주식회사|\(주\)|㈜)\s*","",s)
+    s=re.sub(r"\s*\(\s*[☎☏]?\s*\d{2,3}-\d{3,4}-\d{4}\s*\)\s*$","",s)
+    return s.strip(" ,")
+
+def phone_from(v):
+    m=re.search(r"(\d{2,3}-\d{3,4}-\d{4})",t(v))
+    return m.group(1) if m else ""
 def addr(v):return re.sub(r"\s+"," ",t(v).replace("서울특별시","서울").replace("서울시","서울")).strip(" ,")
 def meal(r):
     m=canon(r.get("merchant"));p=t(r.get("purpose"));c=m+" "+p
@@ -43,8 +49,9 @@ def main():
         inst=sorted({t(x.get("institution")) for x in items if t(x.get("institution"))})
         dates=sorted(t(x.get("used_date")) for x in items)
         pc=Counter(t(x.get("purpose")) for x in items if t(x.get("purpose")))
+        phones=[phone_from(x.get("merchant")) for x in items if phone_from(x.get("merchant"))]
         s=score(visits,len(months),spend)
-        out.append({"merchant":name,"address":address,"score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
+        out.append({"merchant":name,"address":address,"phone":phones[0] if phones else "","score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
     eligible=[x for x in out if x["visits"]>=1 and x["score"]>=25]
     eligible.sort(key=lambda x:(x["score"],x["visits"],x["spend"]),reverse=True)
     REPORTS.mkdir(exist_ok=True)
