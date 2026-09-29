@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 220,
+    "failed_count": 222,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1372,
-    "success_count": 1152,
-    "updated_at": "2026-09-29T08:43:10+00:00"
+    "record_count": 1380,
+    "success_count": 1158,
+    "updated_at": "2026-09-29T08:47:24+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -5051,6 +5051,24 @@
       ],
       "updated_at": "2026-09-18T00:08:01+00:00"
     },
+    "동해도본점|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "동해도본점",
+      "fingerprint": "039d0811b678d83b",
+      "geocoder_version": 4,
+      "lat": 37.528714406,
+      "lon": 126.921411588,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "동해도본점 대한민국",
+      "result_name": "동해도본점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:동해도본점 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:21+00:00"
+    },
     "동해도본점|중앙정부": {
       "addr_type": "POI",
       "display_name": "동해도본점",
@@ -5614,6 +5632,17 @@
       ],
       "updated_at": "2026-09-25T08:08:25+00:00"
     },
+    "락원간제미타운|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "1fb5d56976d01489",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:락원간제미타운 대한민국",
+        "nominatim:락원간제미타운 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:24+00:00"
+    },
     "락천수타|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 안양시 만안구 석수동 삼막로 85",
@@ -5696,6 +5725,24 @@
         "nominatim:레몬 (☎ 02-713-6686) 대한민국"
       ],
       "updated_at": "2026-09-29T08:43:07+00:00"
+    },
+    "레몬|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "레몬",
+      "fingerprint": "c38c87c8836c4ed0",
+      "geocoder_version": 4,
+      "lat": 35.134107598,
+      "lon": 126.895785821,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "레몬 대한민국",
+      "result_name": "레몬",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:레몬 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:18+00:00"
     },
     "려기 양주점|양주시": {
       "addr_type": "POI",
@@ -8118,6 +8165,24 @@
         "nominatim:복성각 (☎ 02-778-7786) 대한민국"
       ],
       "updated_at": "2026-09-29T08:43:05+00:00"
+    },
+    "복성각|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "복성각",
+      "fingerprint": "e6e92ec64e31b9d6",
+      "geocoder_version": 4,
+      "lat": 35.528509128,
+      "lon": 127.682618923,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "복성각 대한민국",
+      "result_name": "복성각",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:복성각 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:17+00:00"
     },
     "복성각|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11403,6 +11468,24 @@
         "nominatim:송도갈매기 인천 남동구"
       ],
       "updated_at": "2026-09-18T13:42:47+00:00"
+    },
+    "송도갈매기|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "송도갈매기",
+      "fingerprint": "9af772403d765fa9",
+      "geocoder_version": 4,
+      "lat": 37.417103438,
+      "lon": 126.880947313,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "송도갈매기 대한민국",
+      "result_name": "송도갈매기",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:송도갈매기 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:19+00:00"
     },
     "송도갈매기|인천시청": {
       "failed": true,
@@ -17995,6 +18078,24 @@
       ],
       "updated_at": "2026-09-17T23:01:17+00:00"
     },
+    "지리산약초장어 서울본점|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "지리산약초장어 서울본점",
+      "fingerprint": "518ac785aa61f925",
+      "geocoder_version": 4,
+      "lat": 37.488574349,
+      "lon": 127.104471635,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "지리산약초장어 서울본점 대한민국",
+      "result_name": "지리산약초장어 서울본점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:지리산약초장어 서울본점 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:22+00:00"
+    },
     "지중해|동작구": {
       "addr_type": "Locality",
       "display_name": "서울특별시 관악구",
@@ -20670,6 +20771,24 @@
       ],
       "updated_at": "2026-09-23T00:40:27+00:00"
     },
+    "푸른산호초|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "푸른산호초",
+      "fingerprint": "cfe05a3f6a4d73df",
+      "geocoder_version": 4,
+      "lat": 35.203217684,
+      "lon": 128.814667764,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "푸른산호초 대한민국",
+      "result_name": "푸른산호초",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:푸른산호초 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:20+00:00"
+    },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
       "fingerprint": "36ff1c83de5e8543",
@@ -20691,6 +20810,17 @@
         "nominatim:푸짐한활어회본점 (☎ 042-485-2544) 대한민국"
       ],
       "updated_at": "2026-09-29T08:43:01+00:00"
+    },
+    "푸짐한활어회본점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "55a7d446b8e8b645",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:푸짐한활어회본점 대한민국",
+        "nominatim:푸짐한활어회본점 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:47:16+00:00"
     },
     "풀무원푸드앤컬처 정부서울청사|중앙정부": {
       "addr_type": "POI",
