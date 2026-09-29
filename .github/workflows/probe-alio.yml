@@ -1,4 +1,4 @@
-name: Probe ALIO attachment structure
+name: Probe public agency detail sources
 
 on:
   push:
@@ -13,26 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install
-        run: pip install requests openpyxl
-      - name: Probe
+      - name: Probe Korail and LH
         run: |
           python - <<'PY'
-          import requests,io,json
-          from openpyxl import load_workbook
-          h={'User-Agent':'Mozilla/5.0','Referer':'https://alio.go.kr/'}
-          u='https://alio.go.kr/download/file.json?f=101&d=2026041303157006'
-          r=requests.get(u,headers=h,timeout=45)
-          print('DOWNLOAD',r.status_code,len(r.content),r.headers.get('content-type'),r.headers.get('content-disposition'))
-          print('HEAD',r.content[:20])
-          wb=load_workbook(io.BytesIO(r.content),data_only=True,read_only=True)
-          print('SHEETS',wb.sheetnames)
-          for ws in wb.worksheets[:3]:
-              print('SHEET',ws.title,ws.max_row,ws.max_column)
-              for row in ws.iter_rows(min_row=1,max_row=min(ws.max_row,30),values_only=True):
-                  vals=[str(x) if x is not None else '' for x in row]
-                  if any(vals): print('ROW',json.dumps(vals,ensure_ascii=False))
+          import requests,re
+          from urllib.parse import urljoin
+          h={'User-Agent':'Mozilla/5.0'}
+          urls=[
+            ('KORAIL','https://info.korail.com/info/selectBbsNttList.do?bbsNo=204&key=747&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5'),
+            ('LH','https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400'),
+          ]
+          for name,u in urls:
+              r=requests.get(u,headers=h,timeout=30)
+              print('\nSOURCE',name,r.status_code,len(r.text),r.url)
+              for line in r.text.splitlines():
+                  s=' '.join(line.split())
+                  if any(x in s for x in ('2026년 8월기관장','2025년 8월 기관장','2025년 7월 기관장','2026년 1월 사장직무대행','업무추진비 집행내역')):
+                      print('LINE',s[:2500])
+              hrefs=re.findall(r'href=[\"\']([^\"\']+)[\"\']',r.text,re.I)
+              for href in hrefs:
+                  if any(x in href for x in ('selectBbsNttView','board.es','view.do','nttNo=')):
+                      print('HREF',urljoin(r.url,href)[:1000])
           PY
