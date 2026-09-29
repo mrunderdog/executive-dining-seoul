@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 requests
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 requests
       - name: Ingest ALIO agency-head expense attachments
         run: python pipeline/ingest_public_agency_executive_expense.py --latest-files 2
       - name: Build candidates
