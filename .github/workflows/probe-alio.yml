@@ -1,0 +1,32 @@
+name: Probe ALIO attachment structure
+
+on:
+  push:
+    branches:
+      - feat/public-agency-executive-expense
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Probe
+        run: |
+          python - <<'PY'
+          import re,requests
+          urls=[
+            'https://alio.go.kr/upload/disclosure/2025/04/16/2025041602982953/doc.html',
+            'https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701',
+          ]
+          h={'User-Agent':'Mozilla/5.0'}
+          for u in urls:
+            print('\nURL',u)
+            r=requests.get(u,headers=h,timeout=30)
+            print('STATUS',r.status_code,'LEN',len(r.text),'TYPE',r.headers.get('content-type'))
+            for pat in [r'.{0,160}xlsx.{0,260}',r'.{0,160}xls.{0,260}',r'.{0,160}fileNo.{0,260}',r'.{0,160}download.{0,260}',r'.{0,160}atch.{0,260}']:
+              for m in re.findall(pat,r.text,re.I|re.S)[:25]:
+                print('MATCH',re.sub(r'\s+',' ',m)[:700])
+          PY
