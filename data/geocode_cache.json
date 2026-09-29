@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 215,
+    "failed_count": 220,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1367,
+    "record_count": 1372,
     "success_count": 1152,
-    "updated_at": "2026-09-28T23:48:10+00:00"
+    "updated_at": "2026-09-29T08:43:10+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -5686,6 +5686,17 @@
       ],
       "updated_at": "2026-09-21T07:29:07+00:00"
     },
+    "레몬 (☎ 02-713-6686)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "8114913132f5d308",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:레몬 (☎ 02-713-6686) 대한민국",
+        "nominatim:레몬 (☎ 02-713-6686) 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:43:07+00:00"
+    },
     "려기 양주점|양주시": {
       "addr_type": "POI",
       "display_name": "려기 양주점",
@@ -8096,6 +8107,17 @@
         "arcgis:서울 영등포구 양산로19길 8"
       ],
       "updated_at": "2026-09-17T23:02:34+00:00"
+    },
+    "복성각 (☎ 02-778-7786)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "29fd77128036f9f2",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:복성각 (☎ 02-778-7786) 대한민국",
+        "nominatim:복성각 (☎ 02-778-7786) 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:43:05+00:00"
     },
     "복성각|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -11359,6 +11381,17 @@
         "arcgis:솔잎사골순대아구찜탕 인천 남동구"
       ],
       "updated_at": "2026-09-18T17:02:23+00:00"
+    },
+    "송도갈매기 (☎ 02-898-1123)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "ae63b4d4e55dd975",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:송도갈매기 (☎ 02-898-1123) 대한민국",
+        "nominatim:송도갈매기 (☎ 02-898-1123) 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:43:10+00:00"
     },
     "송도갈매기(인천 남동구 소재)|인천시청": {
       "failed": true,
@@ -19423,6 +19456,17 @@
       ],
       "updated_at": "2026-09-17T23:02:16+00:00"
     },
+    "카드|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "801176c5ea6e8b1a",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:카드 대한민국",
+        "nominatim:카드 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:43:03+00:00"
+    },
     "카야마구로|수원시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 수원시 팔달구 인계동 효원로235번길 52",
@@ -20636,6 +20680,17 @@
         "nominatim:푸에르코 광화문 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:56+00:00"
+    },
+    "푸짐한활어회본점 (☎ 042-485-2544)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "884e31e41c52499d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:푸짐한활어회본점 (☎ 042-485-2544) 대한민국",
+        "nominatim:푸짐한활어회본점 (☎ 042-485-2544) 대한민국"
+      ],
+      "updated_at": "2026-09-29T08:43:01+00:00"
     },
     "풀무원푸드앤컬처 정부서울청사|중앙정부": {
       "addr_type": "POI",
