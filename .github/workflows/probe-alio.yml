@@ -13,20 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install requests openpyxl
       - name: Probe
         run: |
           python - <<'PY'
-          import requests,re,html
-          h={'User-Agent':'Mozilla/5.0'}
-          page_url='https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701'
-          page=requests.get(page_url,headers=h,timeout=30).text
-          print('PAGE_LEN',len(page))
-          for line in page.splitlines():
-              if 'disclosureNo' in line or 'selectedDisclosureNo' in line or 'reportFileDown' in line:
-                  s=' '.join(line.split())
-                  if s: print('PAGE_LINE',s[:2000])
-          js=requests.get('https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131',headers=h,timeout=30).text
-          idx=js.find('function downReportAttachFile')
-          print('FUNC_IDX',idx)
-          print('FUNC_BODY',' '.join(js[idx:idx+2200].split()) if idx>=0 else 'missing')
+          import requests,io,json
+          from openpyxl import load_workbook
+          h={'User-Agent':'Mozilla/5.0','Referer':'https://alio.go.kr/'}
+          u='https://alio.go.kr/download/file.json?f=101&d=2026041303157006'
+          r=requests.get(u,headers=h,timeout=45)
+          print('DOWNLOAD',r.status_code,len(r.content),r.headers.get('content-type'),r.headers.get('content-disposition'))
+          print('HEAD',r.content[:20])
+          wb=load_workbook(io.BytesIO(r.content),data_only=True,read_only=True)
+          print('SHEETS',wb.sheetnames)
+          for ws in wb.worksheets[:3]:
+              print('SHEET',ws.title,ws.max_row,ws.max_column)
+              for row in ws.iter_rows(min_row=1,max_row=min(ws.max_row,30),values_only=True):
+                  vals=[str(x) if x is not None else '' for x in row]
+                  if any(vals): print('ROW',json.dumps(vals,ensure_ascii=False))
           PY
