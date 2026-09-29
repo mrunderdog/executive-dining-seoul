@@ -8,7 +8,13 @@
       "id": "korail",
       "name": "한국철도공사",
       "apba_id": "C0268",
-      "enabled": true
+      "enabled": true,
+      "detail_source": {
+        "type": "korail_board",
+        "list_url": "https://info.korail.com/info/selectBbsNttList.do?bbsNo=204&key=747&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5",
+        "pages": 3,
+        "status": "GO"
+      }
     },
     {
       "id": "kepco",
@@ -26,7 +32,12 @@
       "id": "lh",
       "name": "한국토지주택공사",
       "apba_id": "C0396",
-      "enabled": true
+      "enabled": true,
+      "detail_source": {
+        "type": "lh_board_pdf",
+        "list_url": "https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400",
+        "status": "ADAPTER_PENDING"
+      }
     },
     {
       "id": "kogas",
