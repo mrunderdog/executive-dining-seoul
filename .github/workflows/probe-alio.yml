@@ -29,4 +29,9 @@ jobs:
             for pat in [r'.{0,160}xlsx.{0,260}',r'.{0,160}xls.{0,260}',r'.{0,160}fileNo.{0,260}',r'.{0,160}download.{0,260}',r'.{0,160}atch.{0,260}']:
               for m in re.findall(pat,r.text,re.I|re.S)[:25]:
                 print('MATCH',re.sub(r'\s+',' ',m)[:700])
+          js='https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131'
+          rr=requests.get(js,headers=h,timeout=30)
+          print('\nJS',rr.status_code,len(rr.text))
+          for pat in [r'function\\s+downReportAttachFile[\\s\\S]{0,1200}',r'downReportAttachFile\\s*=\\s*function[\\s\\S]{0,1200}',r'/[^\"\']*file[^\"\']*download[^\"\']*']:
+            for m in re.findall(pat,rr.text,re.I)[:20]: print('JSMATCH',re.sub(r'\\s+',' ',m)[:1400])
           PY
