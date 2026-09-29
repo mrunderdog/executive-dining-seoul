@@ -1,0 +1,21 @@
+name: LH ALIO probe
+
+on:
+  push:
+    branches:
+      - feat/public-agency-executive-expense
+
+permissions:
+  contents: read
+
+jobs:
+  lh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 requests
+      - run: python pipeline/ingest_public_agency_executive_expense.py --agency lh --latest-files 1
+      - run: cat reports/public-agency-executive-ingestion.md
