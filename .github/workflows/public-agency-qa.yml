@@ -1,0 +1,34 @@
+name: Public agency executive QA
+
+on:
+  push:
+    branches:
+      - feat/public-agency-executive-expense
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 requests
+      - name: Ingest ALIO agency-head expense attachments
+        run: python pipeline/ingest_public_agency_executive_expense.py --latest-files 2
+      - name: Build candidates
+        run: python pipeline/build_public_agency_executive_candidates.py
+      - name: Show result
+        run: |
+          cat reports/public-agency-executive-ingestion.md
+          cat reports/public-agency-executive-candidates.md
+      - name: Regression
+        run: python pipeline/regression_checks.py
+      - name: Build site
+        run: python pipeline/build_site.py --output dist/index.html
+      - name: Frontend syntax
+        run: node --check site/app.js
