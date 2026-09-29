@@ -1,13 +1,4 @@
 #!/usr/bin/env python3
-
-
-def robust_session() -> requests.Session:
-    s=requests.Session()
-    retry=Retry(total=4,connect=4,read=3,backoff_factor=1.2,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]))
-    s.mount("https://",HTTPAdapter(max_retries=retry))
-    s.mount("http://",HTTPAdapter(max_retries=retry))
-    s.headers.update({"User-Agent":UA,"Referer":"https://alio.go.kr/"})
-    return s
 from __future__ import annotations
 
 import argparse, html, json, re
@@ -27,6 +18,15 @@ OUT=ROOT/"data"/"raw"/"public_agency_detail_expense.json"
 REPORT=ROOT/"reports"/"public-agency-detail-ingestion.json"
 MD=ROOT/"reports"/"public-agency-detail-ingestion.md"
 UA="Mozilla/5.0 (compatible; ExecutiveDining/1.0; +https://github.com/mrunderdog/executive-dining-seoul)"
+
+
+def robust_session() -> requests.Session:
+    s=requests.Session()
+    retry=Retry(total=4,connect=4,read=3,backoff_factor=1.2,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]))
+    s.mount("https://",HTTPAdapter(max_retries=retry))
+    s.mount("http://",HTTPAdapter(max_retries=retry))
+    s.headers.update({"User-Agent":UA})
+    return s
 
 
 def clean_merchant(v:str)->tuple[str,str]:
