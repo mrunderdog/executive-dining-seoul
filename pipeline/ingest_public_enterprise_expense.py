@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse, json
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -24,16 +25,21 @@ def main():
         except Exception:previous={}
     previous_rows=list(previous.get("rows",[]));previous_files=list(previous.get("files",[]));previous_errors=list(previous.get("errors",[]))
     known={str(x.get("url") or "") for x in previous_files if x.get("url")}
-    rows=[];files=[];errors=[]
+    rows=[];files=[];errors=[];jobs=[]
     for src in d.get("sources",[]):
         if src.get("status")=="TRACK_ONLY":continue
         for a in src.get("attachments",[]):
             url=str(a.get("url") or "")
             if not url or (args.incremental and url in known):continue
-            parsed,info,error=parse_attachment(src,a)
-            rows.extend(parsed)
-            if info:files.append(info)
-            if error:errors.append(error)
+            jobs.append((src,a))
+    if jobs:
+        with ThreadPoolExecutor(max_workers=min(4,len(jobs))) as pool:
+            future_map={pool.submit(parse_attachment,src,a):(src,a) for src,a in jobs}
+            for fut in as_completed(future_map):
+                parsed,info,error=fut.result()
+                rows.extend(parsed)
+                if info:files.append(info)
+                if error:errors.append(error)
     if args.incremental and not files and not errors:
         print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False));return
     unique={r["row_id"]:r for r in previous_rows+rows}
