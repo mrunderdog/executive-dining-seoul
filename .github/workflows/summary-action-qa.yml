@@ -1,0 +1,36 @@
+name: Summary action QA
+
+on:
+  push:
+    branches:
+      - fix/mobile-summary-actions
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build
+        run: python pipeline/build_site.py --output dist/index.html
+      - name: Syntax
+        run: node --check site/app.js
+      - name: Browser smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          python -m http.server 8765 --directory dist >/tmp/ed-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/ed-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/ed-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/browser_map_smoke.mjs
