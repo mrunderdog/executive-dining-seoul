@@ -250,7 +250,7 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
             "business": {
                 "display": display_name,
                 "category": _category(name),
-                "phone": t(override.get("phone")),
+                "phone": t(override.get("phone")) or t(c.get("phone")),
                 "status": "공기업·공공기관 기관장 공식 업무추진비 원자료상 사용처",
                 "rating": "",
                 "note": "공기업·공공기관이 공개한 기관장 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다.",
