@@ -401,6 +401,7 @@ def public_agency_records(max_records: int = 120) -> list[dict]:
         return []
     d = json.loads(p.read_text(encoding="utf-8"))
     out = []
+    enrichments = _public_agency_enrichment()
     for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
         name = t(c.get("merchant"))
         if not name:
@@ -455,13 +456,13 @@ def public_agency_records(max_records: int = 120) -> list[dict]:
             "search_query": f"{display_name} {address or '대한민국'}",
             "business": {
                 "display": display_name,
-                "category": _category(name),
+                "category": t(override.get("category")) or _category(name),
                 "phone": t(override.get("phone")),
-                "status": "ALIO 기관장 업무추진비 사용처",
+                "status": "공공기관 기관장 업무추진비 사용처",
                 "rating": "",
-                "note": "ALIO 정기공시 첨부파일에서 사용처·상호 수준이 확인된 기관장 업무추진비만 지도에 반영합니다. 집계형 공시는 추적만 하고 발행하지 않습니다.",
+                "note": "기관 자체 공식 정보공개 원문에서 사용처·상호 수준이 확인된 기관장 업무추진비만 지도에 반영합니다. ALIO 집계형 공시는 추적만 하고 발행하지 않습니다.",
                 "url": t(override.get("url")),
-                "verified_at": t(override.get("verified_at")),
+                "verified_at": t(override.get("verified_at")) or ("2026-09-29" if scoped else ""),
                 "verification_confidence": t(override.get("confidence")),
             },
             "evidence": {
