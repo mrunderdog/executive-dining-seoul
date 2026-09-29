@@ -68,7 +68,7 @@ jobs:
 
       - name: Install spreadsheet parsers
         if: steps.mode.outputs.ingest == 'true'
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 beautifulsoup4 requests --pre pyhwp six
 
       - name: Build target arguments
         if: steps.mode.outputs.full == 'true'
@@ -127,6 +127,65 @@ jobs:
       - name: Incremental justice leadership refresh
         if: steps.mode.outputs.mode == 'incremental'
         run: python pipeline/refresh_justice.py --mode incremental
+
+      - name: Refresh public-agency executive dining
+        if: steps.mode.outputs.ingest == 'true'
+        shell: bash
+        run: |
+          set +e
+          BASELINE_OK=0
+          if git cat-file -e HEAD:data/raw/public_agency_detail_expense.json 2>/dev/null &&
+             git cat-file -e HEAD:reports/public-agency-executive-candidates.json 2>/dev/null; then
+            BASELINE_OK=1
+          fi
+
+          restore_public_agency() {
+            if [[ "$BASELINE_OK" == "1" ]]; then
+              git restore --source=HEAD --                 data/raw/public_agency_executive_expense.json                 data/raw/public_agency_detail_expense.json                 reports/public-agency-executive-ingestion.json                 reports/public-agency-executive-ingestion.md                 reports/public-agency-detail-ingestion.json                 reports/public-agency-detail-ingestion.md                 reports/public-agency-executive-candidates.json                 reports/public-agency-executive-candidates.md 2>/dev/null || true
+              echo "PUBLIC_AGENCY STALE_OK:$1"
+              return 0
+            fi
+            echo "PUBLIC_AGENCY FAILED:$1"
+            return 1
+          }
+
+          python pipeline/ingest_public_agency_executive_expense.py --latest-files 1
+          if [[ $? -ne 0 ]]; then
+            if [[ "$BASELINE_OK" == "1" ]]; then
+              git restore --source=HEAD -- data/raw/public_agency_executive_expense.json reports/public-agency-executive-ingestion.* 2>/dev/null || true
+              echo "ALIO tracker STALE_OK"
+            else
+              echo "ALIO tracker unavailable; continuing with agency detail source"
+            fi
+          fi
+
+          python pipeline/ingest_public_agency_detail_expense.py --korail-pages 3 --korail-items 24
+          if [[ $? -ne 0 ]]; then
+            restore_public_agency DETAIL || exit 1
+            exit 0
+          fi
+
+          python pipeline/build_public_agency_executive_candidates.py
+          if [[ $? -ne 0 ]]; then
+            restore_public_agency CANDIDATE || exit 1
+            exit 0
+          fi
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('reports/public-agency-executive-candidates.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          n=int(d.get('candidate_count') or 0)
+          print('public agency candidate_count',n)
+          if n < 1:
+              raise SystemExit('public_agency_candidate_set_empty')
+          PY
+          if [[ $? -ne 0 ]]; then
+            restore_public_agency EMPTY || exit 1
+            exit 0
+          fi
+          echo "PUBLIC_AGENCY OK"
 
       - name: Check official monthly council sources
         if: steps.mode.outputs.full == 'true'
