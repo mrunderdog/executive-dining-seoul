@@ -32,6 +32,6 @@ jobs:
           js='https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131'
           rr=requests.get(js,headers=h,timeout=30)
           print('\nJS',rr.status_code,len(rr.text))
-          for pat in [r'function\\s+downReportAttachFile[\\s\\S]{0,1200}',r'downReportAttachFile\\s*=\\s*function[\\s\\S]{0,1200}',r'/[^\"\']*file[^\"\']*download[^\"\']*']:
-            for m in re.findall(pat,rr.text,re.I)[:20]: print('JSMATCH',re.sub(r'\\s+',' ',m)[:1400])
+          for line in rr.text.splitlines():
+            if 'downReportAttachFile' in line or 'fileDownload' in line or '/file' in line.lower() or 'download' in line.lower(): print('JSLINE',line[:1800])
           PY
