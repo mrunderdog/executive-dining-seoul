@@ -1262,3 +1262,105 @@ body{
     line-height:1.25!important;
   }
 }
+
+
+/* Explorer is a narrow panel even on desktop. Respond to the panel, not only viewport. */
+.ui-v2 .sidebar{
+  container-type:inline-size;
+  container-name:explorer;
+}
+
+/* Summary actions must never be squeezed into vertical Korean glyphs. */
+.ui-v2 .summary{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:6px!important;
+}
+.ui-v2 .summary #sum{
+  flex:1 0 100%!important;
+  width:100%!important;
+  min-width:0!important;
+}
+.ui-v2 .summary .score-help,
+.ui-v2 .summary .explorer-toggle{
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:max-content!important;
+  max-width:none!important;
+  height:28px!important;
+  margin:0!important;
+  padding:0 10px!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  writing-mode:horizontal-tb!important;
+  line-height:1!important;
+}
+
+/* The sidebar is ~360px on desktop; keep controls panel-friendly there too. */
+@container explorer (max-width:520px){
+  .ui-v2 .filters{
+    padding:12px 13px 11px!important;
+  }
+  .ui-v2 .filters-head{
+    margin-bottom:10px!important;
+  }
+  .ui-v2 .filter-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  .ui-v2 .field{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:4px!important;
+    margin:0!important;
+    min-width:0!important;
+  }
+  .ui-v2 .field label{
+    display:block!important;
+    width:auto!important;
+    margin:0 0 1px 2px!important;
+    font-size:10px!important;
+    line-height:1.2!important;
+  }
+  .ui-v2 .control,
+  .ui-v2 .search-wrap input,
+  .ui-v2 select{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:38px!important;
+    min-height:38px!important;
+    box-sizing:border-box!important;
+  }
+  .ui-v2 .search-wrap{
+    margin-top:8px!important;
+  }
+  .ui-v2 .sort-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:end!important;
+    gap:8px!important;
+    margin-top:8px!important;
+  }
+  .ui-v2 .reset-btn{
+    width:auto!important;
+    min-width:64px!important;
+    height:38px!important;
+    padding:0 13px!important;
+    white-space:nowrap!important;
+  }
+  .ui-v2 .summary{
+    padding:8px 10px 9px!important;
+  }
+  .ui-v2 .restaurant-card{
+    padding:11px 12px!important;
+  }
+  .ui-v2 .badge{
+    white-space:nowrap!important;
+    word-break:keep-all!important;
+  }
+}
