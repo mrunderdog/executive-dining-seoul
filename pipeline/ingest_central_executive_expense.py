@@ -333,6 +333,23 @@ def normalize(rows,sheet,meta):
         purpose_text=clean(cell(row,m,"purpose"))
         people_value=people(cell(row,m,"people"))
 
+        # Korail's 2026-02 PDF uses a different visual column order: the parser
+        # can read the payment method ("카드") as merchant and the actual venue
+        # as purpose. The source page itself is scoped to the institution head,
+        # so keep role fixed to that source scope and repair only this
+        # unambiguous payment-method-as-merchant case.
+        if meta.get("key") == "korail":
+            default_role=clean(meta.get("default_role")) or "기관장"
+            if merchant in {"카드","현금","법인카드"} and purpose_text:
+                payment_hint=merchant
+                merchant=purpose_text
+                purpose_text=""
+                if not clean(cell(row,m,"method")):
+                    # written to payment_method below through a local override
+                    m = dict(m)
+                    m["_korail_payment_hint"] = payment_hint
+            role=default_role
+
         # PDF text extraction can collapse the final amount/person cells into
         # the purpose cell. Recover only an unambiguous comma-formatted trailing
         # amount so policy numbers/years are never mistaken for money.
@@ -344,7 +361,7 @@ def normalize(rows,sheet,meta):
                     people_value=int(tail.group(2))
                 purpose_text=purpose_text[:tail.start()].strip()
 
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":clean(meta.get("cohort")) or "central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")) or clean(m.get("_korail_payment_hint")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
@@ -365,7 +382,9 @@ def parse_attachment(src:dict,a:dict):
         for sheet,rows in parsed_sheets:
             norm,si=normalize(rows,sheet,{
                 "key":src["key"],"institution":src["institution"],"url":url,
-                "default_role":default_role,"source_year":a.get("year")
+                "cohort":src.get("cohort") or "central_executive",
+                "default_role":default_role or src.get("default_role") or "",
+                "source_year":a.get("year")
             })
             parsed.extend(norm);info["sheets"].append(si)
         return parsed,info,None

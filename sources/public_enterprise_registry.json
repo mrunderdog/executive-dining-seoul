@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-29",
+  "policy": "Publish only institution-head expense sources with stable official public listings and parseable merchant-level attachments. Aggregate-only or unstable sources stay tracked but unpublished.",
+  "sources": [
+    {
+      "key": "korail",
+      "institution": "한국철도공사",
+      "cohort": "public_enterprise_leadership",
+      "default_role": "기관장",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "format_hint": "xlsx/pdf",
+      "listing_urls": [
+        "https://info.korail.com/info/selectBbsNttList.do?bbsNo=204&integrDeptCode=&key=747&pageIndex=1&searchCnd=all&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5&searchKrwd="
+      ],
+      "note": "한국철도공사 사전정보공표 업무추진비 게시판의 기관장 카테고리. 월별 XLSX/PDF 첨부가 확인됨."
+    },
+    {
+      "key": "kepco",
+      "institution": "한국전력공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. 안정적인 merchant-level attachment surface를 별도 검증 후 publish."
+    },
+    {
+      "key": "lh",
+      "institution": "한국토지주택공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    },
+    {
+      "key": "ex",
+      "institution": "한국도로공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    },
+    {
+      "key": "kwater",
+      "institution": "한국수자원공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    },
+    {
+      "key": "kogas",
+      "institution": "한국가스공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    },
+    {
+      "key": "iiac",
+      "institution": "인천국제공항공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    },
+    {
+      "key": "kac",
+      "institution": "한국공항공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+    }
+  ]
+}

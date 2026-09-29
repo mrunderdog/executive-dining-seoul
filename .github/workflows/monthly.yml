@@ -124,6 +124,17 @@ jobs:
             python pipeline/build_central_executive_candidates.py
           fi
 
+      - name: Incremental public-enterprise leadership refresh
+        if: steps.mode.outputs.mode == 'incremental'
+        shell: bash
+        run: |
+          python pipeline/public_enterprise_discovery.py --incremental --detail-limit 12
+          OUT="$(python pipeline/ingest_public_enterprise_expense.py --incremental)"
+          echo "$OUT"
+          if echo "$OUT" | grep -Eq '"status": "(UPDATED|RETRIED_ERRORS)"'; then
+            python pipeline/build_public_enterprise_candidates.py
+          fi
+
       - name: Incremental justice leadership refresh
         if: steps.mode.outputs.mode == 'incremental'
         run: python pipeline/refresh_justice.py --mode incremental
@@ -244,6 +255,19 @@ jobs:
       - name: Build central-government executive candidates
         if: steps.mode.outputs.full == 'true'
         run: python pipeline/build_central_executive_candidates.py
+
+      - name: Refresh public-enterprise leadership expenses
+        if: steps.mode.outputs.full == 'true'
+        shell: bash
+        run: |
+          python pipeline/public_enterprise_discovery.py
+          OUT="$(python pipeline/ingest_public_enterprise_expense.py)"
+          echo "$OUT"
+          if echo "$OUT" | grep -Eq '"status": "(UPDATED|RETRIED_ERRORS)"'; then
+            python pipeline/build_public_enterprise_candidates.py
+          elif echo "$OUT" | grep -q '"status": "STALE_OK'; then
+            echo "Public-enterprise refresh degraded; committed last-good baseline retained."
+          fi
 
       - name: Full justice leadership refresh
         if: steps.mode.outputs.full == 'true'
