@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import argparse, html, json, re, urllib.parse, urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -83,18 +84,24 @@ def discover_source(src,year,detail_limit):
         for x in direct:
             if x["url"] in seen_att:continue
             seen_att.add(x["url"]);y,m=extract_year_month(x["text"]);out["attachments"].append({**x,"year":y,"month":m,"parent":listing})
+        detail_jobs=[]
         for x in details:
             if x["url"] in seen_page:continue
-            seen_page.add(x["url"])
-            try:ddoc=fetch(x["url"])
-            except Exception as e:
-                out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
-            for a in parse_links(x["url"],ddoc):
-                if not looks_file(a):continue
-                label=(x.get("text","")+" "+a.get("text","")).strip()
-                if not relevant_detail({"text":label,"url":a["url"]},year):continue
-                if a["url"] in seen_att:continue
-                seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
+            seen_page.add(x["url"]);detail_jobs.append(x)
+        if detail_jobs:
+            with ThreadPoolExecutor(max_workers=min(6,len(detail_jobs))) as pool:
+                future_map={pool.submit(fetch,x["url"]):x for x in detail_jobs}
+                for fut in as_completed(future_map):
+                    x=future_map[fut]
+                    try:ddoc=fut.result()
+                    except Exception as e:
+                        out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
+                    for a in parse_links(x["url"],ddoc):
+                        if not looks_file(a):continue
+                        label=(x.get("text","")+" "+a.get("text","")).strip()
+                        if not relevant_detail({"text":label,"url":a["url"]},year):continue
+                        if a["url"] in seen_att:continue
+                        seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
     parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in out["attachments"])
     out["parseable_attachments"]=parseable
     out["status"]="PARSEABLE_FOUND" if parseable else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
