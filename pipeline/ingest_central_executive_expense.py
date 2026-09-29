@@ -344,7 +344,7 @@ def normalize(rows,sheet,meta):
                     people_value=int(tail.group(2))
                 purpose_text=purpose_text[:tail.start()].strip()
 
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":"central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":clean(meta.get("cohort")) or "central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
@@ -365,7 +365,9 @@ def parse_attachment(src:dict,a:dict):
         for sheet,rows in parsed_sheets:
             norm,si=normalize(rows,sheet,{
                 "key":src["key"],"institution":src["institution"],"url":url,
-                "default_role":default_role,"source_year":a.get("year")
+                "cohort":src.get("cohort") or "central_executive",
+                "default_role":default_role or src.get("default_role") or "",
+                "source_year":a.get("year")
             })
             parsed.extend(norm);info["sheets"].append(si)
         return parsed,info,None
