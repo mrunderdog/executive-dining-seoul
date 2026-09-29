@@ -49,8 +49,14 @@ def main():
         if x.get("url"):fmap[str(x["url"])]=x
     merged_files=list(fmap.values()) if args.incremental else files
     merged_errors=(previous_errors+errors)[-100:] if args.incremental else errors
-    if not args.incremental and not merged_rows and out.exists():
-        print(json.dumps({"status":"STALE_OK:EMPTY_FULL","reason":"fresh refresh returned zero rows; last-good preserved"},ensure_ascii=False));return
+    if not args.incremental and out.exists():
+        try:baseline=json.loads(out.read_text(encoding="utf-8"))
+        except Exception:baseline={}
+        baseline_rows=list(baseline.get("rows",[]))
+        if not merged_rows:
+            print(json.dumps({"status":"STALE_OK:EMPTY_FULL","baseline_rows":len(baseline_rows),"reason":"fresh refresh returned zero rows; last-good preserved"},ensure_ascii=False));return
+        if baseline_rows and len(merged_rows) < max(10,int(len(baseline_rows)*0.5)):
+            print(json.dumps({"status":"STALE_OK:DEGRADED_FULL","fresh_rows":len(merged_rows),"baseline_rows":len(baseline_rows),"reason":"fresh full output fell below 50% of baseline; last-good preserved"},ensure_ascii=False));return
     payload={"schema_version":1,"generated_at":datetime.now().isoformat(timespec="seconds"),"refresh_mode":"incremental" if args.incremental else "full","row_count":len(merged_rows),"rows":merged_rows,"files":merged_files,"errors":merged_errors}
     out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     cc=Counter(r.get("institution") or "(unknown)" for r in merged_rows)
