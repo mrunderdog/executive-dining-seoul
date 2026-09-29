@@ -13,25 +13,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Probe Korail and LH
+      - name: Probe
         run: |
           python - <<'PY'
-          import requests,re
+          import requests,re,html
           from urllib.parse import urljoin
           h={'User-Agent':'Mozilla/5.0'}
-          urls=[
-            ('KORAIL','https://info.korail.com/info/selectBbsNttList.do?bbsNo=204&key=747&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5'),
-            ('LH','https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400'),
-          ]
-          for name,u in urls:
-              r=requests.get(u,headers=h,timeout=30)
-              print('\nSOURCE',name,r.status_code,len(r.text),r.url)
-              for line in r.text.splitlines():
-                  s=' '.join(line.split())
-                  if any(x in s for x in ('2026년 8월기관장','2025년 8월 기관장','2025년 7월 기관장','2026년 1월 사장직무대행','업무추진비 집행내역')):
-                      print('LINE',s[:2500])
-              hrefs=re.findall(r'href=[\"\']([^\"\']+)[\"\']',r.text,re.I)
-              for href in hrefs:
-                  if any(x in href for x in ('selectBbsNttView','board.es','view.do','nttNo=')):
-                      print('HREF',urljoin(r.url,href)[:1000])
+
+          # KORAIL latest institution-head detail
+          u='https://info.korail.com/info/selectBbsNttView.do?key=747&bbsNo=204&nttNo=27335&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5'
+          r=requests.get(u,headers=h,timeout=30)
+          print('KORAIL_DETAIL',r.status_code,len(r.text),r.url)
+          for line in r.text.splitlines():
+              s=html.unescape(' '.join(line.split()))
+              if any(x in s.lower() for x in ('xlsx','xls','pdf','atch','file','27335')):
+                  if 'script src' not in s.lower() and 'stylesheet' not in s.lower():
+                      print('KLINE',s[:2500])
+
+          # LH board rows around institution-head items
+          u='https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400'
+          r=requests.get(u,headers=h,timeout=30)
+          print('LH_LIST',r.status_code,len(r.text),r.url)
+          text=r.text
+          for target in ('2026년 8월기관장 업무추진비 집행내역','2026년 7월 기관장 업무추진비 집행내역'):
+              i=text.find(target)
+              print('LH_AROUND',target,html.unescape(re.sub(r'\s+',' ',text[max(0,i-1800):i+2600]))[:4400] if i>=0 else 'missing')
           PY
