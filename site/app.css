@@ -1287,7 +1287,7 @@ body{
 .ui-v2 .summary .explorer-toggle{
   flex:0 0 auto!important;
   width:auto!important;
-  min-width:max-content!important;
+  min-width:64px!important;
   max-width:none!important;
   height:28px!important;
   margin:0!important;
