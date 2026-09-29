@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-29",
+  "policy": "ALIO 기관장 업무추진비 정기공시를 수집하되, 식당/사용처 수준의 merchant field가 확인되는 첨부만 지도 후보로 발행한다. 집계형 첨부는 추적만 하고 지도에는 넣지 않는다.",
+  "report_form_root_no": "20701",
+  "agencies": [
+    {
+      "id": "korail",
+      "name": "한국철도공사",
+      "apba_id": "C0268",
+      "enabled": true
+    },
+    {
+      "id": "kepco",
+      "name": "한국전력공사",
+      "apba_id": "C0247",
+      "enabled": true
+    },
+    {
+      "id": "ex",
+      "name": "한국도로공사",
+      "apba_id": "C0183",
+      "enabled": true
+    },
+    {
+      "id": "lh",
+      "name": "한국토지주택공사",
+      "apba_id": "C0396",
+      "enabled": true
+    },
+    {
+      "id": "kogas",
+      "name": "한국가스공사",
+      "apba_id": "C0147",
+      "enabled": true
+    },
+    {
+      "id": "iiac",
+      "name": "인천국제공항공사",
+      "apba_id": "C0105",
+      "enabled": true
+    },
+    {
+      "id": "kac",
+      "name": "한국공항공사",
+      "apba_id": "C0391",
+      "enabled": true
+    }
+  ]
+}
