@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-28T23:47:33",
-  "dataset_records": 1100,
+  "generated_at": "2026-09-29T22:34:26",
+  "dataset_records": 1107,
   "cross_institution_count": 171,
-  "cross_origin_count": 25,
-  "top_official_count": 278,
+  "cross_origin_count": 26,
+  "top_official_count": 285,
   "regional_head_count": 20,
-  "entity_merges": 40,
-  "entity_merge_audit_count": 36,
+  "entity_merges": 41,
+  "entity_merge_audit_count": 37,
   "entity_merge_audit": [
     {
       "name": "화담",
@@ -646,6 +646,28 @@
       "spend": 538000
     },
     {
+      "name": "동해도본점",
+      "address": "서울특별시 영등포구 은행로 25",
+      "origins": [
+        "공기업·공공기관",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "한국철도공사"
+      ],
+      "source_keys": [
+        "동해도본점|중앙정부",
+        "동해도본점|공기업·공공기관"
+      ],
+      "source_key_count": 2,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 1,
+      "visits": 6,
+      "spend": 1083000
+    },
+    {
       "name": "주식회사 고려보쌈",
       "address": "서울 중구 세종대로20길 23",
       "origins": [
@@ -802,7 +824,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 12,
+  "cross_origin_review_count": 13,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -981,6 +1003,28 @@
       "visits": 9,
       "addresses": [
         "경기 안양시 만안구 삼막로24번길 115"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "복성각",
+      "strict_name": "복성각",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "공기업·공공기관",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "한국철도공사",
+        "해양수산부"
+      ],
+      "visits": 7,
+      "addresses": [
+        "서울특별시 중구 통일로 10"
       ],
       "address_entity_count": 1,
       "qa_a": false
@@ -1931,6 +1975,39 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "동해도본점",
+      "address": "서울특별시 영등포구 은행로 25",
+      "origins": [
+        "공기업·공공기관",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "central_executive",
+        "public_enterprise_leadership"
+      ],
+      "visits": 6,
+      "spend": 1083000,
+      "date_min": "2025-02-05",
+      "date_max": "2026-04-01",
+      "consensus_score": 73.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4121,36 +4198,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 5,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "동해도본점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1083000,
-      "date_min": "2025-02-05",
-      "date_max": "2026-04-01",
-      "consensus_score": 53.9,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -8049,6 +8096,39 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "동해도본점",
+      "address": "서울특별시 영등포구 은행로 25",
+      "origins": [
+        "공기업·공공기관",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "central_executive",
+        "public_enterprise_leadership"
+      ],
+      "visits": 6,
+      "spend": 1083000,
+      "date_min": "2025-02-05",
+      "date_max": "2026-04-01",
+      "consensus_score": 73.1,
+      "institution_count": 3,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "고래",
       "address": "",
       "origins": [
@@ -8509,36 +8589,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "동해도본점",
-      "address": "",
-      "origins": [
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부"
-      ],
-      "cohorts": [
-        "central_executive"
-      ],
-      "visits": 5,
-      "spend": 1083000,
-      "date_min": "2025-02-05",
-      "date_max": "2026-04-01",
-      "consensus_score": 53.9,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 4,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "광화문 더덕순대",
       "address": "",
       "origins": [
@@ -8622,6 +8672,35 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "푸짐한활어회본점",
+      "address": "대전광역시 대덕구 송촌남로56번길 1",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 643000,
+      "date_min": "2025-11-26",
+      "date_max": "2026-01-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -13296,6 +13375,180 @@
       "source_count": 1,
       "top_role_tier": "cabinet_or_investigative_head",
       "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "락원간제미타운",
+      "address": "대전광역시 동구 우암로171번길 19",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 0,
+      "date_min": "2026-02-27",
+      "date_max": "2026-02-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "지리산약초장어 서울본점",
+      "address": "서울특별시 강남구 광평로 295",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 0,
+      "date_min": "2026-02-25",
+      "date_max": "2026-02-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "푸른산호초",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 0,
+      "date_min": "2026-02-19",
+      "date_max": "2026-02-19",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "복성각 서울역점",
+      "address": "서울특별시 중구 통일로 10",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 227000,
+      "date_min": "2026-01-08",
+      "date_max": "2026-01-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "송도갈매기 광명점",
+      "address": "경기도 광명시 양지로 16",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 143000,
+      "date_min": "2025-11-05",
+      "date_max": "2025-11-05",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "레몬중화요리",
+      "address": "서울특별시 용산구 청파로 391",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 166000,
+      "date_min": "2025-11-04",
+      "date_max": "2025-11-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
