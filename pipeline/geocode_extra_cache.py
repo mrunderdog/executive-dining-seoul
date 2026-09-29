@@ -28,6 +28,16 @@ def main():
     for r in records:
         key = f"{r.get('name','')}|{r.get('origin','')}"
         fp = fingerprint(r)
+        if r.get("cohort") == "public_enterprise_leadership" and not str(r.get("address") or "").strip():
+            items[key] = {
+                "failed": True,
+                "fingerprint": fp,
+                "geocoder_version": GEOCODER_VERSION,
+                "policy_version": POLICY_VERSION,
+                "reason": "public_enterprise_requires_verified_address",
+                "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            }
+            continue
         old = items.get(key) if isinstance(items.get(key), dict) else {}
         current = (
             old.get("fingerprint") == fp
