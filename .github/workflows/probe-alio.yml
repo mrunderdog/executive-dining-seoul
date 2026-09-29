@@ -13,29 +13,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Probe
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 pypdf==6.1.1 requests
+      - name: Inspect Korail and LH detailed attachments
         run: |
           python - <<'PY'
-          import requests,re,html
-          from urllib.parse import urljoin
+          import requests,io,json,re
+          from openpyxl import load_workbook
+          from pypdf import PdfReader
           h={'User-Agent':'Mozilla/5.0'}
 
-          # KORAIL latest institution-head detail
-          u='https://info.korail.com/info/selectBbsNttView.do?key=747&bbsNo=204&nttNo=27335&searchCtgry=%EA%B8%B0%EA%B4%80%EC%9E%A5'
-          r=requests.get(u,headers=h,timeout=30)
-          print('KORAIL_DETAIL',r.status_code,len(r.text),r.url)
-          for line in r.text.splitlines():
-              s=html.unescape(' '.join(line.split()))
-              if any(x in s.lower() for x in ('xlsx','xls','pdf','atch','file','27335')):
-                  if 'script src' not in s.lower() and 'stylesheet' not in s.lower():
-                      print('KLINE',s[:2500])
+          ku='https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=28645'
+          kr=requests.get(ku,headers=h,timeout=45)
+          print('KDOWNLOAD',kr.status_code,len(kr.content),kr.headers.get('content-type'),kr.content[:8])
+          wb=load_workbook(io.BytesIO(kr.content),data_only=True,read_only=True)
+          for ws in wb.worksheets:
+              print('KSHEET',ws.title,ws.max_row,ws.max_column)
+              for row in ws.iter_rows(values_only=True):
+                  vals=[str(x) if x is not None else '' for x in row]
+                  if any(vals): print('KROW',json.dumps(vals,ensure_ascii=False))
 
-          # LH board rows around institution-head items
-          u='https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400'
-          r=requests.get(u,headers=h,timeout=30)
-          print('LH_LIST',r.status_code,len(r.text),r.url)
-          text=r.text
-          for target in ('2026년 8월기관장 업무추진비 집행내역','2026년 7월 기관장 업무추진비 집행내역'):
-              i=text.find(target)
-              print('LH_AROUND',target,html.unescape(re.sub(r'\s+',' ',text[max(0,i-1800):i+2600]))[:4400] if i>=0 else 'missing')
+          lu='https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=733994&seq=1'
+          lr=requests.get(lu,headers=h,timeout=45)
+          print('LDOWNLOAD',lr.status_code,len(lr.content),lr.headers.get('content-type'),lr.content[:8])
+          reader=PdfReader(io.BytesIO(lr.content))
+          text='\n'.join((p.extract_text() or '') for p in reader.pages)
+          print('LTEXT',re.sub(r'\s+',' ',text)[:12000])
           PY
