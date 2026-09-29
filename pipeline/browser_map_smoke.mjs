@@ -248,6 +248,44 @@ if (crossResetCheck.after.mode!=='all' || crossResetCheck.after.origin!=='all' |
 
 
 
+
+const sidebarUi=await evaluate(`(() => {
+  const sidebar=document.querySelector('.sidebar');
+  const summary=document.querySelector('.summary');
+  const buttons=[...summary.querySelectorAll('.score-help,.explorer-toggle')];
+  const fields=[...document.querySelectorAll('.filters .field')];
+  const rect=el=>el?.getBoundingClientRect();
+  return {
+    viewport:innerWidth,
+    sidebarWidth:Math.round(rect(sidebar).width),
+    summaryWidth:Math.round(rect(summary).width),
+    buttonMetrics:buttons.map(b=>({
+      text:b.textContent.trim(),
+      width:Math.round(rect(b).width),
+      height:Math.round(rect(b).height),
+      scrollWidth:b.scrollWidth,
+      clientWidth:b.clientWidth,
+      whiteSpace:getComputedStyle(b).whiteSpace,
+      wordBreak:getComputedStyle(b).wordBreak,
+      writingMode:getComputedStyle(b).writingMode
+    })),
+    labelsAbove:fields.every(f=>{
+      const l=f.querySelector('label'),c=f.querySelector('.control');
+      if(!l||!c)return true;
+      return rect(c).top>=rect(l).bottom-1;
+    })
+  };
+})()`);
+console.log('SIDEBAR_UI_SMOKE',JSON.stringify(sidebarUi));
+if (sidebarUi.sidebarWidth <= 520) {
+  if (!sidebarUi.labelsAbove) throw new Error('narrow desktop sidebar fields are not stacked cleanly');
+  for (const b of sidebarUi.buttonMetrics) {
+    if (b.width < 64 || b.height > 30 || b.scrollWidth > b.clientWidth + 1 || b.whiteSpace !== 'nowrap' || b.writingMode !== 'horizontal-tb') {
+      throw new Error('summary action label is squeezed or wrapped: '+JSON.stringify(b));
+    }
+  }
+}
+
 await cdp('Emulation.setDeviceMetricsOverride',{width:504,height:981,deviceScaleFactor:1,mobile:false});
 await sleep(500);
 await evaluate(`(() => { try{map.resize()}catch(e){} document.querySelector('.sidebar')?.scrollIntoView({block:'start'}); return true; })()`);
@@ -284,7 +322,9 @@ const narrowUi=await evaluate(`(() => {
     labelsAbove,
     controlFits,
     buttonHeights,
-    buttonsNowrap:summaryButtons.every(b=>getComputedStyle(b).whiteSpace==='nowrap'),
+    buttonWidths:summaryButtons.map(b=>Math.round(rect(b).width)),
+    buttonTextFits:summaryButtons.every(b=>b.scrollWidth<=b.clientWidth+1),
+    buttonsNowrap:summaryButtons.every(b=>getComputedStyle(b).whiteSpace==='nowrap'&&getComputedStyle(b).writingMode==='horizontal-tb'),
     badgesNowrap:badges.every(b=>getComputedStyle(b).whiteSpace==='nowrap'),
     metricCols
   };
@@ -293,7 +333,7 @@ console.log('NARROW_UI_SMOKE',JSON.stringify(narrowUi));
 if (narrowUi.viewport!==504 || narrowUi.bodyOverflow>2 || narrowUi.sidebarOverflow>2 || !narrowUi.filtersFit || !narrowUi.summaryFit || !narrowUi.labelsAbove || !narrowUi.controlFits) {
   throw new Error('narrow explorer layout overflows or fields are misaligned');
 }
-if (narrowUi.buttonHeights.some(h=>h>30) || !narrowUi.buttonsNowrap || !narrowUi.badgesNowrap || narrowUi.metricCols!==3) {
+if (narrowUi.buttonHeights.some(h=>h>30) || narrowUi.buttonWidths.some(w=>w<64) || !narrowUi.buttonTextFits || !narrowUi.buttonsNowrap || !narrowUi.badgesNowrap || narrowUi.metricCols!==3) {
   throw new Error('narrow explorer buttons/badges/metrics are visually unstable');
 }
 
