@@ -4,6 +4,7 @@ from pathlib import Path
 
 from coordinate_selection import select_coordinate, safe_geocoder_address, _nominatim_street_address
 from global_entities import family_name, strict_name
+from extra_published import public_enterprise_records
 from build_source_candidates import plausible_merchant, plausible_transaction
 from capital_backfill import canonical_attachment_url, sanitize_discovered_posts
 from repair_raw_dates import parse_date_text
@@ -308,6 +309,29 @@ def test_verified_name_alias_for_seolgaon():
     assert family_name("광화문아띠/설가온") == family_name("설가온")
     assert strict_name("광화문아띠/설가온") == strict_name("설가온")
 
+
+def test_public_enterprise_pilot_is_publishable_and_safe():
+    import json
+    candidates_path = ROOT / "reports" / "public-enterprise-candidates.json"
+    assert candidates_path.exists(), "public-enterprise candidate baseline missing"
+    doc = json.loads(candidates_path.read_text(encoding="utf-8"))
+    candidates = doc.get("candidates") or []
+    assert len(candidates) >= 5, len(candidates)
+    assert all(str(x.get("merchant") or "").strip() not in {"카드","현금","법인카드"} for x in candidates), candidates
+    records = public_enterprise_records()
+    assert len(records) >= 5, len(records)
+    korail = [r for r in records if "한국철도공사" in (r.get("institutions") or [])]
+    assert len(korail) >= 5, len(korail)
+    by_name = {r.get("name"): r for r in korail}
+    assert by_name["복성각"]["address"] == "서울특별시 중구 통일로 10"
+    assert by_name["송도갈매기"]["address"] == "경기도 광명시 양지로 16"
+    assert by_name["푸른산호초"]["address"] == ""
+
+    cache = json.loads((ROOT / "data" / "geocode_cache.json").read_text(encoding="utf-8"))
+    blue = (cache.get("records") or {}).get("푸른산호초|공기업·공공기관") or {}
+    assert blue.get("failed") is True, blue
+    assert blue.get("reason") == "public_enterprise_requires_verified_address", blue
+
 def main():
     tests = [
         test_role_column_priority,
@@ -332,6 +356,7 @@ def main():
         test_national_generic_company_address_not_promoted,
         test_lookup_selection_does_not_leave_single_result_filter,
         test_verified_name_alias_for_seolgaon,
+        test_public_enterprise_pilot_is_publishable_and_safe,
     ]
     for fn in tests:
         fn()
