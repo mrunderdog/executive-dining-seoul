@@ -1,0 +1,65 @@
+name: Public enterprise pilot
+
+on:
+  push:
+    branches:
+      - feat/public-enterprise-expense
+
+permissions:
+  contents: write
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Discover official CEO expense files
+        run: python pipeline/public_enterprise_discovery.py --year 2026
+      - name: Show discovery
+        run: cat reports/public-enterprise-discovery.json
+      - name: Ingest
+        run: python pipeline/ingest_public_enterprise_expense.py
+      - name: Build candidates
+        run: python pipeline/build_public_enterprise_candidates.py
+      - name: Inspect result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          raw=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
+          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
+          print('RAW',json.dumps({
+            'rows':raw.get('row_count'),'files':len(raw.get('files') or []),
+            'errors':raw.get('errors') or [],
+            'sample':(raw.get('rows') or [])[:12],
+          },ensure_ascii=False))
+          print('CANDIDATES',json.dumps({
+            'meal_rows':c.get('meal_rows'),'entities':c.get('entity_count'),
+            'eligible':c.get('eligible_count'),'sample':(c.get('candidates') or [])[:20]
+          },ensure_ascii=False))
+          if not raw.get('rows'):
+              raise SystemExit('no public-enterprise rows parsed')
+          if not c.get('candidates'):
+              raise SystemExit('no public-enterprise dining candidates')
+          PY
+      - name: Build site with public-enterprise cohort
+        run: |
+          python pipeline/geocode_extra_cache.py
+          python pipeline/build_site.py --output /tmp/index.html
+          python pipeline/regression_checks.py
+      - name: Commit pilot baseline
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/public_enterprise_expense.json reports/public-enterprise-* data/geocode_cache.json || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: public enterprise pilot baseline"
+          git push origin HEAD:feat/public-enterprise-expense
