@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from published_sources import _category, ENTITY_OVERRIDES
+from published_sources import _category, ENTITY_OVERRIDES, SOURCE_ENTITY_OVERRIDES
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -204,7 +204,7 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
         name = t(c.get("merchant"))
         if not name:
             continue
-        override = ENTITY_OVERRIDES.get(name, {})
+        override = SOURCE_ENTITY_OVERRIDES.get(("public_enterprise", name), ENTITY_OVERRIDES.get(name, {}))
         address = t(c.get("address")) or t(override.get("address"))
         display_name = t(override.get("display")) or name
         inst = c.get("institutions") or []
@@ -250,7 +250,7 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
             "business": {
                 "display": display_name,
                 "category": _category(name),
-                "phone": t(override.get("phone")) or t(c.get("phone")),
+                "phone": t(override.get("phone")),
                 "status": "공기업·공공기관 기관장 공식 업무추진비 원자료상 사용처",
                 "rating": "",
                 "note": "공기업·공공기관이 공개한 기관장 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다.",
