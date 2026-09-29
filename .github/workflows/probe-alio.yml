@@ -32,6 +32,9 @@ jobs:
           js='https://alio.go.kr/resources/js/page/portal/downloadUtils.js?v=202109131'
           rr=requests.get(js,headers=h,timeout=30)
           print('\nJS',rr.status_code,len(rr.text))
+          page=requests.get('https://alio.go.kr/item/itemReportTerm.do?apbaId=C0397&disclosureNo=&reportFormRootNo=20701',headers=h,timeout=30).text
+          for pat in [r'disclosureNo\\s*[:=]\\s*[\"\\']([^\"\\']+)',r'option value=\"([^\"]+\\|[^\"]+)\"']:
+            print('DISC',re.findall(pat,page)[:20])
           idx=rr.text.find('function downReportAttachFile')
           print('JSFUNC',rr.text[idx:idx+1800].replace('\\n',' ') if idx>=0 else 'missing')
           PY
