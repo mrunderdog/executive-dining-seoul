@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 RAW=ROOT/"data"/"raw"/"public_agency_executive_expense.json"
+DETAIL_RAW=ROOT/"data"/"raw"/"public_agency_detail_expense.json"
 OUT=ROOT/"reports"/"public-agency-executive-candidates.json"
 MD=ROOT/"reports"/"public-agency-executive-candidates.md"
 
@@ -23,8 +24,12 @@ def main():
     if not RAW.exists():
         raise SystemExit("raw file missing")
     d=json.loads(RAW.read_text(encoding="utf-8"))
+    rows=list(d.get("rows") or [])
+    if DETAIL_RAW.exists():
+        dd=json.loads(DETAIL_RAW.read_text(encoding="utf-8"))
+        rows.extend(dd.get("rows") or [])
     groups=defaultdict(list)
-    for r in d.get("rows") or []:
+    for r in rows:
         m=clean_merchant(r.get("merchant"))
         if not m:
             continue
