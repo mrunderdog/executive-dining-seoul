@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+
+
+def robust_session() -> requests.Session:
+    s=requests.Session()
+    retry=Retry(total=4,connect=4,read=3,backoff_factor=1.2,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]))
+    s.mount("https://",HTTPAdapter(max_retries=retry))
+    s.mount("http://",HTTPAdapter(max_retries=retry))
+    s.headers.update({"User-Agent":UA,"Referer":"https://alio.go.kr/"})
+    return s
 from __future__ import annotations
 
 import argparse, html, json, re
@@ -6,6 +15,8 @@ from pathlib import Path
 from urllib.parse import urljoin, urlencode
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 
 from ingest_public_agency_executive_expense import read_workbook, meal_like, t
@@ -118,8 +129,7 @@ def main():
     if not korail or not korail.get("detail_source"):
         raise SystemExit("korail detail source missing")
 
-    session=requests.Session()
-    session.headers.update({"User-Agent":UA})
+    session=robust_session()
     items=korail_discover(session,korail["detail_source"]["list_url"],args.korail_pages)
     rows,status=korail_ingest(session,items,args.korail_items)
 
