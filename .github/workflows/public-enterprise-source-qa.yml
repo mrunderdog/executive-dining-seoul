@@ -40,6 +40,15 @@ jobs:
                       break
               if not found:
                   print('NOSNIP',key)
+              if key=='kogas':
+                  m=re.search(r'function\\s+readPermissionChk\\s*\\([^)]*\\)\\s*\\{',html,re.I)
+                  if m: print('FUNC_KOGAS',html[m.start():m.start()+5000].replace('\\n',' ')[:5000])
+              if key=='kepco':
+                  for pat in [r'1454',r'사장\\s*업무추진비',r'fn_FileDown',r'fileDown',r'download']:
+                      m=re.search(pat,html,re.I)
+                      if m:
+                          print('FUNC_KEPCO',pat,html[max(0,m.start()-2200):m.start()+5000].replace('\\n',' ')[:7000])
+                          break
           PY
       - name: Discover sources
         run: |
