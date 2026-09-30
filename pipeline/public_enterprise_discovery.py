@@ -122,7 +122,7 @@ def discover_source(src,year,detail_limit):
                     for a in parse_links(x["url"],ddoc):
                         if not looks_file(a):continue
                         label=(x.get("text","")+" "+a.get("text","")).strip()
-                        if not relevant_detail({"text":label,"url":a["url"]},year):continue
+                        if not relevant_detail({"text":label,"url":a["url"]},years):continue
                         if a["url"] in seen_att:continue
                         seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
     parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in out["attachments"])
