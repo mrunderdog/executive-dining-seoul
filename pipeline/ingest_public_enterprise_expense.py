@@ -53,18 +53,38 @@ def main():
         try:baseline=json.loads(out.read_text(encoding="utf-8"))
         except Exception:baseline={}
         baseline_rows=list(baseline.get("rows",[]))
+        baseline_files=list(baseline.get("files",[]))
         if not merged_rows:
             print(json.dumps({"status":"STALE_OK:EMPTY_FULL","baseline_rows":len(baseline_rows),"reason":"fresh refresh returned zero rows; last-good preserved"},ensure_ascii=False));return
-        # Public disclosure boards are occasionally incomplete/transient.
-        # Never replace a healthy committed baseline with a materially smaller
-        # snapshot just because enough files happened to respond.
-        if baseline_rows and len(merged_rows) < max(10,int(len(baseline_rows)*0.85)):
+
+        # Protect each existing institution independently. A new institution
+        # must not hide a partial outage at an older source by making the total
+        # row count look healthy.
+        baseline_counts=Counter(r.get("institution") or "(unknown)" for r in baseline_rows)
+        fresh_counts=Counter(r.get("institution") or "(unknown)" for r in merged_rows)
+        degraded={
+            inst for inst,old_count in baseline_counts.items()
+            if old_count and fresh_counts.get(inst,0) < max(1,int(old_count*0.85))
+        }
+        if degraded:
+            row_map={r["row_id"]:r for r in merged_rows}
+            for r in baseline_rows:
+                if (r.get("institution") or "(unknown)") in degraded:
+                    row_map.setdefault(r["row_id"],r)
+            merged_rows=sorted(row_map.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
+
+            file_map={str(x.get("url") or ""):x for x in merged_files if x.get("url")}
+            for x in baseline_files:
+                if (x.get("institution") or "(unknown)") in degraded and x.get("url"):
+                    file_map.setdefault(str(x["url"]),x)
+            merged_files=list(file_map.values())
             print(json.dumps({
-                "status":"STALE_OK:DEGRADED_FULL",
-                "fresh_rows":len(merged_rows),
-                "baseline_rows":len(baseline_rows),
-                "reason":"fresh full output fell below 85% of baseline; last-good preserved"
-            },ensure_ascii=False));return
+                "status":"PARTIAL_STALE_OK",
+                "institutions":sorted(degraded),
+                "baseline_counts":{k:baseline_counts[k] for k in sorted(degraded)},
+                "fresh_counts":{k:fresh_counts.get(k,0) for k in sorted(degraded)},
+                "reason":"degraded institutions restored from last-good while healthy/new institutions remain fresh"
+            },ensure_ascii=False))
     payload={"schema_version":1,"generated_at":datetime.now().isoformat(timespec="seconds"),"refresh_mode":"incremental" if args.incremental else "full","row_count":len(merged_rows),"rows":merged_rows,"files":merged_files,"errors":merged_errors}
     out.write_text(json.dumps(payload,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     cc=Counter(r.get("institution") or "(unknown)" for r in merged_rows)
