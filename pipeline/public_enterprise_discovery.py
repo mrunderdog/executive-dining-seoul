@@ -62,7 +62,10 @@ def looks_file(x):
 
 def relevant_detail(x,year):
     s=(x.get("text","")+" "+x.get("url",""))
-    return ("기관장" in s or "사장직무대행" in s) and (str(year) in s or str(year-1) in s)
+    # Institution-head disclosures use several titles across official sites.
+    # Match standalone 사장 but not 부사장/본부장, which are separate cohorts.
+    head_title=("기관장" in s or "사장직무대행" in s or re.search(r"(^|[^부본])사장(?:\s|업무|직무|$)",s))
+    return bool(head_title) and (str(year) in s or str(year-1) in s)
 
 def extract_year_month(text):
     m=re.search(r"(20\d{2})\D{0,4}(1[0-2]|0?[1-9])\s*월",text)

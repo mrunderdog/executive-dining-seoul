@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "policy": "Publish only institution-head expense sources with stable official public listings and parseable merchant-level attachments. Aggregate-only or unstable sources stay tracked but unpublished.",
   "sources": [
     {
@@ -23,8 +23,13 @@
       "cohort": "public_enterprise_leadership",
       "verified": true,
       "publish": false,
-      "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. 안정적인 merchant-level attachment surface를 별도 검증 후 publish."
+      "refresh_policy": "adapter_pending",
+      "note": "한국전력공사 정보공개 > 업무추진경비 공식 게시판. 기관장(사장) 월별 세부 집행내역 첨부가 확인됨. 현재 게시판이 JS/폼 기반이라 공통 crawler에서 첨부 URL을 안정적으로 추출하지 못해 adapter 완료 전까지 map publish 금지.",
+      "default_role": "사장",
+      "format_hint": "xlsx/pdf",
+      "listing_urls": [
+        "https://www.kepco.co.kr/home/disclosure/mandisclosure/etc/expenses.do"
+      ]
     },
     {
       "key": "lh",
@@ -59,8 +64,13 @@
       "cohort": "public_enterprise_leadership",
       "verified": true,
       "publish": false,
-      "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "refresh_policy": "adapter_pending",
+      "note": "한국가스공사 KOGAS정보 > 기관장/임원 업무추진비 공식 게시판. 월별 사용내역 게시가 확인됨. 현재 게시판이 JS/폼 기반이라 공통 crawler에서 첨부 URL을 안정적으로 추출하지 못해 adapter 완료 전까지 map publish 금지.",
+      "default_role": "기관장·임원",
+      "format_hint": "xlsx/pdf",
+      "listing_urls": [
+        "https://www.kogas.or.kr/site/koGas/goBoard.do?Key=1060101050000&boardNo=57"
+      ]
     },
     {
       "key": "iiac",
