@@ -30,12 +30,16 @@ jobs:
               req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
               html=urllib.request.urlopen(req,timeout=30).read().decode('utf-8','replace')
               print('HTML',key,'bytes',len(html))
-              pats=['사장 업무추진비','기관장·임원 업무추진비','download','file','atch','boardNo','goBoard']
-              for p in pats:
+              targets=["'26. 7월 사장 업무추진비 세부추진내역","2026년 5월 기관장·임원 업무추진비 사용내역"]
+              found=False
+              for p in targets:
                   m=re.search(re.escape(p),html,re.I)
                   if m:
-                      print('SNIP',key,p,html[max(0,m.start()-1200):m.start()+2200].replace('\n',' ')[:3400])
+                      print('TARGETSNIP',key,p,html[max(0,m.start()-2600):m.start()+5200].replace('\n',' ')[:7800])
+                      found=True
                       break
+              if not found:
+                  print('NOSNIP',key)
           PY
       - name: Discover sources
         run: |
