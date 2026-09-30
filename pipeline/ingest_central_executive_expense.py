@@ -261,7 +261,7 @@ def cell(row,m,k):
 
 def infer_role(label):
     s=clean(label)
-    for token in ("1차관","2차관","차관","장관","국무총리","총리","본부장","처장","청장","실장","국장"):
+    for token in ("사장직무대행","상임감사위원","감사위원","부사장","사장","임원","1차관","2차관","차관","장관","국무총리","총리","본부장","처장","청장","실장","국장"):
         if token in s:
             return token
     return ""
