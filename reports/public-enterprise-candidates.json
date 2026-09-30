@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-29T08:55:21",
+  "generated_at": "2026-09-30T00:46:52",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 11,
-  "entity_count": 8,
-  "eligible_count": 8,
+  "meal_rows": 12,
+  "entity_count": 9,
+  "eligible_count": 9,
   "candidates": [
     {
       "merchant": "푸짐한활어회본점",
@@ -31,7 +31,7 @@
           "date": "2026-01-12",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 232000,
           "people": 6,
           "purpose": "대외기관 업무협의",
@@ -41,7 +41,7 @@
           "date": "2025-12-18",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 91000,
           "people": 4,
           "purpose": "대외기관 업무협의",
@@ -51,7 +51,7 @@
           "date": "2025-12-09",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 140000,
           "people": 7,
           "purpose": "대외기관 업무협의",
@@ -61,11 +61,44 @@
           "date": "2025-11-26",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 180000,
           "people": 9,
           "purpose": "대외기관 업무협의",
           "source": "https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=26445"
+        }
+      ]
+    },
+    {
+      "merchant": "화풍정",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 316000,
+      "institution_count": 1,
+      "institutions": [
+        "인천국제공항공사"
+      ],
+      "date_min": "2025-09-04",
+      "date_max": "2025-09-04",
+      "purpose_stats": [
+        {
+          "text": "공항운영관련 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-04",
+          "time": "",
+          "institution": "인천국제공항공사",
+          "role": "사장 이학재",
+          "amount": 316000,
+          "people": 8,
+          "purpose": "공항운영관련 업무협의",
+          "source": "https://www.airport.kr/bbs/co_ko/71/84083/download.do"
         }
       ]
     },
@@ -94,7 +127,7 @@
           "date": "2026-01-08",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 227000,
           "people": 5,
           "purpose": "대외기관 업무협의",
@@ -127,7 +160,7 @@
           "date": "2025-11-04",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 166000,
           "people": 6,
           "purpose": "대외기관 업무협의",
@@ -160,7 +193,7 @@
           "date": "2025-11-05",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 143000,
           "people": 4,
           "purpose": "대외기관 업무협의",
@@ -188,7 +221,7 @@
           "date": "2026-02-19",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 0,
           "people": 0,
           "purpose": "",
@@ -216,7 +249,7 @@
           "date": "2026-02-24",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 0,
           "people": 0,
           "purpose": "",
@@ -244,7 +277,7 @@
           "date": "2026-02-25",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 0,
           "people": 0,
           "purpose": "",
@@ -272,7 +305,7 @@
           "date": "2026-02-27",
           "time": "",
           "institution": "한국철도공사",
-          "role": "기관장",
+          "role": "사장직무대행",
           "amount": 0,
           "people": 0,
           "purpose": "",

@@ -36,9 +36,14 @@
       "institution": "한국토지주택공사",
       "cohort": "public_enterprise_leadership",
       "verified": true,
-      "publish": false,
-      "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "publish": true,
+      "refresh_policy": "monthly",
+      "note": "LH 공식 경영공시 > 기관장 및 임원 업무추진비 게시판. 기관장/사장직무대행 월별 PDF 첨부가 직접 노출됨.",
+      "default_role": "기관장",
+      "format_hint": "pdf",
+      "listing_urls": [
+        "https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400"
+      ]
     },
     {
       "key": "ex",
@@ -77,9 +82,14 @@
       "institution": "인천국제공항공사",
       "cohort": "public_enterprise_leadership",
       "verified": true,
-      "publish": false,
-      "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "publish": true,
+      "refresh_policy": "monthly",
+      "note": "인천국제공항공사 공식 경영공시 > 기관장 업무추진비 게시판. 월별 첨부파일이 직접 노출됨.",
+      "default_role": "기관장",
+      "format_hint": "xlsx/pdf",
+      "listing_urls": [
+        "https://www.airport.kr/co_ko/634/subview.do"
+      ]
     },
     {
       "key": "kac",
