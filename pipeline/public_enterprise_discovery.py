@@ -60,51 +60,78 @@ def looks_file(x):
     s=(x.get("text","")+" "+x.get("url","")).lower()
     return any(ext in s for ext in FILE_EXTS) or any(t in s for t in ("download","filedown","attach","atchfile"))
 
-def relevant_detail(x,year):
+def relevant_detail(x,years):
     s=(x.get("text","")+" "+x.get("url",""))
     # Institution-head disclosures use several titles across official sites.
     # Match standalone 사장 but not 부사장/본부장, which are separate cohorts.
     head_title=("기관장" in s or "사장직무대행" in s or re.search(r"(^|[^부본])사장(?:\s|업무|직무|$)",s))
-    return bool(head_title) and (str(year) in s or str(year-1) in s)
+    return bool(head_title) and any(str(y) in s for y in years)
+
+
+def listing_urls(src):
+    bases=list(src.get("listing_urls") or [])
+    pagination=src.get("pagination") or {}
+    param=str(pagination.get("param") or "").strip()
+    if not param:
+        return bases
+    start=max(1,int(pagination.get("start") or 1))
+    end=max(start,int(pagination.get("end") or start))
+    out=[]
+    for base in bases:
+        parsed=urllib.parse.urlsplit(base)
+        query=dict(urllib.parse.parse_qsl(parsed.query,keep_blank_values=True))
+        for page in range(start,end+1):
+            q=dict(query);q[param]=str(page)
+            out.append(urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,urllib.parse.urlencode(q),parsed.fragment)))
+    return out
 
 def extract_year_month(text):
     m=re.search(r"(20\d{2})\D{0,4}(1[0-2]|0?[1-9])\s*월",text)
     return (int(m.group(1)),int(m.group(2))) if m else (None,None)
 
 def discover_source(src,year,detail_limit):
-    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"pages":[],"attachments":[],"errors":[]}
+    lookback=max(0,int(src.get("lookback_years",1)))
+    years={year-i for i in range(lookback+1)}
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
     if not src.get("verified") or not src.get("publish"):
         out["status"]="TRACK_ONLY";return out
     seen_att=set();seen_page=set()
-    for listing in src.get("listing_urls") or []:
-        try:doc=fetch(listing)
-        except Exception as e:
-            out["errors"].append(f"listing {listing}: {type(e).__name__}: {e}");continue
-        out["pages"].append(listing)
+    listings=listing_urls(src)
+    listing_docs=[]
+    if listings:
+        with ThreadPoolExecutor(max_workers=min(8,len(listings))) as pool:
+            future_map={pool.submit(fetch,listing):listing for listing in listings}
+            for fut in as_completed(future_map):
+                listing=future_map[fut]
+                try:doc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"listing {listing}: {type(e).__name__}: {e}");continue
+                out["pages"].append(listing);listing_docs.append((listing,doc))
+    detail_jobs=[]
+    for listing,doc in listing_docs:
         links=parse_links(listing,doc)
-        details=[x for x in links if not looks_file(x) and relevant_detail(x,year)][:detail_limit]
-        direct=[x for x in links if looks_file(x) and relevant_detail(x,year)]
+        details=[x for x in links if not looks_file(x) and relevant_detail(x,years)][:detail_limit]
+        direct=[x for x in links if looks_file(x) and relevant_detail(x,years)]
         for x in direct:
             if x["url"] in seen_att:continue
             seen_att.add(x["url"]);y,m=extract_year_month(x["text"]);out["attachments"].append({**x,"year":y,"month":m,"parent":listing})
-        detail_jobs=[]
         for x in details:
             if x["url"] in seen_page:continue
             seen_page.add(x["url"]);detail_jobs.append(x)
-        if detail_jobs:
-            with ThreadPoolExecutor(max_workers=min(6,len(detail_jobs))) as pool:
-                future_map={pool.submit(fetch,x["url"]):x for x in detail_jobs}
-                for fut in as_completed(future_map):
-                    x=future_map[fut]
-                    try:ddoc=fut.result()
-                    except Exception as e:
-                        out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
-                    for a in parse_links(x["url"],ddoc):
-                        if not looks_file(a):continue
-                        label=(x.get("text","")+" "+a.get("text","")).strip()
-                        if not relevant_detail({"text":label,"url":a["url"]},year):continue
-                        if a["url"] in seen_att:continue
-                        seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
+    if detail_jobs:
+        with ThreadPoolExecutor(max_workers=min(8,len(detail_jobs))) as pool:
+            future_map={pool.submit(fetch,x["url"]):x for x in detail_jobs}
+            for fut in as_completed(future_map):
+                x=future_map[fut]
+                try:ddoc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
+                for a in parse_links(x["url"],ddoc):
+                    if not looks_file(a):continue
+                    label=(x.get("text","")+" "+a.get("text","")).strip()
+                    if not relevant_detail({"text":label,"url":a["url"]},years):continue
+                    if a["url"] in seen_att:continue
+                    seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
     parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in out["attachments"])
     out["parseable_attachments"]=parseable
     out["status"]="PARSEABLE_FOUND" if parseable else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")

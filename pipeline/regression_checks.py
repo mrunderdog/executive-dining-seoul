@@ -327,6 +327,13 @@ def test_public_enterprise_pilot_is_publishable_and_safe():
     assert by_name["송도갈매기"]["address"] == "경기도 광명시 양지로 16"
     assert by_name["푸른산호초"]["address"] == ""
 
+    lh = [r for r in records if "한국토지주택공사" in (r.get("institutions") or [])]
+    assert len(lh) >= 8, len(lh)
+    lh_by_name = {r.get("name"): r for r in lh}
+    assert "LH공사 구내복지센터" not in lh_by_name
+    assert lh_by_name["두레에프엔씨(주)경천사탑두레"]["address"] == "서울특별시 용산구 서빙고로 137"
+    assert lh_by_name["구양가"]["address"] == "세종특별자치시 국책연구원3로 6"
+
     cache = json.loads((ROOT / "data" / "geocode_cache.json").read_text(encoding="utf-8"))
     blue = (cache.get("records") or {}).get("푸른산호초|공기업·공공기관") or {}
     assert blue.get("failed") is True, blue

@@ -38,12 +38,18 @@
       "verified": true,
       "publish": true,
       "refresh_policy": "monthly",
-      "note": "LH 공식 경영공시 > 기관장 및 임원 업무추진비 게시판. 기관장/사장직무대행 월별 PDF 첨부가 직접 노출됨.",
+      "note": "LH 공식 경영공시 > 기관장 및 임원 업무추진비 게시판. 기관장/사장직무대행 월별 PDF 첨부가 직접 노출됨. 최근 연도는 0건 월이 많아 2024~현재 3개년을 조회하되 외부 사용처만 출판.",
       "default_role": "기관장",
       "format_hint": "pdf",
       "listing_urls": [
         "https://www.lh.or.kr/board.es?bid=0018&mid=a10204020400"
-      ]
+      ],
+      "lookback_years": 2,
+      "pagination": {
+        "param": "nPage",
+        "start": 1,
+        "end": 24
+      }
     },
     {
       "key": "ex",

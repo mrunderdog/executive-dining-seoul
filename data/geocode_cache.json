@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 221,
+    "failed_count": 230,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1381,
-    "success_count": 1160,
-    "updated_at": "2026-09-30T00:48:13+00:00"
+    "record_count": 1391,
+    "success_count": 1161,
+    "updated_at": "2026-09-30T07:52:12+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -2153,6 +2153,24 @@
       ],
       "updated_at": "2026-09-18T00:07:47+00:00"
     },
+    "구양가|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "세종특별자치시 반곡동 국책연구원3로 6",
+      "fingerprint": "e37ee0c56687cda9",
+      "geocoder_version": 4,
+      "lat": 36.492049911289,
+      "lon": 127.303760790873,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "세종특별자치시 국책연구원3로 6",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:세종특별자치시 국책연구원3로 6"
+      ],
+      "updated_at": "2026-09-30T07:49:24+00:00"
+    },
     "구운정|수원시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 수원시 팔달구 인계동 효원로291번길 21",
@@ -3710,6 +3728,14 @@
         "arcgis:다모아한식 오산시"
       ],
       "updated_at": "2026-09-22T07:24:30+00:00"
+    },
+    "다온정|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "a6af0f92a8981279",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5285,6 +5311,24 @@
       ],
       "updated_at": "2026-09-18T05:24:41+00:00"
     },
+    "두레에프엔씨(주)경천사탑두레|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 용산구 용산동6가 서빙고로 137",
+      "fingerprint": "6fb2b52524cc3ac3",
+      "geocoder_version": 4,
+      "lat": 37.524649462441,
+      "lon": 126.98254463588,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울특별시 용산구 서빙고로 137",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 용산구 서빙고로 137"
+      ],
+      "updated_at": "2026-09-30T07:49:23+00:00"
+    },
     "두레에프엔씨|중앙정부": {
       "failed": true,
       "fingerprint": "0e0d6c68df55218f",
@@ -5295,6 +5339,14 @@
         "nominatim:두레에프엔씨 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:47+00:00"
+    },
+    "두레에프엔씨주식회사|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "c17e2fd12cf3e47d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -5876,6 +5928,14 @@
         "arcgis:마구로 정 대한민국"
       ],
       "updated_at": "2026-09-18T05:24:20+00:00"
+    },
+    "마구로|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "081b0a19176ce826",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -13821,6 +13881,14 @@
       ],
       "updated_at": "2026-09-17T23:07:23+00:00"
     },
+    "연해주|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "94615969d30e3596",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
+    },
     "열해|용산구": {
       "addr_type": "PointAddress",
       "display_name": "서울 용산구 이촌동 300-26",
@@ -13928,6 +13996,14 @@
         "arcgis:영빈반점 안성시"
       ],
       "updated_at": "2026-09-22T07:24:07+00:00"
+    },
+    "예담|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "e95612ae39838211",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -14896,6 +14972,14 @@
       ],
       "updated_at": "2026-09-17T23:03:14+00:00"
     },
+    "우리컬쳐 주식회사|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "8f7eb89c21bf0590",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
+    },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
       "display_name": "우림한방삼계탕",
@@ -15295,6 +15379,14 @@
         "arcgis:워커스버거 대한민국"
       ],
       "updated_at": "2026-09-23T10:34:08+00:00"
+    },
+    "원복집주식회사|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "f6723ca67b4e8a6d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -20210,6 +20302,14 @@
       ],
       "updated_at": "2026-09-17T23:02:04+00:00"
     },
+    "토말|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "4891b59bc5f79624",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
+    },
     "토성한정식|법조·법률행정": {
       "failed": true,
       "fingerprint": "410bcddb45dfe7ef",
@@ -20784,7 +20884,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-09-29T08:55:22+00:00"
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22809,22 +22909,12 @@
       "updated_at": "2026-09-18T23:15:27+00:00"
     },
     "화풍정|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "화풍정",
+      "failed": true,
       "fingerprint": "4ccef25bbc9070c2",
       "geocoder_version": 4,
-      "lat": 37.369443341,
-      "lon": 127.111799378,
-      "match_mode": "name",
       "policy_version": 3,
-      "query": "화풍정 대한민국",
-      "result_name": "화풍정",
-      "score": 100.0,
-      "source": "arcgis",
-      "tried_queries": [
-        "arcgis:화풍정 대한민국"
-      ],
-      "updated_at": "2026-09-30T00:48:12+00:00"
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-09-30T07:52:12+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
