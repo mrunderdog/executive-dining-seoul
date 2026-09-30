@@ -350,6 +350,24 @@ def normalize(rows,sheet,meta):
                     m["_korail_payment_hint"] = payment_hint
             role=default_role
 
+        # LH PDFs visually have seven columns, but PDF text extraction can
+        # collapse the purpose column and shift venue/target/amount left.
+        # Example: purpose="토말", merchant="유관기관 관계자", role="148,000".
+        # Repair only dated institution-head rows with an unambiguous amount in
+        # the role cell and a relationship-style target in the merchant cell.
+        if meta.get("key") == "lh" and re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
+            role_text=clean(role)
+            target_text=clean(merchant)
+            shifted_amount=amount(role_text)
+            relationship_target=bool(re.search(r"(?:관계자|임직원|직원|참석자|외부인사|내부인사|업무관계자)",target_text))
+            if shifted_amount is not None and relationship_target and purpose_text:
+                amt=shifted_amount
+                merchant=purpose_text
+                purpose_text=""
+                role=clean(meta.get("default_role")) or "기관장"
+            elif not role or re.fullmatch(r"[\d,]+",role_text):
+                role=clean(meta.get("default_role")) or "기관장"
+
         # PDF text extraction can collapse the final amount/person cells into
         # the purpose cell. Recover only an unambiguous comma-formatted trailing
         # amount so policy numbers/years are never mistaken for money.
