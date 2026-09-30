@@ -2,7 +2,34 @@
 /* Core map/application */
 const DATA=__DATA__,STATS=__STATS__,ORIGINS=__ORIGINS__;
 const $=id=>document.getElementById(id),ds=$('ds'),ori=$('origin'),q=$('q'),sort=$('sort'),list=$('list'),detail=$('detail'),sum=$('sum'),prog=$('prog');
-['전체',...ORIGINS].forEach(o=>{const x=document.createElement('option');x.value=o==='전체'?'all':o;x.textContent=o;ori.appendChild(x)});
+function recordInstitutions(r){
+  const values=Array.isArray(r.institutions)&&r.institutions.length?r.institutions:[r.institution];
+  return [...new Set(values.filter(Boolean).map(x=>String(x).trim()).filter(Boolean))];
+}
+function buildOriginInstitutionOptions(){
+  ori.innerHTML='';
+  const all=document.createElement('option');all.value='all';all.textContent='전체';ori.appendChild(all);
+
+  const sourceGroup=document.createElement('optgroup');sourceGroup.label='출처 묶음';
+  ORIGINS.forEach(o=>{
+    const x=document.createElement('option');
+    x.value='origin:'+o;
+    x.textContent=o;
+    sourceGroup.appendChild(x);
+  });
+  ori.appendChild(sourceGroup);
+
+  const institutions=[...new Set(DATA.flatMap(recordInstitutions))].sort((a,b)=>a.localeCompare(b,'ko-KR',{sensitivity:'base'}));
+  const institutionGroup=document.createElement('optgroup');institutionGroup.label='개별 기관';
+  institutions.forEach(name=>{
+    const x=document.createElement('option');
+    x.value='institution:'+name;
+    x.textContent=name;
+    institutionGroup.appendChild(x);
+  });
+  ori.appendChild(institutionGroup);
+}
+buildOriginInstitutionOptions();
 let current=[],selected=null,mapReady=false,hoverPopup=null,selectedPopup=null,styleMode='positron',bound=false;
 const STYLES={positron:'https://tiles.openfreemap.org/styles/positron',liberty:'https://tiles.openfreemap.org/styles/liberty'};
 const map=new maplibregl.Map({container:'map',style:STYLES[styleMode],center:[126.98,37.53],zoom:9.1,attributionControl:true});
@@ -55,7 +82,7 @@ function mapCoordinate(r){const p=DISPLAY_LAYOUT.coordinates.get(key(r));return 
 function markerWasOffset(r){return !!DISPLAY_LAYOUT.coordinates.get(key(r))?.offset}
 function signalScore(r){return Math.max(r.destination?.score||0,r.executive?.score||0,r.cross_institution?.score||0)}
 function scoreLabel(r){const p=[];if(r.destination)p.push(`목적지 ${r.destination.score}`);if(r.executive)p.push(`반복 ${r.executive.score}`);if(r.cross_institution?.is_cross)p.push(`교차 ${r.cross_institution.score||0}`);return p.join(' · ')||'-'}
-function pass(r){const d=ds.value,o=ori.value,s=q.value.trim().toLowerCase();if(d==='both'&&r.type!=='both')return false;if(d==='destination'&&!r.destination)return false;if(d==='executive'&&!r.executive)return false;if(d==='consensus'&&!r.cross_institution?.is_cross)return false;if(d==='cross_origin'&&!(r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2))return false;if(d==='top_official'&&!(r.executive?.top_official_visits>0))return false;if(d==='regional_head'&&!(((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0))>0))return false;const origins=r.origins||[r.origin];if(o!=='all'&&!origins.includes(o))return false;return !s||[r.name,r.business?.display,r.address,...origins,...(r.institutions||[]),r.business?.category,r.why].join(' ').toLowerCase().includes(s)}
+function pass(r){const d=ds.value,o=ori.value,s=q.value.trim().toLowerCase();if(d==='both'&&r.type!=='both')return false;if(d==='destination'&&!r.destination)return false;if(d==='executive'&&!r.executive)return false;if(d==='consensus'&&!r.cross_institution?.is_cross)return false;if(d==='cross_origin'&&!(r.cross_institution?.is_cross&&(r.cross_institution?.source_count||0)>=2))return false;if(d==='top_official'&&!(r.executive?.top_official_visits>0))return false;if(d==='regional_head'&&!(((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0))>0))return false;const origins=(r.origins||[r.origin]).filter(Boolean),institutions=recordInstitutions(r);if(o!=='all'){if(o.startsWith('origin:')&&!origins.includes(o.slice(7)))return false;if(o.startsWith('institution:')&&!institutions.includes(o.slice(12)))return false;if(!o.includes(':')&&!origins.includes(o))return false}return !s||[r.name,r.business?.display,r.address,...origins,...institutions,r.business?.category,r.why].join(' ').toLowerCase().includes(s)}
 function institutionCount(r){return Number(r.cross_institution?.institution_count||r.institutions?.length||0)}
 function displayName(r){return String(r.business?.display||r.name||'')}
 function sortRecords(a){return a.sort((x,y)=>{
