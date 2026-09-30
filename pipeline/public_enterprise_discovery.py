@@ -96,35 +96,42 @@ def discover_source(src,year,detail_limit):
     if not src.get("verified") or not src.get("publish"):
         out["status"]="TRACK_ONLY";return out
     seen_att=set();seen_page=set()
-    for listing in listing_urls(src):
-        try:doc=fetch(listing)
-        except Exception as e:
-            out["errors"].append(f"listing {listing}: {type(e).__name__}: {e}");continue
-        out["pages"].append(listing)
+    listings=listing_urls(src)
+    listing_docs=[]
+    if listings:
+        with ThreadPoolExecutor(max_workers=min(8,len(listings))) as pool:
+            future_map={pool.submit(fetch,listing):listing for listing in listings}
+            for fut in as_completed(future_map):
+                listing=future_map[fut]
+                try:doc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"listing {listing}: {type(e).__name__}: {e}");continue
+                out["pages"].append(listing);listing_docs.append((listing,doc))
+    detail_jobs=[]
+    for listing,doc in listing_docs:
         links=parse_links(listing,doc)
         details=[x for x in links if not looks_file(x) and relevant_detail(x,years)][:detail_limit]
         direct=[x for x in links if looks_file(x) and relevant_detail(x,years)]
         for x in direct:
             if x["url"] in seen_att:continue
             seen_att.add(x["url"]);y,m=extract_year_month(x["text"]);out["attachments"].append({**x,"year":y,"month":m,"parent":listing})
-        detail_jobs=[]
         for x in details:
             if x["url"] in seen_page:continue
             seen_page.add(x["url"]);detail_jobs.append(x)
-        if detail_jobs:
-            with ThreadPoolExecutor(max_workers=min(6,len(detail_jobs))) as pool:
-                future_map={pool.submit(fetch,x["url"]):x for x in detail_jobs}
-                for fut in as_completed(future_map):
-                    x=future_map[fut]
-                    try:ddoc=fut.result()
-                    except Exception as e:
-                        out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
-                    for a in parse_links(x["url"],ddoc):
-                        if not looks_file(a):continue
-                        label=(x.get("text","")+" "+a.get("text","")).strip()
-                        if not relevant_detail({"text":label,"url":a["url"]},years):continue
-                        if a["url"] in seen_att:continue
-                        seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
+    if detail_jobs:
+        with ThreadPoolExecutor(max_workers=min(8,len(detail_jobs))) as pool:
+            future_map={pool.submit(fetch,x["url"]):x for x in detail_jobs}
+            for fut in as_completed(future_map):
+                x=future_map[fut]
+                try:ddoc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
+                for a in parse_links(x["url"],ddoc):
+                    if not looks_file(a):continue
+                    label=(x.get("text","")+" "+a.get("text","")).strip()
+                    if not relevant_detail({"text":label,"url":a["url"]},years):continue
+                    if a["url"] in seen_att:continue
+                    seen_att.add(a["url"]);y,m=extract_year_month(label);out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
     parseable=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in out["attachments"])
     out["parseable_attachments"]=parseable
     out["status"]="PARSEABLE_FOUND" if parseable else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
