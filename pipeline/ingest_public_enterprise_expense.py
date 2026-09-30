@@ -67,16 +67,30 @@ def main():
             if old_count and fresh_counts.get(inst,0) < max(1,int(old_count*0.85))
         }
         if degraded:
-            row_map={r["row_id"]:r for r in merged_rows}
-            for r in baseline_rows:
-                if (r.get("institution") or "(unknown)") in degraded:
-                    row_map.setdefault(r["row_id"],r)
+            # Replace the degraded institution wholesale with its committed
+            # last-good rows. Mixing partial fresh rows with baseline rows can
+            # double-count the same transactions when source row numbers or
+            # sheet labels change between downloads.
+            healthy_rows=[
+                r for r in merged_rows
+                if (r.get("institution") or "(unknown)") not in degraded
+            ]
+            restored_rows=[
+                r for r in baseline_rows
+                if (r.get("institution") or "(unknown)") in degraded
+            ]
+            row_map={r["row_id"]:r for r in healthy_rows+restored_rows}
             merged_rows=sorted(row_map.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
 
-            file_map={str(x.get("url") or ""):x for x in merged_files if x.get("url")}
-            for x in baseline_files:
-                if (x.get("institution") or "(unknown)") in degraded and x.get("url"):
-                    file_map.setdefault(str(x["url"]),x)
+            healthy_files=[
+                x for x in merged_files
+                if (x.get("institution") or "(unknown)") not in degraded
+            ]
+            restored_files=[
+                x for x in baseline_files
+                if (x.get("institution") or "(unknown)") in degraded
+            ]
+            file_map={str(x.get("url") or ""):x for x in healthy_files+restored_files if x.get("url")}
             merged_files=list(file_map.values())
             print(json.dumps({
                 "status":"PARTIAL_STALE_OK",
