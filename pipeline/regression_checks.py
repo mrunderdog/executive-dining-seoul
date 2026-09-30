@@ -332,6 +332,16 @@ def test_public_enterprise_pilot_is_publishable_and_safe():
     assert blue.get("failed") is True, blue
     assert blue.get("reason") == "public_enterprise_requires_verified_address", blue
 
+
+def test_institution_filter_supports_korail():
+    app = (ROOT / "site" / "app.js").read_text(encoding="utf-8")
+    assert "optgroup" in app
+    assert "sourceGroup.label='출처 묶음'" in app
+    assert "institutionGroup.label='개별 기관'" in app
+    assert "x.value='institution:'+name" in app
+    assert "o.startsWith('institution:')" in app
+    assert "recordInstitutions(r)" in app
+
 def main():
     tests = [
         test_role_column_priority,
@@ -357,6 +367,7 @@ def main():
         test_lookup_selection_does_not_leave_single_result_filter,
         test_verified_name_alias_for_seolgaon,
         test_public_enterprise_pilot_is_publishable_and_safe,
+        test_institution_filter_supports_korail,
     ]
     for fn in tests:
         fn()

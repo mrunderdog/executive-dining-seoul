@@ -227,6 +227,37 @@ if (lookupReturnCheck.error || lookupReturnCheck.query!=='' || lookupReturnCheck
   throw new Error('lookup selection did not return to the full restaurant set');
 }
 
+const institutionFilterCheck=await evaluate(`(() => {
+  const select=document.getElementById('origin');
+  const sourceGroup=[...select.querySelectorAll('optgroup')].find(g=>g.label==='출처 묶음');
+  const institutionGroup=[...select.querySelectorAll('optgroup')].find(g=>g.label==='개별 기관');
+  const korail=[...select.options].find(o=>o.value==='institution:한국철도공사');
+  if(!sourceGroup||!institutionGroup||!korail)return {error:'grouped institution option missing'};
+  select.value=korail.value;
+  select.dispatchEvent(new Event('change',{bubbles:true}));
+  const filtered=current.map(r=>({
+    name:r.business?.display||r.name,
+    institutions:recordInstitutions(r)
+  }));
+  const allKorail=filtered.length>0&&filtered.every(x=>x.institutions.includes('한국철도공사'));
+  const publicGroup=[...select.options].find(o=>o.value==='origin:공기업·공공기관');
+  const institutionCount=institutionGroup.querySelectorAll('option').length;
+  return {
+    sourceGroup:!!sourceGroup,
+    institutionGroup:!!institutionGroup,
+    korailCount:filtered.length,
+    allKorail,
+    hasPublicGroup:!!publicGroup,
+    institutionCount,
+    names:filtered.map(x=>x.name)
+  };
+})()`);
+console.log('INSTITUTION_FILTER_SMOKE',JSON.stringify(institutionFilterCheck));
+if (institutionFilterCheck.error || !institutionFilterCheck.allKorail || institutionFilterCheck.korailCount < 5 || !institutionFilterCheck.hasPublicGroup || institutionFilterCheck.institutionCount < 2) {
+  throw new Error('institution filter failed for 한국철도공사');
+}
+await evaluate(`(() => { ori.value='all'; renderList(false); return current.length; })()`);
+
 const crossResetCheck=await evaluate(`(() => {
   document.getElementById('restaurantLookupClose')?.click();
   const all=document.querySelector('#crossShowcase .cross-all-btn');
