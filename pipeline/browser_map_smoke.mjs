@@ -256,7 +256,7 @@ console.log('INSTITUTION_FILTER_SMOKE',JSON.stringify(institutionFilterCheck));
 if (institutionFilterCheck.error || !institutionFilterCheck.allKorail || institutionFilterCheck.korailCount < 5 || !institutionFilterCheck.hasPublicGroup || institutionFilterCheck.institutionCount < 2) {
   throw new Error('institution filter failed for 한국철도공사');
 }
-ori.value='all';renderList(false);
+await evaluate(`(() => { ori.value='all'; renderList(false); return current.length; })()`);
 
 const crossResetCheck=await evaluate(`(() => {
   document.getElementById('restaurantLookupClose')?.click();
