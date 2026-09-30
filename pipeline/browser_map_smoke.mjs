@@ -256,6 +256,24 @@ console.log('INSTITUTION_FILTER_SMOKE',JSON.stringify(institutionFilterCheck));
 if (institutionFilterCheck.error || !institutionFilterCheck.allKorail || institutionFilterCheck.korailCount < 5 || !institutionFilterCheck.hasPublicGroup || institutionFilterCheck.institutionCount < 2) {
   throw new Error('institution filter failed for 한국철도공사');
 }
+const lhFilterCheck=await evaluate(`(() => {
+  const select=document.getElementById('origin');
+  const lh=[...select.options].find(o=>o.value==='institution:한국토지주택공사');
+  if(!lh)return {error:'LH option missing'};
+  select.value=lh.value;
+  select.dispatchEvent(new Event('change',{bubbles:true}));
+  const filtered=current.map(r=>({name:r.business?.display||r.name,institutions:recordInstitutions(r),mapped:Number.isFinite(r.lat)&&Number.isFinite(r.lon)}));
+  return {
+    count:filtered.length,
+    allLh:filtered.length>0&&filtered.every(x=>x.institutions.includes('한국토지주택공사')),
+    mapped:filtered.filter(x=>x.mapped).length,
+    names:filtered.map(x=>x.name)
+  };
+})()`);
+console.log('LH_FILTER_SMOKE',JSON.stringify(lhFilterCheck));
+if (lhFilterCheck.error || !lhFilterCheck.allLh || lhFilterCheck.count < 8 || lhFilterCheck.mapped < 2) {
+  throw new Error('institution filter failed for 한국토지주택공사');
+}
 await evaluate(`(() => { ori.value='all'; renderList(false); return current.length; })()`);
 
 const crossResetCheck=await evaluate(`(() => {
