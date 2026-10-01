@@ -128,7 +128,9 @@ def discover_kepco(src,year):
 
 def discover_kogas(src,year,detail_limit):
     base=(src.get("listing_urls") or [""])[0]
-    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":[year],"pages":[base],"attachments":[],"errors":[]}
+    lookback=max(0,int(src.get("lookback_years",1)))
+    years={year-i for i in range(lookback+1)}
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[base],"attachments":[],"errors":[]}
     try:doc=fetch(base)
     except Exception as e:
         out["errors"].append(f"listing {base}: {type(e).__name__}: {e}")
@@ -141,7 +143,7 @@ def discover_kogas(src,year,detail_limit):
         text=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
         text=" ".join(text.split())
         if board_idx in seen_posts:continue
-        if str(year) not in text or "업무추진비" not in text:continue
+        if not any(str(y) in text for y in years) or "업무추진비" not in text:continue
         if "기관장" not in text:continue
         seen_posts.add(board_idx)
         y,month=extract_year_month(text)
