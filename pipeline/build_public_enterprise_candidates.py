@@ -25,6 +25,10 @@ def phone_from(v):
 def addr(v):return re.sub(r"\s+"," ",t(v).replace("서울특별시","서울").replace("서울시","서울")).strip(" ,")
 def meal(r):
     m=canon(r.get("merchant"));p=t(r.get("purpose"));c=m+" "+p
+    if r.get("source_key")=="kwater" and re.search(r"펠리쓰\s*팩토리아",m):
+        # The 28,000-won K-water transaction is at a verified coffee roastery/cafe,
+        # not an executive dining venue.
+        return False
     if r.get("source_key")=="kogas":
         if re.search(r"위문|사기\s*진작",t(r.get("source_category"))):
             return False
