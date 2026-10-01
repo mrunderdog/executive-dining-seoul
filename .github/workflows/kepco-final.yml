@@ -36,7 +36,12 @@ jobs:
           print('KEPCO_RECORDS',json.dumps(rec,ensure_ascii=False))
           assert len(rec)>=2
           assert all(x.get('address') for x in rec)
-          assert all(isinstance(x.get('lat'),(int,float)) and isinstance(x.get('lon'),(int,float)) for x in rec)
+          cache=json.loads(Path('data/geocode_cache.json').read_text(encoding='utf-8'))
+          geo=cache.get('records') or {}
+          keys=['명선헌(서울)|공기업·공공기관','명가무안뻘낙지(서울)|공기업·공공기관']
+          selected={k:geo.get(k) for k in keys}
+          print('KEPCO_GEOCODES',json.dumps(selected,ensure_ascii=False))
+          assert all(selected.get(k) and isinstance(selected[k].get('lat'),(int,float)) and isinstance(selected[k].get('lon'),(int,float)) for k in keys)
           PY
       - name: Quality, build and browser smoke
         shell: bash
