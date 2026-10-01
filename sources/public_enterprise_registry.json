@@ -82,7 +82,11 @@
       "listing_urls": [
         "https://www.kogas.or.kr/site/koGas/goBoard.do?Key=1060101050000&boardNo=57"
       ],
-      "lookback_years": 1
+      "lookback_years": 1,
+      "pagination": {
+        "start": 1,
+        "end": 3
+      }
     },
     {
       "key": "iiac",
