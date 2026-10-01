@@ -16,6 +16,7 @@ on:
     workflows:
       - Central + National refresh
       - Rebuild council candidates
+      - Public enterprise refresh on source change
     types: [completed]
   workflow_dispatch:
 
