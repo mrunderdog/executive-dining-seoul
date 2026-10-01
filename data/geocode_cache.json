@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 249,
+    "failed_count": 236,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1414,
-    "success_count": 1165,
-    "updated_at": "2026-10-01T09:45:28+00:00"
+    "success_count": 1178,
+    "updated_at": "2026-10-01T09:52:15+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -362,7 +362,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "가든파티 계양점|계양구": {
       "addr_type": "POI",
@@ -892,12 +892,22 @@
       "updated_at": "2026-09-23T00:40:44+00:00"
     },
     "경복궁&갓포제주|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "d6196ce24ddb56b9",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 유성구 도룡동 엑스포로 87",
+      "fingerprint": "4421c046c5df511b",
       "geocoder_version": 4,
+      "lat": 36.375135982584,
+      "lon": 127.389400707273,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 유성구 엑스포로 87 대전컨벤션센터 제2전시장 2층",
+      "result_name": "",
+      "score": 95.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 유성구 엑스포로 87 대전컨벤션센터 제2전시장 2층"
+      ],
+      "updated_at": "2026-10-01T09:52:09+00:00"
     },
     "경복궁관훈점|중앙정부": {
       "failed": true,
@@ -1002,12 +1012,22 @@
       "updated_at": "2026-09-18T17:02:17+00:00"
     },
     "경복궁서초점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "29a4139de806e586",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 서초구 반포동 서초중앙로 195",
+      "fingerprint": "860c6e019e51a293",
       "geocoder_version": 4,
+      "lat": 37.499183187028,
+      "lon": 127.012022615882,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "서울특별시 서초구 서초중앙로 195",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 서초구 서초중앙로 195"
+      ],
+      "updated_at": "2026-10-01T09:52:08+00:00"
     },
     "경복궁여의도아이에프씨점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3759,7 +3779,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3785,7 +3805,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "다원|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5414,7 +5434,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "두레에프엔씨주식회사|공기업·공공기관": {
       "failed": true,
@@ -5422,7 +5442,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -6011,7 +6031,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -6068,12 +6088,22 @@
       "updated_at": "2026-09-22T07:23:33+00:00"
     },
     "마실둔산점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "da3b83959089c95c",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 서구 둔산동 둔산중로 74",
+      "fingerprint": "72ca1965c5c1fb96",
       "geocoder_version": 4,
+      "lat": 36.353308500887,
+      "lon": 127.387097695557,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 서구 둔산중로 74 인곡타워 2층",
+      "result_name": "",
+      "score": 96.84,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 서구 둔산중로 74 인곡타워 2층"
+      ],
+      "updated_at": "2026-10-01T09:52:12+00:00"
     },
     "마오|중앙정부": {
       "addr_type": "POI",
@@ -7008,12 +7038,22 @@
       "updated_at": "2026-09-21T08:46:15+00:00"
     },
     "몽중헌 페럼타워|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "4756ea8ec5ecf75a",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 중구 수하동 을지로5길 19",
+      "fingerprint": "5b1da121f6b8efd6",
       "geocoder_version": 4,
+      "lat": 37.566939432904,
+      "lon": 126.984140466426,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "서울특별시 중구 을지로5길 19 페럼타워 지하 2층",
+      "result_name": "",
+      "score": 96.36,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 중구 을지로5길 19 페럼타워 지하 2층"
+      ],
+      "updated_at": "2026-10-01T09:52:06+00:00"
     },
     "몽중헌 페럼타워|서울시청": {
       "addr_type": "PointAddress",
@@ -9102,12 +9142,22 @@
       "updated_at": "2026-09-18T23:15:57+00:00"
     },
     "브이아이피참치 뉴서울호텔점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "b915051eb9d943bc",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 중구 태평로1가 세종대로22길 16",
+      "fingerprint": "0580961fc058a2a8",
       "geocoder_version": 4,
+      "lat": 37.567988889091,
+      "lon": 126.978165259109,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "서울특별시 중구 세종대로22길 16",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 중구 세종대로22길 16"
+      ],
+      "updated_at": "2026-10-01T09:52:11+00:00"
     },
     "브이아이피참치 종로|종로구": {
       "addr_type": "PointAddress",
@@ -9956,12 +10006,22 @@
       "updated_at": "2026-09-18T17:02:22+00:00"
     },
     "삿뽀로대전점(주)|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "8b97c3968f789136",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 서구 만년동 대덕대로 366",
+      "fingerprint": "94f95971723cf564",
       "geocoder_version": 4,
+      "lat": 36.365517874419,
+      "lon": 127.380006521652,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 서구 대덕대로 366",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 서구 대덕대로 366"
+      ],
+      "updated_at": "2026-10-01T09:52:09+00:00"
     },
     "삿뽀로여의도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -10811,12 +10871,22 @@
       "updated_at": "2026-09-17T23:04:09+00:00"
     },
     "선천집|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "4831718d215454c6",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 관훈동 인사동14길 5",
+      "fingerprint": "b758948a54e69e66",
       "geocoder_version": 4,
+      "lat": 37.574957268115,
+      "lon": 126.984425199676,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "서울특별시 종로구 인사동14길 5",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 종로구 인사동14길 5"
+      ],
+      "updated_at": "2026-10-01T09:52:13+00:00"
     },
     "선한푸드앤컬처|중앙정부": {
       "failed": true,
@@ -11631,12 +11701,22 @@
       "updated_at": "2026-09-21T08:56:16+00:00"
     },
     "솔밭묵집|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "2da83be57abf48b1",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 유성구 관평동 관용로 43",
+      "fingerprint": "044687746e734cd3",
       "geocoder_version": 4,
+      "lat": 36.414977892495,
+      "lon": 127.382240550305,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 유성구 관용로 43",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 유성구 관용로 43"
+      ],
+      "updated_at": "2026-10-01T09:52:14+00:00"
     },
     "솔잎사골순대아구찜탕(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
@@ -13626,12 +13706,22 @@
       "updated_at": "2026-09-21T08:46:07+00:00"
     },
     "어선재|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "65e846801291c404",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 유성구 봉명동 온천로 60",
+      "fingerprint": "3848ff0173d62e88",
       "geocoder_version": 4,
+      "lat": 36.354540808291,
+      "lon": 127.344307828389,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 유성구 온천로 60",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 유성구 온천로 60"
+      ],
+      "updated_at": "2026-10-01T09:52:10+00:00"
     },
     "어썰당 부평더샵동암점|부평구": {
       "addr_type": "POI",
@@ -14055,7 +14145,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -14171,7 +14261,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15146,7 +15236,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
@@ -15338,7 +15428,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "우아라|중앙정부": {
       "addr_type": "POI",
@@ -15431,12 +15521,22 @@
       "updated_at": "2026-09-17T23:04:14+00:00"
     },
     "우참판 주식회사|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "e705a96a6a97c62f",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 서초구 반포동 서래로 23",
+      "fingerprint": "1b6aa162a0b08908",
       "geocoder_version": 4,
+      "lat": 37.497089136158,
+      "lon": 126.998084349091,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "서울특별시 서초구 서래로 23",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 서초구 서래로 23"
+      ],
+      "updated_at": "2026-10-01T09:52:07+00:00"
     },
     "우프스낵바|인천시청": {
       "addr_type": "POI",
@@ -15570,7 +15670,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -16859,12 +16959,22 @@
       "updated_at": "2026-09-17T23:04:32+00:00"
     },
     "일정|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "a8f266c4cc993091",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 서구 만년동 만년로67번길 18-9",
+      "fingerprint": "f0189f157d12a1be",
       "geocoder_version": 4,
+      "lat": 36.368420150303,
+      "lon": 127.380783104981,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 서구 만년로67번길 18-9",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 서구 만년로67번길 18-9"
+      ],
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "일품당 프리미엄|서울시청": {
       "addr_type": "PointAddress",
@@ -17444,12 +17554,22 @@
       "updated_at": "2026-09-17T23:03:26+00:00"
     },
     "전원가든식당|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "a58d22b7b85e24cb",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 대덕구 미호동 대청로 556",
+      "fingerprint": "15ec4eab1d36054f",
       "geocoder_version": 4,
+      "lat": 36.469114719177,
+      "lon": 127.471490887679,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 대덕구 대청로 556",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 대덕구 대청로 556"
+      ],
+      "updated_at": "2026-10-01T09:52:10+00:00"
     },
     "전원식당|의정부시": {
       "addr_type": "POI",
@@ -20508,7 +20628,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "토성한정식|법조·법률행정": {
       "failed": true,
@@ -21092,7 +21212,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22339,7 +22459,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "해량 260도|연수구": {
       "addr_type": "PointAddress",
@@ -23130,7 +23250,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "updated_at": "2026-10-01T09:52:05+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -23400,12 +23520,22 @@
       "updated_at": "2026-09-18T23:16:03+00:00"
     },
     "후지산|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "d6ff0f68692a73b5",
+      "addr_type": "PointAddress",
+      "display_name": "대전광역시 서구 둔산동 둔산로137번길 21",
+      "fingerprint": "b39cb861a5e818fd",
       "geocoder_version": 4,
+      "lat": 36.352280418553,
+      "lon": 127.388969123079,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T09:45:28+00:00"
+      "query": "대전광역시 서구 둔산로137번길 21",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대전광역시 서구 둔산로137번길 21"
+      ],
+      "updated_at": "2026-10-01T09:52:13+00:00"
     },
     "훈장골|계양구": {
       "addr_type": "POI",
