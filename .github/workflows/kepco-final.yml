@@ -26,7 +26,9 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          from pipeline.build_site import public_enterprise_records
+          import sys
+          sys.path.insert(0,'pipeline')
+          from build_site import public_enterprise_records
           cand=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
           cs=[x for x in cand.get('candidates',[]) if '한국전력공사' in (x.get('institutions') or [])]
           print('KEPCO_CANDIDATES',json.dumps(cs,ensure_ascii=False))
