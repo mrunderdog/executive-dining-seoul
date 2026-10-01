@@ -87,9 +87,47 @@ def listing_urls(src):
 
 def extract_year_month(text):
     m=re.search(r"(20\d{2})\D{0,4}(1[0-2]|0?[1-9])\s*월",text)
-    return (int(m.group(1)),int(m.group(2))) if m else (None,None)
+    if m:return int(m.group(1)),int(m.group(2))
+    m=re.search(r"(?:^|[^0-9])(\d{2})\s*[년.'’]?\s*(1[0-2]|0?[1-9])\s*월",text)
+    if m:return 2000+int(m.group(1)),int(m.group(2))
+    return None,None
+
+def discover_kepco(src,year):
+    base=(src.get("listing_urls") or [""])[0]
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":[year],"pages":[base],"attachments":[],"errors":[]}
+    try:doc=fetch(base)
+    except Exception as e:
+        out["errors"].append(f"listing {base}: {type(e).__name__}: {e}")
+        out["parseable_attachments"]=0;out["status"]="FETCH_FAILED";return out
+    endpoint=urllib.parse.urljoin(base,"/c2r/FileDownload.do")
+    seen=set()
+    for tm in re.finditer(r'<strong class="title">(.*?)</strong>',doc,re.S|re.I):
+        title=html.unescape(re.sub(r"<[^>]+>"," ",tm.group(1)))
+        title=" ".join(title.split())
+        window=doc[max(0,tm.start()-900):min(len(doc),tm.end()+5200)]
+        # KEPCO puts role badge and JS download button in the same card.
+        if "기관장" not in window or not re.search(r"(^|[^부본])사장\s*업무추진비",title):
+            continue
+        y,m=extract_year_month(title)
+        if y and y!=year:continue
+        call=re.search(r"G_FILE\.downloadFile\('([^']+)'\s*,\s*'([^']+)'\)",window)
+        if not call:continue
+        file_no,file_seq=call.group(1),call.group(2)
+        ident=file_no+"|"+file_seq
+        if ident in seen:continue
+        seen.add(ident)
+        out["attachments"].append({
+            "text":title+" .pdf","url":endpoint,"year":y,"month":m,"parent":base,
+            "post_data":{"fileNo":file_no,"fileSeq":file_seq},
+            "attachment_id":ident
+        })
+    out["parseable_attachments"]=len(out["attachments"])
+    out["status"]="PARSEABLE_FOUND" if out["attachments"] else "NO_FILES_FOUND"
+    return out
 
 def discover_source(src,year,detail_limit):
+    if src.get("key")=="kepco" and src.get("verified") and src.get("publish"):
+        return discover_kepco(src,year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
