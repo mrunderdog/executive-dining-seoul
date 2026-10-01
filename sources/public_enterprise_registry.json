@@ -58,7 +58,11 @@
       "verified": true,
       "publish": false,
       "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "note": "ALIO 기관장 업무추진비 정기공시(C0183 / 20701) 확인. 2026 공시의 2025년 XLSX를 직접 검증했으나 월별 집행내역·건수·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가. 한국도로공사 자체 사이트의 청렴자료실 > 업무추진비 경로는 외부 수집 환경에서 응답 불안정하며 merchant-level 공개 원문은 미확인.",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0183&disclosureNo=&reportFormRootNo=20701"
+      ]
     },
     {
       "key": "kwater",
