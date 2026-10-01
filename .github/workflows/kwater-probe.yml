@@ -1,41 +1,43 @@
-name: K-water adapter probe
+name: K-water adapter QA
 on:
   push:
     branches: [feat/kwater-adapter]
+permissions:
+  contents: read
 jobs:
-  probe:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Probe K-water head expense pages
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run public-enterprise pipeline
+        run: |
+          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/ingest_public_enterprise_expense.py
+          python pipeline/public_enterprise_discovery.py --year 2026 --incremental --detail-limit 24
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+      - name: Inspect K-water
         run: |
           python - <<'PY'
-          import re, urllib.request, html
-          for year,page in [(2024,16),(2025,17),(2026,18)]:
-              url=f'https://www.kwater.or.kr/water/sub02/sub02/head/head{page:02d}Page.do'
-              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
-              try:
-                  with urllib.request.urlopen(req,timeout=45) as r:
-                      doc=r.read().decode(r.headers.get_content_charset() or 'utf-8','replace')
-              except Exception as e:
-                  print('FETCH_FAIL',year,url,type(e).__name__,str(e));continue
-              title=' '.join(re.sub('<[^>]+>',' ',re.search(r'<title>(.*?)</title>',doc,re.I|re.S).group(1) if re.search(r'<title>(.*?)</title>',doc,re.I|re.S) else '').split())
-              print('PAGE',year,'bytes',len(doc),'title',title)
-              m=re.search(fr'{year}년\s*세부집행내역',doc,re.I)
-              print('YEAR_MARKER',year,bool(m))
-              tables=re.findall(r'<table\b.*?</table>',doc,re.I|re.S)
-              print('TABLES',len(tables))
-              for ti,tbl in enumerate(tables[:5]):
-                  rows=re.findall(r'<tr\b.*?</tr>',tbl,re.I|re.S)
-                  print('TABLE',ti,'ROWS',len(rows))
-                  for ri,row in enumerate(rows[:12]):
-                      cells=[]
-                      for cell in re.findall(r'<t[hd]\b.*?</t[hd]>',row,re.I|re.S):
-                          s=html.unescape(re.sub(r'<[^>]+>',' ',cell))
-                          s=' '.join(s.split())
-                          cells.append(s)
-                      if cells: print('ROW',year,ti,ri,cells)
+          import json
+          from pathlib import Path
+          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
+          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
+          s=next(x for x in d['sources'] if x['key']=='kwater')
+          rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국수자원공사']
+          cs=[x for x in c.get('candidates',[]) if '한국수자원공사' in (x.get('institutions') or [])]
+          print('KWATER_DISCOVERY',json.dumps({'status':s.get('status'),'pages':s.get('pages'),'inline_rows':len(s.get('inline_rows') or [])},ensure_ascii=False))
+          print('KWATER_ROWS',json.dumps(rows,ensure_ascii=False))
+          print('KWATER_CANDIDATES',json.dumps(cs,ensure_ascii=False))
+          assert s.get('status')=='PARSEABLE_FOUND'
+          assert len(s.get('inline_rows') or [])>=5
+          assert rows
+          assert cs
           PY
+      - name: Regression
+        run: python pipeline/regression_checks.py
