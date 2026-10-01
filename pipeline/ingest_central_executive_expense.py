@@ -10,6 +10,7 @@ import statistics
 import subprocess
 import tempfile
 import time
+import urllib.parse
 import urllib.request
 import zipfile
 import xml.etree.ElementTree as ET
@@ -68,9 +69,21 @@ def pdate(v):
         except ValueError:pass
     return s
 
-def fetch(url):
-    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"*/*"})
-    with urllib.request.urlopen(req,timeout=60) as r:return r.read()
+def fetch(url,data=None,referer=None):
+    payload=urllib.parse.urlencode(data).encode() if isinstance(data,dict) else data
+    headers={"User-Agent":UA,"Accept":"*/*"}
+    if payload is not None:headers["Content-Type"]="application/x-www-form-urlencoded"
+    if referer:headers["Referer"]=referer
+    last=None
+    attempts=3 if payload is not None else 1
+    for n in range(attempts):
+        try:
+            req=urllib.request.Request(url,data=payload,headers=headers)
+            with urllib.request.urlopen(req,timeout=60) as r:return r.read()
+        except Exception as e:
+            last=e
+            if n+1<attempts:time.sleep(1.5*(n+1))
+    raise last
 
 def _local(tag):
     return tag.split("}",1)[-1] if "}" in tag else tag
@@ -267,10 +280,29 @@ def infer_role(label):
     return ""
 
 def normalize(rows,sheet,meta):
+    # KEPCO institution-head PDFs use a seven-column table, but pypdf can
+    # split a multi-word purpose across three visual chunks. That turns one
+    # transaction into eight cells and shifts venue/method/amount columns.
+    # Rebuild only the unambiguous dated eight-cell pattern.
+    if meta.get("key")=="kepco":
+        repaired=[]
+        for row in rows:
+            if len(row)>=8:
+                mdate=re.match(r"^(20\d{2}-\d{2}-\d{2})\s*(.*)$",clean(row[0]))
+                if mdate:
+                    purpose=" ".join(x for x in [mdate.group(2),clean(row[1]),clean(row[2])] if x)
+                    row=[mdate.group(1),purpose,clean(row[3]),clean(row[4]),clean(row[5]),clean(row[6]),clean(row[7])]
+            repaired.append(row)
+        rows=repaired
     scale=amount_scale(rows)
     h=find_header(rows)
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
     score,hi,_=h;m=mapping(rows[hi]);out=[]
+    if meta.get("key")=="kepco":
+        # "집행구분" is the payment method, not an executive role.
+        m.pop("role",None)
+        if len(rows[hi]) >= 7:
+            m["method"]=4
 
     # MOJ HWPX uses merged labels such as "사용 일자" and "사용 방법".
     # XML text extraction collapses both to "사용", so repair the known
@@ -304,6 +336,8 @@ def normalize(rows,sheet,meta):
         raw_amount=cell(row,m,"amount")
         amt=amount(raw_amount)
         d=pdate(cell(row,m,"date"))
+        if meta.get("key")=="kepco" and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}",d or ""):
+            continue
         if meta.get("key") == "ministry_justice" and meta.get("source_year"):
             short=re.fullmatch(r"\s*(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[.]?\s*", d or "")
             if short:
@@ -388,8 +422,9 @@ def parse_attachment(src:dict,a:dict):
     url=a.get("url") or ""
     label=a.get("text") or url
     try:
-        blob=fetch(url)
-        info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
+        blob=fetch(a.get("download_url") or url,data=a.get("post_data"),referer=a.get("parent"))
+        file_key=str(a.get("attachment_id") or url)
+        info={"institution":src["institution"],"key":src["key"],"url":url,"file_key":file_key,"bytes":len(blob),"sheets":[]}
         default_role=infer_role(label)
         parsed_sheets=list(rows_from(blob,label))
         if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
