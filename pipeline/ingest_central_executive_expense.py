@@ -393,7 +393,7 @@ def parse_attachment(src:dict,a:dict):
     url=a.get("url") or ""
     label=a.get("text") or url
     try:
-        blob=fetch(url,data=a.get("post_data"),referer=a.get("parent"))
+        blob=fetch(a.get("download_url") or url,data=a.get("post_data"),referer=a.get("parent"))
         file_key=str(a.get("attachment_id") or url)
         info={"institution":src["institution"],"key":src["key"],"url":url,"file_key":file_key,"bytes":len(blob),"sheets":[]}
         default_role=infer_role(label)
