@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-01",
-  "policy": "Publish only institution-head expense sources with stable official public listings and parseable merchant-level attachments. Aggregate-only or unstable sources stay tracked but unpublished.",
+  "policy": "Publish public-enterprise leadership expense sources when merchant-level records are traceable to official public disclosures. Institution-head sources are preferred; explicitly labeled executive-management sources may be published with their original role preserved. Aggregate-only or unstable sources stay tracked but unpublished.",
   "sources": [
     {
       "key": "korail",
@@ -124,6 +124,21 @@
       "listing_urls": [
         "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0157&disclosureNo=&reportFormRootNo=20701"
       ]
+    },
+    {
+      "key": "kdhc",
+      "institution": "한국지역난방공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "manual_verified_snapshot",
+      "note": "KDHC 공식 경영공시 목록정보는 '경영진 업무추진비'를 재무처 재무부가 자료변동시 공사 홈페이지에 공개한다고 명시. 기관장 ALIO 자료는 aggregate-only이므로 사용하지 않음. KDHC 동적 상세페이지는 외부 무인 수집이 차단되어 현재는 공식 공개 원문을 색인한 공개 기록과 교차검증한 2025~2026 snapshot을 사용하며 role을 '경영진'으로 보존.",
+      "default_role": "경영진",
+      "format_hint": "verified-snapshot",
+      "listing_urls": [
+        "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+      ],
+      "metadata_url": "https://www.data.go.kr/data/15151425/fileData.do"
     }
   ]
 }

@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 REGISTRY=ROOT/"sources"/"public_enterprise_registry.json"
+KDHC_SNAPSHOT=ROOT/"sources"/"kdhc_executive_expense_snapshot.json"
 REPORTS=ROOT/"reports"
 UA="ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
 FILE_EXTS=(".xlsx",".xls",".csv",".pdf",".hwp",".hwpx")
@@ -267,6 +268,42 @@ def discover_kwater(src,year):
     out["status"]="PARSEABLE_FOUND" if out["inline_rows"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
     return out
 
+def discover_kdhc(src,year):
+    out={
+        "key":src["key"],"institution":src["institution"],
+        "cohort":src.get("cohort","public_enterprise_leadership"),
+        "default_role":src.get("default_role","경영진"),
+        "years":[year-1,year],"pages":list(src.get("listing_urls") or []),
+        "attachments":[],"inline_rows":[],"errors":[],"inline_replace":True,
+        "snapshot_mode":"manual_verified_snapshot"
+    }
+    try:
+        snap=json.loads(KDHC_SNAPSHOT.read_text(encoding="utf-8"))
+    except Exception as e:
+        out["errors"].append(f"snapshot: {type(e).__name__}: {e}")
+        out["parseable_attachments"]=0;out["status"]="FETCH_FAILED";return out
+    keep={year-1,year}
+    official=(snap.get("provenance") or {}).get("official_listing_url") or (src.get("listing_urls") or [""])[0]
+    for ri,r in enumerate(snap.get("rows") or [],start=1):
+        date=str(r.get("date") or "")
+        try:y=int(date[:4])
+        except Exception:continue
+        if y not in keep:continue
+        out["inline_rows"].append({
+            "source_key":src["key"],"institution":src["institution"],
+            "cohort":src.get("cohort","public_enterprise_leadership"),
+            "role":str(r.get("role") or "경영진"),"department":"",
+            "used_date":date,"used_time":"","merchant":str(r.get("merchant") or ""),"address":"",
+            "purpose":str(r.get("purpose") or ""),"people":r.get("people"),"amount":r.get("amount"),
+            "source_amount_scale":1,"payment_method":"","source_category":"경영진 업무추진비",
+            "source_url":official,"source_sheet":"verified_snapshot","source_row":ri,
+            "evidence_url":str(r.get("evidence_url") or ""),"evidence_type":str(r.get("evidence_type") or ""),
+            "confidence":str(r.get("confidence") or "")
+        })
+    out["parseable_attachments"]=1 if out["inline_rows"] else 0
+    out["status"]="PARSEABLE_FOUND" if out["inline_rows"] else "NO_FILES_FOUND"
+    return out
+
 def discover_source(src,year,detail_limit):
     if src.get("key")=="kepco" and src.get("verified") and src.get("publish"):
         return discover_kepco(src,year)
@@ -274,6 +311,8 @@ def discover_source(src,year,detail_limit):
         return discover_kogas(src,year,detail_limit)
     if src.get("key")=="kwater" and src.get("verified") and src.get("publish"):
         return discover_kwater(src,year)
+    if src.get("key")=="kdhc" and src.get("verified") and src.get("publish"):
+        return discover_kdhc(src,year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
