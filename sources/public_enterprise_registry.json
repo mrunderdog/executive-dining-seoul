@@ -22,9 +22,9 @@
       "institution": "한국전력공사",
       "cohort": "public_enterprise_leadership",
       "verified": true,
-      "publish": false,
-      "refresh_policy": "adapter_pending",
-      "note": "한국전력공사 정보공개 > 업무추진경비 공식 게시판. 기관장(사장) 월별 세부 집행내역 첨부가 확인됨. 현재 게시판이 JS/폼 기반이라 공통 crawler에서 첨부 URL을 안정적으로 추출하지 못해 adapter 완료 전까지 map publish 금지.",
+      "publish": true,
+      "refresh_policy": "monthly",
+      "note": "한국전력공사 정보공개 > 업무추진경비 공식 게시판. 기관장 카드의 G_FILE.downloadFile(fileNo,fileSeq)를 /c2r/FileDownload.do POST adapter로 수집.",
       "default_role": "사장",
       "format_hint": "xlsx/pdf",
       "listing_urls": [
