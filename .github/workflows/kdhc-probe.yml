@@ -1,4 +1,4 @@
-name: KDHC metadata probe
+name: KDHC official-site route probe
 on:
   push:
     branches: [feat/kdhc-adapter]
@@ -10,32 +10,31 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Inspect KDHC disclosure registry CSVs
+      - name: Probe official site through reader and network diagnostics
+        shell: bash
         run: |
+          set +e
+          echo "== DNS =="
+          getent ahosts www.kdhc.co.kr || true
+          getent ahosts kdhc.co.kr || true
+          echo "== HTTP probes =="
+          curl -4 -I -L --connect-timeout 8 --max-time 20 http://www.kdhc.co.kr/ || true
+          curl -4 -I -L --connect-timeout 8 --max-time 20 https://www.kdhc.co.kr/ || true
+          echo "== Jina reader =="
           python - <<'PY'
-          import csv,io,urllib.request
-          files={
-            'management':'https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003514624&fileDetailSn=1&insertDataPrcus=N',
-            'preinfo':'https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000003514628&fileDetailSn=1&insertDataPrcus=N',
-          }
-          ua='Mozilla/5.0 ExecutiveDiningSeoul/2.1'
-          for key,url in files.items():
-              print('FILESET',key,url)
-              req=urllib.request.Request(url,headers={'User-Agent':ua,'Referer':'https://www.data.go.kr/'})
-              with urllib.request.urlopen(req,timeout=60) as r:
-                  blob=r.read()
-              print('BYTES',len(blob),'MAGIC',blob[:20])
-              txt=None
-              for enc in ['utf-8-sig','cp949','euc-kr','utf-8']:
-                  try:
-                      txt=blob.decode(enc);print('ENC',enc);break
-                  except: pass
-              if txt is None: raise SystemExit('decode failed')
-              rows=list(csv.reader(io.StringIO(txt)))
-              print('HEADER',rows[0] if rows else [])
-              print('ROWCOUNT',len(rows))
-              for i,row in enumerate(rows,1):
-                  joined=' | '.join(row)
-                  if any(term in joined for term in ['업무추진비','기관장','경영공시','사전정보']):
-                      print('MATCH',i,joined)
+          import re,urllib.request
+          urls=[
+            'https://r.jina.ai/https://www.kdhc.co.kr/',
+            'https://r.jina.ai/http://www.kdhc.co.kr/',
+          ]
+          for url in urls:
+              print('READER',url)
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+                  with urllib.request.urlopen(req,timeout=60) as r:
+                      txt=r.read().decode('utf-8',errors='replace')
+                  print('BYTES',len(txt))
+                  print(txt[:30000])
+              except Exception as e:
+                  print('ERR',type(e).__name__,e)
           PY
