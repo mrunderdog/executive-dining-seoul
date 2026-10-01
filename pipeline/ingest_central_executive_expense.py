@@ -74,8 +74,16 @@ def fetch(url,data=None,referer=None):
     headers={"User-Agent":UA,"Accept":"*/*"}
     if payload is not None:headers["Content-Type"]="application/x-www-form-urlencoded"
     if referer:headers["Referer"]=referer
-    req=urllib.request.Request(url,data=payload,headers=headers)
-    with urllib.request.urlopen(req,timeout=60) as r:return r.read()
+    last=None
+    attempts=3 if payload is not None else 1
+    for n in range(attempts):
+        try:
+            req=urllib.request.Request(url,data=payload,headers=headers)
+            with urllib.request.urlopen(req,timeout=60) as r:return r.read()
+        except Exception as e:
+            last=e
+            if n+1<attempts:time.sleep(1.5*(n+1))
+    raise last
 
 def _local(tag):
     return tag.split("}",1)[-1] if "}" in tag else tag
@@ -272,6 +280,20 @@ def infer_role(label):
     return ""
 
 def normalize(rows,sheet,meta):
+    # KEPCO institution-head PDFs use a seven-column table, but pypdf can
+    # split a multi-word purpose across three visual chunks. That turns one
+    # transaction into eight cells and shifts venue/method/amount columns.
+    # Rebuild only the unambiguous dated eight-cell pattern.
+    if meta.get("key")=="kepco":
+        repaired=[]
+        for row in rows:
+            if len(row)>=8:
+                mdate=re.match(r"^(20\d{2}-\d{2}-\d{2})\s*(.*)$",clean(row[0]))
+                if mdate:
+                    purpose=" ".join(x for x in [mdate.group(2),clean(row[1]),clean(row[2])] if x)
+                    row=[mdate.group(1),purpose,clean(row[3]),clean(row[4]),clean(row[5]),clean(row[6]),clean(row[7])]
+            repaired.append(row)
+        rows=repaired
     scale=amount_scale(rows)
     h=find_header(rows)
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
