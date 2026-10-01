@@ -298,6 +298,11 @@ def normalize(rows,sheet,meta):
     h=find_header(rows)
     if not h:return [],{"sheet":sheet,"status":"NO_HEADER","amount_scale":scale}
     score,hi,_=h;m=mapping(rows[hi]);out=[]
+    if meta.get("key")=="kepco":
+        # "집행구분" is the payment method, not an executive role.
+        m.pop("role",None)
+        if len(rows[hi]) >= 7:
+            m["method"]=4
 
     # MOJ HWPX uses merged labels such as "사용 일자" and "사용 방법".
     # XML text extraction collapses both to "사용", so repair the known
@@ -331,6 +336,8 @@ def normalize(rows,sheet,meta):
         raw_amount=cell(row,m,"amount")
         amt=amount(raw_amount)
         d=pdate(cell(row,m,"date"))
+        if meta.get("key")=="kepco" and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}",d or ""):
+            continue
         if meta.get("key") == "ministry_justice" and meta.get("source_year"):
             short=re.fullmatch(r"\s*(\d{1,2})\s*[./-]\s*(\d{1,2})\s*[.]?\s*", d or "")
             if short:
