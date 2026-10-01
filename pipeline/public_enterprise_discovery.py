@@ -126,9 +126,60 @@ def discover_kepco(src,year):
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else "NO_FILES_FOUND"
     return out
 
+def discover_kogas(src,year,detail_limit):
+    base=(src.get("listing_urls") or [""])[0]
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":[year],"pages":[base],"attachments":[],"errors":[]}
+    try:doc=fetch(base)
+    except Exception as e:
+        out["errors"].append(f"listing {base}: {type(e).__name__}: {e}")
+        out["parseable_attachments"]=0;out["status"]="FETCH_FAILED";return out
+
+    posts=[]
+    seen_posts=set()
+    for m in re.finditer(r'<a\s+href=["\']javascript:readPermissionChk\((\d+)\);["\'][^>]*>(.*?)</a>',doc,re.S|re.I):
+        board_idx=m.group(1)
+        text=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
+        text=" ".join(text.split())
+        if board_idx in seen_posts:continue
+        if str(year) not in text or "업무추진비" not in text:continue
+        if "기관장" not in text:continue
+        seen_posts.add(board_idx)
+        y,month=extract_year_month(text)
+        detail=urllib.parse.urljoin(base,f"/site/koGas/bbs/View.do?cbIdx=57&boardIdx={board_idx}&Key=1060101050000&pageOffset=0&pageIndex=1")
+        posts.append((board_idx,text,y,month,detail))
+        if len(posts)>=detail_limit:break
+
+    seen_files=set()
+    for board_idx,title,y,month,detail in posts:
+        out["pages"].append(detail)
+        try:ddoc=fetch(detail)
+        except Exception as e:
+            out["errors"].append(f"detail {detail}: {type(e).__name__}: {e}");continue
+        # KOGAS publishes one file per executive. Publish only the institution-head file.
+        for m in re.finditer(r'<a\s+href=["\']([^"\']*?/mgr/fileDownload\.do\?[^"\']+)["\'][^>]*class=["\'][^"\']*pu_file_txt[^"\']*["\'][^>]*>(.*?)</a>',ddoc,re.S|re.I):
+            href=html.unescape(m.group(1))
+            label=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
+            label=" ".join(label.split())
+            if "기관장" not in label:continue
+            if not re.search(r"\.xlsx?\b",label,re.I):continue
+            url=urllib.parse.urljoin(detail,href)
+            if url in seen_files:continue
+            seen_files.add(url)
+            fy,fm=extract_year_month(label)
+            out["attachments"].append({
+                "text":label,"url":url,"year":fy or y,"month":fm or month,"parent":detail,
+                "attachment_id":f"{board_idx}|{urllib.parse.parse_qs(urllib.parse.urlsplit(url).query).get('fileNo',[''])[0]}"
+            })
+
+    out["parseable_attachments"]=len(out["attachments"])
+    out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
+    return out
+
 def discover_source(src,year,detail_limit):
     if src.get("key")=="kepco" and src.get("verified") and src.get("publish"):
         return discover_kepco(src,year)
+    if src.get("key")=="kogas" and src.get("verified") and src.get("publish"):
+        return discover_kogas(src,year,detail_limit)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
