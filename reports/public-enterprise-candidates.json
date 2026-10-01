@@ -1,11 +1,138 @@
 {
-  "generated_at": "2026-10-01T10:49:43",
+  "generated_at": "2026-10-01T15:39:12",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 50,
-  "entity_count": 41,
-  "eligible_count": 41,
+  "meal_rows": 69,
+  "entity_count": 45,
+  "eligible_count": 45,
   "candidates": [
+    {
+      "merchant": "좋구먼 반상 율동점",
+      "address": "",
+      "phone": "",
+      "score": 99.2,
+      "visits": 15,
+      "months": 9,
+      "spend": 874547,
+      "institution_count": 1,
+      "institutions": [
+        "한국지역난방공사"
+      ],
+      "date_min": "2025-02-26",
+      "date_max": "2026-03-25",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 14
+        },
+        {
+          "text": "내부직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-25",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 40000,
+          "people": 2,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-03-13",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 72728,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-03-06",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 40000,
+          "people": 2,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-02-25",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 60000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-02-19",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 80000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-02-13",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 40000,
+          "people": 2,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2026-01-08",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 120000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2025-12-23",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 57000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2025-12-03",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 57000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2025-10-14",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 57000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        }
+      ]
+    },
     {
       "merchant": "일정",
       "address": "",
@@ -258,6 +385,49 @@
           "people": 5,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "홍복",
+      "address": "",
+      "phone": "",
+      "score": 59.3,
+      "visits": 2,
+      "months": 2,
+      "spend": 290000,
+      "institution_count": 1,
+      "institutions": [
+        "한국지역난방공사"
+      ],
+      "date_min": "2025-04-22",
+      "date_max": "2025-12-24",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-12-24",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 180000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        },
+        {
+          "date": "2025-04-22",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 110000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
         }
       ]
     },
@@ -550,6 +720,39 @@
           "people": 6,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "동해도 일식",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 228000,
+      "institution_count": 1,
+      "institutions": [
+        "한국지역난방공사"
+      ],
+      "date_min": "2025-09-04",
+      "date_max": "2025-09-04",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-04",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 228000,
+          "people": 8,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
         }
       ]
     },
@@ -1264,6 +1467,39 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=721336&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "멜팅샵X치즈룸 광화문디타워점",
+      "address": "",
+      "phone": "",
+      "score": 44.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 13200,
+      "institution_count": 1,
+      "institutions": [
+        "한국지역난방공사"
+      ],
+      "date_min": "2025-11-17",
+      "date_max": "2025-11-17",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-17",
+          "time": "",
+          "institution": "한국지역난방공사",
+          "role": "경영진",
+          "amount": 13200,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
         }
       ]
     },

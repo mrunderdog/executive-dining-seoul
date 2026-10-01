@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1414,
-    "success_count": 1178,
-    "updated_at": "2026-10-01T10:49:43+00:00"
+    "record_count": 1418,
+    "success_count": 1182,
+    "updated_at": "2026-10-01T15:39:17+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -362,7 +362,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "가든파티 계양점|계양구": {
       "addr_type": "POI",
@@ -3779,7 +3779,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3805,7 +3805,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "다원|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5147,6 +5147,24 @@
       ],
       "updated_at": "2026-09-22T07:24:30+00:00"
     },
+    "동해도 일식|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 은행로 25",
+      "fingerprint": "06c16c54487d282a",
+      "geocoder_version": 4,
+      "lat": 37.52869490419,
+      "lon": 126.921383648609,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울특별시 영등포구 은행로 25 안원빌딩 지하1층",
+      "result_name": "",
+      "score": 96.36,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 영등포구 은행로 25 안원빌딩 지하1층"
+      ],
+      "updated_at": "2026-10-01T15:39:15+00:00"
+    },
     "동해도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 은행로 25",
@@ -5434,7 +5452,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "두레에프엔씨주식회사|공기업·공공기관": {
       "failed": true,
@@ -5442,7 +5460,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -6031,7 +6049,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -6641,6 +6659,24 @@
         "arcgis:서울 중구 서소문로11길 2"
       ],
       "updated_at": "2026-09-17T23:04:37+00:00"
+    },
+    "멜팅샵X치즈룸 광화문디타워점|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 종로구 청진동 종로3길 17",
+      "fingerprint": "b429e12d615eb860",
+      "geocoder_version": 4,
+      "lat": 37.570995896855,
+      "lon": 126.978914517434,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울특별시 종로구 종로3길 17 D타워 4층",
+      "result_name": "",
+      "score": 97.37,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 종로구 종로3길 17 D타워 4층"
+      ],
+      "updated_at": "2026-10-01T15:39:16+00:00"
     },
     "명가|시흥시": {
       "addr_type": "POI",
@@ -14145,7 +14181,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -14261,7 +14297,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15236,7 +15272,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
@@ -15428,7 +15464,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "우아라|중앙정부": {
       "addr_type": "POI",
@@ -15670,7 +15706,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -18110,6 +18146,24 @@
         "arcgis:종로은행나무집 대한민국"
       ],
       "updated_at": "2026-09-18T05:23:25+00:00"
+    },
+    "좋구먼 반상 율동점|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "경기도 성남시 분당구 율동 문정로148번길 12",
+      "fingerprint": "2691ef21574c1004",
+      "geocoder_version": 4,
+      "lat": 37.383508983712,
+      "lon": 127.151858996205,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "경기도 성남시 분당구 문정로148번길 12",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:경기도 성남시 분당구 문정로148번길 12"
+      ],
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "좋구먼|법조·법률행정": {
       "addr_type": "POI",
@@ -20628,7 +20682,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "토성한정식|법조·법률행정": {
       "failed": true,
@@ -21212,7 +21266,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22459,7 +22513,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "해량 260도|연수구": {
       "addr_type": "PointAddress",
@@ -23017,6 +23071,24 @@
       ],
       "updated_at": "2026-09-18T05:24:26+00:00"
     },
+    "홍복|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 중구 회현동1가 남대문시장길 73-3",
+      "fingerprint": "22053ced14f47191",
+      "geocoder_version": 4,
+      "lat": 37.560989119839,
+      "lon": 126.980011038007,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울특별시 중구 남대문시장길 73-3",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 중구 남대문시장길 73-3"
+      ],
+      "updated_at": "2026-10-01T15:39:15+00:00"
+    },
     "홍어전문|구로구": {
       "addr_type": "PointAddress",
       "display_name": "서울 구로구 구로동 구로중앙로 85",
@@ -23250,7 +23322,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T10:49:43+00:00"
+      "updated_at": "2026-10-01T15:39:13+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
