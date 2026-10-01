@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-30",
+  "as_of": "2026-10-01",
   "policy": "Publish only institution-head expense sources with stable official public listings and parseable merchant-level attachments. Aggregate-only or unstable sources stay tracked but unpublished.",
   "sources": [
     {
@@ -65,9 +65,15 @@
       "institution": "한국수자원공사",
       "cohort": "public_enterprise_leadership",
       "verified": true,
-      "publish": false,
-      "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "publish": true,
+      "refresh_policy": "monthly",
+      "note": "K-water 공식 경영공시 > 기관장 업무추진비. 연도별 headNNPage.do HTML 표에 거래일·목적·사용처·인원·금액이 직접 공개되어 첨부 없이 inline-table adapter로 2025~현재를 수집.",
+      "default_role": "기관장",
+      "format_hint": "html-table",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+      ]
     },
     {
       "key": "kogas",
