@@ -10,17 +10,19 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Read KDHC official disclosure lists through reader
+      - name: Read encoded KDHC disclosure URLs through reader
         run: |
           python - <<'PY'
-          import re, urllib.request
+          import re, urllib.parse, urllib.request
           targets=[
-            'https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077',
-            'https://www.kdhc.co.kr/kdhc/infoOthbc/infoPrmlgt/list.do?menuNo=200013',
+            'http://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077',
+            'http://www.kdhc.co.kr/kdhc/infoOthbc/infoPrmlgt/list.do?menuNo=200013',
           ]
           for target in targets:
-              url='https://r.jina.ai/'+target
+              encoded=urllib.parse.quote(target,safe=':/')
+              url='https://r.jina.ai/'+encoded
               print('TARGET',target)
+              print('READER',url)
               try:
                   req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
                   with urllib.request.urlopen(req,timeout=90) as r:
@@ -31,6 +33,6 @@ jobs:
               for term in ['경영진 업무추진비','기관장 업무추진비','업무추진비','재무처 재무부']:
                   ms=list(re.finditer(re.escape(term),txt,re.I))
                   print('TERM',term,'COUNT',len(ms))
-                  for m in ms[:12]:
-                      print('SNIP',txt[max(0,m.start()-2200):min(len(txt),m.start()+6500)])
+                  for m in ms[:10]:
+                      print('SNIP',txt[max(0,m.start()-1800):min(len(txt),m.start()+5000)])
           PY
