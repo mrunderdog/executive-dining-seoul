@@ -1,4 +1,4 @@
-name: KDHC bare-route probe
+name: KDHC known-detail probe
 on:
   push:
     branches: [feat/kdhc-adapter]
@@ -10,28 +10,23 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Read bare KDHC disclosure endpoints through reader
+      - name: Test reader against a known indexed KDHC detail page
         run: |
           python - <<'PY'
-          import re,urllib.request
+          import urllib.request
           targets=[
-            'http://www.kdhc.co.kr/kdhc/publict/publict/list.do',
-            'http://www.kdhc.co.kr/kdhc/infoOthbc/infoPrmlgt/list.do',
-            'http://www.kdhc.co.kr/kdhc/bbs/B0000012/list.do',
+            'http://www.kdhc.co.kr/kdhc/infoOthbc/infoPrmlgtDtl/list.do?menuNo=200013&pageIndex=1&publictMth=BBS01&publictTrgetId=29',
+            'https://www.kdhc.co.kr/kdhc/infoOthbc/infoPrmlgtDtl/list.do?menuNo=200013&pageIndex=1&publictMth=BBS01&publictTrgetId=29',
           ]
           for target in targets:
-              url='https://r.jina.ai/'+target
               print('TARGET',target)
+              url='https://r.jina.ai/'+target
               try:
                   req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
                   with urllib.request.urlopen(req,timeout=90) as r:
                       txt=r.read().decode('utf-8',errors='replace')
+                  print('OK',len(txt))
+                  print(txt[:40000])
               except Exception as e:
-                  print('ERR',type(e).__name__,e);continue
-              print('BYTES',len(txt))
-              for term in ['경영진 업무추진비','기관장 업무추진비','업무추진비','publictTrgetId','재무처']:
-                  ms=list(re.finditer(re.escape(term),txt,re.I))
-                  print('TERM',term,'COUNT',len(ms))
-                  for m in ms[:20]:
-                      print('SNIP',txt[max(0,m.start()-2400):min(len(txt),m.start()+7000)])
+                  print('ERR',type(e).__name__,e)
           PY
