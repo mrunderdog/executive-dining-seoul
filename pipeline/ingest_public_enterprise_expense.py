@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json
+import argparse, hashlib, json
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -25,9 +25,19 @@ def main():
         except Exception:previous={}
     previous_rows=list(previous.get("rows",[]));previous_files=list(previous.get("files",[]));previous_errors=list(previous.get("errors",[]))
     known={str(x.get("url") or "") for x in previous_files if x.get("url")}
-    rows=[];files=[];errors=[];jobs=[]
+    rows=[];files=[];errors=[];jobs=[];replace_institutions=set()
     for src in d.get("sources",[]):
         if src.get("status")=="TRACK_ONLY":continue
+        inline=list(src.get("inline_rows") or [])
+        if inline:
+            if src.get("inline_replace"):replace_institutions.add(src.get("institution"))
+            for r in inline:
+                x=dict(r)
+                if not x.get("row_id"):
+                    x["row_id"]=hashlib.sha256("|".join(str(x.get(k,"")) for k in ("source_key","role","used_date","merchant","amount","source_url","source_row")).encode()).hexdigest()[:20]
+                rows.append(x)
+            for page in src.get("pages") or []:
+                files.append({"institution":src.get("institution"),"key":src.get("key"),"url":page,"file_key":"inline:"+page,"bytes":0,"sheets":[{"status":"INLINE_HTML","parsed_rows":sum(1 for x in inline if x.get("source_url")==page)}]})
         for a in src.get("attachments",[]):
             url=str(a.get("url") or "")
             if not url or (args.incremental and url in known):continue
@@ -40,9 +50,10 @@ def main():
                 rows.extend(parsed)
                 if info:files.append(info)
                 if error:errors.append(error)
-    if args.incremental and not files and not errors:
+    if args.incremental and not files and not errors and not rows:
         print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False));return
-    unique={r["row_id"]:r for r in previous_rows+rows}
+    base_rows=[r for r in previous_rows if r.get("institution") not in replace_institutions]
+    unique={r["row_id"]:r for r in base_rows+rows}
     merged_rows=sorted(unique.values(),key=lambda r:(r.get("used_date") or "",r.get("institution") or "",r["row_id"]))
     fmap={str(x.get("url") or ""):x for x in previous_files if x.get("url")}
     for x in files:

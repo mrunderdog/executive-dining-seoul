@@ -200,11 +200,80 @@ def discover_kogas(src,year,detail_limit):
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
     return out
 
+
+# K-water publishes the institution-head ledger directly as an HTML table,
+# one stable page per calendar year (2024=head16, 2025=head17, ...).
+def discover_kwater(src,year):
+    lookback=max(0,int(src.get("lookback_years",1)))
+    years=sorted({year-i for i in range(lookback+1)})
+    out={
+        "key":src["key"],"institution":src["institution"],
+        "cohort":src.get("cohort","public_enterprise_leadership"),
+        "default_role":src.get("default_role","기관장"),
+        "years":years,"pages":[],"attachments":[],"inline_rows":[],"errors":[],
+        "inline_replace":True
+    }
+    for y in years:
+        page_no=y-2008
+        if page_no < 1:continue
+        url=f"https://www.kwater.or.kr/water/sub02/sub02/head/head{page_no:02d}Page.do"
+        try:doc=fetch(url)
+        except Exception as e:
+            out["errors"].append(f"listing {url}: {type(e).__name__}: {e}");continue
+        out["pages"].append(url)
+        if not re.search(fr"{y}년\s*세부집행내역",doc,re.I):
+            out["errors"].append(f"year marker missing: {url}");continue
+        mt=re.search(r"<table\b.*?</table>",doc,re.I|re.S)
+        if not mt:
+            out["errors"].append(f"table missing: {url}");continue
+        rows=re.findall(r"<tr\b.*?</tr>",mt.group(0),re.I|re.S)
+        for ri,row in enumerate(rows[1:],start=2):
+            cells=[]
+            for cell_html in re.findall(r"<t[hd]\b.*?</t[hd]>",row,re.I|re.S):
+                s=html.unescape(re.sub(r"<[^>]+>"," ",cell_html))
+                cells.append(" ".join(s.split()))
+            if len(cells)==8:
+                _,date_text,purpose,merchant,target,method,people_text,amount_text=cells
+            elif len(cells)==7:
+                date_text,purpose,merchant,target,method,people_text,amount_text=cells
+            else:
+                continue
+            dm=re.fullmatch(r"\s*(1[0-2]|0?[1-9])월\s*(3[01]|[12]?\d)일\s*",date_text)
+            if not dm:continue
+            try:
+                used_date=datetime(y,int(dm.group(1)),int(dm.group(2))).date().isoformat()
+            except ValueError:
+                continue
+            merchant=" ".join(merchant.split())
+            if not merchant:continue
+            try:
+                amount_krw=int(round(float(amount_text.replace(",",""))*1000))
+            except Exception:
+                amount_krw=None
+            pm=re.search(r"\d+",people_text or "")
+            people_count=int(pm.group()) if pm else None
+            out["inline_rows"].append({
+                "source_key":src["key"],"institution":src["institution"],
+                "cohort":src.get("cohort","public_enterprise_leadership"),
+                "role":src.get("default_role","기관장"),"department":"",
+                "used_date":used_date,"used_time":"","merchant":merchant,"address":"",
+                "purpose":" ".join(purpose.split()),"people":people_count,
+                "amount":amount_krw,"source_amount_scale":1000,
+                "payment_method":" ".join(method.split()),"source_category":"",
+                "source_url":url,"source_sheet":f"{y}년","source_row":ri,
+                "target":" ".join(target.split())
+            })
+    out["parseable_attachments"]=len(out["pages"]) if out["inline_rows"] else 0
+    out["status"]="PARSEABLE_FOUND" if out["inline_rows"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
+    return out
+
 def discover_source(src,year,detail_limit):
     if src.get("key")=="kepco" and src.get("verified") and src.get("publish"):
         return discover_kepco(src,year)
     if src.get("key")=="kogas" and src.get("verified") and src.get("publish"):
         return discover_kogas(src,year,detail_limit)
+    if src.get("key")=="kwater" and src.get("verified") and src.get("publish"):
+        return discover_kwater(src,year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
@@ -269,7 +338,13 @@ def main():
                 if a.get("url"):amap[str(a["url"])]=a
             fresh["attachments"]=list(amap.values())
             fresh["pages"]=list(dict.fromkeys((old.get("pages") or [])+(fresh.get("pages") or [])))
+            if not fresh.get("inline_replace"):
+                old_inline={str(x.get("row_id") or x.get("source_url","")+":"+str(x.get("source_row",""))):x for x in old.get("inline_rows",[])}
+                for x in fresh.get("inline_rows",[]):
+                    old_inline[str(x.get("row_id") or x.get("source_url","")+":"+str(x.get("source_row","")))]=x
+                fresh["inline_rows"]=list(old_inline.values())
             fresh["parseable_attachments"]=sum(any(ext in (a.get("text","")+" "+a.get("url","")).lower() for ext in FILE_EXTS) for a in fresh["attachments"])
+            if fresh.get("inline_rows"):fresh["parseable_attachments"]=max(fresh["parseable_attachments"],len(fresh.get("pages") or [1]))
             if fresh["parseable_attachments"]:fresh["status"]="PARSEABLE_FOUND"
             elif old.get("status"):fresh["status"]="STALE_OK:"+str(old["status"])
         rows.append(fresh)
