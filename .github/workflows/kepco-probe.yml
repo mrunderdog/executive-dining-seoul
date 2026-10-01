@@ -18,8 +18,8 @@ jobs:
         run: pip install openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
       - name: Refresh public-enterprise data
         run: |
-          python pipeline/public_enterprise_discovery.py --year 2026 --detail-limit 24
-          python pipeline/ingest_public_enterprise_expense.py
+          python pipeline/public_enterprise_discovery.py --year 2026 --incremental --detail-limit 24
+          python pipeline/ingest_public_enterprise_expense.py --incremental
           python pipeline/build_public_enterprise_candidates.py
           python pipeline/geocode_extra_cache.py
           python pipeline/geocode_cache.py --mode auto
