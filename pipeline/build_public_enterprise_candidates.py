@@ -25,6 +25,14 @@ def phone_from(v):
 def addr(v):return re.sub(r"\s+"," ",t(v).replace("서울특별시","서울").replace("서울시","서울")).strip(" ,")
 def meal(r):
     m=canon(r.get("merchant"));p=t(r.get("purpose"));c=m+" "+p
+    if r.get("source_key")=="kogas":
+        if re.search(r"위문|사기\s*진작",t(r.get("source_category"))):
+            return False
+        # KOGAS institution-head sheets also contain bulk welfare/refreshment
+        # purchases whose category can be blank after merged-cell extraction.
+        # These verified cafe/fruit merchants are not executive dining venues.
+        if re.search(r"이루팜|빅핸즈",m):
+            return False
     if not m or m in GENERIC or re.fullmatch(r"[\d,.:\-\s]+",m):return False
     if any(x in c for x in EXCLUDE):return False
     return any(x in p for x in MEAL_WORDS) or t(r.get("role")) in {"기관장","사장","사장직무대행"}

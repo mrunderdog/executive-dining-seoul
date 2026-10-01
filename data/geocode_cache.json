@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1393,
-    "success_count": 1163,
-    "updated_at": "2026-10-01T06:26:52+00:00"
+    "record_count": 1395,
+    "success_count": 1165,
+    "updated_at": "2026-10-01T07:06:23+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -3735,7 +3735,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -4006,6 +4006,42 @@
         "arcgis:서울 중랑구 신내동"
       ],
       "updated_at": "2026-09-17T23:02:33+00:00"
+    },
+    "대구(신서복어)|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "대구광역시 동구 신서동 반야월로 370-4",
+      "fingerprint": "8b7858332c7f834d",
+      "geocoder_version": 4,
+      "lat": 35.871216424681,
+      "lon": 128.728895722296,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "대구광역시 동구 반야월로 370-4",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대구광역시 동구 반야월로 370-4"
+      ],
+      "updated_at": "2026-10-01T07:06:22+00:00"
+    },
+    "대구(초례담)|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "대구광역시 동구 각산동 혁신대로35길 3-7",
+      "fingerprint": "d93598ef336e1c3f",
+      "geocoder_version": 4,
+      "lat": 35.877590610589,
+      "lon": 128.717542853541,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "대구광역시 동구 혁신대로35길 3-7 3층",
+      "result_name": "",
+      "score": 98.89,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대구광역시 동구 혁신대로35길 3-7 3층"
+      ],
+      "updated_at": "2026-10-01T07:06:22+00:00"
     },
     "대련집|중앙정부": {
       "addr_type": "POI",
@@ -5346,7 +5382,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -5935,7 +5971,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -13923,7 +13959,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -14039,7 +14075,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15014,7 +15050,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
@@ -15422,7 +15458,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -20344,7 +20380,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "토성한정식|법조·법률행정": {
       "failed": true,
@@ -20920,7 +20956,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22950,7 +22986,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:24:32+00:00"
+      "updated_at": "2026-10-01T07:06:20+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",

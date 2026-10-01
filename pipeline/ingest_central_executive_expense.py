@@ -354,8 +354,12 @@ def normalize(rows,sheet,meta):
         if not merchant and amt is None:continue
         joined=" ".join(clean(x) for x in row[:10])
         if any(k in joined for k in ("합계","총계","누계")) and not d:continue
+        source_category=""
         role=clean(cell(row,m,"role")) or clean(meta.get("default_role"))
         dept=clean(cell(row,m,"department"))
+        if meta.get("key")=="kogas":
+            source_category=role
+            role=clean(meta.get("default_role")) or "기관장"
         used_time=clean(cell(row,m,"time"))
         # Some PDF table extractors shift [date, time, role] one column to the
         # right. Repair the unambiguous case where the "date" is a clock time
@@ -366,6 +370,8 @@ def normalize(rows,sheet,meta):
             role=clean(meta.get("default_role"))
         purpose_text=clean(cell(row,m,"purpose"))
         people_value=people(cell(row,m,"people"))
+        if meta.get("key")=="kogas" and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
+            continue
 
         # Korail's 2026-02 PDF uses a different visual column order: the parser
         # can read the payment method ("카드") as merchant and the actual venue
@@ -413,7 +419,7 @@ def normalize(rows,sheet,meta):
                     people_value=int(tail.group(2))
                 purpose_text=purpose_text[:tail.start()].strip()
 
-        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":clean(meta.get("cohort")) or "central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")) or clean(m.get("_korail_payment_hint")),"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
+        r={"source_key":meta["key"],"institution":meta["institution"],"cohort":clean(meta.get("cohort")) or "central_executive","role":role,"department":dept,"used_date":d,"used_time":used_time,"merchant":merchant,"address":clean(cell(row,m,"address")),"purpose":purpose_text,"people":people_value,"amount":amt,"source_amount_scale":scale,"payment_method":clean(cell(row,m,"method")) or clean(m.get("_korail_payment_hint")),"source_category":source_category,"source_url":meta["url"],"source_sheet":sheet,"source_row":ri}
         r["row_id"]=hashlib.sha256("|".join(str(r.get(k,"")) for k in ("source_key","role","department","used_date","merchant","amount","source_sheet","source_row")).encode()).hexdigest()[:20]
         out.append(r)
     return out,{"sheet":sheet,"status":"OK","mapping":m,"parsed_rows":len(out),"header_score":score,"amount_scale":scale}
