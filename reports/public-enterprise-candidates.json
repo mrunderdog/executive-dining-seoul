@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-01T06:24:32",
+  "generated_at": "2026-10-01T07:06:20",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 24,
-  "entity_count": 21,
-  "eligible_count": 21,
+  "meal_rows": 26,
+  "entity_count": 23,
+  "eligible_count": 23,
   "candidates": [
     {
       "merchant": "푸짐한활어회본점",
@@ -66,6 +66,39 @@
           "people": 9,
           "purpose": "대외기관 업무협의",
           "source": "https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=26445"
+        }
+      ]
+    },
+    {
+      "merchant": "대구(초례담)",
+      "address": "",
+      "phone": "",
+      "score": 47.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 483000,
+      "institution_count": 1,
+      "institutions": [
+        "한국가스공사"
+      ],
+      "date_min": "2025-06-23",
+      "date_max": "2025-06-23",
+      "purpose_stats": [
+        {
+          "text": "성과평가부 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-06-23",
+          "time": "",
+          "institution": "한국가스공사",
+          "role": "기관장",
+          "amount": 483000,
+          "people": 14,
+          "purpose": "성과평가부 직원 격려",
+          "source": "https://www.kogas.or.kr/mgr/fileDownload.do?boardIdx=46621&fileNo=45991"
         }
       ]
     },
@@ -226,6 +259,39 @@
           "people": 8,
           "purpose": "주요 업무 현안 협의",
           "source": "https://www.kepco.co.kr/home/disclosure/mandisclosure/etc/expenses.do#kepco-file-HRhx4V2RcBGlUblYF5sinQ%3D%3D"
+        }
+      ]
+    },
+    {
+      "merchant": "대구(신서복어)",
+      "address": "",
+      "phone": "",
+      "score": 46.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 185000,
+      "institution_count": 1,
+      "institutions": [
+        "한국가스공사"
+      ],
+      "date_min": "2025-07-22",
+      "date_max": "2025-07-22",
+      "purpose_stats": [
+        {
+          "text": "집중호우 관련 재난상황반 운영 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-22",
+          "time": "",
+          "institution": "한국가스공사",
+          "role": "기관장",
+          "amount": 185000,
+          "people": 8,
+          "purpose": "집중호우 관련 재난상황반 운영 직원 격려",
+          "source": "https://www.kogas.or.kr/mgr/fileDownload.do?boardIdx=46690&fileNo=46126"
         }
       ]
     },
