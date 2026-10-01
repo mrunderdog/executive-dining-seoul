@@ -119,7 +119,11 @@
       "verified": true,
       "publish": false,
       "refresh_policy": "track_only",
-      "note": "ALIO 기관장 업무추진비 정기공시 대상. merchant-level attachment 자동수집 경로 검증 전."
+      "note": "ALIO 기관장 업무추진비 정기공시(C0157 / 20701) 확인. 2026 공시의 2025년 기관장(직무대행) XLSX를 직접 검증했으나 월별 집행유형·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가. KAC 공식 홈페이지에서도 merchant-level 별도 공개 원문은 미확인.",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0157&disclosureNo=&reportFormRootNo=20701"
+      ]
     }
   ]
 }
