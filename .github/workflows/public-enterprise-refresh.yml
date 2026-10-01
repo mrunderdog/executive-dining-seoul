@@ -85,7 +85,19 @@ jobs:
             --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/pe-chrome.log 2>&1 &
           CHROME_PID=$!
           trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
-          node pipeline/browser_map_smoke.mjs
+          for ATTEMPT in 1 2 3; do
+            if node pipeline/browser_map_smoke.mjs; then
+              break
+            fi
+            if [ "$ATTEMPT" -eq 3 ]; then
+              echo "Browser smoke failed after 3 attempts."
+              cat /tmp/pe-chrome.log || true
+              cat /tmp/pe-http.log || true
+              exit 1
+            fi
+            echo "Browser smoke transient failure; retrying ($ATTEMPT/3)."
+            sleep 2
+          done
 
       - name: Commit generated public-enterprise data
         shell: bash
@@ -94,10 +106,20 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reports/public-enterprise-discovery.json reports/public-enterprise-ingestion.md \
             reports/public-enterprise-candidates.json reports/public-enterprise-candidates.md \
-            data/raw/public_enterprise_expense.json data/geocode_cache.json
+            data/raw/public_enterprise_expense.json
           if git diff --cached --quiet; then
             echo "No generated public-enterprise changes."
             exit 0
           fi
           git commit -m "data: refresh public-enterprise dining baseline"
-          git push origin HEAD:main
+          for ATTEMPT in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Public-enterprise data push raced with another workflow (attempt $ATTEMPT/3)."
+            git rebase --abort 2>/dev/null || true
+            sleep 2
+          done
+          echo "Could not publish public-enterprise baseline after 3 attempts."
+          exit 1
