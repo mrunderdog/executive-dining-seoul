@@ -1,37 +1,86 @@
-name: KDHC source-link recovery
+name: KDHC final publish QA
 on:
   push:
     branches: [feat/kdhc-adapter]
+permissions:
+  contents: write
 jobs:
-  probe:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Recover original KDHC links through rendered public index
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Refresh KDHC data
+        run: |
+          python pipeline/public_enterprise_discovery.py --year 2026 --incremental --detail-limit 24
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python pipeline/geocode_extra_cache.py
+          python pipeline/geocode_cache.py --mode auto
+      - name: Verify KDHC publication
         run: |
           python - <<'PY'
-          import re,urllib.request
-          urls=[
-            'https://r.jina.ai/https://gonggongbap.kr/restaurants/419826',
-            'https://r.jina.ai/https://gonggongbap.kr/restaurants/401570',
-            'https://r.jina.ai/https://gonggongbap.kr/restaurants/405594',
-          ]
-          for url in urls:
-              print('URL',url)
-              try:
-                  req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
-                  with urllib.request.urlopen(req,timeout=90) as r:
-                      txt=r.read().decode('utf-8',errors='replace')
-              except Exception as e:
-                  print('ERR',type(e).__name__,e);continue
-              print('BYTES',len(txt))
-              for line in txt.splitlines():
-                  if ('한국지역난방공사' in line or '원문' in line or 'kdhc' in line.lower()) and ('http' in line or '원문' in line):
-                      print('LINE',line)
-              for m in re.finditer(r'https?://[^\s)\]>]+',txt):
-                  u=m.group(0)
-                  if 'kdhc' in u.lower(): print('KDHC_URL',u)
+          import json,sys
+          from pathlib import Path
+          sys.path.insert(0,'pipeline')
+          from extra_published import public_enterprise_records
+          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
+          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
+          s=next(x for x in d['sources'] if x['key']=='kdhc')
+          rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국지역난방공사']
+          cs=[x for x in c.get('candidates',[]) if '한국지역난방공사' in (x.get('institutions') or [])]
+          rec=[x for x in public_enterprise_records() if '한국지역난방공사' in (x.get('institutions') or [])]
+          print('KDHC_DISCOVERY',json.dumps({'status':s.get('status'),'inline_rows':len(s.get('inline_rows') or []),'snapshot_mode':s.get('snapshot_mode')},ensure_ascii=False))
+          print('KDHC_ROWS',json.dumps(rows,ensure_ascii=False))
+          print('KDHC_CANDIDATES',json.dumps(cs,ensure_ascii=False))
+          print('KDHC_RECORDS',json.dumps(rec,ensure_ascii=False))
+          assert s.get('status')=='PARSEABLE_FOUND'
+          assert len(s.get('inline_rows') or [])>=19
+          assert len(rows)>=19
+          names={x.get('merchant') for x in cs}
+          for required in ['좋구먼 반상 율동점','홍복','동해도 일식','멜팅샵X치즈룸 광화문디타워점']:
+              assert required in names, (required,names)
+          # Preserve source semantics: this is executive-management spend, not institution-head spend.
+          assert all((x.get('role') or '')=='경영진' for x in rows)
+          by_name={x.get('name'):x for x in rec}
+          for required in ['좋구먼 반상 율동점','홍복','동해도 일식','멜팅샵X치즈룸 광화문디타워점']:
+              assert by_name.get(required,{}).get('address'), (required,by_name.get(required))
+          cache=json.loads(Path('data/geocode_cache.json').read_text(encoding='utf-8')).get('records') or {}
+          for required in ['좋구먼 반상 율동점','홍복','동해도 일식','멜팅샵X치즈룸 광화문디타워점']:
+              g=cache.get(required+'|공기업·공공기관') or {}
+              assert isinstance(g.get('lat'),(int,float)) and isinstance(g.get('lon'),(int,float)), (required,g)
           PY
+      - name: Quality and browser smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          python pipeline/quality_gate.py
+          python pipeline/regression_checks.py
+          python pipeline/build_site.py --output dist/index.html
+          node --check site/app.js
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          python -m http.server 8765 --directory dist >/tmp/kdhc-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/kdhc-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/kdhc-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/browser_map_smoke.mjs
+      - name: Commit generated KDHC data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/public-enterprise-discovery.json reports/public-enterprise-ingestion.md reports/public-enterprise-candidates.json reports/public-enterprise-candidates.md data/raw/public_enterprise_expense.json data/geocode_cache.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: add KDHC executive dining baseline"
+          git push origin HEAD:feat/kdhc-adapter
