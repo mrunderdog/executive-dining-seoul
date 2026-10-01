@@ -10,6 +10,7 @@ import statistics
 import subprocess
 import tempfile
 import time
+import urllib.parse
 import urllib.request
 import zipfile
 import xml.etree.ElementTree as ET
@@ -68,8 +69,12 @@ def pdate(v):
         except ValueError:pass
     return s
 
-def fetch(url):
-    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"*/*"})
+def fetch(url,data=None,referer=None):
+    payload=urllib.parse.urlencode(data).encode() if isinstance(data,dict) else data
+    headers={"User-Agent":UA,"Accept":"*/*"}
+    if payload is not None:headers["Content-Type"]="application/x-www-form-urlencoded"
+    if referer:headers["Referer"]=referer
+    req=urllib.request.Request(url,data=payload,headers=headers)
     with urllib.request.urlopen(req,timeout=60) as r:return r.read()
 
 def _local(tag):
@@ -388,8 +393,9 @@ def parse_attachment(src:dict,a:dict):
     url=a.get("url") or ""
     label=a.get("text") or url
     try:
-        blob=fetch(url)
-        info={"institution":src["institution"],"key":src["key"],"url":url,"bytes":len(blob),"sheets":[]}
+        blob=fetch(url,data=a.get("post_data"),referer=a.get("parent"))
+        file_key=str(a.get("attachment_id") or url)
+        info={"institution":src["institution"],"key":src["key"],"url":url,"file_key":file_key,"bytes":len(blob),"sheets":[]}
         default_role=infer_role(label)
         parsed_sheets=list(rows_from(blob,label))
         if src.get("key")=="ministry_justice" and ".pdf" in label.lower() and len(parsed_sheets)>1:
