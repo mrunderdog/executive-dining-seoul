@@ -116,8 +116,9 @@ def discover_kepco(src,year):
         ident=file_no+"|"+file_seq
         if ident in seen:continue
         seen.add(ident)
+        stable_url=base+"#kepco-file-"+urllib.parse.quote(file_no,safe="")
         out["attachments"].append({
-            "text":title+" .pdf","url":endpoint,"year":y,"month":m,"parent":base,
+            "text":title+" .pdf","url":stable_url,"download_url":endpoint,"year":y,"month":m,"parent":base,
             "post_data":{"fileNo":file_no,"fileSeq":file_seq},
             "attachment_id":ident
         })
