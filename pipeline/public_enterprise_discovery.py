@@ -131,47 +131,70 @@ def discover_kogas(src,year,detail_limit):
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[base],"attachments":[],"errors":[]}
-    try:doc=fetch(base)
-    except Exception as e:
-        out["errors"].append(f"listing {base}: {type(e).__name__}: {e}")
+    pagination=src.get("pagination") or {}
+    start=max(1,int(pagination.get("start") or 1))
+    end=max(start,int(pagination.get("end") or 3))
+    listing_pages=[]
+    for page in range(start,end+1):
+        parsed=urllib.parse.urlsplit(base)
+        q=dict(urllib.parse.parse_qsl(parsed.query,keep_blank_values=True))
+        q.update({"pageOffset":str((page-1)*10),"pageIndex":str(page),"pageSize":"10"})
+        listing_pages.append(urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,urllib.parse.urlencode(q),parsed.fragment)))
+    listing_docs=[]
+    with ThreadPoolExecutor(max_workers=min(3,len(listing_pages))) as pool:
+        future_map={pool.submit(fetch,u):u for u in listing_pages}
+        for fut in as_completed(future_map):
+            u=future_map[fut]
+            try:listing_docs.append((u,fut.result()));out["pages"].append(u)
+            except Exception as e:out["errors"].append(f"listing {u}: {type(e).__name__}: {e}")
+    if not listing_docs:
         out["parseable_attachments"]=0;out["status"]="FETCH_FAILED";return out
 
     posts=[]
     seen_posts=set()
-    for m in re.finditer(r'<a\s+href=["\']javascript:readPermissionChk\((\d+)\);["\'][^>]*>(.*?)</a>',doc,re.S|re.I):
-        board_idx=m.group(1)
-        text=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
-        text=" ".join(text.split())
-        if board_idx in seen_posts:continue
-        if not any(str(y) in text for y in years) or "업무추진비" not in text:continue
-        if "기관장" not in text:continue
-        seen_posts.add(board_idx)
-        y,month=extract_year_month(text)
-        detail=urllib.parse.urljoin(base,f"/site/koGas/bbs/View.do?cbIdx=57&boardIdx={board_idx}&Key=1060101050000&pageOffset=0&pageIndex=1")
-        posts.append((board_idx,text,y,month,detail))
-        if len(posts)>=detail_limit:break
+    for listing,doc in listing_docs:
+        for m in re.finditer(r'<a\s+href=["\']javascript:readPermissionChk\((\d+)\);["\'][^>]*>(.*?)</a>',doc,re.S|re.I):
+            board_idx=m.group(1)
+            text=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
+            text=" ".join(text.split())
+            if board_idx in seen_posts:continue
+            if not any(str(y) in text for y in years) or "업무추진비" not in text:continue
+            if "기관장" not in text:continue
+            seen_posts.add(board_idx)
+            y,month=extract_year_month(text)
+            detail=urllib.parse.urljoin(base,f"/site/koGas/bbs/View.do?cbIdx=57&boardIdx={board_idx}&Key=1060101050000&pageOffset=0&pageIndex=1")
+            posts.append((board_idx,text,y,month,detail))
+    posts=sorted(posts,key=lambda x:((x[2] or 0),(x[3] or 0)),reverse=True)[:detail_limit]
 
     seen_files=set()
-    for board_idx,title,y,month,detail in posts:
-        out["pages"].append(detail)
-        try:ddoc=fetch(detail)
-        except Exception as e:
-            out["errors"].append(f"detail {detail}: {type(e).__name__}: {e}");continue
-        # KOGAS publishes one file per executive. Publish only the institution-head file.
-        for m in re.finditer(r'<a\s+href=["\']([^"\']*?/mgr/fileDownload\.do\?[^"\']+)["\'][^>]*class=["\'][^"\']*pu_file_txt[^"\']*["\'][^>]*>(.*?)</a>',ddoc,re.S|re.I):
-            href=html.unescape(m.group(1))
-            label=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
-            label=" ".join(label.split())
-            if "기관장" not in label:continue
-            if not re.search(r"\.xlsx?\b",label,re.I):continue
-            url=urllib.parse.urljoin(detail,href)
-            if url in seen_files:continue
-            seen_files.add(url)
-            fy,fm=extract_year_month(label)
-            out["attachments"].append({
-                "text":label,"url":url,"year":fy or y,"month":fm or month,"parent":detail,
-                "attachment_id":f"{board_idx}|{urllib.parse.parse_qs(urllib.parse.urlsplit(url).query).get('fileNo',[''])[0]}"
-            })
+    def fetch_detail(post):
+        board_idx,title,y,month,detail=post
+        return post,fetch(detail)
+    if posts:
+        with ThreadPoolExecutor(max_workers=min(6,len(posts))) as pool:
+            future_map={pool.submit(fetch_detail,p):p for p in posts}
+            for fut in as_completed(future_map):
+                post=future_map[fut]
+                board_idx,title,y,month,detail=post
+                out["pages"].append(detail)
+                try:_,ddoc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"detail {detail}: {type(e).__name__}: {e}");continue
+                # KOGAS publishes one file per executive. Publish only the institution-head file.
+                for m in re.finditer(r'<a\s+href=["\']([^"\']*?/mgr/fileDownload\.do\?[^"\']+)["\'][^>]*class=["\'][^"\']*pu_file_txt[^"\']*["\'][^>]*>(.*?)</a>',ddoc,re.S|re.I):
+                    href=html.unescape(m.group(1))
+                    label=html.unescape(re.sub(r"<[^>]+>"," ",m.group(2)))
+                    label=" ".join(label.split())
+                    if "기관장" not in label:continue
+                    if not re.search(r"\.xlsx?\b",label,re.I):continue
+                    url=urllib.parse.urljoin(detail,href)
+                    if url in seen_files:continue
+                    seen_files.add(url)
+                    fy,fm=extract_year_month(label)
+                    out["attachments"].append({
+                        "text":label,"url":url,"year":fy or y,"month":fm or month,"parent":detail,
+                        "attachment_id":f"{board_idx}|{urllib.parse.parse_qs(urllib.parse.urlsplit(url).query).get('fileNo',[''])[0]}"
+                    })
 
     out["parseable_attachments"]=len(out["attachments"])
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
