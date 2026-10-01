@@ -36,7 +36,7 @@ jobs:
           assert s.get('status')=='PARSEABLE_FOUND'
           assert len(s.get('attachments') or [])>=1
           assert rows
-          assert cs
+          assert all('한국가스공사' in (x.get('institutions') or []) for x in cs)
           PY
       - name: Regression
         run: python pipeline/regression_checks.py
