@@ -76,12 +76,13 @@
       "verified": true,
       "publish": true,
       "refresh_policy": "monthly",
-      "note": "한국가스공사 KOGAS정보 > 기관장/임원 업무추진비 공식 게시판. JS 게시물 링크를 상세 View URL로 복원하고, 각 월의 기관장 전용 XLSX 첨부만 수집.",
+      "note": "한국가스공사 KOGAS정보 > 기관장/임원 업무추진비 공식 게시판. JS 게시물 링크를 상세 View URL로 복원하고, 기관장 전용 XLSX만 수집. 최근 연도에 식사성 지출이 없을 수 있어 전년도까지 조회.",
       "default_role": "기관장",
       "format_hint": "xlsx/pdf",
       "listing_urls": [
         "https://www.kogas.or.kr/site/koGas/goBoard.do?Key=1060101050000&boardNo=57"
-      ]
+      ],
+      "lookback_years": 1
     },
     {
       "key": "iiac",
