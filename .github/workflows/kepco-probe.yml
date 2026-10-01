@@ -1,50 +1,42 @@
-name: KEPCO raw layout probe
-
+name: KEPCO adapter QA
 on:
   push:
-    branches:
-      - feat/kepco-adapter
-
+    branches: [feat/kepco-adapter]
+permissions:
+  contents: read
 jobs:
-  probe:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install PDF parser
-        run: pip install --disable-pip-version-check pypdf==6.1.1
-      - name: Print latest KEPCO PDF rows
+      - name: Install parsers
+        run: pip install openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run pipeline
+        run: |
+          python pipeline/public_enterprise_discovery.py --year 2026 --detail-limit 24
+          python pipeline/ingest_public_enterprise_expense.py
+          python pipeline/build_public_enterprise_candidates.py
+      - name: Check KEPCO
         run: |
           python - <<'PY'
-          import json,re,time,urllib.parse,urllib.request
-          from pipeline.ingest_central_executive_expense import rows_from
-          base='https://www.kepco.co.kr/home/disclosure/mandisclosure/etc/expenses.do'
-          ua='ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)'
-          def request(req):
-              last=None
-              for n in range(5):
-                  try:
-                      with urllib.request.urlopen(req,timeout=90) as r:return r.read()
-                  except Exception as e:
-                      last=e;print('RETRY',n+1,type(e).__name__,e);time.sleep(2**n)
-              raise last
-          html=request(urllib.request.Request(base,headers={'User-Agent':ua,'Accept':'text/html,*/*'})).decode('utf-8',errors='replace')
-          found=[]
-          for tm in re.finditer(r'<strong class="title">(.*?)</strong>',html,re.S|re.I):
-              title=' '.join(re.sub(r'<[^>]+>',' ',tm.group(1)).replace('&#039;',"'").split())
-              win=html[max(0,tm.start()-900):min(len(html),tm.end()+5200)]
-              if '기관장' not in win or '사장 업무추진비' not in title:continue
-              m=re.search(r"G_FILE\.downloadFile\('([^']+)'\s*,\s*'([^']+)'\)",win)
-              if m:found.append((title,m.group(1),m.group(2)))
-          print('FOUND',found)
-          title,no,seq=found[0]
-          data=urllib.parse.urlencode({'fileNo':no,'fileSeq':seq}).encode()
-          req=urllib.request.Request('https://www.kepco.co.kr/c2r/FileDownload.do',data=data,headers={
-              'User-Agent':ua,'Referer':base,'Content-Type':'application/x-www-form-urlencoded','Accept':'*/*'})
-          blob=request(req)
-          print('BLOB',len(blob),blob[:8])
-          for sheet,rows in rows_from(blob,title+' .pdf'):
-              print('RAW',sheet,json.dumps(rows,ensure_ascii=False))
+          import json
+          from pathlib import Path
+          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
+          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
+          s=next(x for x in d['sources'] if x['key']=='kepco')
+          rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국전력공사']
+          cs=[x for x in c.get('candidates',[]) if '한국전력공사' in (x.get('institutions') or [])]
+          print('KEPCO_DISCOVERY',json.dumps({'status':s.get('status'),'attachments':len(s.get('attachments') or [])},ensure_ascii=False))
+          print('KEPCO_ROWS',json.dumps(rows[:20],ensure_ascii=False))
+          print('KEPCO_CANDIDATES',json.dumps(cs[:20],ensure_ascii=False))
+          assert s.get('status')=='PARSEABLE_FOUND'
+          assert len(s.get('attachments') or [])>=2
+          assert rows
+          assert cs
           PY
+      - name: Regression
+        run: python pipeline/regression_checks.py
