@@ -7,7 +7,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-REGISTRY=ROOT/"sources"/"public_enterprise_registry.json"\nKDHC_SNAPSHOT=ROOT/"sources"/"kdhc_executive_expense_snapshot.json"
+REGISTRY=ROOT/"sources"/"public_enterprise_registry.json"
+KDHC_SNAPSHOT=ROOT/"sources"/"kdhc_executive_expense_snapshot.json"
 REPORTS=ROOT/"reports"
 UA="ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
 FILE_EXTS=(".xlsx",".xls",".csv",".pdf",".hwp",".hwpx")
@@ -310,6 +311,8 @@ def discover_source(src,year,detail_limit):
         return discover_kogas(src,year,detail_limit)
     if src.get("key")=="kwater" and src.get("verified") and src.get("publish"):
         return discover_kwater(src,year)
+    if src.get("key")=="kdhc" and src.get("verified") and src.get("publish"):
+        return discover_kdhc(src,year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
