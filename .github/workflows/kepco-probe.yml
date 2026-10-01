@@ -33,6 +33,12 @@ jobs:
           cand=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
           src=next(x for x in disc['sources'] if x['key']=='kepco')
           rows=[x for x in raw.get('rows',[]) if x.get('institution')=='한국전력공사']
+          from pipeline.ingest_central_executive_expense import fetch, rows_from
+          for a in src.get('attachments',[]):
+              blob=fetch(a.get('download_url') or a['url'],data=a.get('post_data'),referer=a.get('parent'))
+              print('KEPCO_RAW_FILE',a.get('text'))
+              for sheet, rr in rows_from(blob,a.get('text') or '.pdf'):
+                  print('KEPCO_RAW_ROWS',sheet,json.dumps(rr[:30],ensure_ascii=False))
           cands=[x for x in cand.get('candidates',[]) if '한국전력공사' in (x.get('institutions') or [])]
           print('KEPCO_DISCOVERY',json.dumps({
             'status':src.get('status'),
