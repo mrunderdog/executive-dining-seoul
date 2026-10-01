@@ -1,11 +1,74 @@
 {
-  "generated_at": "2026-10-01T07:06:20",
+  "generated_at": "2026-10-01T09:45:28",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 26,
-  "entity_count": 23,
-  "eligible_count": 23,
+  "meal_rows": 51,
+  "entity_count": 42,
+  "eligible_count": 42,
   "candidates": [
+    {
+      "merchant": "일정",
+      "address": "",
+      "phone": "",
+      "score": 74.5,
+      "visits": 4,
+      "months": 3,
+      "spend": 665000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-09-01",
+      "date_max": "2025-12-11",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 4
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-12-11",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 150000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        },
+        {
+          "date": "2025-10-27",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 175000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        },
+        {
+          "date": "2025-09-16",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 165000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        },
+        {
+          "date": "2025-09-01",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 175000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
     {
       "merchant": "푸짐한활어회본점",
       "address": "",
@@ -70,6 +133,135 @@
       ]
     },
     {
+      "merchant": "몽중헌 페럼타워",
+      "address": "",
+      "phone": "",
+      "score": 60.0,
+      "visits": 2,
+      "months": 2,
+      "spend": 818000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-05-09",
+      "date_max": "2025-11-11",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-11",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 399000,
+          "people": 9,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        },
+        {
+          "date": "2025-05-09",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 419000,
+          "people": 9,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "우참판 주식회사",
+      "address": "",
+      "phone": "",
+      "score": 59.8,
+      "visits": 2,
+      "months": 2,
+      "spend": 680000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-02-27",
+      "date_max": "2026-08-04",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-04",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 311000,
+          "people": 7,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        },
+        {
+          "date": "2026-02-27",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 369000,
+          "people": 8,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "경복궁서초점",
+      "address": "",
+      "phone": "",
+      "score": 59.5,
+      "visits": 2,
+      "months": 2,
+      "spend": 439000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-11-21",
+      "date_max": "2026-05-26",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-05-26",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 201000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        },
+        {
+          "date": "2025-11-21",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 238000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "대구(초례담)",
       "address": "",
       "phone": "",
@@ -99,6 +291,39 @@
           "people": 14,
           "purpose": "성과평가부 직원 격려",
           "source": "https://www.kogas.or.kr/mgr/fileDownload.do?boardIdx=46621&fileNo=45991"
+        }
+      ]
+    },
+    {
+      "merchant": "경복궁&갓포제주",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 353000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-07-28",
+      "date_max": "2026-07-28",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-07-28",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 353000,
+          "people": 8,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
         }
       ]
     },
@@ -136,6 +361,72 @@
       ]
     },
     {
+      "merchant": "다원",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 295000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-08-18",
+      "date_max": "2025-08-18",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-08-18",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 295000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "삿뽀로대전점(주)",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 294000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-06-10",
+      "date_max": "2026-06-10",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-10",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 294000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "명선헌(서울)",
       "address": "",
       "phone": "",
@@ -169,6 +460,39 @@
       ]
     },
     {
+      "merchant": "전원가든식당",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 272000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-06-17",
+      "date_max": "2026-06-17",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-17",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 272000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "다온정",
       "address": "",
       "phone": "",
@@ -193,6 +517,39 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=724336&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "두레에프엔씨㈜",
+      "address": "",
+      "phone": "",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 264000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-11-14",
+      "date_max": "2025-11-14",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-14",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 264000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
         }
       ]
     },
@@ -230,6 +587,72 @@
       ]
     },
     {
+      "merchant": "어선재",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 223000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-03-16",
+      "date_max": "2026-03-16",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-16",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 223000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "브이아이피참치 뉴서울호텔점",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 216000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-04-17",
+      "date_max": "2026-04-17",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-04-17",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 216000,
+          "people": 5,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "명가무안뻘낙지(서울)",
       "address": "",
       "phone": "",
@@ -259,6 +682,39 @@
           "people": 8,
           "purpose": "주요 업무 현안 협의",
           "source": "https://www.kepco.co.kr/home/disclosure/mandisclosure/etc/expenses.do#kepco-file-HRhx4V2RcBGlUblYF5sinQ%3D%3D"
+        }
+      ]
+    },
+    {
+      "merchant": "마실둔산점",
+      "address": "",
+      "phone": "",
+      "score": 46.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 190000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-07-01",
+      "date_max": "2025-07-01",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-01",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 190000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
         }
       ]
     },
@@ -357,6 +813,39 @@
       ]
     },
     {
+      "merchant": "후지산",
+      "address": "",
+      "phone": "",
+      "score": 46.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 160000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-03-30",
+      "date_max": "2026-03-30",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-30",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 160000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "우리컬쳐 주식회사",
       "address": "",
       "phone": "",
@@ -413,6 +902,39 @@
       ]
     },
     {
+      "merchant": "선천집",
+      "address": "",
+      "phone": "",
+      "score": 46.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 148000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-07-25",
+      "date_max": "2025-07-25",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-25",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 148000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "송도갈매기",
       "address": "",
       "phone": "02-898-1123",
@@ -446,6 +968,72 @@
       ]
     },
     {
+      "merchant": "우수미",
+      "address": "",
+      "phone": "",
+      "score": 46.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 136000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-07-24",
+      "date_max": "2025-07-24",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-24",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 136000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "솔밭묵집",
+      "address": "",
+      "phone": "",
+      "score": 46.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 131000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-05-20",
+      "date_max": "2026-05-20",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-05-20",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 131000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "연해주",
       "address": "",
       "phone": "",
@@ -474,6 +1062,39 @@
       ]
     },
     {
+      "merchant": "가나안 덕",
+      "address": "",
+      "phone": "",
+      "score": 46.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 118000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-04-10",
+      "date_max": "2026-04-10",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-04-10",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 118000,
+          "people": 4,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
       "merchant": "예담",
       "address": "",
       "phone": "",
@@ -498,6 +1119,39 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=723682&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "해뜨는집",
+      "address": "",
+      "phone": "",
+      "score": 46.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 98000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2025-07-02",
+      "date_max": "2025-07-02",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-02",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 98000,
+          "people": 3,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
         }
       ]
     },
@@ -610,6 +1264,39 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=721336&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "펠리쓰팩토리아",
+      "address": "",
+      "phone": "",
+      "score": 45.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 28000,
+      "institution_count": 1,
+      "institutions": [
+        "한국수자원공사"
+      ],
+      "date_min": "2026-05-20",
+      "date_max": "2026-05-20",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-05-20",
+          "time": "",
+          "institution": "한국수자원공사",
+          "role": "기관장",
+          "amount": 28000,
+          "people": 6,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
         }
       ]
     },

@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 230,
+    "failed_count": 249,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1395,
+    "record_count": 1414,
     "success_count": 1165,
-    "updated_at": "2026-10-01T07:07:38+00:00"
+    "updated_at": "2026-10-01T09:45:28+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -355,6 +355,14 @@
         "arcgis:서울 중구 을지로3길 34"
       ],
       "updated_at": "2026-09-17T23:04:33+00:00"
+    },
+    "가나안 덕|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "7a5344837c5a19b6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "가든파티 계양점|계양구": {
       "addr_type": "POI",
@@ -883,6 +891,14 @@
       ],
       "updated_at": "2026-09-23T00:40:44+00:00"
     },
+    "경복궁&갓포제주|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "d6196ce24ddb56b9",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "경복궁관훈점|중앙정부": {
       "failed": true,
       "fingerprint": "8f4736e5baeb14b8",
@@ -984,6 +1000,14 @@
         "nominatim:경복궁삼계탕 인천 남동구"
       ],
       "updated_at": "2026-09-18T17:02:17+00:00"
+    },
+    "경복궁서초점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "29a4139de806e586",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "경복궁여의도아이에프씨점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3735,7 +3759,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -3754,6 +3778,14 @@
         "arcgis:서울 영등포구 국회대로70길 12 (여의도동, 대산빌딩) 지하1층"
       ],
       "updated_at": "2026-09-18T00:09:00+00:00"
+    },
+    "다원|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "4426aaf3640cd913",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "다원|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5376,13 +5408,21 @@
       ],
       "updated_at": "2026-09-18T05:23:47+00:00"
     },
+    "두레에프엔씨㈜|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "0dd9a4e05feadab9",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "두레에프엔씨주식회사|공기업·공공기관": {
       "failed": true,
       "fingerprint": "c17e2fd12cf3e47d",
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -5971,7 +6011,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -6026,6 +6066,14 @@
         "arcgis:마실 광명시"
       ],
       "updated_at": "2026-09-22T07:23:33+00:00"
+    },
+    "마실둔산점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "da3b83959089c95c",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "마오|중앙정부": {
       "addr_type": "POI",
@@ -6958,6 +7006,14 @@
         "arcgis:몬스터스시&사시미 인천광역시 부평구"
       ],
       "updated_at": "2026-09-21T08:46:15+00:00"
+    },
+    "몽중헌 페럼타워|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "4756ea8ec5ecf75a",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "몽중헌 페럼타워|서울시청": {
       "addr_type": "PointAddress",
@@ -9045,6 +9101,14 @@
       ],
       "updated_at": "2026-09-18T23:15:57+00:00"
     },
+    "브이아이피참치 뉴서울호텔점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "b915051eb9d943bc",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "브이아이피참치 종로|종로구": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 관철동 삼일대로15길 25",
@@ -9890,6 +9954,14 @@
         "nominatim:삿뽀로구월점 인천 남동구"
       ],
       "updated_at": "2026-09-18T17:02:22+00:00"
+    },
+    "삿뽀로대전점(주)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "8b97c3968f789136",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "삿뽀로여의도|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -10738,6 +10810,14 @@
       ],
       "updated_at": "2026-09-17T23:04:09+00:00"
     },
+    "선천집|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "4831718d215454c6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "선한푸드앤컬처|중앙정부": {
       "failed": true,
       "fingerprint": "ab17ff2d85930e52",
@@ -11549,6 +11629,14 @@
         "nominatim:손오공수타짜장 양주시"
       ],
       "updated_at": "2026-09-21T08:56:16+00:00"
+    },
+    "솔밭묵집|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "2da83be57abf48b1",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "솔잎사골순대아구찜탕(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
@@ -13537,6 +13625,14 @@
       ],
       "updated_at": "2026-09-21T08:46:07+00:00"
     },
+    "어선재|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "65e846801291c404",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "어썰당 부평더샵동암점|부평구": {
       "addr_type": "POI",
       "display_name": "어썰당 부평더샵동암점",
@@ -13959,7 +14055,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -14075,7 +14171,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15050,7 +15146,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
@@ -15236,6 +15332,14 @@
       ],
       "updated_at": "2026-09-16T16:08:55+00:00"
     },
+    "우수미|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "7ccb141fd7dc0ddf",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "우아라|중앙정부": {
       "addr_type": "POI",
       "display_name": "우아라",
@@ -15325,6 +15429,14 @@
         "arcgis:서울 중구 세종대로 76"
       ],
       "updated_at": "2026-09-17T23:04:14+00:00"
+    },
+    "우참판 주식회사|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "e705a96a6a97c62f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "우프스낵바|인천시청": {
       "addr_type": "POI",
@@ -15458,7 +15570,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -16746,6 +16858,14 @@
       ],
       "updated_at": "2026-09-17T23:04:32+00:00"
     },
+    "일정|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "a8f266c4cc993091",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "일품당 프리미엄|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 종로구 내수동 새문안로5가길 7",
@@ -17322,6 +17442,14 @@
         "arcgis:서울 강북구 한천로139가길 12, 하정희"
       ],
       "updated_at": "2026-09-17T23:03:26+00:00"
+    },
+    "전원가든식당|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "a58d22b7b85e24cb",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "전원식당|의정부시": {
       "addr_type": "POI",
@@ -20380,7 +20508,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "토성한정식|법조·법률행정": {
       "failed": true,
@@ -20805,6 +20933,14 @@
       ],
       "updated_at": "2026-09-18T04:33:19+00:00"
     },
+    "펠리쓰팩토리아|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "26501cd34eaf97ab",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "편안한 집|중앙정부": {
       "failed": true,
       "fingerprint": "909f40356835dc46",
@@ -20956,7 +21092,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22197,6 +22333,14 @@
       ],
       "updated_at": "2026-09-18T00:08:10+00:00"
     },
+    "해뜨는집|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "a5d3c409be3c18fa",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
+    },
     "해량 260도|연수구": {
       "addr_type": "PointAddress",
       "display_name": "인천광역시 연수구 옥련동 청량로109번길 1",
@@ -22986,7 +23130,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T07:06:20+00:00"
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -23254,6 +23398,14 @@
         "nominatim:효동스타지오네 대한민국"
       ],
       "updated_at": "2026-09-18T23:16:03+00:00"
+    },
+    "후지산|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "d6ff0f68692a73b5",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "reason": "public_enterprise_requires_verified_address",
+      "updated_at": "2026-10-01T09:45:28+00:00"
     },
     "훈장골|계양구": {
       "addr_type": "POI",
