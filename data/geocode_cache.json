@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 232,
+    "failed_count": 230,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1393,
-    "success_count": 1161,
-    "updated_at": "2026-10-01T06:18:18+00:00"
+    "success_count": 1163,
+    "updated_at": "2026-10-01T06:24:34+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -3735,7 +3735,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "다옴|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -5346,7 +5346,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "두리쌈밥집|시흥시": {
       "addr_type": "POI",
@@ -5935,7 +5935,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "마당쇠|관악구": {
       "addr_type": "Locality",
@@ -6583,12 +6583,22 @@
       "updated_at": "2026-09-17T23:05:48+00:00"
     },
     "명가무안뻘낙지(서울)|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "c1b3f44d92762330",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 서초구 서초동 강남대로37길 49",
+      "fingerprint": "fbde8a6a58e7adc9",
       "geocoder_version": 4,
+      "lat": 37.484619001618,
+      "lon": 127.030903439518,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "query": "서울특별시 서초구 강남대로37길 49",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 서초구 강남대로37길 49"
+      ],
+      "updated_at": "2026-10-01T06:24:33+00:00"
     },
     "명가설렁탕|부평구": {
       "addr_type": "POI",
@@ -6680,12 +6690,22 @@
       "updated_at": "2026-09-17T23:02:58+00:00"
     },
     "명선헌(서울)|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "1a2b5e8ab97d1a1b",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 서초구 서초동 서운로 39",
+      "fingerprint": "a43a9875e743b130",
       "geocoder_version": 4,
+      "lat": 37.48739676433,
+      "lon": 127.028496156926,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "query": "서울특별시 서초구 서운로 39",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 서초구 서운로 39"
+      ],
+      "updated_at": "2026-10-01T06:24:33+00:00"
     },
     "명신반점|중랑구": {
       "addr_type": "POI",
@@ -13903,7 +13923,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "열해|용산구": {
       "addr_type": "PointAddress",
@@ -14019,7 +14039,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "예당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -14994,7 +15014,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "우림한방삼계탕|연수구": {
       "addr_type": "POI",
@@ -15402,7 +15422,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "원양참치|영등포구": {
       "addr_type": "PointAddress",
@@ -20324,7 +20344,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "토성한정식|법조·법률행정": {
       "failed": true,
@@ -20900,7 +20920,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "푸에르코 광화문|중앙정부": {
       "failed": true,
@@ -22930,7 +22950,7 @@
       "geocoder_version": 4,
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-01T06:18:17+00:00"
+      "updated_at": "2026-10-01T06:24:32+00:00"
     },
     "화해당|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
