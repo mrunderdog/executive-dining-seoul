@@ -1,0 +1,109 @@
+name: KOGAS adapter probe
+
+on:
+  push:
+    branches: [feat/kogas-adapter]
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Probe KOGAS board navigation and attachments
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/kogas-chrome \
+            --window-size=1440,1200 \
+            "https://www.kogas.or.kr/site/koGas/goBoard.do?Key=1060101050000&boardNo=57" \
+            >/tmp/kogas-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" 2>/dev/null || true' EXIT
+
+          cat >/tmp/kogas-probe.mjs <<'NODE'
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          async function getTarget(){
+            for(let i=0;i<160;i++){
+              try{
+                const xs=await (await fetch('http://127.0.0.1:9222/json')).json();
+                const p=xs.find(x=>x.type==='page' && x.url.includes('kogas.or.kr'));
+                if(p?.webSocketDebuggerUrl)return p;
+              }catch{}
+              await sleep(250);
+            }
+            throw new Error('CDP target timeout');
+          }
+          const t=await getTarget();
+          const ws=new WebSocket(t.webSocketDebuggerUrl);
+          await new Promise((res,rej)=>{ws.addEventListener('open',res,{once:true});ws.addEventListener('error',rej,{once:true});});
+          let id=0; const pending=new Map(); const reqs=[]; const responses=[];
+          ws.addEventListener('message',e=>{
+            const m=JSON.parse(e.data);
+            if(m.id && pending.has(m.id)){
+              const p=pending.get(m.id);pending.delete(m.id);
+              if(m.error)p.reject(new Error(JSON.stringify(m.error)));else p.resolve(m.result);
+              return;
+            }
+            if(m.method==='Network.requestWillBeSent'){
+              const r=m.params?.request||{};
+              reqs.push({url:r.url,method:r.method,postData:r.postData||'',type:m.params?.type||'',headers:r.headers||{}});
+            }
+            if(m.method==='Network.responseReceived'){
+              const r=m.params?.response||{};
+              responses.push({url:r.url,status:r.status,mimeType:r.mimeType,headers:r.headers||{}});
+            }
+          });
+          function cdp(method,params={}){
+            return new Promise((resolve,reject)=>{
+              const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}));
+            });
+          }
+          async function ev(expression){
+            const r=await cdp('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});
+            if(r.exceptionDetails)throw new Error(JSON.stringify(r.exceptionDetails));
+            return r.result?.value;
+          }
+          await cdp('Runtime.enable');await cdp('Page.enable');await cdp('Network.enable');
+          for(let i=0;i<160;i++){
+            if(await ev("document.readyState==='complete'"))break;
+            await sleep(250);
+          }
+          const summary=await ev(`(() => {
+            const as=[...document.querySelectorAll('a')];
+            const target=as.find(a=>/2026년\s*5월\s*기관장.*임원\s*업무추진비\s*사용내역/.test(a.textContent||''));
+            const href=target?.getAttribute('href')||'';
+            const fn=(typeof window.readPermissionChk==='function')?String(window.readPermissionChk):'';
+            const forms=[...document.forms].map(f=>({id:f.id,name:f.name,method:f.method,action:f.action,html:f.outerHTML.slice(0,2500)}));
+            return {href,text:target?.textContent?.trim()||'',fn,forms};
+          })()`);
+          console.log('BOARD_SUMMARY',JSON.stringify(summary));
+          if(!summary.href)throw new Error('latest KOGAS post not found');
+          const before=reqs.length;
+          await ev(`(() => {
+            const a=[...document.querySelectorAll('a')].find(a=>/2026년\s*5월\s*기관장.*임원\s*업무추진비\s*사용내역/.test(a.textContent||''));
+            a.click(); return true;
+          })()`);
+          await sleep(5000);
+          console.log('AFTER_CLICK_URL',await ev('location.href'));
+          console.log('NAV_REQUESTS',JSON.stringify(reqs.slice(before)));
+          const detail=await ev(`(() => {
+            const els=[...document.querySelectorAll('a,button,input')];
+            const interesting=els.map(el=>({
+              tag:el.tagName,
+              text:(el.textContent||el.value||'').trim(),
+              href:el.getAttribute?.('href')||'',
+              onclick:el.getAttribute?.('onclick')||'',
+              name:el.getAttribute?.('name')||'',
+              value:el.getAttribute?.('value')||''
+            })).filter(x=>/download|file|첨부|xlsx|xls|pdf|hwp|hwpx|기관장|임원/i.test([x.text,x.href,x.onclick,x.name,x.value].join(' '))).slice(0,120);
+            const forms=[...document.forms].map(f=>({id:f.id,name:f.name,method:f.method,action:f.action,html:f.outerHTML.slice(0,5000)}));
+            return {title:document.title,interesting,forms,bodyText:document.body.innerText.slice(0,12000)};
+          })()`);
+          console.log('DETAIL',JSON.stringify(detail));
+          console.log('DETAIL_RESPONSES',JSON.stringify(responses.filter(x=>reqs.slice(before).some(r=>r.url===x.url))));
+          ws.close();
+          NODE
+          node /tmp/kogas-probe.mjs
