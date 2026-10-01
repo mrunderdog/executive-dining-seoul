@@ -201,6 +201,8 @@ def discover_kogas(src,year,detail_limit):
     return out
 
 
+# K-water publishes the institution-head ledger directly as an HTML table,
+# one stable page per calendar year (2024=head16, 2025=head17, ...).
 def discover_kwater(src,year):
     lookback=max(0,int(src.get("lookback_years",1)))
     years=sorted({year-i for i in range(lookback+1)})
