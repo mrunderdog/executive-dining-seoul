@@ -167,6 +167,20 @@
         "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0185&disclosureNo=&reportFormRootNo=20701"
       ],
       "note": "ALIO 기관장 업무추진비 정기공시(C0185 / 20701) 확인. 2026 공시의 2025 업무추진비 XLSX를 직접 검증했으나 월별 집행유형·건수·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
+    },
+    {
+      "key": "koen",
+      "institution": "한국남동발전",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "default_role": "기관장",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0042&disclosureNo=&reportFormRootNo=20701"
+      ],
+      "note": "ALIO 기관장 업무추진비 정기공시(C0042 / 20701) 확인. 2026 공시의 2025년 기관장 업무추진비 내역 XLSX를 직접 검증했으나 연월·주요내역·건수·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
     }
   ]
 }
