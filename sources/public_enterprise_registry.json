@@ -181,6 +181,49 @@
         "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0042&disclosureNo=&reportFormRootNo=20701"
       ],
       "note": "ALIO 기관장 업무추진비 정기공시(C0042 / 20701) 확인. 2026 공시의 2025년 기관장 업무추진비 내역 XLSX를 직접 검증했으나 연월·주요내역·건수·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
+    },
+    {
+      "key": "kospo",
+      "institution": "한국남부발전",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "사장",
+      "format_hint": "xlsx-alio-detail",
+      "lookback_years": 2,
+      "listing_urls": [
+        "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0043&disclosureNo=&reportFormRootNo=20701"
+      ],
+      "note": "ALIO 기관장 업무추진비 정기공시(C0043 / 20701). 공식 XLSX에 일자·목적·장소·참석대상·참석인원·금액의 거래별 세부내역이 공개되어 최근 2개 완료연도 중심으로 연도별 ALIO XLSX adapter로 수집."
+    },
+    {
+      "key": "kowepo",
+      "institution": "한국서부발전",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "default_role": "기관장",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0082&disclosureNo=&reportFormRootNo=20701"
+      ],
+      "note": "ALIO 2025 공식 XLSX를 직접 검증했으나 집행월·집행내역·건수·집행금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
+    },
+    {
+      "key": "ewp",
+      "institution": "한국동서발전",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "default_role": "기관장",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0066&disclosureNo=&reportFormRootNo=20701"
+      ],
+      "note": "ALIO 2025 공식 XLSX를 직접 검증했으나 집행월·집행내역·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
     }
   ]
 }

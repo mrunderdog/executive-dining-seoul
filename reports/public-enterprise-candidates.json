@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-02T04:37:47",
+  "generated_at": "2026-10-02T04:46:59",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 69,
-  "entity_count": 45,
-  "eligible_count": 45,
+  "meal_rows": 121,
+  "entity_count": 87,
+  "eligible_count": 87,
   "candidates": [
     {
       "merchant": "좋구먼 반상 율동점",
@@ -260,6 +260,203 @@
       ]
     },
     {
+      "merchant": "에스서울깍두기전포점",
+      "address": "",
+      "phone": "",
+      "score": 73.3,
+      "visits": 4,
+      "months": 3,
+      "spend": 122000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-08-18",
+      "date_max": "2025-10-13",
+      "purpose_stats": [
+        {
+          "text": "수행업무 노고격려 간담회",
+          "count": 1
+        },
+        {
+          "text": "빛드림본부 현장경영 관련 일정협의",
+          "count": 1
+        },
+        {
+          "text": "신세종 현장경영 일정협의",
+          "count": 1
+        },
+        {
+          "text": "2026년 예산편성 관련 보고회의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-13",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 33000,
+          "people": 3,
+          "purpose": "2026년 예산편성 관련 보고회의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-09-08",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 29000,
+          "people": 4,
+          "purpose": "신세종 현장경영 일정협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-08-26",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 30000,
+          "people": 4,
+          "purpose": "빛드림본부 현장경영 관련 일정협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-08-18",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 30000,
+          "people": 4,
+          "purpose": "수행업무 노고격려 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "남도한식-정든님",
+      "address": "",
+      "phone": "",
+      "score": 69.6,
+      "visits": 3,
+      "months": 3,
+      "spend": 423000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-06-18",
+      "date_max": "2025-11-24",
+      "purpose_stats": [
+        {
+          "text": "품질경쟁력 강화 사업개발 관련 업무협의",
+          "count": 1
+        },
+        {
+          "text": "산재사고예방 관련 전문가 간담회",
+          "count": 1
+        },
+        {
+          "text": "에너지산업 전문가 의견청취 및 업계동향 점검",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 91000,
+          "people": 4,
+          "purpose": "에너지산업 전문가 의견청취 및 업계동향 점검",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-08-22",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 64000,
+          "people": 4,
+          "purpose": "산재사고예방 관련 전문가 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-06-18",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 268000,
+          "people": 10,
+          "purpose": "품질경쟁력 강화 사업개발 관련 업무협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "스타벅스 코리아",
+      "address": "",
+      "phone": "",
+      "score": 63.9,
+      "visits": 3,
+      "months": 2,
+      "spend": 47000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-04-07",
+      "date_max": "2025-11-24",
+      "purpose_stats": [
+        {
+          "text": "에너지업계 동향 및 정책협의",
+          "count": 1
+        },
+        {
+          "text": "에너지시장 동향 및 정책협의",
+          "count": 1
+        },
+        {
+          "text": "에너지풍력사업 경영효율화 방안 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 11000,
+          "people": 3,
+          "purpose": "에너지시장 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-11-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 12000,
+          "people": 4,
+          "purpose": "에너지풍력사업 경영효율화 방안 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-04-07",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 24000,
+          "people": 4,
+          "purpose": "에너지업계 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "몽중헌 페럼타워",
       "address": "",
       "phone": "",
@@ -299,6 +496,53 @@
           "people": 9,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "남도진미",
+      "address": "",
+      "phone": "",
+      "score": 59.9,
+      "visits": 2,
+      "months": 2,
+      "spend": 796000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-24",
+      "date_max": "2025-05-22",
+      "purpose_stats": [
+        {
+          "text": "에너지시장 동향 및 정책협의",
+          "count": 1
+        },
+        {
+          "text": "해외투자사업관련 정책동향",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-05-22",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 391000,
+          "people": 15,
+          "purpose": "해외투자사업관련 정책동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-01-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 405000,
+          "people": 15,
+          "purpose": "에너지시장 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
@@ -389,6 +633,53 @@
       ]
     },
     {
+      "merchant": "우참판/우기미주식회사",
+      "address": "",
+      "phone": "",
+      "score": 59.3,
+      "visits": 2,
+      "months": 2,
+      "spend": 298000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-02-13",
+      "date_max": "2025-09-18",
+      "purpose_stats": [
+        {
+          "text": "공공기관 ESG경영 및 성과관리 동향",
+          "count": 1
+        },
+        {
+          "text": "유관기관 경영진 정보공유 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-18",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 222000,
+          "people": 9,
+          "purpose": "유관기관 경영진 정보공유 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2024-02-13",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 76000,
+          "people": 4,
+          "purpose": "공공기관 ESG경영 및 성과관리 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
       "merchant": "홍복",
       "address": "",
       "phone": "",
@@ -432,6 +723,53 @@
       ]
     },
     {
+      "merchant": "명선헌명가",
+      "address": "",
+      "phone": "",
+      "score": 59.1,
+      "visits": 2,
+      "months": 2,
+      "spend": 234000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-05-09",
+      "date_max": "2025-07-17",
+      "purpose_stats": [
+        {
+          "text": "전력시장 및 에너지분야 토론회",
+          "count": 1
+        },
+        {
+          "text": "AI디지털기반 혁신전문가 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-17",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 122000,
+          "people": 5,
+          "purpose": "AI디지털기반 혁신전문가 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-05-09",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 112000,
+          "people": 6,
+          "purpose": "전력시장 및 에너지분야 토론회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "대구(초례담)",
       "address": "",
       "phone": "",
@@ -461,6 +799,39 @@
           "people": 14,
           "purpose": "성과평가부 직원 격려",
           "source": "https://www.kogas.or.kr/mgr/fileDownload.do?boardIdx=46621&fileNo=45991"
+        }
+      ]
+    },
+    {
+      "merchant": "해초록",
+      "address": "",
+      "phone": "",
+      "score": 47.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 409000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-05-14",
+      "date_max": "2024-05-14",
+      "purpose_stats": [
+        {
+          "text": "전력시장제도 개편관련 에너지업계 동향 및 정책협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-05-14",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 409000,
+          "people": 12,
+          "purpose": "전력시장제도 개편관련 에너지업계 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
         }
       ]
     },
@@ -498,6 +869,138 @@
       ]
     },
     {
+      "merchant": "이담한정식주식회사",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 336000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-02-29",
+      "date_max": "2024-02-29",
+      "purpose_stats": [
+        {
+          "text": "에너지기술개발 동향 및 자원정책관련 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-02-29",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 336000,
+          "people": 13,
+          "purpose": "에너지기술개발 동향 및 자원정책관련 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "루안",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 329000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-01-05",
+      "date_max": "2024-01-05",
+      "purpose_stats": [
+        {
+          "text": "발전소 건설사업장 현장 안전경영 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-01-05",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 329000,
+          "people": 11,
+          "purpose": "발전소 건설사업장 현장 안전경영 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "군산수산",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 321000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-01-19",
+      "date_max": "2024-01-19",
+      "purpose_stats": [
+        {
+          "text": "겨울철 전력수급 대응관련 현안공유 및 정책협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-01-19",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 321000,
+          "people": 10,
+          "purpose": "겨울철 전력수급 대응관련 현안공유 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "세광양대창 수서점",
+      "address": "",
+      "phone": "",
+      "score": 46.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 320000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-04-23",
+      "date_max": "2024-04-23",
+      "purpose_stats": [
+        {
+          "text": "온실가스 국제감축협력 및 해외투자사업 관련 정책 동향",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-04-23",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 320000,
+          "people": 12,
+          "purpose": "온실가스 국제감축협력 및 해외투자사업 관련 정책 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
       "merchant": "화풍정",
       "address": "",
       "phone": "",
@@ -527,6 +1030,39 @@
           "people": 8,
           "purpose": "공항운영관련 업무협의",
           "source": "https://www.airport.kr/bbs/co_ko/71/84083/download.do"
+        }
+      ]
+    },
+    {
+      "merchant": "토속정",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 309000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-06-10",
+      "date_max": "2024-06-10",
+      "purpose_stats": [
+        {
+          "text": "전력산업 개편방향 정책 동향",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-06-10",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 309000,
+          "people": 12,
+          "purpose": "전력산업 개편방향 정책 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
         }
       ]
     },
@@ -724,6 +1260,105 @@
       ]
     },
     {
+      "merchant": "참숯골",
+      "address": "",
+      "phone": "",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 245000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-09-04",
+      "date_max": "2025-09-04",
+      "purpose_stats": [
+        {
+          "text": "미국사업 관련 노고격려 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-04",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 245000,
+          "people": 9,
+          "purpose": "미국사업 관련 노고격려 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "아오모리",
+      "address": "",
+      "phone": "",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 239000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-08-21",
+      "date_max": "2024-08-21",
+      "purpose_stats": [
+        {
+          "text": "에너지절약 확산 및 수요관리 방안협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-08-21",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 239000,
+          "people": 9,
+          "purpose": "에너지절약 확산 및 수요관리 방안협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "해우",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 233000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-06-28",
+      "date_max": "2024-06-28",
+      "purpose_stats": [
+        {
+          "text": "여름철 전력수립대책기간 현안 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-06-28",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 233000,
+          "people": 9,
+          "purpose": "여름철 전력수립대책기간 현안 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
       "merchant": "동해도 일식",
       "address": "",
       "phone": "",
@@ -823,6 +1458,39 @@
       ]
     },
     {
+      "merchant": "산들해반포",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 219000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-05-16",
+      "date_max": "2025-05-16",
+      "purpose_stats": [
+        {
+          "text": "전력포럼 관련 현안협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-05-16",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 219000,
+          "people": 9,
+          "purpose": "전력포럼 관련 현안협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "브이아이피참치 뉴서울호텔점",
       "address": "",
       "phone": "",
@@ -885,6 +1553,39 @@
           "people": 8,
           "purpose": "주요 업무 현안 협의",
           "source": "https://www.kepco.co.kr/home/disclosure/mandisclosure/etc/expenses.do#kepco-file-HRhx4V2RcBGlUblYF5sinQ%3D%3D"
+        }
+      ]
+    },
+    {
+      "merchant": "누리한우촌",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 206000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-11-07",
+      "date_max": "2025-11-07",
+      "purpose_stats": [
+        {
+          "text": "인재개발부 현안관련 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-07",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 206000,
+          "people": 8,
+          "purpose": "인재개발부 현안관련 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
@@ -979,6 +1680,39 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=719657&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "아야진생태찌개",
+      "address": "",
+      "phone": "",
+      "score": 46.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 166000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-04-04",
+      "date_max": "2025-04-04",
+      "purpose_stats": [
+        {
+          "text": "해외투자사업 관련 정책 동향",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-04",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 166000,
+          "people": 7,
+          "purpose": "해외투자사업 관련 정책 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
@@ -1134,6 +1868,39 @@
           "people": 3,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "민소한우(서린점)",
+      "address": "",
+      "phone": "",
+      "score": 46.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 145000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-07-18",
+      "date_max": "2025-07-18",
+      "purpose_stats": [
+        {
+          "text": "미국 발전사업 투자설명회 관련 전문가 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-18",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 145000,
+          "people": 6,
+          "purpose": "미국 발전사업 투자설명회 관련 전문가 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
@@ -1298,6 +2065,39 @@
       ]
     },
     {
+      "merchant": "속초생태집",
+      "address": "",
+      "phone": "",
+      "score": 46.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 112000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-02-21",
+      "date_max": "2025-02-21",
+      "purpose_stats": [
+        {
+          "text": "공공기관 ESG 경영 및 성과관리 동향",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-02-21",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 112000,
+          "people": 5,
+          "purpose": "공공기관 ESG 경영 및 성과관리 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "예담",
       "address": "",
       "phone": "",
@@ -1387,6 +2187,72 @@
       ]
     },
     {
+      "merchant": "굴세상해초마을",
+      "address": "",
+      "phone": "",
+      "score": 46.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 92000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-06-13",
+      "date_max": "2025-06-13",
+      "purpose_stats": [
+        {
+          "text": "에너지전환 관련 대응간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-06-13",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 92000,
+          "people": 4,
+          "purpose": "에너지전환 관련 대응간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "속초어시장",
+      "address": "",
+      "phone": "",
+      "score": 46.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 90000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-06-27",
+      "date_max": "2025-06-27",
+      "purpose_stats": [
+        {
+          "text": "경제활력 제고 외부전문가 자문간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-06-27",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 90000,
+          "people": 5,
+          "purpose": "경제활력 제고 외부전문가 자문간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "두레에프엔씨주식회사",
       "address": "",
       "phone": "",
@@ -1443,6 +2309,138 @@
       ]
     },
     {
+      "merchant": "백호양대창 이수점",
+      "address": "",
+      "phone": "",
+      "score": 45.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 74000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-04-18",
+      "date_max": "2025-04-18",
+      "purpose_stats": [
+        {
+          "text": "에너지업계 동향 및 정책협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-18",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 74000,
+          "people": 3,
+          "purpose": "에너지업계 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "거북식당",
+      "address": "",
+      "phone": "",
+      "score": 45.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 73000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-20",
+      "date_max": "2025-01-20",
+      "purpose_stats": [
+        {
+          "text": "TEAM KOSPO 수출협업 추진협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-20",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 73000,
+          "people": 4,
+          "purpose": "TEAM KOSPO 수출협업 추진협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "솔뫼",
+      "address": "",
+      "phone": "",
+      "score": 45.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 66000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-14",
+      "date_max": "2025-01-14",
+      "purpose_stats": [
+        {
+          "text": "디지털시험성적서 도입관련 업무격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-14",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 66000,
+          "people": 4,
+          "purpose": "디지털시험성적서 도입관련 업무격려",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "호텔롯데 롯데호텔제주",
+      "address": "",
+      "phone": "",
+      "score": 45.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 62000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-07-26",
+      "date_max": "2025-07-26",
+      "purpose_stats": [
+        {
+          "text": "남제주본부 현안소통 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-26",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 62000,
+          "people": 5,
+          "purpose": "남제주본부 현안소통 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
       "merchant": "구양가",
       "address": "",
       "phone": "",
@@ -1467,6 +2465,435 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=721336&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "함경도찹쌀순대",
+      "address": "",
+      "phone": "",
+      "score": 45.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 51000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-16",
+      "date_max": "2025-01-16",
+      "purpose_stats": [
+        {
+          "text": "겨울철 전력수급 대응관련 현안공유 및 정책협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-16",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 51000,
+          "people": 4,
+          "purpose": "겨울철 전력수급 대응관련 현안공유 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "천지를먹다",
+      "address": "",
+      "phone": "",
+      "score": 45.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 51000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-08-06",
+      "date_max": "2025-08-06",
+      "purpose_stats": [
+        {
+          "text": "태양광 공동개발 업무협약 관련 보고",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-08-06",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 51000,
+          "people": 4,
+          "purpose": "태양광 공동개발 업무협약 관련 보고",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "하연옥사천점",
+      "address": "",
+      "phone": "",
+      "score": 45.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 50000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-20",
+      "date_max": "2025-01-20",
+      "purpose_stats": [
+        {
+          "text": "업무출장 수행원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-20",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 50000,
+          "people": 4,
+          "purpose": "업무출장 수행원 격려",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "남포면옥",
+      "address": "",
+      "phone": "",
+      "score": 45.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 36000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-22",
+      "date_max": "2025-01-22",
+      "purpose_stats": [
+        {
+          "text": "배출권거래제에 따른 남전영향 및 대응관련 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-22",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 36000,
+          "people": 4,
+          "purpose": "배출권거래제에 따른 남전영향 및 대응관련 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "일진식당",
+      "address": "",
+      "phone": "",
+      "score": 45.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 36000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-09-11",
+      "date_max": "2025-09-11",
+      "purpose_stats": [
+        {
+          "text": "빛드림본부 현장경영 관련 하행일정 조율",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-11",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 36000,
+          "people": 2,
+          "purpose": "빛드림본부 현장경영 관련 하행일정 조율",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "담미옥",
+      "address": "",
+      "phone": "",
+      "score": 45.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 35000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-10-22",
+      "date_max": "2025-10-22",
+      "purpose_stats": [
+        {
+          "text": "국정감사 관련 대비회의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-22",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 35000,
+          "people": 3,
+          "purpose": "국정감사 관련 대비회의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "강원도래요생감자옹심이수제",
+      "address": "",
+      "phone": "",
+      "score": 45.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 32000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-10-14",
+      "date_max": "2025-10-14",
+      "purpose_stats": [
+        {
+          "text": "전사 작업중지권 실적 관련 노고격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-14",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 32000,
+          "people": 3,
+          "purpose": "전사 작업중지권 실적 관련 노고격려",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "향토집굴국밥",
+      "address": "",
+      "phone": "",
+      "score": 45.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 31000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-12-08",
+      "date_max": "2025-12-08",
+      "purpose_stats": [
+        {
+          "text": "업무노고 격려간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-12-08",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 31000,
+          "people": 4,
+          "purpose": "업무노고 격려간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "한화푸드테크㈜더플라자F&B",
+      "address": "",
+      "phone": "",
+      "score": 45.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 23000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-08-14",
+      "date_max": "2025-08-14",
+      "purpose_stats": [
+        {
+          "text": "LNG관련 업무협약 간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-08-14",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 23000,
+          "people": 6,
+          "purpose": "LNG관련 업무협약 간담회",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "명동얼큰수제비",
+      "address": "",
+      "phone": "",
+      "score": 45.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 20000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-09-16",
+      "date_max": "2025-09-16",
+      "purpose_stats": [
+        {
+          "text": "양수발전 업무협약 관련 사전회의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-16",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 20000,
+          "people": 3,
+          "purpose": "양수발전 업무협약 관련 사전회의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "멜팅샵",
+      "address": "",
+      "phone": "",
+      "score": 45.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 19000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-07-04",
+      "date_max": "2025-07-04",
+      "purpose_stats": [
+        {
+          "text": "유연한 실용정부 구현'정책 관련 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-04",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 19000,
+          "people": 4,
+          "purpose": "유연한 실용정부 구현'정책 관련 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "소현이네식당",
+      "address": "",
+      "phone": "",
+      "score": 44.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 17000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-11-06",
+      "date_max": "2025-11-06",
+      "purpose_stats": [
+        {
+          "text": "강원권 출장관련 일정협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-06",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 17000,
+          "people": 2,
+          "purpose": "강원권 출장관련 일정협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "시골의맛",
+      "address": "",
+      "phone": "",
+      "score": 44.9,
+      "visits": 1,
+      "months": 1,
+      "spend": 16000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2024-11-13",
+      "date_max": "2024-11-13",
+      "purpose_stats": [
+        {
+          "text": "빛드림본부 현장경영 관련 직원노고 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2024-11-13",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 16000,
+          "people": 2,
+          "purpose": "빛드림본부 현장경영 관련 직원노고 격려",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
         }
       ]
     },
@@ -1500,6 +2927,105 @@
           "people": 4,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        }
+      ]
+    },
+    {
+      "merchant": "케렌시아",
+      "address": "",
+      "phone": "",
+      "score": 44.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 10000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-10-10",
+      "date_max": "2025-10-10",
+      "purpose_stats": [
+        {
+          "text": "태안화력 폐지 및 대체계획 관련 회의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-10",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 10000,
+          "people": 2,
+          "purpose": "태안화력 폐지 및 대체계획 관련 회의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "디에스디엘주식회사",
+      "address": "",
+      "phone": "",
+      "score": 44.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 9000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-06-27",
+      "date_max": "2025-06-27",
+      "purpose_stats": [
+        {
+          "text": "신재생본부 현안관련 후속업무 지시",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-06-27",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 9000,
+          "people": 3,
+          "purpose": "신재생본부 현안관련 후속업무 지시",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "빅바이트컴퍼니 쉐",
+      "address": "",
+      "phone": "",
+      "score": 44.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 8000,
+      "institution_count": 1,
+      "institutions": [
+        "한국남부발전"
+      ],
+      "date_min": "2025-09-16",
+      "date_max": "2025-09-16",
+      "purpose_stats": [
+        {
+          "text": "건설처 주요현안보고",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-16",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 8000,
+          "people": 3,
+          "purpose": "건설처 주요현안보고",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
