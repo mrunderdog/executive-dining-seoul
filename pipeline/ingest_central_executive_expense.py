@@ -330,6 +330,7 @@ def normalize(rows,sheet,meta):
         if len(sample) >= 3 and statistics.median(sample) < 5000:
             scale=1000
 
+    kospo_category=""
     for ri,row in enumerate(rows[hi+1:],start=hi+2):
         if not any(clean(x) for x in row):continue
         merchant=clean(cell(row,m,"merchant"))
@@ -360,6 +361,12 @@ def normalize(rows,sheet,meta):
         if meta.get("key")=="kogas":
             source_category=role
             role=clean(meta.get("default_role")) or "기관장"
+        if meta.get("key")=="kospo":
+            raw_category=clean(cell(row,m,"role"))
+            if raw_category:
+                kospo_category=raw_category
+            source_category=kospo_category
+            role=clean(meta.get("default_role")) or "사장"
         used_time=clean(cell(row,m,"time"))
         # Some PDF table extractors shift [date, time, role] one column to the
         # right. Repair the unambiguous case where the "date" is a clock time
@@ -371,6 +378,8 @@ def normalize(rows,sheet,meta):
         purpose_text=clean(cell(row,m,"purpose"))
         people_value=people(cell(row,m,"people"))
         if meta.get("key")=="kogas" and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
+            continue
+        if meta.get("key")=="kospo" and not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d or ""):
             continue
 
         # Korail's 2026-02 PDF uses a different visual column order: the parser

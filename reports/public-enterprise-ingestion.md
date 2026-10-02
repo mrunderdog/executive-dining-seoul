@@ -1,12 +1,13 @@
 # Public-enterprise leadership expense ingestion
 
-- Rows: **151**
-- Files: **71**
+- Rows: **203**
+- Files: **73**
 - Errors: **2**
 
 ## Rows by institution
 
 - 한국철도공사: 55
+- 한국남부발전: 52
 - 한국수자원공사: 25
 - 한국지역난방공사: 19
 - 인천국제공항공사: 18

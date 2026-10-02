@@ -268,6 +268,35 @@ def discover_kwater(src,year):
     out["status"]="PARSEABLE_FOUND" if out["inline_rows"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
     return out
 
+def discover_kospo(src,year):
+    base=(src.get("listing_urls") or [""])[0]
+    lookback=max(0,int(src.get("lookback_years",2)))
+    years=sorted({year-i for i in range(lookback+1)})
+    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","사장"),"years":years,"pages":[base],"attachments":[],"errors":[]}
+    try:doc=fetch(base)
+    except Exception as e:
+        out["errors"].append(f"listing {base}: {type(e).__name__}: {e}")
+        out["parseable_attachments"]=0;out["status"]="FETCH_FAILED";return out
+    dm=re.search(r'disclosureNo\s*:\s*"([^"]+)"',doc) or re.search(r'\$submissionNo\s*=\s*"?([0-9]+)',doc)
+    if not dm:
+        out["errors"].append("ALIO disclosureNo missing")
+        out["parseable_attachments"]=0;out["status"]="NO_FILES_FOUND";return out
+    disclosure=dm.group(1)
+    seen=set()
+    for fm in re.finditer(r'<option\s+value="([^"]+)">\s*([^<]+\.(?:xlsx?|xls))\s*</option>',doc,re.I):
+        file_no,label=fm.group(1),html.unescape(fm.group(2)).strip()
+        ym=re.search(r'(20\d{2})',label)
+        if not ym:continue
+        y=int(ym.group(1))
+        if y not in years:continue
+        url=f"https://www.alio.go.kr/download/file.json?d={disclosure}&f={file_no}"
+        if url in seen:continue
+        seen.add(url)
+        out["attachments"].append({"text":label,"url":url,"download_url":url,"year":y,"month":None,"parent":base,"attachment_id":f"{disclosure}|{file_no}"})
+    out["parseable_attachments"]=len(out["attachments"])
+    out["status"]="PARSEABLE_FOUND" if out["attachments"] else "NO_FILES_FOUND"
+    return out
+
 def discover_kdhc(src,year):
     out={
         "key":src["key"],"institution":src["institution"],
@@ -313,6 +342,8 @@ def discover_source(src,year,detail_limit):
         return discover_kwater(src,year)
     if src.get("key")=="kdhc" and src.get("verified") and src.get("publish"):
         return discover_kdhc(src,year)
+    if src.get("key")=="kospo" and src.get("verified") and src.get("publish"):
+        return discover_kospo(src,year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
