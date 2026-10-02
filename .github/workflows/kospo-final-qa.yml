@@ -2,14 +2,22 @@ name: KOSPO final QA
 on:
   push:
     branches: [feat/kospo-adapter]
+    paths:
+      - .github/workflows/kospo-final-qa.yml
+permissions:
+  contents: write
 jobs:
   qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Apply verified KOSPO enrichment
+        run: python .github/scripts/kospo_enrich.py
       - name: Install parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
       - name: Build transient coordinates
@@ -33,14 +41,13 @@ jobs:
               g=cache.get(name+'|공기업·공공기관') or {}
               item={'name':name,'visits':x.get('visits'),'spend':x.get('spend'),'address':g.get('address'),'lat':g.get('lat'),'lon':g.get('lon')}
               (covered if isinstance(g.get('lat'),(int,float)) and isinstance(g.get('lon'),(int,float)) else missing).append(item)
-          print('KOSPO_CANDIDATES',json.dumps(cs,ensure_ascii=False))
           print('KOSPO_GEOCODED',json.dumps(covered,ensure_ascii=False))
-          print('KOSPO_MISSING',json.dumps(missing,ensure_ascii=False))
-          print('KOSPO_RECORDS',json.dumps(rec,ensure_ascii=False))
+          print('KOSPO_MISSING_COUNT',len(missing))
           assert len(cs)>=20, len(cs)
           assert len(rec)>=20, len(rec)
-          # At least a useful map baseline must resolve without forcing ambiguous merchants.
           assert len(covered)>=8, len(covered)
+          required={'에스서울깍두기전포점','남도한식-정든님','백호양대창 이수점','세광양대창 수서점','산들해반포','민소한우(서린점)','호텔롯데 롯데호텔제주','남포면옥'}
+          assert required.issubset({x['name'] for x in covered}), ({x['name'] for x in covered},required)
           PY
       - name: Quality and browser smoke
         run: |
@@ -61,3 +68,10 @@ jobs:
             if [ "$ATTEMPT" -eq 3 ]; then cat /tmp/kospo-chrome.log || true; exit 1; fi
             sleep 2
           done
+      - name: Commit verified enrichment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sources/entity_enrichment.json
+          git commit -m "data: enrich verified KOSPO venues"
+          git push origin HEAD:feat/kospo-adapter
