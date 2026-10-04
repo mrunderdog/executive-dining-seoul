@@ -6,6 +6,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime
 from pathlib import Path
 
+from ingest_central_executive_expense import rows_from
+
 ROOT=Path(__file__).resolve().parents[1]
 DISCOVERY=ROOT/'reports'/'public-enterprise-discovery.json'
 REGISTRY=ROOT/'sources'/'public_enterprise_registry.json'
@@ -44,6 +46,13 @@ def hwpx_tables(blob):
                 if rows:out.append((f'{name}-table{tno}',rows))
     return out
 
+def document_tables(blob,file_name):
+    if zipfile.is_zipfile(io.BytesIO(blob)):
+        tables=hwpx_tables(blob)
+        if tables:return tables
+    # Legacy HWP and any other supported document type use the shared parser.
+    return list(rows_from(blob,file_name))
+
 def find_header(rows):
     keys=('사용일자','집행내역','사용처','집행금액');best=(-1,None)
     for i,row in enumerate(rows[:20]):
@@ -70,9 +79,9 @@ def amount(raw):
 def people(raw):
     m=re.search(r'\d+',str(raw or ''));return int(m.group()) if m else None
 
-def extract_rows(blob,year,month,source_url,seq):
+def extract_rows(blob,file_name,year,month,source_url,seq):
     result=[]
-    for sheet,rows in hwpx_tables(blob):
+    for sheet,rows in document_tables(blob,file_name):
         hi=find_header(rows)
         if hi is None:continue
         hdr=[''.join(str(x or '').split()).lower() for x in rows[hi]]
@@ -114,11 +123,11 @@ def process_post(seq,item):
     raw,_=request(BASE+f'boardView.do?mnCd={MN}',pdata,referer);doc=raw.decode('utf-8',errors='replace')
     am=re.search(r"board\.download\('([^']+)'\s*,\s*'([^']+)'\).*?>([^<]+)</a>",doc,re.I|re.S)
     if not am:raise ValueError('attachment missing')
-    atch,file_sn=am.group(1),am.group(2)
+    atch,file_sn,file_name=am.group(1),am.group(2),text(am.group(3))
     fields={'pageIndex':str(page_index),'mnCd':MN,'boardSeq':seq,'boardCd':'BRD_000065','atchFileId':atch,'fileSn':file_sn,'formNo':'','schTabCd':TAB}
     blob,_=request('https://www.komipo.co.kr/atch/fileDown.do',urllib.parse.urlencode(fields).encode(),BASE+f'boardView.do?mnCd={MN}')
     detail_url=BASE+f'boardView.do?mnCd={MN}#boardSeq={seq}'
-    return extract_rows(blob,y,mo,detail_url,seq)
+    return extract_rows(blob,file_name,y,mo,detail_url,seq)
 
 def main():
     report=json.loads(DISCOVERY.read_text(encoding='utf-8'));reg=json.loads(REGISTRY.read_text(encoding='utf-8'))
