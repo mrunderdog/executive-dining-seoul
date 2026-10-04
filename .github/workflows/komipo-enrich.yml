@@ -1,0 +1,46 @@
+name: KOMIPO venue enrichment
+on:
+  push:
+    branches: [fix/komipo-venue-enrichment]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Add verified Boryeong venue addresses
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('sources/entity_enrichment.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          s=d.setdefault('source',{})
+          vals={
+            '성룡': {'display':'성룡','address':'충청남도 보령시 중앙로 252','category':'중식','url':'https://www.diningcode.com/profile.php?rid=Hn3PI8ONLimr'},
+            '석갈비': {'display':'석갈비','address':'충청남도 보령시 대흥로 91-1','phone':'041-931-4167','category':'한식 · 석갈비','url':'https://www.diningcode.com/profile.php?rid=M0DT87ejDjp5'},
+            '어영차바다야': {'display':'어영차바다야','address':'충청남도 보령시 한내로터리길 85','phone':'041-936-7331','category':'횟집 · 해산물','url':'https://www.diningcode.com/profile.php?rid=rN1JSzyzsL0d'},
+            '키츠네야': {'display':'키츠네야','address':'충청남도 보령시 작은오랏5길 31 1층','category':'일식 · 초밥','url':'https://www.tabling.co.kr/place/677cd6d666de5f069891b371'},
+            '산도155': {'display':'산도155','address':'충청남도 보령시 보령북로 155','category':'카페 · 산도/브런치','url':'https://acs.purpleo.kr/article/18137'},
+            '먹쇠네 굴집': {'display':'먹쇠네굴집','address':'충청남도 보령시 천북면 홍보로 117','phone':'041-641-6200','category':'한식 · 굴/해산물','url':'https://www.diningcode.com/profile.php?rid=SHgYfXI88rl3'},
+            '먹쇠네굴집': {'display':'먹쇠네굴집','address':'충청남도 보령시 천북면 홍보로 117','phone':'041-641-6200','category':'한식 · 굴/해산물','url':'https://www.diningcode.com/profile.php?rid=SHgYfXI88rl3'},
+            '가보세굴수산': {'display':'가보세굴수산','address':'충청남도 보령시 천북면 홍보로 1061-93','category':'해산물 · 굴요리','url':'https://www.saramin.co.kr/zf_user/company-info/view/csn/LzlVSVVYcDRGNUQzNitvZElRMzJ3dz09/company_nm/%EA%B0%80%EB%B3%B4%EC%84%B8%EA%B5%B4%EC%88%98%EC%82%B0'},
+            '보령한우': {'display':'보령한우','address':'충청남도 보령시 옥마로 76','phone':'041-936-6811','category':'한식 · 한우/소고기','url':'https://www.diningcode.com/profile.php?rid=ja2UGIKlBdJt'}
+          }
+          for name,v in vals.items():
+              v.update({'verified_at':'2026-10-04','confidence':'HIGH'})
+              s['public_enterprise|'+name]=v
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit enrichment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sources/entity_enrichment.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: verify KOMIPO Boryeong venue addresses"
+          git push origin HEAD:fix/komipo-venue-enrichment
