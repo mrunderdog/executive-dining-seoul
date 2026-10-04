@@ -1,8 +1,8 @@
 # Public-enterprise leadership expense ingestion
 
-- Rows: **214**
-- Files: **97**
-- Errors: **16**
+- Rows: **215**
+- Files: **98**
+- Errors: **33**
 
 ## Rows by institution
 
@@ -13,5 +13,5 @@
 - 인천국제공항공사: 18
 - 한국토지주택공사: 17
 - 한국가스공사: 15
-- 한국중부발전: 11
+- 한국중부발전: 12
 - 한국전력공사: 2
