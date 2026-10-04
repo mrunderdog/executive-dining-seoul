@@ -1,45 +1,43 @@
-name: KOMIPO source registration
+name: KOMIPO adapter QA
 on:
   push:
     branches: [feat/komipo-adapter]
 permissions:
-  contents: write
+  contents: read
 jobs:
-  register:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Register KOMIPO source
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run KOMIPO pipeline
+        run: |
+          python pipeline/public_enterprise_discovery.py --year 2026 --incremental --detail-limit 24
+          python pipeline/public_enterprise_komipo.py
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+      - name: Inspect KOMIPO output
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path('sources/public_enterprise_registry.json')
-          d=json.loads(p.read_text(encoding='utf-8'))
-          if not any(x.get('key')=='komipo' for x in d.get('sources',[])):
-              d['sources'].append({
-                  'key':'komipo',
-                  'institution':'한국중부발전',
-                  'cohort':'public_enterprise_leadership',
-                  'verified':True,
-                  'publish':True,
-                  'refresh_policy':'monthly',
-                  'default_role':'사장',
-                  'format_hint':'hwpx-detail',
-                  'lookback_years':1,
-                  'listing_urls':['https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'],
-                  'note':'한국중부발전 공식 업무추진비 게시판 사장 탭(KH041301). 월별 HWPX에 사용일자·목적·사용처(장소)·인원·금액의 거래별 내역이 공개됨. KOMIPO 전용 adapter가 TLS runner 우회와 HWPX 표 파싱을 담당.'
-              })
-              p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
+          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
+          src=next(x for x in d['sources'] if x.get('key')=='komipo')
+          rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국중부발전']
+          cs=[x for x in c.get('candidates',[]) if '한국중부발전' in (x.get('institutions') or [])]
+          print('KOMIPO_DISCOVERY',json.dumps({'status':src.get('status'),'rows':len(src.get('inline_rows') or []),'errors':src.get('errors')},ensure_ascii=False))
+          print('KOMIPO_ROWS',json.dumps(rows[:80],ensure_ascii=False))
+          print('KOMIPO_CANDIDATES',json.dumps(cs[:50],ensure_ascii=False))
+          assert src.get('status')=='PARSEABLE_FOUND'
+          assert rows
+          assert any('유일초밥' in (x.get('merchant') or '') for x in rows)
+          assert cs
           PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add sources/public_enterprise_registry.json
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'data: register KOMIPO president expense source'
-          git push origin HEAD:feat/komipo-adapter
+      - name: Regression
+        run: python pipeline/regression_checks.py
