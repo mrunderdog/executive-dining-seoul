@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Install document parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
       - name: Run focused KOMIPO adapter
         run: |
           python pipeline/public_enterprise_komipo.py
