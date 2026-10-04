@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 246,
+    "failed_count": 245,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1472,
-    "success_count": 1226,
-    "updated_at": "2026-10-04T08:27:03+00:00"
+    "success_count": 1227,
+    "updated_at": "2026-10-04T08:34:15+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -6798,15 +6798,22 @@
       "updated_at": "2026-09-23T00:42:19+00:00"
     },
     "먹쇠네 굴집|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "1af486f20f5f7850",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 천북면 하만리 홍보로 117",
+      "fingerprint": "3cb0c4df379e9db4",
       "geocoder_version": 4,
+      "lat": 36.448003596835,
+      "lon": 126.524334068654,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "충청남도 보령시 천북면 홍보로 117",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:먹쇠네 굴집 대한민국",
-        "nominatim:먹쇠네 굴집 대한민국"
+        "arcgis:충청남도 보령시 천북면 홍보로 117"
       ],
-      "updated_at": "2026-10-04T08:22:41+00:00"
+      "updated_at": "2026-10-04T08:34:15+00:00"
     },
     "메밀이 생각날때|은평구": {
       "addr_type": "PointAddress",
@@ -8633,22 +8640,22 @@
       "updated_at": "2026-09-21T07:29:01+00:00"
     },
     "보령한우|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "보령한우",
-      "fingerprint": "59686dcbddc9bd96",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 명천동 옥마로 76",
+      "fingerprint": "5e2e44825eb9da6a",
       "geocoder_version": 4,
-      "lat": 36.339090467,
-      "lon": 126.622848684,
-      "match_mode": "name",
+      "lat": 36.338883203612,
+      "lon": 126.622753118455,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "보령한우 대한민국",
-      "result_name": "보령한우",
+      "query": "충청남도 보령시 옥마로 76",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:보령한우 대한민국"
+        "arcgis:충청남도 보령시 옥마로 76"
       ],
-      "updated_at": "2026-10-04T08:22:34+00:00"
+      "updated_at": "2026-10-04T08:34:13+00:00"
     },
     "보리촌곤드레|법조·법률행정": {
       "addr_type": "POI",
@@ -9963,22 +9970,22 @@
       "updated_at": "2026-09-21T07:28:53+00:00"
     },
     "산도155|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "산도155",
-      "fingerprint": "9e6c380e67ed8dba",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 대천동 보령북로 155",
+      "fingerprint": "d80dcee8fe1445ce",
       "geocoder_version": 4,
-      "lat": 36.35506155,
-      "lon": 126.58936389,
-      "match_mode": "name",
+      "lat": 36.355064300054,
+      "lon": 126.589356095805,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "산도155 대한민국",
-      "result_name": "산도155",
+      "query": "충청남도 보령시 보령북로 155",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:산도155 대한민국"
+        "arcgis:충청남도 보령시 보령북로 155"
       ],
-      "updated_at": "2026-10-04T08:22:35+00:00"
+      "updated_at": "2026-10-04T08:34:14+00:00"
     },
     "산들해|서초구": {
       "addr_type": "PointAddress",
@@ -11409,22 +11416,22 @@
       "updated_at": "2026-09-18T17:02:19+00:00"
     },
     "성룡|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "성룡",
-      "fingerprint": "973b72d35e7f2779",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 대천동 중앙로 252",
+      "fingerprint": "36bcc0da2211e18b",
       "geocoder_version": 4,
-      "lat": 37.442367547,
-      "lon": 127.13414873,
-      "match_mode": "name",
+      "lat": 36.359046039339,
+      "lon": 126.582812679272,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "성룡 대한민국",
-      "result_name": "성룡",
+      "query": "충청남도 보령시 중앙로 252",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:성룡 대한민국"
+        "arcgis:충청남도 보령시 중앙로 252"
       ],
-      "updated_at": "2026-10-04T08:22:34+00:00"
+      "updated_at": "2026-10-04T08:34:14+00:00"
     },
     "성한가든|성북구": {
       "addr_type": "PointAddress",
@@ -14366,22 +14373,22 @@
       "updated_at": "2026-09-21T08:46:13+00:00"
     },
     "어영차바다야|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "어영차바다야",
-      "fingerprint": "fdcc26de8f1d3690",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 동대동 한내로터리길 85",
+      "fingerprint": "b5f445fe21bfcae3",
       "geocoder_version": 4,
-      "lat": 38.379995,
-      "lon": 128.469734521,
-      "match_mode": "name",
+      "lat": 36.347712281322,
+      "lon": 126.610973024094,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "어영차바다야 대한민국",
-      "result_name": "어영차바다야",
+      "query": "충청남도 보령시 한내로터리길 85",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:어영차바다야 대한민국"
+        "arcgis:충청남도 보령시 한내로터리길 85"
       ],
-      "updated_at": "2026-10-04T08:22:38+00:00"
+      "updated_at": "2026-10-04T08:34:15+00:00"
     },
     "어정낙지촌|군포시": {
       "addr_type": "PointAddress",
@@ -21168,22 +21175,22 @@
       "updated_at": "2026-09-18T00:07:26+00:00"
     },
     "키츠네야|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "키츠네야",
-      "fingerprint": "4d782a630de1621a",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 동대동 작은오랏5길 31",
+      "fingerprint": "3e224c4a0d562b80",
       "geocoder_version": 4,
-      "lat": 36.346287819,
-      "lon": 126.604901409,
-      "match_mode": "name",
+      "lat": 36.346292386924,
+      "lon": 126.604905112928,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "키츠네야 대한민국",
-      "result_name": "키츠네야",
-      "score": 100.0,
+      "query": "충청남도 보령시 작은오랏5길 31 1층",
+      "result_name": "",
+      "score": 98.82,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:키츠네야 대한민국"
+        "arcgis:충청남도 보령시 작은오랏5길 31 1층"
       ],
-      "updated_at": "2026-10-04T08:22:36+00:00"
+      "updated_at": "2026-10-04T08:34:14+00:00"
     },
     "타마스시|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
