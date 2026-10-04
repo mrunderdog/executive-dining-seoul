@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1469,
-    "success_count": 1223,
-    "updated_at": "2026-10-04T08:22:41+00:00"
+    "record_count": 1472,
+    "success_count": 1226,
+    "updated_at": "2026-10-04T08:27:03+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -7716,6 +7716,24 @@
       ],
       "updated_at": "2026-09-28T23:48:07+00:00"
     },
+    "민들레보리밥|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "민들레보리밥",
+      "fingerprint": "b0e7691d0278a7a4",
+      "geocoder_version": 4,
+      "lat": 36.399377807,
+      "lon": 126.582563369,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "민들레보리밥 대한민국",
+      "result_name": "민들레보리밥",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:민들레보리밥 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:27:03+00:00"
+    },
     "민소한우(서린점)|공기업·공공기관": {
       "addr_type": "PointAddress",
       "display_name": "서울특별시 종로구 서린동 종로 22",
@@ -13067,6 +13085,24 @@
       ],
       "updated_at": "2026-10-02T04:56:00+00:00"
     },
+    "시골집염소탕|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "시골집염소탕",
+      "fingerprint": "1138cd2bdfc1fbba",
+      "geocoder_version": 4,
+      "lat": 36.347173519,
+      "lon": 126.625261876,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "시골집염소탕 대한민국",
+      "result_name": "시골집염소탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:시골집염소탕 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:27:03+00:00"
+    },
     "시드니램１９０１|금천구": {
       "addr_type": "PointAddress",
       "display_name": "경기 광명시 하안동 밤일로 8",
@@ -16627,6 +16663,24 @@
         "arcgis:윤가 한웃국 대한민국"
       ],
       "updated_at": "2026-09-23T10:33:43+00:00"
+    },
+    "윤가네간장게장|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "윤가네간장게장",
+      "fingerprint": "30e0440eec9be3cd",
+      "geocoder_version": 4,
+      "lat": 36.345046063,
+      "lon": 126.623196534,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "윤가네간장게장 대한민국",
+      "result_name": "윤가네간장게장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:윤가네간장게장 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:27:02+00:00"
     },
     "윤가네남원추어탕|법조·법률행정": {
       "addr_type": "POI",
