@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-04T08:26:14",
+  "generated_at": "2026-10-04T08:33:34",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 132,
-  "entity_count": 98,
-  "eligible_count": 98,
+  "meal_rows": 131,
+  "entity_count": 96,
+  "eligible_count": 96,
   "candidates": [
     {
       "merchant": "좋구먼 반상 율동점",
@@ -770,6 +770,53 @@
       ]
     },
     {
+      "merchant": "유일초밥",
+      "address": "",
+      "phone": "",
+      "score": 59.0,
+      "visits": 2,
+      "months": 2,
+      "spend": 192729,
+      "institution_count": 1,
+      "institutions": [
+        "한국중부발전"
+      ],
+      "date_min": "2026-04-23",
+      "date_max": "2026-08-26",
+      "purpose_stats": [
+        {
+          "text": "에너지환경정책실 직원 소통간담회",
+          "count": 1
+        },
+        {
+          "text": "재생에너지사업처 직원 소통간담회",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-26",
+          "time": "",
+          "institution": "한국중부발전",
+          "role": "사장",
+          "amount": 104546,
+          "people": 7,
+          "purpose": "재생에너지사업처 직원 소통간담회",
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22892"
+        },
+        {
+          "date": "2026-04-23",
+          "time": "",
+          "institution": "한국중부발전",
+          "role": "사장",
+          "amount": 88183,
+          "people": 10,
+          "purpose": "에너지환경정책실 직원 소통간담회",
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22617"
+        }
+      ]
+    },
+    {
       "merchant": "대구(초례담)",
       "address": "",
       "phone": "",
@@ -1063,6 +1110,39 @@
           "people": 12,
           "purpose": "전력산업 개편방향 정책 동향",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "보령한우",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 300000,
+      "institution_count": 1,
+      "institutions": [
+        "한국중부발전"
+      ],
+      "date_min": "2025-09-29",
+      "date_max": "2025-09-29",
+      "purpose_stats": [
+        {
+          "text": "재무개선처 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-29",
+          "time": "",
+          "institution": "한국중부발전",
+          "role": "사장",
+          "amount": 300000,
+          "people": 20,
+          "purpose": "재무개선처 직원 격려",
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=21365"
         }
       ]
     },
@@ -2131,39 +2211,6 @@
       ]
     },
     {
-      "merchant": "민들레보리밥",
-      "address": "",
-      "phone": "",
-      "score": 46.2,
-      "visits": 1,
-      "months": 1,
-      "spend": 120000,
-      "institution_count": 1,
-      "institutions": [
-        "한국중부발전"
-      ],
-      "date_min": "2026-05-21",
-      "date_max": "2026-05-21",
-      "purpose_stats": [
-        {
-          "text": "글로벌사업기획실 직원 소통간담회",
-          "count": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-05-21",
-          "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 120000,
-          "people": 9,
-          "purpose": "글로벌사업기획실 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22619"
-        }
-      ]
-    },
-    {
       "merchant": "가나안 덕",
       "address": "",
       "phone": "",
@@ -2292,72 +2339,6 @@
           "people": 9,
           "purpose": "인사운영실 직원 격려",
           "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22616"
-        }
-      ]
-    },
-    {
-      "merchant": "유일초밥",
-      "address": "",
-      "phone": "",
-      "score": 46.1,
-      "visits": 1,
-      "months": 1,
-      "spend": 104546,
-      "institution_count": 1,
-      "institutions": [
-        "한국중부발전"
-      ],
-      "date_min": "2026-08-26",
-      "date_max": "2026-08-26",
-      "purpose_stats": [
-        {
-          "text": "재생에너지사업처 직원 소통간담회",
-          "count": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-08-26",
-          "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 104546,
-          "people": 7,
-          "purpose": "재생에너지사업처 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22892"
-        }
-      ]
-    },
-    {
-      "merchant": "석갈비",
-      "address": "",
-      "phone": "",
-      "score": 46.1,
-      "visits": 1,
-      "months": 1,
-      "spend": 104000,
-      "institution_count": 1,
-      "institutions": [
-        "한국중부발전"
-      ],
-      "date_min": "2025-07-29",
-      "date_max": "2025-07-29",
-      "purpose_stats": [
-        {
-          "text": "총무부 직원 격려",
-          "count": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-07-29",
-          "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 104000,
-          "people": 5,
-          "purpose": "총무부 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=20696"
         }
       ]
     },
@@ -2541,39 +2522,6 @@
           "people": 0,
           "purpose": "",
           "source": "https://www.lh.or.kr/boardDownload.es?bid=0018&list_no=723682&seq=1"
-        }
-      ]
-    },
-    {
-      "merchant": "가보세굴수산",
-      "address": "",
-      "phone": "",
-      "score": 46.0,
-      "visits": 1,
-      "months": 1,
-      "spend": 87274,
-      "institution_count": 1,
-      "institutions": [
-        "한국중부발전"
-      ],
-      "date_min": "2026-01-08",
-      "date_max": "2026-01-08",
-      "purpose_stats": [
-        {
-          "text": "환경정책실 직원 격려",
-          "count": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-01-08",
-          "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 87274,
-          "people": 6,
-          "purpose": "환경정책실 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22614"
         }
       ]
     },
