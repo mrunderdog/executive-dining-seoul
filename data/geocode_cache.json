@@ -9,7 +9,7 @@
     ],
     "record_count": 1472,
     "success_count": 1227,
-    "updated_at": "2026-10-04T10:34:47+00:00"
+    "updated_at": "2026-10-04T10:38:59+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -430,22 +430,22 @@
       "updated_at": "2026-09-18T23:15:42+00:00"
     },
     "가보세굴수산|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "가보세굴수산",
-      "fingerprint": "a8af72c68411cd43",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 천북면 장은리 홍보로 1061-93",
+      "fingerprint": "0c43be5125a706b3",
       "geocoder_version": 4,
-      "lat": 36.506984017,
-      "lon": 126.485838226,
-      "match_mode": "name",
+      "lat": 36.505987717074,
+      "lon": 126.483124106416,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "가보세굴수산 대한민국",
-      "result_name": "가보세굴수산",
+      "query": "충청남도 보령시 천북면 홍보로 1061-93",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:가보세굴수산 대한민국"
+        "arcgis:충청남도 보령시 천북면 홍보로 1061-93"
       ],
-      "updated_at": "2026-10-04T08:22:38+00:00"
+      "updated_at": "2026-10-04T10:38:59+00:00"
     },
     "가보정|경기도의회": {
       "display_name": "가보정, 282, 장다리로, 인계동, 팔달구, 수원시, 경기도, 16481, 대한민국",
@@ -7724,22 +7724,22 @@
       "updated_at": "2026-09-28T23:48:07+00:00"
     },
     "민들레보리밥|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "민들레보리밥",
-      "fingerprint": "b0e7691d0278a7a4",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 주포면 관산리 역말길 39",
+      "fingerprint": "0aae0d6b9a255557",
       "geocoder_version": 4,
-      "lat": 36.399377807,
-      "lon": 126.582563369,
-      "match_mode": "name",
+      "lat": 36.399353354424,
+      "lon": 126.582535657372,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "민들레보리밥 대한민국",
-      "result_name": "민들레보리밥",
+      "query": "충청남도 보령시 주포면 역말길 39",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:민들레보리밥 대한민국"
+        "arcgis:충청남도 보령시 주포면 역말길 39"
       ],
-      "updated_at": "2026-10-04T08:27:03+00:00"
+      "updated_at": "2026-10-04T10:38:57+00:00"
     },
     "민소한우(서린점)|공기업·공공기관": {
       "addr_type": "PointAddress",
@@ -11228,22 +11228,22 @@
       "updated_at": "2026-09-17T23:03:57+00:00"
     },
     "석갈비|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "석갈비",
-      "fingerprint": "152cb9e002fe30be",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 대천동 대흥로 91-1",
+      "fingerprint": "b5d7c7df353b4605",
       "geocoder_version": 4,
-      "lat": 37.481940071,
-      "lon": 126.745553825,
-      "match_mode": "name",
+      "lat": 36.352008886799,
+      "lon": 126.589506299509,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "석갈비 대한민국",
-      "result_name": "석갈비",
+      "query": "충청남도 보령시 대흥로 91-1",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:석갈비 대한민국"
+        "arcgis:충청남도 보령시 대흥로 91-1"
       ],
-      "updated_at": "2026-10-04T08:22:36+00:00"
+      "updated_at": "2026-10-04T10:38:58+00:00"
     },
     "선영소 (소호정)|중앙정부": {
       "failed": true,
