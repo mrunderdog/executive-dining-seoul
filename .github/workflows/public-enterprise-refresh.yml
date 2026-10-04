@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'pipeline/public_enterprise_discovery.py'
+      - 'pipeline/public_enterprise_komipo.py'
       - 'pipeline/ingest_public_enterprise_expense.py'
       - 'pipeline/build_public_enterprise_candidates.py'
       - 'sources/public_enterprise_registry.json'
@@ -36,8 +37,9 @@ jobs:
 
       - name: Refresh public-enterprise sources
         run: |
-          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/ingest_public_enterprise_expense.py
+          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/public_enterprise_komipo.py pipeline/ingest_public_enterprise_expense.py
           python pipeline/public_enterprise_discovery.py --incremental --detail-limit 24
+          python pipeline/public_enterprise_komipo.py
           python pipeline/ingest_public_enterprise_expense.py --incremental
           python pipeline/build_public_enterprise_candidates.py
           python pipeline/geocode_extra_cache.py
