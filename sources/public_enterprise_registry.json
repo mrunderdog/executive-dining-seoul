@@ -224,6 +224,21 @@
         "https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0066&disclosureNo=&reportFormRootNo=20701"
       ],
       "note": "ALIO 2025 공식 XLSX를 직접 검증했으나 집행월·집행내역·금액만 있고 merchant/사용처가 없어 지도 데이터로 출판 불가."
+    },
+    {
+      "key": "komipo",
+      "institution": "한국중부발전",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "사장",
+      "format_hint": "hwpx-detail",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1"
+      ],
+      "note": "한국중부발전 공식 업무추진비 게시판 사장 탭(KH041301). 월별 HWPX에 사용일자·목적·사용처(장소)·인원·금액의 거래별 내역이 공개됨. KOMIPO 전용 adapter가 TLS runner 우회와 HWPX 표 파싱을 담당."
     }
   ]
 }
