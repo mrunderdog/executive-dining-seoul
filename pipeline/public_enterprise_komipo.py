@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html, io, json, re, ssl, urllib.parse, urllib.request, zipfile
+import html, io, json, re, ssl, time, urllib.parse, urllib.request, zipfile
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime
@@ -20,8 +20,15 @@ def request(url,data=None,referer=None):
     headers={'User-Agent':UA,'Accept':'*/*'}
     if data is not None:headers['Content-Type']='application/x-www-form-urlencoded'
     if referer:headers['Referer']=referer
-    req=urllib.request.Request(url,data=data,headers=headers)
-    with urllib.request.urlopen(req,timeout=20,context=CTX) as r:return r.read(),r.headers
+    last=None
+    for attempt in range(3):
+        try:
+            req=urllib.request.Request(url,data=data,headers=headers)
+            with urllib.request.urlopen(req,timeout=25,context=CTX) as r:return r.read(),r.headers
+        except Exception as e:
+            last=e
+            if attempt<2:time.sleep(1.5*(attempt+1))
+    raise last
 
 def text(s):return ' '.join(html.unescape(re.sub(r'<[^>]+>',' ',s or '')).split())
 def local(tag):return tag.split('}',1)[-1] if '}' in tag else tag
@@ -50,7 +57,6 @@ def document_tables(blob,file_name):
     if zipfile.is_zipfile(io.BytesIO(blob)):
         tables=hwpx_tables(blob)
         if tables:return tables
-    # Legacy HWP and any other supported document type use the shared parser.
     return list(rows_from(blob,file_name))
 
 def find_header(rows):
@@ -140,7 +146,7 @@ def main():
             try:url,found=fut.result();pages.append(url);posts.update(found)
             except Exception as e:errors.append(f'listing {p}: {type(e).__name__}: {e}')
     inline=[]
-    with ThreadPoolExecutor(max_workers=6) as pool:
+    with ThreadPoolExecutor(max_workers=4) as pool:
         futs={pool.submit(process_post,seq,item):seq for seq,item in posts.items()}
         for fut in as_completed(futs):
             seq=futs[fut]
