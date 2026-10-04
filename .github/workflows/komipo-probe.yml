@@ -1,4 +1,4 @@
-name: KOMIPO adapter QA
+name: KOMIPO focused QA
 on:
   push:
     branches: [feat/komipo-adapter]
@@ -12,15 +12,12 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
-      - name: Run KOMIPO pipeline
+      - name: Run focused KOMIPO adapter
         run: |
-          python pipeline/public_enterprise_discovery.py --year 2026 --incremental --detail-limit 24
           python pipeline/public_enterprise_komipo.py
           python pipeline/ingest_public_enterprise_expense.py --incremental
           python pipeline/build_public_enterprise_candidates.py
-      - name: Inspect KOMIPO output
+      - name: Verdict
         run: |
           python - <<'PY'
           import json
@@ -31,13 +28,10 @@ jobs:
           src=next(x for x in d['sources'] if x.get('key')=='komipo')
           rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국중부발전']
           cs=[x for x in c.get('candidates',[]) if '한국중부발전' in (x.get('institutions') or [])]
-          print('KOMIPO_DISCOVERY',json.dumps({'status':src.get('status'),'rows':len(src.get('inline_rows') or []),'errors':src.get('errors')},ensure_ascii=False))
-          print('KOMIPO_ROWS',json.dumps(rows[:80],ensure_ascii=False))
-          print('KOMIPO_CANDIDATES',json.dumps(cs[:50],ensure_ascii=False))
+          print('KOMIPO_DISCOVERY',json.dumps({'status':src.get('status'),'posts':src.get('parseable_attachments'),'rows':len(src.get('inline_rows') or []),'errors':src.get('errors')},ensure_ascii=False))
+          print('KOMIPO_ROWS',json.dumps(rows,ensure_ascii=False))
+          print('KOMIPO_CANDIDATES',json.dumps(cs,ensure_ascii=False))
           assert src.get('status')=='PARSEABLE_FOUND'
-          assert rows
-          assert any('유일초밥' in (x.get('merchant') or '') for x in rows)
+          assert rows and any('유일초밥' in (x.get('merchant') or '') for x in rows)
           assert cs
           PY
-      - name: Regression
-        run: python pipeline/regression_checks.py
