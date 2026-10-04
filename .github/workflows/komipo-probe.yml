@@ -10,23 +10,34 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Print download script sources only
+      - name: Download latest president HWPX and inspect text
         run: |
           python - <<'PY'
-          import re,html,ssl,urllib.parse,urllib.request
-          base='https://www.komipo.co.kr/kor/board/BRD_000065/'
-          page=base+'boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'
+          import re,html,ssl,urllib.parse,urllib.request,zipfile,io
           ua='Mozilla/5.0 ExecutiveDiningSeoul/2.1';ctx=ssl._create_unverified_context()
-          data=urllib.parse.urlencode({'pageIndex':'1','mnCd':'FN010712','boardSeq':'22892','schTabCd':'KH041301'}).encode()
-          h={'User-Agent':ua,'Accept':'text/html,*/*','Referer':page,'Content-Type':'application/x-www-form-urlencoded'}
-          with urllib.request.urlopen(urllib.request.Request(base+'boardView.do?mnCd=FN010712',data=data,headers=h),timeout=30,context=ctx) as r:
-              doc=r.read().decode(r.headers.get_content_charset() or 'utf-8',errors='replace')
-          scripts=[urllib.parse.urljoin(base,html.unescape(x)) for x in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',doc,re.I)]
-          print('SCRIPTS',repr(scripts))
-          token='CMS0000000002026090813333051110059'
-          i=doc.find("download('"+token)
-          print('CALL_SNIP',doc[max(0,i-1800):i+2200].replace('\n',' ') if i>=0 else 'missing')
-          for pat in ['board.download','var board','const board','let board']:
-              m=re.search(re.escape(pat),doc,re.I)
-              if m: print('INLINE',pat,doc[max(0,m.start()-1200):m.start()+3500].replace('\n',' ')[:4700])
+          referer='https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712'
+          fields={
+            'pageIndex':'1','mnCd':'FN010712','boardSeq':'22892','boardCd':'BRD_000065',
+            'atchFileId':'CMS0000000002026090813333051110059','fileSn':'1','formNo':'','schTabCd':'KH041301'
+          }
+          data=urllib.parse.urlencode(fields).encode()
+          headers={'User-Agent':ua,'Accept':'*/*','Referer':referer,'Content-Type':'application/x-www-form-urlencoded'}
+          req=urllib.request.Request('https://www.komipo.co.kr/atch/fileDown.do',data=data,headers=headers)
+          with urllib.request.urlopen(req,timeout=45,context=ctx) as r:
+              blob=r.read(); print('STATUS',r.status,'CTYPE',r.headers.get('Content-Type'),'DISP',r.headers.get('Content-Disposition'),'BYTES',len(blob),'MAGIC',blob[:8])
+          if not zipfile.is_zipfile(io.BytesIO(blob)):
+              print('NOT_ZIP_HEAD',blob[:500]); raise SystemExit('download is not HWPX/ZIP')
+          z=zipfile.ZipFile(io.BytesIO(blob))
+          names=[n for n in z.namelist() if n.lower().endswith('.xml')]
+          texts=[]
+          for n in names:
+              s=z.read(n).decode('utf-8',errors='ignore')
+              # HWPX text nodes use hp:t; stripping tags preserves table cell order reasonably for verdicting.
+              vals=[html.unescape(re.sub(r'<[^>]+>','',x)).strip() for x in re.findall(r'<(?:hp:)?t[^>]*>(.*?)</(?:hp:)?t>',s,re.S|re.I)]
+              vals=[v for v in vals if v]
+              if vals:texts.extend(vals)
+          print('TEXT',repr(texts[:500]))
+          joined=' | '.join(texts)
+          print('MERCHANT_TERMS',[(x, x in joined) for x in ['사용처','장소','상호','업체명','식당']])
+          print('VERDICT_TEXT_LEN',len(joined))
           PY
