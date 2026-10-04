@@ -1,43 +1,45 @@
-name: KOMIPO merchant verdict
+name: KOMIPO source registration
 on:
   push:
     branches: [feat/komipo-adapter]
+permissions:
+  contents: write
 jobs:
-  probe:
+  register:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Download latest president HWPX and inspect text
+      - name: Register KOMIPO source
         run: |
           python - <<'PY'
-          import re,html,ssl,urllib.parse,urllib.request,zipfile,io
-          ua='Mozilla/5.0 ExecutiveDiningSeoul/2.1';ctx=ssl._create_unverified_context()
-          referer='https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712'
-          fields={
-            'pageIndex':'1','mnCd':'FN010712','boardSeq':'22892','boardCd':'BRD_000065',
-            'atchFileId':'CMS0000000002026090813333051110059','fileSn':'1','formNo':'','schTabCd':'KH041301'
-          }
-          data=urllib.parse.urlencode(fields).encode()
-          headers={'User-Agent':ua,'Accept':'*/*','Referer':referer,'Content-Type':'application/x-www-form-urlencoded'}
-          req=urllib.request.Request('https://www.komipo.co.kr/atch/fileDown.do',data=data,headers=headers)
-          with urllib.request.urlopen(req,timeout=45,context=ctx) as r:
-              blob=r.read(); print('STATUS',r.status,'CTYPE',r.headers.get('Content-Type'),'DISP',r.headers.get('Content-Disposition'),'BYTES',len(blob),'MAGIC',blob[:8])
-          if not zipfile.is_zipfile(io.BytesIO(blob)):
-              print('NOT_ZIP_HEAD',blob[:500]); raise SystemExit('download is not HWPX/ZIP')
-          z=zipfile.ZipFile(io.BytesIO(blob))
-          names=[n for n in z.namelist() if n.lower().endswith('.xml')]
-          texts=[]
-          for n in names:
-              s=z.read(n).decode('utf-8',errors='ignore')
-              # HWPX text nodes use hp:t; stripping tags preserves table cell order reasonably for verdicting.
-              vals=[html.unescape(re.sub(r'<[^>]+>','',x)).strip() for x in re.findall(r'<(?:hp:)?t[^>]*>(.*?)</(?:hp:)?t>',s,re.S|re.I)]
-              vals=[v for v in vals if v]
-              if vals:texts.extend(vals)
-          print('TEXT',repr(texts[:500]))
-          joined=' | '.join(texts)
-          print('MERCHANT_TERMS',[(x, x in joined) for x in ['사용처','장소','상호','업체명','식당']])
-          print('VERDICT_TEXT_LEN',len(joined))
+          import json
+          from pathlib import Path
+          p=Path('sources/public_enterprise_registry.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          if not any(x.get('key')=='komipo' for x in d.get('sources',[])):
+              d['sources'].append({
+                  'key':'komipo',
+                  'institution':'한국중부발전',
+                  'cohort':'public_enterprise_leadership',
+                  'verified':True,
+                  'publish':True,
+                  'refresh_policy':'monthly',
+                  'default_role':'사장',
+                  'format_hint':'hwpx-detail',
+                  'lookback_years':1,
+                  'listing_urls':['https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'],
+                  'note':'한국중부발전 공식 업무추진비 게시판 사장 탭(KH041301). 월별 HWPX에 사용일자·목적·사용처(장소)·인원·금액의 거래별 내역이 공개됨. KOMIPO 전용 adapter가 TLS runner 우회와 HWPX 표 파싱을 담당.'
+              })
+              p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sources/public_enterprise_registry.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data: register KOMIPO president expense source'
+          git push origin HEAD:feat/komipo-adapter
