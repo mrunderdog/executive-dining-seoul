@@ -14,126 +14,30 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Patch KOMIPO adapter and registry
+      - name: Connect KOMIPO adapter
         run: |
           python - <<'PY'
           from pathlib import Path
           import json
           p=Path('pipeline/public_enterprise_discovery.py')
           s=p.read_text(encoding='utf-8')
-          s=s.replace('import argparse, html, json, re, urllib.parse, urllib.request\n', 'import argparse, html, io, json, re, ssl, urllib.parse, urllib.request, zipfile\nimport xml.etree.ElementTree as ET\n')
-          marker='def discover_source(src,year,detail_limit):\n'
-          adapter=r'''def _komipo_request(url,data=None,referer=None,binary=False):
-    ctx=ssl._create_unverified_context()
-    headers={"User-Agent":UA,"Accept":"*/*","Referer":referer or url}
-    if data is not None:headers["Content-Type"]="application/x-www-form-urlencoded"
-    req=urllib.request.Request(url,data=data,headers=headers)
-    with urllib.request.urlopen(req,timeout=35,context=ctx) as r:
-        raw=r.read()
-        return raw if binary else decode(raw,r.headers.get_content_charset())
-
-def _local(tag):
-    return tag.rsplit('}',1)[-1].split(':')[-1].lower()
-
-def _hwpx_tables(blob):
-    if not zipfile.is_zipfile(io.BytesIO(blob)):return []
-    z=zipfile.ZipFile(io.BytesIO(blob));tables=[]
-    for name in z.namelist():
-        if not (name.lower().endswith('.xml') and ('section' in name.lower() or 'contents/' in name.lower())):continue
-        try:root=ET.fromstring(z.read(name))
-        except Exception:continue
-        for tbl in (x for x in root.iter() if _local(x.tag)=='tbl'):
-            rows=[]
-            for tr in (x for x in tbl.iter() if _local(x.tag)=='tr'):
-                cells=[]
-                for tc in [x for x in list(tr) if _local(x.tag)=='tc']:
-                    vals=[]
-                    for node in tc.iter():
-                        if _local(node.tag)=='t' and node.text:vals.append(node.text)
-                    cells.append(' '.join(' '.join(vals).split()))
-                if cells:rows.append(cells)
-            if rows:tables.append(rows)
-    return tables
-
-def _komipo_date(text,year):
-    nums=[int(x) for x in re.findall(r'\d+',text or '')]
-    if len(nums)>=3:
-        y=nums[0];y=(2000+y if y<100 else y);m=nums[1];d=nums[2]
-    elif len(nums)>=2:y=year;m=nums[0];d=nums[1]
-    else:return ''
-    try:return datetime(y,m,d).date().isoformat()
-    except Exception:return ''
-
-def discover_komipo(src,year,detail_limit):
-    base=(src.get("listing_urls") or [""])[0]
-    years={year,year-1}
-    out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","사장"),"years":sorted(years),"pages":[],"attachments":[],"inline_rows":[],"errors":[],"inline_replace":True}
-    parsed=urllib.parse.urlsplit(base)
-    q0=dict(urllib.parse.parse_qsl(parsed.query,keep_blank_values=True))
-    posts={}
-    for page_no in range(1,6):
-        q=dict(q0);q['pageIndex']=str(page_no);q['schTabCd']='KH041301'
-        listing=urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,urllib.parse.urlencode(q),parsed.fragment))
-        try:doc=_komipo_request(listing)
-        except Exception as e:out['errors'].append(f"listing {listing}: {type(e).__name__}: {e}");continue
-        out['pages'].append(listing)
-        for m in re.finditer(r'<a\b[^>]*href=["\']javascript:board\.view\(["\']?(\d+)["\']?\);?["\'][^>]*>(.*?)</a>',doc,re.S|re.I):
-            seq=m.group(1);title=' '.join(html.unescape(re.sub(r'<[^>]+>',' ',m.group(2))).split())
-            if '업무추진비' not in title or not re.search(r'(^|[^부본])사장\s*업무추진비',title):continue
-            y,mo=extract_year_month(title)
-            if y not in years:continue
-            posts[seq]=(title,y,mo)
-    detail_url=urllib.parse.urljoin(base,'boardView.do?mnCd=FN010712')
-    download_url=urllib.parse.urljoin(base,'/atch/fileDown.do')
-    for seq,(title,y,mo) in sorted(posts.items(),key=lambda x:(x[1][1] or 0,x[1][2] or 0),reverse=True)[:detail_limit]:
-        form={'pageIndex':'1','mnCd':'FN010712','boardSeq':seq,'boardCd':'BRD_000065','atchFileId':'','fileSn':'','formNo':'','schTabCd':'KH041301'}
-        try:doc=_komipo_request(detail_url,urllib.parse.urlencode(form).encode(),base)
-        except Exception as e:out['errors'].append(f"detail {seq}: {type(e).__name__}: {e}");continue
-        out['pages'].append(base+'#boardSeq='+seq)
-        am=None
-        for m in re.finditer(r'<a\b[^>]*href=["\']javascript:board\.download\(["\']([^"\']+)["\']\s*,\s*["\']([^"\']+)["\']\);?["\'][^>]*>(.*?)</a>',doc,re.S|re.I):
-            label=' '.join(html.unescape(re.sub(r'<[^>]+>',' ',m.group(3))).split())
-            if '업무추진비' in label and label.lower().endswith('.hwpx'):
-                am=(m.group(1),m.group(2),label);break
-        if not am:continue
-        atch,file_sn,label=am;df=dict(form);df.update({'atchFileId':atch,'fileSn':file_sn})
-        try:blob=_komipo_request(download_url,urllib.parse.urlencode(df).encode(),detail_url,binary=True)
-        except Exception as e:out['errors'].append(f"download {seq}: {type(e).__name__}: {e}");continue
-        out['attachments'].append({'text':label,'url':base+'#file='+atch+'-'+file_sn,'year':y,'month':mo,'parent':base+'#boardSeq='+seq,'attachment_id':atch+'|'+file_sn})
-        for table in _hwpx_tables(blob):
-            hi=None;headers=[]
-            for i,row in enumerate(table):
-                joined=' '.join(row)
-                if '사용일자' in joined and '사용처' in joined and '집행금액' in joined:hi=i;headers=row;break
-            if hi is None:continue
-            norm=[''.join(x.split()) for x in headers]
-            def idx(term):
-                return next((i for i,x in enumerate(norm) if term in x),None)
-            di,pi,mi,ti,ci,ni,ai=idx('사용일자'),idx('집행내역'),idx('사용처'),idx('집행대상자'),idx('집행구분'),idx('인원'),idx('집행금액')
-            if None in (di,pi,mi,ai):continue
-            for ri,row in enumerate(table[hi+1:],start=hi+2):
-                if len(row)<=max(di,pi,mi,ai):continue
-                merchant=' '.join(row[mi].split())
-                if not merchant or merchant in ('계','합계') or row[di].strip() in ('계','합계'):continue
-                used=_komipo_date(row[di],y)
-                if not used:continue
-                amount_text=row[ai].replace(',','');amv=re.search(r'-?\d+(?:\.\d+)?',amount_text)
-                amount=int(round(float(amv.group()))) if amv else None
-                people=None
-                if ni is not None and ni<len(row):
-                    pm=re.search(r'\d+',row[ni]);people=int(pm.group()) if pm else None
-                out['inline_rows'].append({'source_key':src['key'],'institution':src['institution'],'cohort':src.get('cohort','public_enterprise_leadership'),'role':src.get('default_role','사장'),'department':'','used_date':used,'used_time':'','merchant':merchant,'address':'','purpose':' '.join(row[pi].split()),'people':people,'amount':amount,'source_amount_scale':1,'payment_method':(' '.join(row[ci].split()) if ci is not None and ci<len(row) else ''),'source_category':'사장 업무추진비','source_url':base+'#boardSeq='+seq,'source_sheet':label,'source_row':ri,'target':(' '.join(row[ti].split()) if ti is not None and ti<len(row) else '')})
-    out['parseable_attachments']=len(out['attachments'])
-    out['status']='PARSEABLE_FOUND' if out['inline_rows'] else ('FETCH_FAILED' if out['errors'] else 'NO_FILES_FOUND')
-    return out
-
-'''
-          if 'def discover_komipo(' not in s:s=s.replace(marker,adapter+marker)
-          s=s.replace('    if src.get("key")=="kospo" and src.get("verified") and src.get("publish"):\n        return discover_kospo(src,year)\n', '    if src.get("key")=="kospo" and src.get("verified") and src.get("publish"):\n        return discover_kospo(src,year)\n    if src.get("key")=="komipo" and src.get("verified") and src.get("publish"):\n        return discover_komipo(src,year,detail_limit)\n')
+          if 'from komipo_adapter import discover_komipo' not in s:
+              s=s.replace('from pathlib import Path\n','from pathlib import Path\nfrom komipo_adapter import discover_komipo\n')
+          needle='    if src.get("key")=="kospo" and src.get("verified") and src.get("publish"):\n        return discover_kospo(src,year)\n'
+          replacement=needle+'    if src.get("key")=="komipo" and src.get("verified") and src.get("publish"):\n        return discover_komipo(src,year,detail_limit)\n'
+          if 'src.get("key")=="komipo"' not in s:
+              s=s.replace(needle,replacement)
           p.write_text(s,encoding='utf-8')
-          rp=Path('sources/public_enterprise_registry.json');reg=json.loads(rp.read_text(encoding='utf-8'))
+          rp=Path('sources/public_enterprise_registry.json')
+          reg=json.loads(rp.read_text(encoding='utf-8'))
           if not any(x.get('key')=='komipo' for x in reg['sources']):
-            reg['sources'].append({'key':'komipo','institution':'한국중부발전','cohort':'public_enterprise_leadership','verified':True,'publish':True,'refresh_policy':'monthly','default_role':'사장','format_hint':'hwpx-monthly-detail','lookback_years':1,'listing_urls':['https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'],'note':'한국중부발전 공식 업무추진비 게시판 사장 탭(KH041301). 월별 HWPX에 사용일자·목적·사용처(장소)·대상·집행구분·인원·금액이 거래별 공개되어 HWPX adapter로 수집.'})
+              reg['sources'].append({
+                'key':'komipo','institution':'한국중부발전','cohort':'public_enterprise_leadership',
+                'verified':True,'publish':True,'refresh_policy':'monthly','default_role':'사장',
+                'format_hint':'hwpx-monthly-detail','lookback_years':1,
+                'listing_urls':['https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'],
+                'note':'한국중부발전 공식 업무추진비 게시판 사장 탭(KH041301). 월별 HWPX에 사용일자·목적·사용처(장소)·대상·집행구분·인원·금액이 거래별 공개되어 HWPX adapter로 수집.'
+              })
           rp.write_text(json.dumps(reg,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
       - name: Install parsers
@@ -152,15 +56,15 @@ def discover_komipo(src,year,detail_limit):
           cs=[x for x in cand.get('candidates',[]) if '한국중부발전' in (x.get('institutions') or [])]
           print('KOMIPO_ROWS',json.dumps(rows[:80],ensure_ascii=False))
           print('KOMIPO_CANDIDATES',json.dumps(cs[:80],ensure_ascii=False))
-          assert rows, 'KOMIPO rows missing'
-          assert any('유일초밥' in (x.get('merchant') or '') for x in rows), rows
-          assert cs, 'KOMIPO dining candidates missing'
+          assert rows
+          assert any('유일초밥' in (x.get('merchant') or '') for x in rows)
+          assert cs
           PY
           python pipeline/regression_checks.py
       - name: Commit adapter and generated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pipeline/public_enterprise_discovery.py sources/public_enterprise_registry.json reports/public-enterprise-discovery.json reports/public-enterprise-ingestion.md reports/public-enterprise-candidates.json reports/public-enterprise-candidates.md data/raw/public_enterprise_expense.json
+          git add pipeline/komipo_adapter.py pipeline/public_enterprise_discovery.py sources/public_enterprise_registry.json reports/public-enterprise-discovery.json reports/public-enterprise-ingestion.md reports/public-enterprise-candidates.json reports/public-enterprise-candidates.md data/raw/public_enterprise_expense.json
           git commit -m "feat: add KOMIPO president HWPX dining adapter"
           git push origin HEAD:feat/komipo-publish
