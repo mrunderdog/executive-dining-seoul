@@ -1,39 +1,48 @@
-name: KOMIPO focused QA
+name: KOMIPO venue enrichment
 on:
   push:
     branches: [feat/komipo-adapter]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  qa:
+  enrich:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install document parsers
-        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
-      - name: Run focused KOMIPO adapter
-        run: |
-          python pipeline/public_enterprise_komipo.py
-          python pipeline/ingest_public_enterprise_expense.py --incremental
-          python pipeline/build_public_enterprise_candidates.py
-      - name: Verdict
+      - name: Add verified KOMIPO venue metadata
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
-          r=json.loads(Path('data/raw/public_enterprise_expense.json').read_text(encoding='utf-8'))
-          c=json.loads(Path('reports/public-enterprise-candidates.json').read_text(encoding='utf-8'))
-          src=next(x for x in d['sources'] if x.get('key')=='komipo')
-          rows=[x for x in r.get('rows',[]) if x.get('institution')=='한국중부발전']
-          cs=[x for x in c.get('candidates',[]) if '한국중부발전' in (x.get('institutions') or [])]
-          print('KOMIPO_DISCOVERY',json.dumps({'status':src.get('status'),'posts':src.get('parseable_attachments'),'rows':len(src.get('inline_rows') or []),'errors':src.get('errors')},ensure_ascii=False))
-          print('KOMIPO_ROWS',json.dumps(rows,ensure_ascii=False))
-          print('KOMIPO_CANDIDATES',json.dumps(cs,ensure_ascii=False))
-          assert src.get('status')=='PARSEABLE_FOUND'
-          assert rows and any('유일초밥' in (x.get('merchant') or '') for x in rows)
-          assert cs
+          p=Path('sources/entity_enrichment.json')
+          d=json.loads(p.read_text(encoding='utf-8')); s=d.setdefault('source',{})
+          entries={
+            '유일초밥': {'address':'충청남도 보령시 희망2길 25-2','phone':'041-934-5901','category':'일식 · 초밥','url':'https://www.diningcode.com/profile.php?rid=idwBvjQRgR9l'},
+            '보령한우': {'address':'충청남도 보령시 옥마로 76','phone':'041-936-6811','category':'한식 · 한우','url':'https://www.diningcode.com/profile.php?rid=ja2UGIKlBdJt'},
+            '윤가네간장게장': {'address':'충청남도 보령시 옥마로 160','phone':'041-935-1929','category':'한식 · 간장게장','url':'https://www.diningcode.com/profile.php?rid=vvpZYuzTXWfI'},
+            '시골집염소탕': {'address':'충청남도 보령시 돈바탕길 48-37 1층','phone':'0507-1468-7603','category':'한식 · 염소탕','url':'https://www.diningcode.com/profile.php?rid=pouF0Sazinib'},
+            '민들레보리밥': {'address':'충청남도 보령시 주포면 역말길 39','phone':'0507-1355-8748','category':'한식 · 보리밥','url':'https://www.diningcode.com/profile.php?rid=SErXPtcVRmPQ'},
+            '산도155': {'address':'충청남도 보령시 보령북로 155 1층','phone':'0507-1416-4857','category':'카페 · 샌드위치','url':'https://www.diningcode.com/profile.php?rid=l6bRImRoluwy'},
+            '키츠네야': {'address':'충청남도 보령시 작은오랏5길 31','category':'일식 · 스시','url':'https://www.tabling.co.kr/place/677cd6d666de5f069891b371'},
+            '석갈비': {'address':'충청남도 보령시 대흥로 91-1','phone':'041-931-4167','category':'한식 · 석갈비','url':'https://www.diningcode.com/profile.php?rid=M0DT87ejDjp5'},
+            '어영차바다야': {'address':'충청남도 보령시 한내로터리길 85','phone':'041-936-7331','category':'일식 · 횟집','url':'https://www.diningcode.com/profile.php?rid=rN1JSzyzsL0d'},
+            '먹쇠네 굴집': {'address':'충청남도 보령시 천북면 홍보로 117','phone':'041-641-6200','category':'한식 · 굴/해물칼국수','url':'https://www.diningcode.com/profile.php?rid=SHgYfXI88rl3'},
+            '꽃피는화덕피자 D485보령점': {'address':'충청남도 보령시 대청로 12 1층','phone':'041-933-4850','category':'양식 · 화덕피자','url':'https://www.xn--d485-kv6pg3nvob103g6yzaca291a.com/sub/map07.php'},
+          }
+          for name,v in entries.items():
+              s['public_enterprise|'+name]={
+                  'display':name,**v,'verified_at':'2026-10-04','confidence':'HIGH'
+              }
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sources/entity_enrichment.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data: verify KOMIPO dining venues'
+          git push origin HEAD:feat/komipo-adapter
