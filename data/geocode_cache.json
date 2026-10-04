@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 245,
+    "failed_count": 246,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1460,
-    "success_count": 1215,
-    "updated_at": "2026-10-02T04:56:58+00:00"
+    "record_count": 1469,
+    "success_count": 1223,
+    "updated_at": "2026-10-04T08:22:41+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -428,6 +428,24 @@
         "arcgis:가마솥회관 과천시"
       ],
       "updated_at": "2026-09-18T23:15:42+00:00"
+    },
+    "가보세굴수산|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "가보세굴수산",
+      "fingerprint": "a8af72c68411cd43",
+      "geocoder_version": 4,
+      "lat": 36.506984017,
+      "lon": 126.485838226,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "가보세굴수산 대한민국",
+      "result_name": "가보세굴수산",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:가보세굴수산 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:38+00:00"
     },
     "가보정|경기도의회": {
       "display_name": "가보정, 282, 장다리로, 인계동, 팔달구, 수원시, 경기도, 16481, 대한민국",
@@ -6779,6 +6797,17 @@
       ],
       "updated_at": "2026-09-23T00:42:19+00:00"
     },
+    "먹쇠네 굴집|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "1af486f20f5f7850",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:먹쇠네 굴집 대한민국",
+        "nominatim:먹쇠네 굴집 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:41+00:00"
+    },
     "메밀이 생각날때|은평구": {
       "addr_type": "PointAddress",
       "display_name": "서울특별시 은평구 녹번동 녹번로 12",
@@ -8585,6 +8614,24 @@
       ],
       "updated_at": "2026-09-21T07:29:01+00:00"
     },
+    "보령한우|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "보령한우",
+      "fingerprint": "59686dcbddc9bd96",
+      "geocoder_version": 4,
+      "lat": 36.339090467,
+      "lon": 126.622848684,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "보령한우 대한민국",
+      "result_name": "보령한우",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:보령한우 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:34+00:00"
+    },
     "보리촌곤드레|법조·법률행정": {
       "addr_type": "POI",
       "display_name": "보리촌곤드레",
@@ -9897,6 +9944,24 @@
       ],
       "updated_at": "2026-09-21T07:28:53+00:00"
     },
+    "산도155|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "산도155",
+      "fingerprint": "9e6c380e67ed8dba",
+      "geocoder_version": 4,
+      "lat": 36.35506155,
+      "lon": 126.58936389,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "산도155 대한민국",
+      "result_name": "산도155",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:산도155 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:35+00:00"
+    },
     "산들해|서초구": {
       "addr_type": "PointAddress",
       "display_name": "서울 서초구 양재동 강남대로 213",
@@ -11137,6 +11202,24 @@
       ],
       "updated_at": "2026-09-17T23:03:57+00:00"
     },
+    "석갈비|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "석갈비",
+      "fingerprint": "152cb9e002fe30be",
+      "geocoder_version": 4,
+      "lat": 37.481940071,
+      "lon": 126.745553825,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "석갈비 대한민국",
+      "result_name": "석갈비",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:석갈비 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:36+00:00"
+    },
     "선영소 (소호정)|중앙정부": {
       "failed": true,
       "fingerprint": "003a049fa1bdf897",
@@ -11306,6 +11389,24 @@
         "nominatim:설화생갈비 인천 남동구"
       ],
       "updated_at": "2026-09-18T17:02:19+00:00"
+    },
+    "성룡|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "성룡",
+      "fingerprint": "973b72d35e7f2779",
+      "geocoder_version": 4,
+      "lat": 37.442367547,
+      "lon": 127.13414873,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "성룡 대한민국",
+      "result_name": "성룡",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:성룡 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:34+00:00"
     },
     "성한가든|성북구": {
       "addr_type": "PointAddress",
@@ -14228,6 +14329,24 @@
       ],
       "updated_at": "2026-09-21T08:46:13+00:00"
     },
+    "어영차바다야|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "어영차바다야",
+      "fingerprint": "fdcc26de8f1d3690",
+      "geocoder_version": 4,
+      "lat": 38.379995,
+      "lon": 128.469734521,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "어영차바다야 대한민국",
+      "result_name": "어영차바다야",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:어영차바다야 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:38+00:00"
+    },
     "어정낙지촌|군포시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 군포시 산본동 군포로745번길 41",
@@ -16364,6 +16483,24 @@
         "arcgis:유일돌구이 부천시"
       ],
       "updated_at": "2026-09-21T07:28:34+00:00"
+    },
+    "유일초밥|공기업·공공기관": {
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 동대동 희망2길 25-2",
+      "fingerprint": "b826d57c3da7c2fa",
+      "geocoder_version": 4,
+      "lat": 36.348066961555,
+      "lon": 126.602605453973,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "충청남도 보령시 희망2길 25-2",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:충청남도 보령시 희망2길 25-2"
+      ],
+      "updated_at": "2026-10-04T08:22:33+00:00"
     },
     "유진식당|서대문구": {
       "addr_type": "POI",
@@ -20975,6 +21112,24 @@
         "arcgis:서울 영등포구 여의대로 128(여의도동, LG트윈타워)동관 5층"
       ],
       "updated_at": "2026-09-18T00:07:26+00:00"
+    },
+    "키츠네야|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "키츠네야",
+      "fingerprint": "4d782a630de1621a",
+      "geocoder_version": 4,
+      "lat": 36.346287819,
+      "lon": 126.604901409,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "키츠네야 대한민국",
+      "result_name": "키츠네야",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:키츠네야 대한민국"
+      ],
+      "updated_at": "2026-10-04T08:22:36+00:00"
     },
     "타마스시|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
