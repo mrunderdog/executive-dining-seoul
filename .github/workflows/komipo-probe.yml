@@ -10,54 +10,23 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Resolve latest HWPX download and inspect text
+      - name: Print download script sources only
         run: |
           python - <<'PY'
-          import re,html,ssl,urllib.parse,urllib.request,zipfile,io
+          import re,html,ssl,urllib.parse,urllib.request
           base='https://www.komipo.co.kr/kor/board/BRD_000065/'
           page=base+'boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1'
           ua='Mozilla/5.0 ExecutiveDiningSeoul/2.1';ctx=ssl._create_unverified_context()
-          def raw(url,data=None,referer=None):
-              h={'User-Agent':ua,'Accept':'*/*','Referer':referer or page}
-              if data is not None:h['Content-Type']='application/x-www-form-urlencoded'
-              with urllib.request.urlopen(urllib.request.Request(url,data=data,headers=h),timeout=30,context=ctx) as r:
-                  return r.read(),dict(r.headers)
           data=urllib.parse.urlencode({'pageIndex':'1','mnCd':'FN010712','boardSeq':'22892','schTabCd':'KH041301'}).encode()
-          blob,_=raw(base+'boardView.do?mnCd=FN010712',data)
-          doc=blob.decode('utf-8',errors='replace')
-          print('DETAIL_BYTES',len(blob))
-          token='CMS0000000002026090813333051110059'; seq='1'
-          # Find board.download implementation in page or loaded scripts.
-          sources=[('detail',doc)]
-          for src in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',doc,re.I):
-              url=urllib.parse.urljoin(base,html.unescape(src))
-              try:
-                  b,_=raw(url,referer=base+'boardView.do?mnCd=FN010712'); sources.append((url,b.decode('utf-8',errors='replace')))
-              except Exception: pass
-          impl=[]
-          for name,text in sources:
-              for pat in [r'board\.download\s*=\s*function\s*\([^)]*\)',r'download\s*:\s*function\s*\([^)]*\)',r'function\s+download\s*\([^)]*\)']:
-                  m=re.search(pat,text,re.I)
-                  if m:
-                      snip=text[max(0,m.start()-500):m.start()+4000]
-                      impl.append((name,snip))
-          print('IMPL_COUNT',len(impl))
-          for name,snip in impl[:5]: print('IMPL',name,snip.replace('\n',' ')[:4500])
-          # Extract likely endpoint from implementation. Try URLs near token/file params.
-          endpoint=None; method='GET'; params={}
-          combined='\n'.join(x[1] for x in impl)
-          urls=re.findall(r'["\']([^"\']*(?:download|fileDown|fileDownload)[^"\']*)["\']',combined,re.I)
-          print('URL_CANDIDATES',urls[:20])
-          # Known common KOMIPO board download shapes are tested only from discovered candidates.
-          for u in urls:
-              if u.startswith('javascript:'): continue
-              candidate=urllib.parse.urljoin(base,u)
-              if '{' in candidate or '+' in candidate: continue
-              endpoint=candidate;break
-          if endpoint is None:
-              # Print form/JS around actual call for a decisive endpoint recovery.
-              i=doc.find("download('"+token)
-              print('CALL_SNIP',doc[max(0,i-3000):i+3000].replace('\n',' ') if i>=0 else 'missing')
-              raise SystemExit('DOWNLOAD_ENDPOINT_NOT_RESOLVED')
-          print('ENDPOINT',endpoint)
+          h={'User-Agent':ua,'Accept':'text/html,*/*','Referer':page,'Content-Type':'application/x-www-form-urlencoded'}
+          with urllib.request.urlopen(urllib.request.Request(base+'boardView.do?mnCd=FN010712',data=data,headers=h),timeout=30,context=ctx) as r:
+              doc=r.read().decode(r.headers.get_content_charset() or 'utf-8',errors='replace')
+          scripts=[urllib.parse.urljoin(base,html.unescape(x)) for x in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',doc,re.I)]
+          print('SCRIPTS',repr(scripts))
+          token='CMS0000000002026090813333051110059'
+          i=doc.find("download('"+token)
+          print('CALL_SNIP',doc[max(0,i-1800):i+2200].replace('\n',' ') if i>=0 else 'missing')
+          for pat in ['board.download','var board','const board','let board']:
+              m=re.search(re.escape(pat),doc,re.I)
+              if m: print('INLINE',pat,doc[max(0,m.start()-1200):m.start()+3500].replace('\n',' ')[:4700])
           PY
