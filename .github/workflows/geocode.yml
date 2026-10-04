@@ -7,6 +7,7 @@ on:
       - 'data/chunks/**'
       - 'data/raw/**'
       - 'reports/*-executive-candidates.json'
+      - 'sources/entity_enrichment.json'
       - 'pipeline/geocode_cache.py'
       - 'pipeline/published_sources.py'
       - 'pipeline/extra_published.py'
