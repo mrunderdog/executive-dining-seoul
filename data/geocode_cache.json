@@ -9,7 +9,7 @@
     ],
     "record_count": 1472,
     "success_count": 1227,
-    "updated_at": "2026-10-04T08:34:44+00:00"
+    "updated_at": "2026-10-04T10:34:47+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -6800,7 +6800,7 @@
     "먹쇠네 굴집|공기업·공공기관": {
       "addr_type": "PointAddress",
       "display_name": "충청남도 보령시 천북면 하만리 홍보로 117",
-      "fingerprint": "3cb0c4df379e9db4",
+      "fingerprint": "112b68db9c1aec48",
       "geocoder_version": 4,
       "lat": 36.448003596835,
       "lon": 126.524334068654,
@@ -6813,7 +6813,7 @@
       "tried_queries": [
         "arcgis:충청남도 보령시 천북면 홍보로 117"
       ],
-      "updated_at": "2026-10-04T08:34:15+00:00"
+      "updated_at": "2026-10-04T10:34:47+00:00"
     },
     "메밀이 생각날때|은평구": {
       "addr_type": "PointAddress",
@@ -9972,20 +9972,20 @@
     "산도155|공기업·공공기관": {
       "addr_type": "PointAddress",
       "display_name": "충청남도 보령시 대천동 보령북로 155",
-      "fingerprint": "d80dcee8fe1445ce",
+      "fingerprint": "6d26c80df337e5a8",
       "geocoder_version": 4,
       "lat": 36.355064300054,
       "lon": 126.589356095805,
       "match_mode": "address",
       "policy_version": 3,
-      "query": "충청남도 보령시 보령북로 155",
+      "query": "충청남도 보령시 보령북로 155 1층",
       "result_name": "",
-      "score": 100.0,
+      "score": 98.75,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:충청남도 보령시 보령북로 155"
+        "arcgis:충청남도 보령시 보령북로 155 1층"
       ],
-      "updated_at": "2026-10-04T08:34:14+00:00"
+      "updated_at": "2026-10-04T10:34:46+00:00"
     },
     "산들해|서초구": {
       "addr_type": "PointAddress",
@@ -13093,22 +13093,22 @@
       "updated_at": "2026-10-02T04:56:00+00:00"
     },
     "시골집염소탕|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "시골집염소탕",
-      "fingerprint": "1138cd2bdfc1fbba",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 동대동 돈바탕길 48-37",
+      "fingerprint": "e2eb85ae384025fd",
       "geocoder_version": 4,
-      "lat": 36.347173519,
-      "lon": 126.625261876,
-      "match_mode": "name",
+      "lat": 36.347314811473,
+      "lon": 126.625419318036,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "시골집염소탕 대한민국",
-      "result_name": "시골집염소탕",
-      "score": 100.0,
+      "query": "충청남도 보령시 돈바탕길 48-37 1층",
+      "result_name": "",
+      "score": 98.82,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:시골집염소탕 대한민국"
+        "arcgis:충청남도 보령시 돈바탕길 48-37 1층"
       ],
-      "updated_at": "2026-10-04T08:27:03+00:00"
+      "updated_at": "2026-10-04T10:34:45+00:00"
     },
     "시드니램１９０１|금천구": {
       "addr_type": "PointAddress",
@@ -16672,22 +16672,22 @@
       "updated_at": "2026-09-23T10:33:43+00:00"
     },
     "윤가네간장게장|공기업·공공기관": {
-      "addr_type": "POI",
-      "display_name": "윤가네간장게장",
-      "fingerprint": "30e0440eec9be3cd",
+      "addr_type": "PointAddress",
+      "display_name": "충청남도 보령시 동대동 옥마로 160",
+      "fingerprint": "d9085e2349376d19",
       "geocoder_version": 4,
-      "lat": 36.345046063,
-      "lon": 126.623196534,
-      "match_mode": "name",
+      "lat": 36.344991180275,
+      "lon": 126.623339767858,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "윤가네간장게장 대한민국",
-      "result_name": "윤가네간장게장",
+      "query": "충청남도 보령시 옥마로 160",
+      "result_name": "",
       "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:윤가네간장게장 대한민국"
+        "arcgis:충청남도 보령시 옥마로 160"
       ],
-      "updated_at": "2026-10-04T08:27:02+00:00"
+      "updated_at": "2026-10-04T10:34:45+00:00"
     },
     "윤가네남원추어탕|법조·법률행정": {
       "addr_type": "POI",
@@ -21177,20 +21177,20 @@
     "키츠네야|공기업·공공기관": {
       "addr_type": "PointAddress",
       "display_name": "충청남도 보령시 동대동 작은오랏5길 31",
-      "fingerprint": "3e224c4a0d562b80",
+      "fingerprint": "bfbb826bef4fb457",
       "geocoder_version": 4,
       "lat": 36.346292386924,
       "lon": 126.604905112928,
       "match_mode": "address",
       "policy_version": 3,
-      "query": "충청남도 보령시 작은오랏5길 31 1층",
+      "query": "충청남도 보령시 작은오랏5길 31",
       "result_name": "",
-      "score": 98.82,
+      "score": 100.0,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:충청남도 보령시 작은오랏5길 31 1층"
+        "arcgis:충청남도 보령시 작은오랏5길 31"
       ],
-      "updated_at": "2026-10-04T08:34:14+00:00"
+      "updated_at": "2026-10-04T10:34:46+00:00"
     },
     "타마스시|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
