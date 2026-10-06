@@ -4,14 +4,16 @@ from __future__ import annotations
 import html
 import json
 import re
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
-from public_enterprise_discovery import extract_year_month, fetch, looks_file, parse_links
+from public_enterprise_discovery import decode, extract_year_month, looks_file, parse_links
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "reports" / "public-enterprise-discovery.json"
+BROWSER_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
 
 SOURCE = {
     "key": "kps",
@@ -24,6 +26,17 @@ SOURCE = {
 }
 
 
+def fetch(url: str) -> str:
+    req = urllib.request.Request(url, headers={
+        "User-Agent": BROWSER_UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
+        "Referer": "https://www.kps.co.kr/",
+    })
+    with urllib.request.urlopen(req, timeout=35) as r:
+        return decode(r.read(), r.headers.get_content_charset())
+
+
 def _listing_urls(years: set[int]) -> list[str]:
     return [f"{SOURCE['listing']}?pageIndex={page}" for page in range(1, 6)]
 
@@ -34,7 +47,6 @@ def _is_target(text: str, years: set[int]) -> bool:
 
 
 def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
-    """Return small HTML contexts around target rows when links are JS/form driven."""
     clean = html.unescape(doc or "")
     snippets = []
     for match in re.finditer(r"업무추진비", clean):
@@ -51,18 +63,11 @@ def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
 def discover(year: int) -> dict:
     years = {year - i for i in range(SOURCE["years_lookback"] + 1)}
     out = {
-        "key": SOURCE["key"],
-        "institution": SOURCE["institution"],
-        "cohort": SOURCE["cohort"],
-        "default_role": SOURCE["default_role"],
-        "years": sorted(years),
-        "pages": [],
-        "attachments": [],
-        "errors": [],
-        "metadata_url": SOURCE["metadata_url"],
-        "diagnostics": [],
+        "key": SOURCE["key"], "institution": SOURCE["institution"],
+        "cohort": SOURCE["cohort"], "default_role": SOURCE["default_role"],
+        "years": sorted(years), "pages": [], "attachments": [], "errors": [],
+        "metadata_url": SOURCE["metadata_url"], "diagnostics": [],
     }
-
     listings = _listing_urls(years)
     listing_docs: list[tuple[str, str]] = []
     with ThreadPoolExecutor(max_workers=min(5, len(listings))) as pool:
@@ -70,100 +75,61 @@ def discover(year: int) -> dict:
         for fut in as_completed(future_map):
             url = future_map[fut]
             try:
-                doc = fut.result()
-                listing_docs.append((url, doc))
-                out["pages"].append(url)
+                doc = fut.result(); listing_docs.append((url, doc)); out["pages"].append(url)
             except Exception as e:
                 out["errors"].append(f"listing {url}: {type(e).__name__}: {e}")
 
     detail_links: list[dict] = []
     direct_files: list[tuple[str, dict]] = []
-    seen_detail: set[str] = set()
-    seen_file: set[str] = set()
-
+    seen_detail: set[str] = set(); seen_file: set[str] = set()
     for listing, doc in listing_docs:
         for link in parse_links(listing, doc):
             label = f"{link.get('text', '')} {link.get('url', '')}".strip()
-            if not _is_target(label, years):
-                continue
+            if not _is_target(label, years): continue
             if looks_file(link):
                 if link["url"] not in seen_file:
-                    seen_file.add(link["url"])
-                    direct_files.append((listing, link))
+                    seen_file.add(link["url"]); direct_files.append((listing, link))
             elif link["url"] not in seen_detail:
-                seen_detail.add(link["url"])
-                detail_links.append(link)
+                seen_detail.add(link["url"]); detail_links.append(link)
 
     for parent, link in direct_files:
         y, m = extract_year_month(link.get("text", ""))
         out["attachments"].append({**link, "year": y, "month": m, "parent": parent})
 
-    def fetch_detail(link: dict):
-        return link, fetch(link["url"])
-
     with ThreadPoolExecutor(max_workers=min(8, max(1, len(detail_links)))) as pool:
-        future_map = {pool.submit(fetch_detail, link): link for link in detail_links}
+        future_map = {pool.submit(fetch, link["url"]): link for link in detail_links}
         for fut in as_completed(future_map):
-            link = future_map[fut]
-            detail_url = link["url"]
-            out["pages"].append(detail_url)
-            try:
-                _, doc = fut.result()
+            link = future_map[fut]; detail_url = link["url"]; out["pages"].append(detail_url)
+            try: doc = fut.result()
             except Exception as e:
-                out["errors"].append(f"detail {detail_url}: {type(e).__name__}: {e}")
-                continue
+                out["errors"].append(f"detail {detail_url}: {type(e).__name__}: {e}"); continue
             for att in parse_links(detail_url, doc):
-                if not looks_file(att):
-                    continue
+                if not looks_file(att): continue
                 label = f"{link.get('text', '')} {att.get('text', '')}".strip()
-                if not _is_target(label, years):
-                    continue
+                if not _is_target(label, years): continue
                 url = att["url"]
-                if url in seen_file:
-                    continue
-                seen_file.add(url)
-                y, m = extract_year_month(label)
-                out["attachments"].append({
-                    "text": label,
-                    "url": url,
-                    "year": y,
-                    "month": m,
-                    "parent": detail_url,
-                })
+                if url in seen_file: continue
+                seen_file.add(url); y, m = extract_year_month(label)
+                out["attachments"].append({"text": label, "url": url, "year": y, "month": m, "parent": detail_url})
 
     if not out["attachments"]:
         for _, doc in sorted(listing_docs)[:2]:
             out["diagnostics"].extend(_diagnostic_snippets(doc, years))
-            if len(out["diagnostics"]) >= 3:
-                break
+            if len(out["diagnostics"]) >= 3: break
 
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
-    out["status"] = "PARSEABLE_FOUND" if out["attachments"] else (
-        "FETCH_FAILED" if out["errors"] and not listing_docs else "NO_FILES_FOUND"
-    )
+    out["status"] = "PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] and not listing_docs else "NO_FILES_FOUND")
     return out
 
 
 def main() -> None:
-    if not REPORT.exists():
-        raise SystemExit("run public_enterprise_discovery.py first")
+    if not REPORT.exists(): raise SystemExit("run public_enterprise_discovery.py first")
     payload = json.loads(REPORT.read_text(encoding="utf-8"))
-    year = int(payload.get("year") or datetime.now().year)
-    fresh = discover(year)
-    sources = [x for x in payload.get("sources", []) if x.get("key") != SOURCE["key"]]
-    sources.append(fresh)
-    payload["sources"] = sources
+    fresh = discover(int(payload.get("year") or datetime.now().year))
+    payload["sources"] = [x for x in payload.get("sources", []) if x.get("key") != SOURCE["key"]] + [fresh]
     REPORT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({
-        "key": fresh["key"],
-        "status": fresh["status"],
-        "pages": len(fresh["pages"]),
-        "attachments": len(fresh["attachments"]),
-        "errors": fresh["errors"][:5],
-        "diagnostics": fresh.get("diagnostics", [])[:3],
-    }, ensure_ascii=False))
+    print(json.dumps({"key": fresh["key"], "status": fresh["status"], "pages": len(fresh["pages"]), "attachments": len(fresh["attachments"]), "errors": fresh["errors"][:5], "diagnostics": fresh.get("diagnostics", [])[:3]}, ensure_ascii=False))
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
