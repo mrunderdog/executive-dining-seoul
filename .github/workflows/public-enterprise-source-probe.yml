@@ -17,36 +17,33 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Probe KPS and KOMSCO
+      - name: Install workbook parser
+        run: pip install --disable-pip-version-check openpyxl==3.1.5
+      - name: Inspect KAMCO workbook
         run: |
-          python -m py_compile pipeline/public_enterprise_kps.py pipeline/public_enterprise_komsco.py
-          python pipeline/public_enterprise_kps.py
-          python pipeline/public_enterprise_komsco.py
           python - <<'PY'
-          import json,re,sys
+          import io, json, sys, urllib.request
           from pathlib import Path
+          import openpyxl
           sys.path.insert(0,'pipeline')
-          import public_enterprise_kps as kps
-          import public_enterprise_komsco as komsco
-          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
-          for key in ('kps','komsco'):
-              x=next((s for s in d.get('sources',[]) if s.get('key')==key),{})
-              print('PROBE',key,json.dumps({
-                  'status':x.get('status'),
-                  'pages':len(x.get('pages') or []),
-                  'attachments':len(x.get('attachments') or []),
-                  'errors':(x.get('errors') or [])[:5],
-                  'diagnostics':(x.get('diagnostics') or [])[:2],
-                  'sample_attachments':(x.get('attachments') or [])[:5],
-              },ensure_ascii=False))
-          for key,url,fn in (
-              ('KPS','https://www.kps.co.kr/open_kps/business/boardList.do?pageIndex=1',kps.fetch),
-              ('KOMSCO','https://www.komsco.com/kor/article/ATCL7e0c1d65f',komsco.fetch),
-          ):
-              doc=fn(url)
-              text=re.sub(r'\s+',' ',doc)
-              print('BROWSER_META',key,'len=',len(doc),'title=',re.findall(r'<title[^>]*>(.*?)</title>',doc,re.I|re.S)[:1])
-              for needle in ('2026','2025','업무추진비','첨부파일','download','file','onclick'):
-                  pos=text.lower().find(needle.lower())
-                  if pos>=0: print('BROWSER_SNIP',key,needle,text[max(0,pos-350):pos+1000])
+          import public_enterprise_kamco as kamco
+          fresh=kamco.discover(2026)
+          print('KAMCO_PROBE',json.dumps({
+              'status':fresh.get('status'),
+              'pages':len(fresh.get('pages') or []),
+              'attachments':len(fresh.get('attachments') or []),
+              'errors':(fresh.get('errors') or [])[:5],
+              'sample':(fresh.get('attachments') or [])[:3],
+          },ensure_ascii=False))
+          for att in (fresh.get('attachments') or [])[:3]:
+              req=urllib.request.Request(att['url'],headers={'User-Agent':'Mozilla/5.0','Referer':att.get('parent') or 'https://www.kamco.or.kr/'})
+              raw=urllib.request.urlopen(req,timeout=35).read()
+              print('FILE',att['text'],'bytes=',len(raw),'magic=',raw[:8])
+              wb=openpyxl.load_workbook(io.BytesIO(raw),data_only=True,read_only=True)
+              print('SHEETS',wb.sheetnames)
+              for ws in wb.worksheets[:2]:
+                  print('SHEET',ws.title,'dim',ws.max_row,ws.max_column)
+                  for idx,row in enumerate(ws.iter_rows(min_row=1,max_row=min(ws.max_row,25),values_only=True),start=1):
+                      vals=[str(x).strip() if x is not None else '' for x in row[:12]]
+                      if any(vals): print('ROW',idx,json.dumps(vals,ensure_ascii=False))
           PY
