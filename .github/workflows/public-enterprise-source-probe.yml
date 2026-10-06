@@ -19,28 +19,32 @@ jobs:
           python-version: '3.12'
       - name: Install workbook parser
         run: pip install --disable-pip-version-check openpyxl==3.1.5
-      - name: Inspect known KAMCO workbook URLs
+      - name: Inspect KAMCO workbook with cookie session
         run: |
           python - <<'PY'
-          import io, json, urllib.request
+          import io, json, http.cookiejar, urllib.request
           import openpyxl
-          files=[
-            ('2025-04','https://www.kamco.or.kr/portal/bbs/FILE_000000000011287'),
-            ('2025-05','https://www.kamco.or.kr/portal/bbs/FILE_000000000011408'),
-            ('2025-03','https://www.kamco.or.kr/portal/bbs/FILE_000000000011150'),
+          ua='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/153.0.0.0 Safari/537.36'
+          items=[
+            ('2025-04','https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479','https://www.kamco.or.kr/portal/bbs/FILE_000000000011287'),
           ]
-          for label,url in files:
-              req=urllib.request.Request(url,headers={
-                  'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/153.0.0.0 Safari/537.36',
-                  'Referer':'https://www.kamco.or.kr/portal/bbs/list.do?ptIdx=479&mId=0601060603',
-              })
-              raw=urllib.request.urlopen(req,timeout=35).read()
+          for label,parent,url in items:
+              jar=http.cookiejar.CookieJar()
+              opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+              opener.addheaders=[('User-Agent',ua),('Accept-Language','ko-KR,ko;q=0.9,en;q=0.7')]
+              page=opener.open(parent,timeout=45).read()
+              print('PARENT',label,'bytes=',len(page),'cookies=',[(c.name,c.value[:12]) for c in jar])
+              req=urllib.request.Request(url,headers={'User-Agent':ua,'Referer':parent,'Accept':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*'})
+              raw=opener.open(req,timeout=45).read()
               print('FILE',label,'bytes=',len(raw),'magic=',raw[:8])
+              if raw[:2] != b'PK':
+                  print('BODY',raw[:1800].decode('utf-8','replace'))
+                  continue
               wb=openpyxl.load_workbook(io.BytesIO(raw),data_only=True,read_only=True)
               print('SHEETS',wb.sheetnames)
               for ws in wb.worksheets[:3]:
                   print('SHEET',ws.title,'dim',ws.max_row,ws.max_column)
-                  for idx,row in enumerate(ws.iter_rows(min_row=1,max_row=min(ws.max_row,35),values_only=True),start=1):
+                  for idx,row in enumerate(ws.iter_rows(min_row=1,max_row=min(ws.max_row,40),values_only=True),start=1):
                       vals=[str(x).strip() if x is not None else '' for x in row[:14]]
                       if any(vals): print('ROW',idx,json.dumps(vals,ensure_ascii=False))
           PY
