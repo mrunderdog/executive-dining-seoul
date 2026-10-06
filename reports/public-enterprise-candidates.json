@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-04T10:38:24",
+  "generated_at": "2026-10-06T03:45:05",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 134,
-  "entity_count": 99,
-  "eligible_count": 99,
+  "meal_rows": 158,
+  "entity_count": 121,
+  "eligible_count": 121,
   "candidates": [
     {
       "merchant": "좋구먼 반상 율동점",
@@ -130,6 +130,96 @@
           "people": 3,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
+        }
+      ]
+    },
+    {
+      "merchant": "스타벅스 코리아",
+      "address": "",
+      "phone": "02-1522-3232",
+      "score": 81.7,
+      "visits": 5,
+      "months": 4,
+      "spend": 237000,
+      "institution_count": 2,
+      "institutions": [
+        "한국남부발전",
+        "한전KDN"
+      ],
+      "date_min": "2025-04-07",
+      "date_max": "2026-05-22",
+      "purpose_stats": [
+        {
+          "text": "에너지업계 동향 및 정책협의",
+          "count": 1
+        },
+        {
+          "text": "에너지시장 동향 및 정책협의",
+          "count": 1
+        },
+        {
+          "text": "에너지풍력사업 경영효율화 방안 협의",
+          "count": 1
+        },
+        {
+          "text": "사행시(케이디엔) 로고송 제작 직원 격려",
+          "count": 1
+        },
+        {
+          "text": "순천지사 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-05-22",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 90000,
+          "people": 3,
+          "purpose": "순천지사 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1786344845154.xlsx&filenameOrg=2026%EB%85%84+5%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24943&seq=1"
+        },
+        {
+          "date": "2026-01-28",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 100000,
+          "people": 2,
+          "purpose": "사행시(케이디엔) 로고송 제작 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1773036414181.xlsx&filenameOrg=2026%EB%85%84+1%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24358&seq=1"
+        },
+        {
+          "date": "2025-11-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 11000,
+          "people": 3,
+          "purpose": "에너지시장 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-11-24",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 12000,
+          "people": 4,
+          "purpose": "에너지풍력사업 경영효율화 방안 협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-04-07",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 24000,
+          "people": 4,
+          "purpose": "에너지업계 동향 및 정책협의",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
     },
@@ -391,67 +481,6 @@
           "amount": 268000,
           "people": 10,
           "purpose": "품질경쟁력 강화 사업개발 관련 업무협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        }
-      ]
-    },
-    {
-      "merchant": "스타벅스 코리아",
-      "address": "",
-      "phone": "",
-      "score": 63.9,
-      "visits": 3,
-      "months": 2,
-      "spend": 47000,
-      "institution_count": 1,
-      "institutions": [
-        "한국남부발전"
-      ],
-      "date_min": "2025-04-07",
-      "date_max": "2025-11-24",
-      "purpose_stats": [
-        {
-          "text": "에너지업계 동향 및 정책협의",
-          "count": 1
-        },
-        {
-          "text": "에너지시장 동향 및 정책협의",
-          "count": 1
-        },
-        {
-          "text": "에너지풍력사업 경영효율화 방안 협의",
-          "count": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-11-24",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 11000,
-          "people": 3,
-          "purpose": "에너지시장 동향 및 정책협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        },
-        {
-          "date": "2025-11-24",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 12000,
-          "people": 4,
-          "purpose": "에너지풍력사업 경영효율화 방안 협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        },
-        {
-          "date": "2025-04-07",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 24000,
-          "people": 4,
-          "purpose": "에너지업계 동향 및 정책협의",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
         }
       ]
@@ -850,6 +879,39 @@
       ]
     },
     {
+      "merchant": "푸에르코숭례문 주식회사",
+      "address": "",
+      "phone": "02-6263-9292",
+      "score": 47.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 412000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-04-27",
+      "date_max": "2026-04-27",
+      "purpose_stats": [
+        {
+          "text": "국가 신보안정책 협력 방안 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-04-27",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 412000,
+          "people": 14,
+          "purpose": "국가 신보안정책 협력 방안 협의",
+          "source": "https://ns.kdn.com/download.kdn?filename=1779088985358.xlsx&filenameOrg=2026%EB%85%84+4%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24622&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "해초록",
       "address": "",
       "phone": "",
@@ -1147,6 +1209,72 @@
       ]
     },
     {
+      "merchant": "CJ올리브영_기프트카드(오프라인)",
+      "address": "",
+      "phone": "02-6252-0000",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 300000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-11-10",
+      "date_max": "2025-11-10",
+      "purpose_stats": [
+        {
+          "text": "2025 대학수능 수험생 및 부모 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-10",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 300000,
+          "people": 10,
+          "purpose": "2025 대학수능 수험생 및 부모 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1765432665521.xlsx&filenameOrg=2025%EB%85%84+11%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24098&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "샘밭막국수",
+      "address": "",
+      "phone": "033-242-1712",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 298000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-10-30",
+      "date_max": "2025-10-30",
+      "purpose_stats": [
+        {
+          "text": "강원사업처 현장직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-30",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 298000,
+          "people": 11,
+          "purpose": "강원사업처 현장직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1764897670717.xlsx&filenameOrg=2025%EB%85%84+10%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24080&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "다원",
       "address": "",
       "phone": "",
@@ -1307,6 +1435,39 @@
       ]
     },
     {
+      "merchant": "진미서산게장",
+      "address": "",
+      "phone": "02-3211-4468",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 270000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-10-22",
+      "date_max": "2025-10-22",
+      "purpose_stats": [
+        {
+          "text": "국정감사 준비직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-10-22",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 270000,
+          "people": 9,
+          "purpose": "국정감사 준비직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1764897670717.xlsx&filenameOrg=2025%EB%85%84+10%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24080&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "윤가네간장게장",
       "address": "",
       "phone": "",
@@ -1336,6 +1497,39 @@
           "people": 15,
           "purpose": "경영진 현안사항 회의",
           "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=20695"
+        }
+      ]
+    },
+    {
+      "merchant": "이화원",
+      "address": "",
+      "phone": "061-333-2133",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 265700,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-01-08",
+      "date_max": "2026-01-08",
+      "purpose_stats": [
+        {
+          "text": "조직이동 관련 이사 준비 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-01-08",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 265700,
+          "people": 13,
+          "purpose": "조직이동 관련 이사 준비 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1773036414181.xlsx&filenameOrg=2026%EB%85%84+1%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24358&seq=1"
         }
       ]
     },
@@ -1406,6 +1600,39 @@
       ]
     },
     {
+      "merchant": "피자스쿨 빛가람점",
+      "address": "",
+      "phone": "061-332-1003",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 251900,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-07-28",
+      "date_max": "2026-07-28",
+      "purpose_stats": [
+        {
+          "text": "전력거래소 시스템 개발직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-07-28",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 251900,
+          "people": 10,
+          "purpose": "전력거래소 시스템 개발직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1786690652003.xlsx&filenameOrg=2026%EB%85%84+7%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24963&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "참숯골",
       "address": "",
       "phone": "",
@@ -1439,6 +1666,72 @@
       ]
     },
     {
+      "merchant": "현대복어",
+      "address": "",
+      "phone": "031-879-6187",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 243000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-02-26",
+      "date_max": "2026-02-26",
+      "purpose_stats": [
+        {
+          "text": "경기북부사업처 현장직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-02-26",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 243000,
+          "people": 9,
+          "purpose": "경기북부사업처 현장직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1775031717174.xlsx&filenameOrg=2026%EB%85%84+2%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24470&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "엔알디여의도",
+      "address": "",
+      "phone": "02-6373-2107",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 240000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-07-03",
+      "date_max": "2026-07-03",
+      "purpose_stats": [
+        {
+          "text": "발전제어 사업개발 및 확대 추진 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-07-03",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 240000,
+          "people": 8,
+          "purpose": "발전제어 사업개발 및 확대 추진 협의",
+          "source": "https://ns.kdn.com/download.kdn?filename=1786690652003.xlsx&filenameOrg=2026%EB%85%84+7%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24963&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "아오모리",
       "address": "",
       "phone": "",
@@ -1468,6 +1761,39 @@
           "people": 9,
           "purpose": "에너지절약 확산 및 수요관리 방안협의",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
+        }
+      ]
+    },
+    {
+      "merchant": "차령숯불갈비",
+      "address": "",
+      "phone": "061-111-1111",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 238000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-06-30",
+      "date_max": "2025-06-30",
+      "purpose_stats": [
+        {
+          "text": "경영평가 결과 우수부서 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-06-30",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 238000,
+          "people": 14,
+          "purpose": "경영평가 결과 우수부서 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1756439689185.xlsx&filenameOrg=2025%EB%85%84+6%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23591&seq=1"
         }
       ]
     },
@@ -1567,6 +1893,39 @@
           "people": 5,
           "purpose": "대외기관 업무협의",
           "source": "https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=26849"
+        }
+      ]
+    },
+    {
+      "merchant": "자연바다",
+      "address": "",
+      "phone": "061-333-1480",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 226000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-01-16",
+      "date_max": "2025-01-16",
+      "purpose_stats": [
+        {
+          "text": "2직급 간부 승진자 대상 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-01-16",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 226000,
+          "people": 8,
+          "purpose": "2직급 간부 승진자 대상 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1741326846806.xlsx&filenameOrg=2025%EB%85%84+1%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=22917&seq=1"
         }
       ]
     },
@@ -1736,6 +2095,72 @@
       ]
     },
     {
+      "merchant": "토담집",
+      "address": "",
+      "phone": "054-772-2647",
+      "score": 46.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 200000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-04-04",
+      "date_max": "2025-04-04",
+      "purpose_stats": [
+        {
+          "text": "경북산불 관련 원전사업처 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-04",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 200000,
+          "people": 7,
+          "purpose": "경북산불 관련 원전사업처 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1747272793065.xlsx&filenameOrg=2025%EB%85%84+4%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23135&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "본도시락나주혁신도시점",
+      "address": "",
+      "phone": "061-1111-1111",
+      "score": 46.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 200000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-12-15",
+      "date_max": "2025-12-15",
+      "purpose_stats": [
+        {
+          "text": "빛가람에너지밸리ICT&보안컨퍼런스 준비직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-12-15",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 200000,
+          "people": 10,
+          "purpose": "빛가람에너지밸리ICT&보안컨퍼런스 준비직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1769148197352.xlsx&filenameOrg=2025%EB%85%84+12%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24254&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "마실둔산점",
       "address": "",
       "phone": "",
@@ -1830,6 +2255,39 @@
       ]
     },
     {
+      "merchant": "신봉보리밥",
+      "address": "",
+      "phone": "031-896-8041",
+      "score": 46.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 171000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-08-20",
+      "date_max": "2025-08-20",
+      "purpose_stats": [
+        {
+          "text": "용인지사 안전점검 및 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-08-20",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 171000,
+          "people": 10,
+          "purpose": "용인지사 안전점검 및 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1757920736480.xlsx&filenameOrg=2025%EB%85%84+8%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23748&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "아야진생태찌개",
       "address": "",
       "phone": "",
@@ -1892,6 +2350,39 @@
           "people": 6,
           "purpose": "대외기관 업무협의",
           "source": "https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=26445"
+        }
+      ]
+    },
+    {
+      "merchant": "태인/주식회사 태인에프앤비",
+      "address": "",
+      "phone": "02-400-8878",
+      "score": 46.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 162000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-04-01",
+      "date_max": "2025-04-01",
+      "purpose_stats": [
+        {
+          "text": "경영평가 수검 준비 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-01",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 162000,
+          "people": 6,
+          "purpose": "경영평가 수검 준비 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1747272793065.xlsx&filenameOrg=2025%EB%85%84+4%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23135&seq=1"
         }
       ]
     },
@@ -2150,6 +2641,39 @@
       ]
     },
     {
+      "merchant": "십년한우실비집",
+      "address": "",
+      "phone": "02-1111-1111",
+      "score": 46.3,
+      "visits": 1,
+      "months": 1,
+      "spend": 132000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-06-29",
+      "date_max": "2026-06-29",
+      "purpose_stats": [
+        {
+          "text": "안전 관리 향상을 위한 안전리더 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-29",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 132000,
+          "people": 4,
+          "purpose": "안전 관리 향상을 위한 안전리더 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1786344879648.xlsx&filenameOrg=2026%EB%85%84+6%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24944&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "솔밭묵집",
       "address": "",
       "phone": "",
@@ -2179,6 +2703,39 @@
           "people": 6,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head18Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "영덕집",
+      "address": "",
+      "phone": "02-588-5033",
+      "score": 46.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 127000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-02-11",
+      "date_max": "2025-02-11",
+      "purpose_stats": [
+        {
+          "text": "국회 대관업무 사무실 이전 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-02-11",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 127000,
+          "people": 5,
+          "purpose": "국회 대관업무 사무실 이전 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1741326874127.xlsx&filenameOrg=2025%EB%85%84+2%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=22918&seq=1"
         }
       ]
     },
@@ -2343,6 +2900,72 @@
       ]
     },
     {
+      "merchant": "이민우산채비빔밥",
+      "address": "",
+      "phone": "043-296-5553",
+      "score": 46.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 112000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-09-11",
+      "date_max": "2025-09-11",
+      "purpose_stats": [
+        {
+          "text": "신청주 OPGW 현장직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-11",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 112000,
+          "people": 7,
+          "purpose": "신청주 OPGW 현장직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1761529614199.xlsx&filenameOrg=2025%EB%85%84+9%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23888&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "방림메밀막국수",
+      "address": "",
+      "phone": "033-332-1151",
+      "score": 46.2,
+      "visits": 1,
+      "months": 1,
+      "spend": 112000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-08-27",
+      "date_max": "2026-08-27",
+      "purpose_stats": [
+        {
+          "text": "동해안-신가평 OPGW 시공현장 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-27",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 112000,
+          "people": 7,
+          "purpose": "동해안-신가평 OPGW 시공현장 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1789970223899.xlsx&filenameOrg=2026%EB%85%84+8%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=25151&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "키츠네야",
       "address": "",
       "phone": "",
@@ -2372,6 +2995,39 @@
           "people": 9,
           "purpose": "인사운영실 직원 격려",
           "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22616"
+        }
+      ]
+    },
+    {
+      "merchant": "북경",
+      "address": "",
+      "phone": "052-227-4888",
+      "score": 46.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 110000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-06-09",
+      "date_max": "2026-06-09",
+      "purpose_stats": [
+        {
+          "text": "사업소(울산지사) 현장직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-09",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 110000,
+          "people": 4,
+          "purpose": "사업소(울산지사) 현장직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1786344879648.xlsx&filenameOrg=2026%EB%85%84+6%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24944&seq=1"
         }
       ]
     },
@@ -2560,6 +3216,39 @@
           "people": 5,
           "purpose": "경제활력 제고 외부전문가 자문간담회",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "상동막국수",
+      "address": "",
+      "phone": "",
+      "score": 46.0,
+      "visits": 1,
+      "months": 1,
+      "spend": 90000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-07-03",
+      "date_max": "2025-07-03",
+      "purpose_stats": [
+        {
+          "text": "영월-울진 OPGW 현장직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-03",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 90000,
+          "people": 10,
+          "purpose": "영월-울진 OPGW 현장직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1756439712069.xlsx&filenameOrg=2025%EB%85%84+7%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23592&seq=1"
         }
       ]
     },
@@ -2945,6 +3634,39 @@
       ]
     },
     {
+      "merchant": "브이아이피참치(주)서대문역점",
+      "address": "",
+      "phone": "02-0000-0000",
+      "score": 45.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 51000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2026-04-17",
+      "date_max": "2026-04-17",
+      "purpose_stats": [
+        {
+          "text": "전력그룹사 DX 기술협력 방안 협의",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-04-17",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 51000,
+          "people": 2,
+          "purpose": "전력그룹사 DX 기술협력 방안 협의",
+          "source": "https://ns.kdn.com/download.kdn?filename=1779088985358.xlsx&filenameOrg=2026%EB%85%84+4%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24622&seq=1"
+        }
+      ]
+    },
+    {
       "merchant": "하연옥사천점",
       "address": "",
       "phone": "",
@@ -2974,6 +3696,39 @@
           "people": 4,
           "purpose": "업무출장 수행원 격려",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        }
+      ]
+    },
+    {
+      "merchant": "데이앤나잇",
+      "address": "",
+      "phone": "02-111-1111",
+      "score": 45.5,
+      "visits": 1,
+      "months": 1,
+      "spend": 39000,
+      "institution_count": 1,
+      "institutions": [
+        "한전KDN"
+      ],
+      "date_min": "2025-04-16",
+      "date_max": "2025-04-16",
+      "purpose_stats": [
+        {
+          "text": "사창립기념행사 준비 직원 격려",
+          "count": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-16",
+          "time": "",
+          "institution": "한전KDN",
+          "role": "카드",
+          "amount": 39000,
+          "people": 3,
+          "purpose": "사창립기념행사 준비 직원 격려",
+          "source": "https://ns.kdn.com/download.kdn?filename=1747272793065.xlsx&filenameOrg=2025%EB%85%84+4%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=23135&seq=1"
         }
       ]
     },
