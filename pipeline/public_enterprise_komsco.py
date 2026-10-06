@@ -12,33 +12,18 @@ ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
 KEY="komsco"
 INSTITUTION="한국조폐공사"
-SEEDS=[
-    "https://www.komsco.com/kor",
-    "https://www.komsco.com/kor/article/ATCL77594935c",
-]
+# Official navigation target for 열린경영 > 경영공시 > 기관운영 > 임원 업무추진비.
+LISTING="https://www.komsco.com/kor/article/ATCL7e0c1d65f"
 
 
 def discover(year:int)->dict:
     years={year,year-1}
     out={"key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership","default_role":"임원","years":sorted(years),"pages":[],"attachments":[],"errors":[]}
-    menu_urls=[]
-    for seed in SEEDS:
-        try: doc=fetch(seed)
-        except Exception as e:
-            out["errors"].append(f"seed {seed}: {type(e).__name__}: {e}"); continue
-        out["pages"].append(seed)
-        for x in parse_links(seed,doc):
-            if "임원 업무추진비" in (x.get("text") or ""):
-                menu_urls.append(x["url"])
-    menu_urls=list(dict.fromkeys(menu_urls))
-    if not menu_urls:
-        out["status"]="ROUTE_NOT_FOUND";out["parseable_attachments"]=0;return out
 
-    listing_urls=[]
-    for menu in menu_urls:
-        listing_urls.append(menu)
-        for p in range(2,6):
-            listing_urls.append(menu+("&" if "?" in menu else "?")+f"pageIndex={p}")
+    listing_urls=[LISTING]
+    for p in range(2,8):
+        listing_urls.append(LISTING+("&" if "?" in LISTING else "?")+f"pageIndex={p}")
+
     docs=[]
     with ThreadPoolExecutor(max_workers=min(8,len(listing_urls))) as pool:
         fm={pool.submit(fetch,u):u for u in listing_urls}
@@ -68,9 +53,10 @@ def discover(year:int)->dict:
             for a in parse_links(x["url"],doc):
                 if not looks_file(a):continue
                 label=" ".join((x.get("text","")+" "+a.get("text","")).split())
-                if "업무추진비" not in label or not any(str(y) in label for y in years):continue
+                y,m=extract_year_month(label)
+                if y not in years:continue
                 if a["url"] in seen:continue
-                seen.add(a["url"]);y,m=extract_year_month(label)
+                seen.add(a["url"])
                 out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
 
     out["pages"]=list(dict.fromkeys(out["pages"]))
