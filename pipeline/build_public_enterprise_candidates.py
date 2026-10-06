@@ -43,6 +43,27 @@ def meal(r):
 def score(visits,months,spend):
     return round(100*(.45*min(math.log1p(visits)/math.log1p(8),1)+.25*min(months/6,1)+.20+.10*min(math.log1p(max(spend,0))/math.log1p(3_000_000),1)),1)
 
+def balanced_candidates(eligible,top_keep=120,publish_window=180,min_per_institution=5,max_candidates=250):
+    """Keep the strongest global signals while preventing one bulk source from crowding out institutions."""
+    selected=[];seen=set()
+    def add(candidate):
+        key=(t(candidate.get("merchant")),t(candidate.get("address")))
+        if key in seen:return False
+        selected.append(candidate);seen.add(key);return True
+    for candidate in eligible[:top_keep]:add(candidate)
+    institutions=sorted({inst for candidate in eligible for inst in (candidate.get("institutions") or []) if t(inst)})
+    for inst in institutions:
+        have=sum(inst in (candidate.get("institutions") or []) for candidate in selected)
+        if have>=min_per_institution:continue
+        for candidate in eligible:
+            if have>=min_per_institution or len(selected)>=publish_window:break
+            if inst not in (candidate.get("institutions") or []):continue
+            if add(candidate):have+=1
+    for candidate in eligible:
+        if len(selected)>=max_candidates:break
+        add(candidate)
+    return selected[:max_candidates]
+
 def main():
     if not RAW.exists():print("public-enterprise raw missing; no candidates built");return
     d=json.loads(RAW.read_text(encoding="utf-8"))
@@ -67,12 +88,13 @@ def main():
         out.append({"merchant":name,"address":address,"phone":phones[0] if phones else "","score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
     eligible=[x for x in out if x["visits"]>=1 and x["score"]>=25]
     eligible.sort(key=lambda x:(x["score"],x["visits"],x["spend"]),reverse=True)
+    ranked=balanced_candidates(eligible)
     REPORTS.mkdir(exist_ok=True)
-    payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"source":"public_enterprise_leadership","cohort":"public_enterprise_leadership","meal_rows":len(rows),"entity_count":len(out),"eligible_count":len(eligible),"candidates":eligible[:250]}
+    payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"source":"public_enterprise_leadership","cohort":"public_enterprise_leadership","meal_rows":len(rows),"entity_count":len(out),"eligible_count":len(eligible),"candidates":ranked}
     (REPORTS/"public-enterprise-candidates.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
     md=["# Public-enterprise leadership dining candidates","",f"- Meal-like rows: **{len(rows)}**",f"- Entities: **{len(out)}**",f"- Eligible: **{len(eligible)}**","","> 공기업·공공기관 기관장 공개 업무추진비의 식사성 사용처입니다. 점수는 식당 품질 평가가 아닙니다.","","| # | Merchant | Score | Visits | Institutions | Months | Spend |","|---:|---|---:|---:|---:|---:|---:|"]
-    for i,x in enumerate(eligible[:120],1):md.append(f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | {x['visits']} | {x['institution_count']} | {x['months']} | {x['spend']:,} |")
+    for i,x in enumerate(ranked[:120],1):md.append(f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | {x['visits']} | {x['institution_count']} | {x['months']} | {x['spend']:,} |")
     (REPORTS/"public-enterprise-candidates.md").write_text("\n".join(md)+"\n",encoding="utf-8")
-    print(json.dumps({"meal_rows":len(rows),"entities":len(out),"eligible":len(eligible)},ensure_ascii=False))
+    print(json.dumps({"meal_rows":len(rows),"entities":len(out),"eligible":len(eligible),"ranked":len(ranked)},ensure_ascii=False))
 
 if __name__=="__main__":main()
