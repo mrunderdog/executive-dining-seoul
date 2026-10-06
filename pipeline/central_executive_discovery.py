@@ -17,7 +17,7 @@ REGISTRY = ROOT / "sources" / "central_executive_registry.json"
 REPORTS = ROOT / "reports"
 UA = "ExecutiveDiningSeoul/2.1 (+https://github.com/mrunderdog/executive-dining-seoul)"
 FILE_EXTS = (".xlsx", ".xls", ".csv", ".pdf", ".hwp", ".hwpx")
-EXPENSE_WORDS = ("업무추진비", "업무 추진비", "장관", "차관", "처장", "차장", "실국장", "실·국장", "기관장")
+EXPENSE_WORDS = ("업무추진비", "업무 추진비", "장관", "차관", "처장", "차장", "본부장", "실국장", "실·국장", "기관장")
 
 
 class AnchorParser(HTMLParser):
@@ -91,7 +91,7 @@ def extract_year_month(text: str):
 
 
 def discover_source(src: dict, year: int, detail_limit: int = 40) -> dict:
-    result={"key":src["key"], "institution":src["institution"], "verified":bool(src.get("verified")), "role_scope":src.get("role_scope", ""), "format_hint":src.get("format_hint", ""), "pages":[], "attachments":[], "errors":[]}
+    result={"key":src["key"], "institution":src["institution"], "verified":bool(src.get("verified")), "role_scope":src.get("role_scope", ""), "default_role":src.get("default_role", ""), "format_hint":src.get("format_hint", ""), "pages":[], "attachments":[], "errors":[]}
     if not src.get("verified"):
         result["status"]="DISCOVERY_REQUIRED"; return result
     seen_att=set(); seen_page=set()
@@ -169,7 +169,7 @@ def main():
                 rows.append({
                     "key":src["key"],"institution":src["institution"],
                     "verified":bool(src.get("verified")),"role_scope":src.get("role_scope",""),
-                    "format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
+                    "default_role":src.get("default_role",""),"format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
                     "errors":[],"parseable_attachments":0,"status":"SKIPPED_INCREMENTAL"
                 })
 
@@ -184,7 +184,7 @@ def main():
                 fresh={
                     "key":src["key"],"institution":src["institution"],
                     "verified":bool(src.get("verified")),"role_scope":src.get("role_scope",""),
-                    "format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
+                    "default_role":src.get("default_role",""),"format_hint":src.get("format_hint",""),"pages":[],"attachments":[],
                     "errors":[f"worker {type(e).__name__}: {e}"],"parseable_attachments":0,
                     "status":"FETCH_FAILED",
                 }
