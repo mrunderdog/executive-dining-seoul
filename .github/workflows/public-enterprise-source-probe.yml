@@ -17,24 +17,28 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Probe KPS KAMCO KOMSCO
+      - name: Probe KPS and KOMSCO markup
         run: |
-          python -m py_compile pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_komsco.py
+          python -m py_compile pipeline/public_enterprise_kps.py pipeline/public_enterprise_komsco.py
           python pipeline/public_enterprise_kps.py
-          python pipeline/public_enterprise_kamco.py
           python pipeline/public_enterprise_komsco.py
           python - <<'PY'
-          import json
-          from pathlib import Path
-          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
-          for key in ('kps','kamco','komsco'):
-              x=next((s for s in d.get('sources',[]) if s.get('key')==key),{})
-              print('PROBE',key,json.dumps({
-                  'status':x.get('status'),
-                  'pages':len(x.get('pages') or []),
-                  'attachments':len(x.get('attachments') or []),
-                  'errors':(x.get('errors') or [])[:5],
-                  'diagnostics':(x.get('diagnostics') or [])[:3],
-                  'sample_attachments':(x.get('attachments') or [])[:3],
-              },ensure_ascii=False))
+          import re,sys
+          sys.path.insert(0,'pipeline')
+          from public_enterprise_discovery import fetch, parse_links
+          urls={
+            'KPS':'https://www.kps.co.kr/open_kps/business/boardList.do?pageIndex=1',
+            'KOMSCO':'https://www.komsco.com/kor/article/ATCL7e0c1d65f',
+          }
+          for key,url in urls.items():
+              doc=fetch(url)
+              print('RAW_META',key,'len=',len(doc),'title=',re.findall(r'<title[^>]*>(.*?)</title>',doc,re.I|re.S)[:1])
+              text=re.sub(r'\s+',' ',doc)
+              for needle in ('업무추진비','첨부','download','file','onclick','board'):
+                  pos=text.lower().find(needle.lower())
+                  if pos>=0:
+                      print('RAW_SNIP',key,needle,text[max(0,pos-500):pos+1200])
+              links=parse_links(url,doc)
+              interesting=[x for x in links if any(t in ((x.get('text') or '')+' '+(x.get('url') or '')).lower() for t in ('업무추진비','file','download','board','article'))]
+              print('RAW_LINKS',key,interesting[:30])
           PY
