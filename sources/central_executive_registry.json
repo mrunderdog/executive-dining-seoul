@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-18",
+  "as_of": "2026-10-06",
   "notes": "Target universe for senior central-government dining signals. verified=true means an official business-expense disclosure surface was confirmed; ingestion still depends on parseable merchant-level attachments. Institution names follow the current 2026 government organization where applicable; historical files may use predecessor names.",
   "sources": [
     {
@@ -9,9 +9,7 @@
       "cohort": "central_executive",
       "level": "presidential_office",
       "verified": true,
-      "listing_urls": [
-        "https://www.president.go.kr/information-disclosure/expenses"
-      ],
+      "listing_urls": ["https://www.president.go.kr/information-disclosure/expenses"],
       "role_scope": "대통령실 업무추진비 공개분",
       "format_hint": "pdf",
       "max_pages": 4
@@ -22,9 +20,7 @@
       "cohort": "central_executive",
       "level": "prime_minister",
       "verified": true,
-      "listing_urls": [
-        "https://www.opm.go.kr/_custom/opm/_common/board/index/11.do"
-      ],
+      "listing_urls": ["https://www.opm.go.kr/_custom/opm/_common/board/index/11.do"],
       "role_scope": "국무총리 및 차관급 이상",
       "format_hint": "pdf_mixed",
       "max_pages": 5
@@ -35,9 +31,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": false,
-      "listing_urls": [
-        "https://www.moef.go.kr/"
-      ],
+      "listing_urls": ["https://www.moef.go.kr/"],
       "role_scope": "장·차관 및 공개 대상 실·국장",
       "format_hint": "discovery_required",
       "max_pages": 1
@@ -48,9 +42,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.moe.go.kr/boardCnts/listRenew.do?boardID=10150&m=041209&s=moe"
-      ],
+      "listing_urls": ["https://www.moe.go.kr/boardCnts/listRenew.do?boardID=10150&m=041209&s=moe"],
       "role_scope": "장관·차관·실국장",
       "format_hint": "mixed",
       "max_pages": 8
@@ -61,9 +53,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.msit.go.kr/bbs/list.do?mId=61&mPid=47&sCode=user"
-      ],
+      "listing_urls": ["https://www.msit.go.kr/bbs/list.do?mId=61&mPid=47&sCode=user"],
       "role_scope": "장·차관·본부장·실국장 등 공개 직위",
       "format_hint": "mixed",
       "max_pages": 12
@@ -74,9 +64,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mofa.go.kr/www/brd/m_20536/list.do"
-      ],
+      "listing_urls": ["https://www.mofa.go.kr/www/brd/m_20536/list.do"],
       "role_scope": "장·차관 및 실·국장",
       "format_hint": "xlsx",
       "max_pages": 8
@@ -101,9 +89,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.moj.go.kr/moj/150/subview.do"
-      ],
+      "listing_urls": ["https://www.moj.go.kr/moj/150/subview.do"],
       "role_scope": "장관·차관·실국장·본부장 등 공개 직위",
       "format_hint": "hwpx_mixed",
       "max_pages": 10
@@ -114,9 +100,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mnd.go.kr/mnd/612/subview.do"
-      ],
+      "listing_urls": ["https://www.mnd.go.kr/mnd/612/subview.do"],
       "role_scope": "장·차관 및 공개 대상 고위직",
       "format_hint": "hwpx_hwp",
       "max_pages": 10
@@ -143,9 +127,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mpva.go.kr/mpva/selectBbsNttList.do?bbsNo=3&key=7"
-      ],
+      "listing_urls": ["https://www.mpva.go.kr/mpva/selectBbsNttList.do?bbsNo=3&key=7"],
       "role_scope": "기관장·차관·실국장",
       "format_hint": "xlsx",
       "max_pages": 10
@@ -175,9 +157,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mafra.go.kr/home/5004/subview.do"
-      ],
+      "listing_urls": ["https://www.mafra.go.kr/home/5004/subview.do"],
       "role_scope": "장·차관·본부 실장급·국장급·소속기관장",
       "format_hint": "xlsx",
       "max_pages": 10
@@ -188,9 +168,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.motie.go.kr/kor/article/ATCL8764a1224"
-      ],
+      "listing_urls": ["https://www.motie.go.kr/kor/article/ATCL8764a1224"],
       "role_scope": "장·차관 및 공개 대상 실국장",
       "format_hint": "mixed",
       "max_pages": 10,
@@ -202,9 +180,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mohw.go.kr/board.es?mid=a10414000000&bid=0022"
-      ],
+      "listing_urls": ["https://www.mohw.go.kr/board.es?mid=a10414000000&bid=0022"],
       "role_scope": "장·차관 및 공개 대상 실국장",
       "format_hint": "mixed",
       "max_pages": 1,
@@ -216,9 +192,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.me.go.kr/home/web/index.do?menuId=10133"
-      ],
+      "listing_urls": ["https://www.me.go.kr/home/web/index.do?menuId=10133"],
       "role_scope": "장·차관·실국장",
       "format_hint": "mixed",
       "max_pages": 10
@@ -229,9 +203,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.moel.go.kr/info/busiCost/busiCostList.do"
-      ],
+      "listing_urls": ["https://www.moel.go.kr/info/busiCost/busiCostList.do"],
       "role_scope": "장·차관·본부장·실국장 등 공개 직위",
       "format_hint": "hwpx_mixed",
       "max_pages": 10
@@ -242,9 +214,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mogef.go.kr/io/ind/io_ind_s017.do"
-      ],
+      "listing_urls": ["https://www.mogef.go.kr/io/ind/io_ind_s017.do"],
       "role_scope": "장·차관",
       "format_hint": "mixed",
       "max_pages": 10
@@ -269,9 +239,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mof.go.kr/doc/ko/selectDocList.do?bbsSeq=2&menuSeq=429&searchCategory=12"
-      ],
+      "listing_urls": ["https://www.mof.go.kr/doc/ko/selectDocList.do?bbsSeq=2&menuSeq=429&searchCategory=12"],
       "role_scope": "장·차관 및 공개 대상 고위직",
       "format_hint": "pdf_mixed",
       "max_pages": 10
@@ -282,9 +250,7 @@
       "cohort": "central_executive",
       "level": "ministry",
       "verified": true,
-      "listing_urls": [
-        "https://www.mss.go.kr/site/smba/ex/bbs/List.do?cbIdx=135"
-      ],
+      "listing_urls": ["https://www.mss.go.kr/site/smba/ex/bbs/List.do?cbIdx=135"],
       "role_scope": "장관·1차관·2차관·실국장",
       "format_hint": "mixed",
       "max_pages": 10
@@ -306,9 +272,7 @@
       "cohort": "central_executive",
       "level": "ministry_level_agency",
       "verified": true,
-      "listing_urls": [
-        "https://www.mpm.go.kr/mpm/open/openBudget/?boardId=bbs_0000000000000044"
-      ],
+      "listing_urls": ["https://www.mpm.go.kr/mpm/open/openBudget/?boardId=bbs_0000000000000044"],
       "role_scope": "처장·차장·실국장",
       "format_hint": "xlsx_mixed",
       "max_pages": 1,
@@ -320,9 +284,7 @@
       "cohort": "central_executive",
       "level": "ministry_level_agency",
       "verified": true,
-      "listing_urls": [
-        "https://www.moleg.go.kr/board.es?bid=0004&cg_code=&keyField=&keyWord=&mid=a10704060000&nPage=1&pageCntBySelf=50&srch_data01=&srch_data02=&tabNo=0"
-      ],
+      "listing_urls": ["https://www.moleg.go.kr/board.es?bid=0004&cg_code=&keyField=&keyWord=&mid=a10704060000&nPage=1&pageCntBySelf=50&srch_data01=&srch_data02=&tabNo=0"],
       "role_scope": "처장·차장·실국장",
       "format_hint": "hwpx_mixed",
       "max_pages": 1,
@@ -334,13 +296,24 @@
       "cohort": "central_executive",
       "level": "ministry_level_agency",
       "verified": true,
-      "listing_urls": [
-        "https://www.mfds.go.kr/brd/m_19/list.do"
-      ],
+      "listing_urls": ["https://www.mfds.go.kr/brd/m_19/list.do"],
       "role_scope": "처장·차장·국장급",
       "format_hint": "mixed",
       "max_pages": 1,
       "note": "Official Ministry of Food and Drug Safety business-expense information board."
+    },
+    {
+      "key": "korea_post",
+      "institution": "우정사업본부",
+      "cohort": "central_executive",
+      "level": "ministry_level_agency",
+      "verified": true,
+      "listing_urls": ["https://www.koreapost.go.kr/user/bbs/kpost/111/314/bbsDataList.do"],
+      "role_scope": "본부장",
+      "default_role": "본부장",
+      "format_hint": "mixed",
+      "max_pages": 9,
+      "note": "우정사업본부 공식 사전공표 > 본부장 업무추진비. 분기별 업무추진비 사용내역 첨부파일을 공개."
     }
   ]
 }
