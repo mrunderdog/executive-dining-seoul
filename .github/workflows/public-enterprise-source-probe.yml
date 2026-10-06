@@ -17,34 +17,23 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install workbook parser
-        run: pip install --disable-pip-version-check openpyxl==3.1.5
-      - name: Inspect KAMCO workbook with cookie session
+      - name: Inspect KAMCO attachment markup
         run: |
           python - <<'PY'
-          import io, json, http.cookiejar, urllib.request
-          import openpyxl
+          import html, re, urllib.request
+          url='https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479'
           ua='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/153.0.0.0 Safari/537.36'
-          items=[
-            ('2025-04','https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479','https://www.kamco.or.kr/portal/bbs/FILE_000000000011287'),
-          ]
-          for label,parent,url in items:
-              jar=http.cookiejar.CookieJar()
-              opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-              opener.addheaders=[('User-Agent',ua),('Accept-Language','ko-KR,ko;q=0.9,en;q=0.7')]
-              page=opener.open(parent,timeout=45).read()
-              print('PARENT',label,'bytes=',len(page),'cookies=',[(c.name,c.value[:12]) for c in jar])
-              req=urllib.request.Request(url,headers={'User-Agent':ua,'Referer':parent,'Accept':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*'})
-              raw=opener.open(req,timeout=45).read()
-              print('FILE',label,'bytes=',len(raw),'magic=',raw[:8])
-              if raw[:2] != b'PK':
-                  print('BODY',raw[:1800].decode('utf-8','replace'))
-                  continue
-              wb=openpyxl.load_workbook(io.BytesIO(raw),data_only=True,read_only=True)
-              print('SHEETS',wb.sheetnames)
-              for ws in wb.worksheets[:3]:
-                  print('SHEET',ws.title,'dim',ws.max_row,ws.max_column)
-                  for idx,row in enumerate(ws.iter_rows(min_row=1,max_row=min(ws.max_row,40),values_only=True),start=1):
-                      vals=[str(x).strip() if x is not None else '' for x in row[:14]]
-                      if any(vals): print('ROW',idx,json.dumps(vals,ensure_ascii=False))
+          req=urllib.request.Request(url,headers={'User-Agent':ua,'Accept-Language':'ko-KR,ko;q=0.9,en;q=0.7'})
+          raw=urllib.request.urlopen(req,timeout=45).read()
+          doc=raw.decode('utf-8','replace')
+          text=html.unescape(doc)
+          print('BYTES',len(raw))
+          for needle in ('2025년 4월 임원 업무추진비 집행내역.xlsx','FILE_000000000011287','첨부파일','fileDown','download'):
+              pos=text.lower().find(needle.lower())
+              print('NEEDLE',needle,'POS',pos)
+              if pos>=0:
+                  print('SNIP',text[max(0,pos-1800):pos+2400].replace('\n',' '))
+          # Also print anchors/buttons containing xlsx or FILE ids verbatim.
+          for m in re.finditer(r'<(?:a|button)[^>]*(?:xlsx|FILE_[0-9]+|download|file)[^>]*>.*?</(?:a|button)>',text,re.I|re.S):
+              print('TAG',re.sub(r'\s+',' ',m.group(0))[:2500])
           PY
