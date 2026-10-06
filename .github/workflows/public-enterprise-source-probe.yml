@@ -1,0 +1,40 @@
+name: Public enterprise source probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/public-enterprise-source-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probe KPS KAMCO KOMSCO
+        run: |
+          python -m py_compile pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_komsco.py
+          python pipeline/public_enterprise_kps.py
+          python pipeline/public_enterprise_kamco.py
+          python pipeline/public_enterprise_komsco.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('reports/public-enterprise-discovery.json').read_text(encoding='utf-8'))
+          for key in ('kps','kamco','komsco'):
+              x=next((s for s in d.get('sources',[]) if s.get('key')==key),{})
+              print('PROBE',key,json.dumps({
+                  'status':x.get('status'),
+                  'pages':len(x.get('pages') or []),
+                  'attachments':len(x.get('attachments') or []),
+                  'errors':(x.get('errors') or [])[:5],
+                  'diagnostics':(x.get('diagnostics') or [])[:3],
+                  'sample_attachments':(x.get('attachments') or [])[:3],
+              },ensure_ascii=False))
+          PY
