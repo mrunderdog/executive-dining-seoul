@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 250,
+    "failed_count": 252,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1494,
-    "success_count": 1244,
-    "updated_at": "2026-10-06T03:45:58+00:00"
+    "record_count": 1497,
+    "success_count": 1245,
+    "updated_at": "2026-10-06T08:47:59+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -4325,6 +4325,24 @@
         "arcgis:대방골 대한민국"
       ],
       "updated_at": "2026-09-18T13:42:58+00:00"
+    },
+    "대보정시청역점|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "대보정 시청역점",
+      "fingerprint": "80f5d518dadbe31d",
+      "geocoder_version": 4,
+      "lat": 37.561340063,
+      "lon": 126.973019928,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "대보정시청역점 대한민국",
+      "result_name": "대보정 시청역점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:대보정시청역점 대한민국"
+      ],
+      "updated_at": "2026-10-06T08:47:59+00:00"
     },
     "대복복전문점|포천시": {
       "display_name": "대복복전문점, 12, 호국로, 선단동, 포천시, 경기도, 11162, 대한민국",
@@ -15370,6 +15388,24 @@
       ],
       "updated_at": "2026-09-17T23:02:32+00:00"
     },
+    "오발탄|중앙정부": {
+      "addr_type": "POI",
+      "display_name": "오발탄",
+      "fingerprint": "6120f06fb9400742",
+      "geocoder_version": 4,
+      "lat": 37.499495755,
+      "lon": 127.038806712,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "오발탄 대한민국",
+      "result_name": "오발탄",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:오발탄 대한민국"
+      ],
+      "updated_at": "2026-10-06T08:47:58+00:00"
+    },
     "오병이어|강북구": {
       "addr_type": "PointAddress",
       "display_name": "서울 강북구 수유동 한천로155길 38",
@@ -16668,6 +16704,17 @@
       ],
       "updated_at": "2026-09-23T00:40:19+00:00"
     },
+    "유관기관 업무협의|중앙정부": {
+      "failed": true,
+      "fingerprint": "ffb0a410be22193b",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:유관기관 업무협의 대한민국",
+        "nominatim:유관기관 업무협의 대한민국"
+      ],
+      "updated_at": "2026-10-06T08:47:55+00:00"
+    },
     "유림촌|오산시": {
       "addr_type": "POI",
       "display_name": "유림촌",
@@ -17302,22 +17349,15 @@
       "updated_at": "2026-10-06T03:45:52+00:00"
     },
     "이범석류 스시야|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "이범석류 스시야",
+      "failed": true,
       "fingerprint": "c872e2dcfb46df00",
-      "geocoder_version": 3,
-      "lat": 36.500267461,
-      "lon": 127.258036877,
-      "match_mode": "name",
-      "policy_version": 2,
-      "query": "이범석류 스시야 대한민국",
-      "result_name": "이범석류 스시야",
-      "score": 100.0,
-      "source": "arcgis",
+      "geocoder_version": 4,
+      "policy_version": 3,
       "tried_queries": [
-        "arcgis:이범석류 스시야 대한민국"
+        "arcgis:이범석류 스시야 대한민국",
+        "nominatim:이범석류 스시야 대한민국"
       ],
-      "updated_at": "2026-09-17T07:48:06+00:00"
+      "updated_at": "2026-10-06T08:47:57+00:00"
     },
     "이우철누룽지삼계탕|포천시": {
       "addr_type": "POI",
@@ -20020,11 +20060,11 @@
       "addr_type": "POI",
       "display_name": "차이킹",
       "fingerprint": "6c04a3242693cce8",
-      "geocoder_version": 3,
-      "lat": 37.486831436,
-      "lon": 127.120453886,
+      "geocoder_version": 4,
+      "lat": 37.486831431,
+      "lon": 127.120453917,
       "match_mode": "name",
-      "policy_version": 2,
+      "policy_version": 3,
       "query": "차이킹 대한민국",
       "result_name": "차이킹",
       "score": 100.0,
@@ -20032,7 +20072,7 @@
       "tried_queries": [
         "arcgis:차이킹 대한민국"
       ],
-      "updated_at": "2026-09-17T07:48:17+00:00"
+      "updated_at": "2026-10-06T08:47:54+00:00"
     },
     "참배나무골|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
