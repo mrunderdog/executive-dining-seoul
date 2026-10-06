@@ -17,23 +17,22 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Inspect KAMCO attachment markup
+      - name: Inspect KAMCO download helper
         run: |
           python - <<'PY'
-          import html, re, urllib.request
-          url='https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479'
+          import re, urllib.request
           ua='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/153.0.0.0 Safari/537.36'
-          req=urllib.request.Request(url,headers={'User-Agent':ua,'Accept-Language':'ko-KR,ko;q=0.9,en;q=0.7'})
-          raw=urllib.request.urlopen(req,timeout=45).read()
-          doc=raw.decode('utf-8','replace')
-          text=html.unescape(doc)
-          print('BYTES',len(raw))
-          for needle in ('2025년 4월 임원 업무추진비 집행내역.xlsx','FILE_000000000011287','첨부파일','fileDown','download'):
-              pos=text.lower().find(needle.lower())
-              print('NEEDLE',needle,'POS',pos)
-              if pos>=0:
-                  print('SNIP',text[max(0,pos-1800):pos+2400].replace('\n',' '))
-          # Also print anchors/buttons containing xlsx or FILE ids verbatim.
-          for m in re.finditer(r'<(?:a|button)[^>]*(?:xlsx|FILE_[0-9]+|download|file)[^>]*>.*?</(?:a|button)>',text,re.I|re.S):
-              print('TAG',re.sub(r'\s+',' ',m.group(0))[:2500])
+          urls=[
+            'https://www.kamco.or.kr/common/js/common/EgovFileUtils.js',
+            'https://www.kamco.or.kr/dwr/interface/EgovFileMngDwr',
+          ]
+          for url in urls:
+              req=urllib.request.Request(url,headers={'User-Agent':ua,'Referer':'https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479'})
+              raw=urllib.request.urlopen(req,timeout=45).read()
+              text=raw.decode('utf-8','replace')
+              print('URL',url,'BYTES',len(raw))
+              for needle in ('fn_egov_downFile','downFile','download','FILE_'):
+                  pos=text.find(needle)
+                  print('NEEDLE',needle,'POS',pos)
+                  if pos>=0: print('SNIP',text[max(0,pos-1800):pos+3500].replace('\n',' '))
           PY
