@@ -1,6 +1,13 @@
 name: Central + National refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'sources/central_executive_registry.json'
+      - 'pipeline/central_executive_discovery.py'
+      - 'pipeline/ingest_central_executive_expense.py'
+      - 'pipeline/build_central_executive_candidates.py'
   workflow_dispatch:
     inputs:
       year:
