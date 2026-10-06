@@ -2,28 +2,36 @@
 from __future__ import annotations
 
 import json
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
-from public_enterprise_discovery import extract_year_month, fetch, looks_file, parse_links
+from public_enterprise_discovery import decode, extract_year_month, looks_file, parse_links
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
 KEY="komsco"
 INSTITUTION="한국조폐공사"
-# Official navigation target for 열린경영 > 경영공시 > 기관운영 > 임원 업무추진비.
 LISTING="https://www.komsco.com/kor/article/ATCL7e0c1d65f"
+BROWSER_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+
+
+def fetch(url:str)->str:
+    req=urllib.request.Request(url,headers={
+        "User-Agent":BROWSER_UA,
+        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
+        "Referer":"https://www.komsco.com/kor",
+    })
+    with urllib.request.urlopen(req,timeout=35) as r:
+        return decode(r.read(),r.headers.get_content_charset())
 
 
 def discover(year:int)->dict:
     years={year,year-1}
     out={"key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership","default_role":"임원","years":sorted(years),"pages":[],"attachments":[],"errors":[]}
-
-    listing_urls=[LISTING]
-    for p in range(2,8):
-        listing_urls.append(LISTING+("&" if "?" in LISTING else "?")+f"pageIndex={p}")
-
+    listing_urls=[LISTING]+[LISTING+f"?pageIndex={p}" for p in range(2,8)]
     docs=[]
     with ThreadPoolExecutor(max_workers=min(8,len(listing_urls))) as pool:
         fm={pool.submit(fetch,u):u for u in listing_urls}
@@ -36,12 +44,12 @@ def discover(year:int)->dict:
     for base,doc in docs:
         for x in parse_links(base,doc):
             label=" ".join((x.get("text","")+" "+x.get("url","")).split())
-            if "업무추진비" not in label or not any(str(y) in label for y in years): continue
+            if not any(str(y) in label for y in years): continue
             if looks_file(x):
                 if x["url"] in seen: continue
                 seen.add(x["url"]);y,m=extract_year_month(label)
                 out["attachments"].append({**x,"year":y,"month":m,"parent":base})
-            elif x["url"] not in seen:
+            elif "업무추진비" in label and x["url"] not in seen:
                 seen.add(x["url"]);details.append(x)
 
     with ThreadPoolExecutor(max_workers=min(8,max(1,len(details)))) as pool:
