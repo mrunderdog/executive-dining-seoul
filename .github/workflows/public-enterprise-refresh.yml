@@ -110,6 +110,7 @@ jobs:
       - name: Commit generated public-enterprise data
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git restore -- data/geocode_cache.json
@@ -123,8 +124,31 @@ jobs:
           git commit -m "data: refresh public-enterprise dining baseline"
           for ATTEMPT in 1 2 3; do
             git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then
-              exit 0
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            else
+              CONFLICTS="$(git diff --name-only --diff-filter=U || true)"
+              BAD=""
+              for F in $CONFLICTS; do
+                case "$F" in
+                  reports/public-enterprise-discovery.json|reports/public-enterprise-ingestion.md|reports/public-enterprise-candidates.json|reports/public-enterprise-candidates.md|data/raw/public_enterprise_expense.json)
+                    git checkout --theirs -- "$F"
+                    git add "$F"
+                    ;;
+                  *) BAD="$BAD $F" ;;
+                esac
+              done
+              if [[ -z "$BAD" ]] && [[ -n "$CONFLICTS" ]]; then
+                GIT_EDITOR=true git rebase --continue
+                if git push origin HEAD:main; then
+                  exit 0
+                fi
+              else
+                echo "Unexpected rebase conflicts:$BAD"
+                git rebase --abort 2>/dev/null || true
+              fi
             fi
             echo "Public-enterprise data push raced with another workflow (attempt $ATTEMPT/3)."
             git rebase --abort 2>/dev/null || true
