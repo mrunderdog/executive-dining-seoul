@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import html
 import json
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -23,14 +25,27 @@ SOURCE = {
 
 
 def _listing_urls(years: set[int]) -> list[str]:
-    # The official board is reverse chronological. Five pages comfortably
-    # cover the current and prior year while avoiding the full historical set.
     return [f"{SOURCE['listing']}?pageIndex={page}" for page in range(1, 6)]
 
 
 def _is_target(text: str, years: set[int]) -> bool:
     s = " ".join((text or "").split())
     return "업무추진비" in s and any(str(y) in s for y in years)
+
+
+def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
+    """Return small HTML contexts around target rows when links are JS/form driven."""
+    clean = html.unescape(doc or "")
+    snippets = []
+    for match in re.finditer(r"업무추진비", clean):
+        start = max(0, match.start() - 450)
+        end = min(len(clean), match.end() + 650)
+        chunk = re.sub(r"\s+", " ", clean[start:end])
+        if any(str(y) in chunk for y in years):
+            snippets.append(chunk[:1000])
+        if len(snippets) >= 3:
+            break
+    return snippets
 
 
 def discover(year: int) -> dict:
@@ -45,6 +60,7 @@ def discover(year: int) -> dict:
         "attachments": [],
         "errors": [],
         "metadata_url": SOURCE["metadata_url"],
+        "diagnostics": [],
     }
 
     listings = _listing_urls(years)
@@ -115,6 +131,12 @@ def discover(year: int) -> dict:
                     "parent": detail_url,
                 })
 
+    if not out["attachments"]:
+        for _, doc in sorted(listing_docs)[:2]:
+            out["diagnostics"].extend(_diagnostic_snippets(doc, years))
+            if len(out["diagnostics"]) >= 3:
+                break
+
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
     out["status"] = "PARSEABLE_FOUND" if out["attachments"] else (
@@ -139,6 +161,7 @@ def main() -> None:
         "pages": len(fresh["pages"]),
         "attachments": len(fresh["attachments"]),
         "errors": fresh["errors"][:5],
+        "diagnostics": fresh.get("diagnostics", [])[:3],
     }, ensure_ascii=False))
 
 
