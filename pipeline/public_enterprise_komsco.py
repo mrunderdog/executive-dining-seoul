@@ -5,7 +5,6 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urljoin
 
 from public_enterprise_discovery import extract_year_month, fetch, looks_file, parse_links
 
@@ -37,7 +36,9 @@ def discover(year:int)->dict:
 
     listing_urls=[]
     for menu in menu_urls:
-        listing_urls.extend([menu, menu+("&" if "?" in menu else "?")+f"pageIndex={p}" for p in range(2,6)])
+        listing_urls.append(menu)
+        for p in range(2,6):
+            listing_urls.append(menu+("&" if "?" in menu else "?")+f"pageIndex={p}")
     docs=[]
     with ThreadPoolExecutor(max_workers=min(8,len(listing_urls))) as pool:
         fm={pool.submit(fetch,u):u for u in listing_urls}
