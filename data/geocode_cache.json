@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 273,
+    "failed_count": 283,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1616,
-    "success_count": 1343,
-    "updated_at": "2026-10-07T05:42:58+00:00"
+    "record_count": 1657,
+    "success_count": 1374,
+    "updated_at": "2026-10-07T06:39:07+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -2241,6 +2241,17 @@
       ],
       "updated_at": "2026-09-28T23:48:08+00:00"
     },
+    "광화문옥희|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "d8ad9b9d3a546c54",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:광화문옥희 대한민국",
+        "nominatim:광화문옥희 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:52+00:00"
+    },
     "교동면옥|공기업·공공기관": {
       "addr_type": "POI",
       "display_name": "교동면옥",
@@ -3839,6 +3850,17 @@
       ],
       "updated_at": "2026-09-17T23:03:18+00:00"
     },
+    "노량진101 (☎1644-7811)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "6e07de117fc45878",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:노량진101 (☎1644-7811) 대한민국",
+        "nominatim:노량진101 (☎1644-7811) 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:43+00:00"
+    },
     "노스폴(오묘)|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로70길 22",
@@ -5205,6 +5227,24 @@
       ],
       "updated_at": "2026-09-17T23:03:26+00:00"
     },
+    "덕승재|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "덕승재",
+      "fingerprint": "5fad2ad3ec3e9672",
+      "geocoder_version": 4,
+      "lat": 37.577071694,
+      "lon": 126.891380649,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "덕승재 대한민국",
+      "result_name": "덕승재",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:덕승재 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:04+00:00"
+    },
     "덕쿤|부평구": {
       "addr_type": "POI",
       "display_name": "덕쿤",
@@ -6336,6 +6376,24 @@
       ],
       "updated_at": "2026-10-07T00:29:00+00:00"
     },
+    "라브리|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "라브리",
+      "fingerprint": "d237bbcb149242f4",
+      "geocoder_version": 4,
+      "lat": 37.558650527,
+      "lon": 126.945956573,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "라브리 대한민국",
+      "result_name": "라브리",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:라브리 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:24+00:00"
+    },
     "라스베이글시흥시청|시흥시": {
       "failed": true,
       "fingerprint": "c462abb2e9097273",
@@ -6869,6 +6927,24 @@
         "arcgis:인천광역시 강화군 강화읍 강화대로 378-8"
       ],
       "updated_at": "2026-09-28T23:48:04+00:00"
+    },
+    "마쯔가제|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "마쯔가제",
+      "fingerprint": "e75d020254ace54f",
+      "geocoder_version": 4,
+      "lat": 37.512521154,
+      "lon": 127.0588193,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "마쯔가제 대한민국",
+      "result_name": "마쯔가제",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:마쯔가제 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:24+00:00"
     },
     "마케집 서울시청점|서울시청": {
       "addr_type": "PointAddress",
@@ -8109,6 +8185,17 @@
       ],
       "updated_at": "2026-09-28T11:29:08+00:00"
     },
+    "미도방비아이에프씨점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "a7b77ee4bcabfab3",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:미도방비아이에프씨점 대한민국",
+        "nominatim:미도방비아이에프씨점 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:32+00:00"
+    },
     "미락복집|의정부시": {
       "failed": true,
       "fingerprint": "5b124d07b57c1d5b",
@@ -8213,6 +8300,17 @@
         "nominatim:미스터쭈 산채향가마 군포시"
       ],
       "updated_at": "2026-09-21T07:28:55+00:00"
+    },
+    "미스터홍탁|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "3989fd3378349f99",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:미스터홍탁 대한민국",
+        "nominatim:미스터홍탁 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:45+00:00"
     },
     "미시령너머|서울시청": {
       "addr_type": "PointAddress",
@@ -8917,6 +9015,24 @@
       ],
       "updated_at": "2026-09-23T00:40:50+00:00"
     },
+    "백설침향|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "백설침향",
+      "fingerprint": "5b49ec34d2b33d4f",
+      "geocoder_version": 4,
+      "lat": 35.146793928,
+      "lon": 129.065750566,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "백설침향 대한민국",
+      "result_name": "백설침향",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:백설침향 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:33+00:00"
+    },
     "백암왕순대|계양구": {
       "addr_type": "POI",
       "display_name": "백암왕순대",
@@ -9134,6 +9250,17 @@
       ],
       "updated_at": "2026-09-23T00:40:53+00:00"
     },
+    "베리라이스(VERYRICE)|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "9afbf3de616b78f9",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:베리라이스(VERYRICE) 대한민국",
+        "nominatim:베리라이스(VERYRICE) 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:37+00:00"
+    },
     "베이직라운지|계양구": {
       "addr_type": "POI",
       "display_name": "베이직라운지",
@@ -9169,6 +9296,24 @@
         "arcgis:서울 종로구 율곡로2길25(수송동, 연합뉴스빌딩)"
       ],
       "updated_at": "2026-09-18T00:09:05+00:00"
+    },
+    "베테랑|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "베테랑",
+      "fingerprint": "dbd47c5a24b8f617",
+      "geocoder_version": 4,
+      "lat": 37.190768341,
+      "lon": 129.330643458,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "베테랑 대한민국",
+      "result_name": "베테랑",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:베테랑 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:00+00:00"
     },
     "베테카텐|중앙정부": {
       "display_name": "베테카텐, 팔판길, 소격동, 삼청동, 종로구, 서울특별시, 03054, 대한민국",
@@ -13341,6 +13486,24 @@
       ],
       "updated_at": "2026-10-07T00:29:04+00:00"
     },
+    "송가|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "송가",
+      "fingerprint": "d5eb3efe56e82354",
+      "geocoder_version": 4,
+      "lat": 37.04951065,
+      "lon": 127.047696491,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "송가 대한민국",
+      "result_name": "송가",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:송가 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:56+00:00"
+    },
     "송도갈매기 (☎ 02-898-1123)|공기업·공공기관": {
       "failed": true,
       "fingerprint": "ae63b4d4e55dd975",
@@ -13445,6 +13608,24 @@
         "arcgis:송쉐프 숭례문점 대한민국"
       ],
       "updated_at": "2026-09-17T23:05:19+00:00"
+    },
+    "송전|공기업·공공기관": {
+      "addr_type": "Locality",
+      "display_name": "경기 송전",
+      "fingerprint": "4d090b8a6a37c648",
+      "geocoder_version": 4,
+      "lat": 37.13673,
+      "lon": 127.19827,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "송전 대한민국",
+      "result_name": "송전",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:송전 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:50+00:00"
     },
     "송추가마골인어반/동경（주）광화문지점|중앙정부": {
       "failed": true,
@@ -13785,6 +13966,24 @@
       ],
       "updated_at": "2026-09-21T07:28:21+00:00"
     },
+    "숙향|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "숙향",
+      "fingerprint": "eed3a04a87b7d26b",
+      "geocoder_version": 4,
+      "lat": 35.146757582,
+      "lon": 129.060215461,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "숙향 대한민국",
+      "result_name": "숙향",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:숙향 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:32+00:00"
+    },
     "순대실록|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로74길 9",
@@ -13911,6 +14110,24 @@
       ],
       "updated_at": "2026-09-17T23:01:39+00:00"
     },
+    "스시명장|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "스시명장",
+      "fingerprint": "364bdc48354e2732",
+      "geocoder_version": 4,
+      "lat": 37.145710762,
+      "lon": 127.07319304,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "스시명장 대한민국",
+      "result_name": "스시명장",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:스시명장 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:35+00:00"
+    },
     "스시사소우|중앙정부": {
       "failed": true,
       "fingerprint": "16a6f0365bfabbb0",
@@ -13939,6 +14156,24 @@
         "arcgis:서울 영등포구 국회대로76길 18"
       ],
       "updated_at": "2026-09-18T00:08:33+00:00"
+    },
+    "스시와|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "스시와",
+      "fingerprint": "1897daa176fa2a4b",
+      "geocoder_version": 4,
+      "lat": 37.653235027,
+      "lon": 126.777513269,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "스시와 대한민국",
+      "result_name": "스시와",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:스시와 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:23+00:00"
     },
     "스시와|중앙정부": {
       "addr_type": "POI",
@@ -14296,6 +14531,24 @@
         "nominatim:시오 두번째 이야기 대한민국"
       ],
       "updated_at": "2026-09-23T10:34:02+00:00"
+    },
+    "시우가든|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "시우가든",
+      "fingerprint": "26e93619a482df36",
+      "geocoder_version": 4,
+      "lat": 35.841921757,
+      "lon": 127.073625303,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "시우가든 대한민국",
+      "result_name": "시우가든",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:시우가든 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:55+00:00"
     },
     "시원재|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -15270,6 +15523,24 @@
       ],
       "updated_at": "2026-09-17T23:00:47+00:00"
     },
+    "아카사카|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "아카사카",
+      "fingerprint": "a4c491f9a0bf63f3",
+      "geocoder_version": 4,
+      "lat": 37.673435853,
+      "lon": 126.778986356,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "아카사카 대한민국",
+      "result_name": "아카사카",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:아카사카 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:40+00:00"
+    },
     "아크여의도점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로72길 11",
@@ -15406,6 +15677,17 @@
         "arcgis:서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도)201.202호"
       ],
       "updated_at": "2026-09-18T00:08:46+00:00"
+    },
+    "암소서울|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "52d0b9eb593a9b0f",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:암소서울 대한민국",
+        "nominatim:암소서울 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:47+00:00"
     },
     "얄미운푸줏간|관악구": {
       "addr_type": "PointAddress",
@@ -15656,6 +15938,24 @@
       ],
       "updated_at": "2026-10-01T09:52:10+00:00"
     },
+    "어슬 서울|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "어슬 서울",
+      "fingerprint": "aac2d08f3cfbcbe2",
+      "geocoder_version": 4,
+      "lat": 37.55706834,
+      "lon": 126.974572711,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "어슬 서울 대한민국",
+      "result_name": "어슬 서울",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:어슬 서울 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:03+00:00"
+    },
     "어썰당 부평더샵동암점|부평구": {
       "addr_type": "POI",
       "display_name": "어썰당 부평더샵동암점",
@@ -15881,6 +16181,24 @@
         "arcgis:엘타워 대한민국"
       ],
       "updated_at": "2026-09-25T08:08:25+00:00"
+    },
+    "여믐|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "여믐",
+      "fingerprint": "3dd00a53a482c3a3",
+      "geocoder_version": 4,
+      "lat": 35.100442298,
+      "lon": 129.037385207,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "여믐 대한민국",
+      "result_name": "여믐",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:여믐 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:58+00:00"
     },
     "여운관|국회의원(정치자금 2024)": {
       "failed": true,
@@ -16549,6 +16867,24 @@
       ],
       "updated_at": "2026-09-23T00:42:29+00:00"
     },
+    "오리엔스 하만|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "오리엔스 하만",
+      "fingerprint": "eaa81dcc088f78a7",
+      "geocoder_version": 4,
+      "lat": 37.560056168,
+      "lon": 126.991280126,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "오리엔스 하만 대한민국",
+      "result_name": "오리엔스 하만",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:오리엔스 하만 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:07+00:00"
+    },
     "오리오리|관악구": {
       "addr_type": "PointAddress",
       "display_name": "서울 관악구 봉천동 관악로12길 3-6",
@@ -16978,6 +17314,24 @@
         "arcgis:왕벌집 대한민국"
       ],
       "updated_at": "2026-09-17T23:02:36+00:00"
+    },
+    "왕스덕|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "왕스덕",
+      "fingerprint": "83708e32fc34b3a5",
+      "geocoder_version": 4,
+      "lat": 37.400408341,
+      "lon": 127.10208336,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "왕스덕 대한민국",
+      "result_name": "왕스덕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:왕스덕 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:53+00:00"
     },
     "왕십리야채곱창닭발|서대문구": {
       "addr_type": "POI",
@@ -17506,6 +17860,24 @@
       ],
       "updated_at": "2026-09-17T07:48:08+00:00"
     },
+    "우비노|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "우비노",
+      "fingerprint": "a2a59cf0f8bb2677",
+      "geocoder_version": 4,
+      "lat": 37.572593325,
+      "lon": 126.96927329,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우비노 대한민국",
+      "result_name": "우비노",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우비노 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:22+00:00"
+    },
     "우사 광교점|경기도의회": {
       "addr_type": "POI",
       "display_name": "우사 광교점",
@@ -17733,6 +18105,24 @@
         "arcgis:서울 중구 세종대로 76"
       ],
       "updated_at": "2026-09-17T23:04:14+00:00"
+    },
+    "우진생고기|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "우진생고기",
+      "fingerprint": "7a58fb9c5a9bf765",
+      "geocoder_version": 4,
+      "lat": 35.146350352,
+      "lon": 129.067354558,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우진생고기 대한민국",
+      "result_name": "우진생고기",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우진생고기 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:29+00:00"
     },
     "우참판 주식회사|공기업·공공기관": {
       "addr_type": "PointAddress",
@@ -17984,6 +18374,24 @@
       ],
       "updated_at": "2026-09-17T23:03:39+00:00"
     },
+    "월강|공기업·공공기관": {
+      "addr_type": "Locality",
+      "display_name": "전남 월강",
+      "fingerprint": "c347c78289fdf474",
+      "geocoder_version": 4,
+      "lat": 34.41972,
+      "lon": 126.54667,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "월강 대한민국",
+      "result_name": "월강",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:월강 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:02+00:00"
+    },
     "월미간장게장|시흥시": {
       "addr_type": "POI",
       "display_name": "월미간장게장",
@@ -18131,6 +18539,24 @@
         "arcgis:유진식당 서대문구 서울"
       ],
       "updated_at": "2026-09-17T23:03:15+00:00"
+    },
+    "육미곳간|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "육미곳간",
+      "fingerprint": "1eac603b45c7218f",
+      "geocoder_version": 4,
+      "lat": 37.567783274,
+      "lon": 126.980166858,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "육미곳간 대한민국",
+      "result_name": "육미곳간",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:육미곳간 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:03+00:00"
     },
     "육방고기집|종로구": {
       "addr_type": "POI",
@@ -18507,6 +18933,24 @@
       ],
       "updated_at": "2026-09-17T23:04:07+00:00"
     },
+    "이건참치|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "이건참치",
+      "fingerprint": "8e524b9e236db29c",
+      "geocoder_version": 4,
+      "lat": 35.837480346,
+      "lon": 127.057242126,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이건참치 대한민국",
+      "result_name": "이건참치",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이건참치 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:39+00:00"
+    },
     "이단아|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 여의대방로67길 21",
@@ -18674,6 +19118,24 @@
         "arcgis:이리도담갈비 대한민국"
       ],
       "updated_at": "2026-09-18T05:24:22+00:00"
+    },
+    "이모네|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "이모네",
+      "fingerprint": "91d165e28dfddcfe",
+      "geocoder_version": 4,
+      "lat": 35.856122125,
+      "lon": 128.640258577,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "이모네 대한민국",
+      "result_name": "이모네",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:이모네 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:38+00:00"
     },
     "이민우산채비빔밥|공기업·공공기관": {
       "addr_type": "POI",
@@ -19732,6 +20194,24 @@
       ],
       "updated_at": "2026-09-18T00:08:26+00:00"
     },
+    "장원한정식|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "장원한정식",
+      "fingerprint": "4470230245612c6b",
+      "geocoder_version": 4,
+      "lat": 37.494326215,
+      "lon": 127.012862762,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "장원한정식 대한민국",
+      "result_name": "장원한정식",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:장원한정식 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:29+00:00"
+    },
     "장위동유성집|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 의정부시 의정부동 범골로 117",
@@ -19983,6 +20463,17 @@
         "arcgis:전원식당 의정부시"
       ],
       "updated_at": "2026-09-18T23:15:28+00:00"
+    },
+    "전주누룽지삼계탕|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "3dad4637671a6c30",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:전주누룽지삼계탕 대한민국",
+        "nominatim:전주누룽지삼계탕 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:55+00:00"
     },
     "전주옛날집|공기업·공공기관": {
       "addr_type": "POI",
@@ -21242,6 +21733,17 @@
       ],
       "updated_at": "2026-09-17T23:03:56+00:00"
     },
+    "진담덮밥앤소바|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "2da89a1a19402033",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:진담덮밥앤소바 대한민국",
+        "nominatim:진담덮밥앤소바 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:00+00:00"
+    },
     "진동횟집|공기업·공공기관": {
       "addr_type": "POI",
       "display_name": "진동횟집",
@@ -21830,6 +22332,24 @@
       ],
       "updated_at": "2026-09-17T23:02:03+00:00"
     },
+    "창고43 해운대점|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "창고43 해운대점",
+      "fingerprint": "c2b117bd94dda2a1",
+      "geocoder_version": 4,
+      "lat": 35.161825462,
+      "lon": 129.165094838,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "창고43 해운대점 대한민국",
+      "result_name": "창고43 해운대점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:창고43 해운대점 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:41+00:00"
+    },
     "창고43|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 국회대로70길 15-1",
@@ -22407,6 +22927,24 @@
       ],
       "updated_at": "2026-09-18T23:15:49+00:00"
     },
+    "청록|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "청록",
+      "fingerprint": "75a5bc13d697f683",
+      "geocoder_version": 4,
+      "lat": 36.596802668,
+      "lon": 126.654325019,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "청록 대한민국",
+      "result_name": "청록",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:청록 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:06+00:00"
+    },
     "청솔횟집|법조·법률행정": {
       "addr_type": "POI",
       "display_name": "청솔횟집",
@@ -22703,6 +23241,24 @@
       ],
       "updated_at": "2026-09-22T07:23:43+00:00"
     },
+    "춘식이네|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "춘식이네",
+      "fingerprint": "be765614841ceb2d",
+      "geocoder_version": 4,
+      "lat": 35.739831165,
+      "lon": 127.85861799,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "춘식이네 대한민국",
+      "result_name": "춘식이네",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:춘식이네 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:34+00:00"
+    },
     "춘천명가닭갈비전문점|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 북창동 남대문로 25-15",
@@ -22756,6 +23312,24 @@
         "arcgis:충무칼국수 대한민국"
       ],
       "updated_at": "2026-09-18T23:16:08+00:00"
+    },
+    "취팔선객잔|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "취팔선객잔",
+      "fingerprint": "d843751092da7f85",
+      "geocoder_version": 4,
+      "lat": 37.129247343,
+      "lon": 126.951810442,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "취팔선객잔 대한민국",
+      "result_name": "취팔선객잔",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:취팔선객잔 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:57+00:00"
     },
     "취홍(인천 남동구 소재)|인천시청": {
       "addr_type": "POI",
@@ -23746,6 +24320,24 @@
         "nominatim:톰볼라 대한민국"
       ],
       "updated_at": "2026-10-07T00:29:06+00:00"
+    },
+    "통낙지|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "통낙지",
+      "fingerprint": "ae5da0916ade9c8b",
+      "geocoder_version": 4,
+      "lat": 35.146793928,
+      "lon": 129.065750566,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "통낙지 대한민국",
+      "result_name": "통낙지",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:통낙지 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:27+00:00"
     },
     "통영굴밥|중앙정부": {
       "addr_type": "POI",
@@ -25473,6 +26065,17 @@
       ],
       "updated_at": "2026-09-17T23:01:35+00:00"
     },
+    "함평원 서초본점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "15dd2ccb0b2c554d",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:함평원 서초본점 대한민국",
+        "nominatim:함평원 서초본점 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:49+00:00"
+    },
     "함흥관|옹진군": {
       "failed": true,
       "fingerprint": "c2793136d99f3815",
@@ -25732,6 +26335,24 @@
       ],
       "updated_at": "2026-10-02T04:55:42+00:00"
     },
+    "해운대이름난암소갈비|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "해운대이름난암소갈비",
+      "fingerprint": "e0daa9182404efc1",
+      "geocoder_version": 4,
+      "lat": 35.16174713,
+      "lon": 129.167004808,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "해운대이름난암소갈비 대한민국",
+      "result_name": "해운대이름난암소갈비",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:해운대이름난암소갈비 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:28+00:00"
+    },
     "해장국,설렁탕|인천시청": {
       "addr_type": "POI",
       "display_name": "해장국,설렁탕",
@@ -25749,6 +26370,24 @@
         "arcgis:해장국,설렁탕 인천 남동구"
       ],
       "updated_at": "2026-09-21T07:29:10+00:00"
+    },
+    "해초가|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "해초가",
+      "fingerprint": "564936673e24f17e",
+      "geocoder_version": 4,
+      "lat": 37.530683108,
+      "lon": 126.921620156,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "해초가 대한민국",
+      "result_name": "해초가",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:해초가 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:05+00:00"
     },
     "해초가|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -26466,6 +27105,24 @@
       ],
       "updated_at": "2026-09-17T23:04:58+00:00"
     },
+    "화락만리|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "화락만리",
+      "fingerprint": "0d93334573b7902d",
+      "geocoder_version": 4,
+      "lat": 35.15141902,
+      "lon": 129.058190867,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "화락만리 대한민국",
+      "result_name": "화락만리",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:화락만리 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:39:01+00:00"
+    },
     "화로본가|부천시": {
       "addr_type": "PointAddress",
       "display_name": "경기도 부천시 원미구 중동 석천로184번길 22",
@@ -27014,6 +27671,17 @@
         "arcgis:마포구 월드컵로36길"
       ],
       "updated_at": "2026-09-17T23:03:27+00:00"
+    },
+    "흥미원|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "8f0215c8768f67e6",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:흥미원 대한민국",
+        "nominatim:흥미원 대한민국"
+      ],
+      "updated_at": "2026-10-07T06:38:27+00:00"
     },
     "흥부가|관악구": {
       "addr_type": "PointAddress",
