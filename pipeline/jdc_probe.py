@@ -22,4 +22,4 @@ for token in ("제주국제자유도시개발센터","2024년 기관장 업무�
     i=doc.find(token)
     print("CTX",token," ".join(doc[max(0,i-600):i+1600].split()) if i>=0 else "MISS")
 
-print("SCRIPTS", re.findall(r'<script[^>]+src=["\\']([^"\\']+)["\\']',doc,re.I)[:30])
+print("SCRIPTS", re.findall(r"<script[^>]+src=[\\\"']([^\\\"']+)[\\\"']",doc,re.I)[:30])
