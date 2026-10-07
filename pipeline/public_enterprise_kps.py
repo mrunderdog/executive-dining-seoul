@@ -160,8 +160,14 @@ def discover(year: int) -> dict:
                 seen_file.add(url); y, m = extract_year_month(label)
                 out["attachments"].append({"text": label, "url": url, "year": y, "month": m, "parent": detail_url})
 
-    if not out["attachments"]:
-        pass
+    if not out["attachments"] and listing_docs:
+        doc=listing_docs[0][1]
+        for needle in ("pstFile","fileDownload","downloadFile","FileDown","atch","fileUnq","BoardFile","icon-excel"):
+            for mm in list(re.finditer(needle,doc,re.I))[:4]:
+                chunk=re.sub(r"\\s+"," ",html.unescape(doc[max(0,mm.start()-900):mm.end()+2200])).strip()
+                out["diagnostics"].append("LISTING_HOOK="+chunk[:3200])
+            if len(out["diagnostics"])>=16:
+                break
 
     if not out["attachments"]:
         try:
