@@ -21,7 +21,7 @@ SOURCE = {
     "cohort": "public_enterprise_leadership",
     "default_role": "임원",
     "years_lookback": 1,
-    "listing": "https://www.kps.co.kr/open_kps/business/boardList.do",
+    "listing": "https://www.kps.co.kr/web/integrity/clean/expense.do",
     "metadata_url": "https://www.data.go.kr/data/15151716/fileData.do",
 }
 
@@ -38,7 +38,7 @@ def fetch(url: str) -> str:
 
 
 def _listing_urls(years: set[int]) -> list[str]:
-    return [f"{SOURCE['listing']}?pageIndex={page}" for page in range(1, 6)]
+    return [SOURCE["listing"]] + [f"{SOURCE['listing']}?pageIndex={page}" for page in range(2, 5)]
 
 
 def _is_target(text: str, years: set[int]) -> bool:
@@ -115,7 +115,15 @@ def discover(year: int) -> dict:
     if not out["attachments"]:
         for _, doc in sorted(listing_docs)[:2]:
             out["diagnostics"].extend(_diagnostic_snippets(doc, years))
-            if len(out["diagnostics"]) >= 3: break
+            for row in re.findall(r"<tr\\b.*?</tr>", doc, re.I | re.S):
+                txt=html.unescape(re.sub(r"<[^>]+>", " ", row))
+                txt=re.sub(r"\\s+", " ", txt).strip()
+                if _is_target(txt, years):
+                    compact=re.sub(r"\\s+", " ", html.unescape(row)).strip()
+                    out["diagnostics"].append("ROWHTML="+compact[:2200])
+                    if len(out["diagnostics"]) >= 8:
+                        break
+            if len(out["diagnostics"]) >= 8: break
 
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
