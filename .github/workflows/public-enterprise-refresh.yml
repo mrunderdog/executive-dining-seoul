@@ -7,6 +7,7 @@ on:
       - 'pipeline/public_enterprise_discovery.py'
       - 'pipeline/public_enterprise_komipo.py'
       - 'pipeline/public_enterprise_hf.py'
+      - 'pipeline/public_enterprise_hug.py'
       - 'pipeline/public_enterprise_kps.py'
       - 'pipeline/public_enterprise_kamco.py'
       - 'pipeline/public_enterprise_komsco.py'
@@ -41,7 +42,7 @@ jobs:
 
       - name: Refresh public-enterprise sources
         run: |
-          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/public_enterprise_komipo.py pipeline/public_enterprise_hf.py pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_komsco.py pipeline/ingest_public_enterprise_expense.py
+          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/public_enterprise_komipo.py pipeline/public_enterprise_hf.py pipeline/public_enterprise_hug.py pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_komsco.py pipeline/ingest_public_enterprise_expense.py
           python pipeline/public_enterprise_discovery.py --incremental --detail-limit 24
           python pipeline/public_enterprise_komipo.py
           python pipeline/public_enterprise_kps.py

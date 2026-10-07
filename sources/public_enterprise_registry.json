@@ -312,6 +312,21 @@
         "https://www.hf.go.kr/ko/sub05/sub05_03_04_05_03.do"
       ],
       "note": "한국주택금융공사 공식 경영공시 업무추진비. 기관장·감사·임원을 별도 게시판으로 운영하며 월별 XLSX에 사용일자·목적·사용처(장소)·대상·구분·인원·금액을 거래별 공개. 임원 파일은 사용자 직위/성명도 포함하므로 원 역할을 보존해 수집."
+    },
+    {
+      "key": "hug",
+      "institution": "주택도시보증공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·상임이사",
+      "format_hint": "pdf-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.khug.or.kr/openapi/web/go/th/goth000003.jsp?id=1035&subCategory=20841"
+      ],
+      "note": "HUG 공식 사전정보공개 '기관장 및 상임이사(임원) 업무추진비성 경비 사용내역'. 월별 PDF에 기관장·상근감사위원·각 본부장별 사용일자, 목적, 사용처, 대상, 인원, 금액이 거래별 공개되어 역할별로 수집."
     }
   ]
 }
