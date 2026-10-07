@@ -5,6 +5,8 @@ import html
 import json
 import re
 import urllib.request
+import urllib.parse
+import http.cookiejar
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -59,6 +61,45 @@ def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
             break
     return snippets
 
+
+
+def _probe_detail(pst_no: str) -> list[str]:
+    jar=http.cookiejar.CookieJar()
+    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    req=urllib.request.Request(SOURCE["listing"],headers={
+        "User-Agent":BROWSER_UA,
+        "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
+        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
+        "Referer":"https://www.kps.co.kr/",
+    })
+    with opener.open(req,timeout=20) as r:
+        listing=decode(r.read(),r.headers.get_content_charset())
+    m=re.search(r'name="_csrf"\s+value="([^"]+)"',listing,re.I)
+    token=m.group(1) if m else ""
+    detail=f"https://www.kps.co.kr/web/Board/{pst_no}/detailView.do?pageIndex=1&menu=2499"
+    fields={"pageIndex":"1","menu":"2499"}
+    if token:
+        fields["_csrf"]=token
+    data=urllib.parse.urlencode(fields).encode()
+    req=urllib.request.Request(detail,data=data,headers={
+        "User-Agent":BROWSER_UA,
+        "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
+        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
+        "Referer":SOURCE["listing"],
+        "Content-Type":"application/x-www-form-urlencoded",
+    })
+    with opener.open(req,timeout=20) as r:
+        doc=decode(r.read(),r.headers.get_content_charset())
+        final_url=r.geturl()
+    out=[f"DETAIL_URL={final_url}",f"DETAIL_LEN={len(doc)}",f"CSRF={'Y' if token else 'N'}"]
+    for needle in ("다운로드","download","file","xlsx","xls","첨부"):
+        for mm in list(re.finditer(needle,doc,re.I))[:3]:
+            chunk=re.sub(r"\s+"," ",html.unescape(doc[max(0,mm.start()-700):mm.end()+1500])).strip()
+            if chunk not in out:
+                out.append(f"DETAIL={chunk[:2600]}")
+        if len(out)>=14:
+            break
+    return out[:14]
 
 def discover(year: int) -> dict:
     years = {year - i for i in range(SOURCE["years_lookback"] + 1)}
@@ -120,6 +161,11 @@ def discover(year: int) -> dict:
                     chunk=re.sub(r"\\s+", " ", html.unescape(doc[max(0,pos-1400):pos+3200])).strip()
                     out["diagnostics"].append("HOOK="+chunk[:4200])
 
+    if not out["attachments"]:
+        try:
+            out["diagnostics"].extend(_probe_detail("47321"))
+        except Exception as e:
+            out["diagnostics"].append(f"DETAIL_PROBE_ERROR={type(e).__name__}: {e}")
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
     out["status"] = "PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] and not listing_docs else "NO_FILES_FOUND")
