@@ -8,6 +8,6 @@ print("BYTES",len(blob),"MAGIC",blob[:5])
 pdf=PdfReader(io.BytesIO(blob))
 print("PAGES",len(pdf.pages))
 for i,p in enumerate(pdf.pages[:6]):
-    text=p.extract_text() or ""
+    text=p.extract_text(extraction_mode="layout") or ""
     print("PAGE",i+1)
-    for line in text.splitlines()[:120]:print("TXT",line)
+    for line in text.splitlines()[:120]:print("TXT",repr(line))
