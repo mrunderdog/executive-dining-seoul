@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'pipeline/public_enterprise_koat.py'
+      - 'pipeline/public_enterprise_nile.py'
+      - 'pipeline/public_enterprise_fira.py'
       - '.github/workflows/new-public-sources-parser-smoke.yml'
   workflow_dispatch:
 permissions:
