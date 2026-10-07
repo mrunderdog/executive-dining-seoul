@@ -38,9 +38,14 @@ def workbook_rows(blob):
                 vals[col(c.attrib.get("r",""))]=val.strip()
             yield vals
 
+failures=[]
 for a in sorted(src.get("attachments",[]),key=lambda x:(x.get("year",0),x.get("month",0))):
-    req=urllib.request.Request(a["url"],headers={"User-Agent":UA,"Referer":a.get("parent","")})
-    with urllib.request.urlopen(req,timeout=20) as r: blob=r.read()
+    try:
+        req=urllib.request.Request(a["url"],headers={"User-Agent":UA,"Referer":a.get("parent","")})
+        with urllib.request.urlopen(req,timeout=12) as r: blob=r.read()
+    except Exception as e:
+        failures.append(f"{a.get('year')}-{a.get('month'):02d}:{type(e).__name__}:{e}")
+        continue
     file_rows=list(workbook_rows(blob))
     header_seen=False
     for v in file_rows:
@@ -56,4 +61,5 @@ for a in sorted(src.get("attachments",[]),key=lambda x:(x.get("year",0),x.get("m
         if len(rows)<120:
             rows.append({"ym":f"{a.get('year')}-{a.get('month'):02d}","dept":v.get("A",""),"role":role,"date":v.get("C",""),"purpose":purpose,"merchant":merchant,"amount":v.get("E",""),"target":v.get("G",""),"method":v.get("H",""),"people":v.get("I","")})
 print("ROLE_COUNTS",json.dumps(roles,ensure_ascii=False,sort_keys=True))
+print("FAILURES",json.dumps(failures,ensure_ascii=False))
 for r in rows: print("DATA",json.dumps(r,ensure_ascii=False))
