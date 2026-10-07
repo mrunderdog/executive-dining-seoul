@@ -123,7 +123,8 @@ def _probe_detail(pst_no: str) -> list[str]:
             if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
                 for x in parse_links(r.geturl(),doc):
                     label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
-                    out.append(f"GET:LINK={label[:1200]}")
+                    if looks_file(x) or any(k in label.lower() for k in ("download","file",".xls",".xlsx","첨부")):
+                        out.append(f"GET:FILELINK={label[:1800]}")
     except Exception as e:
         out.append(f"GET:ERROR={type(e).__name__}: {e}")
     return out[:30]
