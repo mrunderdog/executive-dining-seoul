@@ -30,7 +30,7 @@ class A(HTMLParser):
 
 def fetch(url,referer=""):
     req=urllib.request.Request(url,headers={"User-Agent":UA,"Referer":referer or url,"Accept-Language":"ko-KR,ko;q=0.9"})
-    with urllib.request.urlopen(req,timeout=15) as r:return r.read()
+    with urllib.request.urlopen(req,timeout=8) as r:return r.read()
 
 def text_fetch(url,referer=""):
     raw=fetch(url,referer)
@@ -111,15 +111,22 @@ def discover(year):
     years={year,year-1}
     out={"key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership","default_role":"기관장·감사·임원",
          "years":sorted(years),"pages":[],"attachments":[],"inline_rows":[],"inline_replace":True,"errors":[]}
-    detail_jobs=[]
+    listing_jobs=[]
     for role,listing in ROLE_PAGES:
         for page in range(1,5):
             url=listing if page==1 else listing+f"?pageIndex={page}"
-            try:doc=text_fetch(url)
-            except Exception as e:out["errors"].append(f"listing {url}: {type(e).__name__}: {e}");continue
-            out["pages"].append(url); p=A();p.feed(doc)
+            listing_jobs.append((role,listing,url))
+    detail_jobs=[]
+    with ThreadPoolExecutor(max_workers=min(8,len(listing_jobs))) as pool:
+        fm={pool.submit(text_fetch,url):(role,listing,url) for role,listing,url in listing_jobs}
+        for fut in as_completed(fm):
+            role,listing,url=fm[fut]
+            try:doc=fut.result()
+            except Exception as e:
+                out["errors"].append(f"listing {url}: {type(e).__name__}: {e}");continue
+            out["pages"].append(url);p=A();p.feed(doc)
             for a in p.anchors:
-                txt=a.get("text",""); href=html.unescape(a.get("href","") or "")
+                txt=a.get("text","");href=html.unescape(a.get("href","") or "")
                 if "업무추진비" not in txt or not any(str(y) in txt for y in years):continue
                 if "mode=view" not in href or "articleNo=" not in href:continue
                 detail_jobs.append((role,listing,urllib.parse.urljoin(url,href)))
