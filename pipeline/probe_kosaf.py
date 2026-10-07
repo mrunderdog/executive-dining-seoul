@@ -2,7 +2,7 @@
 from __future__ import annotations
 import html, re, urllib.request
 
-URL="https://www.kosaf.go.kr/ko/operation.do?pg=operation07_28"
+URL="https://www.kosaf.go.kr/ko/openinfo.do?ctgrId1=0000000015&pg=operation10"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
 
 req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
