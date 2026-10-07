@@ -121,7 +121,7 @@ def _probe_detail(pst_no: str) -> list[str]:
             out.append(f"GET:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
             out.append(f"GET:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
             if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
-                for needle in ("xlsx","xls","첨부파일","download","file"):
+                for needle in ("function cf_download","cf_download","download.do","fileDownload","BoardFile","xlsx","첨부파일"):
                     for mm in list(re.finditer(needle,doc,re.I))[:6]:
                         chunk=re.sub(r"\\s+"," ",html.unescape(doc[max(0,mm.start()-1000):mm.end()+2200])).strip()
                         out.append(f"GET:SNIP={chunk[:3200]}")
