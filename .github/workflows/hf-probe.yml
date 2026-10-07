@@ -16,3 +16,5 @@ jobs:
       - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python pipeline/hf_probe.py
+
+# force detail probe
