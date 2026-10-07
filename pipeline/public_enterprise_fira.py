@@ -70,6 +70,15 @@ def _norm_date(s:str)->str:
     try:return datetime(*map(int,m.groups())).date().isoformat()
     except ValueError:return ""
 
+def _valid_merchant(s:str)->bool:
+    s=" ".join(str(s or "").split()).strip()
+    if len(s)<2 or len(s)>60:return False
+    if s in {"유관기관","공단직원","내부직원","외부인사","임직원","직원","외부","기관장","임원"}:return False
+    if re.match(r"^(?:기관장|임원|FIRA|공단|유관기관|간담회 참석자)(?:\s|$)",s,re.I):return False
+    if re.search(r"\b\d+\s*명$",s):return False
+    if re.search(r"\(0?\d{1,3}$",s):return False
+    return True
+
 def _merchant_and_target(prefix:str):
     s=" ".join(prefix.split())
     target=""
@@ -85,7 +94,7 @@ def _merchant_and_target(prefix:str):
     # Some FIRA PDFs expose the phone number before the merchant in text
     # extraction even though visually it is inside the merchant cell.
     after=s[p.end():].strip(" -·,()")
-    if 1<len(after)<=60:
+    if _valid_merchant(after):
         return after,target
 
     before=s[:p.start()].strip()
@@ -93,7 +102,7 @@ def _merchant_and_target(prefix:str):
         idx=before.rfind(marker)
         if idx>=0:
             cand=before[idx+len(marker):].strip(" -·,")
-            if 1<len(cand)<=60:return cand,target
+            if _valid_merchant(cand):return cand,target
     return "",target
 
 def _parse_pdf(att:dict):
@@ -123,7 +132,7 @@ def _parse_pdf(att:dict):
             people=int(method_m.group(2)) if method_m else None
             trailing=seg[:method_m.start()] if method_m else seg
             merchant,target=_merchant_and_target(trailing)
-            if not merchant:continue
+            if not merchant or not _valid_merchant(merchant):continue
             purpose=seg[m.end()-m.start():]
             first_phone=re.search(r"\(?0\d{1,2}-\d{3,4}-\d{4}\)?",purpose)
             if first_phone:purpose=purpose[:first_phone.start()]
