@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import html
 import json
 import re
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
-from public_enterprise_discovery import decode, extract_year_month, looks_file, parse_links
+from public_enterprise_discovery import decode
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
 KEY="komsco"
 INSTITUTION="한국조폐공사"
-LISTING="https://www.komsco.com/kor/article/ATCL7e0c1d65f"
+ALIO="https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0257&disclosureNo=&reportFormRootNo=20701"
 BROWSER_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
 
 
@@ -23,77 +23,61 @@ def fetch(url:str)->str:
         "User-Agent":BROWSER_UA,
         "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
-        "Referer":"https://www.komsco.com/kor",
+        "Referer":"https://www.alio.go.kr/",
     })
-    with urllib.request.urlopen(req,timeout=35) as r:
+    with urllib.request.urlopen(req,timeout=15) as r:
         return decode(r.read(),r.headers.get_content_charset())
 
 
 def discover(year:int)->dict:
     years={year,year-1}
-    out={"key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership","default_role":"임원","years":sorted(years),"pages":[],"attachments":[],"errors":[]}
-    listing_urls=[LISTING]+[LISTING+f"?pageIndex={p}" for p in range(2,8)]
-    docs=[]
-    with ThreadPoolExecutor(max_workers=min(8,len(listing_urls))) as pool:
-        fm={pool.submit(fetch,u):u for u in listing_urls}
-        for fut in as_completed(fm):
-            u=fm[fut]
-            try: docs.append((u,fut.result()));out["pages"].append(u)
-            except Exception as e: out["errors"].append(f"listing {u}: {type(e).__name__}: {e}")
+    out={
+        "key":KEY,"institution":INSTITUTION,
+        "cohort":"public_enterprise_leadership","default_role":"기관장",
+        "years":sorted(years),"pages":[ALIO],"attachments":[],"errors":[],
+        "source_mode":"alio_official"
+    }
+    try:
+        doc=fetch(ALIO)
+    except Exception as e:
+        out["errors"].append(f"ALIO {ALIO}: {type(e).__name__}: {e}")
+        out["parseable_attachments"]=0
+        out["status"]="FETCH_FAILED"
+        return out
 
-    if not docs:
-        out["diagnostics"]=[]
-    else:
-        diagnostic_doc=docs[0][1]
-        snippets=[f"HTML_LEN={len(diagnostic_doc)}", "HEAD="+" ".join(diagnostic_doc[:3000].split())]
-        probes=[
-            r"<script[^>]+src=[\"']([^\"']+)",
-            r"<form[^>]+action=[\"']([^\"']+)",
-            r"(?:fetch|axios|url)\s*\(?\s*[:=]?\s*[\"']([^\"']+)",
-            r"[\"']([^\"']*(?:api|board|bbs|article|list|search)[^\"']*)[\"']",
-        ]
-        for pattern in probes:
-            for match in re.finditer(pattern, diagnostic_doc, re.I):
-                value=match.group(1) if match.lastindex else match.group(0)
-                value=" ".join(value.split())
-                if value and value not in snippets:
-                    snippets.append(value)
-                if len(snippets)>=28:
-                    break
-            if len(snippets)>=28:
-                break
-        out["diagnostics"]=snippets
+    dm=re.search(r'disclosureNo\s*:\s*"([^"]+)"',doc) or re.search(r'\$submissionNo\s*=\s*"?([0-9]+)',doc)
+    if not dm:
+        out["errors"].append("ALIO disclosureNo missing")
+        out["diagnostics"]=[" ".join(doc[:1800].split())]
+        out["parseable_attachments"]=0
+        out["status"]="NO_FILES_FOUND"
+        return out
 
-    details=[];seen=set()
-    for base,doc in docs:
-        for x in parse_links(base,doc):
-            label=" ".join((x.get("text","")+" "+x.get("url","")).split())
-            if not any(str(y) in label for y in years): continue
-            if looks_file(x):
-                if x["url"] in seen: continue
-                seen.add(x["url"]);y,m=extract_year_month(label)
-                out["attachments"].append({**x,"year":y,"month":m,"parent":base})
-            elif "업무추진비" in label and x["url"] not in seen:
-                seen.add(x["url"]);details.append(x)
+    disclosure=dm.group(1)
+    seen=set()
+    labels=[]
+    for fm in re.finditer(r'<option\s+value="([^"]+)">\s*([^<]+\.(?:xlsx?|xls))\s*</option>',doc,re.I):
+        file_no,label=fm.group(1),html.unescape(fm.group(2)).strip()
+        labels.append(label)
+        ym=re.search(r'(20\d{2})',label)
+        if not ym:
+            continue
+        y=int(ym.group(1))
+        if y not in years:
+            continue
+        url=f"https://www.alio.go.kr/download/file.json?d={disclosure}&f={file_no}"
+        if url in seen:
+            continue
+        seen.add(url)
+        out["attachments"].append({
+            "text":label,"url":url,"download_url":url,
+            "year":y,"month":None,"parent":ALIO,
+            "attachment_id":f"{disclosure}|{file_no}"
+        })
 
-    with ThreadPoolExecutor(max_workers=min(8,max(1,len(details)))) as pool:
-        fm={pool.submit(fetch,x["url"]):x for x in details}
-        for fut in as_completed(fm):
-            x=fm[fut];out["pages"].append(x["url"])
-            try: doc=fut.result()
-            except Exception as e: out["errors"].append(f"detail {x['url']}: {type(e).__name__}: {e}");continue
-            for a in parse_links(x["url"],doc):
-                if not looks_file(a):continue
-                label=" ".join((x.get("text","")+" "+a.get("text","")).split())
-                y,m=extract_year_month(label)
-                if y not in years:continue
-                if a["url"] in seen:continue
-                seen.add(a["url"])
-                out["attachments"].append({"text":label,"url":a["url"],"year":y,"month":m,"parent":x["url"]})
-
-    out["pages"]=list(dict.fromkeys(out["pages"]))
+    out["diagnostics"]=[f"disclosure={disclosure}",*labels[:20]]
     out["parseable_attachments"]=len(out["attachments"])
-    out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] and not docs else "NO_FILES_FOUND")
+    out["status"]="PARSEABLE_FOUND" if out["attachments"] else "NO_FILES_FOUND"
     return out
 
 
@@ -102,6 +86,12 @@ def main():
     fresh=discover(int(payload.get("year") or datetime.now().year))
     payload["sources"]=[x for x in payload.get("sources",[]) if x.get("key")!=KEY]+[fresh]
     REPORT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    print(json.dumps({"key":KEY,"status":fresh["status"],"pages":len(fresh["pages"]),"attachments":len(fresh["attachments"]),"errors":fresh["errors"][:5],"diagnostics":fresh.get("diagnostics",[])[:12]},ensure_ascii=False))
+    print(json.dumps({
+        "key":KEY,"status":fresh["status"],
+        "pages":len(fresh["pages"]),"attachments":len(fresh["attachments"]),
+        "errors":fresh["errors"][:5],"diagnostics":fresh.get("diagnostics",[])[:20]
+    },ensure_ascii=False))
 
-if __name__=="__main__":main()
+
+if __name__=="__main__":
+    main()
