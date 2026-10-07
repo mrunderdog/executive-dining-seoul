@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'pipeline/public_enterprise_kps.py'
       - '.github/workflows/kps-exec-probe.yml'
   workflow_dispatch:
 permissions:
