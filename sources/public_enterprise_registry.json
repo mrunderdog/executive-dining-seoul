@@ -295,6 +295,23 @@
       },
       "metadata_url": "https://www.data.go.kr/data/15151716/fileData.do",
       "note": "한전KPS 공식 청렴·윤리센터 > 업무추진비 게시판. 월별 XLSX에는 부서명·집행자·집행일·집행내역·금액·장소(사용처)·집행대상·집행구분·인원이 거래별로 공개된다. 2025~2026 자료를 직접 점검한 결과 확인된 세부 집행자 직급은 차장 등 비임원급이며, 사장·부사장·상임감사·감사·상임이사·이사·전무·상무 등 명시적 임원급 행은 현재 0건이다. 고위직 지도 범위를 오염시키지 않기 위해 track-only로 유지한다."
+    },
+    {
+      "key": "hf",
+      "institution": "한국주택금융공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·감사·임원",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.hf.go.kr/ko/sub05/sub05_03_04_05_01.do",
+        "https://www.hf.go.kr/ko/sub05/sub05_03_04_05_02.do",
+        "https://www.hf.go.kr/ko/sub05/sub05_03_04_05_03.do"
+      ],
+      "note": "한국주택금융공사 공식 경영공시 업무추진비. 기관장·감사·임원을 별도 게시판으로 운영하며 월별 XLSX에 사용일자·목적·사용처(장소)·대상·구분·인원·금액을 거래별 공개. 임원 파일은 사용자 직위/성명도 포함하므로 원 역할을 보존해 수집."
     }
   ]
 }
