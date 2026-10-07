@@ -121,12 +121,24 @@ def _probe_detail(pst_no: str) -> list[str]:
             out.append(f"GET:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
             out.append(f"GET:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
             if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
-                for needle in ("function cf_download","cf_download","download.do","fileDownload","BoardFile","xlsx","첨부파일"):
-                    for mm in list(re.finditer(needle,doc,re.I))[:6]:
-                        chunk=re.sub(r"\\s+"," ",html.unescape(doc[max(0,mm.start()-1000):mm.end()+2200])).strip()
-                        out.append(f"GET:SNIP={chunk[:3200]}")
-                    if len(out)>=22:
-                        break
+                scripts=[]
+                for sm in re.finditer(r'<script[^>]+src=["\\']([^"\\']+)["\\']',doc,re.I):
+                    src=urllib.parse.urljoin(r.geturl(),html.unescape(sm.group(1)))
+                    if src not in scripts:
+                        scripts.append(src)
+                out.append(f"GET:SCRIPTS={len(scripts)}")
+                for src in scripts[:30]:
+                    try:
+                        req2=urllib.request.Request(src,headers=headers)
+                        with opener.open(req2,timeout=15) as rr:
+                            js=decode(rr.read(),rr.headers.get_content_charset())
+                        pos=js.find("cf_download")
+                        if pos>=0:
+                            chunk=re.sub(r"\\s+"," ",js[max(0,pos-1800):pos+4200]).strip()
+                            out.append(f"GET:JS={src} :: {chunk[:5200]}")
+                            break
+                    except Exception:
+                        continue
     except Exception as e:
         out.append(f"GET:ERROR={type(e).__name__}: {e}")
     return out[:30]
