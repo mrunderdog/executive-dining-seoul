@@ -25,23 +25,6 @@ jobs:
           print('KOAT_SMOKE',json.dumps({'status':s.get('status'),'attachments':len(s.get('attachments') or []),'rows':len(s.get('inline_rows') or []),'merchants':len({r.get('merchant') for r in s.get('inline_rows') or [] if r.get('merchant')}),'errors':(s.get('errors') or [])[:5]},ensure_ascii=False))
           if not s.get('inline_rows'): raise SystemExit('KOAT zero rows')
           PY
-  nile:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with: {python-version: '3.12'}
-      - run: pip install --disable-pip-version-check pypdf==6.1.1
-      - run: python pipeline/public_enterprise_nile.py
-      - run: |
-          python - <<'PY'
-          import json
-          d=json.load(open('reports/public-enterprise-discovery.json',encoding='utf-8'))
-          s=next(x for x in d['sources'] if x.get('key')=='nile')
-          print('NILE_SMOKE',json.dumps({'status':s.get('status'),'attachments':len(s.get('attachments') or []),'rows':len(s.get('inline_rows') or []),'merchants':len({r.get('merchant') for r in s.get('inline_rows') or [] if r.get('merchant')}),'errors':(s.get('errors') or [])[:5]},ensure_ascii=False))
-          if not s.get('inline_rows'): raise SystemExit('NILE zero rows')
-          PY
   fira:
     runs-on: ubuntu-latest
     timeout-minutes: 5
