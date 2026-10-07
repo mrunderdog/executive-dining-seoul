@@ -113,17 +113,12 @@ def discover(year: int) -> dict:
                 out["attachments"].append({"text": label, "url": url, "year": y, "month": m, "parent": detail_url})
 
     if not out["attachments"]:
-        for _, doc in sorted(listing_docs)[:2]:
-            out["diagnostics"].extend(_diagnostic_snippets(doc, years))
-            for row in re.findall(r"<tr\\b.*?</tr>", doc, re.I | re.S):
-                txt=html.unescape(re.sub(r"<[^>]+>", " ", row))
-                txt=re.sub(r"\\s+", " ", txt).strip()
-                if _is_target(txt, years):
-                    compact=re.sub(r"\\s+", " ", html.unescape(row)).strip()
-                    out["diagnostics"].append("ROWHTML="+compact[:2200])
-                    if len(out["diagnostics"]) >= 8:
-                        break
-            if len(out["diagnostics"]) >= 8: break
+        for _, doc in sorted(listing_docs)[:1]:
+            for needle in ("2026년 6월 업무추진비 집행 실적","2026년 5월 업무추진비 집행 실적","2025년 12월 업무추진비 집행 실적"):
+                pos=doc.find(needle)
+                if pos>=0:
+                    chunk=re.sub(r"\\s+", " ", html.unescape(doc[max(0,pos-1200):pos+2800])).strip()
+                    out["diagnostics"].append("AROUND="+chunk[:3800])
 
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
