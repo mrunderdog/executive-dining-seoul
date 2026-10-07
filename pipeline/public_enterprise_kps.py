@@ -262,7 +262,9 @@ def discover(year:int)->dict:
             out["observed_roles"]=dict(role_counts)
     out["inline_rows"].sort(key=lambda x:(x.get("used_date") or "",x.get("role") or "",x.get("row_id") or ""))
     out["parseable_attachments"]=len(out["attachments"])
-    out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
+    out["status"]="PARSEABLE_FOUND" if out["inline_rows"] else ("TRACK_ONLY" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND"))
+    if not out["inline_rows"] and out["attachments"]:
+        out["note"]="거래별 장소(사용처)는 공개되지만 확인된 집행자 직급이 임원급이 아니므로 public_enterprise_leadership에는 출판하지 않는다."
     return out
 
 

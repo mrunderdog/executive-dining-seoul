@@ -280,10 +280,10 @@
       "institution": "한전KPS",
       "cohort": "public_enterprise_leadership",
       "verified": true,
-      "publish": true,
-      "refresh_policy": "monthly",
+      "publish": false,
+      "refresh_policy": "track_only",
       "default_role": "임원급",
-      "format_hint": "xlsx-detail",
+      "format_hint": "xlsx-detail-mixed-roles",
       "lookback_years": 1,
       "listing_urls": [
         "https://www.kps.co.kr/web/integrity/clean/expense.do"
@@ -294,7 +294,7 @@
         "end": 4
       },
       "metadata_url": "https://www.data.go.kr/data/15151716/fileData.do",
-      "note": "한전KPS 공식 청렴·윤리센터 > 업무추진비 게시판. 월별 XLSX에는 부서명·집행자·집행일·집행내역·금액·장소(사용처)·집행대상·집행구분·인원이 거래별로 공개됨. 일반 직원/관리자 업무추진비도 섞여 있어 전용 adapter에서 사장·부사장·상임감사·감사·상임이사·이사·전무·상무 등 명시적 임원급 집행자만 public_enterprise_leadership으로 선별한다."
+      "note": "한전KPS 공식 청렴·윤리센터 > 업무추진비 게시판. 월별 XLSX에는 부서명·집행자·집행일·집행내역·금액·장소(사용처)·집행대상·집행구분·인원이 거래별로 공개된다. 2025~2026 자료를 직접 점검한 결과 확인된 세부 집행자 직급은 차장 등 비임원급이며, 사장·부사장·상임감사·감사·상임이사·이사·전무·상무 등 명시적 임원급 행은 현재 0건이다. 고위직 지도 범위를 오염시키지 않기 위해 track-only로 유지한다."
     }
   ]
 }
