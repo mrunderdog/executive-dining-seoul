@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-07T06:37:58",
+  "generated_at": "2026-10-07T07:40:30",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 1216,
-  "entity_count": 767,
-  "eligible_count": 767,
+  "meal_rows": 1234,
+  "entity_count": 784,
+  "eligible_count": 784,
   "candidates": [
     {
       "merchant": "우비노",
@@ -8134,6 +8134,55 @@
       ]
     },
     {
+      "merchant": "오부찌양재점",
+      "address": "",
+      "phone": "",
+      "score": 59.8,
+      "visits": 2,
+      "months": 2,
+      "spend": 597000,
+      "institution_count": 1,
+      "institutions": [
+        "한국자산관리공사"
+      ],
+      "date_min": "2026-03-24",
+      "date_max": "2026-06-25",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 2
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "이사",
+          "visits": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-25",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 457000,
+          "people": 10,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
+        },
+        {
+          "date": "2026-03-24",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 140000,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27046"
+        }
+      ]
+    },
+    {
       "merchant": "다온정",
       "address": "",
       "phone": "",
@@ -9308,45 +9357,6 @@
       ]
     },
     {
-      "merchant": "이담한정식주식회사",
-      "address": "",
-      "phone": "",
-      "score": 46.9,
-      "visits": 1,
-      "months": 1,
-      "spend": 336000,
-      "institution_count": 1,
-      "institutions": [
-        "한국남부발전"
-      ],
-      "date_min": "2024-02-29",
-      "date_max": "2024-02-29",
-      "purpose_stats": [
-        {
-          "text": "에너지기술개발 동향 및 자원정책관련 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "사장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2024-02-29",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 336000,
-          "people": 13,
-          "purpose": "에너지기술개발 동향 및 자원정책관련 협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=102"
-        }
-      ]
-    },
-    {
       "merchant": "화풍정",
       "address": "",
       "phone": "",
@@ -9719,7 +9729,7 @@
       ],
       "role_stats": [
         {
-          "role": "이사 이철우",
+          "role": "이사",
           "visits": 1
         }
       ],
@@ -9728,7 +9738,7 @@
           "date": "2025-12-18",
           "time": "",
           "institution": "한국주택금융공사",
-          "role": "이사 이철우",
+          "role": "이사",
           "amount": 271000,
           "people": 10,
           "purpose": "유로화 커버드본드 발행 관련 논의",
@@ -10304,7 +10314,7 @@
       ],
       "role_stats": [
         {
-          "role": "이사 채석",
+          "role": "이사",
           "visits": 1
         }
       ],
@@ -10313,7 +10323,7 @@
           "date": "2026-07-06",
           "time": "",
           "institution": "한국주택금융공사",
-          "role": "이사 채석",
+          "role": "이사",
           "amount": 210000,
           "people": 8,
           "purpose": "국회 업무협의",
@@ -11228,55 +11238,6 @@
           "people": 0,
           "purpose": "",
           "source": "https://info.korail.com/info/downloadBbsFile.do?atchmnflNo=26984"
-        }
-      ]
-    },
-    {
-      "merchant": "오부찌양재점",
-      "address": "",
-      "phone": "",
-      "score": 59.8,
-      "visits": 2,
-      "months": 2,
-      "spend": 597000,
-      "institution_count": 1,
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "date_min": "2026-03-24",
-      "date_max": "2026-06-25",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 2
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "이사",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-25",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 457000,
-          "people": 10,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
-        },
-        {
-          "date": "2026-03-24",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 140000,
-          "people": 6,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27046"
         }
       ]
     },
@@ -14845,6 +14806,59 @@
           "people": 6,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
+        }
+      ]
+    },
+    {
+      "merchant": "몽중헌공덕",
+      "address": "",
+      "phone": "",
+      "score": 55.4,
+      "visits": 2,
+      "months": 1,
+      "spend": 460000,
+      "institution_count": 1,
+      "institutions": [
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-07-17",
+      "date_max": "2025-07-17",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 2
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "부사장",
+          "visits": 1
+        },
+        {
+          "role": "이사",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-17",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "부사장",
+          "amount": 175000,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23787"
+        },
+        {
+          "date": "2025-07-17",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 285000,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23787"
         }
       ]
     }
