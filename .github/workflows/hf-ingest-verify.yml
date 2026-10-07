@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'pipeline/public_enterprise_hf.py'
       - '.github/workflows/hf-ingest-verify.yml'
 permissions:
   contents: read
