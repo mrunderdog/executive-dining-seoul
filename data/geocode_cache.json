@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 272,
+    "failed_count": 273,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1607,
-    "success_count": 1335,
-    "updated_at": "2026-10-07T00:30:14+00:00"
+    "record_count": 1614,
+    "success_count": 1341,
+    "updated_at": "2026-10-07T00:44:56+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -7382,6 +7382,24 @@
       ],
       "updated_at": "2026-09-18T05:24:29+00:00"
     },
+    "메이탄강남점|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "메이탄 강남점",
+      "fingerprint": "4f84147be4e4ac2d",
+      "geocoder_version": 4,
+      "lat": 37.502044664,
+      "lon": 127.024012326,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "메이탄강남점 대한민국",
+      "result_name": "메이탄 강남점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:메이탄강남점 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:55+00:00"
+    },
     "멘츠루 시청점|서울시청": {
       "addr_type": "PointAddress",
       "display_name": "서울 중구 서소문동 서소문로11길 2",
@@ -8469,6 +8487,24 @@
         "arcgis:밀양돼지국밥 대한민국"
       ],
       "updated_at": "2026-10-07T00:28:51+00:00"
+    },
+    "바다내음|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "바다내음",
+      "fingerprint": "b9f650c1539d68f3",
+      "geocoder_version": 4,
+      "lat": 38.118537046,
+      "lon": 128.62965753,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "바다내음 대한민국",
+      "result_name": "바다내음",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:바다내음 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:51+00:00"
     },
     "바다마을|경기도의회": {
       "addr_type": "POI",
@@ -12717,6 +12753,24 @@
       ],
       "updated_at": "2026-09-17T23:01:14+00:00"
     },
+    "소담한우촌|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "소담한우촌",
+      "fingerprint": "a4d514ca3fbb152e",
+      "geocoder_version": 4,
+      "lat": 35.220308111,
+      "lon": 129.081244383,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "소담한우촌 대한민국",
+      "result_name": "소담한우촌",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:소담한우촌 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:50+00:00"
+    },
     "소도수사|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
       "display_name": "서울 영등포구 여의도동 45-5",
@@ -14851,6 +14905,24 @@
         "arcgis:서울 구로구 경인로 398"
       ],
       "updated_at": "2026-09-17T23:03:23+00:00"
+    },
+    "심가네칼국수역삼역본점|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "심가네칼국수 역삼역본점",
+      "fingerprint": "8f3b17462c874cb8",
+      "geocoder_version": 4,
+      "lat": 37.503184242,
+      "lon": 127.038525041,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "심가네칼국수역삼역본점 대한민국",
+      "result_name": "심가네칼국수 역삼역본점",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:심가네칼국수역삼역본점 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:50+00:00"
     },
     "심가면옥|부천시": {
       "addr_type": "POI",
@@ -17379,6 +17451,24 @@
         "arcgis:우림한방삼계탕 인천광역시 연수구"
       ],
       "updated_at": "2026-09-18T09:48:17+00:00"
+    },
+    "우미관|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "우미관",
+      "fingerprint": "f43ba5203093e8f3",
+      "geocoder_version": 4,
+      "lat": 35.113839438,
+      "lon": 126.934766815,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "우미관 대한민국",
+      "result_name": "우미관",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:우미관 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:52+00:00"
     },
     "우미상관|법조·법률행정": {
       "addr_type": "POI",
@@ -19983,6 +20073,24 @@
         "arcgis:전통복회관 인천광역시 부평구"
       ],
       "updated_at": "2026-09-21T08:46:08+00:00"
+    },
+    "전통할매곰탕|공기업·공공기관": {
+      "addr_type": "POI",
+      "display_name": "전통할매곰탕",
+      "fingerprint": "e2780655ee5adcac",
+      "geocoder_version": 4,
+      "lat": 35.228060965,
+      "lon": 128.885663015,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "전통할매곰탕 대한민국",
+      "result_name": "전통할매곰탕",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:전통할매곰탕 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:55+00:00"
     },
     "전현수의황제누룽지탕|계양구": {
       "addr_type": "POI",
@@ -23024,6 +23132,17 @@
         "arcgis:퀸스파크청담점 대한민국"
       ],
       "updated_at": "2026-10-07T00:29:54+00:00"
+    },
+    "퀸즈파크청담점|공기업·공공기관": {
+      "failed": true,
+      "fingerprint": "316f267ba992d888",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:퀸즈파크청담점 대한민국",
+        "nominatim:퀸즈파크청담점 대한민국"
+      ],
+      "updated_at": "2026-10-07T00:44:55+00:00"
     },
     "크라운호프 미아사거|성북구": {
       "addr_type": "PointAddress",
