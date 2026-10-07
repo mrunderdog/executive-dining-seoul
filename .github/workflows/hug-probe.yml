@@ -1,0 +1,19 @@
+name: HUG source probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/hug_source_probe.py'
+      - '.github/workflows/hug-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python pipeline/hug_source_probe.py
