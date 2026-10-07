@@ -29,3 +29,16 @@ for m in re.finditer(r"<form\b([^>]*)>",doc,re.I|re.S):
     if a: print("FORM",html.unescape(a.group(1)))
 for m in re.finditer(r"(?:atch|file)[^\"'<>]{0,120}(?:download|down)[^\"'<>]{0,160}",doc,re.I):
     print("FILESNIP"," ".join(doc[max(0,m.start()-100):m.end()+160].split())[:600])
+
+for js in ("/js/ui_common.js","/js/common/common_utils.js","/js/common/ui_contents.js"):
+    try:
+        u="https://www.nps.or.kr"+js
+        req=urllib.request.Request(u,headers={"User-Agent":"Mozilla/5.0","Referer":URL})
+        with urllib.request.urlopen(req,timeout=12) as r:
+            j=r.read().decode(r.headers.get_content_charset() or "utf-8",errors="replace")
+        print("JSLEN",js,len(j))
+        if "fncAtchFileDownload" in j:
+            p=j.index("fncAtchFileDownload")
+            print("JSDEF",js," ".join(j[max(0,p-500):p+1800].split()))
+    except Exception as e:
+        print("JSERR",js,type(e).__name__,e)
