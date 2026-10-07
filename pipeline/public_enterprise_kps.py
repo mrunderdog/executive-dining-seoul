@@ -4,230 +4,148 @@ from __future__ import annotations
 import html
 import json
 import re
-import urllib.request
 import urllib.parse
-import http.cookiejar
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
-from public_enterprise_discovery import decode, extract_year_month, looks_file, parse_links
+from public_enterprise_discovery import decode
 
-ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / "reports" / "public-enterprise-discovery.json"
-BROWSER_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
-
-SOURCE = {
-    "key": "kps",
-    "institution": "한전KPS",
-    "cohort": "public_enterprise_leadership",
-    "default_role": "임원",
-    "years_lookback": 1,
-    "listing": "https://www.kps.co.kr/web/integrity/clean/expense.do",
-    "metadata_url": "https://www.data.go.kr/data/15151716/fileData.do",
-}
+ROOT=Path(__file__).resolve().parents[1]
+REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
+KEY="kps"
+INSTITUTION="한전KPS"
+LISTING="https://www.kps.co.kr/web/integrity/clean/expense.do"
+METADATA="https://www.data.go.kr/data/15151716/fileData.do"
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
 
 
-def fetch(url: str) -> str:
-    req = urllib.request.Request(url, headers={
-        "User-Agent": BROWSER_UA,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
-        "Referer": "https://www.kps.co.kr/",
-    })
-    with urllib.request.urlopen(req, timeout=35) as r:
-        return decode(r.read(), r.headers.get_content_charset())
-
-
-def _listing_urls(years: set[int]) -> list[str]:
-    return [SOURCE["listing"]] + [f"{SOURCE['listing']}?pageIndex={page}" for page in range(2, 5)]
-
-
-def _is_target(text: str, years: set[int]) -> bool:
-    s = " ".join((text or "").split())
-    return "업무추진비" in s and any(str(y) in s for y in years)
-
-
-def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
-    clean = html.unescape(doc or "")
-    snippets = []
-    for match in re.finditer(r"업무추진비", clean):
-        start = max(0, match.start() - 450)
-        end = min(len(clean), match.end() + 650)
-        chunk = re.sub(r"\s+", " ", clean[start:end])
-        if any(str(y) in chunk for y in years):
-            snippets.append(chunk[:1000])
-        if len(snippets) >= 3:
-            break
-    return snippets
-
-
-
-def _probe_detail(pst_no: str) -> list[str]:
-    jar=http.cookiejar.CookieJar()
-    opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-    headers={
-        "User-Agent":BROWSER_UA,
+def fetch(url:str)->str:
+    req=urllib.request.Request(url,headers={
+        "User-Agent":UA,
         "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
         "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
-        "Referer":SOURCE["listing"],
-    }
-    req=urllib.request.Request(SOURCE["listing"],headers=headers)
-    with opener.open(req,timeout=20) as r:
-        listing=decode(r.read(),r.headers.get_content_charset())
-    m=re.search(r'name="_csrf"\s+value="([^"]+)"',listing,re.I)
-    token=m.group(1) if m else ""
-    detail=f"https://www.kps.co.kr/web/Board/{pst_no}/detailView.do?pageIndex=1&menu=2499"
-    base_fields={
-        "bbsClsfUnqNo":"BT_0000000106",
-        "menuUnqNo":"MN_0000002499",
-        "pstFileUnqNo":"",
-        "pstThumUnqNo":"",
-        "pstUnqNo":"",
-        "pstPswd":"",
-        "returnUrl":"",
-        "orderCondition":"",
-        "searchCondition":"title",
-        "searchKeyword":"",
-        "pageIndex":"1",
-        "menu":"2499",
-    }
-    if token:
-        base_fields["_csrf"]=token
-    variants=[
-        ("POST_BROWSER",dict(base_fields)),
-        ("POST_WITH_PST",{**base_fields,"pstUnqNo":pst_no}),
-    ]
-    out=[f"CSRF={'Y' if token else 'N'}"]
-    for name,fields in variants:
-        data=urllib.parse.urlencode(fields).encode()
-        req=urllib.request.Request(detail,data=data,headers={**headers,"Content-Type":"application/x-www-form-urlencoded"})
-        try:
-            with opener.open(req,timeout=20) as r:
-                doc=decode(r.read(),r.headers.get_content_charset())
-                out.append(f"{name}:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
-                out.append(f"{name}:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
-                if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
-                    for x in parse_links(r.geturl(),doc):
-                        label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
-                        out.append(f"{name}:LINK={label[:1200]}")
-        except Exception as e:
-            out.append(f"{name}:ERROR={type(e).__name__}: {e}")
-    get_url=detail
-    try:
-        req=urllib.request.Request(get_url,headers=headers)
-        with opener.open(req,timeout=20) as r:
-            doc=decode(r.read(),r.headers.get_content_charset())
-            out.append(f"GET:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
-            out.append(f"GET:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
-            if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
-                scripts=[]
-                for sm in re.finditer(r"<script[^>]+src=['\"]([^'\"]+)['\"]",doc,re.I):
-                    src=urllib.parse.urljoin(r.geturl(),html.unescape(sm.group(1)))
-                    if src not in scripts:
-                        scripts.append(src)
-                out.append(f"GET:SCRIPTS={len(scripts)}")
-                tm=re.search(r"cf_download\(\s*['\"]([^'\"]+)['\"]\s*\)",doc,re.I)
-                if tm:
-                    token=tm.group(1)
-                    furl="https://www.kps.co.kr/async/MultiFile/download.do?file="+urllib.parse.quote(token,safe="")
-                    try:
-                        req3=urllib.request.Request(furl,headers=headers)
-                        with opener.open(req3,timeout=20) as fr:
-                            blob=fr.read()
-                            out.append(f"GET:DOWNLOAD_URL={fr.geturl()} BYTES={len(blob)} MAGIC={blob[:8]!r} TYPE={fr.headers.get('Content-Type','')}")
-                        try:
-                            fresh_req=urllib.request.Request(furl,headers={"User-Agent":BROWSER_UA,"Referer":r.geturl()})
-                            with urllib.request.urlopen(fresh_req,timeout=20) as fresh_r:
-                                fresh_blob=fresh_r.read()
-                                out.append(f"FRESH:BYTES={len(fresh_blob)} MAGIC={fresh_blob[:8]!r} TYPE={fresh_r.headers.get('Content-Type','')}")
-                        except Exception as fresh_e:
-                            out.append(f"FRESH:ERROR={type(fresh_e).__name__}: {fresh_e}")
-                    except Exception as e:
-                        out.append(f"GET:DOWNLOAD_ERROR={type(e).__name__}: {e}")
-    except Exception as e:
-        out.append(f"GET:ERROR={type(e).__name__}: {e}")
-    return out[:30]
+        "Referer":LISTING,
+    })
+    with urllib.request.urlopen(req,timeout=18) as r:
+        return decode(r.read(),r.headers.get_content_charset())
 
-def discover(year: int) -> dict:
-    years = {year - i for i in range(SOURCE["years_lookback"] + 1)}
-    out = {
-        "key": SOURCE["key"], "institution": SOURCE["institution"],
-        "cohort": SOURCE["cohort"], "default_role": SOURCE["default_role"],
-        "years": sorted(years), "pages": [], "attachments": [], "errors": [],
-        "metadata_url": SOURCE["metadata_url"], "diagnostics": [],
-    }
-    listings = _listing_urls(years)
-    listing_docs: list[tuple[str, str]] = []
-    with ThreadPoolExecutor(max_workers=min(5, len(listings))) as pool:
-        future_map = {pool.submit(fetch, url): url for url in listings}
-        for fut in as_completed(future_map):
-            url = future_map[fut]
-            try:
-                doc = fut.result(); listing_docs.append((url, doc)); out["pages"].append(url)
-            except Exception as e:
-                out["errors"].append(f"listing {url}: {type(e).__name__}: {e}")
 
-    detail_links: list[dict] = []
-    direct_files: list[tuple[str, dict]] = []
-    seen_detail: set[str] = set(); seen_file: set[str] = set()
-    for listing, doc in listing_docs:
-        for link in parse_links(listing, doc):
-            label = f"{link.get('text', '')} {link.get('url', '')}".strip()
-            if not _is_target(label, years): continue
-            if looks_file(link):
-                if link["url"] not in seen_file:
-                    seen_file.add(link["url"]); direct_files.append((listing, link))
-            elif link["url"] not in seen_detail:
-                seen_detail.add(link["url"]); detail_links.append(link)
+def _title_text(fragment:str)->str:
+    return " ".join(html.unescape(re.sub(r"<[^>]+>"," ",fragment or "")).split())
 
-    for parent, link in direct_files:
-        y, m = extract_year_month(link.get("text", ""))
-        out["attachments"].append({**link, "year": y, "month": m, "parent": parent})
 
-    with ThreadPoolExecutor(max_workers=min(8, max(1, len(detail_links)))) as pool:
-        future_map = {pool.submit(fetch, link["url"]): link for link in detail_links}
-        for fut in as_completed(future_map):
-            link = future_map[fut]; detail_url = link["url"]; out["pages"].append(detail_url)
-            try: doc = fut.result()
-            except Exception as e:
-                out["errors"].append(f"detail {detail_url}: {type(e).__name__}: {e}"); continue
-            for att in parse_links(detail_url, doc):
-                if not looks_file(att): continue
-                label = f"{link.get('text', '')} {att.get('text', '')}".strip()
-                if not _is_target(label, years): continue
-                url = att["url"]
-                if url in seen_file: continue
-                seen_file.add(url); y, m = extract_year_month(label)
-                out["attachments"].append({"text": label, "url": url, "year": y, "month": m, "parent": detail_url})
-
-    if not out["attachments"] and listing_docs:
-        doc=listing_docs[0][1]
-        for needle in ("pstFile","fileDownload","downloadFile","FileDown","atch","fileUnq","BoardFile","icon-excel"):
-            for mm in list(re.finditer(needle,doc,re.I))[:4]:
-                chunk=re.sub(r"\\s+"," ",html.unescape(doc[max(0,mm.start()-900):mm.end()+2200])).strip()
-                out["diagnostics"].append("LISTING_HOOK="+chunk[:3200])
-            if len(out["diagnostics"])>=16:
-                break
-
-    if not out["attachments"]:
-        try:
-            out["diagnostics"].extend(_probe_detail("47321"))
-        except Exception as e:
-            out["diagnostics"].append(f"DETAIL_PROBE_ERROR={type(e).__name__}: {e}")
-    out["pages"] = list(dict.fromkeys(out["pages"]))
-    out["parseable_attachments"] = len(out["attachments"])
-    out["status"] = "PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] and not listing_docs else "NO_FILES_FOUND")
+def _listing_rows(doc:str,years:set[int])->list[dict]:
+    out=[]
+    for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
+        idm=re.search(r"pf_DetailMove\(\s*['\"]?(\d+)['\"]?\s*\)",row,re.I)
+        tm=re.search(r'<div[^>]+class=["\'][^"\']*\btitle\b[^"\']*["\'][^>]*>(.*?)</div>',row,re.I|re.S)
+        if not idm or not tm:
+            continue
+        title=_title_text(tm.group(1))
+        ym=re.search(r"(20\d{2})년\s*(\d{1,2})월",title)
+        if not ym:
+            continue
+        year,month=int(ym.group(1)),int(ym.group(2))
+        if year not in years:
+            continue
+        out.append({"pst_no":idm.group(1),"title":title,"year":year,"month":month})
     return out
 
 
-def main() -> None:
-    if not REPORT.exists(): raise SystemExit("run public_enterprise_discovery.py first")
-    payload = json.loads(REPORT.read_text(encoding="utf-8"))
-    fresh = discover(int(payload.get("year") or datetime.now().year))
-    payload["sources"] = [x for x in payload.get("sources", []) if x.get("key") != SOURCE["key"]] + [fresh]
-    REPORT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({"key": fresh["key"], "status": fresh["status"], "pages": len(fresh["pages"]), "attachments": len(fresh["attachments"]), "errors": fresh["errors"][:5], "diagnostics": fresh.get("diagnostics", [])[:20]}, ensure_ascii=False))
+def _detail_attachment(item:dict)->tuple[dict|None,str|None,str]:
+    pst_no=item["pst_no"]
+    detail=f"https://www.kps.co.kr/web/Board/{pst_no}/detailView.do?pageIndex=1&menu=2499"
+    try:
+        doc=fetch(detail)
+    except Exception as e:
+        return None,f"detail {detail}: {type(e).__name__}: {e}",detail
+
+    # Each expense post carries one XLSX attachment in a file-list item.
+    blocks=re.findall(r"<li\b.*?</li>",doc,re.I|re.S)
+    for block in blocks:
+        dm=re.search(r"cf_download\(\s*['\"]([^'\"]+)['\"]\s*\)",block,re.I)
+        fm=re.search(r'class=["\'][^"\']*\bbtn-file\b[^"\']*["\'][^>]*>(.*?)</div>',block,re.I|re.S)
+        if not dm or not fm:
+            continue
+        filename=_title_text(fm.group(1))
+        if not re.search(r"\.xlsx?$",filename,re.I):
+            continue
+        token=dm.group(1)
+        download="https://www.kps.co.kr/async/MultiFile/download.do?file="+urllib.parse.quote(token,safe="")
+        return {
+            "text":f"{item['title']} {filename}",
+            "url":download,
+            "download_url":download,
+            "year":item["year"],
+            "month":item["month"],
+            "parent":detail,
+            "attachment_id":f"{pst_no}|{item['year']}-{item['month']:02d}",
+        },None,detail
+    return None,f"attachment missing: {detail}",detail
 
 
-if __name__ == "__main__": main()
+def discover(year:int)->dict:
+    years={year,year-1}
+    out={
+        "key":KEY,
+        "institution":INSTITUTION,
+        "cohort":"public_enterprise_leadership",
+        "default_role":"임원",
+        "years":sorted(years),
+        "pages":[],
+        "attachments":[],
+        "errors":[],
+        "metadata_url":METADATA,
+    }
+
+    items={}
+    for page in range(1,5):
+        url=LISTING if page==1 else f"{LISTING}?pageIndex={page}"
+        try:
+            doc=fetch(url)
+            out["pages"].append(url)
+        except Exception as e:
+            out["errors"].append(f"listing {url}: {type(e).__name__}: {e}")
+            continue
+        for item in _listing_rows(doc,years):
+            items[item["pst_no"]]=item
+
+    details=list(items.values())
+    with ThreadPoolExecutor(max_workers=min(6,max(1,len(details)))) as pool:
+        fm={pool.submit(_detail_attachment,item):item for item in details}
+        for fut in as_completed(fm):
+            att,err,detail=fut.result()
+            out["pages"].append(detail)
+            if att:
+                out["attachments"].append(att)
+            if err:
+                out["errors"].append(err)
+
+    out["pages"]=list(dict.fromkeys(out["pages"]))
+    out["attachments"].sort(key=lambda x:(x.get("year") or 0,x.get("month") or 0,x.get("attachment_id") or ""))
+    out["parseable_attachments"]=len(out["attachments"])
+    out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
+    return out
+
+
+def main()->None:
+    if not REPORT.exists():
+        raise SystemExit("run public_enterprise_discovery.py first")
+    payload=json.loads(REPORT.read_text(encoding="utf-8"))
+    fresh=discover(int(payload.get("year") or datetime.now().year))
+    payload["sources"]=[x for x in payload.get("sources",[]) if x.get("key")!=KEY]+[fresh]
+    REPORT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+    print(json.dumps({
+        "key":KEY,
+        "status":fresh["status"],
+        "pages":len(fresh["pages"]),
+        "attachments":len(fresh["attachments"]),
+        "errors":fresh["errors"][:5],
+        "months":[f"{x['year']}-{x['month']:02d}" for x in fresh["attachments"]],
+    },ensure_ascii=False))
+
+
+if __name__=="__main__":
+    main()
