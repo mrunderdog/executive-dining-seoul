@@ -136,6 +136,13 @@ def _probe_detail(pst_no: str) -> list[str]:
                         with opener.open(req3,timeout=20) as fr:
                             blob=fr.read()
                             out.append(f"GET:DOWNLOAD_URL={fr.geturl()} BYTES={len(blob)} MAGIC={blob[:8]!r} TYPE={fr.headers.get('Content-Type','')}")
+                        try:
+                            fresh_req=urllib.request.Request(furl,headers={"User-Agent":BROWSER_UA,"Referer":r.geturl()})
+                            with urllib.request.urlopen(fresh_req,timeout=20) as fresh_r:
+                                fresh_blob=fresh_r.read()
+                                out.append(f"FRESH:BYTES={len(fresh_blob)} MAGIC={fresh_blob[:8]!r} TYPE={fresh_r.headers.get('Content-Type','')}")
+                        except Exception as fresh_e:
+                            out.append(f"FRESH:ERROR={type(fresh_e).__name__}: {fresh_e}")
                     except Exception as e:
                         out.append(f"GET:DOWNLOAD_ERROR={type(e).__name__}: {e}")
     except Exception as e:
