@@ -409,13 +409,14 @@
       "verified": true,
       "publish": true,
       "refresh_policy": "monthly",
-      "default_role": "기관장",
-      "format_hint": "xlsx-detail",
+      "default_role": "원장·임원",
+      "format_hint": "xlsx-detail-multi-role",
       "lookback_years": 1,
       "listing_urls": [
-        "https://m.koat.or.kr/board/expenseInst/list.do"
+        "https://m.koat.or.kr/board/expenseInst/list.do",
+        "https://m.koat.or.kr/board/expenseExecutive/list.do"
       ],
-      "note": "한국농업기술진흥원 공식 기관장(원장) 업무추진비 게시판. 월별 XLSX에 사용자·사용일자·사용처(가맹점명)·사용목적·사용금액·대상인원·사용방법이 거래별 공개되어 기관장 사용처를 수집."
+      "note": "한국농업기술진흥원 공식 기관장(원장) 및 임원 업무추진비 게시판. 두 게시판 모두 월별 XLSX에 사용자·사용일자·사용처(가맹점명)·사용목적·사용금액·대상인원·사용방법을 거래별 공개하며, 원장·부원장 등 원 역할을 보존해 수집."
     },
     {
       "key": "nile",
