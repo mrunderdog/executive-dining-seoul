@@ -92,6 +92,12 @@ def _probe_detail(pst_no: str) -> list[str]:
         doc=decode(r.read(),r.headers.get_content_charset())
         final_url=r.geturl()
     out=[f"DETAIL_URL={final_url}",f"DETAIL_LEN={len(doc)}",f"CSRF={'Y' if token else 'N'}"]
+    links=parse_links(final_url,doc)
+    out.append(f"DETAIL_LINKS={len(links)}")
+    for x in links:
+        label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
+        if any(k in label.lower() for k in ("download","file",".xls",".xlsx","첨부")):
+            out.append("LINK="+label[:1800])
     for needle in ("다운로드","download","file","xlsx","xls","첨부"):
         for mm in list(re.finditer(needle,doc,re.I))[:3]:
             chunk=re.sub(r"\s+"," ",html.unescape(doc[max(0,mm.start()-700):mm.end()+1500])).strip()
@@ -154,12 +160,7 @@ def discover(year: int) -> dict:
                 out["attachments"].append({"text": label, "url": url, "year": y, "month": m, "parent": detail_url})
 
     if not out["attachments"]:
-        for _, doc in sorted(listing_docs)[:1]:
-            for needle in ("function pf_DetailMove","pf_DetailMove","boardSeq","seqNo","idx","form action="):
-                pos=doc.find(needle)
-                if pos>=0:
-                    chunk=re.sub(r"\\s+", " ", html.unescape(doc[max(0,pos-1400):pos+3200])).strip()
-                    out["diagnostics"].append("HOOK="+chunk[:4200])
+        pass
 
     if not out["attachments"]:
         try:
@@ -178,7 +179,7 @@ def main() -> None:
     fresh = discover(int(payload.get("year") or datetime.now().year))
     payload["sources"] = [x for x in payload.get("sources", []) if x.get("key") != SOURCE["key"]] + [fresh]
     REPORT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps({"key": fresh["key"], "status": fresh["status"], "pages": len(fresh["pages"]), "attachments": len(fresh["attachments"]), "errors": fresh["errors"][:5], "diagnostics": fresh.get("diagnostics", [])[:3]}, ensure_ascii=False))
+    print(json.dumps({"key": fresh["key"], "status": fresh["status"], "pages": len(fresh["pages"]), "attachments": len(fresh["attachments"]), "errors": fresh["errors"][:5], "diagnostics": fresh.get("diagnostics", [])[-20:]}, ensure_ascii=False))
 
 
 if __name__ == "__main__": main()
