@@ -43,19 +43,30 @@ def meal(r):
 def score(visits,months,spend):
     return round(100*(.45*min(math.log1p(visits)/math.log1p(8),1)+.25*min(months/6,1)+.20+.10*min(math.log1p(max(spend,0))/math.log1p(3_000_000),1)),1)
 
-def balanced_candidates(eligible,publish_window=180,min_per_institution=8,max_candidates=250):
-    """Reserve institution representation inside the publish window, then preserve global score order."""
+def balanced_candidates(eligible,incumbents=None,publish_window=180,min_per_institution=10,max_candidates=250):
+    """Keep verified incumbents per institution, then fill the publish window by current global score."""
     def key(candidate):
         return (t(candidate.get("merchant")),t(candidate.get("address")))
+    eligible_by_key={key(candidate):candidate for candidate in eligible}
     institutions=sorted({inst for candidate in eligible for inst in (candidate.get("institutions") or []) if t(inst)})
     quota=min(min_per_institution,max(1,publish_window//max(1,len(institutions))))
     reserved=set()
+    incumbents=incumbents or []
     for inst in institutions:
         count=0
-        for candidate in eligible:
-            if inst not in (candidate.get("institutions") or []):continue
-            reserved.add(key(candidate));count+=1
+        for old in incumbents:
+            if inst not in (old.get("institutions") or []):continue
+            k=key(old)
+            if k not in eligible_by_key or k in reserved:continue
+            reserved.add(k);count+=1
             if count>=quota:break
+        if count<quota:
+            for candidate in eligible:
+                if inst not in (candidate.get("institutions") or []):continue
+                k=key(candidate)
+                if k in reserved:continue
+                reserved.add(k);count+=1
+                if count>=quota:break
     selected=set(reserved)
     for candidate in eligible:
         if len(selected)>=publish_window:break
@@ -72,6 +83,11 @@ def balanced_candidates(eligible,publish_window=180,min_per_institution=8,max_ca
 
 def main():
     if not RAW.exists():print("public-enterprise raw missing; no candidates built");return
+    incumbent_candidates=[]
+    incumbent_path=REPORTS/"public-enterprise-candidates.json"
+    if incumbent_path.exists():
+        try:incumbent_candidates=(json.loads(incumbent_path.read_text(encoding="utf-8")).get("candidates") or [])
+        except Exception:incumbent_candidates=[]
     d=json.loads(RAW.read_text(encoding="utf-8"))
     rows=[r for r in d.get("rows",[]) if r.get("cohort")=="public_enterprise_leadership" and meal(r) and re.fullmatch(r"20\d{2}-\d{2}-\d{2}",t(r.get("used_date")))]
     if not rows:
@@ -94,7 +110,7 @@ def main():
         out.append({"merchant":name,"address":address,"phone":phones[0] if phones else "","score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
     eligible=[x for x in out if x["visits"]>=1 and x["score"]>=25]
     eligible.sort(key=lambda x:(x["score"],x["visits"],x["spend"]),reverse=True)
-    ranked=balanced_candidates(eligible)
+    ranked=balanced_candidates(eligible,incumbent_candidates)
     REPORTS.mkdir(exist_ok=True)
     payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"source":"public_enterprise_leadership","cohort":"public_enterprise_leadership","meal_rows":len(rows),"entity_count":len(out),"eligible_count":len(eligible),"candidates":ranked}
     (REPORTS/"public-enterprise-candidates.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
