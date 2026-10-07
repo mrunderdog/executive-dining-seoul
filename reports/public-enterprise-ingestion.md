@@ -1,11 +1,12 @@
 # Public-enterprise leadership expense ingestion
 
-- Rows: **287**
-- Files: **118**
+- Rows: **2355**
+- Files: **158**
 - Errors: **100**
 
 ## Rows by institution
 
+- 한국자산관리공사: 2068
 - 한전KDN: 70
 - 한국철도공사: 55
 - 한국남부발전: 52
