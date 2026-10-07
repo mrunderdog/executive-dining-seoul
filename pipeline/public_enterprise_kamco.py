@@ -22,6 +22,7 @@ REPORT = ROOT / "reports" / "public-enterprise-discovery.json"
 KEY = "kamco"
 INSTITUTION = "한국자산관리공사"
 SEED = "https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479"
+LISTING = "https://www.kamco.or.kr/portal/bbs/list.do?mId=0601060603&ptIdx=479"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
 ATTACH_RE = re.compile(
     r"onclick=[\"']fn_egov_downFile\(\s*[\"']([^\"']+)[\"']\s*,\s*[\"']?(\d+)[\"']?\s*\).*?<span[^>]*>(.*?)</span>",
@@ -229,6 +230,35 @@ def _attachments(doc: str, parent: str, years: set[int]) -> list[dict]:
     return result
 
 
+def _recent_detail_urls(years: set[int]) -> tuple[list[str], list[str], list[str]]:
+    details: list[str] = []
+    pages: list[str] = []
+    errors: list[str] = []
+    seen: set[str] = set()
+    for page in range(1, 4):
+        sep = "&" if "?" in LISTING else "?"
+        url = LISTING + sep + urllib.parse.urlencode({"pageIndex": page})
+        pages.append(url)
+        try:
+            doc = _fetch_page(url)
+        except Exception as e:
+            errors.append(f"listing {url}: {type(e).__name__}: {e}")
+            continue
+        for link in parse_links(url, doc):
+            href = link.get("url") or ""
+            label = _plain(link.get("text"))
+            if "임원 업무추진비" not in label or not any(str(y) in label for y in years):
+                continue
+            if "view.do" not in href or "ptIdx=479" not in href:
+                continue
+            bid = _bidx(href) or href
+            if bid in seen:
+                continue
+            seen.add(bid)
+            details.append(href)
+    return details, pages, errors
+
+
 def discover(year: int) -> dict:
     years = {year, year - 1}
     out = {
@@ -243,7 +273,11 @@ def discover(year: int) -> dict:
         "inline_replace": True,
         "errors": [],
     }
-    queue = deque([SEED])
+    listed_details, listing_pages, listing_errors = _recent_detail_urls(years)
+    out["pages"].extend(listing_pages)
+    out["errors"].extend(listing_errors)
+    follow_neighbors = not listed_details
+    queue = deque(listed_details or [SEED])
     seen_pages: set[str] = set()
     seen_files: set[str] = set()
 
@@ -260,12 +294,13 @@ def discover(year: int) -> dict:
             out["errors"].append(f"detail {url}: {type(e).__name__}: {e}")
             continue
 
-        for link in parse_links(url, doc):
-            href = link.get("url") or ""
-            if "view.do" in href and "ptIdx=479" in href:
-                child = _bidx(href) or href
-                if child not in seen_pages:
-                    queue.append(href)
+        if follow_neighbors:
+            for link in parse_links(url, doc):
+                href = link.get("url") or ""
+                if "view.do" in href and "ptIdx=479" in href:
+                    child = _bidx(href) or href
+                    if child not in seen_pages:
+                        queue.append(href)
 
         for att in _attachments(doc, url, years):
             fid = att["file_id"]
