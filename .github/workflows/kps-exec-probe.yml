@@ -1,0 +1,20 @@
+name: KPS executive parser probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kps-exec-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run KPS adapter
+        run: python pipeline/public_enterprise_kps.py
