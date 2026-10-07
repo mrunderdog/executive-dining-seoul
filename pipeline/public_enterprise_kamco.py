@@ -15,7 +15,7 @@ from urllib.parse import parse_qs, urlparse
 
 import openpyxl
 
-from public_enterprise_discovery import fetch, parse_links
+from public_enterprise_discovery import decode, parse_links
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "reports" / "public-enterprise-discovery.json"
@@ -40,15 +40,21 @@ def _plain(value) -> str:
     return " ".join(str(value or "").replace("\xa0", " ").split()).strip()
 
 
-def _fetch_page(url: str, attempts: int = 3) -> str:
+def _fetch_page(url: str, attempts: int = 2) -> str:
     last = None
     for attempt in range(attempts):
         try:
-            return fetch(url)
+            req = urllib.request.Request(url, headers={
+                "User-Agent": UA,
+                "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
+                "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
+            })
+            with urllib.request.urlopen(req, timeout=18) as r:
+                return decode(r.read(), r.headers.get_content_charset())
         except Exception as e:
             last = e
             if attempt + 1 < attempts:
-                time.sleep(0.75 * (attempt + 1))
+                time.sleep(0.5 * (attempt + 1))
     raise last
 
 
@@ -99,7 +105,7 @@ def _download_url(file_id: str, file_sn: str) -> str:
     })
 
 
-def _download(url: str, parent: str, attempts: int = 3) -> bytes:
+def _download(url: str, parent: str, attempts: int = 2) -> bytes:
     last = None
     for attempt in range(attempts):
         try:
@@ -109,7 +115,7 @@ def _download(url: str, parent: str, attempts: int = 3) -> bytes:
                 "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*",
                 "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
             })
-            with urllib.request.urlopen(req, timeout=45) as r:
+            with urllib.request.urlopen(req, timeout=25) as r:
                 blob = r.read()
             if blob[:2] != b"PK":
                 raise ValueError(f"attachment is not xlsx ({len(blob)} bytes)")
