@@ -114,11 +114,11 @@ def discover(year: int) -> dict:
 
     if not out["attachments"]:
         for _, doc in sorted(listing_docs)[:1]:
-            for needle in ("2026년 6월 업무추진비 집행 실적","2026년 5월 업무추진비 집행 실적","2025년 12월 업무추진비 집행 실적"):
+            for needle in ("function pf_DetailMove","pf_DetailMove","boardSeq","seqNo","idx","form action="):
                 pos=doc.find(needle)
                 if pos>=0:
-                    chunk=re.sub(r"\\s+", " ", html.unescape(doc[max(0,pos-1200):pos+2800])).strip()
-                    out["diagnostics"].append("AROUND="+chunk[:3800])
+                    chunk=re.sub(r"\\s+", " ", html.unescape(doc[max(0,pos-1400):pos+3200])).strip()
+                    out["diagnostics"].append("HOOK="+chunk[:4200])
 
     out["pages"] = list(dict.fromkeys(out["pages"]))
     out["parseable_attachments"] = len(out["attachments"])
