@@ -43,26 +43,32 @@ def meal(r):
 def score(visits,months,spend):
     return round(100*(.45*min(math.log1p(visits)/math.log1p(8),1)+.25*min(months/6,1)+.20+.10*min(math.log1p(max(spend,0))/math.log1p(3_000_000),1)),1)
 
-def balanced_candidates(eligible,top_keep=120,publish_window=180,min_per_institution=5,max_candidates=250):
-    """Keep the strongest global signals while preventing one bulk source from crowding out institutions."""
-    selected=[];seen=set()
-    def add(candidate):
-        key=(t(candidate.get("merchant")),t(candidate.get("address")))
-        if key in seen:return False
-        selected.append(candidate);seen.add(key);return True
-    for candidate in eligible[:top_keep]:add(candidate)
+def balanced_candidates(eligible,publish_window=180,min_per_institution=8,max_candidates=250):
+    """Reserve institution representation inside the publish window, then preserve global score order."""
+    def key(candidate):
+        return (t(candidate.get("merchant")),t(candidate.get("address")))
     institutions=sorted({inst for candidate in eligible for inst in (candidate.get("institutions") or []) if t(inst)})
+    quota=min(min_per_institution,max(1,publish_window//max(1,len(institutions))))
+    reserved=set()
     for inst in institutions:
-        have=sum(inst in (candidate.get("institutions") or []) for candidate in selected)
-        if have>=min_per_institution:continue
+        count=0
         for candidate in eligible:
-            if have>=min_per_institution or len(selected)>=publish_window:break
             if inst not in (candidate.get("institutions") or []):continue
-            if add(candidate):have+=1
+            reserved.add(key(candidate));count+=1
+            if count>=quota:break
+    selected=set(reserved)
     for candidate in eligible:
-        if len(selected)>=max_candidates:break
-        add(candidate)
-    return selected[:max_candidates]
+        if len(selected)>=publish_window:break
+        selected.add(key(candidate))
+    front=[candidate for candidate in eligible if key(candidate) in selected]
+    ranked=list(front)
+    seen=set(selected)
+    for candidate in eligible:
+        if len(ranked)>=max_candidates:break
+        k=key(candidate)
+        if k in seen:continue
+        ranked.append(candidate);seen.add(k)
+    return ranked[:max_candidates]
 
 def main():
     if not RAW.exists():print("public-enterprise raw missing; no candidates built");return
