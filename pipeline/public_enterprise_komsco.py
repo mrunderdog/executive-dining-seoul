@@ -11,13 +11,14 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 
-from public_enterprise_discovery import decode
+from public_enterprise_discovery import decode, parse_links, looks_file
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
 KEY="komsco"
 INSTITUTION="한국조폐공사"
 ALIO="https://www.alio.go.kr/mobile/item/itemReportTerm.do?apbaId=C0257&disclosureNo=&reportFormRootNo=20701"
+MIRROR="https://english.komsco.com/kor/article/ATCL7e0c1d65f"
 BROWSER_UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
 
 
@@ -125,6 +126,19 @@ def discover(year:int)->dict:
         })
 
     out["diagnostics"]=[f"disclosure={disclosure}",*labels[:20]]
+    try:
+        mirror_doc=fetch(MIRROR)
+        mirror_links=parse_links(MIRROR,mirror_doc)
+        out["diagnostics"].append(f"MIRROR_LEN={len(mirror_doc)} LINKS={len(mirror_links)}")
+        out["diagnostics"].extend(
+            "MIRROR_LINK="+(" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split()))
+            for x in mirror_links[:40]
+        )
+        for token in ("업무추진비","임원","기관장","첨부","download","file"):
+            if token.lower() in mirror_doc.lower():
+                out["diagnostics"].append(f"MIRROR_HAS={token}")
+    except Exception as e:
+        out["diagnostics"].append(f"MIRROR_ERROR={type(e).__name__}: {e}")
     if out["attachments"]:
         try:
             out["diagnostics"].extend(probe_xlsx(out["attachments"][0]["url"]))
