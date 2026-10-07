@@ -5,6 +5,7 @@ on:
     paths:
       - 'pipeline/public_enterprise_koat.py'
       - 'pipeline/public_enterprise_fira.py'
+      - '.github/workflows/new-public-sources-ingest-verify.yml'
 permissions:
   contents: read
 jobs:
