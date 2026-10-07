@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import html, io, json, re, urllib.parse, urllib.request
+import html, io, json, re, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -14,14 +14,22 @@ LISTING="https://www.nile.or.kr/usr/wap/list.do?app=12716&lang=ko&listAll=Y"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
 
 def fetch(url:str,referer:str="")->bytes:
-    req=urllib.request.Request(url,headers={
-        "User-Agent":UA,
-        "Accept":"*/*",
-        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7",
-        "Referer":referer or LISTING,
-    })
-    with urllib.request.urlopen(req,timeout=20) as r:
-        return r.read()
+    last=None
+    for attempt in range(3):
+        try:
+            req=urllib.request.Request(url,headers={
+                "User-Agent":UA,
+                "Accept":"*/*",
+                "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7",
+                "Referer":referer or LISTING,
+                "Connection":"close",
+            })
+            with urllib.request.urlopen(req,timeout=25) as r:
+                return r.read()
+        except Exception as e:
+            last=e
+            if attempt<2: time.sleep(1.0+attempt)
+    raise last
 
 def text_fetch(url:str)->str:
     raw=fetch(url)
@@ -32,11 +40,14 @@ def text_fetch(url:str)->str:
 
 def _discover_files(year:int):
     years={year,year-1};files=[];pages=[];errors=[]
+    # The NILE board is rate-sensitive. Four pages cover the current and
+    # previous calendar years while avoiding the disconnects seen on broad
+    # parallel scans of all historical pages.
     urls=[LISTING]+[
         f"https://www.nile.or.kr/usr/wap/list.do?app=12716&lang=ko&listAll=Y&pageIndex={p}"
-        for p in range(2,15)
+        for p in range(2,5)
     ]
-    with ThreadPoolExecutor(max_workers=6) as pool:
+    with ThreadPoolExecutor(max_workers=2) as pool:
         fm={pool.submit(text_fetch,u):u for u in urls}
         for fut in as_completed(fm):
             u=fm[fut]
@@ -130,7 +141,7 @@ def discover(year:int)->dict:
     attachments,pages,errors=_discover_files(year)
     rows=[]
     if attachments:
-        with ThreadPoolExecutor(max_workers=min(6,len(attachments))) as pool:
+        with ThreadPoolExecutor(max_workers=min(2,len(attachments))) as pool:
             fm={pool.submit(_parse_pdf,a):a for a in attachments}
             for fut in as_completed(fm):
                 parsed,err=fut.result();rows.extend(parsed)
