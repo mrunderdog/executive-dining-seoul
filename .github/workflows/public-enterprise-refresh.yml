@@ -20,8 +20,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: public-enterprise-source-refresh
-  cancel-in-progress: false
+  group: public-enterprise-source-refresh-v2
+  cancel-in-progress: true
 
 jobs:
   refresh:
