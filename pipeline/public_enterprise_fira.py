@@ -32,7 +32,7 @@ def _discover_files(year:int):
     base="https://www.fira.or.kr/fira/fira_050602_3.jsp"
     urls=[
         base+"?board_no=186&board_wrapper=%2Ffira%2Ffira_050602_3.jsp&mode=list&pager.offset="+str(off)
-        for off in range(0,160,10)
+        for off in range(0,70,10)
     ]
     with ThreadPoolExecutor(max_workers=6) as pool:
         fm={pool.submit(text_fetch,u):u for u in urls}
