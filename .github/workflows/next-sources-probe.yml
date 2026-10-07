@@ -1,0 +1,23 @@
+name: Next public source probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/probe_next_sources.py'
+      - '.github/workflows/next-sources-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probe sources
+        run: python pipeline/probe_next_sources.py
