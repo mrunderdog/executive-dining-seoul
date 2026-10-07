@@ -371,6 +371,21 @@
         "https://www.alio.go.kr/upload/disclosure/2025/04/10/2025041002972278/doc.html"
       ],
       "note": "ALIO 기관장 업무추진비 상세 XLSX를 직접 검증. 2024년 파일은 집행년도·집행월·집행내역 유형·건수·집행금액만 제공하고 merchant/사용처는 없어 지도 데이터로 출판할 수 없음. 2024년 기관장 업무추진비 집행액은 38,687천원."
+    },
+    {
+      "key": "kosaf",
+      "institution": "한국장학재단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·상임감사·상임이사",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kosaf.go.kr/ko/openinfo.do?ctgrId1=0000000015&pg=operation10"
+      ],
+      "note": "한국장학재단 공식 자체공시 > 임원 업무추진비. 기관장·상임감사·상임이사 월별 XLSX에 사용일자·집행내역(목적)·사용처(장소)·집행대상자·인원·집행금액이 거래별 공개되어 원 역할을 보존해 수집."
     }
   ]
 }
