@@ -41,7 +41,7 @@ def _plain(value) -> str:
     return " ".join(str(value or "").replace("\xa0", " ").split()).strip()
 
 
-def _fetch_page(url: str, attempts: int = 2) -> str:
+def _fetch_page(url: str, attempts: int = 1) -> str:
     last = None
     for attempt in range(attempts):
         try:
@@ -50,7 +50,7 @@ def _fetch_page(url: str, attempts: int = 2) -> str:
                 "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
                 "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
             })
-            with urllib.request.urlopen(req, timeout=18) as r:
+            with urllib.request.urlopen(req, timeout=7) as r:
                 return decode(r.read(), r.headers.get_content_charset())
         except Exception as e:
             last = e
@@ -106,7 +106,7 @@ def _download_url(file_id: str, file_sn: str) -> str:
     })
 
 
-def _download(url: str, parent: str, attempts: int = 2) -> bytes:
+def _download(url: str, parent: str, attempts: int = 1) -> bytes:
     last = None
     for attempt in range(attempts):
         try:
@@ -116,7 +116,7 @@ def _download(url: str, parent: str, attempts: int = 2) -> bytes:
                 "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*",
                 "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
             })
-            with urllib.request.urlopen(req, timeout=25) as r:
+            with urllib.request.urlopen(req, timeout=12) as r:
                 blob = r.read()
             if blob[:2] != b"PK":
                 raise ValueError(f"attachment is not xlsx ({len(blob)} bytes)")
