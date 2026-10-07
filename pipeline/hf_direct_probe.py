@@ -1,22 +1,31 @@
 #!/usr/bin/env python3
-import re,urllib.request,urllib.parse,html
-URLS=[
- ("기관장","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_01.do?articleNo=600602&mode=view"),
- ("감사","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_02.do?articleNo=600603&mode=view"),
- ("임원","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_03.do?articleNo=600604&mode=view"),
+import io,zipfile,urllib.request,xml.etree.ElementTree as ET,re
+FILES=[
+ ("기관장","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_01.do?mode=download&articleNo=600602&attachNo=96677"),
+ ("감사","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_02.do?mode=download&articleNo=600603&attachNo=96678"),
+ ("임원","https://www.hf.go.kr/ko/sub05/sub05_03_04_05_03.do?mode=download&articleNo=600604&attachNo=96679"),
 ]
-UA="Mozilla/5.0"
-for role,url in URLS:
-    req=urllib.request.Request(url,headers={"User-Agent":UA})
-    with urllib.request.urlopen(req,timeout=15) as r:
-        raw=r.read();doc=raw.decode(r.headers.get_content_charset() or "utf-8","replace")
-    print("DETAIL",role,"LEN",len(doc))
-    for m in re.finditer(r'<a\b([^>]*)>(.*?)</a>',doc,re.I|re.S):
-        attrs=m.group(1);txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",m.group(2))).split())
-        hm=re.search(r'href=["\']([^"\']+)["\']',attrs,re.I)
-        om=re.search(r'onclick=["\']([^"\']+)["\']',attrs,re.I)
-        href=html.unescape(hm.group(1)) if hm else ""
-        onclick=html.unescape(om.group(1)) if om else ""
-        blob=txt+" "+href+" "+onclick
-        if re.search(r'xlsx|xls|download|attach|file',blob,re.I):
-            print("A",role,repr(txt),repr(urllib.parse.urljoin(url,href)),repr(onclick))
+ns={"a":"http://schemas.openxmlformats.org/spreadsheetml/2006/main","r":"http://schemas.openxmlformats.org/officeDocument/2006/relationships"}
+for role,url in FILES:
+    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Referer":"https://www.hf.go.kr/"})
+    with urllib.request.urlopen(req,timeout=15) as r: blob=r.read()
+    print("FILE",role,len(blob),blob[:4])
+    z=zipfile.ZipFile(io.BytesIO(blob));shared=[]
+    if "xl/sharedStrings.xml" in z.namelist():
+        root=ET.fromstring(z.read("xl/sharedStrings.xml"))
+        for si in root.findall("a:si",ns): shared.append("".join(t.text or "" for t in si.iter() if t.tag.endswith("}t")))
+    wb=ET.fromstring(z.read("xl/workbook.xml"));rels=ET.fromstring(z.read("xl/_rels/workbook.xml.rels"));relmap={r.attrib["Id"]:r.attrib["Target"] for r in rels}
+    for sh in wb.find("a:sheets",ns):
+        rid=sh.attrib.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id","");target=relmap.get(rid,"");path=target if target.startswith("xl/") else "xl/"+target.lstrip("/")
+        if path not in z.namelist(): path="xl/"+target.replace("../","").lstrip("/")
+        print("SHEET",role,sh.attrib.get("name",""))
+        root=ET.fromstring(z.read(path))
+        for row in root.findall(".//a:sheetData/a:row",ns)[:20]:
+            vals=[]
+            for c in row.findall("a:c",ns):
+                typ=c.attrib.get("t","");v=c.find("a:v",ns);val="" if v is None else (v.text or "")
+                if typ=="s" and val.isdigit() and int(val)<len(shared): val=shared[int(val)]
+                elif typ=="inlineStr": val="".join(t.text or "" for t in c.iter() if t.tag.endswith("}t"))
+                vals.append(f"{c.attrib.get('r','')}={val}")
+            print("ROW",role,row.attrib.get("r")," | ".join(vals))
+        break
