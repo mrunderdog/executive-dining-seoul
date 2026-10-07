@@ -91,7 +91,7 @@ def _probe_detail(pst_no: str) -> list[str]:
     with opener.open(req,timeout=20) as r:
         doc=decode(r.read(),r.headers.get_content_charset())
         final_url=r.geturl()
-    out=[f"DETAIL_URL={final_url}",f"DETAIL_LEN={len(doc)}",f"CSRF={'Y' if token else 'N'}"]
+    out=[f"FORM_FIELDS={sorted(fields.items())}",f"DETAIL_URL={final_url}",f"DETAIL_LEN={len(doc)}",f"CSRF={'Y' if token else 'N'}"]
     links=parse_links(final_url,doc)
     out.append(f"DETAIL_LINKS={len(links)}")
     for x in links:
