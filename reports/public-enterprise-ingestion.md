@@ -1,14 +1,16 @@
 # Public-enterprise leadership expense ingestion
 
-- Rows: **2095**
-- Files: **280**
+- Rows: **2603**
+- Files: **320**
 - Errors: **100**
 
 ## Rows by institution
 
 - 한국자산관리공사: 1049
-- 주택도시보증공사: 334
+- 주택도시보증공사: 467
 - 한국주택금융공사: 218
+- 한국장학재단: 211
+- 한국영유아보육·교육진흥원: 164
 - 한국무역보험공사: 116
 - 국민연금공단: 91
 - 한전KDN: 70
