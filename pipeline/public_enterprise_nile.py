@@ -39,53 +39,51 @@ def text_fetch(url:str)->str:
     return raw.decode("utf-8","replace")
 
 def _discover_files(year:int):
-    years={year,year-1};files=[];pages=[];errors=[]
-    # The NILE board is rate-sensitive. Four pages cover the current and
-    # previous calendar years while avoiding the disconnects seen on broad
-    # parallel scans of all historical pages.
-    urls=[LISTING]+[
-        f"https://www.nile.or.kr/usr/wap/list.do?app=12716&lang=ko&listAll=Y&pageIndex={p}"
-        for p in range(2,5)
-    ]
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        fm={pool.submit(text_fetch,u):u for u in urls}
-        for fut in as_completed(fm):
-            u=fm[fut]
-            try:doc=fut.result()
-            except Exception as e:
-                errors.append(f"listing {u}: {type(e).__name__}: {e}");continue
-            pages.append(u)
-            # NILE renders each board item as a JS object in var list = [...]
-            pat=re.compile(
-                r"'nttSeq'\s*:\s*'(?P<ntt>\d+)'.*?"
-                r"'nttSj'\s*:\s*'(?P<title>[^']+)'.*?"
-                r"'atchFileSeq'\s*:\s*'(?P<atch>\d+)'.*?"
-                r"'atchFileSeqFiles'\s*:\s*\[(?P<files>.*?)\]",
-                re.S
-            )
-            for m in pat.finditer(doc):
-                title=html.unescape(m.group("title"))
-                ym=re.search(r"(20\d{2})년\s*(\d{1,2})월.*기관장\s*업무추진비",title)
-                if not ym:continue
-                y,mo=int(ym.group(1)),int(ym.group(2))
-                if y not in years:continue
-                fm2=re.search(
-                    r"'fileSn'\s*:\s*'(?P<sn>\d+)'.*?"
-                    r"'orignlFileNm'\s*:\s*'(?P<name>[^']+)'",
-                    m.group("files"),re.S
-                )
-                if not fm2:continue
-                ntt,atch=m.group("ntt"),m.group("atch")
-                sn=fm2.group("sn");name=html.unescape(fm2.group("name"))
-                dl="https://www.nile.or.kr/usr/wap/downloadFile.do?"+urllib.parse.urlencode({
-                    "app":"12716","seq":ntt,"atchFileSeq":atch,
-                    "fileColumn":"atchFileSeq","fileSn":sn,"lang":"ko",
-                })
-                files.append({
-                    "text":title,"url":dl,"download_url":dl,"parent":u,
-                    "year":y,"month":mo,"attachment_id":f"{ntt}|{atch}|{sn}",
-                    "filename":name,
-                })
+    years={year,year-1};files=[];pages=[LISTING];errors=[]
+    try:
+        doc=text_fetch(LISTING)
+    except Exception as e:
+        return [],pages,[f"listing {LISTING}: {type(e).__name__}: {e}"]
+
+    # The first NILE page contains the current monthly PDFs plus a combined
+    # 2024-10~2026-03 archive, which together cover the latest two years.
+    pat=re.compile(
+        r"'nttSeq'\s*:\s*'(?P<ntt>\d+)'.*?"
+        r"'nttSj'\s*:\s*'(?P<title>[^']+)'.*?"
+        r"'atchFileSeq'\s*:\s*'(?P<atch>\d+)'.*?"
+        r"'atchFileSeqFiles'\s*:\s*\[(?P<files>.*?)\]",
+        re.S
+    )
+    for m in pat.finditer(doc):
+        title=html.unescape(m.group("title"))
+        span=re.search(r"(20\d{2})년\s*(\d{1,2})월\s*~\s*(20\d{2})년\s*(\d{1,2})월.*기관장\s*업무추진비",title)
+        ym=re.search(r"(20\d{2})년\s*(\d{1,2})월.*기관장\s*업무추진비",title)
+        if span:
+            sy,sm,ey,em=map(int,span.groups())
+            if not any(sy<=y<=ey for y in years):continue
+            y,mo=ey,em
+        elif ym:
+            y,mo=int(ym.group(1)),int(ym.group(2))
+            if y not in years:continue
+        else:
+            continue
+        fm2=re.search(
+            r"'fileSn'\s*:\s*'(?P<sn>\d+)'.*?"
+            r"'orignlFileNm'\s*:\s*'(?P<name>[^']+)'",
+            m.group("files"),re.S
+        )
+        if not fm2:continue
+        ntt,atch=m.group("ntt"),m.group("atch")
+        sn=fm2.group("sn");name=html.unescape(fm2.group("name"))
+        dl="https://www.nile.or.kr/usr/wap/downloadFile.do?"+urllib.parse.urlencode({
+            "app":"12716","seq":ntt,"atchFileSeq":atch,
+            "fileColumn":"atchFileSeq","fileSn":sn,"lang":"ko",
+        })
+        files.append({
+            "text":title,"url":dl,"download_url":dl,"parent":LISTING,
+            "year":y,"month":mo,"attachment_id":f"{ntt}|{atch}|{sn}",
+            "filename":name,
+        })
     uniq={x["attachment_id"]:x for x in files}
     return sorted(uniq.values(),key=lambda x:(x["year"],x["month"])),pages,errors
 
@@ -141,11 +139,10 @@ def discover(year:int)->dict:
     attachments,pages,errors=_discover_files(year)
     rows=[]
     if attachments:
-        with ThreadPoolExecutor(max_workers=min(2,len(attachments))) as pool:
-            fm={pool.submit(_parse_pdf,a):a for a in attachments}
-            for fut in as_completed(fm):
-                parsed,err=fut.result();rows.extend(parsed)
-                if err:errors.append(err)
+        for idx,a in enumerate(attachments):
+            parsed,err=_parse_pdf(a);rows.extend(parsed)
+            if err:errors.append(err)
+            if idx+1<len(attachments):time.sleep(1.5)
     rows.sort(key=lambda r:(r["used_date"],r["row_id"]))
     return {
         "key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership",
