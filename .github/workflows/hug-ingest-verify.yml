@@ -1,0 +1,39 @@
+name: HUG ingestion verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/public_enterprise_hug.py'
+      - '.github/workflows/hug-ingest-verify.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pypdf==6.1.1
+      - name: Parse HUG
+        run: python pipeline/public_enterprise_hug.py
+      - name: Ingest and build candidates
+        run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          raw=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          cand=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          rows=[r for r in raw['rows'] if r.get('source_key')=='hug']
+          c=[x for x in cand['candidates'] if '주택도시보증공사' in (x.get('institutions') or [])]
+          print('HUG_ROWS',len(rows))
+          print('HUG_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+          print('HUG_ROLES',json.dumps(sorted({r.get('role') for r in rows if r.get('role')}),ensure_ascii=False))
+          print('HUG_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('HUG_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('HUG_CANDIDATES',len(c))
+          print('HUG_TOP',json.dumps([{'merchant':x['merchant'],'visits':x['visits'],'role_stats':x.get('role_stats')} for x in c[:15]],ensure_ascii=False))
+          PY
