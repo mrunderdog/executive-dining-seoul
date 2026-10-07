@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import io, json, urllib.parse, urllib.request
+import io, json, time, urllib.parse, urllib.request
 from pypdf import PdfReader
 
 BASE="https://www.kibo.or.kr"
@@ -27,9 +27,19 @@ for role,file_id,file_div,file_key in FILES:
         "Referer":LISTING,
         "Content-Type":"application/x-www-form-urlencoded",
     })
-    with urllib.request.urlopen(req,timeout=20) as r:
-        blob=r.read()
-        print("DOWNLOAD",role,len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"),blob[:8])
+    last=None
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req,timeout=20) as r:
+                blob=r.read()
+                print("DOWNLOAD",role,len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"),blob[:8])
+            break
+        except Exception as e:
+            last=e
+            print("DOWNLOAD_RETRY",role,attempt+1,type(e).__name__,e)
+            time.sleep(2*(attempt+1))
+    else:
+        raise last
     pdf=PdfReader(io.BytesIO(blob))
     print("PAGES",role,len(pdf.pages))
     for pi,page in enumerate(pdf.pages[:3],start=1):
