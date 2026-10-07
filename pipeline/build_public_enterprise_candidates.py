@@ -105,16 +105,17 @@ def main():
         inst=sorted({t(x.get("institution")) for x in items if t(x.get("institution"))})
         dates=sorted(t(x.get("used_date")) for x in items)
         pc=Counter(t(x.get("purpose")) for x in items if t(x.get("purpose")))
+        rc=Counter(t(x.get("role")) for x in items if t(x.get("role")))
         phones=[phone_from(x.get("merchant")) for x in items if phone_from(x.get("merchant"))]
         s=score(visits,len(months),spend)
-        out.append({"merchant":name,"address":address,"phone":phones[0] if phones else "","score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
+        out.append({"merchant":name,"address":address,"phone":phones[0] if phones else "","score":s,"visits":visits,"months":len(months),"spend":spend,"institution_count":len(inst),"institutions":inst,"date_min":dates[0] if dates else "","date_max":dates[-1] if dates else "","purpose_stats":[{"text":k,"count":v} for k,v in pc.most_common(8)],"role_stats":[{"role":k,"visits":v} for k,v in rc.most_common()],"recent":[{"date":t(x.get("used_date")),"time":t(x.get("used_time")),"institution":t(x.get("institution")),"role":t(x.get("role")),"amount":int(x.get("amount") or 0),"people":int(x.get("people") or 0),"purpose":t(x.get("purpose")),"source":t(x.get("source_url"))} for x in sorted(items,key=lambda z:(t(z.get("used_date")),t(z.get("used_time"))),reverse=True)[:10]]})
     eligible=[x for x in out if x["visits"]>=1 and x["score"]>=25]
     eligible.sort(key=lambda x:(x["score"],x["visits"],x["spend"]),reverse=True)
     ranked=balanced_candidates(eligible,incumbent_candidates)
     REPORTS.mkdir(exist_ok=True)
     payload={"generated_at":datetime.now().isoformat(timespec="seconds"),"source":"public_enterprise_leadership","cohort":"public_enterprise_leadership","meal_rows":len(rows),"entity_count":len(out),"eligible_count":len(eligible),"candidates":ranked}
     (REPORTS/"public-enterprise-candidates.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    md=["# Public-enterprise leadership dining candidates","",f"- Meal-like rows: **{len(rows)}**",f"- Entities: **{len(out)}**",f"- Eligible: **{len(eligible)}**","","> 공기업·공공기관 기관장 공개 업무추진비의 식사성 사용처입니다. 점수는 식당 품질 평가가 아닙니다.","","| # | Merchant | Score | Visits | Institutions | Months | Spend |","|---:|---|---:|---:|---:|---:|---:|"]
+    md=["# Public-enterprise leadership dining candidates","",f"- Meal-like rows: **{len(rows)}**",f"- Entities: **{len(out)}**",f"- Eligible: **{len(eligible)}**","","> 공기업·공공기관 기관장·임원 공개 업무추진비의 식사성 사용처입니다. 점수는 식당 품질 평가가 아닙니다.","","| # | Merchant | Score | Visits | Institutions | Months | Spend |","|---:|---|---:|---:|---:|---:|---:|"]
     for i,x in enumerate(ranked[:120],1):md.append(f"| {i} | {x['merchant'].replace('|','/')} | {x['score']:.1f} | {x['visits']} | {x['institution_count']} | {x['months']} | {x['spend']:,} |")
     (REPORTS/"public-enterprise-candidates.md").write_text("\n".join(md)+"\n",encoding="utf-8")
     print(json.dumps({"meal_rows":len(rows),"entities":len(out),"eligible":len(eligible),"ranked":len(ranked)},ensure_ascii=False))

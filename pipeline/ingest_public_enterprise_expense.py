@@ -24,14 +24,45 @@ def main():
         try:previous=json.loads(out.read_text(encoding="utf-8"))
         except Exception:previous={}
     previous_rows=list(previous.get("rows",[]));previous_files=list(previous.get("files",[]));previous_errors=list(previous.get("errors",[]))
+
+    # Heal legacy double-parsing for adapter-owned inline sources.
+    legacy_removed=0
+    authoritative_keys={
+        str(src.get("key") or "")
+        for src in d.get("sources",[])
+        if src.get("inline_replace") and src.get("key")
+    }
+    for key in authoritative_keys:
+        owned=[
+            r for r in previous_rows
+            if r.get("source_key")==key and str(r.get("row_id") or "").startswith(f"{key}:")
+        ]
+        if owned:
+            old_count=sum(1 for r in previous_rows if r.get("source_key")==key)
+            previous_rows=[r for r in previous_rows if r.get("source_key")!=key]+owned
+            legacy_removed+=max(0,old_count-len(owned))
+
     known={str(x.get("url") or "") for x in previous_files if x.get("url")}
     rows=[];files=[];errors=[];jobs=[];replace_institutions=set()
     for src in d.get("sources",[]):
         if src.get("status")=="TRACK_ONLY":continue
         inline=list(src.get("inline_rows") or [])
-        inline_authoritative=bool(inline and src.get("inline_replace"))
+        inline_authoritative=bool(src.get("inline_replace"))
+        if inline_authoritative and inline:
+            inst=src.get("institution")
+            years={str(y) for y in (src.get("years") or [])}
+            previous_relevant=[
+                r for r in previous_rows
+                if r.get("institution")==inst
+                and (not years or str(r.get("used_date") or "")[:4] in years)
+            ]
+            floor=max(1,int(len(previous_relevant)*0.85)) if previous_relevant else 0
+            if floor and len(inline)<floor:
+                errors.append(f"{src.get('key')}: PARTIAL_STALE_KEEP fresh={len(inline)} baseline={len(previous_relevant)} floor={floor}")
+                inline=[]
+            else:
+                replace_institutions.add(inst)
         if inline:
-            if src.get("inline_replace"):replace_institutions.add(src.get("institution"))
             for r in inline:
                 x=dict(r)
                 if not x.get("row_id"):
@@ -52,7 +83,7 @@ def main():
                 rows.extend(parsed)
                 if info:files.append(info)
                 if error:errors.append(error)
-    if args.incremental and not files and not errors and not rows:
+    if args.incremental and not files and not errors and not rows and not legacy_removed:
         print(json.dumps({"status":"NO_CHANGE","rows":len(previous_rows),"known_files":len(previous_files)},ensure_ascii=False));return
     base_rows=[r for r in previous_rows if r.get("institution") not in replace_institutions]
     unique={r["row_id"]:r for r in base_rows+rows}
@@ -118,6 +149,6 @@ def main():
     md=["# Public-enterprise leadership expense ingestion","",f"- Rows: **{len(merged_rows)}**",f"- Files: **{len(merged_files)}**",f"- Errors: **{len(merged_errors)}**","","## Rows by institution",""]
     for k,v in cc.most_common():md.append(f"- {k}: {v}")
     (REPORTS/"public-enterprise-ingestion.md").write_text("\n".join(md)+"\n",encoding="utf-8")
-    print(json.dumps({"status":"UPDATED","rows":len(merged_rows),"new_files":len(files),"files":len(merged_files),"errors":len(merged_errors),"institutions":len(cc)},ensure_ascii=False))
+    print(json.dumps({"status":"UPDATED","rows":len(merged_rows),"new_files":len(files),"files":len(merged_files),"errors":len(merged_errors),"institutions":len(cc),"legacy_removed":legacy_removed},ensure_ascii=False))
 
 if __name__=="__main__":main()

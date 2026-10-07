@@ -212,6 +212,24 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
         months = int(c.get("months") or 0)
         spend = int(c.get("spend") or 0)
         score = float(c.get("score") or 0)
+        role_stats=[
+            {"role": t(x.get("role")), "visits": int(x.get("visits") or 0)}
+            for x in (c.get("role_stats") or [])
+            if t(x.get("role")) and int(x.get("visits") or 0) > 0
+        ]
+        if not role_stats:
+            rc={}
+            for x in (c.get("recent") or []):
+                role=t(x.get("role"))
+                if role:
+                    rc[role]=rc.get(role,0)+1
+            role_stats=[{"role": k, "visits": v} for k,v in rc.items()]
+        role_priority={"기관장":0,"사장":0,"사장직무대행":0,"부사장":1,"감사":2,"이사":3,"임원":4}
+        role_stats.sort(key=lambda x:(role_priority.get(x["role"],9),-x["visits"],x["role"]))
+        roles=[{"role": x["role"], "visits": x["visits"], "people": 0, "spend": 0} for x in role_stats]
+        role_labels=[x["role"] for x in role_stats]
+        top_role_label="·".join(role_labels[:4]) or "기관장"
+        head_only=bool(role_labels) and all(x in {"기관장","사장","사장직무대행"} for x in role_labels)
         recent = [
             {
                 "date": t(x.get("date")),
@@ -237,13 +255,13 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
                 "rank": rank,
                 "score": round(score, 1),
                 "exec_events": visits,
-                "roles": 1,
+                "roles": len(roles) or 1,
                 "months": months,
                 "evening_ratio": 0,
                 "source": "public_enterprise_leadership",
                 "top_official_visits": visits,
-                "top_role_tier": "public_enterprise_head",
-                "top_role_label": "기관장",
+                "top_role_tier": "public_enterprise_head" if head_only else "public_enterprise_leadership",
+                "top_role_label": top_role_label,
             },
             "address": address,
             "search_query": f"{display_name} {address or '대한민국'}",
@@ -251,9 +269,9 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
                 "display": display_name,
                 "category": _category(name),
                 "phone": t(override.get("phone")),
-                "status": "공기업·공공기관 기관장 공식 업무추진비 원자료상 사용처",
+                "status": "공기업·공공기관 기관장·임원 공식 업무추진비 원자료상 사용처",
                 "rating": "",
-                "note": "공기업·공공기관이 공개한 기관장 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다.",
+                "note": "공기업·공공기관이 공개한 기관장·임원 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다.",
                 "url": t(override.get("url")),
                 "verified_at": t(override.get("verified_at")),
                 "verification_confidence": t(override.get("confidence")),
@@ -268,12 +286,12 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
                 "ppc": 0,
                 "date_min": t(c.get("date_min")),
                 "date_max": t(c.get("date_max")),
-                "roles": [{"role": "기관장", "visits": visits, "people": 0, "spend": spend}],
+                "roles": roles or [{"role": "기관장", "visits": visits, "people": 0, "spend": spend}],
                 "purposes": c.get("purpose_stats") or [],
                 "recent": recent,
                 "source_rows": [],
             },
-            "why": f"공기업·공공기관 기관장 공식 업무추진비에서 {visits}회 확인된 사용처입니다.",
+            "why": f"공기업·공공기관 기관장·임원 공식 업무추진비에서 {visits}회 확인된 사용처입니다.",
             "published_source": "public_enterprise_leadership",
             "cohort": "public_enterprise_leadership",
         })
