@@ -14,3 +14,8 @@ for m in re.finditer(r"<a\b([^>]*)>(.*?)</a>",doc,re.I|re.S):
         print("LINK",repr(text),repr(href),repr(onclick))
 for token in ("fileDown","download","atchFile","fileId","pstId","fileSn","fileSeq"):
     if token.lower() in doc.lower():print("TOKEN",token)
+
+for m in re.finditer(r"fncAtchFileDownload\s*\((.*?)\)",doc,re.I|re.S):
+    print("CALL", " ".join(m.group(0).split())[:500])
+for m in re.finditer(r"function\s+fncAtchFileDownload\s*\([^)]*\)\s*\{.*?\}",doc,re.I|re.S):
+    print("DEF", " ".join(m.group(0).split())[:1500])
