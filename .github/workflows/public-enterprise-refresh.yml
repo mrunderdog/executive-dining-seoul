@@ -10,6 +10,7 @@ on:
       - 'pipeline/public_enterprise_hug.py'
       - 'pipeline/public_enterprise_ksure.py'
       - 'pipeline/public_enterprise_nps.py'
+      - 'pipeline/probe_kosaf.py'
       - 'pipeline/public_enterprise_kps.py'
       - 'pipeline/public_enterprise_kamco.py'
       - 'pipeline/public_enterprise_komsco.py'
@@ -51,6 +52,7 @@ jobs:
           python pipeline/public_enterprise_hug.py
           python pipeline/public_enterprise_ksure.py
           python pipeline/public_enterprise_nps.py
+          python pipeline/probe_kosaf.py
           python pipeline/public_enterprise_kps.py
           python pipeline/public_enterprise_kamco.py
           python pipeline/public_enterprise_komsco.py
