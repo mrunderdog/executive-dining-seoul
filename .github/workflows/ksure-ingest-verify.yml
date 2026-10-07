@@ -1,0 +1,36 @@
+name: KSURE ingestion verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/public_enterprise_ksure.py'
+      - '.github/workflows/ksure-ingest-verify.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python pipeline/public_enterprise_ksure.py
+      - run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          raw=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          cand=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          rows=[r for r in raw['rows'] if r.get('source_key')=='ksure']
+          c=[x for x in cand['candidates'] if '한국무역보험공사' in (x.get('institutions') or [])]
+          print('KSURE_ROWS',len(rows))
+          print('KSURE_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+          print('KSURE_ROLES',json.dumps(sorted({r.get('role') for r in rows if r.get('role')}),ensure_ascii=False))
+          print('KSURE_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KSURE_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KSURE_CANDIDATES',len(c))
+          print('KSURE_TOP',json.dumps([{'merchant':x['merchant'],'visits':x['visits'],'role_stats':x.get('role_stats')} for x in c[:15]],ensure_ascii=False))
+          PY
