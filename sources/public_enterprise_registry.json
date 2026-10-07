@@ -401,6 +401,51 @@
         "https://www.kicece.or.kr/kcpi/openmag/bzexpense.do"
       ],
       "note": "한국영유아보육·교육진흥원 공식 경영공시 > 업무추진비 사용현황. 월별 상세 HTML 표에 사용일자·집행내역(목적)·사용처(장소)·집행대상자·집행구분·인원·집행금액이 거래별 공개되어 기관장 사용처를 직접 수집."
+    },
+    {
+      "key": "koat",
+      "institution": "한국농업기술진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장",
+      "format_hint": "xlsx-detail",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://m.koat.or.kr/board/expenseInst/list.do"
+      ],
+      "note": "한국농업기술진흥원 공식 기관장(원장) 업무추진비 게시판. 월별 XLSX에 사용자·사용일자·사용처(가맹점명)·사용목적·사용금액·대상인원·사용방법이 거래별 공개되어 기관장 사용처를 수집."
+    },
+    {
+      "key": "nile",
+      "institution": "국가평생교육진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장",
+      "format_hint": "pdf-detail",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.nile.or.kr/usr/wap/list.do?app=12716&lang=ko&listAll=Y"
+      ],
+      "note": "국가평생교육진흥원 공식 기관장 업무추진비 게시판. 월별 PDF에 사용일자·집행내역(목적)·사용처(장소)·집행대상자·집행구분·인원·집행금액이 거래별 공개됨."
+    },
+    {
+      "key": "fira",
+      "institution": "한국수산자원공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·임원",
+      "format_hint": "pdf-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.fira.or.kr/fira/fira_050602_3.jsp?board_no=186&board_wrapper=%2Ffira%2Ffira_050602_3.jsp&mode=list&pager.offset=0"
+      ],
+      "note": "한국수산자원공단 공식 사전정보공개자료의 기관장 및 임원 업무추진비성 경비내역. 월별 PDF에 기관장/임원별 거래일자·목적·사용처·대상·결제구분·인원·금액이 공개되어 역할별로 수집."
     }
   ]
 }
