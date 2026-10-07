@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
@@ -39,6 +40,23 @@ def discover(year:int)->dict:
             u=fm[fut]
             try: docs.append((u,fut.result()));out["pages"].append(u)
             except Exception as e: out["errors"].append(f"listing {u}: {type(e).__name__}: {e}")
+
+    if not docs:
+        out["diagnostics"]=[]
+    else:
+        diagnostic_doc=docs[0][1]
+        snippets=[]
+        for pattern in (r"업무추진비", r"onclick", r"download", r"article"):
+            for match in re.finditer(pattern, diagnostic_doc, re.I):
+                start=max(0,match.start()-240);end=min(len(diagnostic_doc),match.end()+420)
+                snippet=" ".join(diagnostic_doc[start:end].split())
+                if snippet not in snippets:
+                    snippets.append(snippet)
+                if len(snippets)>=16:
+                    break
+            if len(snippets)>=16:
+                break
+        out["diagnostics"]=snippets
 
     details=[];seen=set()
     for base,doc in docs:
@@ -78,6 +96,6 @@ def main():
     fresh=discover(int(payload.get("year") or datetime.now().year))
     payload["sources"]=[x for x in payload.get("sources",[]) if x.get("key")!=KEY]+[fresh]
     REPORT.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    print(json.dumps({"key":KEY,"status":fresh["status"],"pages":len(fresh["pages"]),"attachments":len(fresh["attachments"]),"errors":fresh["errors"][:5]},ensure_ascii=False))
+    print(json.dumps({"key":KEY,"status":fresh["status"],"pages":len(fresh["pages"]),"attachments":len(fresh["attachments"]),"errors":fresh["errors"][:5],"diagnostics":fresh.get("diagnostics",[])[:12]},ensure_ascii=False))
 
 if __name__=="__main__":main()
