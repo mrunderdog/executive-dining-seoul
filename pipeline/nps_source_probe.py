@@ -19,3 +19,13 @@ for m in re.finditer(r"fncAtchFileDownload\s*\((.*?)\)",doc,re.I|re.S):
     print("CALL", " ".join(m.group(0).split())[:500])
 for m in re.finditer(r"function\s+fncAtchFileDownload\s*\([^)]*\)\s*\{.*?\}",doc,re.I|re.S):
     print("DEF", " ".join(m.group(0).split())[:1500])
+
+for m in re.finditer(r"<script[^>]+src=[\"']([^\"']+)[\"']",doc,re.I):
+    src=html.unescape(m.group(1))
+    if any(k in src.lower() for k in ("common","file","board","global","util")):
+        print("SCRIPT",src)
+for m in re.finditer(r"<form\b([^>]*)>",doc,re.I|re.S):
+    a=re.search(r"action=[\"']([^\"']+)[\"']",m.group(1),re.I)
+    if a: print("FORM",html.unescape(a.group(1)))
+for m in re.finditer(r"(?:atch|file)[^\"'<>]{0,120}(?:download|down)[^\"'<>]{0,160}",doc,re.I):
+    print("FILESNIP"," ".join(doc[max(0,m.start()-100):m.end()+160].split())[:600])
