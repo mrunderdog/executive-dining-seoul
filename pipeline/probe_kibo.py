@@ -27,4 +27,10 @@ for role,file_id,file_key in files:
     pdf=PdfReader(io.BytesIO(blob))
     print("PAGES",role,len(pdf.pages))
     for i,p in enumerate(pdf.pages[:3],1):
-        print("PAGE",role,i," ".join((p.extract_text() or "").split())[:16000])
+        raw=p.extract_text() or ""
+        print("RAW_LINES",role,i,repr(raw[:16000]))
+        try:
+            layout=p.extract_text(extraction_mode="layout") or ""
+            print("LAYOUT",role,i,repr(layout[:16000]))
+        except Exception as e:
+            print("LAYOUT_ERR",role,i,type(e).__name__,e)
