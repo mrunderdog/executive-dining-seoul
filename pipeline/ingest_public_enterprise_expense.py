@@ -29,6 +29,7 @@ def main():
     for src in d.get("sources",[]):
         if src.get("status")=="TRACK_ONLY":continue
         inline=list(src.get("inline_rows") or [])
+        inline_authoritative=bool(inline and src.get("inline_replace"))
         if inline:
             if src.get("inline_replace"):replace_institutions.add(src.get("institution"))
             for r in inline:
@@ -39,6 +40,7 @@ def main():
             for page in src.get("pages") or []:
                 files.append({"institution":src.get("institution"),"key":src.get("key"),"url":page,"file_key":"inline:"+page,"bytes":0,"sheets":[{"status":"INLINE_HTML","parsed_rows":sum(1 for x in inline if x.get("source_url")==page)}]})
         for a in src.get("attachments",[]):
+            if inline_authoritative:continue
             url=str(a.get("url") or "")
             if not url or (args.incremental and url in known):continue
             jobs.append((src,a))
