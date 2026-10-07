@@ -386,6 +386,21 @@
         "https://www.kosaf.go.kr/ko/openinfo.do?ctgrId1=0000000015&pg=operation10"
       ],
       "note": "한국장학재단 공식 자체공시 > 임원 업무추진비. 기관장·상임감사·상임이사 월별 XLSX에 사용일자·집행내역(목적)·사용처(장소)·집행대상자·인원·집행금액이 거래별 공개되어 원 역할을 보존해 수집."
+    },
+    {
+      "key": "kicece",
+      "institution": "한국영유아보육·교육진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장",
+      "format_hint": "html-table",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kicece.or.kr/kcpi/openmag/bzexpense.do"
+      ],
+      "note": "한국영유아보육·교육진흥원 공식 경영공시 > 업무추진비 사용현황. 월별 상세 HTML 표에 사용일자·집행내역(목적)·사용처(장소)·집행대상자·집행구분·인원·집행금액이 거래별 공개되어 기관장 사용처를 직접 수집."
     }
   ]
 }
