@@ -98,6 +98,7 @@ def _probe_detail(pst_no: str) -> list[str]:
         label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
         if any(k in label.lower() for k in ("download","file",".xls",".xlsx","첨부")):
             out.append("LINK="+label[:1800])
+    out.append("DETAIL_HTML="+re.sub(r"\\s+"," ",html.unescape(doc)).strip()[:4300])
     for needle in ("다운로드","download","file","xlsx","xls","첨부"):
         for mm in list(re.finditer(needle,doc,re.I))[:3]:
             chunk=re.sub(r"\s+"," ",html.unescape(doc[max(0,mm.start()-700):mm.end()+1500])).strip()
