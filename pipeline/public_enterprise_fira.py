@@ -70,22 +70,31 @@ def _norm_date(s:str)->str:
     try:return datetime(*map(int,m.groups())).date().isoformat()
     except ValueError:return ""
 
-def _merchant_from_prefix(prefix:str)->str:
+def _merchant_and_target(prefix:str):
     s=" ".join(prefix.split())
-    # Most FIRA merchant cells include a phone number. The merchant is the
-    # final phrase immediately before that phone number.
-    pm=list(re.finditer(r"\(?0\d{1,2}-\d{3,4}-\d{4}\)?",s))
-    if not pm:return ""
-    p=pm[-1]
+    target=""
+    tm=re.search(r"(FIRA직원|공단직원|내부직원|유관기관|임직원|외부인사|직원)\s*$",s)
+    if tm:
+        target=tm.group(1)
+        s=s[:tm.start()].strip()
+
+    phones=list(re.finditer(r"\(?0\d{1,2}-\d{3,4}-\d{4}\)?",s))
+    if not phones:return "",target
+    p=phones[-1]
+
+    # Some FIRA PDFs expose the phone number before the merchant in text
+    # extraction even though visually it is inside the merchant cell.
+    after=s[p.end():].strip(" -·,()")
+    if 1<len(after)<=60:
+        return after,target
+
     before=s[:p.start()].strip()
     for marker in ("간담회","업무협의","회의","협의","격려","오찬","만찬","소통"):
         idx=before.rfind(marker)
-        if idx>=0 and idx+len(marker)<len(before):
+        if idx>=0:
             cand=before[idx+len(marker):].strip(" -·,")
-            if 1<len(cand)<=50:return cand
-    # Conservative fallback: take the final contiguous merchant-like phrase.
-    m=re.search(r"([가-힣A-Za-z0-9㈜&·\s]{2,24})$",before)
-    return " ".join(m.group(1).split()) if m else ""
+            if 1<len(cand)<=60:return cand,target
+    return "",target
 
 def _parse_pdf(att:dict):
     try:
@@ -112,19 +121,19 @@ def _parse_pdf(att:dict):
             method_m=re.search(r"(계좌이체|법인카드|카드|현금)\s*(\d{1,2})",seg)
             method=method_m.group(1) if method_m else ""
             people=int(method_m.group(2)) if method_m else None
-            merchant=_merchant_from_prefix(seg)
+            trailing=seg[:method_m.start()] if method_m else seg
+            merchant,target=_merchant_and_target(trailing)
             if not merchant:continue
-            # Purpose is retained as the transaction segment minus date and trailing columns.
             purpose=seg[m.end()-m.start():]
-            phone_pos=re.search(r"\(?0\d{1,2}-\d{3,4}-\d{4}\)?",purpose)
-            if phone_pos:purpose=purpose[:phone_pos.start()]
+            first_phone=re.search(r"\(?0\d{1,2}-\d{3,4}-\d{4}\)?",purpose)
+            if first_phone:purpose=purpose[:first_phone.start()]
             purpose=" ".join(purpose.split())
             rows.append({
                 "source_key":KEY,"institution":INSTITUTION,"cohort":"public_enterprise_leadership",
                 "role":role,"department":"","used_date":date,"used_time":"",
                 "merchant":merchant,"address":"","purpose":purpose,
                 "people":people,"amount":amount,"source_amount_scale":1,
-                "payment_method":method,"source_category":role,"target":"",
+                "payment_method":method,"source_category":role,"target":target,
                 "source_url":att["url"],"source_sheet":f"page-{pi}","source_row":idx+1,
                 "row_id":f"fira:{att['attachment_id']}:{pi}:{idx+1}",
             })
