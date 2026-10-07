@@ -45,16 +45,22 @@ def discover(year:int)->dict:
         out["diagnostics"]=[]
     else:
         diagnostic_doc=docs[0][1]
-        snippets=[]
-        for pattern in (r"업무추진비", r"onclick", r"download", r"article"):
+        snippets=[f"HTML_LEN={len(diagnostic_doc)}", "HEAD="+" ".join(diagnostic_doc[:3000].split())]
+        probes=[
+            r"<script[^>]+src=[\"']([^\"']+)",
+            r"<form[^>]+action=[\"']([^\"']+)",
+            r"(?:fetch|axios|url)\s*\(?\s*[:=]?\s*[\"']([^\"']+)",
+            r"[\"']([^\"']*(?:api|board|bbs|article|list|search)[^\"']*)[\"']",
+        ]
+        for pattern in probes:
             for match in re.finditer(pattern, diagnostic_doc, re.I):
-                start=max(0,match.start()-240);end=min(len(diagnostic_doc),match.end()+420)
-                snippet=" ".join(diagnostic_doc[start:end].split())
-                if snippet not in snippets:
-                    snippets.append(snippet)
-                if len(snippets)>=16:
+                value=match.group(1) if match.lastindex else match.group(0)
+                value=" ".join(value.split())
+                if value and value not in snippets:
+                    snippets.append(value)
+                if len(snippets)>=28:
                     break
-            if len(snippets)>=16:
+            if len(snippets)>=28:
                 break
         out["diagnostics"]=snippets
 
