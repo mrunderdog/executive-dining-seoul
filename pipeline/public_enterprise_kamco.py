@@ -5,6 +5,7 @@ import html
 import io
 import json
 import re
+import time
 import urllib.parse
 import urllib.request
 from collections import deque
@@ -37,6 +38,18 @@ def _bidx(url: str) -> str:
 
 def _plain(value) -> str:
     return " ".join(str(value or "").replace("\xa0", " ").split()).strip()
+
+
+def _fetch_page(url: str, attempts: int = 3) -> str:
+    last = None
+    for attempt in range(attempts):
+        try:
+            return fetch(url)
+        except Exception as e:
+            last = e
+            if attempt + 1 < attempts:
+                time.sleep(0.75 * (attempt + 1))
+    raise last
 
 
 def _date(value) -> str:
@@ -86,18 +99,26 @@ def _download_url(file_id: str, file_sn: str) -> str:
     })
 
 
-def _download(url: str, parent: str) -> bytes:
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA,
-        "Referer": parent,
-        "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*",
-        "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
-    })
-    with urllib.request.urlopen(req, timeout=45) as r:
-        blob = r.read()
-    if blob[:2] != b"PK":
-        raise ValueError(f"attachment is not xlsx ({len(blob)} bytes)")
-    return blob
+def _download(url: str, parent: str, attempts: int = 3) -> bytes:
+    last = None
+    for attempt in range(attempts):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": UA,
+                "Referer": parent,
+                "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*",
+                "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.7",
+            })
+            with urllib.request.urlopen(req, timeout=45) as r:
+                blob = r.read()
+            if blob[:2] != b"PK":
+                raise ValueError(f"attachment is not xlsx ({len(blob)} bytes)")
+            return blob
+        except Exception as e:
+            last = e
+            if attempt + 1 < attempts:
+                time.sleep(0.75 * (attempt + 1))
+    raise last
 
 
 def _sheet_rows(blob: bytes, attachment: dict) -> list[dict]:
@@ -228,7 +249,7 @@ def discover(year: int) -> dict:
         seen_pages.add(bid)
         out["pages"].append(url)
         try:
-            doc = fetch(url)
+            doc = _fetch_page(url)
         except Exception as e:
             out["errors"].append(f"detail {url}: {type(e).__name__}: {e}")
             continue
