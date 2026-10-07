@@ -1,49 +1,38 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html, io, re, urllib.parse, urllib.request, zipfile
-import xml.etree.ElementTree as ET
-
-URL="https://www.kosaf.go.kr/ko/openinfo.do?ctgrId1=0000000015&pg=operation10"
-UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-
-def get(url, data=None, referer=URL):
-    headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9","Referer":referer}
-    req=urllib.request.Request(url,data=data,headers=headers)
-    with urllib.request.urlopen(req,timeout=20) as r:
-        raw=r.read()
-        return raw, r.geturl(), r.headers
-
-raw,final,h=get(URL)
-doc=raw.decode("utf-8","replace")
-print("LIST",len(raw),final,h.get("content-type"))
-
-for pat in (r"function\s+fileDown\s*\([^)]*\)\s*\{.*?\}", r"fileDown\s*=\s*function\s*\([^)]*\)\s*\{.*?\}"):
-    for m in re.finditer(pat,doc,re.I|re.S):
-        print("\nFILEDOWN DEF\n",html.unescape(m.group(0))[:5000])
-
-for m in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
-    src=urllib.parse.urljoin(URL,html.unescape(m.group(1)))
-    if any(k in src.lower() for k in ("common","util","file","board","open")):
-        try:
-            b,u,hh=get(src)
-            s=b.decode("utf-8","replace")
-            if "fileDown" in s:
-                i=s.find("fileDown")
-                print("\nSCRIPT",u,"\n",s[max(0,i-2000):i+5000])
-        except Exception as e:
-            print("SCRIPT_ERR",src,type(e).__name__,e)
-
-items=[]
-for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
-    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
-    ym=re.search(r"(20\d{2})년도\s*(\d{1,2})월\s*(기관장|상임감사|상임이사)\s*업무추진비",txt)
-    fm=re.search(r"fileDown\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]([^'\"]+)['\"]",row,re.I)
-    if ym and fm and int(ym.group(1))>=2025:
-        items.append((ym.groups(),fm.groups(),txt))
-print("\nITEMS",items[:12])
-
-# Print all forms around possible file download handling.
-for m in re.finditer(r"<form\b.*?</form>",doc,re.I|re.S):
-    s=html.unescape(m.group(0))
-    if any(k in s for k in ("fileDown","fileId","UPLOAD","file")):
-        print("\nFORM\n",s[:7000])
+import io,re,urllib.request,zipfile,xml.etree.ElementTree as ET
+UA="Mozilla/5.0"
+BASE="https://www.kosaf.go.kr/ko/openinfo.do?ctgrId1=0000000015&pg=operation10"
+DL="https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=21321&pFile_No=1"
+req=urllib.request.Request(DL,headers={"User-Agent":UA,"Referer":BASE})
+with urllib.request.urlopen(req,timeout=20) as r:
+    blob=r.read(); print("DOWNLOAD",len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"))
+print("MAGIC",blob[:8])
+z=zipfile.ZipFile(io.BytesIO(blob))
+NS={"a":"http://schemas.openxmlformats.org/spreadsheetml/2006/main","r":"http://schemas.openxmlformats.org/officeDocument/2006/relationships"}
+shared=[]
+if "xl/sharedStrings.xml" in z.namelist():
+    root=ET.fromstring(z.read("xl/sharedStrings.xml"))
+    for si in root.findall("a:si",NS):
+        shared.append("".join(t.text or "" for t in si.iter() if t.tag.endswith("}t")))
+wb=ET.fromstring(z.read("xl/workbook.xml"))
+rels=ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))
+relmap={r.attrib["Id"]:r.attrib["Target"] for r in rels}
+def col(ref):
+    m=re.match(r"([A-Z]+)",ref or ""); return m.group(1) if m else ""
+for sh in wb.find("a:sheets",NS):
+    rid=sh.attrib.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id","")
+    target=relmap.get(rid,"")
+    path=target if target.startswith("xl/") else "xl/"+target.lstrip("/")
+    if path not in z.namelist(): path="xl/"+target.replace("../","").lstrip("/")
+    print("SHEET",sh.attrib.get("name"),path)
+    root=ET.fromstring(z.read(path))
+    for row in root.findall(".//a:sheetData/a:row",NS)[:30]:
+        vals={}
+        for cell in row.findall("a:c",NS):
+            typ=cell.attrib.get("t",""); v=cell.find("a:v",NS)
+            val="" if v is None else (v.text or "")
+            if typ=="s" and val.isdigit() and int(val)<len(shared): val=shared[int(val)]
+            elif typ=="inlineStr": val="".join(t.text or "" for t in cell.iter() if t.tag.endswith("}t"))
+            vals[col(cell.attrib.get("r",""))]=" ".join(str(val).split())
+        print(row.attrib.get("r"),vals)
