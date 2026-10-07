@@ -8,6 +8,7 @@ from pathlib import Path
 from komipo_adapter import discover_komipo
 from public_enterprise_hf import discover as discover_hf
 from public_enterprise_hug import discover as discover_hug
+from public_enterprise_ksure import discover as discover_ksure
 
 ROOT=Path(__file__).resolve().parents[1]
 REGISTRY=ROOT/"sources"/"public_enterprise_registry.json"
@@ -353,6 +354,8 @@ def discover_source(src,year,detail_limit):
         return discover_hf(year)
     if src.get("key")=="hug" and src.get("verified") and src.get("publish"):
         return discover_hug(year)
+    if src.get("key")=="ksure" and src.get("verified") and src.get("publish"):
+        return discover_ksure(year)
     lookback=max(0,int(src.get("lookback_years",1)))
     years={year-i for i in range(lookback+1)}
     out={"key":src["key"],"institution":src["institution"],"cohort":src.get("cohort","public_enterprise_leadership"),"default_role":src.get("default_role","기관장"),"years":sorted(years),"pages":[],"attachments":[],"errors":[]}
