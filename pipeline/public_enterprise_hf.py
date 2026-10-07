@@ -123,23 +123,33 @@ def discover(year):
                 if "업무추진비" not in txt or not any(str(y) in txt for y in years):continue
                 if "mode=view" not in href or "articleNo=" not in href:continue
                 detail_jobs.append((role,listing,urllib.parse.urljoin(url,href)))
-    seen=set()
+    seen=set();jobs=[]
     for role,listing,detail in detail_jobs:
         if (role,detail) in seen:continue
-        seen.add((role,detail))
-        try:
-            doc=text_fetch(detail,listing);out["pages"].append(detail);p=A();p.feed(doc)
-            for a in p.anchors:
-                label=a.get("text","");href=html.unescape(a.get("href","") or "")
-                if ".xlsx" not in label.lower():continue
-                ym=re.search(r"(20\d{2})년\s*(\d{1,2})월",label)
-                if not ym:continue
-                y,m=int(ym.group(1)),int(ym.group(2))
-                if y not in years:continue
-                dl=urllib.parse.urljoin(detail,href)
-                out["attachments"].append({"role":role,"text":label,"url":dl,"download_url":dl,"parent":detail,
-                    "year":y,"month":m,"attachment_id":urllib.parse.urlsplit(dl).query})
-        except Exception as e:out["errors"].append(f"detail {detail}: {type(e).__name__}: {e}")
+        seen.add((role,detail));jobs.append((role,listing,detail))
+    def fetch_detail(job):
+        role,listing,detail=job
+        return job,text_fetch(detail,listing)
+    if jobs:
+        with ThreadPoolExecutor(max_workers=min(8,len(jobs))) as pool:
+            fm={pool.submit(fetch_detail,j):j for j in jobs}
+            for fut in as_completed(fm):
+                role,listing,detail=fm[fut]
+                try:
+                    _,doc=fut.result()
+                except Exception as e:
+                    out["errors"].append(f"detail {detail}: {type(e).__name__}: {e}");continue
+                out["pages"].append(detail);p=A();p.feed(doc)
+                for a in p.anchors:
+                    label=a.get("text","");href=html.unescape(a.get("href","") or "")
+                    if ".xlsx" not in label.lower():continue
+                    ym=re.search(r"(20\d{2})년\s*(\d{1,2})월",label)
+                    if not ym:continue
+                    y,m=int(ym.group(1)),int(ym.group(2))
+                    if y not in years:continue
+                    dl=urllib.parse.urljoin(detail,href)
+                    out["attachments"].append({"role":role,"text":label,"url":dl,"download_url":dl,"parent":detail,
+                        "year":y,"month":m,"attachment_id":urllib.parse.urlsplit(dl).query})
     uniq={a["url"]:a for a in out["attachments"]};out["attachments"]=sorted(uniq.values(),key=lambda a:(a["year"],a["month"],a["role"]))
     if out["attachments"]:
         with ThreadPoolExecutor(max_workers=min(6,len(out["attachments"]))) as pool:
