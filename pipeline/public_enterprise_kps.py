@@ -102,7 +102,7 @@ def _download_bytes(url:str,parent:str)->bytes:
         "Accept":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*",
         "Referer":parent,
     })
-    with urllib.request.urlopen(req,timeout=15) as r:
+    with urllib.request.urlopen(req,timeout=8) as r:
         return r.read()
 
 def _xlsx_rows(blob:bytes):
@@ -241,11 +241,15 @@ def discover(year:int)->dict:
 
     out["pages"]=list(dict.fromkeys(out["pages"]))
     out["attachments"].sort(key=lambda x:(x.get("year") or 0,x.get("month") or 0,x.get("attachment_id") or ""))
-    for att in out["attachments"]:
-        parsed,err=_parse_executive_rows(att)
-        out["inline_rows"].extend(parsed)
-        if err:
-            out["errors"].append(err)
+    if out["attachments"]:
+        with ThreadPoolExecutor(max_workers=min(6,len(out["attachments"]))) as pool:
+            fm={pool.submit(_parse_executive_rows,att):att for att in out["attachments"]}
+            for fut in as_completed(fm):
+                parsed,err=fut.result()
+                out["inline_rows"].extend(parsed)
+                if err:
+                    out["errors"].append(err)
+    out["inline_rows"].sort(key=lambda x:(x.get("used_date") or "",x.get("role") or "",x.get("row_id") or ""))
     out["parseable_attachments"]=len(out["attachments"])
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
     return out
