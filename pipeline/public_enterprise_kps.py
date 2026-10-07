@@ -122,7 +122,7 @@ def _probe_detail(pst_no: str) -> list[str]:
             out.append(f"GET:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
             if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
                 scripts=[]
-                for sm in re.finditer(r'<script[^>]+src=["\\']([^"\\']+)["\\']',doc,re.I):
+                for sm in re.finditer(r"<script[^>]+src=['\"]([^'\"]+)['\"]",doc,re.I):
                     src=urllib.parse.urljoin(r.geturl(),html.unescape(sm.group(1)))
                     if src not in scripts:
                         scripts.append(src)
