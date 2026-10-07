@@ -282,7 +282,7 @@
       "verified": true,
       "publish": true,
       "refresh_policy": "monthly",
-      "default_role": "임원",
+      "default_role": "임원급",
       "format_hint": "xlsx-detail",
       "lookback_years": 1,
       "listing_urls": [
@@ -294,7 +294,7 @@
         "end": 4
       },
       "metadata_url": "https://www.data.go.kr/data/15151716/fileData.do",
-      "note": "한전KPS 공식 청렴·윤리센터 > 업무추진비 게시판. 월별 게시물 상세를 GET으로 열면 XLSX 첨부가 노출되며 cf_download 토큰은 /async/MultiFile/download.do?file= 엔드포인트로 직접 다운로드 가능. 최근 2개년 임원 업무추진비 상세 XLSX를 수집."
+      "note": "한전KPS 공식 청렴·윤리센터 > 업무추진비 게시판. 월별 XLSX에는 부서명·집행자·집행일·집행내역·금액·장소(사용처)·집행대상·집행구분·인원이 거래별로 공개됨. 일반 직원/관리자 업무추진비도 섞여 있어 전용 adapter에서 사장·부사장·상임감사·감사·상임이사·이사·전무·상무 등 명시적 임원급 집행자만 public_enterprise_leadership으로 선별한다."
     }
   ]
 }
