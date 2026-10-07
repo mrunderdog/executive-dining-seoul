@@ -357,6 +357,20 @@
         "https://www.nps.or.kr/pbcpgdnc/bzadpblnt/getOHAG0028M0List.do?menuId=MN24001026"
       ],
       "note": "국민연금공단 공식 임원 업무추진비 게시판. 이사장·감사·기획이사·연금이사·복지이사·기금이사·연구원장·AI디지털혁신본부장 등의 월별 XLSX에 거래별 사용일자·목적·사용처·대상·인원·금액이 공개되어 원 역할을 보존해 수집."
+    },
+    {
+      "key": "jdc",
+      "institution": "제주국제자유도시개발센터",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track_only",
+      "default_role": "기관장",
+      "format_hint": "xlsx-aggregate-only",
+      "listing_urls": [
+        "https://www.alio.go.kr/upload/disclosure/2025/04/10/2025041002972278/doc.html"
+      ],
+      "note": "ALIO 기관장 업무추진비 상세 XLSX를 직접 검증. 2024년 파일은 집행년도·집행월·집행내역 유형·건수·집행금액만 제공하고 merchant/사용처는 없어 지도 데이터로 출판할 수 없음. 2024년 기관장 업무추진비 집행액은 38,687천원."
     }
   ]
 }
