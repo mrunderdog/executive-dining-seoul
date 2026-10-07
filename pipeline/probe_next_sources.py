@@ -11,27 +11,37 @@ TARGETS={
 def fetch(url):
     req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
     with urllib.request.urlopen(req,timeout=20) as r:
-        b=r.read()
-        enc=r.headers.get_content_charset() or "utf-8"
+        b=r.read(); enc=r.headers.get_content_charset() or "utf-8"
         return b.decode(enc,"replace"),r.geturl(),r.headers
+
 for key,url in TARGETS.items():
-    print("\n\n====",key,"====")
+    print("\n====",key,"====")
     try:doc,final,h=fetch(url)
     except Exception as e:
         print("FETCH_ERROR",type(e).__name__,e);continue
-    print("FETCH",len(doc),final,h.get("content-type"))
-    pats={
-      "KOAT":["2026년 9월 기관장 업무추진비","expenseInst","article","view","file","download"],
-      "FIRA":["기관장 및 임원 업무추진비성 경비내역","첨부","file","down","download","35749"],
-      "NILE":["2026년 8월 중 기관장 업무추진비","2026년 8월중 기관장 업무추진비","download","file","atch","134"],
+    print("FETCH",len(doc),final)
+    pats = {
+      "KOAT":[r"function\s+fn_borad_file_down\s*\([^)]*\)\s*\{.*?\}",r"fn_borad_file_down\([^\n]+",r"<form[^>]+name=['\"]downForm['\"].*?</form>"],
+      "FIRA":[r"첨부파일.*?</tr>",r"(?:href|onclick)=['\"][^'\"]*(?:download|file|attach)[^'\"]*['\"]",r"fileView\([^\n]+",r"35749.{0,3000}"],
+      "NILE":[r"fileListDownLoad\s*\([^)]*\)\s*\{.*?\}",r"fileDownLoad\s*\([^)]*\)\s*\{.*?\}",r"/js/onioncms/vu2/fms/atchFile.js"],
     }[key]
-    for p in pats:
-        idx=doc.find(p)
-        if idx>=0:
-            print("\nMATCH",p,"\n",html.unescape(doc[max(0,idx-1200):idx+3500]))
-    print("\nATTRS")
-    for m in re.finditer(r"(?:href|onclick|action|src)\s*=\s*['\"][^'\"]{1,500}['\"]",doc,re.I):
-        s=html.unescape(m.group(0))
-        low=s.lower()
-        if any(k in low for k in ("download","file","attach","atch","article","expense","board","view")):
-            print(s[:700])
+    for pat in pats:
+        print("\nPAT",pat)
+        ms=list(re.finditer(pat,doc,re.I|re.S))
+        for m in ms[:8]:
+            print(html.unescape(m.group(0))[:9000])
+
+    # inspect relevant JS
+    for sm in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
+        src=urllib.parse.urljoin(final,html.unescape(sm.group(1)))
+        if key=="KOAT" and any(x in src.lower() for x in ("common","board","main")) or \
+           key=="NILE" and "atchfile" in src.lower():
+            try:
+                js,ju,_=fetch(src)
+            except Exception as e:
+                print("JSERR",src,e);continue
+            if any(x in js for x in ("fn_borad_file_down","fileListDownLoad","atchFile","download")):
+                print("\nJS",ju)
+                for needle in ("fn_borad_file_down","fileListDownLoad","download","atchFile"):
+                    i=js.find(needle)
+                    if i>=0: print(js[max(0,i-2500):i+7000])
