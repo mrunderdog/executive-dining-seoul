@@ -1,0 +1,45 @@
+name: KPS ingestion verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kps-ingest-verify.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2
+      - name: Discover KPS
+        run: python pipeline/public_enterprise_kps.py
+      - name: Ingest KPS
+        run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python - <<'PY'
+          import json
+          p=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          rows=[r for r in p['rows'] if r.get('source_key')=='kps']
+          print('KPS_ROWS',len(rows))
+          print('KPS_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+          print('KPS_ROLES',sorted({r.get('role') for r in rows if r.get('role')}))
+          print('KPS_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KPS_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          for r in rows[:8]: print('KPS_SAMPLE',json.dumps(r,ensure_ascii=False))
+          PY
+      - name: Build candidates
+        run: |
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          p=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          ks=[c for c in p['candidates'] if '한전KPS' in (c.get('institutions') or [])]
+          print('KPS_CANDIDATES',len(ks))
+          print('KPS_TOP',json.dumps(ks[:12],ensure_ascii=False))
+          PY
