@@ -76,11 +76,15 @@ def _listing_page(page:int)->str:
 
 def _discover_files(year:int):
     years={year,year-1};files=[];pages=[];errors=[]
+    signature=""
     for p in range(1,5):
         try:doc=_listing_page(p)
         except Exception as e:
             errors.append(f"listing page {p}: {type(e).__name__}: {e}");continue
         pages.append(LISTING+(f"?currentPageNo={p}" if p>1 else ""))
+        if not signature:
+            sm=re.search(r'<form name="downForm"[^>]*>\s*<input type="hidden" name="ptSignature" value="([^"]+)"',doc,re.S)
+            if sm:signature=html.unescape(sm.group(1))
         for row in re.findall(r"<tr\b[^>]*onclick=['\"]fn_borad_file_down\('([^']+)'\)['\"][^>]*>.*?</tr>",doc,re.I|re.S):
             pass
         for m in re.finditer(r"<tr\b[^>]*onclick=['\"]fn_borad_file_down\('([^']+)'\)['\"][^>]*>(.*?)</tr>",doc,re.I|re.S):
@@ -90,15 +94,14 @@ def _discover_files(year:int):
             if not ym:continue
             y,mo=int(ym.group(1)),int(ym.group(2))
             if y not in years:continue
-            files.append({"keyid":key,"year":y,"month":mo,"text":txt,"parent":LISTING})
+            files.append({"keyid":key,"year":y,"month":mo,"text":txt,"parent":LISTING,"signature":signature})
     uniq={x["keyid"]:x for x in files}
     return sorted(uniq.values(),key=lambda x:(x["year"],x["month"])),pages,errors
 
 def _download(att:dict)->bytes:
-    doc=text_fetch(LISTING)
-    sm=re.search(r'<form name="downForm"[^>]*>\s*<input type="hidden" name="ptSignature" value="([^"]+)"',doc,re.S)
-    if not sm:raise RuntimeError("ptSignature not found")
-    data=urllib.parse.urlencode({"ptSignature":html.unescape(sm.group(1)),"mode":"1","key":att["keyid"]}).encode()
+    signature=att.get("signature","")
+    if not signature:raise RuntimeError("ptSignature not found")
+    data=urllib.parse.urlencode({"ptSignature":signature,"mode":"1","key":att["keyid"]}).encode()
     return fetch("https://m.koat.or.kr/download.do",data,LISTING)
 
 def _parse(att:dict):
