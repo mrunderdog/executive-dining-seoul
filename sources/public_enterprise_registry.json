@@ -447,6 +447,21 @@
         "https://www.fira.or.kr/fira/fira_050602_3.jsp?board_no=186&board_wrapper=%2Ffira%2Ffira_050602_3.jsp&mode=list&pager.offset=0"
       ],
       "note": "한국수산자원공단 공식 사전정보공개자료의 기관장 및 임원 업무추진비성 경비내역. 월별 PDF에 기관장/임원별 거래일자·목적·사용처·대상·결제구분·인원·금액이 공개되어 역할별로 수집."
+    },
+    {
+      "key": "kibo",
+      "institution": "기술보증기금",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·임원",
+      "format_hint": "pdf-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kibo.or.kr/main/board/boardType46.do?mode=list"
+      ],
+      "note": "기술보증기금 공식 기관장/임원 업무추진비 게시판. 월별 PDF에 거래별 사용일자·목적·사용처·전화번호·대상·결제구분·인원·금액이 공개되며 임원 PDF는 사용자명도 포함한다. 첨부는 공통 파일 다운로드 API의 attchFileId/Div/Key POST 방식으로 수집."
     }
   ]
 }
