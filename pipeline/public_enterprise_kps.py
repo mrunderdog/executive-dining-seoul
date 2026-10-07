@@ -66,47 +66,67 @@ def _diagnostic_snippets(doc: str, years: set[int]) -> list[str]:
 def _probe_detail(pst_no: str) -> list[str]:
     jar=http.cookiejar.CookieJar()
     opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-    req=urllib.request.Request(SOURCE["listing"],headers={
+    headers={
         "User-Agent":BROWSER_UA,
         "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
         "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
-        "Referer":"https://www.kps.co.kr/",
-    })
+        "Referer":SOURCE["listing"],
+    }
+    req=urllib.request.Request(SOURCE["listing"],headers=headers)
     with opener.open(req,timeout=20) as r:
         listing=decode(r.read(),r.headers.get_content_charset())
     m=re.search(r'name="_csrf"\s+value="([^"]+)"',listing,re.I)
     token=m.group(1) if m else ""
     detail=f"https://www.kps.co.kr/web/Board/{pst_no}/detailView.do?pageIndex=1&menu=2499"
-    fields={"pageIndex":"1","menu":"2499"}
+    base_fields={
+        "bbsClsfUnqNo":"BT_0000000106",
+        "menuUnqNo":"MN_0000002499",
+        "pstFileUnqNo":"",
+        "pstThumUnqNo":"",
+        "pstUnqNo":"",
+        "pstPswd":"",
+        "returnUrl":"",
+        "orderCondition":"",
+        "searchCondition":"title",
+        "searchKeyword":"",
+        "pageIndex":"1",
+        "menu":"2499",
+    }
     if token:
-        fields["_csrf"]=token
-    data=urllib.parse.urlencode(fields).encode()
-    req=urllib.request.Request(detail,data=data,headers={
-        "User-Agent":BROWSER_UA,
-        "Accept":"text/html,application/xhtml+xml,*/*;q=0.8",
-        "Accept-Language":"ko-KR,ko;q=0.9,en-US;q=0.7,en;q=0.6",
-        "Referer":SOURCE["listing"],
-        "Content-Type":"application/x-www-form-urlencoded",
-    })
-    with opener.open(req,timeout=20) as r:
-        doc=decode(r.read(),r.headers.get_content_charset())
-        final_url=r.geturl()
-    out=[f"FORM_FIELDS={sorted(fields.items())}",f"DETAIL_URL={final_url}",f"DETAIL_LEN={len(doc)}",f"CSRF={'Y' if token else 'N'}"]
-    links=parse_links(final_url,doc)
-    out.append(f"DETAIL_LINKS={len(links)}")
-    for x in links:
-        label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
-        if any(k in label.lower() for k in ("download","file",".xls",".xlsx","첨부")):
-            out.append("LINK="+label[:1800])
-    out.append("DETAIL_HTML="+re.sub(r"\\s+"," ",html.unescape(doc)).strip()[:4300])
-    for needle in ("다운로드","download","file","xlsx","xls","첨부"):
-        for mm in list(re.finditer(needle,doc,re.I))[:3]:
-            chunk=re.sub(r"\s+"," ",html.unescape(doc[max(0,mm.start()-700):mm.end()+1500])).strip()
-            if chunk not in out:
-                out.append(f"DETAIL={chunk[:2600]}")
-        if len(out)>=14:
-            break
-    return out[:14]
+        base_fields["_csrf"]=token
+    variants=[
+        ("POST_BROWSER",dict(base_fields)),
+        ("POST_WITH_PST",{**base_fields,"pstUnqNo":pst_no}),
+    ]
+    out=[f"CSRF={'Y' if token else 'N'}"]
+    for name,fields in variants:
+        data=urllib.parse.urlencode(fields).encode()
+        req=urllib.request.Request(detail,data=data,headers={**headers,"Content-Type":"application/x-www-form-urlencoded"})
+        try:
+            with opener.open(req,timeout=20) as r:
+                doc=decode(r.read(),r.headers.get_content_charset())
+                out.append(f"{name}:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
+                out.append(f"{name}:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
+                if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
+                    for x in parse_links(r.geturl(),doc):
+                        label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
+                        out.append(f"{name}:LINK={label[:1200]}")
+        except Exception as e:
+            out.append(f"{name}:ERROR={type(e).__name__}: {e}")
+    get_url=detail
+    try:
+        req=urllib.request.Request(get_url,headers=headers)
+        with opener.open(req,timeout=20) as r:
+            doc=decode(r.read(),r.headers.get_content_charset())
+            out.append(f"GET:URL={r.geturl()} LEN={len(doc)} TITLE="+(" ".join(re.findall(r"<title>(.*?)</title>",doc,re.I|re.S))[:180]))
+            out.append(f"GET:HAS_XLS={bool(re.search(r'xlsx?|엑셀|첨부파일',doc,re.I))}")
+            if not re.search(r"<title>한전KPS - 에러</title>",doc,re.I):
+                for x in parse_links(r.geturl(),doc):
+                    label=" ".join(((x.get("text") or "")+" "+(x.get("url") or "")).split())
+                    out.append(f"GET:LINK={label[:1200]}")
+    except Exception as e:
+        out.append(f"GET:ERROR={type(e).__name__}: {e}")
+    return out[:30]
 
 def discover(year: int) -> dict:
     years = {year - i for i in range(SOURCE["years_lookback"] + 1)}
