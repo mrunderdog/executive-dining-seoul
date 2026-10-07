@@ -5,6 +5,9 @@ import html
 import json
 import re
 import urllib.request
+import io
+import zipfile
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 
@@ -28,6 +31,52 @@ def fetch(url:str)->str:
     with urllib.request.urlopen(req,timeout=15) as r:
         return decode(r.read(),r.headers.get_content_charset())
 
+
+
+def probe_xlsx(url:str)->list[str]:
+    req=urllib.request.Request(url,headers={"User-Agent":BROWSER_UA,"Referer":"https://www.alio.go.kr/"})
+    with urllib.request.urlopen(req,timeout=20) as r:
+        blob=r.read()
+    if blob[:2]!=b"PK":
+        return [f"XLSX_BAD_MAGIC bytes={len(blob)} head={blob[:24]!r}"]
+    z=zipfile.ZipFile(io.BytesIO(blob))
+    ns={"a":"http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "r":"http://schemas.openxmlformats.org/officeDocument/2006/relationships"}
+    shared=[]
+    if "xl/sharedStrings.xml" in z.namelist():
+        root=ET.fromstring(z.read("xl/sharedStrings.xml"))
+        for si in root.findall("a:si",ns):
+            shared.append("".join(t.text or "" for t in si.iter() if t.tag.endswith("}t")))
+    wb=ET.fromstring(z.read("xl/workbook.xml"))
+    rels=ET.fromstring(z.read("xl/_rels/workbook.xml.rels"))
+    relmap={r.attrib["Id"]:r.attrib["Target"] for r in rels}
+    out=[f"XLSX_BYTES={len(blob)}"]
+    for sh in wb.find("a:sheets",ns):
+        name=sh.attrib.get("name","")
+        rid=sh.attrib.get("{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id","")
+        target=relmap.get(rid,"")
+        path=target if target.startswith("xl/") else "xl/"+target.lstrip("/")
+        if path not in z.namelist():
+            path="xl/"+target.replace("../","").lstrip("/")
+        out.append(f"SHEET={name} path={path}")
+        if path not in z.namelist():
+            continue
+        root=ET.fromstring(z.read(path))
+        rows=[]
+        for row in root.findall(".//a:sheetData/a:row",ns)[:12]:
+            vals=[]
+            for c in row.findall("a:c",ns):
+                typ=c.attrib.get("t","")
+                v=c.find("a:v",ns)
+                val="" if v is None else (v.text or "")
+                if typ=="s" and val.isdigit() and int(val)<len(shared):
+                    val=shared[int(val)]
+                elif typ=="inlineStr":
+                    val="".join(t.text or "" for t in c.iter() if t.tag.endswith("}t"))
+                vals.append(val)
+            rows.append(" | ".join(vals))
+        out.extend(f"ROW={x}" for x in rows)
+    return out[:80]
 
 def discover(year:int)->dict:
     years={year,year-1}
@@ -76,6 +125,11 @@ def discover(year:int)->dict:
         })
 
     out["diagnostics"]=[f"disclosure={disclosure}",*labels[:20]]
+    if out["attachments"]:
+        try:
+            out["diagnostics"].extend(probe_xlsx(out["attachments"][0]["url"]))
+        except Exception as e:
+            out["diagnostics"].append(f"XLSX_PROBE_ERROR={type(e).__name__}: {e}")
     out["parseable_attachments"]=len(out["attachments"])
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else "NO_FILES_FOUND"
     return out
@@ -89,7 +143,7 @@ def main():
     print(json.dumps({
         "key":KEY,"status":fresh["status"],
         "pages":len(fresh["pages"]),"attachments":len(fresh["attachments"]),
-        "errors":fresh["errors"][:5],"diagnostics":fresh.get("diagnostics",[])[:20]
+        "errors":fresh["errors"][:5],"diagnostics":fresh.get("diagnostics",[])[:80]
     },ensure_ascii=False))
 
 
