@@ -9,6 +9,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 import urllib.parse
 import urllib.request
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -160,12 +161,13 @@ def _to_int(value,scale=1):
     except Exception:
         return None
 
-def _parse_executive_rows(att:dict)->tuple[list[dict],str|None]:
+def _parse_executive_rows(att:dict)->tuple[list[dict],str|None,dict]:
     try:
         blob=_download_bytes(att["url"],att.get("parent",""))
     except Exception as e:
-        return [],f"download {att['url']}: {type(e).__name__}: {e}"
+        return [],f"download {att['url']}: {type(e).__name__}: {e}",{}
     out=[]
+    observed=Counter()
     header=False
     for sheet,ri,v in _xlsx_rows(blob):
         if v.get("A")=="부서명" and v.get("B")=="집행자" and "장소" in v.get("F",""):
@@ -174,6 +176,11 @@ def _parse_executive_rows(att:dict)->tuple[list[dict],str|None]:
         if not header:
             continue
         role=" ".join(v.get("B","").split())
+        if role and role!="계":
+            merchant_probe=" ".join(v.get("F","").split())
+            purpose_probe=" ".join(v.get("D","").split())
+            if merchant_probe or purpose_probe:
+                observed[role]+=1
         if not role or not EXEC_RE.search(role):
             continue
         merchant=" ".join(v.get("F","").split())
@@ -198,7 +205,7 @@ def _parse_executive_rows(att:dict)->tuple[list[dict],str|None]:
             "target":" ".join(v.get("G","").split()),
             "row_id":row_id,
         })
-    return out,None
+    return out,None,dict(observed)
 
 def discover(year:int)->dict:
     years={year,year-1}
@@ -213,6 +220,7 @@ def discover(year:int)->dict:
         "inline_rows":[],
         "inline_replace":True,
         "errors":[],
+        "observed_roles":{},
         "metadata_url":METADATA,
     }
 
@@ -244,11 +252,14 @@ def discover(year:int)->dict:
     if out["attachments"]:
         with ThreadPoolExecutor(max_workers=min(6,len(out["attachments"]))) as pool:
             fm={pool.submit(_parse_executive_rows,att):att for att in out["attachments"]}
+            role_counts=Counter()
             for fut in as_completed(fm):
-                parsed,err=fut.result()
+                parsed,err,observed=fut.result()
                 out["inline_rows"].extend(parsed)
+                role_counts.update(observed)
                 if err:
                     out["errors"].append(err)
+            out["observed_roles"]=dict(role_counts)
     out["inline_rows"].sort(key=lambda x:(x.get("used_date") or "",x.get("role") or "",x.get("row_id") or ""))
     out["parseable_attachments"]=len(out["attachments"])
     out["status"]="PARSEABLE_FOUND" if out["attachments"] else ("FETCH_FAILED" if out["errors"] else "NO_FILES_FOUND")
@@ -269,6 +280,7 @@ def main()->None:
         "attachments":len(fresh["attachments"]),
         "rows":len(fresh.get("inline_rows",[])),
         "roles":sorted({x.get("role","") for x in fresh.get("inline_rows",[]) if x.get("role")}),
+        "observed_roles":fresh.get("observed_roles",{}),
         "errors":fresh["errors"][:5],
         "months":[f"{x['year']}-{x['month']:02d}" for x in fresh["attachments"]],
     },ensure_ascii=False))
