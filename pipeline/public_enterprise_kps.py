@@ -127,18 +127,17 @@ def _probe_detail(pst_no: str) -> list[str]:
                     if src not in scripts:
                         scripts.append(src)
                 out.append(f"GET:SCRIPTS={len(scripts)}")
-                for src in scripts[:30]:
+                tm=re.search(r"cf_download\(\s*['\"]([^'\"]+)['\"]\s*\)",doc,re.I)
+                if tm:
+                    token=tm.group(1)
+                    furl="https://www.kps.co.kr/async/MultiFile/download.do?file="+urllib.parse.quote(token,safe="")
                     try:
-                        req2=urllib.request.Request(src,headers=headers)
-                        with opener.open(req2,timeout=15) as rr:
-                            js=decode(rr.read(),rr.headers.get_content_charset())
-                        pos=js.find("cf_download")
-                        if pos>=0:
-                            chunk=re.sub(r"\\s+"," ",js[max(0,pos-1800):pos+4200]).strip()
-                            out.append(f"GET:JS={src} :: {chunk[:5200]}")
-                            break
-                    except Exception:
-                        continue
+                        req3=urllib.request.Request(furl,headers=headers)
+                        with opener.open(req3,timeout=20) as fr:
+                            blob=fr.read()
+                            out.append(f"GET:DOWNLOAD_URL={fr.geturl()} BYTES={len(blob)} MAGIC={blob[:8]!r} TYPE={fr.headers.get('Content-Type','')}")
+                    except Exception as e:
+                        out.append(f"GET:DOWNLOAD_ERROR={type(e).__name__}: {e}")
     except Exception as e:
         out.append(f"GET:ERROR={type(e).__name__}: {e}")
     return out[:30]
