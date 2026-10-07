@@ -1,0 +1,40 @@
+name: KOSAF ingestion verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/public_enterprise_kosaf.py'
+      - '.github/workflows/kosaf-ingest-verify.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Parse KOSAF
+        run: python pipeline/public_enterprise_kosaf.py
+      - name: Ingest and build candidates
+        run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          raw=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          cand=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          rows=[r for r in raw['rows'] if r.get('source_key')=='kosaf']
+          c=[x for x in cand['candidates'] if '한국장학재단' in (x.get('institutions') or [])]
+          print('KOSAF_ROWS',len(rows))
+          print('KOSAF_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+          print('KOSAF_ROLES',json.dumps(sorted({r.get('role') for r in rows if r.get('role')}),ensure_ascii=False))
+          print('KOSAF_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KOSAF_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KOSAF_CANDIDATES',len(c))
+          print('KOSAF_TOP',json.dumps([{'merchant':x['merchant'],'visits':x['visits'],'role_stats':x.get('role_stats')} for x in c[:12]],ensure_ascii=False))
+          if not rows or not c:
+              raise SystemExit('KOSAF did not produce publishable candidates')
+          PY
