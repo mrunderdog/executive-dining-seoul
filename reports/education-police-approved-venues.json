@@ -1,13 +1,49 @@
 {
   "publication_enabled": true,
-  "generated_at": "2026-10-08T09:20:56.612510+00:00",
-  "approved_venues": 2,
-  "approved_transactions": 3,
+  "generated_at": "2026-10-08T12:12:41.068678+00:00",
+  "approved_venues": 3,
+  "approved_transactions": 5,
   "unpublished_counts": {
-    "UNVERIFIED_VENUE": 217,
-    "ACTOR_NOT_EXPLICIT": 1
+    "UNVERIFIED_VENUE": 214,
+    "ACTOR_NOT_EXPLICIT": 2
   },
   "venues": [
+    {
+      "source_key": "gyeonggi_education",
+      "institution": "경기도교육청",
+      "merchant": "더615(동류수)",
+      "address": "경기도 용인시 기흥구 흥덕1로 5-10",
+      "category": "중식",
+      "phone": "031-8067-6153",
+      "verification_confidence": "HIGH",
+      "address_evidence_urls": [
+        "https://the615village.imweb.me/Contact",
+        "https://www.daangn.com/kr/local-profile/%EB%8F%99%EB%A5%98%EC%88%98-k56cuezq8fkq/",
+        "https://m.work24.go.kr/wk/a/b/1500/empDetailAuthView.do?infoTypeCd=VALIDATION&infoTypeGroup=tb_workinfoworknet&wantedAuthNo=K180022609100011"
+      ],
+      "transactions": [
+        {
+          "row_id": "e0a0bb4ca9690e309dd55f93",
+          "date": "2026-04-09",
+          "amount": 438000,
+          "role": "교육감",
+          "purpose": "교육현안 관련 업무 협의회비 (교육감실)",
+          "target": "교육감 및 현안 담당자 등 16명",
+          "source_url": "https://www.goe.go.kr/resource/goe/na/bbs_1955/2026/07/63e54f70-86c9-4051-9acc-ad7e27de1221.pdf",
+          "source_detail_url": "https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?bbsId=1955&mi=10239&nttSn=2361514"
+        },
+        {
+          "row_id": "c2fa83b2b11a5d581d722d1f",
+          "date": "2026-04-01",
+          "amount": 464700,
+          "role": "교육감",
+          "purpose": "교육현안 관련 업무 협의회비 (교육감실)",
+          "target": "교육감 및 현안 담당자 등 16명",
+          "source_url": "https://www.goe.go.kr/resource/goe/na/bbs_1955/2026/07/63e54f70-86c9-4051-9acc-ad7e27de1221.pdf",
+          "source_detail_url": "https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?bbsId=1955&mi=10239&nttSn=2361514"
+        }
+      ]
+    },
     {
       "source_key": "incheon_education",
       "institution": "인천광역시교육청",
