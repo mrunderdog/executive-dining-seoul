@@ -1,0 +1,73 @@
+name: Publish verified education dining transactions
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/publish_education_police.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/test_education_publish.py'
+      - 'sources/education_police_verified_venues.json'
+      - '.github/workflows/education-verified-publication.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/publish_education_police.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/education_police_source_probe.py'
+      - 'pipeline/ingest_education_police_expense.py'
+      - 'sources/education_police_verified_venues.json'
+      - 'sources/education_police_registry.json'
+      - '.github/workflows/education-verified-publication.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verified-education-publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 pdfplumber==0.11.7
+      - name: Unit tests and source verification
+        run: |
+          python -m py_compile pipeline/publish_education_police.py pipeline/extra_published.py pipeline/geocode_extra_cache.py
+          PYTHONPATH=pipeline python -m unittest -v test_education_police test_education_publish
+      - name: Fetch source transactions, apply strict publication gate
+        run: |
+          python pipeline/education_police_source_probe.py --max-details 8
+          python pipeline/ingest_education_police_expense.py --max-attachments 16
+          python pipeline/audit_education_police_staging.py
+          python pipeline/publish_education_police.py
+      - name: Quality and publication regression
+        run: |
+          python pipeline/quality_gate.py
+          python pipeline/regression_checks.py
+          python pipeline/build_signal_reports.py
+          python pipeline/build_site.py --output /tmp/verified-education/index.html
+      - name: Commit verified public data
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/education-police-approved-venues.json
+          if git diff --cached --quiet; then
+            echo "Approved data unchanged"
+            exit 0
+          fi
+          git commit -m "data: publish source-reviewed education leadership venues"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

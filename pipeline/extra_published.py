@@ -601,12 +601,61 @@ def legislator_records(max_records: int = 80) -> list[dict]:
     return out
 
 
+
+def education_police_records(max_records: int = 30) -> list[dict]:
+    """Only consume explicit, address-reviewed transactions approved by the safety gate."""
+    p=REPORTS/"education-police-approved-venues.json"
+    if not p.exists():
+        return []
+    doc=json.loads(p.read_text(encoding="utf-8"))
+    if doc.get("publication_enabled") is not True:
+        return []
+    result=[]
+    for v in (doc.get("venues") or [])[:max_records]:
+        name=t(v.get("merchant"));address=t(v.get("address"))
+        tx=v.get("transactions") or []
+        if not name or not address or not tx or v.get("verification_confidence")!="HIGH":
+            continue
+        if any(not x.get("row_id") or not x.get("source_url","").startswith("https://")
+               or not x.get("source_detail_url","").startswith("https://") for x in tx):
+            continue
+        institution=t(v.get("institution"))
+        origin="교육청(고위직)" if v.get("source_key") in {"gyeonggi_education","incheon_education"} else "경찰청(고위직)"
+        roles=sorted({t(x.get("role")) for x in tx if t(x.get("role"))})
+        dates=sorted(t(x.get("date")) for x in tx if t(x.get("date")))
+        spend=sum(int(x.get("amount") or 0) for x in tx)
+        result.append({
+          "name":name,"origin":origin,"region":"인천" if v.get("source_key")=="incheon_education" else "경기",
+          "jurisdiction":institution,"institution":institution,"institutions":[institution],
+          "type":"executive","destination":None,
+          "executive":{"rank":len(result)+1,"score":50,"exec_events":len(tx),"roles":len(roles),
+             "months":len({d[:7] for d in dates}),"evening_ratio":0,"source":"education_police_leadership",
+             "top_official_visits":len(tx),"top_role_tier":"education_police_senior",
+             "top_role_label":"·".join(roles[:4])},
+          "address":address,"search_query":f"{name} {address}",
+          "business":{"display":name,"category":t(v.get("category")) or "음식점",
+            "phone":t(v.get("phone")),"status":"공식 업무추진비 거래와 독립 주소 확인",
+            "note":"공식 업무추진비 원자료에서 해당 직위 참석이 명시된 거래만 수록. 식당 품질 평가가 아닙니다.",
+            "rating":"","url":"","verification_confidence":"HIGH"},
+          "evidence":{"visits":len(tx),"spend":spend,"people":0,
+            "months":len({d[:7] for d in dates}),"evening":0,"evening_ratio":0,"ppc":0,
+            "date_min":dates[0],"date_max":dates[-1],
+            "roles":[{"role":role,"visits":sum(t(x.get("role"))==role for x in tx),"people":0,"spend":sum(int(x.get("amount") or 0) for x in tx if t(x.get("role"))==role)} for role in roles],
+            "purposes":[],"recent":[{"date":x.get("date"),"role":f"{institution} {x.get('role')}",
+                "people":0,"amount":int(x.get("amount") or 0),"purpose":x.get("purpose"),
+                "source":x.get("source_url")} for x in tx[:10]],"source_rows":[]},
+          "why":f"{institution} 고위직 업무추진비에서 직책 귀속·식당 주소가 확인된 {len(tx)}건의 사용 기록입니다.",
+          "published_source":"education_police_leadership",
+          "cohort":"education_leadership" if origin.startswith("교육청") else "police_leadership",
+        })
+    return result
+
 def merge_extra_published(payload: dict) -> dict:
     payload = dict(payload)
     base = list(payload.get("records", []))
     seen = {(t(r.get("name")), t(r.get("origin"))) for r in base}
     added = []
-    for r in central_records() + public_enterprise_records() + justice_records() + prosecution_archive_records() + legislator_records():
+    for r in central_records() + public_enterprise_records() + justice_records() + prosecution_archive_records() + legislator_records() + education_police_records():
         k = (t(r.get("name")), t(r.get("origin")))
         if k in seen:
             continue
@@ -632,6 +681,7 @@ def merge_extra_published(payload: dict) -> dict:
     ps["justice_leadership"] = sum(r.get("published_source") == "justice_leadership" for r in added)
     ps["prosecution_archive_2017_2019"] = sum(r.get("published_source") == "prosecution_archive_2017_2019" for r in added)
     ps["national_legislator_2024"] = sum(r.get("published_source") == "national_legislator_2024" for r in added)
+    ps["education_police_leadership"] = sum(r.get("published_source") == "education_police_leadership" for r in added)
     meta["published_supplements"] = ps
     meta["scope"] = "수도권·중앙정부·공기업·공공기관·법조·국회 공공부문 Executive Dining"
     payload["meta"] = meta
