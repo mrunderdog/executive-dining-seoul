@@ -1,13 +1,42 @@
 {
-  "generated_at": "2026-10-07T01:09:43",
-  "dataset_records": 1278,
-  "cross_institution_count": 182,
+  "generated_at": "2026-10-08T09:12:04",
+  "dataset_records": 1277,
+  "cross_institution_count": 201,
   "cross_origin_count": 26,
-  "top_official_count": 450,
+  "top_official_count": 449,
   "regional_head_count": 20,
-  "entity_merges": 42,
-  "entity_merge_audit_count": 38,
+  "entity_merges": 43,
+  "entity_merge_audit_count": 37,
   "entity_merge_audit": [
+    {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "공기업·공공기관",
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법무부",
+        "법제처",
+        "보건복지부",
+        "한국장학재단"
+      ],
+      "source_keys": [
+        "황금복국|중앙정부",
+        "황금복국|공기업·공공기관",
+        "황금복국|법조·법률행정",
+        "황금복국|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 4,
+      "match_basis": "corroborated_address",
+      "corroborated_address_bridges": 3,
+      "visits": 68,
+      "spend": 11602000
+    },
     {
       "name": "화담",
       "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
@@ -86,30 +115,29 @@
       "spend": 4141300
     },
     {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "name": "해초가",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
       "origins": [
+        "공기업·공공기관",
         "국회의원(정치자금 2024)",
-        "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
         "국회의원",
-        "법무부",
-        "법제처",
-        "보건복지부"
+        "보건복지부",
+        "통일부",
+        "한국주택금융공사"
       ],
       "source_keys": [
-        "황금복국|중앙정부",
-        "황금복국|법조·법률행정",
-        "황금복국|국회의원(정치자금 2024)"
+        "해초가|중앙정부",
+        "해초가|공기업·공공기관",
+        "해초가|국회의원(정치자금 2024)"
       ],
       "source_key_count": 3,
       "match_basis": "corroborated_address",
       "corroborated_address_bridges": 2,
-      "visits": 65,
-      "spend": 11398000
+      "visits": 48,
+      "spend": 9513000
     },
     {
       "name": "남도마루",
@@ -383,28 +411,6 @@
       "corroborated_address_bridges": 1,
       "visits": 48,
       "spend": 12932000
-    },
-    {
-      "name": "해초가",
-      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "보건복지부",
-        "통일부"
-      ],
-      "source_keys": [
-        "해초가|중앙정부",
-        "해초가|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 47,
-      "spend": 9303000
     },
     {
       "name": "너섬",
@@ -806,27 +812,6 @@
       "spend": 2283000
     },
     {
-      "name": "스타벅스 코리아",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국남부발전",
-        "한국자산관리공사",
-        "한전KDN"
-      ],
-      "source_keys": [
-        "스타벅스 코리아|공기업·공공기관",
-        "스타벅스코리아|공기업·공공기관"
-      ],
-      "source_key_count": 2,
-      "match_basis": "strict_entity_key",
-      "corroborated_address_bridges": 0,
-      "visits": 8,
-      "spend": 349600
-    },
-    {
       "name": "공존파인땡큐다이닝",
       "address": "",
       "origins": [
@@ -846,7 +831,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 17,
+  "cross_origin_review_count": 16,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -924,9 +909,10 @@
       ],
       "institutions": [
         "국회의원",
+        "주택도시보증공사",
         "한국수자원공사"
       ],
-      "visits": 72,
+      "visits": 73,
       "addresses": [
         "서울 영등포구 의사당대로 21 (여의도동, 대한주택보증주식회사)"
       ],
@@ -968,25 +954,6 @@
       "visits": 22,
       "addresses": [
         "서울특별시 관악구 관악로 146"
-      ],
-      "address_entity_count": 1,
-      "qa_a": false
-    },
-    {
-      "name": "갈비사랑 양재본점",
-      "strict_name": "갈비사랑",
-      "confidence": "REVIEW",
-      "reason": "exact name + single published address",
-      "origins": [
-        "공기업·공공기관",
-        "서초구"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "visits": 21,
-      "addresses": [
-        "서울 서초구 강남대로 204"
       ],
       "address_entity_count": 1,
       "qa_a": false
@@ -1069,6 +1036,30 @@
       "qa_a": false
     },
     {
+      "name": "복성각",
+      "strict_name": "복성각",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "공기업·공공기관",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "산업통상부",
+        "한국무역보험공사",
+        "한국자산관리공사",
+        "한국철도공사",
+        "해양수산부"
+      ],
+      "visits": 9,
+      "addresses": [
+        "서울특별시 중구 통일로 10"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
       "name": "오발탄",
       "strict_name": "오발탄",
       "confidence": "REVIEW",
@@ -1084,29 +1075,6 @@
       "visits": 8,
       "addresses": [
         "서울 서초구 반포대로 154"
-      ],
-      "address_entity_count": 1,
-      "qa_a": false
-    },
-    {
-      "name": "복성각",
-      "strict_name": "복성각",
-      "confidence": "REVIEW",
-      "reason": "exact name + single published address",
-      "origins": [
-        "공기업·공공기관",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "산업통상부",
-        "한국자산관리공사",
-        "한국철도공사",
-        "해양수산부"
-      ],
-      "visits": 8,
-      "addresses": [
-        "서울특별시 중구 통일로 10"
       ],
       "address_entity_count": 1,
       "qa_a": false
@@ -1197,6 +1165,46 @@
   ],
   "cross_institution": [
     {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "공기업·공공기관",
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법무부",
+        "법제처",
+        "보건복지부",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator",
+        "public_enterprise_leadership"
+      ],
+      "visits": 68,
+      "spend": 11602000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 100.0,
+      "institution_count": 6,
+      "source_count": 4,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 8,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "화담",
       "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
       "origins": [
@@ -1272,39 +1280,38 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "name": "해초가",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
       "origins": [
+        "공기업·공공기관",
         "국회의원(정치자금 2024)",
-        "법조·법률행정",
         "중앙정부"
       ],
       "institutions": [
-        "고용노동부",
         "국회의원",
-        "법무부",
-        "법제처",
-        "보건복지부"
+        "보건복지부",
+        "통일부",
+        "한국주택금융공사"
       ],
       "cohorts": [
         "central_executive",
-        "justice_leadership",
-        "national_legislator"
+        "national_legislator",
+        "public_enterprise_leadership"
       ],
-      "visits": 65,
-      "spend": 11398000,
-      "date_min": "2024-01-09",
+      "visits": 48,
+      "spend": 9513000,
+      "date_min": "2024-07-15",
       "date_max": "2026-08-31",
       "consensus_score": 97.2,
-      "institution_count": 5,
+      "institution_count": 4,
       "source_count": 3,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 22,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
+      "minister_visits": 1,
+      "vice_minister_visits": 20,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -1852,39 +1859,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 25,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해초가",
-      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "보건복지부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 47,
-      "spend": 9303000,
-      "date_min": "2024-07-15",
-      "date_max": "2026-08-31",
-      "consensus_score": 82.1,
-      "institution_count": 3,
-      "source_count": 2,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 21,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 1,
-      "vice_minister_visits": 20,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -2530,6 +2504,37 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "초원복국",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사",
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 11,
+      "spend": 1278000,
+      "date_min": "2025-02-04",
+      "date_max": "2026-07-29",
+      "consensus_score": 65.8,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사·자산관리본부장",
+      "top_official_visits": 11,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "평가옥",
       "address": "",
       "origins": [
@@ -2858,37 +2863,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 2,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "스타벅스 코리아",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국남부발전",
-        "한국자산관리공사",
-        "한전KDN"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 8,
-      "spend": 349600,
-      "date_min": "2025-03-20",
-      "date_max": "2026-06-02",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "사장·카드",
-      "top_official_visits": 8,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -3834,6 +3808,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "봄베이브로이",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 9,
+      "spend": 960600,
+      "date_min": "2025-02-26",
+      "date_max": "2026-08-07",
+      "consensus_score": 58.1,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·경영전략본부장",
+      "top_official_visits": 9,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "삿뽀로",
       "address": "",
       "origins": [
@@ -3950,6 +3954,67 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "복성각 서울역점",
+      "address": "서울특별시 중구 통일로 10",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국자산관리공사",
+        "한국철도공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 785000,
+      "date_min": "2026-01-08",
+      "date_max": "2026-08-07",
+      "consensus_score": 56.8,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장·사장직무대행",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "워터스톤",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 7,
+      "spend": 1411000,
+      "date_min": "2025-08-01",
+      "date_max": "2026-05-21",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·부사장·이사·자산관리본부장",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4434,6 +4499,96 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "능라도",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국자산관리공사",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 1268000,
+      "date_min": "2025-01-15",
+      "date_max": "2026-07-23",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "부사장·이사·상임이사",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "스타벅스 코리아",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국남부발전",
+        "한전KDN"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 237000,
+      "date_min": "2025-04-07",
+      "date_max": "2026-05-22",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "사장·카드",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "삼삼횟집",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 1124000,
+      "date_min": "2026-02-11",
+      "date_max": "2026-06-15",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·경영전략본부장",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "서울로인 서울역점",
       "address": "",
       "origins": [
@@ -4614,6 +4769,66 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "송화유수",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 687000,
+      "date_min": "2025-12-18",
+      "date_max": "2026-03-12",
+      "consensus_score": 52.4,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "통낙지",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 343000,
+      "date_min": "2025-03-17",
+      "date_max": "2026-06-16",
+      "consensus_score": 52.4,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·경영전략본부장·상근감사위원",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "한뫼촌",
       "address": "",
       "origins": [
@@ -4786,6 +5001,246 @@
       "top_role_tier": "prosecution_leadership",
       "top_role_label": "검찰총장·서울중앙지검장",
       "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "청송양곱창",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 927000,
+      "date_min": "2025-01-13",
+      "date_max": "2025-12-24",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·자산관리본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "함루",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 624000,
+      "date_min": "2025-04-23",
+      "date_max": "2026-08-27",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·상임이사",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "홍유단",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 541000,
+      "date_min": "2025-02-10",
+      "date_max": "2026-06-15",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사·자산관리본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "신화케이푸드",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국자산관리공사",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 513000,
+      "date_min": "2025-02-05",
+      "date_max": "2025-12-03",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·상임이사",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "민기네밥집",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 429000,
+      "date_min": "2025-06-23",
+      "date_max": "2026-06-12",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사·상근감사위원",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "가얏골감자탕남천점",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 425000,
+      "date_min": "2025-08-19",
+      "date_max": "2026-02-23",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "부사장·자산관리본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "평가옥",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 300000,
+      "date_min": "2025-04-10",
+      "date_max": "2025-12-12",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·주택도시기금본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "동원활어",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 272000,
+      "date_min": "2025-02-10",
+      "date_max": "2026-05-28",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·상근감사위원",
+      "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
@@ -5064,6 +5519,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "루안",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국남부발전",
+        "한국무역보험공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 607000,
+      "date_min": "2024-01-05",
+      "date_max": "2025-04-23",
+      "consensus_score": 48.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "사장·상임이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "다온정",
       "address": "",
       "origins": [
@@ -5094,27 +5579,57 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "복성각 서울역점",
-      "address": "서울특별시 중구 통일로 10",
+      "name": "다원",
+      "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사",
-        "한국철도공사"
+        "주택도시보증공사",
+        "한국수자원공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 365000,
-      "date_min": "2026-01-08",
-      "date_max": "2026-08-07",
+      "spend": 315000,
+      "date_min": "2025-06-13",
+      "date_max": "2025-08-18",
+      "consensus_score": 48.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·상근감사위원",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "송전",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 252000,
+      "date_min": "2025-05-30",
+      "date_max": "2026-04-24",
       "consensus_score": 48.2,
       "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_head",
-      "top_role_label": "기관장·사장직무대행",
+      "top_role_label": "기관장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -5175,6 +5690,36 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "사장·이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "광화문옥희",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국자산관리공사",
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 470000,
+      "date_min": "2026-08-27",
+      "date_max": "2026-08-27",
+      "consensus_score": 48.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -6873,6 +7418,42 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "해초가",
+      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
+      "origins": [
+        "공기업·공공기관",
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "국회의원",
+        "보건복지부",
+        "통일부",
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator",
+        "public_enterprise_leadership"
+      ],
+      "visits": 48,
+      "spend": 9513000,
+      "date_min": "2024-07-15",
+      "date_max": "2026-08-31",
+      "consensus_score": 97.2,
+      "institution_count": 4,
+      "source_count": 3,
+      "top_role_tier": "minister",
+      "top_role_label": "장관급",
+      "top_official_visits": 22,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 1,
+      "vice_minister_visits": 20,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "일품당 프리미엄",
       "address": "서울 종로구 새문안로5가길 7",
       "origins": [
@@ -6937,39 +7518,6 @@
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
-      "vice_minister_visits": 20,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "해초가",
-      "address": "서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "국회의원",
-        "보건복지부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 47,
-      "spend": 9303000,
-      "date_min": "2024-07-15",
-      "date_max": "2026-08-31",
-      "consensus_score": 82.1,
-      "institution_count": 3,
-      "source_count": 2,
-      "top_role_tier": "minister",
-      "top_role_label": "장관급",
-      "top_official_visits": 21,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 1,
       "vice_minister_visits": 20,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
@@ -7485,6 +8033,37 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "초원복국",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사",
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 11,
+      "spend": 1278000,
+      "date_min": "2025-02-04",
+      "date_max": "2026-07-29",
+      "consensus_score": 65.8,
+      "institution_count": 3,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사·자산관리본부장",
+      "top_official_visits": 11,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "마키노차야 더가우",
       "address": "세종특별자치시 도움1로 7, 세종NS호텔 3층 311~319호",
       "origins": [
@@ -7730,6 +8309,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "봄베이브로이",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 9,
+      "spend": 960600,
+      "date_min": "2025-02-26",
+      "date_max": "2026-08-07",
+      "consensus_score": 58.1,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·경영전략본부장",
+      "top_official_visits": 9,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "대복집",
       "address": "",
       "origins": [
@@ -7785,6 +8394,75 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "우비노",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 9,
+      "spend": 3642900,
+      "date_min": "2025-01-20",
+      "date_max": "2025-09-02",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "상임감사",
+      "top_official_visits": 9,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "황금복국",
+      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
+      "origins": [
+        "공기업·공공기관",
+        "국회의원(정치자금 2024)",
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "법무부",
+        "법제처",
+        "보건복지부",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "central_executive",
+        "justice_leadership",
+        "national_legislator",
+        "public_enterprise_leadership"
+      ],
+      "visits": 68,
+      "spend": 11602000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-31",
+      "consensus_score": 100.0,
+      "institution_count": 6,
+      "source_count": 4,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 8,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -7849,35 +8527,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "봄베이브로이",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 8,
-      "spend": 907800,
-      "date_min": "2025-02-26",
-      "date_max": "2026-08-07",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 8,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "브이아이피 참치 광화문점",
       "address": "",
       "origins": [
@@ -7927,37 +8576,6 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "이사",
-      "top_official_visits": 8,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "스타벅스 코리아",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국남부발전",
-        "한국자산관리공사",
-        "한전KDN"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 8,
-      "spend": 349600,
-      "date_min": "2025-03-20",
-      "date_max": "2026-06-02",
-      "consensus_score": 63.5,
-      "institution_count": 3,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "사장·카드",
       "top_official_visits": 8,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8119,26 +8737,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "초원복국",
+      "name": "스시와",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 7,
-      "spend": 984000,
-      "date_min": "2025-02-04",
-      "date_max": "2026-07-29",
+      "spend": 2046000,
+      "date_min": "2025-01-23",
+      "date_max": "2026-07-15",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 7,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8197,6 +8815,65 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "이사",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "워터스톤",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 7,
+      "spend": 1411000,
+      "date_min": "2025-08-01",
+      "date_max": "2026-05-21",
+      "consensus_score": 56.2,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·부사장·이사·자산관리본부장",
+      "top_official_visits": 7,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "베리라이스(VERYRICE)",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 7,
+      "spend": 304000,
+      "date_min": "2025-02-17",
+      "date_max": "2025-12-09",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "주택도시기금본부장",
       "top_official_visits": 7,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8684,6 +9361,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "흥미원",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 6,
+      "spend": 355500,
+      "date_min": "2025-02-06",
+      "date_max": "2026-06-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "주택도시기금본부장·기금사업본부장",
+      "top_official_visits": 6,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "갈비만",
       "address": "",
       "origins": [
@@ -8742,26 +9448,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "워터스톤",
+      "name": "라브리",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 6,
-      "spend": 1228000,
-      "date_min": "2025-08-01",
+      "spend": 1863000,
+      "date_min": "2025-02-13",
       "date_max": "2026-04-13",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "기관장·부사장·이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 6,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -8952,43 +9658,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 4,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "황금복국",
-      "address": "서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩)",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "법조·법률행정",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "법무부",
-        "법제처",
-        "보건복지부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "justice_leadership",
-        "national_legislator"
-      ],
-      "visits": 65,
-      "spend": 11398000,
-      "date_min": "2024-01-09",
-      "date_max": "2026-08-31",
-      "consensus_score": 97.2,
-      "institution_count": 5,
-      "source_count": 3,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 5,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -9422,6 +10091,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "능라도",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국자산관리공사",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 1268000,
+      "date_min": "2025-01-15",
+      "date_max": "2026-07-23",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "부사장·이사·상임이사",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "일일향 광화문점",
       "address": "",
       "origins": [
@@ -9597,6 +10296,65 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "미도방비아이에프씨점",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 288500,
+      "date_min": "2025-09-02",
+      "date_max": "2026-06-17",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금사업본부장·주택도시기금본부장·경영전략본부장",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "삼삼횟집",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 1124000,
+      "date_min": "2026-02-11",
+      "date_max": "2026-06-15",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·경영전략본부장",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "뉴문",
       "address": "",
       "origins": [
@@ -9626,6 +10384,36 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "스타벅스 코리아",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국남부발전",
+        "한전KDN"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 237000,
+      "date_min": "2025-04-07",
+      "date_max": "2026-05-22",
+      "consensus_score": 53.9,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "사장·카드",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "봉피양",
       "address": "",
       "origins": [
@@ -9646,6 +10434,35 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "이사",
+      "top_official_visits": 5,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "예그리나",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 5,
+      "spend": 596500,
+      "date_min": "2025-01-23",
+      "date_max": "2025-09-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "상임이사",
       "top_official_visits": 5,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -9853,6 +10670,64 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "스시명장",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 200000,
+      "date_min": "2026-08-05",
+      "date_max": "2026-08-31",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기획이사",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "옹시미",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 158000,
+      "date_min": "2026-03-24",
+      "date_max": "2026-08-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "칠복장어",
       "address": "",
       "origins": [
@@ -9902,6 +10777,64 @@
       "source_count": 1,
       "top_role_tier": "deputy_head",
       "top_role_label": "법제처차장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "마쯔가제",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 1804000,
+      "date_min": "2026-01-12",
+      "date_max": "2026-07-28",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "뒷동네",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 291600,
+      "date_min": "2026-03-19",
+      "date_max": "2026-07-27",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -9998,26 +10931,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "능라도",
+      "name": "통낙지",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
+        "주택도시보증공사",
         "한국자산관리공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 4,
-      "spend": 1023000,
-      "date_min": "2025-01-15",
-      "date_max": "2026-06-18",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 343000,
+      "date_min": "2025-03-17",
+      "date_max": "2026-06-16",
+      "consensus_score": 52.4,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
+      "top_role_label": "이사·경영전략본부장·상근감사위원",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -10056,6 +10990,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "우진생고기",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 282000,
+      "date_min": "2025-02-24",
+      "date_max": "2026-06-08",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "경영전략본부장·기금사업본부장·주택도시기금본부장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "솟대마을",
       "address": "",
       "origins": [
@@ -10085,6 +11048,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "설 청국장",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 290000,
+      "date_min": "2026-04-15",
+      "date_max": "2026-06-01",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "톰볼라",
       "address": "",
       "origins": [
@@ -10105,6 +11097,36 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "부사장·이사",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "송화유수",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 687000,
+      "date_min": "2025-12-18",
+      "date_max": "2026-03-12",
+      "consensus_score": 52.4,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -10172,6 +11194,64 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "감포은정복어",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 501000,
+      "date_min": "2025-08-19",
+      "date_max": "2026-02-19",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "진이",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 245000,
+      "date_min": "2025-04-28",
+      "date_max": "2026-02-09",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "주택도시기금본부장·경영전략본부장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "푸짐한활어회본점",
       "address": "대전광역시 대덕구 송촌남로56번길 1",
       "origins": [
@@ -10192,6 +11272,35 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_head",
       "top_role_label": "사장직무대행",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "양지뜰",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 520000,
+      "date_min": "2025-02-07",
+      "date_max": "2026-01-12",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -10259,6 +11368,64 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "이레피자하우스",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 733500,
+      "date_min": "2025-06-20",
+      "date_max": "2025-10-20",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "우아한형제들",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 245500,
+      "date_min": "2025-04-02",
+      "date_max": "2025-10-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "감포참가자미",
       "address": "",
       "origins": [
@@ -10279,6 +11446,35 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "기관장·이사",
+      "top_official_visits": 4,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "해운대이름난암소갈비",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 4,
+      "spend": 837000,
+      "date_min": "2025-07-15",
+      "date_max": "2025-09-04",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "상근감사위원·주택도시기금본부장",
       "top_official_visits": 4,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -10941,6 +12137,94 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "함루",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사",
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 624000,
+      "date_min": "2025-04-23",
+      "date_max": "2026-08-27",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·상임이사",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "서울리에",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 360000,
+      "date_min": "2026-05-20",
+      "date_max": "2026-08-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "이건참치",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 450000,
+      "date_min": "2026-08-03",
+      "date_max": "2026-08-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금이사·기획이사·복지이사",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "샐요일 베스트웨스턴호텔 세종점",
       "address": "",
       "origins": [
@@ -10961,35 +12245,6 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "심가네칼국수역삼역본점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 3,
-      "spend": 509000,
-      "date_min": "2026-02-04",
-      "date_max": "2026-08-20",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11115,26 +12370,28 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "진교원",
-      "address": "",
+      "name": "복성각 서울역점",
+      "address": "서울특별시 중구 통일로 10",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사",
+        "한국자산관리공사",
+        "한국철도공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 346000,
-      "date_min": "2026-06-11",
-      "date_max": "2026-07-30",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 785000,
+      "date_min": "2026-01-08",
+      "date_max": "2026-08-07",
+      "consensus_score": 56.8,
+      "institution_count": 3,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장·사장직무대행",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11261,55 +12518,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "수정식당",
+      "name": "홍유단",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
+        "주택도시보증공사",
         "한국자산관리공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 146000,
-      "date_min": "2026-05-07",
-      "date_max": "2026-06-17",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "삼삼횟집",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 3,
-      "spend": 570000,
-      "date_min": "2026-02-11",
+      "spend": 541000,
+      "date_min": "2025-02-10",
       "date_max": "2026-06-15",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "consensus_score": 50.6,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "기관장·이사·자산관리본부장",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11319,26 +12548,86 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "비스트로꼬꼬뜨",
+      "name": "민기네밥집",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
+        "주택도시보증공사",
         "한국자산관리공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 515000,
-      "date_min": "2026-02-20",
+      "spend": 429000,
+      "date_min": "2025-06-23",
       "date_max": "2026-06-12",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기관장·이사·상근감사위원",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "동원활어",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 272000,
+      "date_min": "2025-02-10",
+      "date_max": "2026-05-28",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·상근감사위원",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "장원한정식",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국무역보험공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 915000,
+      "date_min": "2025-06-16",
+      "date_max": "2026-05-22",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
+      "top_role_label": "상임감사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11368,35 +12657,6 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "이사",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "바다호호복국",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 3,
-      "spend": 980000,
-      "date_min": "2026-02-24",
-      "date_max": "2026-05-12",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11522,35 +12782,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "교동면옥",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 3,
-      "spend": 354000,
-      "date_min": "2026-02-13",
-      "date_max": "2026-04-07",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "신수사",
       "address": "",
       "origins": [
@@ -11580,26 +12811,84 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "보따리",
+      "name": "동문식당",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국장학재단"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 131000,
-      "date_min": "2025-02-27",
-      "date_max": "2026-03-19",
+      "spend": 314000,
+      "date_min": "2025-03-06",
+      "date_max": "2026-03-20",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "달개비",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 757000,
+      "date_min": "2025-05-23",
+      "date_max": "2026-03-17",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "배달의민족",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 276000,
+      "date_min": "2026-03-11",
+      "date_max": "2026-03-13",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11638,26 +12927,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "송화유수",
+      "name": "봉추찜닭",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국영유아보육·교육진흥원"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 240000,
-      "date_min": "2026-02-05",
-      "date_max": "2026-03-12",
+      "spend": 459000,
+      "date_min": "2025-02-14",
+      "date_max": "2026-03-05",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11667,26 +12956,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "글루크",
+      "name": "돌판장",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국장학재단"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 124500,
-      "date_min": "2025-01-07",
+      "spend": 238000,
+      "date_min": "2025-02-27",
       "date_max": "2026-03-05",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "상임이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11696,26 +12985,56 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "차이797SFC점",
+      "name": "가얏골감자탕남천점",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
+        "주택도시보증공사",
         "한국자산관리공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 536000,
-      "date_min": "2025-07-04",
-      "date_max": "2026-02-13",
+      "spend": 425000,
+      "date_min": "2025-08-19",
+      "date_max": "2026-02-23",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "부사장·자산관리본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "명동집",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 521000,
+      "date_min": "2025-03-19",
+      "date_max": "2026-02-10",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
+      "top_role_label": "상임이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11746,6 +13065,125 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "사장직무대행·부사장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "청송양곱창",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 927000,
+      "date_min": "2025-01-13",
+      "date_max": "2025-12-24",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·자산관리본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "지앤비후르츠",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 155100,
+      "date_min": "2025-08-13",
+      "date_max": "2025-12-24",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "평가옥",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 300000,
+      "date_min": "2025-04-10",
+      "date_max": "2025-12-12",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·주택도시기금본부장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "신화케이푸드",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국자산관리공사",
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 513000,
+      "date_min": "2025-02-05",
+      "date_max": "2025-12-03",
+      "consensus_score": 50.6,
+      "institution_count": 2,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사·상임이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -11813,26 +13251,55 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "우기미",
+      "name": "정우식당",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국장학재단"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 3,
-      "spend": 708000,
-      "date_min": "2025-01-31",
-      "date_max": "2025-08-29",
+      "spend": 493000,
+      "date_min": "2025-03-17",
+      "date_max": "2025-10-30",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "멍게가",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국장학재단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 3,
+      "spend": 591000,
+      "date_min": "2025-01-09",
+      "date_max": "2025-04-01",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
+      "top_role_label": "상임이사",
       "top_official_visits": 3,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -12517,6 +13984,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "시우가든",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 185000,
+      "date_min": "2026-08-20",
+      "date_max": "2026-08-31",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금이사·기획이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "팔선생세종점",
       "address": "",
       "origins": [
@@ -12546,26 +14042,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "메이탄강남점",
+      "name": "광화문옥희",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국자산관리공사",
+        "한국주택금융공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 233000,
-      "date_min": "2026-06-05",
+      "spend": 470000,
+      "date_min": "2026-08-27",
       "date_max": "2026-08-27",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "기관장·이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -12662,26 +14159,84 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "바다내음",
+      "name": "취팔선객잔",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "국민연금공단"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 600000,
-      "date_min": "2025-12-09",
+      "spend": 149000,
+      "date_min": "2026-08-24",
+      "date_max": "2026-08-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금이사·기획이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "여믐",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 143000,
+      "date_min": "2026-08-03",
+      "date_max": "2026-08-25",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금이사·복지이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "전주누룽지삼계탕",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 272000,
+      "date_min": "2026-08-21",
       "date_max": "2026-08-24",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "기획이사·이사장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -12691,55 +14246,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "우미관",
+      "name": "진담덮밥앤소바",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "국민연금공단"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 524000,
-      "date_min": "2026-04-10",
-      "date_max": "2026-08-20",
+      "spend": 66500,
+      "date_min": "2026-08-03",
+      "date_max": "2026-08-24",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "전통할매곰탕",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 109000,
-      "date_min": "2025-12-10",
-      "date_max": "2026-08-19",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "기획이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -12778,6 +14304,64 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "송가",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 150000,
+      "date_min": "2026-08-04",
+      "date_max": "2026-08-19",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기획이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "베테랑",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 47000,
+      "date_min": "2026-08-06",
+      "date_max": "2026-08-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기획이사",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "사천이모집",
       "address": "",
       "origins": [
@@ -12798,6 +14382,35 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "왕스덕",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "국민연금공단"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 2,
+      "spend": 280000,
+      "date_min": "2026-08-13",
+      "date_max": "2026-08-14",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "기금이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -12865,35 +14478,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "퀸즈파크청담점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 506000,
-      "date_min": "2026-05-21",
-      "date_max": "2026-08-13",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "가장맛있는족발 도담점",
       "address": "",
       "origins": [
@@ -12914,65 +14498,6 @@
       "source_count": 1,
       "top_role_tier": "deputy_head",
       "top_role_label": "법제처차장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "복성각 서울역점",
-      "address": "서울특별시 중구 통일로 10",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사",
-        "한국철도공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 365000,
-      "date_min": "2026-01-08",
-      "date_max": "2026-08-07",
-      "consensus_score": 48.2,
-      "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_head",
-      "top_role_label": "기관장·사장직무대행",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소담한우촌",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 627000,
-      "date_min": "2026-07-03",
-      "date_max": "2026-08-05",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "감사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -13098,35 +14623,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "양미가",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 627000,
-      "date_min": "2025-06-09",
-      "date_max": "2026-07-21",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "만세곱창",
       "address": "",
       "origins": [
@@ -13214,35 +14710,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "신화푸드",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 287500,
-      "date_min": "2025-12-23",
-      "date_max": "2026-07-16",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "빠스타스 by 파인드파인",
       "address": "",
       "origins": [
@@ -13301,26 +14768,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "미미루",
+      "name": "암소서울",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 193000,
-      "date_min": "2026-05-21",
-      "date_max": "2026-07-10",
+      "spend": 728000,
+      "date_min": "2026-03-30",
+      "date_max": "2026-07-13",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "감사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -13330,113 +14797,26 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "차슈밍",
+      "name": "아카사카",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 239000,
-      "date_min": "2026-05-07",
+      "spend": 892000,
+      "date_min": "2026-04-08",
       "date_max": "2026-07-09",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "전주하우스",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 473000,
-      "date_min": "2026-05-26",
-      "date_max": "2026-07-06",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "심길선청송양곱창",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 644000,
-      "date_min": "2025-03-18",
-      "date_max": "2026-07-03",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "귀희한식",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 550000,
-      "date_min": "2025-05-26",
-      "date_max": "2026-06-30",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -13495,64 +14875,6 @@
       "source_count": 1,
       "top_role_tier": "cabinet_or_investigative_head",
       "top_role_label": "법무부 장관",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오부찌양재점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 597000,
-      "date_min": "2026-03-24",
-      "date_max": "2026-06-25",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "분당만강원세종직영점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 437000,
-      "date_min": "2025-01-20",
-      "date_max": "2026-06-18",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -13621,122 +14943,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "홍유단",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 368000,
-      "date_min": "2025-02-10",
-      "date_max": "2026-06-15",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "기관장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "갈비사랑",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 555000,
-      "date_min": "2025-05-23",
-      "date_max": "2026-06-05",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "조방제일한우",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 191000,
-      "date_min": "2025-07-03",
-      "date_max": "2026-06-04",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "감사·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "은해",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 389000,
-      "date_min": "2025-04-18",
-      "date_max": "2026-06-02",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "경복궁 서초점",
       "address": "서울특별시 서초구 서초중앙로 195",
       "origins": [
@@ -13786,35 +14992,6 @@
       "source_count": 1,
       "top_role_tier": "cabinet_or_investigative_head",
       "top_role_label": "법무부 장관",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "오선채",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 245000,
-      "date_min": "2025-03-14",
-      "date_max": "2026-05-21",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -13882,345 +15059,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "누룩목",
+      "name": "송전",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사",
+        "한국주택금융공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 132000,
-      "date_min": "2025-07-01",
-      "date_max": "2026-05-08",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 252000,
+      "date_min": "2025-05-30",
+      "date_max": "2026-04-24",
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "백마김씨네",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 557500,
-      "date_min": "2026-03-05",
-      "date_max": "2026-05-04",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "동원활어",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 172000,
-      "date_min": "2025-02-10",
-      "date_max": "2026-04-30",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "금촌",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 345000,
-      "date_min": "2026-03-03",
-      "date_max": "2026-04-22",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "만수스시",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 422000,
-      "date_min": "2025-02-10",
-      "date_max": "2026-04-15",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "에어룸",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 331000,
-      "date_min": "2025-10-10",
-      "date_max": "2026-03-27",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "BULLCOFFEE여의도점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 468000,
-      "date_min": "2025-12-02",
-      "date_max": "2026-03-20",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이올로화덕피자",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 173000,
-      "date_min": "2025-01-16",
-      "date_max": "2026-03-13",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "연구소",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 740000,
-      "date_min": "2025-11-28",
-      "date_max": "2026-03-12",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "소선재",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 364000,
-      "date_min": "2025-01-17",
-      "date_max": "2026-03-12",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "기관장·부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "호텔아쿠아펠리스지점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 487000,
-      "date_min": "2025-05-09",
-      "date_max": "2025-12-31",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "청송양곱창",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 689000,
-      "date_min": "2025-06-16",
-      "date_max": "2025-12-24",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -14259,151 +15118,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "산삼골",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 479000,
-      "date_min": "2025-11-14",
-      "date_max": "2025-12-12",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "평가옥",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 249500,
-      "date_min": "2025-04-10",
-      "date_max": "2025-12-12",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "채석강",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 86000,
-      "date_min": "2025-03-14",
-      "date_max": "2025-12-01",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "제제양재점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 391000,
-      "date_min": "2025-09-26",
-      "date_max": "2025-10-30",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "제이에이치지에프앤비",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 487000,
-      "date_min": "2025-05-14",
-      "date_max": "2025-10-01",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "다온정",
       "address": "",
       "origins": [
@@ -14422,35 +15136,6 @@
       "date_max": "2025-09-24",
       "consensus_score": 48.2,
       "institution_count": 2,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "기관장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "부안애서",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 126500,
-      "date_min": "2025-01-24",
-      "date_max": "2025-09-24",
-      "consensus_score": 0.0,
-      "institution_count": 1,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "기관장·이사",
@@ -14492,200 +15177,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "가얏골감자탕남천점",
+      "name": "다원",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "주택도시보증공사",
+        "한국수자원공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 285000,
-      "date_min": "2025-08-19",
-      "date_max": "2025-09-17",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 315000,
+      "date_min": "2025-06-13",
+      "date_max": "2025-08-18",
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "지세포",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 203000,
-      "date_min": "2025-07-04",
-      "date_max": "2025-09-05",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "토봉추어탕",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 116000,
-      "date_min": "2025-02-26",
-      "date_max": "2025-09-04",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "기관장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "꼬시나에스파냐",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 622000,
-      "date_min": "2025-04-30",
-      "date_max": "2025-08-28",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "르지우",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 380000,
-      "date_min": "2025-02-07",
-      "date_max": "2025-08-21",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "퀸스파크청담점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 370500,
-      "date_min": "2025-04-23",
-      "date_max": "2025-08-07",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "진동횟집",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 455000,
-      "date_min": "2025-05-23",
-      "date_max": "2025-07-24",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
+      "top_role_label": "기관장·상근감사위원",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -14724,64 +15236,6 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "오향절면",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 177000,
-      "date_min": "2025-06-12",
-      "date_max": "2025-07-03",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "챠이797서래마을점",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 518000,
-      "date_min": "2025-03-21",
-      "date_max": "2025-06-13",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "부사장",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
       "name": "남도진미",
       "address": "",
       "origins": [
@@ -14811,21 +15265,21 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "영동올뱅이집",
+      "name": "노량진101 (☎1644-7811)",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 104000,
-      "date_min": "2025-01-22",
-      "date_max": "2025-04-11",
+      "spend": 846980,
+      "date_min": "2025-02-04",
+      "date_max": "2025-04-28",
       "consensus_score": 0.0,
       "institution_count": 1,
       "source_count": 1,
@@ -14840,55 +15294,27 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "마시리",
+      "name": "루안",
       "address": "",
       "origins": [
         "공기업·공공기관"
       ],
       "institutions": [
-        "한국자산관리공사"
+        "한국남부발전",
+        "한국무역보험공사"
       ],
       "cohorts": [
         "public_enterprise_leadership"
       ],
       "visits": 2,
-      "spend": 326000,
-      "date_min": "2025-03-13",
-      "date_max": "2025-04-10",
-      "consensus_score": 0.0,
-      "institution_count": 1,
+      "spend": 607000,
+      "date_min": "2024-01-05",
+      "date_max": "2025-04-23",
+      "consensus_score": 48.2,
+      "institution_count": 2,
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "난랑",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 475000,
-      "date_min": "2025-02-14",
-      "date_max": "2025-03-06",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
+      "top_role_label": "사장·상임이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -14919,35 +15345,6 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "사장·이사",
-      "top_official_visits": 2,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "미미솔",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 2,
-      "spend": 285000,
-      "date_min": "2025-01-23",
-      "date_max": "2025-02-13",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_leadership",
-      "top_role_label": "이사",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -16303,6 +16700,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "월강",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 300000,
+      "date_min": "2026-07-21",
+      "date_max": "2026-07-21",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "란이",
       "address": "",
       "origins": [
@@ -16767,6 +17193,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "덕승재",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 210000,
+      "date_min": "2026-07-02",
+      "date_max": "2026-07-02",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "해남천일관",
       "address": "",
       "origins": [
@@ -17019,6 +17474,35 @@
       "source_count": 1,
       "top_role_tier": "cabinet_or_investigative_head",
       "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "화락만리",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 360000,
+      "date_min": "2026-06-10",
+      "date_max": "2026-06-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -17492,6 +17976,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "오리엔스 하만",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 114000,
+      "date_min": "2026-04-29",
+      "date_max": "2026-04-29",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "수석식당",
       "address": "",
       "origins": [
@@ -17753,6 +18266,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "어슬 서울",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 250000,
+      "date_min": "2026-03-26",
+      "date_max": "2026-03-26",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "키츠네야",
       "address": "충청남도 보령시 작은오랏5길 31",
       "origins": [
@@ -17927,6 +18469,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "청록",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 186000,
+      "date_min": "2026-02-03",
+      "date_max": "2026-02-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_head",
+      "top_role_label": "기관장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "이화원",
       "address": "",
       "origins": [
@@ -18005,6 +18576,35 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_head",
       "top_role_label": "사장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "육미곳간",
+      "address": "",
+      "origins": [
+        "공기업·공공기관"
+      ],
+      "institutions": [
+        "한국주택금융공사"
+      ],
+      "cohorts": [
+        "public_enterprise_leadership"
+      ],
+      "visits": 1,
+      "spend": 271000,
+      "date_min": "2025-12-18",
+      "date_max": "2025-12-18",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "public_enterprise_leadership",
+      "top_role_label": "이사",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -18266,35 +18866,6 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_leadership",
       "top_role_label": "경영진",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "다원",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국수자원공사"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 1,
-      "spend": 295000,
-      "date_min": "2025-08-18",
-      "date_max": "2025-08-18",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_head",
-      "top_role_label": "기관장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
@@ -18759,35 +19330,6 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_head",
       "top_role_label": "기관장",
-      "top_official_visits": 1,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "이담한정식주식회사",
-      "address": "",
-      "origins": [
-        "공기업·공공기관"
-      ],
-      "institutions": [
-        "한국남부발전"
-      ],
-      "cohorts": [
-        "public_enterprise_leadership"
-      ],
-      "visits": 1,
-      "spend": 336000,
-      "date_min": "2024-02-29",
-      "date_max": "2024-02-29",
-      "consensus_score": 0.0,
-      "institution_count": 1,
-      "source_count": 1,
-      "top_role_tier": "public_enterprise_head",
-      "top_role_label": "사장",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
