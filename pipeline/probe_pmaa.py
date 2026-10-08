@@ -8,8 +8,5 @@ with urllib.request.urlopen(req,timeout=20) as r:
     raw=r.read();enc=r.headers.get_content_charset() or "utf-8"
     print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
 doc=raw.decode(enc,"replace")
-for pat in [r"function\s+fn_view\s*\([^)]*\)\s*\{.*?\}",r"fn_view\s*=\s*function\s*\([^)]*\)\s*\{.*?\}"]:
-    for m in re.finditer(pat,doc,re.I|re.S):
-        print("DEF",html.unescape(m.group(0))[:8000])
-i=doc.find("fn_view(")
-print("CTX",html.unescape(doc[max(0,i-3000):i+6000]) if i>=0 else "not found")
+for m in re.finditer(r"<form\b[^>]*name=['\"]frm_list['\"][^>]*>",doc,re.I):
+    print("FORM",html.unescape(m.group(0)))
