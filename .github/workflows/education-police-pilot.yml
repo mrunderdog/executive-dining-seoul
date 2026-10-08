@@ -1,0 +1,57 @@
+name: Education and police senior-official pilot
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/leadership_scope.py'
+      - 'pipeline/education_police_source_probe.py'
+      - 'pipeline/ingest_education_police_expense.py'
+      - 'pipeline/test_education_police.py'
+      - 'sources/education_police_registry.json'
+      - '.github/workflows/education-police-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF and spreadsheet readers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Static checks and publication-safety tests
+        run: |
+          python -m py_compile pipeline/leadership_scope.py pipeline/education_police_source_probe.py pipeline/ingest_education_police_expense.py pipeline/test_education_police.py
+          PYTHONPATH=pipeline python -m unittest -v test_education_police
+      - name: Probe official leadership boards and attachment links
+        run: |
+          python pipeline/education_police_source_probe.py --max-details 2
+          python pipeline/ingest_education_police_expense.py --max-attachments 8
+      - name: Report coverage without enabling publication
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('reports/education-police-source-probe.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/education_police_expense_staging.json').read_text(encoding='utf-8'))
+          assert s['publication_enabled'] is False
+          assert r['publication_enabled'] is False
+          for x in s['sources']:
+              print(x['institution'], 'roles=', x['titles_scoped'],
+                    'attachments=',x['attachments_linked'], 'errors=',len(x['errors']))
+          print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: education-police-pilot-reports
+          path: |
+            reports/education-police-source-probe.json
+            data/raw/education_police_expense_staging.json
+          if-no-files-found: warn
