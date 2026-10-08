@@ -620,6 +620,21 @@
         "https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=62176"
       ],
       "note": "한국지능정보사회진흥원 공식 업무추진비 공개의 원장·임원(기관장 제외)·본부장/실단장 게시판. 월별 HWPX 표에서 직위·사용일시·사용장소·금액·목적·참석대상·인원을 거래별 수집."
+    },
+    {
+      "key": "nhis",
+      "institution": "국민건강보험공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "이사장·감사·상임이사",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.nhis.or.kr/announce/wbhaec11200m01.do"
+      ],
+      "note": "국민건강보험공단 공식 월별 임원 업무추진비 게시판. 월별 XLSX의 기관장/임원 시트에서 사용일자·집행자·집행내역·사용처·집행대상자·집행구분·인원·금액을 거래별 수집."
     }
   ]
 }
