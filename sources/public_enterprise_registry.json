@@ -477,6 +477,22 @@
         "https://www.keco.or.kr/web/lay1/bbs/S1T106C997/A/52/list.do"
       ],
       "note": "한국환경공단 공식 임원 업무추진비 게시판. 월별 XLS의 상세 시트에 사용일자·집행자·집행내역·사용처(장소)·집행대상자·집행구분·인원·집행금액이 거래별 공개되며 이사장(직무대행), 감사, 각 상임이사 등의 원 역할을 보존해 수집."
+    },
+    {
+      "key": "hrdk",
+      "institution": "한국산업인력공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "이사장·상임감사·상임이사",
+      "format_hint": "pdf-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.hrdkorea.or.kr/7/5/5/10/1",
+        "https://www.hrdkorea.or.kr/7/5/5/10/2"
+      ],
+      "note": "한국산업인력공단 공식 업무추진비 게시판. 이사장과 임원 게시판을 함께 수집하며 월별 PDF의 집행일자·집행자·집행내역·사용처·대상·결제구분·인원·금액을 거래별로 파싱해 원 직위를 보존."
     }
   ]
 }
