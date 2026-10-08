@@ -1,0 +1,23 @@
+name: KHIDI source probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/probe_khidi.py'
+      - '.github/workflows/khidi-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probe KHIDI disclosure
+        run: python pipeline/probe_khidi.py
