@@ -16,6 +16,7 @@ from ingest_central_executive_expense import parse_attachment
 from leadership_scope import classify_leadership_title, valid_transaction
 from venue_eligibility import is_non_venue_merchant
 from gyeonggi_education_pdf import parse as parse_gyeonggi_pdf
+from incheon_education_xlsx import parse as parse_incheon_xlsx
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "sources" / "education_police_registry.json"
@@ -42,6 +43,7 @@ def process(parsed: list[dict], source: dict, post: dict, download_url: str) -> 
             "source_detail_url": post["detail_url"],
             "source_url": download_url,
             "publication_status": "STAGING_ONLY",
+            "actor_presence": "EXPLICIT" if verified["role"] in str(r.get("target") or "") else "UNCONFIRMED",
         })
         if not valid_transaction(r, set(source["official_hosts"])) or is_non_venue_merchant(r.get("merchant")):
             stats["rejected"] += 1
@@ -89,6 +91,8 @@ def main():
                                 "cohort": src["cohort"], "default_role": role["role"]}
                 if key == "gyeonggi_education" and url.lower().split("?")[0].endswith(".pdf"):
                     parsed, info, error = parse_gyeonggi_pdf(url, post["detail_url"])
+                elif key == "incheon_education" and url.lower().split("?")[0].endswith(".xlsx"):
+                    parsed, info, error = parse_incheon_xlsx(url,post["detail_url"])
                 else:
                     parsed, info, error = parse_attachment(source_input, attachment)
                 if error:
