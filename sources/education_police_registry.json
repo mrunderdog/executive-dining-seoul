@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-08",
-  "policy": "Discovery candidates only. Do not publish without transaction-level merchant, official source provenance, position scope and date validation.",
+  "policy": "High-ranking education/police officials including heads, deputies, bureau/division chiefs at director-general level, headquarters chiefs. Position must be verified from official posting or document heading. Section/team manager and ordinary personnel not included. Disclosure-only, no publication until transaction-level source QA.",
   "sources": [
     {
       "key": "gyeonggi_education",
@@ -11,13 +11,38 @@
       "publish": false,
       "role_scope": [
         "교육감",
-        "부교육감",
-        "실국장"
+        "제1·2부교육감",
+        "실장",
+        "국장",
+        "본부장",
+        "교육장(교육지원청 기관장)"
       ],
       "official_urls": [
-        "https://www.goe.go.kr/"
+        "https://www.goe.go.kr/goe/na/ntt/selectNttList.do?bbsId=1955&mi=10239",
+        "https://www.goe.go.kr/goe/na/ntt/selectNttList.do?bbsId=1956&mi=10240"
       ],
-      "notes": "Probe published expenditure attachments. A policy office PDF does not by itself establish superintendent or executive role."
+      "notes": "Official board and example detail located. Discovery-only: parser must verify date, executive role, merchant and amount before publication.",
+      "official_hosts": [
+        "goe.go.kr"
+      ],
+      "boards": [
+        {
+          "role": "교육감",
+          "url": "https://www.goe.go.kr/goe/na/ntt/selectNttList.do?bbsId=1955&mi=10239"
+        },
+        {
+          "role": "실국장·부교육감",
+          "url": "https://www.goe.go.kr/goe/na/ntt/selectNttList.do?bbsId=1956&mi=10240"
+        }
+      ],
+      "verified_detail_urls": [
+        {
+          "title": "2025년 2분기 제2부교육감 업무추진비 집행내역 공개",
+          "role": "제2부교육감",
+          "tier": "education_deputy",
+          "url": "https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?mi=10240&nttSn=108651"
+        }
+      ]
     },
     {
       "key": "incheon_education",
@@ -28,12 +53,42 @@
       "role_scope": [
         "교육감",
         "부교육감",
-        "실국장"
+        "실장",
+        "국장",
+        "본부장",
+        "교육지원청 교육장"
       ],
       "official_urls": [
-        "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=1726&mi=11654"
+        "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=1726&mi=11654",
+        "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=2128&mi=11654",
+        "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=2129&mi=11654"
       ],
-      "notes": "Verify each position-specific attachment and actual merchant/venue columns before ingestion."
+      "notes": "Official board and example detail located. Discovery-only: parser must verify date, executive role, merchant and amount before publication.",
+      "official_hosts": [
+        "ice.go.kr"
+      ],
+      "boards": [
+        {
+          "role": "교육감",
+          "url": "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=1726&mi=11654"
+        },
+        {
+          "role": "부교육감",
+          "url": "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=2128&mi=11654"
+        },
+        {
+          "role": "국장",
+          "url": "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=2129&mi=11654"
+        }
+      ],
+      "verified_detail_urls": [
+        {
+          "title": "2026년 9월 교육역량지원국장 업무추진비 공개",
+          "role": "교육역량지원국장",
+          "tier": "director_general",
+          "url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsAllView=Y&bbsId=2129&mi=&nttSn=3386003"
+        }
+      ]
     },
     {
       "key": "national_police",
@@ -44,12 +99,40 @@
       "role_scope": [
         "경찰청장",
         "차장",
-        "실국장"
+        "국가수사본부장",
+        "실장",
+        "국장",
+        "경무인사기획관",
+        "대변인(국장급 확인 자료)",
+        "경찰서장"
       ],
       "official_urls": [
-        "https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1025"
+        "https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1025&q_code=005003&q_detailCode=005003006"
       ],
-      "notes": "Confirm public PDF columns and role/date provenance; do not infer senior officials from agency-level aggregates."
+      "notes": "Official board and example detail located. Discovery-only: parser must verify date, executive role, merchant and amount before publication.",
+      "official_hosts": [
+        "police.go.kr"
+      ],
+      "boards": [
+        {
+          "role": "청장·차장·실국장",
+          "url": "https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1025&q_code=005003&q_detailCode=005003006"
+        }
+      ],
+      "verified_detail_urls": [
+        {
+          "title": "2026년 2월 경찰청차장 업무추진비 집행내역",
+          "role": "경찰청차장",
+          "tier": "police_deputy",
+          "url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20260325092542533"
+        },
+        {
+          "title": "2026년 8월 경찰청 경무인사기획관 업무추진비 집행내역",
+          "role": "경무인사기획관",
+          "tier": "police_bureau_head",
+          "url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20260928131101336"
+        }
+      ]
     }
   ]
 }
