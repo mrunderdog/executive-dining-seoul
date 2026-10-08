@@ -1,11 +1,12 @@
 """Synthetic, offline contract tests: verify no title-only or aggregate-only publication."""
 import unittest
 
-from leadership_scope import classify_leadership_title, valid_transaction
+from leadership_scope import classify_leadership_title, valid_transaction, actor_explicit_in_target
 from education_police_source_probe import discover_post_links, discover_attachments, extract_post_id
 from ingest_education_police_expense import process
 from gyeonggi_education_pdf import normalize_table
 from incheon_education_xlsx import normalize_rows, parse_day
+from audit_education_police_staging import audit
 from datetime import datetime
 
 class LeadershipTests(unittest.TestCase):
@@ -58,6 +59,21 @@ class LeadershipTests(unittest.TestCase):
         self.assertEqual(rows[1]["used_date"],"2026-04-01")
         self.assertEqual(rows[1]["merchant"],"더615(동류수)")
         self.assertEqual(rows[2]["people"],5)
+
+    def test_actor_attribution_never_infer_office_staff(self):
+        self.assertTrue(actor_explicit_in_target("교육감", "교육감, 교육관계자 총 5명"))
+        self.assertFalse(actor_explicit_in_target("교육감", "교육감실 직원 및 관계자 10명"))
+        self.assertTrue(actor_explicit_in_target("교육역량지원국장", "교육역량지원국장 외 8명"))
+        self.assertFalse(actor_explicit_in_target("교육역량지원국장", "교육역량지원국장실 직원"))
+    def test_staging_qa_separates_nonvenues_and_actor_evidence(self):
+        source=[{"key":"incheon_education","institution":"인천광역시교육청"}]
+        row={"source_key":"incheon_education","role":"교육감","target":"교육감실 직원",
+             "merchant":"쿠팡","amount":9000,"used_date":"2026-08-03","row_id":"demo"}
+        report=audit([row],source)
+        self.assertFalse(report["publication_enabled"])
+        self.assertEqual(report["sources"][0]["actor_unconfirmed"],1)
+        self.assertEqual(report["sources"][0]["non_venue_billers"],1)
+        self.assertEqual(report["candidate_count"],0)
 
     def test_incheon_xlsx_form_and_date_validation(self):
         raw=[
