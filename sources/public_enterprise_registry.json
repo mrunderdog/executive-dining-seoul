@@ -557,6 +557,21 @@
         "https://www.kca.go.kr/kca/sub.do?menukey=5152&mode=list&page=1"
       ],
       "note": "한국소비자원 공식 경영공시 > 기관장 및 임원 업무추진비. 기관장·부기관장·상임이사·상임위원·분쟁조정위원장·안전센터소장 자료가 월별 XLSX로 공개되며 사용일자·목적·사용처·대상·결제구분·인원·금액을 거래별 수집."
+    },
+    {
+      "key": "kobc",
+      "institution": "한국해양진흥공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·상임이사·상임감사",
+      "format_hint": "pdf-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kobc.or.kr/ebz/kor/bbs/list.do?mId=0601020400&ptIdx=341"
+      ],
+      "note": "한국해양진흥공사 공식 기관장(임원) 업무추진비 게시판. 기관장·상임이사·상임감사 월별 PDF에 사용일자·목적·사용처·집행대상자·집행구분·인원·금액이 거래별 공개되어 역할별로 수집."
     }
   ]
 }
