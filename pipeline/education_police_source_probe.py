@@ -11,6 +11,7 @@ import json
 import re
 import urllib.parse
 import urllib.request
+import urllib.error
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -22,9 +23,30 @@ REPORT = ROOT / "reports" / "education-police-source-probe.json"
 UA = "Mozilla/5.0 (compatible; ExecutiveDining/1.0; public-open-data-research)"
 TYPES = (".pdf", ".xlsx", ".xls", ".hwp", ".hwpx", ".csv")
 
+def police_same_host_fallback(url: str) -> str:
+    """Known official servlet-context alternative; never switch host/scheme."""
+    p=urllib.parse.urlsplit(url)
+    if p.scheme != "https" or p.hostname != "www.police.go.kr":
+        return ""
+    if not p.path.startswith("/user/bbs/"):
+        return ""
+    return urllib.parse.urlunsplit((p.scheme,p.netloc,"/BZRKZR"+p.path,p.query,""))
+
 def fetch(url: str, timeout: int = 18) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9"})
-    with urllib.request.urlopen(req, timeout=timeout) as response:
+    try:
+        response = urllib.request.urlopen(req, timeout=timeout)
+    except urllib.error.HTTPError as exc:
+        # Some police.go.kr servlet URLs respond with repeated HTTP 307
+        # redirects. Retry only the known same-origin /BZRKZR context.
+        fallback = police_same_host_fallback(url) if exc.code == 307 else ""
+        if not fallback:
+            raise
+        response = urllib.request.urlopen(
+            urllib.request.Request(fallback,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"}),
+            timeout=timeout
+        )
+    with response:
         if response.status != 200:
             raise ValueError("HTTP " + str(response.status))
         raw = response.read(3_000_000)
