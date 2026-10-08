@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html,re,urllib.request
-URL="https://www.kofpi.or.kr/public/publicInfo_03_001.do?sub=26"
+import html,re,urllib.parse,urllib.request
+LIST="https://www.kofpi.or.kr/public/publicInfo_03_001.do?sub=26"
+VIEW="https://www.kofpi.or.kr/public/publicInfo_03_001view.do"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
+data=urllib.parse.urlencode({"cPage":"1","bb_seq":"12673","subtype":"26"}).encode()
+req=urllib.request.Request(VIEW,data=data,headers={
+    "User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9","Referer":LIST,
+    "Content-Type":"application/x-www-form-urlencoded"
+})
 with urllib.request.urlopen(req,timeout=20) as r:
-    raw=r.read(); enc=r.headers.get_content_charset() or "utf-8"
+    raw=r.read();enc=r.headers.get_content_charset() or "utf-8"
     print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
 doc=raw.decode(enc,"replace")
-for pat in (r"function\s+fnGoView\s*\([^)]*\)\s*\{.*?\}",r"function\s+fnFileDown\s*\([^)]*\)\s*\{.*?\}",r"function\s+[^\s(]*Down[^\s(]*\s*\([^)]*\)\s*\{.*?\}"):
+needle="2026년 임원 업무추진비 집행내역(8월)"
+i=doc.find(needle)
+print("TITLE_IDX",i)
+if i>=0:print(html.unescape(doc[max(0,i-2500):i+7000]))
+for m in re.finditer(r"<a\b[^>]*(?:href|onclick)=['\"]([^'\"]*)['\"][^>]*>(.*?)</a>",doc,re.I|re.S):
+    full=html.unescape(m.group(0)); txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",m.group(2))).split())
+    if any(k in (txt+" "+full).lower() for k in ("첨부","file","download",".pdf",".xlsx",".xls",".hwp")):
+        print("\nA",full[:5000])
+for pat in (r"function\s+[^\s(]*(?:down|file)[^\s(]*\s*\([^)]*\)\s*\{.*?\}",):
     for m in re.finditer(pat,doc,re.I|re.S):
-        print("\nFUNC\n",html.unescape(m.group(0))[:8000])
-for m in re.finditer(r"<form\b.*?</form>",doc,re.I|re.S):
-    s=html.unescape(m.group(0))
-    if any(x in s for x in ("12673","seq","sub","view","file")):
-        print("\nFORM\n",s[:8000])
+        print("\nFUNC\n",html.unescape(m.group(0))[:7000])
