@@ -15,6 +15,7 @@ from pathlib import Path
 from ingest_central_executive_expense import parse_attachment
 from leadership_scope import classify_leadership_title, valid_transaction
 from venue_eligibility import is_non_venue_merchant
+from gyeonggi_education_pdf import parse as parse_gyeonggi_pdf
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "sources" / "education_police_registry.json"
@@ -86,7 +87,10 @@ def main():
                               "parent": post["detail_url"]}
                 source_input = {"key": key, "institution": src["institution"],
                                 "cohort": src["cohort"], "default_role": role["role"]}
-                parsed, info, error = parse_attachment(source_input, attachment)
+                if key == "gyeonggi_education" and url.lower().split("?")[0].endswith(".pdf"):
+                    parsed, info, error = parse_gyeonggi_pdf(url, post["detail_url"])
+                else:
+                    parsed, info, error = parse_attachment(source_input, attachment)
                 if error:
                     errors.append({"key": key, "url": url, "error": str(error)[:250]})
                     continue
