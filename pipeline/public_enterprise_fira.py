@@ -40,7 +40,7 @@ def merchant_clean(v):
 
 def discover_files(year:int):
     years={year,year-1}; files=[]; pages=[]; errors=[]
-    urls=[BASE+"?board_no=186&board_wrapper=%2Fnewfira%2Fweb%2Finfo%2Finfo02_02.jsp&mode=list&pager.offset="+str(o) for o in range(0,121,10)]
+    urls=[BASE+"?board_no=186&board_wrapper=%2Fnewfira%2Fweb%2Finfo%2Finfo02_02.jsp&mode=list&pager.offset="+str(o) for o in range(0,71,10)]
     with ThreadPoolExecutor(max_workers=6) as pool:
         fm={pool.submit(fetch,u):u for u in urls}
         for fut in as_completed(fm):
