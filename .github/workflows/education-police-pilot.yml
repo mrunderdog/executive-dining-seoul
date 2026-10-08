@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'pipeline/leadership_scope.py'
+      - 'pipeline/gyeonggi_education_pdf.py'
       - 'pipeline/education_police_source_probe.py'
       - 'pipeline/ingest_education_police_expense.py'
       - 'pipeline/test_education_police.py'
@@ -27,7 +28,7 @@ jobs:
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 pdfplumber==0.11.7
       - name: Static checks and publication-safety tests
         run: |
-          python -m py_compile pipeline/leadership_scope.py pipeline/education_police_source_probe.py pipeline/ingest_education_police_expense.py pipeline/test_education_police.py
+          python -m py_compile pipeline/gyeonggi_education_pdf.py pipeline/leadership_scope.py pipeline/education_police_source_probe.py pipeline/ingest_education_police_expense.py pipeline/test_education_police.py
           PYTHONPATH=pipeline python -m unittest -v test_education_police
       - name: Probe official leadership boards and attachment links
         run: |
@@ -71,6 +72,7 @@ jobs:
                           print('PDFPLUMBER_WORD_SAMPLE',repr(pdfpl.pages[0].extract_words()[:40])[:2300])
                   except Exception as exc:
                       print('PDF_LAYOUT_ERROR',type(exc).__name__,str(exc)[:100])
+          print('STAGED_SAMPLE',[(x['used_date'],x['merchant'],x['amount'],x['role']) for x in r['rows'][:5]])
           print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
           PY
       - uses: actions/upload-artifact@v4
