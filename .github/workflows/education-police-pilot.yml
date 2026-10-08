@@ -51,6 +51,19 @@ jobs:
                       print('DETAIL', item['key'], p.get('title','')[:90], 'links',len(p.get('attachments') or []))
                       for anchor in (p.get('link_debug') or [])[:8]:
                           print('LINK_DEBUG',str(anchor)[:260])
+          for file in r['file_results']:
+              print('PARSE_STATS', file['key'], file['stats'], (file['parse_info'] or {}).get('sheets',[])[:3])
+          if not r['rows']:
+              from io import BytesIO
+              from urllib.request import Request, urlopen
+              from pypdf import PdfReader
+              for file in r['file_results'][:1]:
+                  try:
+                      blob=urlopen(Request(file['url'],headers={'User-Agent':'Mozilla/5.0'}),timeout=15).read()
+                      pdf=PdfReader(BytesIO(blob))
+                      print('PDF_LAYOUT_SAMPLE',repr((pdf.pages[0].extract_text(extraction_mode='layout') or '')[:2700]))
+                  except Exception as exc:
+                      print('PDF_LAYOUT_ERROR',type(exc).__name__,str(exc)[:100])
           print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
           PY
       - uses: actions/upload-artifact@v4
