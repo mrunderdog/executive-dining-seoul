@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1680,
-    "success_count": 1389,
-    "updated_at": "2026-10-08T09:12:09+00:00"
+    "record_count": 1682,
+    "success_count": 1391,
+    "updated_at": "2026-10-08T09:23:06+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -11560,6 +11560,24 @@
         "arcgis:서울 성북구 삼선교로 75"
       ],
       "updated_at": "2026-09-17T23:02:51+00:00"
+    },
+    "삿뽀로 한옥마을점|교육청(고위직)": {
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 연수구 송도동 테크노파크로 180",
+      "fingerprint": "408986240654bd81",
+      "geocoder_version": 4,
+      "lat": 37.390981073208,
+      "lon": 126.639364290349,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "인천광역시 연수구 테크노파크로 180",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:인천광역시 연수구 테크노파크로 180"
+      ],
+      "updated_at": "2026-10-08T09:23:06+00:00"
     },
     "삿뽀로|중앙정부": {
       "addr_type": "POI",
@@ -24913,6 +24931,24 @@
         "arcgis:서울 구로구 공원로 83"
       ],
       "updated_at": "2026-09-17T23:01:02+00:00"
+    },
+    "판다칸칸|교육청(고위직)": {
+      "addr_type": "PointAddress",
+      "display_name": "인천광역시 남동구 논현동 논고개로 80",
+      "fingerprint": "038034e7bd817576",
+      "geocoder_version": 4,
+      "lat": 37.399181172903,
+      "lon": 126.726535999554,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "인천광역시 남동구 논고개로 80",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:인천광역시 남동구 논고개로 80"
+      ],
+      "updated_at": "2026-10-08T09:23:06+00:00"
     },
     "판동면옥|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
