@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-08",
+  "publication_policy": "An exact merchant and institution match is necessary but insufficient: verified physical address, distinct third-party address references, valid official transaction, title-derived role and explicit official presence in the disclosed participant field are mandatory.",
+  "venues": [
+    {
+      "source_key": "incheon_education",
+      "merchant": "삿뽀로 한옥마을점",
+      "address": "인천광역시 연수구 테크노파크로 180",
+      "category": "일식",
+      "phone": "032-834-2426",
+      "allowed_roles": [
+        "교육감"
+      ],
+      "sources": [
+        "https://www.daangn.com/kr/local-profile/%EC%82%BF%EB%BD%80%EB%A1%9C-%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84%EC%A0%90-z6un3sqxq3yr/",
+        "https://www.diningcode.com/profile.php?rid=xipBLa3oGF6L"
+      ],
+      "verification_confidence": "HIGH"
+    },
+    {
+      "source_key": "incheon_education",
+      "merchant": "판다칸칸",
+      "address": "인천광역시 남동구 논고개로 80",
+      "category": "중식",
+      "phone": "032-441-6678",
+      "allowed_roles": [
+        "교육감"
+      ],
+      "sources": [
+        "https://www.daangn.com/kr/local-profile/%ED%8C%90%EB%8B%A4%EC%B9%B8%EC%B9%B8-q2p8mvt29o29/",
+        "https://www.diningcode.com/profile.php?rid=ImBLtHGj0NtA"
+      ],
+      "verification_confidence": "HIGH"
+    }
+  ]
+}
