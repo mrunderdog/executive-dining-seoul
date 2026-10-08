@@ -62,5 +62,21 @@ jobs:
             exit 0
           fi
           git commit -m "data: refresh signal intelligence reports"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          # Coordinate cache and report builders may race on main.
+          # Retry only after rebasing the report-only commit against fresh main.
+          for ATTEMPT in 1 2 3 4 5; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "Rebase conflict; stop rather than overwrite another report."
+              git rebase --abort || true
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Signal report committed on attempt $ATTEMPT"
+              exit 0
+            fi
+            echo "Remote main advanced during push (attempt $ATTEMPT/5)."
+            sleep 2
+          done
+          echo "Could not publish signal reports after five attempts."
+          exit 1
