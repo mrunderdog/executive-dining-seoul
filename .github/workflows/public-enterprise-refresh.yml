@@ -21,6 +21,7 @@ on:
       - 'pipeline/public_enterprise_fowi.py'
       - 'pipeline/public_enterprise_nia.py'
       - 'pipeline/public_enterprise_nhis.py'
+      - 'pipeline/public_enterprise_kpx.py'
       - 'pipeline/public_enterprise_nile.py'
       - 'pipeline/public_enterprise_koat.py'
       - 'pipeline/public_enterprise_kibo.py'
@@ -80,6 +81,7 @@ jobs:
           python pipeline/public_enterprise_fowi.py
           python pipeline/public_enterprise_nia.py
           python pipeline/public_enterprise_nhis.py
+          python pipeline/public_enterprise_kpx.py
           python pipeline/public_enterprise_kps.py
           python pipeline/public_enterprise_kamco.py
           python pipeline/public_enterprise_kca.py
