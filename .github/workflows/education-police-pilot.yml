@@ -54,7 +54,7 @@ jobs:
                           print('LINK_DEBUG',str(anchor)[:260])
           for file in r['file_results']:
               print('PARSE_STATS', file['key'], file['stats'], (file['parse_info'] or {}).get('sheets',[])[:3])
-          if not r['rows']:
+          if r['file_results']:
               from io import BytesIO
               from urllib.request import Request, urlopen
               from pypdf import PdfReader
