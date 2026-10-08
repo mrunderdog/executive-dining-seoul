@@ -1,22 +1,42 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import io,urllib.parse,urllib.request
+import html,io,re,urllib.parse,urllib.request,http.cookiejar
 from pypdf import PdfReader
 
-URL="https://www.pmaa.or.kr/fileDownload.do"
+BASE="https://www.pmaa.or.kr"
+LIST=BASE+"/www/1461128776985/bbs.do"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-data=urllib.parse.urlencode({
-    "path":"NOTICE",
-    "physicalName":"6308dfc4-70b9-43b5-8a1a-b898142b7d22.pdf",
-    "original":"2026년 8월_임원_업무추진비_사용내역.pdf"
-}).encode()
-req=urllib.request.Request(URL,data=data,headers={
-    "User-Agent":UA,"Content-Type":"application/x-www-form-urlencoded",
-    "Referer":"https://www.pmaa.or.kr/www/1461128776985/bbs.do"
-})
-with urllib.request.urlopen(req,timeout=20) as r:
+jar=http.cookiejar.CookieJar()
+opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+
+def open_req(url,data=None,referer=LIST):
+    req=urllib.request.Request(url,data=data,headers={
+        "User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9",
+        "Referer":referer,
+        **({"Content-Type":"application/x-www-form-urlencoded"} if data is not None else {})
+    })
+    return opener.open(req,timeout=20)
+
+with open_req(LIST) as r:
+    r.read()
+print("COOKIES1",[(c.name,c.value[:30]) for c in jar])
+
+detail_data=urllib.parse.urlencode({"type":"view","bbsIdx":"42469"}).encode()
+with open_req(LIST,detail_data,LIST) as r:
+    doc=r.read().decode(r.headers.get_content_charset() or "utf-8","replace")
+print("COOKIES2",[(c.name,c.value[:30]) for c in jar])
+
+m=re.search(r"fn_www_download2\('([^']+)','([^']+)','([^']+)','([^']+)'\)",doc)
+print("META",m.groups() if m else None)
+if not m: raise SystemExit("download meta not found")
+endpoint,path,physical,original=m.groups()
+data=urllib.parse.urlencode({"path":path,"physicalName":physical,"original":original}).encode()
+with open_req(urllib.parse.urljoin(BASE,endpoint),data,LIST) as r:
     blob=r.read()
     print("DOWNLOAD",len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"),blob[:8])
+if not blob.startswith(b"%PDF"):
+    print(blob[:2000].decode("utf-8","replace"))
+    raise SystemExit("not pdf")
 reader=PdfReader(io.BytesIO(blob))
 print("PAGES",len(reader.pages))
 for i,p in enumerate(reader.pages[:6],1):
