@@ -1,0 +1,54 @@
+name: Education police and public-enterprise source QA
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/venue_eligibility.py'
+      - 'pipeline/build_public_enterprise_candidates.py'
+      - 'pipeline/audit_public_enterprise_coverage.py'
+      - 'sources/education_police_registry.json'
+      - '.github/workflows/education-police-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax checks and venue-classification unit smoke
+        run: |
+          python -m py_compile pipeline/venue_eligibility.py pipeline/build_public_enterprise_candidates.py pipeline/audit_public_enterprise_coverage.py
+          PYTHONPATH=pipeline python - <<'PY'
+          from venue_eligibility import is_non_venue_merchant
+          assert is_non_venue_merchant("배달의민족")
+          assert is_non_venue_merchant("우아한형제들")
+          assert is_non_venue_merchant("스타벅스 코리아")
+          assert not is_non_venue_merchant("스타벅스 광화문점")
+          assert not is_non_venue_merchant("봉피양")
+          print("venue classification smoke passed")
+          PY
+      - name: Prepublication coverage audit
+        run: |
+          python pipeline/audit_public_enterprise_coverage.py > /tmp/public-source-audit.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/public-source-audit.json'))
+          print('Registered:', x['source_count'], 'Configured:', x['publish_configured_count'], 'Tracked:', x['tracked_count'])
+          print('Non-venue existing candidates:', len(x['suspected_non_venues_in_existing_candidates']))
+          print('Sources without raw data:', sum(r['diagnosis']=='NO_RAW' for r in x['sources']))
+          PY
+      - name: Validate education and police discovery-only policy
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('sources/education_police_registry.json',encoding='utf-8'))
+          assert len(x['sources']) == 3
+          assert all(s['publish'] is False and s['status']=='DISCOVERY_REQUIRED' for s in x['sources'])
+          print('no unverified education/police sources published')
+          PY

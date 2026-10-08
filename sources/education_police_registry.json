@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-08",
+  "policy": "Discovery candidates only. Do not publish without transaction-level merchant, official source provenance, position scope and date validation.",
+  "sources": [
+    {
+      "key": "gyeonggi_education",
+      "institution": "경기도교육청",
+      "cohort": "education_leadership",
+      "status": "DISCOVERY_REQUIRED",
+      "publish": false,
+      "role_scope": [
+        "교육감",
+        "부교육감",
+        "실국장"
+      ],
+      "official_urls": [
+        "https://www.goe.go.kr/"
+      ],
+      "notes": "Probe published expenditure attachments. A policy office PDF does not by itself establish superintendent or executive role."
+    },
+    {
+      "key": "incheon_education",
+      "institution": "인천광역시교육청",
+      "cohort": "education_leadership",
+      "status": "DISCOVERY_REQUIRED",
+      "publish": false,
+      "role_scope": [
+        "교육감",
+        "부교육감",
+        "실국장"
+      ],
+      "official_urls": [
+        "https://www.ice.go.kr/ice/na/ntt/selectNttList.do?bbsId=1726&mi=11654"
+      ],
+      "notes": "Verify each position-specific attachment and actual merchant/venue columns before ingestion."
+    },
+    {
+      "key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "status": "DISCOVERY_REQUIRED",
+      "publish": false,
+      "role_scope": [
+        "경찰청장",
+        "차장",
+        "실국장"
+      ],
+      "official_urls": [
+        "https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1025"
+      ],
+      "notes": "Confirm public PDF columns and role/date provenance; do not infer senior officials from agency-level aggregates."
+    }
+  ]
+}
