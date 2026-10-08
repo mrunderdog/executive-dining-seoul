@@ -70,8 +70,20 @@ jobs:
                           for ti,table in enumerate(tbl[:2]):
                               print('PDFPLUMBER_TABLE',ti,'rows',len(table),'SAMPLE',repr(table[:5])[:3500])
                           print('PDFPLUMBER_WORD_SAMPLE',repr(pdfpl.pages[0].extract_words()[:40])[:2300])
+                          for pi,page in enumerate(pdfpl.pages[:3],1):
+                              for ti,table in enumerate(page.extract_tables()[:2],1):
+                                  print('TABLE_PAGE',pi,ti,'first_rows',repr(table[:3])[:900])
                   except Exception as exc:
                       print('PDF_LAYOUT_ERROR',type(exc).__name__,str(exc)[:100])
+          for file in r['file_results']:
+              if file['key']!='incheon_education': continue
+              try:
+                  import openpyxl
+                  wb=openpyxl.load_workbook(BytesIO(urlopen(Request(file['url'],headers={'User-Agent':'Mozilla/5.0'}),timeout=15).read()),read_only=True,data_only=True)
+                  for ws in wb.worksheets[:1]:
+                      print('INCHEON_XLSX',ws.title,repr(list(ws.iter_rows(min_row=1,max_row=7,values_only=True)))[:3200])
+              except Exception as exc:
+                  print('INCHEON_XLSX_ERROR',str(exc)[:120])
           print('STAGED_SAMPLE',[(x['used_date'],x['merchant'],x['amount'],x['role']) for x in r['rows'][:5]])
           print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
           PY
