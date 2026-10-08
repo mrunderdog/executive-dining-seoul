@@ -1,10 +1,10 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-10-08T09:12:52
-- Published restaurant entities: **1277**
+- Generated: 2026-10-08T09:22:58
+- Published restaurant entities: **1279**
 - Cross-institution restaurants: **201**
 - Cross-origin restaurants: **26**
-- Central top-official restaurants: **449**
+- Central top-official restaurants: **451**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **43**
 - Merge audit groups: **37**

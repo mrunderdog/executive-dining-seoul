@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-08T09:12:52",
-  "dataset_records": 1277,
+  "generated_at": "2026-10-08T09:22:58",
+  "dataset_records": 1279,
   "cross_institution_count": 201,
   "cross_origin_count": 26,
-  "top_official_count": 449,
+  "top_official_count": 451,
   "regional_head_count": 20,
   "entity_merges": 43,
   "entity_merge_audit_count": 37,
@@ -14594,6 +14594,35 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "삿뽀로 한옥마을점",
+      "address": "인천광역시 연수구 테크노파크로 180",
+      "origins": [
+        "교육청(고위직)"
+      ],
+      "institutions": [
+        "인천광역시교육청"
+      ],
+      "cohorts": [
+        "education_leadership"
+      ],
+      "visits": 2,
+      "spend": 630000,
+      "date_min": "2026-06-16",
+      "date_max": "2026-08-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "education_police_senior",
+      "top_role_label": "교육감",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "평양원냉면",
       "address": "",
       "origins": [
@@ -16488,6 +16517,35 @@
       "source_count": 1,
       "top_role_tier": "court_or_prosecution_agency_head",
       "top_role_label": "법제처장",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "판다칸칸",
+      "address": "인천광역시 남동구 논고개로 80",
+      "origins": [
+        "교육청(고위직)"
+      ],
+      "institutions": [
+        "인천광역시교육청"
+      ],
+      "cohorts": [
+        "education_leadership"
+      ],
+      "visits": 1,
+      "spend": 400000,
+      "date_min": "2026-08-03",
+      "date_max": "2026-08-03",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "education_police_senior",
+      "top_role_label": "교육감",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
