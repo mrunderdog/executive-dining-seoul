@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html,re,urllib.parse,urllib.request
+import io,urllib.request
+from openpyxl import load_workbook
 
-URL="https://www.nhis.or.kr/announce/wbhaec11200m01.do"
+URL="https://www.nhis.or.kr/announce/wbhaec11200m01.do?mode=download&articleNo=11013546&attachNo=369407"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
+req=urllib.request.Request(URL,headers={"User-Agent":UA,"Referer":"https://www.nhis.or.kr/announce/wbhaec11200m01.do"})
 with urllib.request.urlopen(req,timeout=20) as r:
-    raw=r.read(); enc=r.headers.get_content_charset() or "utf-8"
-    print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
-doc=raw.decode(enc,"replace")
-for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
-    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
-    if "2026년 8월 임원 업무추진비 집행내역" in txt:
-        print("ROW",txt)
-        print(html.unescape(row)[:12000])
+    blob=r.read()
+    print("DOWNLOAD",len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"),blob[:8])
+wb=load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
+for ws in wb.worksheets:
+    print("\nSHEET",ws.title)
+    for i,row in enumerate(ws.iter_rows(values_only=True),1):
+        vals=[" ".join(str(v or "").split()) for v in row]
+        if any(vals):
+            print(i,vals)
+        if i>=30:break
