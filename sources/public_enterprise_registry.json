@@ -542,6 +542,21 @@
         "https://www.kamco.or.kr/portal/bbs/list.do?mId=0601060603&ptIdx=479"
       ],
       "note": "한국자산관리공사 공식 업무추진비 게시판. 월별 XLSX의 기관장·임원 시트를 수집하며 사용일자·집행자·집행내역·사용처·집행대상자·집행구분·인원·집행금액을 거래별 파싱하고 기관장·부사장·감사·이사 역할을 보존."
+    },
+    {
+      "key": "kca",
+      "institution": "한국소비자원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·부기관장·상임이사·상임위원·분쟁조정위원장·안전센터소장",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kca.go.kr/kca/sub.do?menukey=5152&mode=list&page=1"
+      ],
+      "note": "한국소비자원 공식 경영공시 > 기관장 및 임원 업무추진비. 기관장·부기관장·상임이사·상임위원·분쟁조정위원장·안전센터소장 자료가 월별 XLSX로 공개되며 사용일자·목적·사용처·대상·결제구분·인원·금액을 거래별 수집."
     }
   ]
 }
