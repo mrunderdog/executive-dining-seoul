@@ -17,9 +17,10 @@ on:
       - 'pipeline/public_enterprise_fira.py'
       - 'pipeline/public_enterprise_keco.py'
       - 'pipeline/public_enterprise_kobc.py'
-      - 'pipeline/public_enterprise_kofpi.py pipeline/public_enterprise_fowi.py pipeline/public_enterprise_nia.py'
+      - 'pipeline/public_enterprise_kofpi.py pipeline/public_enterprise_fowi.py pipeline/public_enterprise_nia.py pipeline/public_enterprise_nhis.py'
       - 'pipeline/public_enterprise_fowi.py'
       - 'pipeline/public_enterprise_nia.py'
+      - 'pipeline/public_enterprise_nhis.py'
       - 'pipeline/public_enterprise_nile.py'
       - 'pipeline/public_enterprise_koat.py'
       - 'pipeline/public_enterprise_kibo.py'
@@ -78,6 +79,7 @@ jobs:
           python pipeline/public_enterprise_kofpi.py
           python pipeline/public_enterprise_fowi.py
           python pipeline/public_enterprise_nia.py
+          python pipeline/public_enterprise_nhis.py
           python pipeline/public_enterprise_kps.py
           python pipeline/public_enterprise_kamco.py
           python pipeline/public_enterprise_kca.py
