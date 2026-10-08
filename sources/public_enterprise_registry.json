@@ -572,6 +572,22 @@
         "https://www.kobc.or.kr/ebz/kor/bbs/list.do?mId=0601020400&ptIdx=341"
       ],
       "note": "한국해양진흥공사 공식 기관장(임원) 업무추진비 게시판. 기관장·상임이사·상임감사 월별 PDF에 사용일자·목적·사용처·집행대상자·집행구분·인원·금액이 거래별 공개되어 역할별로 수집."
+    },
+    {
+      "key": "kofpi",
+      "institution": "한국임업진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·상임이사",
+      "format_hint": "xls-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kofpi.or.kr/public/publicInfo_03_001.do?sub=25",
+        "https://www.kofpi.or.kr/public/publicInfo_03_001.do?sub=26"
+      ],
+      "note": "한국임업진흥원 공식 사전정보공표의 기관장 업무추진비 및 임원(기관장 제외) 업무추진비성 경비 사용내역. 월별 XLS에 사용일자·집행자·목적·사용처·집행대상자·집행구분·인원·금액이 거래별 공개되어 역할별로 수집."
     }
   ]
 }
