@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import html, io, json, re, ssl, time, urllib.parse, urllib.request
+import html, io, json, re, ssl, time, urllib.parse, urllib.request, zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime
 from pathlib import Path
@@ -108,11 +108,20 @@ def discover_files(year:int):
     return sorted(uniq.values(),key=lambda x:(x["year"],x["month"],x["role"])),list(dict.fromkeys(pages)),errors
 
 def parse_xlsx(att):
-    try:
-        blob=fetch(att["url"],True,att.get("parent",""))
-        wb=openpyxl.load_workbook(io.BytesIO(blob),data_only=True,read_only=True)
-    except Exception as e:
-        return [],f"xlsx {att['url']}: {type(e).__name__}: {e}"
+    last=None
+    wb=None
+    for attempt in range(3):
+        try:
+            blob=fetch(att["url"],True,att.get("parent",""))
+            if not blob.startswith(b"PK") or not zipfile.is_zipfile(io.BytesIO(blob)):
+                raise ValueError(f"unexpected non-xlsx payload ({len(blob)} bytes)")
+            wb=openpyxl.load_workbook(io.BytesIO(blob),data_only=True,read_only=True)
+            break
+        except Exception as e:
+            last=e
+            if attempt<2: time.sleep(1.5*(attempt+1))
+    if wb is None:
+        return [],f"xlsx {att['url']}: {type(last).__name__}: {last}"
     rows=[]
     for ws in wb.worksheets:
         header_row=None;headers=[]
@@ -149,7 +158,7 @@ def parse_xlsx(att):
 def discover(year:int):
     attachments,pages,errors=discover_files(year);rows=[]
     if attachments:
-        with ThreadPoolExecutor(max_workers=min(8,len(attachments))) as pool:
+        with ThreadPoolExecutor(max_workers=min(4,len(attachments))) as pool:
             fm={pool.submit(parse_xlsx,a):a for a in attachments}
             for fut in as_completed(fm):
                 parsed,err=fut.result();rows.extend(parsed)
