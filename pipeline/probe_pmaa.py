@@ -11,13 +11,19 @@ req=urllib.request.Request(URL,data=data,headers={
 })
 with urllib.request.urlopen(req,timeout=20) as r:
     raw=r.read();enc=r.headers.get_content_charset() or "utf-8"
-    print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
 doc=raw.decode(enc,"replace")
-needle="2026년 8월_임원_업무추진비_사용내역.pdf"
-i=doc.find(needle)
-print("IDX",i)
-print(html.unescape(doc[max(0,i-5000):i+8000]) if i>=0 else "not found")
-for pat in [r"function\s+fn_[A-Za-z0-9_]*down[A-Za-z0-9_]*\s*\([^)]*\)\s*\{.*?\}",
-            r"function\s+fn_[A-Za-z0-9_]*file[A-Za-z0-9_]*\s*\([^)]*\)\s*\{.*?\}"]:
+for pat in [r"function\s+fn_www_download2\s*\([^)]*\)\s*\{.*?\}",r"fn_www_download2\s*=\s*function\s*\([^)]*\)\s*\{.*?\}"]:
     for m in re.finditer(pat,doc,re.I|re.S):
         print("DEF",html.unescape(m.group(0))[:8000])
+for m in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
+    src=urllib.parse.urljoin(URL,html.unescape(m.group(1)))
+    try:
+        rq=urllib.request.Request(src,headers={"User-Agent":UA,"Referer":URL})
+        with urllib.request.urlopen(rq,timeout=20) as r:
+            s=r.read().decode(r.headers.get_content_charset() or "utf-8","replace")
+        if "fn_www_download2" in s:
+            i=s.find("fn_www_download2")
+            print("SCRIPT",src)
+            print(s[max(0,i-3000):i+7000])
+    except Exception:
+        pass
