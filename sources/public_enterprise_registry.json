@@ -527,6 +527,21 @@
         "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/certification-director"
       ],
       "note": "안전보건공단 자체공시 임원 업무추진비. 표준게시판 API를 통해 기관장·감사·경영기획이사·안전보건사업이사·교육홍보이사·연구원장·교육원장·인증원장 등의 월별 XLSX를 수집하며 사용일자·목적·사용처·대상·결제구분·인원·금액을 거래별 파싱."
+    },
+    {
+      "key": "kamco",
+      "institution": "한국자산관리공사",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·부사장·감사·이사",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kamco.or.kr/portal/bbs/list.do?mId=0601060603&ptIdx=479"
+      ],
+      "note": "한국자산관리공사 공식 업무추진비 게시판. 월별 XLSX의 기관장·임원 시트를 수집하며 사용일자·집행자·집행내역·사용처·집행대상자·집행구분·인원·집행금액을 거래별 파싱하고 기관장·부사장·감사·이사 역할을 보존."
     }
   ]
 }
