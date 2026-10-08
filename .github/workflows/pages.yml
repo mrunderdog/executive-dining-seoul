@@ -12,6 +12,7 @@ on:
       - Rebuild council candidates
       - Regional executive refresh
       - Capital council expense ingestion
+      - Publish verified education dining transactions
       - Public enterprise refresh on source change
     types: [completed]
   workflow_dispatch:
