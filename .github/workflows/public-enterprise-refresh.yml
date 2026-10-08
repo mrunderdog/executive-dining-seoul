@@ -16,6 +16,7 @@ on:
       - 'pipeline/public_enterprise_kosha.py'
       - 'pipeline/public_enterprise_fira.py'
       - 'pipeline/public_enterprise_keco.py'
+      - 'pipeline/public_enterprise_kobc.py'
       - 'pipeline/public_enterprise_nile.py'
       - 'pipeline/public_enterprise_koat.py'
       - 'pipeline/public_enterprise_kibo.py'
@@ -54,7 +55,7 @@ jobs:
 
       - name: Refresh public-enterprise sources
         run: |
-          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/public_enterprise_komipo.py pipeline/public_enterprise_hf.py pipeline/public_enterprise_hug.py pipeline/public_enterprise_ksure.py pipeline/public_enterprise_nps.py pipeline/public_enterprise_kosaf.py pipeline/public_enterprise_kicece.py pipeline/public_enterprise_hrdk.py pipeline/public_enterprise_kosha.py pipeline/public_enterprise_koat.py pipeline/public_enterprise_kibo.py pipeline/public_enterprise_nile.py pipeline/public_enterprise_fira.py pipeline/public_enterprise_keco.py pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_kca.py pipeline/public_enterprise_komsco.py pipeline/ingest_public_enterprise_expense.py
+          python -m py_compile pipeline/public_enterprise_discovery.py pipeline/public_enterprise_komipo.py pipeline/public_enterprise_hf.py pipeline/public_enterprise_hug.py pipeline/public_enterprise_ksure.py pipeline/public_enterprise_nps.py pipeline/public_enterprise_kosaf.py pipeline/public_enterprise_kicece.py pipeline/public_enterprise_hrdk.py pipeline/public_enterprise_kosha.py pipeline/public_enterprise_koat.py pipeline/public_enterprise_kibo.py pipeline/public_enterprise_nile.py pipeline/public_enterprise_fira.py pipeline/public_enterprise_keco.py pipeline/public_enterprise_kobc.py pipeline/public_enterprise_kps.py pipeline/public_enterprise_kamco.py pipeline/public_enterprise_kca.py pipeline/public_enterprise_komsco.py pipeline/ingest_public_enterprise_expense.py
           python pipeline/public_enterprise_discovery.py --incremental --detail-limit 24
           python pipeline/public_enterprise_komipo.py
           python pipeline/public_enterprise_hf.py
@@ -70,6 +71,7 @@ jobs:
           python pipeline/public_enterprise_nile.py
           python pipeline/public_enterprise_fira.py
           python pipeline/public_enterprise_keco.py
+          python pipeline/public_enterprise_kobc.py
           python pipeline/public_enterprise_kps.py
           python pipeline/public_enterprise_kamco.py
           python pipeline/public_enterprise_kca.py
