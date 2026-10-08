@@ -1,0 +1,56 @@
+name: Expansion ingestion verify
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/expansion-ingest-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Run expansion adapters
+        run: |
+          python pipeline/public_enterprise_koat.py
+          python pipeline/public_enterprise_nile.py
+          python pipeline/public_enterprise_kibo.py
+          python pipeline/public_enterprise_fira.py
+      - name: Ingest and verify
+        run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          raw=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          cand=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          mapping={
+            'koat':'한국농업기술진흥원',
+            'nile':'국가평생교육진흥원',
+            'kibo':'기술보증기금',
+            'fira':'한국수산자원공단',
+          }
+          for key,inst in mapping.items():
+              rows=[r for r in raw['rows'] if r.get('source_key')==key]
+              cs=[x for x in cand['candidates'] if inst in (x.get('institutions') or [])]
+              print(key.upper()+'_ROWS',len(rows))
+              print(key.upper()+'_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+              print(key.upper()+'_ROLES',json.dumps(sorted({r.get('role') for r in rows if r.get('role')}),ensure_ascii=False))
+              print(key.upper()+'_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+              print(key.upper()+'_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+              print(key.upper()+'_CANDIDATES',len(cs))
+              print(key.upper()+'_TOP',json.dumps([{'merchant':x['merchant'],'visits':x['visits']} for x in cs[:10]],ensure_ascii=False))
+              if not rows:
+                  raise SystemExit(key+' produced zero rows')
+          PY
