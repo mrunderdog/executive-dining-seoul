@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 import xlrd
+from openpyxl import load_workbook
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
@@ -110,21 +111,30 @@ def download(att):
 def parse_xls(att):
     try:
         blob=download(att)
-        book=xlrd.open_workbook(file_contents=blob)
+        sheets=[]
+        if blob.startswith(b"PK"):
+            wb=load_workbook(io.BytesIO(blob),read_only=True,data_only=True)
+            for ws in wb.worksheets:
+                values=[list(row) for row in ws.iter_rows(values_only=True)]
+                sheets.append((ws.title,values,0))
+        else:
+            book=xlrd.open_workbook(file_contents=blob)
+            for si in range(book.nsheets):
+                sh=book.sheet_by_index(si)
+                values=[[sh.cell_value(ri,ci) for ci in range(sh.ncols)] for ri in range(sh.nrows)]
+                sheets.append((sh.name,values,book.datemode))
     except Exception as e:
-        return [],f"xls {att['file_seq']}: {type(e).__name__}: {e}"
+        return [],f"workbook {att['file_seq']}: {type(e).__name__}: {e}"
     rows=[]
-    for si in range(book.nsheets):
-        sh=book.sheet_by_index(si)
-        if sh.nrows==0:continue
+    for sheet_name,values,datemode in sheets:
+        if not values:continue
         header=None
         inferred_role=att["default_role"]
-        for ri in range(min(sh.nrows,8)):
-            first=" ".join(str(sh.cell_value(ri,0) or "").split())
+        for vals in values[:8]:
+            first=" ".join(str((vals[0] if vals else "") or "").split())
             rm=re.search(r"업무추진비\(([^)]+)\)",first)
             if rm: inferred_role=rm.group(1).strip()
-        for ri in range(sh.nrows):
-            vals=[sh.cell_value(ri,ci) for ci in range(sh.ncols)]
+        for ri,vals in enumerate(values):
             texts=[" ".join(str(v or "").split()) for v in vals]
             if "사용일자" in texts and "사용처(장소)" in texts:
                 names=("사용일자","집행자","집 행 내 역(목 적)","집행내역(목적)","사용처(장소)","집행대상자","집행구분","인원(명)","집행금액(원)")
@@ -138,7 +148,7 @@ def parse_xls(att):
                     i=header.get(n)
                     if i is not None and i<len(vals):return vals[i]
                 return ""
-            d=norm_date(get("사용일자"),book.datemode)
+            d=norm_date(get("사용일자"),datemode)
             merchant=" ".join(str(get("사용처(장소)") or "").split()).strip()
             if not d or not merchant or merchant in {"-","사용처(장소)","해당없음"}:continue
             role=" ".join(str(get("집행자") or "").split()).strip()
@@ -155,8 +165,8 @@ def parse_xls(att):
                 "payment_method":" ".join(str(get("집행구분") or "").split()),
                 "people":to_int(get("인원(명)")),"amount":to_int(get("집행금액(원)")),
                 "source_amount_scale":1,"source_category":att["kind"],
-                "source_url":att["parent"],"source_sheet":sh.name,"source_row":ri+1,
-                "row_id":f"kofpi:{att['attachment_id']}:{sh.name}:{ri+1}",
+                "source_url":att["parent"],"source_sheet":sheet_name,"source_row":ri+1,
+                "row_id":f"kofpi:{att['attachment_id']}:{sheet_name}:{ri+1}",
             })
     return rows,None
 
