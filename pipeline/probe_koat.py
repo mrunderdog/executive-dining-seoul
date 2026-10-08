@@ -33,3 +33,7 @@ for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
     txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
     if "2026년 9월 기관장 업무추진비 집행내역" in txt:
         print("\nROW\n",html.unescape(row)[:8000])
+
+idx=doc.find("function fn_borad_file_down")
+if idx>=0:
+    print("\nDEF_CONTEXT\n",html.unescape(doc[idx:idx+5000]))
