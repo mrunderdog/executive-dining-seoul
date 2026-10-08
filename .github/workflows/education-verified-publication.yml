@@ -68,6 +68,9 @@ jobs:
             exit 0
           fi
           git commit -m "data: publish source-reviewed education leadership venues"
+          # Staging reports changed during source refresh; keep only the approved data commit.
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
