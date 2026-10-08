@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install parser
-        run: pip install --disable-pip-version-check pdfplumber==0.11.7
+        run: pip install --disable-pip-version-check pypdf==6.1.1 --pre pyhwp six
       - name: Parse HRDK
         run: python pipeline/public_enterprise_hrdk.py
       - name: Ingest and build candidates
