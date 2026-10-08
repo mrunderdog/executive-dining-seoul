@@ -127,6 +127,18 @@ def discover_attachments(page: str, url: str, allowed_hosts: set[str]) -> list[d
             found[link] = {"name": label, "url": link}
     return list(found.values())
 
+def attachment_diagnostics(page: str) -> list[dict]:
+    parser = Anchors()
+    parser.feed(page)
+    likely = []
+    for item in parser.links:
+        attrs = item["attrs"]
+        label = clean(item["text"])
+        if any(t in (label + " " + str(attrs)).lower() for t in ("pdf", "xlsx", "다운로드", "첨부", "filedown", "download")):
+            likely.append({"label": label[:115], "href": str(attrs.get("href") or "")[:250],
+                           "onclick": str(attrs.get("onclick") or "")[:250]})
+    return likely[:18]
+
 def probe_source(source: dict, max_details: int = 12) -> dict:
     key = source["key"]
     family = "police" if key == "national_police" else "education"
@@ -163,6 +175,8 @@ def probe_source(source: dict, max_details: int = 12) -> dict:
             page = fetch(url)
             entry["attachments"] = discover_attachments(page, url, hosts)
             entry["detail_fetch"] = "OK"
+            if not entry["attachments"]:
+                entry["link_debug"] = attachment_diagnostics(page)
         except Exception as exc:
             entry["detail_fetch"] = "FETCH_FAILED"
             entry["attachments"] = []
