@@ -73,7 +73,7 @@ def discover_files(year:int):
                 if not tm:continue
                 y,m,role=int(tm.group(1)),int(tm.group(2)),tm.group(3).strip()
                 if y not in years:continue
-                hm=re.search(r'href=["\\\']([^"\\\']*mode=view[^"\\\']*no=(\\d+)[^"\\\']*)["\\\']',row,re.I)
+                hm=re.search(r"""href=["']([^"']*mode=view[^"']*no=(\d+)[^"']*)["']""",row,re.I)
                 if not hm:continue
                 detail=urllib.parse.urljoin(u,html.unescape(hm.group(1)).replace("&amp;","&"))
                 details.append((y,m,role,txt,detail,hm.group(2)))
@@ -81,7 +81,7 @@ def discover_files(year:int):
     def inspect(item):
         y,m,role,txt,detail,did=item
         ddoc=fetch(detail)
-        fm2=re.search(r'href=["\\\']([^"\\\']*board/download\\.do\\?[^"\\\']+)["\\\']',ddoc,re.I)
+        fm2=re.search(r"""href=["']([^"']*board/download\.do\?[^"']+)["']""",ddoc,re.I)
         if not fm2:return detail,None
         dl=urllib.parse.urljoin(detail,html.unescape(fm2.group(1)).replace("&amp;","&"))
         q=urllib.parse.parse_qs(urllib.parse.urlparse(dl).query)
