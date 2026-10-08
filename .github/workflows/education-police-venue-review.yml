@@ -1,0 +1,43 @@
+name: Gyeonggi and police official venue review pilot
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/review_education_venues.py'
+      - 'pipeline/test_education_venue_review.py'
+      - 'pipeline/education_police_source_probe.py'
+      - '.github/workflows/education-police-venue-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official-document parsers
+        run: pip install --disable-pip-version-check pdfplumber==0.11.7 pypdf==6.1.1 openpyxl==3.1.5 xlrd==2.0.2
+      - name: Strict tests
+        run: |
+          python -m py_compile pipeline/review_education_venues.py pipeline/education_police_source_probe.py
+          PYTHONPATH=pipeline python -m unittest -v test_education_venue_review test_education_police
+      - name: Extract official senior-expenditure venue review queue
+        run: |
+          python pipeline/education_police_source_probe.py --max-details 8
+          python pipeline/ingest_education_police_expense.py --max-attachments 16
+          python pipeline/review_education_venues.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gyeonggi-official-venue-review
+          path: |
+            reports/education-police-venue-review.json
+            reports/education-police-venue-review.md
+            reports/education-police-source-probe.json
+          if-no-files-found: warn
