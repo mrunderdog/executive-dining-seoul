@@ -4,6 +4,7 @@ import json, math, re
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
+from venue_eligibility import is_non_venue_merchant
 
 ROOT=Path(__file__).resolve().parents[1]
 RAW=ROOT/"data"/"raw"/"public_enterprise_expense.json"
@@ -37,7 +38,7 @@ def meal(r):
         # These verified cafe/fruit merchants are not executive dining venues.
         if re.search(r"이루팜|빅핸즈",m):
             return False
-    if not m or m in GENERIC or re.fullmatch(r"[\d,.:\-\s]+",m):return False
+    if not m or m in GENERIC or is_non_venue_merchant(m) or re.fullmatch(r"[\d,.:\-\s]+",m):return False
     if any(x in c for x in EXCLUDE):return False
     return any(x in p for x in MEAL_WORDS) or t(r.get("role")) in {"기관장","사장","사장직무대행"}
 def score(visits,months,spend):
