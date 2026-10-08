@@ -508,6 +508,25 @@
         "https://main.kotsa.or.kr/portal/bbs/finninfo_list.do?cateCode=10&menuCode=03020300&pageNumb=1"
       ],
       "note": "한국교통안전공단 공식 기관 업무추진비. 2026년 분기별 경영진 자료는 기관장·연구원장·교통본부장·검사본부장·기획본부장별 XLSX를 제공하지만 현재 파일은 일자·내역·금액만 있고 사용처(가맹점/장소)가 없어 지도용 거래 데이터로 publish하지 않음."
+    },
+    {
+      "key": "kosha",
+      "institution": "안전보건공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·감사·상임이사·원장",
+      "format_hint": "xlsx-detail-api-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/institution-leader",
+        "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/auditorndirector",
+        "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/research-director",
+        "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/education-director",
+        "https://www.kosha.or.kr/esg/management-disclosure/self-disclosure/executive-expenses/certification-director"
+      ],
+      "note": "안전보건공단 자체공시 임원 업무추진비. 표준게시판 API를 통해 기관장·감사·경영기획이사·안전보건사업이사·교육홍보이사·연구원장·교육원장·인증원장 등의 월별 XLSX를 수집하며 사용일자·목적·사용처·대상·결제구분·인원·금액을 거래별 파싱."
     }
   ]
 }
