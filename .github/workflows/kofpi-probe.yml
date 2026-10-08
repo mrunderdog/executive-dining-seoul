@@ -1,0 +1,17 @@
+name: KOFPI source probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/probe_kofpi.py'
+      - '.github/workflows/kofpi-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - run: python pipeline/probe_kofpi.py
