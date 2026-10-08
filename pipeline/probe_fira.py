@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import io,urllib.request
-from pypdf import PdfReader
-
-URL="https://www.fira.or.kr/fira/_files/2026/09/30/a7988f07b7f5c15dfba462e0c1c2defd.pdf"
+import html,re,urllib.parse,urllib.request
+URL="https://www.fira.or.kr/newfira/web/info/info02_02.jsp?board_no=186&board_wrapper=%2Fnewfira%2Fweb%2Finfo%2Finfo02_02.jsp&mode=list&pager.offset=0"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-req=urllib.request.Request(URL,headers={"User-Agent":UA,"Referer":"https://www.fira.or.kr/"})
+req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
 with urllib.request.urlopen(req,timeout=20) as r:
-    blob=r.read()
-    print("PDF",len(blob),r.geturl(),r.headers.get("content-type"),blob[:8])
-reader=PdfReader(io.BytesIO(blob))
-print("PAGES",len(reader.pages))
-for i,p in enumerate(reader.pages[:10]):
-    txt=p.extract_text() or ""
-    print("\nPAGE",i+1,"\n",txt[:12000])
+    raw=r.read(); enc=r.headers.get_content_charset() or "utf-8"
+    print("LIST",len(raw),r.geturl(),r.headers.get("content-type"))
+doc=raw.decode(enc,"replace")
+for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
+    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
+    if "기관장 및 임원 업무추진비" in txt:
+        print("ROW",txt)
+        for m in re.finditer(r'href=["\']([^"\']+)["\']',row,re.I):
+            print("HREF",html.unescape(m.group(1)))
