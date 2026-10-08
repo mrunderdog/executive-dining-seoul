@@ -16,3 +16,13 @@ if i>=0:
 for pat in (r"function\s+[^\s(]*(?:down|file)[^\s(]*\s*\([^)]*\)\s*\{.*?\}",):
     for m in re.finditer(pat,doc,re.I|re.S):
         print("\nFUNC\n",html.unescape(m.group(0))[:7000])
+
+for src in ("/ebz/common/renewal/js/common/EgovFileUtils.js","/ebz/dwr/interface/EgovFileMngDwr.js"):
+    u="https://www.kobc.or.kr"+src
+    try:
+        req=urllib.request.Request(u,headers={"User-Agent":UA,"Referer":URL})
+        with urllib.request.urlopen(req,timeout=20) as r:
+            s=r.read().decode("utf-8","replace")
+        if "fn_egov_downFile" in s or "downFile" in s:
+            print("\nSCRIPT",u,"\n",s[:12000])
+    except Exception as e: print("ERR",u,e)
