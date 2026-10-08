@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import html,re,urllib.parse,urllib.request
+import io,urllib.request
+import xlrd
 
-URL="https://www.keco.or.kr/web/lay1/bbs/S1T106C997/A/52/view.do?article_seq=100583&condition=&cpage=1&keyword=&rows=10"
+URL="https://www.keco.or.kr/download.do?uuid=6a5c8cdf-8314-4b11-95ac-f77b250e9158.xls"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
+req=urllib.request.Request(URL,headers={"User-Agent":UA,"Referer":"https://www.keco.or.kr/"})
 with urllib.request.urlopen(req,timeout=20) as r:
-    raw=r.read(); enc=r.headers.get_content_charset() or "utf-8"
-    print("PAGE",len(raw),r.geturl(),r.headers.get("content-type"))
-doc=raw.decode(enc,"replace")
-for m in re.finditer(r"<a\b[^>]*(?:href|onclick)=['\"][^'\"]+['\"][^>]*>.*?</a>",doc,re.I|re.S):
-    s=html.unescape(m.group(0))
-    txt=" ".join(re.sub(r"<[^>]+>"," ",s).split())
-    if ".xls" in s.lower() or "download" in s.lower() or "file" in s.lower():
-        print("A",s[:4000])
+    blob=r.read()
+    print("XLS",len(blob),r.geturl(),r.headers.get("content-type"),r.headers.get("content-disposition"),blob[:8])
+book=xlrd.open_workbook(file_contents=blob)
+for si in range(book.nsheets):
+    sh=book.sheet_by_index(si)
+    print("SHEET",si,sh.name,sh.nrows,sh.ncols)
+    for ri in range(min(30,sh.nrows)):
+        vals=[" ".join(str(sh.cell_value(ri,ci)).split()) for ci in range(sh.ncols)]
+        print(ri+1,vals)
