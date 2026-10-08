@@ -28,3 +28,15 @@ for pat in (r"function\s+[^\s(]*(?:down|file)[^\s(]*\s*\([^)]*\)\s*\{.*?\}",):
 for pat in (r"function\s+fnNotiDownload\s*\([^)]*\)\s*\{.*?\}",):
     for m in re.finditer(pat,doc,re.I|re.S):
         print("\nDOWNLOAD_FUNC\n",html.unescape(m.group(0))[:7000])
+
+for m in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
+    src=urllib.parse.urljoin(VIEW,html.unescape(m.group(1)))
+    try:
+        req=urllib.request.Request(src,headers={"User-Agent":UA,"Referer":VIEW})
+        with urllib.request.urlopen(req,timeout=20) as r:
+            js=r.read().decode(r.headers.get_content_charset() or "utf-8","replace")
+        if "fnNotiDownload" in js:
+            i=js.find("fnNotiDownload")
+            print("\nSCRIPT_FUNC",src,"\n",js[max(0,i-3000):i+7000])
+    except Exception:
+        pass
