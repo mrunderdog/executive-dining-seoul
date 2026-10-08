@@ -11,6 +11,7 @@ on:
       - 'reports/*-executive-candidates.json'
       - 'reports/*-province-candidates.json'
       - 'reports/national-legislator-map-qa.json'
+      - 'reports/education-police-approved-venues.json'
       - 'sources/entity_bridge_overrides.json'
       - '.github/workflows/signal-intelligence.yml'
   workflow_run:
