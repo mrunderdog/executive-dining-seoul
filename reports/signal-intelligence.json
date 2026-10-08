@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-08T12:10:43",
-  "dataset_records": 1279,
+  "generated_at": "2026-10-08T12:14:30",
+  "dataset_records": 1280,
   "cross_institution_count": 201,
   "cross_origin_count": 26,
-  "top_official_count": 451,
+  "top_official_count": 452,
   "regional_head_count": 20,
   "entity_merges": 43,
   "entity_merge_audit_count": 37,
@@ -15109,6 +15109,35 @@
       "source_count": 1,
       "top_role_tier": "public_enterprise_head",
       "top_role_label": "기관장",
+      "top_official_visits": 2,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "더615(동류수)",
+      "address": "경기도 용인시 기흥구 흥덕1로 5-10",
+      "origins": [
+        "교육청(고위직)"
+      ],
+      "institutions": [
+        "경기도교육청"
+      ],
+      "cohorts": [
+        "education_leadership"
+      ],
+      "visits": 2,
+      "spend": 902700,
+      "date_min": "2026-04-01",
+      "date_max": "2026-04-09",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "education_police_senior",
+      "top_role_label": "교육감",
       "top_official_visits": 2,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
