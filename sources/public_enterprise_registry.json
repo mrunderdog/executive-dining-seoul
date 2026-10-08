@@ -486,13 +486,13 @@
       "publish": true,
       "refresh_policy": "monthly",
       "default_role": "이사장·상임감사·상임이사",
-      "format_hint": "pdf-detail-multi-role",
+      "format_hint": "pdf-hwp-detail-multi-role",
       "lookback_years": 1,
       "listing_urls": [
         "https://www.hrdkorea.or.kr/7/5/5/10/1",
         "https://www.hrdkorea.or.kr/7/5/5/10/2"
       ],
-      "note": "한국산업인력공단 공식 업무추진비 게시판. 이사장과 임원 게시판을 함께 수집하며 월별 PDF의 집행일자·집행자·집행내역·사용처·대상·결제구분·인원·금액을 거래별로 파싱해 원 직위를 보존."
+      "note": "한국산업인력공단 공식 업무추진비 게시판. 이사장과 임원 게시판의 월별 PDF/HWP를 함께 수집하며 거래별 집행일자·목적·사용처·대상·결제구분·인원·금액을 파싱하고 게시물 제목의 원 직위를 보존."
     },
     {
       "key": "ts",
