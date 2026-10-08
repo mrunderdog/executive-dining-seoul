@@ -39,7 +39,7 @@ def select(rows, manifest, registry):
         elif clean(r.get("role")) not in v.get("allowed_roles",[]):reason="ROLE_NOT_APPROVED"
         elif not actor_explicit_in_target(r.get("role"),r.get("target")):reason="ACTOR_NOT_EXPLICIT"
         elif not valid_transaction(r,set(source["official_hosts"])):reason="INVALID_TRANSACTION"
-        elif urlsplit(r.get("source_detail_url") or "").hostname not in source["official_hosts"]:reason="NO_OFFICIAL_DETAIL"
+        elif not any((urlsplit(r.get("source_detail_url") or "").hostname or "").lower()==h or (urlsplit(r.get("source_detail_url") or "").hostname or "").lower().endswith("."+h) for h in source["official_hosts"]):reason="NO_OFFICIAL_DETAIL"
         elif not r.get("row_id") or r.get("publication_status")!="STAGING_ONLY":reason="NO_STAGING_LINEAGE"
         if reason:
             skipped[reason]=skipped.get(reason,0)+1
