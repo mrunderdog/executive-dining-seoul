@@ -125,6 +125,18 @@ def discover_attachments(page: str, url: str, allowed_hosts: set[str]) -> list[d
         looks_file = any(t in label.lower() or t in urllib.parse.urlsplit(link).path.lower() for t in TYPES)
         if looks_file:
             found[link] = {"name": label, "url": link}
+    # GOE official board renders an opaque download JS token, but the adjacent
+    # preview action contains an explicit HTTPS resource URL. Capture only those
+    # exact, same-domain PDF/file URLs; never synthesize an arbitrary download URL.
+    for a in parser.links:
+        onclick = str(a["attrs"].get("onclick") or "")
+        match = re.search(r"https://[^'\\\"\\s,<>]+\\.(?:pdf|xlsx?|hwpx?|csv)", onclick, re.I)
+        if not match:
+            continue
+        link = absolute_safe_link(url, match.group(0), allowed_hosts)
+        if link:
+            label = re.search(r"['\\\"]([^'\\\"]+\\.(?:pdf|xlsx?|hwpx?|csv))['\\\"]", onclick, re.I)
+            found[link] = {"name": label.group(1) if label else link.rsplit("/", 1)[-1], "url": link}
     return list(found.values())
 
 def attachment_diagnostics(page: str) -> list[dict]:
