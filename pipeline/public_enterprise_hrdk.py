@@ -5,7 +5,7 @@ import html, io, json, re, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-import pdfplumber
+from ingest_central_executive_expense import rows_from
 
 ROOT=Path(__file__).resolve().parents[1]
 REPORT=ROOT/"reports"/"public-enterprise-discovery.json"
@@ -83,7 +83,7 @@ def discover_files(year:int):
                 files.append({
                     "year":y,"month":mo,"role":role,"text":title,
                     "url":dl,"download_url":dl,"parent":detail,
-                    "attachment_id":aid,
+                    "attachment_id":aid,"filename":file_name,
                 })
                 found+=1
             if page_years and min(page_years)<min(years):break
@@ -91,53 +91,53 @@ def discover_files(year:int):
     uniq={x["attachment_id"]:x for x in files}
     return sorted(uniq.values(),key=lambda x:(x["year"],x["month"],x["role"])),list(dict.fromkeys(pages)),errors
 
-def parse_pdf(att):
+def parse_document(att):
     try:blob=fetch(att["url"],True,att.get("parent",""))
     except Exception as e:return [],f"download {att['url']}: {type(e).__name__}: {e}"
     rows=[]
     try:
-        with pdfplumber.open(io.BytesIO(blob)) as pdf:
-            for pi,page in enumerate(pdf.pages,1):
-                for ti,table in enumerate(page.extract_tables(),1):
-                    if not table:continue
-                    header=None
-                    for ri,cells in enumerate(table,1):
-                        vals=[clean(x) for x in (cells or [])]
-                        if not vals:continue
-                        if header is None:
-                            normalized=[v.replace(" ","") for v in vals]
-                            if "집행일자" in normalized and any("사용처" in x for x in normalized):
-                                header=normalized
-                            continue
-                        if len(vals)<6:continue
-                        def idx_contains(*keys):
-                            for i,h in enumerate(header):
-                                if any(k in h for k in keys):return i
-                            return None
-                        di=idx_contains("집행일자","사용일자")
-                        mi=idx_contains("사용처")
-                        pi_i=idx_contains("집행내역","목적")
-                        ri_i=idx_contains("집행자")
-                        ti_i=idx_contains("집행대상자")
-                        pay_i=idx_contains("집행구분")
-                        people_i=idx_contains("인원")
-                        amount_i=idx_contains("집행금액")
-                        def get(i): return vals[i] if i is not None and i<len(vals) else ""
-                        d=norm_date(get(di)); merchant=get(mi).strip()
-                        if not d or not merchant or merchant in {"-","사용처(장소)","사용처"}:continue
-                        role=get(ri_i).strip() or att["role"]
-                        rows.append({
-                            "source_key":KEY,"institution":INSTITUTION,
-                            "cohort":"public_enterprise_leadership",
-                            "role":role,"department":"","used_date":d,"used_time":"",
-                            "merchant":merchant,"address":"","purpose":get(pi_i),
-                            "target":get(ti_i),"payment_method":get(pay_i),
-                            "people":to_int(get(people_i)),"amount":to_int(get(amount_i)),
-                            "source_amount_scale":1,"source_category":att["role"],
-                            "source_url":att["url"],"source_sheet":f"p{pi}-t{ti}",
-                            "source_row":ri,
-                            "row_id":f"hrdk:{att['attachment_id']}:p{pi}:t{ti}:r{ri}",
-                        })
+        file_name=att.get("filename") or att.get("text") or "expense.pdf"
+        for sheet,table in rows_from(blob,file_name):
+            if not table:continue
+            header=None
+            for hi,cells in enumerate(table):
+                vals=[clean(x) for x in (cells or [])]
+                normalized=[v.replace(" ","") for v in vals]
+                if ("집행일자" in normalized or "사용일자" in normalized) and any("사용처" in x for x in normalized):
+                    header=(hi,normalized);break
+            if header is None:continue
+            hi,hdr=header
+            def idx_contains(*keys):
+                for i,h in enumerate(hdr):
+                    if any(k in h for k in keys):return i
+                return None
+            di=idx_contains("집행일자","사용일자")
+            mi=idx_contains("사용처")
+            pi_i=idx_contains("집행내역","집행목적","사용목적","목적","내역")
+            ri_i=idx_contains("집행자","사용자","직위")
+            ti_i=idx_contains("집행대상자","대상")
+            pay_i=idx_contains("집행구분","결제방법","결제수단")
+            people_i=idx_contains("인원")
+            amount_i=idx_contains("집행금액","사용금액","금액")
+            if None in (di,mi,amount_i):continue
+            def get(vals,i): return vals[i] if i is not None and i<len(vals) else ""
+            for ri,cells in enumerate(table[hi+1:],start=hi+2):
+                vals=[clean(x) for x in (cells or [])]
+                d=norm_date(get(vals,di)); merchant=get(vals,mi).strip()
+                if not d or not merchant or merchant in {"-","사용처(장소)","사용처","계","합계"}:continue
+                role=get(vals,ri_i).strip() or att["role"]
+                rows.append({
+                    "source_key":KEY,"institution":INSTITUTION,
+                    "cohort":"public_enterprise_leadership",
+                    "role":role,"department":"","used_date":d,"used_time":"",
+                    "merchant":merchant,"address":"","purpose":get(vals,pi_i),
+                    "target":get(vals,ti_i),"payment_method":get(vals,pay_i),
+                    "people":to_int(get(vals,people_i)),"amount":to_int(get(vals,amount_i)),
+                    "source_amount_scale":1,"source_category":att["role"],
+                    "source_url":att["url"],"source_sheet":sheet,
+                    "source_row":ri,
+                    "row_id":f"hrdk:{att['attachment_id']}:{sheet}:{ri}",
+                })
     except Exception as e:
         return [],f"parse {att['url']}: {type(e).__name__}: {e}"
     return rows,None
@@ -146,7 +146,7 @@ def discover(year:int):
     attachments,pages,errors=discover_files(year); rows=[]
     if attachments:
         with ThreadPoolExecutor(max_workers=min(8,len(attachments))) as pool:
-            fm={pool.submit(parse_pdf,a):a for a in attachments}
+            fm={pool.submit(parse_document,a):a for a in attachments}
             for fut in as_completed(fm):
                 parsed,err=fut.result(); rows.extend(parsed)
                 if err:errors.append(err)
