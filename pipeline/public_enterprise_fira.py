@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import html, io, json, re, urllib.parse, urllib.request
+import html, io, json, re, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
@@ -15,10 +15,17 @@ BASE="https://www.fira.or.kr/newfira/web/info/info02_02.jsp"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
 
 def fetch(url:str,binary:bool=False,referer:str=""):
-    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9","Referer":referer or url})
-    with urllib.request.urlopen(req,timeout=20) as r:
-        raw=r.read()
-        return raw if binary else raw.decode(r.headers.get_content_charset() or "utf-8","replace")
+    last=None
+    for attempt in range(3):
+        try:
+            req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9","Referer":referer or url,"Connection":"close"})
+            with urllib.request.urlopen(req,timeout=20) as r:
+                raw=r.read()
+                return raw if binary else raw.decode(r.headers.get_content_charset() or "utf-8","replace")
+        except Exception as e:
+            last=e
+            if attempt<2: time.sleep(1.0+attempt)
+    raise last
 
 def clean(v): return " ".join(str(v or "").replace("\n"," ").split())
 
