@@ -1,6 +1,6 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-10-08T09:12:04
+- Generated: 2026-10-08T09:12:52
 - Published restaurant entities: **1277**
 - Cross-institution restaurants: **201**
 - Cross-origin restaurants: **26**
