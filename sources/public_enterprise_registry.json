@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "policy": "Publish public-enterprise leadership expense sources when merchant-level records are traceable to official public disclosures. Institution-head sources are preferred; explicitly labeled executive-management sources may be published with their original role preserved. Aggregate-only or unstable sources stay tracked but unpublished.",
   "sources": [
     {
@@ -462,6 +462,21 @@
         "https://www.kibo.or.kr/main/board/boardType46.do?mode=list"
       ],
       "note": "기술보증기금 공식 기관장/임원 업무추진비 게시판. 월별 PDF에 거래별 사용일자·목적·사용처·전화번호·대상·결제구분·인원·금액이 공개되며 임원 PDF는 사용자명도 포함한다. 첨부는 공통 파일 다운로드 API의 attchFileId/Div/Key POST 방식으로 수집."
+    },
+    {
+      "key": "keco",
+      "institution": "한국환경공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "이사장·감사·상임이사",
+      "format_hint": "xls-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.keco.or.kr/web/lay1/bbs/S1T106C997/A/52/list.do"
+      ],
+      "note": "한국환경공단 공식 임원 업무추진비 게시판. 월별 XLS의 상세 시트에 사용일자·집행자·집행내역·사용처(장소)·집행대상자·집행구분·인원·집행금액이 거래별 공개되며 이사장(직무대행), 감사, 각 상임이사 등의 원 역할을 보존해 수집."
     }
   ]
 }
