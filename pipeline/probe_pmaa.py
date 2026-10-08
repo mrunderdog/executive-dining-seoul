@@ -13,14 +13,11 @@ with urllib.request.urlopen(req,timeout=20) as r:
     raw=r.read();enc=r.headers.get_content_charset() or "utf-8"
     print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
 doc=raw.decode(enc,"replace")
-print("TITLE_FOUND", "2026년 8월 임원업무추진비 사용 내역" in doc)
-for m in re.finditer(r"<a\b[^>]*(?:href|onclick)=['\"]([^'\"]+)['\"][^>]*>(.*?)</a>",doc,re.I|re.S):
-    attr=html.unescape(m.group(1))
-    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",m.group(2))).split())
-    blob=(txt+" "+attr).lower()
-    if any(k in blob for k in ("첨부","download",".xlsx",".xls",".pdf",".hwp")):
-        print("LINK",txt,attr[:2000])
-for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
-    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
-    if any(k in txt for k in ("사용일자","사용처","집행금액","사용금액")):
-        print("ROW",txt)
+needle="2026년 8월_임원_업무추진비_사용내역.pdf"
+i=doc.find(needle)
+print("IDX",i)
+print(html.unescape(doc[max(0,i-5000):i+8000]) if i>=0 else "not found")
+for pat in [r"function\s+fn_[A-Za-z0-9_]*down[A-Za-z0-9_]*\s*\([^)]*\)\s*\{.*?\}",
+            r"function\s+fn_[A-Za-z0-9_]*file[A-Za-z0-9_]*\s*\([^)]*\)\s*\{.*?\}"]:
+    for m in re.finditer(pat,doc,re.I|re.S):
+        print("DEF",html.unescape(m.group(0))[:8000])
