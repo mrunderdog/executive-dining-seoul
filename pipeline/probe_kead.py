@@ -13,3 +13,8 @@ for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
     if "2026년 8월" in txt and ("[본부]" in txt or "서울지역본부" in txt):
         print("\nROW",txt)
         print(html.unescape(row)[:10000])
+
+for m in re.finditer(r"<a\\b[^>]*href=['\"]([^'\"]+)['\"][^>]*>(.*?)</a>",doc,re.I|re.S):
+    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",m.group(2))).split())
+    if "[본부]" in txt and "업무추진비" in txt:
+        print("LINK",txt,urllib.parse.urljoin(URL,html.unescape(m.group(1))))
