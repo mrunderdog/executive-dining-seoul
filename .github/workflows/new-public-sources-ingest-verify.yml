@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install parsers
-        run: pip install --disable-pip-version-check pypdf==6.1.1
+        run: pip install --disable-pip-version-check pypdf==6.1.1 pdfplumber==0.11.7
       - name: Parse new sources
         run: |
           python pipeline/public_enterprise_koat.py
