@@ -23,7 +23,7 @@ def decode_post(s):
 try:
     d.execute_cdp_cmd("Network.enable",{})
     d.get(URL); time.sleep(6)
-    spans=[e for e in d.find_elements(By.XPATH,"//*[normalize-space(text())='다운로드']"]
+    spans=d.find_elements(By.XPATH,"//*[normalize-space(text())='다운로드']")
     print("DOWNLOAD_ELEMENTS",len(spans))
     d.get_log("performance")
     if spans:
