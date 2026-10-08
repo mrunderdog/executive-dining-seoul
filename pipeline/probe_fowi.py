@@ -15,3 +15,18 @@ for m in re.finditer(r"<a\b[^>]*(?:href|onclick)=['\"]([^'\"]*)['\"][^>]*>(.*?)<
 for pat in (r"function\s+[^\s(]*(?:down|file)[^\s(]*\s*\([^)]*\)\s*\{.*?\}",):
     for m in re.finditer(pat,doc,re.I|re.S):
         print("\nFUNC\n",html.unescape(m.group(0))[:8000])
+
+for pat in (r"function\s+fn_generateLink\s*\([^)]*\)\s*\{.*?\}",):
+    for m in re.finditer(pat,doc,re.I|re.S):
+        print("\nGENLINK\n",html.unescape(m.group(0))[:8000])
+for m in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
+    src=urllib.parse.urljoin(URL,html.unescape(m.group(1)))
+    try:
+        req=urllib.request.Request(src,headers={"User-Agent":UA,"Referer":URL})
+        with urllib.request.urlopen(req,timeout=20) as r:
+            js=r.read().decode(r.headers.get_content_charset() or "utf-8","replace")
+        if "fn_generateLink" in js:
+            i=js.find("fn_generateLink")
+            print("\nSCRIPT_GENLINK",src,"\n",js[max(0,i-3000):i+7000])
+    except Exception:
+        pass
