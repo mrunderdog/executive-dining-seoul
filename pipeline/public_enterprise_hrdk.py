@@ -74,7 +74,7 @@ def discover_files(year:int):
                 except Exception as e:
                     errors.append(f"detail {detail}: {type(e).__name__}: {e}");continue
                 pages.append(detail)
-                am=re.search(r'<a\\b[^>]*href=["\\'][^"\\']*/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)[^"\\']*["\\'][^>]*>(.*?)</a>',ddoc,re.I|re.S)
+                am=re.search(r"<a\\b[^>]*href=['\"][^'\"]*/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)[^'\"]*['\"][^>]*>(.*?)</a>",ddoc,re.I|re.S)
                 if am:
                     aid=am.group(1)
                     file_name=clean(html.unescape(re.sub(r"<[^>]+>"," ",am.group(2))))
