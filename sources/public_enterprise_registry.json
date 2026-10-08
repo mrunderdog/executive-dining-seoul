@@ -493,6 +493,21 @@
         "https://www.hrdkorea.or.kr/7/5/5/10/2"
       ],
       "note": "한국산업인력공단 공식 업무추진비 게시판. 이사장과 임원 게시판을 함께 수집하며 월별 PDF의 집행일자·집행자·집행내역·사용처·대상·결제구분·인원·금액을 거래별로 파싱해 원 직위를 보존."
+    },
+    {
+      "key": "ts",
+      "institution": "한국교통안전공단",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": false,
+      "refresh_policy": "track-only",
+      "default_role": "기관장·경영진",
+      "format_hint": "xlsx-aggregate-only",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://main.kotsa.or.kr/portal/bbs/finninfo_list.do?cateCode=10&menuCode=03020300&pageNumb=1"
+      ],
+      "note": "한국교통안전공단 공식 기관 업무추진비. 2026년 분기별 경영진 자료는 기관장·연구원장·교통본부장·검사본부장·기획본부장별 XLSX를 제공하지만 현재 파일은 일자·내역·금액만 있고 사용처(가맹점/장소)가 없어 지도용 거래 데이터로 publish하지 않음."
     }
   ]
 }
