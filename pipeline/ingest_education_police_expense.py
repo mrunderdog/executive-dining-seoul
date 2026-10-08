@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from ingest_central_executive_expense import parse_attachment
-from leadership_scope import classify_leadership_title, valid_transaction
+from leadership_scope import classify_leadership_title, valid_transaction, actor_explicit_in_target
 from venue_eligibility import is_non_venue_merchant
 from gyeonggi_education_pdf import parse as parse_gyeonggi_pdf
 from incheon_education_xlsx import parse as parse_incheon_xlsx
@@ -43,7 +43,7 @@ def process(parsed: list[dict], source: dict, post: dict, download_url: str) -> 
             "source_detail_url": post["detail_url"],
             "source_url": download_url,
             "publication_status": "STAGING_ONLY",
-            "actor_presence": "EXPLICIT" if verified["role"] in str(r.get("target") or "") else "UNCONFIRMED",
+            "actor_presence": "EXPLICIT" if actor_explicit_in_target(verified["role"], r.get("target")) else "UNCONFIRMED",
         })
         if not valid_transaction(r, set(source["official_hosts"])) or is_non_venue_merchant(r.get("merchant")):
             stats["rejected"] += 1
