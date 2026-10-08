@@ -4,6 +4,7 @@ import unittest
 from leadership_scope import classify_leadership_title, valid_transaction
 from education_police_source_probe import discover_post_links, discover_attachments, extract_post_id
 from ingest_education_police_expense import process
+from gyeonggi_education_pdf import normalize_table
 
 class LeadershipTests(unittest.TestCase):
     def test_education_roles(self):
@@ -42,6 +43,20 @@ class LeadershipTests(unittest.TestCase):
         extracted = discover_attachments(preview, "https://www.goe.go.kr/detail", {"goe.go.kr"})
         self.assertEqual(len(extracted), 1)
         self.assertTrue(extracted[0]["url"].endswith("/example.pdf"))
+    def test_gyeonggi_actual_eight_column_pdf_layout(self):
+        table = [
+            ["부서", "집행일", "집행시간", "적 요", "액", "채 주(실거래처)", "집행대상", "집행방법"],
+            ["교육감", "2026-04-01", "13:43", "교육현안 협의회비", "55,800", "화월청과", "외부 관계자 10명", "카드"],
+            [None, None, "12:32", None, "158,000", "더615(동류수)", None, None],
+            ["교육감", "2026-04-03", "11:00", "업무협의", "150,000", "능라도", "관계자 5명", "카드"],
+        ]
+        rows=normalize_table(table,"https://www.goe.go.kr/source.pdf",1,1)
+        self.assertEqual(len(rows),3)
+        self.assertEqual(rows[0]["amount"],55800)
+        self.assertEqual(rows[1]["used_date"],"2026-04-01")
+        self.assertEqual(rows[1]["merchant"],"더615(동류수)")
+        self.assertEqual(rows[2]["people"],5)
+
     def test_staging_rejects_invalid_transactions(self):
         src = {"key":"gyeonggi_education", "institution":"경기도교육청",
                "cohort":"education_leadership","official_hosts":["goe.go.kr"]}
