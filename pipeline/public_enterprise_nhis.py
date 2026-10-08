@@ -57,12 +57,13 @@ def discover_files(year:int):
         pages.append(url)
         page_years=[]
         for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
-            txt=clean(html.unescape(re.sub(r"<[^>]+>"," ",row)))
+            row_unescaped=html.unescape(row)
+            txt=clean(html.unescape(re.sub(r"<[^>]+>"," ",row_unescaped)))
             ym=re.search(r"(20\d{2})년\s*(\d{1,2})월\s*임원\s*업무추진비",txt)
             if not ym:continue
             y,mo=int(ym.group(1)),int(ym.group(2));page_years.append(y)
             if y not in years:continue
-            am=re.search(r'articleNo=(\d+)&attachNo=(\d+)',row,re.I)
+            am=re.search(r'articleNo=(\d+)&attachNo=(\d+)',row_unescaped,re.I)
             if not am:continue
             article,attach=am.groups()
             dl=LISTING+"?"+urllib.parse.urlencode({"mode":"download","articleNo":article,"attachNo":attach})
