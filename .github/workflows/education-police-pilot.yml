@@ -1,0 +1,97 @@
+name: Education and police senior-official pilot
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/leadership_scope.py'
+      - 'pipeline/gyeonggi_education_pdf.py'
+      - 'pipeline/education_police_source_probe.py'
+      - 'pipeline/ingest_education_police_expense.py'
+      - 'pipeline/test_education_police.py'
+      - 'sources/education_police_registry.json'
+      - '.github/workflows/education-police-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF and spreadsheet readers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 pdfplumber==0.11.7
+      - name: Static checks and publication-safety tests
+        run: |
+          python -m py_compile pipeline/gyeonggi_education_pdf.py pipeline/leadership_scope.py pipeline/education_police_source_probe.py pipeline/ingest_education_police_expense.py pipeline/test_education_police.py
+          PYTHONPATH=pipeline python -m unittest -v test_education_police
+      - name: Probe official leadership boards and attachment links
+        run: |
+          python pipeline/education_police_source_probe.py --max-details 2
+          python pipeline/ingest_education_police_expense.py --max-attachments 8
+      - name: Report coverage without enabling publication
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('reports/education-police-source-probe.json').read_text(encoding='utf-8'))
+          r=json.loads(Path('data/raw/education_police_expense_staging.json').read_text(encoding='utf-8'))
+          assert s['publication_enabled'] is False
+          assert r['publication_enabled'] is False
+          for x in s['sources']:
+              print(x['institution'], 'roles=', x['titles_scoped'],
+                    'attachments=',x['attachments_linked'], 'errors=',len(x['errors']))
+          for item in s['sources']:
+              for p in item['posts']:
+                  if p.get('detail_fetch') == 'OK':
+                      print('DETAIL', item['key'], p.get('title','')[:90], 'links',len(p.get('attachments') or []))
+                      for anchor in (p.get('link_debug') or [])[:8]:
+                          print('LINK_DEBUG',str(anchor)[:260])
+          for file in r['file_results']:
+              print('PARSE_STATS', file['key'], file['stats'], (file['parse_info'] or {}).get('sheets',[])[:3])
+          if r['file_results']:
+              from io import BytesIO
+              from urllib.request import Request, urlopen
+              from pypdf import PdfReader
+              for file in r['file_results'][:1]:
+                  try:
+                      blob=urlopen(Request(file['url'],headers={'User-Agent':'Mozilla/5.0'}),timeout=15).read()
+                      pdf=PdfReader(BytesIO(blob))
+                      print('PDF_LAYOUT_SAMPLE',repr((pdf.pages[0].extract_text(extraction_mode='layout') or '')[:2700]))
+                      import pdfplumber
+                      with pdfplumber.open(BytesIO(blob)) as pdfpl:
+                          tbl = pdfpl.pages[0].extract_tables()
+                          print('PDFPLUMBER_TABLE_COUNT',len(tbl))
+                          for ti,table in enumerate(tbl[:2]):
+                              print('PDFPLUMBER_TABLE',ti,'rows',len(table),'SAMPLE',repr(table[:5])[:3500])
+                          print('PDFPLUMBER_WORD_SAMPLE',repr(pdfpl.pages[0].extract_words()[:40])[:2300])
+                          for pi,page in enumerate(pdfpl.pages[:3],1):
+                              for ti,table in enumerate(page.extract_tables()[:2],1):
+                                  print('TABLE_PAGE',pi,ti,'first_rows',repr(table[:3])[:900])
+                  except Exception as exc:
+                      print('PDF_LAYOUT_ERROR',type(exc).__name__,str(exc)[:100])
+          for file in r['file_results']:
+              if file['key']!='incheon_education': continue
+              try:
+                  import openpyxl
+                  wb=openpyxl.load_workbook(BytesIO(urlopen(Request(file['url'],headers={'User-Agent':'Mozilla/5.0'}),timeout=15).read()),read_only=True,data_only=True)
+                  for ws in wb.worksheets[:1]:
+                      print('INCHEON_XLSX',ws.title,repr(list(ws.iter_rows(min_row=1,max_row=7,values_only=True)))[:3200])
+              except Exception as exc:
+                  print('INCHEON_XLSX_ERROR',str(exc)[:120])
+          print('STAGED_SAMPLE',[(x['used_date'],x['merchant'],x['amount'],x['role']) for x in r['rows'][:5]])
+          print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: education-police-pilot-reports
+          path: |
+            reports/education-police-source-probe.json
+            data/raw/education_police_expense_staging.json
+          if-no-files-found: warn
