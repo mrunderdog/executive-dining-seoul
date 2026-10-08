@@ -633,7 +633,7 @@ def education_police_records(max_records: int = 30) -> list[dict]:
              "top_official_visits":len(tx),"top_role_tier":"education_police_senior",
              "top_role_label":"·".join(roles[:4])},
           "address":address,"search_query":f"{name} {address}",
-          "business":{"display":name,"category":t(v.get("category")) or "음식점",
+          "business":{"display":t(v.get("display")) or name,"category":t(v.get("category")) or "음식점",
             "phone":t(v.get("phone")),"status":"공식 업무추진비 거래와 독립 주소 확인",
             "note":"공식 업무추진비 원자료에서 해당 직위 참석이 명시된 거래만 수록. 식당 품질 평가가 아닙니다.",
             "rating":"","url":"","verification_confidence":"HIGH"},
