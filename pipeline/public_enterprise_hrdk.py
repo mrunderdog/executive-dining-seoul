@@ -132,7 +132,7 @@ def parse_document(att):
                 vals=[clean(x) for x in (cells or [])]
                 d=norm_date(get(vals,di)); merchant=get(vals,mi).strip()
                 if not d or not merchant or merchant in {"-","사용처(장소)","사용처","계","합계"}:continue
-                role=get(vals,ri_i).strip() or att["role"]
+                role=att["role"]
                 rows.append({
                     "source_key":KEY,"institution":INSTITUTION,
                     "cohort":"public_enterprise_leadership",
