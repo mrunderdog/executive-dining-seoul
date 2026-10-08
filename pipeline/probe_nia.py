@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import html,re,urllib.parse,urllib.request
-URL="https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=24254"
+
+BASE="https://www.nia.or.kr"
+LIST="https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=24254"
+DETAIL=BASE+"/site/nia_kor/ex/bbs/View.do?cbIdx=24254&bcIdx=30021&parentSeq=30021"
 UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/153 Safari/537.36"
-req=urllib.request.Request(URL,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
-with urllib.request.urlopen(req,timeout=20) as r:
-    raw=r.read();enc=r.headers.get_content_charset() or "utf-8"
-    print("STATUS",len(raw),r.geturl(),r.headers.get("content-type"))
-doc=raw.decode(enc,"replace")
-needle="2026년 8월 임원(기관장 제외) 업무추진비"
-i=doc.find(needle)
-print("FOUND",i)
-if i>=0:
-    print("CONTEXT\n",html.unescape(doc[max(0,i-5000):i+8000]))
-for pat in [r"view([^)]*)",r"fn_[A-Za-z0-9_]+([^)]*)",r"bbsView[^\s'\"]*"]:
-    print("\nPAT",pat)
+
+def get(url,referer=LIST):
+    req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9","Referer":referer})
+    with urllib.request.urlopen(req,timeout=20) as r:
+        raw=r.read(); enc=r.headers.get_content_charset() or "utf-8"
+        print("GET",len(raw),r.geturl(),r.headers.get("content-type"))
+        return raw.decode(enc,"replace")
+
+doc=get(DETAIL)
+for m in re.finditer(r"<a\b[^>]*href=['\"]([^'\"]+)['\"][^>]*>(.*?)</a>",doc,re.I|re.S):
+    href=html.unescape(m.group(1))
+    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",m.group(2))).split())
+    if any(k in (txt+" "+href).lower() for k in ("첨부","download",".xlsx",".xls",".pdf",".hwp")):
+        print("LINK",txt,urllib.parse.urljoin(DETAIL,href))
+for pat in [r"fileDown[^\n<]{0,500}",r"download[^\n<]{0,500}",r"atch[^\n<]{0,500}"]:
     for m in re.finditer(pat,doc,re.I):
-        s=html.unescape(m.group(0))
-        if "24254" in s or "view" in s.lower():
-            print(s[:1000])
+        print("PAT",html.unescape(m.group(0))[:1000])
