@@ -69,12 +69,12 @@ def absolute_safe_link(base: str, value: str, allowed_hosts: set[str]) -> str:
 def extract_post_id(attributes: dict, family: str) -> str:
     combined = " ".join(str(v or "") for v in attributes.values())
     if family == "police":
-        m = re.search(r"q_bbscttSn[=:'\\"\s]+(\d{10,20})", combined)
+        m = re.search(r"q_bbscttSn[^0-9]{0,8}([0-9]{10,20})", combined)
         if m:
             return m.group(1)
         m = re.search(r"(20\d{15})", combined)
         return m.group(1) if m else ""
-    m = re.search(r"nttSn[=:'\\"\s]+(\d{5,12})", combined)
+    m = re.search(r"nttSn[^0-9]{0,8}([0-9]{5,12})", combined)
     if m:
         return m.group(1)
     m = re.search(r"(?<!\d)(\d{5,12})(?!\d)", combined)
