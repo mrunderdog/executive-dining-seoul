@@ -165,6 +165,19 @@ def probe_source(source: dict, max_details: int = 12) -> dict:
         try:
             page = fetch(url)
             posts = discover_post_links(page, url, source["cohort"], family, hosts)
+            # ICE intermittently serves a truncated page with just one recent
+            # listing. Retry the exact official board before deciding that
+            # all other published months and senior roles have disappeared.
+            if key == "incheon_education" and len(posts) < 3:
+                by_url={p.get("detail_url") or p["title"]:p for p in posts}
+                for _ in range(3):
+                    try:
+                        page_retry=fetch(url)
+                        for item in discover_post_links(page_retry,url,source["cohort"],family,hosts):
+                            by_url[item.get("detail_url") or item["title"]]=item
+                    except Exception as retry_exc:
+                        errors.append(f"retry {url}: {type(retry_exc).__name__}: {str(retry_exc)[:100]}")
+                posts=list(by_url.values())
             queues.append(list(posts))
             board_status.append({"url": url, "status": "OK", "posts": len(posts)})
         except Exception as exc:
