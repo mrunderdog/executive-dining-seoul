@@ -74,22 +74,16 @@ def discover_files(year:int):
                 except Exception as e:
                     errors.append(f"detail {detail}: {type(e).__name__}: {e}");continue
                 pages.append(detail)
-                am=re.search(r"<a\\b[^>]*href=['\"][^'\"]*/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)[^'\"]*['\"][^>]*>(.*?)</a>",ddoc,re.I|re.S)
-                if am:
-                    aid=am.group(1)
-                    file_name=clean(html.unescape(re.sub(r"<[^>]+>"," ",am.group(2))))
-                else:
-                    sm=re.search(r'/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)',ddoc,re.I)
-                    if not sm:continue
-                    aid=sm.group(1)
-                    file_name=title
+                am=re.search(r'/cms/download/downloadFile\.hrd\?attachSeq=(\d+)',ddoc,re.I)
+                if not am:continue
+                aid=am.group(1)
                 dl=f"https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq={aid}"
                 role_m=re.search(r"(이사장|상임감사|기획운영이사|능력개발이사|능력평가이사|국제인력본부장|[^\s]+이사)\s*업무추진비",title)
                 role=role_m.group(1) if role_m else board_role
                 files.append({
                     "year":y,"month":mo,"role":role,"text":title,
                     "url":dl,"download_url":dl,"parent":detail,
-                    "attachment_id":aid,"filename":file_name,
+                    "attachment_id":aid,
                 })
                 found+=1
             if page_years and min(page_years)<min(years):break
@@ -102,7 +96,14 @@ def parse_document(att):
     except Exception as e:return [],f"download {att['url']}: {type(e).__name__}: {e}"
     rows=[]
     try:
-        file_name=att.get("filename") or att.get("text") or "expense.pdf"
+        if blob.startswith(b"%PDF"):
+            file_name="expense.pdf"
+        elif blob.startswith(b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1"):
+            file_name="expense.hwp"
+        elif blob.startswith(b"PK"):
+            file_name="expense.hwpx"
+        else:
+            file_name=att.get("text") or "expense.bin"
         for sheet,table in rows_from(blob,file_name):
             if not table:continue
             header=None
