@@ -6,6 +6,8 @@ on:
       - 'pipeline/leadership_scope.py'
       - 'pipeline/gyeonggi_education_pdf.py'
       - 'pipeline/incheon_education_xlsx.py'
+      - 'pipeline/audit_education_police_staging.py'
+      - 'pipeline/venue_eligibility.py'
       - 'pipeline/education_police_source_probe.py'
       - 'pipeline/ingest_education_police_expense.py'
       - 'pipeline/test_education_police.py'
@@ -35,6 +37,7 @@ jobs:
         run: |
           python pipeline/education_police_source_probe.py --max-details 2
           python pipeline/ingest_education_police_expense.py --max-attachments 8
+          python pipeline/audit_education_police_staging.py
       - name: Report coverage without enabling publication
         run: |
           python - <<'PY'
@@ -96,4 +99,6 @@ jobs:
           path: |
             reports/education-police-source-probe.json
             data/raw/education_police_expense_staging.json
+            reports/education-police-staging-audit.json
+            reports/education-police-staging-audit.md
           if-no-files-found: warn

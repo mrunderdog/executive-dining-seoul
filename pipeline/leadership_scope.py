@@ -44,6 +44,19 @@ def classify_leadership_title(title: str, cohort: str) -> dict | None:
             return {"tier": tier, "role": match.group(0), "role_source": "posting_title"}
     return None
 
+def actor_explicit_in_target(role: object, target: object) -> bool:
+    """Require an identified participant, not staff of the official's office.
+
+    A source scoped to a superintendent is not evidence the superintendent
+    attended every expense. '교육감실 직원' must not be counted as attendance.
+    """
+    label = re.sub(r"\s+", "", clean(role))
+    value = re.sub(r"\s+", "", clean(target))
+    if not label or not value:
+        return False
+    pattern = re.compile(re.escape(label) + r"(?!실|실직원|비서실|직원|업무담당)")
+    return bool(pattern.search(value))
+
 def valid_transaction(row: dict, official_hosts: set[str]) -> bool:
     """Never publish inferred attendees, summaries or non-traceable transactions."""
     from datetime import date
