@@ -154,7 +154,10 @@ def probe_source(source: dict, max_details: int = 12) -> dict:
     key = source["key"]
     family = "police" if key == "national_police" else "education"
     hosts = set(source["official_hosts"])
-    found = []
+    found = [{"title": seed["title"], "role": seed["role"], "tier": seed["tier"],
+              "detail_url": seed["url"], "discovery_status": "VERIFIED_DETAIL_SEED"}
+             for seed in source.get("verified_detail_urls", [])]
+    queues = []
     errors = []
     board_status = []
     for board in source.get("boards", []):
@@ -162,14 +165,17 @@ def probe_source(source: dict, max_details: int = 12) -> dict:
         try:
             page = fetch(url)
             posts = discover_post_links(page, url, source["cohort"], family, hosts)
-            found.extend(posts)
+            queues.append(list(posts))
             board_status.append({"url": url, "status": "OK", "posts": len(posts)})
         except Exception as exc:
             board_status.append({"url": url, "status": "FETCH_FAILED", "posts": 0})
             errors.append(f"{url}: {type(exc).__name__}: {str(exc)[:140]}")
-    for seed in source.get("verified_detail_urls", []):
-        found.append({"title": seed["title"], "role": seed["role"], "tier": seed["tier"],
-                      "detail_url": seed["url"], "discovery_status": "VERIFIED_DETAIL_SEED"})
+    # Round-robin boards so limited probes include head, deputy and bureau director,
+    # instead of exhausting the superintendent board before inspecting other roles.
+    while any(queues):
+        for queue in queues:
+            if queue:
+                found.append(queue.pop(0))
     uniq = {}
     for entry in found:
         uniq[entry.get("detail_url") or entry["title"]] = entry
