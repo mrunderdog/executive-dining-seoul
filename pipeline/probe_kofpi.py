@@ -24,3 +24,7 @@ for m in re.finditer(r"<a\b[^>]*(?:href|onclick)=['\"]([^'\"]*)['\"][^>]*>(.*?)<
 for pat in (r"function\s+[^\s(]*(?:down|file)[^\s(]*\s*\([^)]*\)\s*\{.*?\}",):
     for m in re.finditer(pat,doc,re.I|re.S):
         print("\nFUNC\n",html.unescape(m.group(0))[:7000])
+
+for pat in (r"function\s+fnNotiDownload\s*\([^)]*\)\s*\{.*?\}",):
+    for m in re.finditer(pat,doc,re.I|re.S):
+        print("\nDOWNLOAD_FUNC\n",html.unescape(m.group(0))[:7000])
