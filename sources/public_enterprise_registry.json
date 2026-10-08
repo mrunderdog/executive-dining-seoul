@@ -588,6 +588,38 @@
         "https://www.kofpi.or.kr/public/publicInfo_03_001.do?sub=26"
       ],
       "note": "한국임업진흥원 공식 사전정보공표의 기관장 업무추진비 및 임원(기관장 제외) 업무추진비성 경비 사용내역. 월별 XLS에 사용일자·집행자·목적·사용처·집행대상자·집행구분·인원·금액이 거래별 공개되어 역할별로 수집."
+    },
+    {
+      "key": "fowi",
+      "institution": "한국산림복지진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "진흥원장·부원장·상임이사·국립산림치유원장",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.fowi.or.kr/user/publication/coreView.do?coreId=22&menu=core_"
+      ],
+      "note": "한국산림복지진흥원 공식 기관장 및 임원 업무추진비 집행내역. 연도별 XLSX에서 직위·성명·사용일자·사용시간·사용처·사용목적·사용방법·대상인원·금액을 거래별 수집."
+    },
+    {
+      "key": "nia",
+      "institution": "한국지능정보사회진흥원",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "원장·임원·본부장·실단장",
+      "format_hint": "hwpx-detail-multi-board",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=75636",
+        "https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=24254",
+        "https://www.nia.or.kr/site/nia_kor/ex/bbs/List.do?cbIdx=62176"
+      ],
+      "note": "한국지능정보사회진흥원 공식 업무추진비 공개의 원장·임원(기관장 제외)·본부장/실단장 게시판. 월별 HWPX 표에서 직위·사용일시·사용장소·금액·목적·참석대상·인원을 거래별 수집."
     }
   ]
 }
