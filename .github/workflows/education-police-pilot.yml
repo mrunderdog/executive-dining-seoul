@@ -45,6 +45,12 @@ jobs:
           for x in s['sources']:
               print(x['institution'], 'roles=', x['titles_scoped'],
                     'attachments=',x['attachments_linked'], 'errors=',len(x['errors']))
+          for item in s['sources']:
+              for p in item['posts']:
+                  if p.get('detail_fetch') == 'OK':
+                      print('DETAIL', item['key'], p.get('title','')[:90], 'links',len(p.get('attachments') or []))
+                      for anchor in (p.get('link_debug') or [])[:8]:
+                          print('LINK_DEBUG',str(anchor)[:260])
           print('STAGED_ONLY=',len(r['rows']),'PUBLISHED=0')
           PY
       - uses: actions/upload-artifact@v4
