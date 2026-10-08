@@ -15,6 +15,6 @@ jobs:
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Install browser probe
-        run: pip install --disable-pip-version-check selenium==4.35.0
+        run: pip install --disable-pip-version-check selenium==4.35.0 openpyxl==3.1.5
       - name: Probe KOSHA
         run: python pipeline/probe_kosha.py
