@@ -44,7 +44,9 @@ jobs:
           python-version: '3.12'
 
       - name: Populate only uncached coordinates
-        run: python pipeline/geocode_cache.py --mode auto
+        run: |
+          python pipeline/geocode_extra_cache.py
+          python pipeline/geocode_cache.py --mode auto
 
       - name: Verify legislator map QA
         if: hashFiles('reports/national-legislator-candidates.json') != ''
