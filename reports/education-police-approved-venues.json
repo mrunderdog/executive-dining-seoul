@@ -1,0 +1,72 @@
+{
+  "publication_enabled": true,
+  "generated_at": "2026-10-08T09:20:56.612510+00:00",
+  "approved_venues": 2,
+  "approved_transactions": 3,
+  "unpublished_counts": {
+    "UNVERIFIED_VENUE": 217,
+    "ACTOR_NOT_EXPLICIT": 1
+  },
+  "venues": [
+    {
+      "source_key": "incheon_education",
+      "institution": "인천광역시교육청",
+      "merchant": "삿뽀로 한옥마을점",
+      "address": "인천광역시 연수구 테크노파크로 180",
+      "category": "일식",
+      "phone": "032-834-2426",
+      "verification_confidence": "HIGH",
+      "address_evidence_urls": [
+        "https://www.daangn.com/kr/local-profile/%EC%82%BF%EB%BD%80%EB%A1%9C-%ED%95%9C%EC%98%A5%EB%A7%88%EC%9D%84%EC%A0%90-z6un3sqxq3yr/",
+        "https://triple.guide/restaurants/5b39c43c-388a-4e3a-9810-48f1df2ed37a"
+      ],
+      "transactions": [
+        {
+          "row_id": "9be4ff098cdb8cc017cc83af",
+          "date": "2026-08-03",
+          "amount": 162000,
+          "role": "교육감",
+          "purpose": "연수구 관내 학교 현안사항 관련 업무협의",
+          "target": "교육감, 업무관계자 등 총 5명",
+          "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
+        },
+        {
+          "row_id": "2539c22ea061d534500b606a",
+          "date": "2026-06-16",
+          "amount": 468000,
+          "role": "교육감",
+          "purpose": "세계시민교육 관련 교육관계자 업무협의",
+          "target": "교육감, 수행직원 등 총 12명",
+          "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/07/c10f3bc553b347bbb68e1c847974fc64.xlsx",
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3377151"
+        }
+      ]
+    },
+    {
+      "source_key": "incheon_education",
+      "institution": "인천광역시교육청",
+      "merchant": "판다칸칸",
+      "address": "인천광역시 남동구 논고개로 80",
+      "category": "중식",
+      "phone": "032-441-6678",
+      "verification_confidence": "HIGH",
+      "address_evidence_urls": [
+        "https://www.daangn.com/kr/local-profile/%ED%8C%90%EB%8B%A4%EC%B9%B8%EC%B9%B8-q2p8mvt29o29/",
+        "https://www.diningcode.com/profile.php?rid=ImBLtHGj0NtA"
+      ],
+      "transactions": [
+        {
+          "row_id": "1f9e18d4d25b0f20567c6887",
+          "date": "2026-08-03",
+          "amount": 400000,
+          "role": "교육감",
+          "purpose": "인천 교육정책 관련 교육관계자 업무협의",
+          "target": "교육감, 교육관계자 등 총 12명",
+          "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
+        }
+      ]
+    }
+  ]
+}
