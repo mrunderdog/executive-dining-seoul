@@ -21,7 +21,7 @@ NON_VENUE_EXACT = frozenset({
 
 def normalized_merchant(value: object) -> str:
     raw = str(value or "").strip().lower()
-    raw = re.sub(r"^(?:주식회사|유한회사|\\(주\\)|㈜)\\s*", "", raw)
+    raw = re.sub(r"^(?:주식회사|유한회사|\(주\)|㈜)\s*", "", raw)
     return re.sub(r"[^0-9a-z가-힣]", "", raw)
 
 
