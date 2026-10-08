@@ -15,4 +15,5 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5
       - run: python pipeline/probe_kca.py
