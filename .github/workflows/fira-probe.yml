@@ -20,6 +20,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install PDF parser
-        run: pip install --disable-pip-version-check pypdf==6.1.1
+        run: pip install --disable-pip-version-check pypdf==6.1.1 pdfplumber==0.11.7
       - name: Probe FIRA disclosure
         run: python pipeline/probe_fira.py
