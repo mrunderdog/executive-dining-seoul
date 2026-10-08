@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Install parser
-        run: pip install --disable-pip-version-check xlrd==2.0.2
+        run: pip install --disable-pip-version-check xlrd==2.0.2 openpyxl==3.1.5
       - name: Parse KOFPI
         run: python pipeline/public_enterprise_kofpi.py
       - name: Ingest and build candidates
