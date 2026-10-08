@@ -74,9 +74,15 @@ def discover_files(year:int):
                 except Exception as e:
                     errors.append(f"detail {detail}: {type(e).__name__}: {e}");continue
                 pages.append(detail)
-                am=re.search(r'/cms/download/downloadFile\.hrd\?attachSeq=(\d+)',ddoc,re.I)
-                if not am:continue
-                aid=am.group(1)
+                am=re.search(r'<a\\b[^>]*href=["\\'][^"\\']*/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)[^"\\']*["\\'][^>]*>(.*?)</a>',ddoc,re.I|re.S)
+                if am:
+                    aid=am.group(1)
+                    file_name=clean(html.unescape(re.sub(r"<[^>]+>"," ",am.group(2))))
+                else:
+                    sm=re.search(r'/cms/download/downloadFile\\.hrd\\?attachSeq=(\\d+)',ddoc,re.I)
+                    if not sm:continue
+                    aid=sm.group(1)
+                    file_name=title
                 dl=f"https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq={aid}"
                 role_m=re.search(r"(이사장|상임감사|기획운영이사|능력개발이사|능력평가이사|국제인력본부장|[^\s]+이사)\s*업무추진비",title)
                 role=role_m.group(1) if role_m else board_role
