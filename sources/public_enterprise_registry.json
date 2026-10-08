@@ -635,6 +635,21 @@
         "https://www.nhis.or.kr/announce/wbhaec11200m01.do"
       ],
       "note": "국민건강보험공단 공식 월별 임원 업무추진비 게시판. 월별 XLSX의 기관장/임원 시트에서 사용일자·집행자·집행내역·사용처·집행대상자·집행구분·인원·금액을 거래별 수집."
+    },
+    {
+      "key": "kpx",
+      "institution": "전력거래소",
+      "cohort": "public_enterprise_leadership",
+      "verified": true,
+      "publish": true,
+      "refresh_policy": "monthly",
+      "default_role": "기관장·경영부이사장·기술부이사장",
+      "format_hint": "xlsx-detail-multi-role",
+      "lookback_years": 1,
+      "listing_urls": [
+        "https://www.kpx.or.kr/board.es?mid=a10202010000&bid=0023"
+      ],
+      "note": "전력거래소 공식 임원 업무추진비 게시판. 월별 XLSX의 기관장·경영부이사장·기술부이사장 시트에서 사용일자·집행목적·사용처·집행대상자·집행구분·인원·금액을 거래별 수집."
     }
   ]
 }
