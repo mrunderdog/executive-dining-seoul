@@ -18,7 +18,7 @@ CTX=ssl._create_unverified_context()
 
 def fetch(url:str,binary:bool=False,referer:str=""):
     last=None
-    for attempt in range(3):
+    for attempt in range(2):
         try:
             req=urllib.request.Request(url,headers={
                 "User-Agent":UA,
@@ -26,12 +26,12 @@ def fetch(url:str,binary:bool=False,referer:str=""):
                 "Referer":referer or url,
                 "Connection":"close",
             })
-            with urllib.request.urlopen(req,timeout=20,context=CTX) as r:
+            with urllib.request.urlopen(req,timeout=10,context=CTX) as r:
                 raw=r.read()
                 return raw if binary else raw.decode(r.headers.get_content_charset() or "utf-8","replace")
         except Exception as e:
             last=e
-            if attempt<2: time.sleep(1+attempt)
+            if attempt<1: time.sleep(1+attempt)
     raise last
 
 def clean(v): return " ".join(str(v or "").replace("\n"," ").split())
@@ -119,7 +119,7 @@ def parse_xlsx(att):
             break
         except Exception as e:
             last=e
-            if attempt<2: time.sleep(1.5*(attempt+1))
+            if attempt<1: time.sleep(1.5*(attempt+1))
     if wb is None:
         return [],f"xlsx {att['url']}: {type(last).__name__}: {last}"
     rows=[]
