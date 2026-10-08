@@ -57,9 +57,9 @@ def merchant_clean(v):
 
 def discover_files(year:int):
     years={year,year-1}
-    files=[];pages=[];errors=[]
+    files=[];pages=[];errors=[];details=[]
     urls=[LISTING.format(page=p) for p in range(1,11)]
-    with ThreadPoolExecutor(max_workers=6) as pool:
+    with ThreadPoolExecutor(max_workers=8) as pool:
         fm={pool.submit(fetch,u):u for u in urls}
         for fut in as_completed(fm):
             u=fm[fut]
@@ -67,30 +67,43 @@ def discover_files(year:int):
             except Exception as e:
                 errors.append(f"listing {u}: {type(e).__name__}: {e}");continue
             pages.append(u)
-            for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
+            for row in re.findall(r"<tr\\b.*?</tr>",doc,re.I|re.S):
                 txt=clean(html.unescape(re.sub(r"<[^>]+>"," ",row)))
-                tm=re.search(r"(20\d{2})년\s*(\d{1,2})월\s*일자별\s*공개\(([^)]+)\)",txt)
+                tm=re.search(r"(20\\d{2})년\\s*(\\d{1,2})월\\s*일자별\\s*공개\\(([^)]+)\\)",txt)
                 if not tm:continue
                 y,m,role=int(tm.group(1)),int(tm.group(2)),tm.group(3).strip()
                 if y not in years:continue
-                hm=re.search(r"href=['\"]([^'\"]*mode=view[^'\"]*no=(\d+)[^'\"]*)['\"]",row,re.I)
+                hm=re.search(r"href=['\\\"]([^'\\\"]*mode=view[^'\\\"]*no=(\\d+)[^'\\\"]*)['\\\"]",row,re.I)
                 if not hm:continue
                 detail=urllib.parse.urljoin(u,html.unescape(hm.group(1)).replace("&amp;","&"))
-                try:ddoc=fetch(detail)
+                details.append((y,m,role,txt,detail,hm.group(2)))
+
+    def inspect(item):
+        y,m,role,txt,detail,did=item
+        ddoc=fetch(detail)
+        fm2=re.search(r"href=['\\\"]([^'\\\"]*board/download\\.do\\?[^'\\\"]+)['\\\"]",ddoc,re.I)
+        if not fm2:return detail,None
+        dl=urllib.parse.urljoin(detail,html.unescape(fm2.group(1)).replace("&amp;","&"))
+        q=urllib.parse.parse_qs(urllib.parse.urlparse(dl).query)
+        fid=(q.get("fno") or [""])[0]
+        did2=(q.get("did") or [did])[0]
+        return detail,{
+            "year":y,"month":m,"role":role,"text":txt,
+            "url":dl,"download_url":dl,"parent":detail,
+            "attachment_id":f"{did2}|{fid}",
+        }
+
+    if details:
+        with ThreadPoolExecutor(max_workers=12) as pool:
+            fm={pool.submit(inspect,item):item for item in details}
+            for fut in as_completed(fm):
+                item=fm[fut]
+                try:
+                    detail,att=fut.result();pages.append(detail)
+                    if att:files.append(att)
                 except Exception as e:
-                    errors.append(f"detail {detail}: {type(e).__name__}: {e}");continue
-                pages.append(detail)
-                fm2=re.search(r"href=['\"]([^'\"]*board/download\.do\?[^'\"]+)['\"]",ddoc,re.I)
-                if not fm2:continue
-                dl=urllib.parse.urljoin(detail,html.unescape(fm2.group(1)).replace("&amp;","&"))
-                q=urllib.parse.parse_qs(urllib.parse.urlparse(dl).query)
-                fid=(q.get("fno") or [""])[0]
-                did=(q.get("did") or [hm.group(2)])[0]
-                files.append({
-                    "year":y,"month":m,"role":role,
-                    "text":txt,"url":dl,"download_url":dl,"parent":detail,
-                    "attachment_id":f"{did}|{fid}",
-                })
+                    errors.append(f"detail {item[4]}: {type(e).__name__}: {e}")
+
     uniq={x["attachment_id"]:x for x in files}
     return sorted(uniq.values(),key=lambda x:(x["year"],x["month"],x["role"])),list(dict.fromkeys(pages)),errors
 
