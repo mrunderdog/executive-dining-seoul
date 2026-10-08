@@ -5,6 +5,8 @@ from leadership_scope import classify_leadership_title, valid_transaction
 from education_police_source_probe import discover_post_links, discover_attachments, extract_post_id
 from ingest_education_police_expense import process
 from gyeonggi_education_pdf import normalize_table
+from incheon_education_xlsx import normalize_rows, parse_day
+from datetime import datetime
 
 class LeadershipTests(unittest.TestCase):
     def test_education_roles(self):
@@ -56,6 +58,21 @@ class LeadershipTests(unittest.TestCase):
         self.assertEqual(rows[1]["used_date"],"2026-04-01")
         self.assertEqual(rows[1]["merchant"],"더615(동류수)")
         self.assertEqual(rows[2]["people"],5)
+
+    def test_incheon_xlsx_form_and_date_validation(self):
+        raw=[
+            ("9월 교육역량지원국장 업무추진비 집행내역",None,None,None,None,None),
+            ("결제일","집행내용","장소","집행방법","집행대상","집행금액"),
+            ("2026. 9. 3 .","교육현안 업무 협의","해남수산","카드","교육역량지원국장 등 총 9명",198000),
+            ("2029. 9.30.","미래 오기","양은이네","카드","교육역량지원국장 등 총 7명",77000),
+        ]
+        parsed=normalize_rows(raw,"https://www.ice.go.kr/attachment.xlsx","업무추진비")
+        self.assertEqual(len(parsed),1)
+        self.assertEqual(parsed[0]["used_date"],"2026-09-03")
+        self.assertEqual(parsed[0]["amount"],198000)
+        self.assertEqual(parsed[0]["people"],9)
+        self.assertEqual(parse_day(datetime(2026,8,3)),"2026-08-03")
+        self.assertEqual(parse_day("2029. 9.30."),"")
 
     def test_staging_rejects_invalid_transactions(self):
         src = {"key":"gyeonggi_education", "institution":"경기도교육청",
