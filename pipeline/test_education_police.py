@@ -38,6 +38,10 @@ class LeadershipTests(unittest.TestCase):
         self.assertEqual(extract_post_id({"onclick": "view(20260325092542533)"}, "police"), "20260325092542533")
         detail = '<a href="https://malicious.example/steal.pdf">test.pdf</a><a href="/resource/doc.pdf">data.pdf</a>'
         self.assertEqual(len(discover_attachments(detail, "https://www.goe.go.kr/page", {"goe.go.kr"})), 1)
+        preview = """<a href="javascript:void(0);" onclick="previewAjax('https://www.goe.go.kr/resource/goe/na/bbs_1955/2026/07/example.pdf','2026 education.pdf')">미리보기</a>"""
+        extracted = discover_attachments(preview, "https://www.goe.go.kr/detail", {"goe.go.kr"})
+        self.assertEqual(len(extracted), 1)
+        self.assertTrue(extracted[0]["url"].endswith("/example.pdf"))
     def test_staging_rejects_invalid_transactions(self):
         src = {"key":"gyeonggi_education", "institution":"경기도교육청",
                "cohort":"education_leadership","official_hosts":["goe.go.kr"]}
