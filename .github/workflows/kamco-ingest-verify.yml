@@ -1,0 +1,42 @@
+name: KAMCO ingestion verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/public_enterprise_kamco.py'
+      - '.github/workflows/kamco-ingest-verify.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install parser
+        run: pip install --disable-pip-version-check openpyxl==3.1.5
+      - name: Parse KAMCO
+        run: python pipeline/public_enterprise_kamco.py
+      - name: Ingest and build candidates
+        run: |
+          python pipeline/ingest_public_enterprise_expense.py --incremental
+          python pipeline/build_public_enterprise_candidates.py
+          python - <<'PY'
+          import json
+          raw=json.load(open('data/raw/public_enterprise_expense.json',encoding='utf-8'))
+          cand=json.load(open('reports/public-enterprise-candidates.json',encoding='utf-8'))
+          rows=[r for r in raw['rows'] if r.get('source_key')=='kamco']
+          cs=[x for x in cand['candidates'] if '한국자산관리공사' in (x.get('institutions') or [])]
+          print('KAMCO_ROWS',len(rows))
+          print('KAMCO_MERCHANTS',len({r.get('merchant') for r in rows if r.get('merchant')}))
+          print('KAMCO_ROLES',json.dumps(sorted({r.get('role') for r in rows if r.get('role')}),ensure_ascii=False))
+          print('KAMCO_DATE_MIN',min((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KAMCO_DATE_MAX',max((r.get('used_date') for r in rows if r.get('used_date')),default=''))
+          print('KAMCO_CANDIDATES',len(cs))
+          print('KAMCO_TOP',json.dumps([{'merchant':x.get('merchant'),'visits':x.get('visits')} for x in cs[:12]],ensure_ascii=False))
+          if not rows or not cs:
+              raise SystemExit('KAMCO did not produce publishable candidates')
+          PY
