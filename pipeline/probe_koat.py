@@ -13,11 +13,16 @@ def fetch(url,referer=URL):
 raw,final,h=fetch(URL)
 doc=raw.decode(h.get_content_charset() or "utf-8","replace")
 print("LIST",len(raw),final,h.get("content-type"))
-for row in re.findall(r"<tr\b.*?</tr>",doc,re.I|re.S):
-    txt=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",row)).split())
-    if "2026년 9월 기관장 업무추진비 집행내역" in txt:
-        print("\nROW\n",html.unescape(row)[:10000])
-for m in re.finditer(r"(?:href|onclick)\s*=\s*['\"][^'\"]+['\"]",doc,re.I):
-    s=html.unescape(m.group(0))
-    if any(k in s.lower() for k in ("view","detail","file","down","expenseinst")):
-        print(s[:1200])
+for pat in (r"function\s+fn_borad_file_down\s*\([^)]*\)\s*\{.*?\}", r"fn_borad_file_down\s*=\s*function\s*\([^)]*\)\s*\{.*?\}"):
+    for m in re.finditer(pat,doc,re.I|re.S):
+        print("\nFUNC\n",html.unescape(m.group(0))[:6000])
+for m in re.finditer(r"<script\b[^>]*src=['\"]([^'\"]+)['\"]",doc,re.I):
+    src=urllib.parse.urljoin(URL,html.unescape(m.group(1)))
+    try:
+        b,u,hh=fetch(src)
+        s=b.decode(hh.get_content_charset() or "utf-8","replace")
+        if "fn_borad_file_down" in s:
+            i=s.find("fn_borad_file_down")
+            print("\nSCRIPT",u,"\n",s[max(0,i-3000):i+7000])
+    except Exception as e:
+        pass
