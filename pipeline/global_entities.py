@@ -162,7 +162,7 @@ def _best_record(rows: list[dict]) -> dict:
 
 
 def _merge_evidence(rows: list[dict], multi_origin: bool) -> dict:
-    out = {"visits": 0, "spend": 0, "people": 0, "months": 0, "evening": 0, "evening_ratio": 0, "ppc": 0,
+    out = {"visits": 0, "spending_events": 0, "spend": 0, "people": 0, "months": 0, "evening": 0, "evening_ratio": 0, "ppc": 0,
            "date_min": "", "date_max": "", "roles": [], "purposes": [], "recent": [], "source_rows": []}
     dates_min, dates_max = [], []
     role_map = defaultdict(lambda: {"visits": 0, "people": 0, "spend": 0})
@@ -172,6 +172,7 @@ def _merge_evidence(rows: list[dict], multi_origin: bool) -> dict:
     for r in rows:
         e = r.get("evidence") or {}
         out["visits"] += int(e.get("visits") or 0)
+        out["spending_events"] += int(e.get("spending_events") or 0)
         out["spend"] += int(e.get("spend") or 0)
         out["people"] += int(e.get("people") or 0)
         out["months"] = max(out["months"], int(e.get("months") or 0))
@@ -185,6 +186,7 @@ def _merge_evidence(rows: list[dict], multi_origin: bool) -> dict:
                 continue
             label = f"{prefix} · {role}" if multi_origin else role
             role_map[label]["visits"] += int(x.get("visits") or 0)
+            role_map[label]["spending_events"] = role_map[label].get("spending_events", 0) + int(x.get("spending_events") or 0)
             role_map[label]["people"] += int(x.get("people") or 0)
             role_map[label]["spend"] += int(x.get("spend") or 0)
         for x in e.get("purposes") or []:
@@ -408,6 +410,7 @@ def merge_global_entities(payload: dict) -> dict:
             by_origin.append({
                 "origin": origin,
                 "visits": sum(int((r.get("evidence") or {}).get("visits") or 0) for r in rr),
+                "spending_events": sum(int((r.get("evidence") or {}).get("spending_events") or 0) for r in rr),
                 "spend": sum(int((r.get("evidence") or {}).get("spend") or 0) for r in rr),
                 "records": len(rr),
             })
@@ -438,10 +441,17 @@ def merge_global_entities(payload: dict) -> dict:
         }
         if is_cross:
             merged_groups += 1
-            primary["why"] = (
-                f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
-                f"합산 {total_visits}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
-            )
+            if primary["evidence"].get("spending_events"):
+                primary["why"] = (
+                    f"{institution_count}개 기관의 공식 원자료에서 같은 물리 식당을 확인했습니다. "
+                    f"방문 근거 {total_visits}건과 별도로 업무추진비 집행 명의 "
+                    f"{primary['evidence']['spending_events']}건이 있으며, 집행 명의자의 참석 여부는 확인되지 않았습니다."
+                )
+            else:
+                primary["why"] = (
+                    f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
+                    f"합산 {total_visits}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
+                )
         merged.append(primary)
 
     merged.sort(key=lambda r: (_signal(r), int((r.get("evidence") or {}).get("visits") or 0)), reverse=True)

@@ -1,0 +1,63 @@
+name: Police spending venue interpretation and location QA
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/police_expense_publication.py'
+      - 'pipeline/extra_published.py'
+      - 'pipeline/geocode_extra_cache.py'
+      - 'pipeline/global_entities.py'
+      - 'pipeline/test_police_expense_publication.py'
+      - 'sources/police_verified_expense_venues.json'
+      - 'site/app.js'
+      - '.github/workflows/police-expense-venue-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify stage provenance and separate attendance
+        run: |
+          python -m py_compile pipeline/police_expense_publication.py pipeline/extra_published.py pipeline/global_entities.py
+          PYTHONPATH=pipeline python -m unittest -v test_police_expense_publication
+      - name: Quality gate and regression checks
+        run: |
+          python pipeline/quality_gate.py
+          python pipeline/regression_checks.py
+          python pipeline/build_site.py --output /tmp/police-expense-reviewed/index.html
+      - name: Frontend runtime syntax and approved-data smoke
+        run: |
+          node --check site/app.js
+          PYTHONPATH=pipeline python - <<'PY'
+          from data_io import load_payload
+          from published_sources import merge_published_sources
+          from extra_published import merge_extra_published
+          from global_entities import merge_global_entities
+          payload=merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
+          found=[r for r in payload['records'] if 'police_expense_user_only' in (r.get('published_sources') or [])]
+          assert len(found)==1, found
+          r=found[0]
+          e=r['evidence']
+          # Physical-entity merging can preserve independent visits and spend
+          # from *other* public agencies. Never overwrite those counters or
+          # misattribute them as the Police Agency officer's attendance.
+          from police_expense_publication import load_police_expense_records
+          police=load_police_expense_records()[0]
+          assert police['evidence']['visits']==0
+          assert police['evidence']['spend']==318000
+          assert police['evidence']['spending_events']==2
+          assert police['executive']['top_official_visits']==0
+          assert e['spending_events']==2 and e['spend']>=318000
+          assert r['address'].startswith('서울특별시 서대문구 통일로 107-39')
+          print('Police expense venue:',r['name'],'merged_spend=',e['spend'],
+                'police_spending_events=',e['spending_events'],'merged_visits_from_other_sources=',e['visits'])
+          PY

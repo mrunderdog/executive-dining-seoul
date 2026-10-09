@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from published_sources import _category, ENTITY_OVERRIDES, SOURCE_ENTITY_OVERRIDES
+from police_expense_publication import load_police_expense_records
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -655,7 +656,7 @@ def merge_extra_published(payload: dict) -> dict:
     base = list(payload.get("records", []))
     seen = {(t(r.get("name")), t(r.get("origin"))) for r in base}
     added = []
-    for r in central_records() + public_enterprise_records() + justice_records() + prosecution_archive_records() + legislator_records() + education_police_records():
+    for r in central_records() + public_enterprise_records() + justice_records() + prosecution_archive_records() + legislator_records() + education_police_records() + load_police_expense_records():
         k = (t(r.get("name")), t(r.get("origin")))
         if k in seen:
             continue
@@ -682,6 +683,7 @@ def merge_extra_published(payload: dict) -> dict:
     ps["prosecution_archive_2017_2019"] = sum(r.get("published_source") == "prosecution_archive_2017_2019" for r in added)
     ps["national_legislator_2024"] = sum(r.get("published_source") == "national_legislator_2024" for r in added)
     ps["education_police_leadership"] = sum(r.get("published_source") == "education_police_leadership" for r in added)
+    ps["police_expense_user_only"] = sum(r.get("published_source") == "police_expense_user_only" for r in added)
     meta["published_supplements"] = ps
     meta["scope"] = "수도권·중앙정부·공기업·공공기관·법조·국회 공공부문 Executive Dining"
     payload["meta"] = meta

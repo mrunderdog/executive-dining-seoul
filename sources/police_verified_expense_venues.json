@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10",
+  "policy": "Verified place of business and official expenditure user. This is not a personal visit or attendance record.",
+  "venues": [
+    {
+      "source_key": "national_police",
+      "merchant": "사조미가",
+      "address": "서울특별시 서대문구 통일로 107-39, 2층 201호",
+      "display": "사조미가",
+      "category": "한정식",
+      "phone": "02-362-1500",
+      "approved_role": "경무인사기획관",
+      "source_pdf_sha256": "a10eb2fdaad548d6766a0338b0dbffaaf77d18abda7cfebea7718880b0041f31",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160315&q_fileId=923edce7-c7c0-4778-a281-69058f6836da",
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/place/677cca9466de5f06987b8b5d",
+        "https://www.albamon.com/jobs/detail-company/-B4VSA5NsAYEsBYnvTNkzA%3D%3D"
+      ],
+      "identification": "exact name and independent address sources",
+      "attendance_confirmed": false
+    }
+  ]
+}
