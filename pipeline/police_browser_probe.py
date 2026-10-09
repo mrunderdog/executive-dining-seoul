@@ -36,6 +36,24 @@ def police_variants(url: str) -> list[str]:
         if val not in vals:vals.append(val)
     return vals
 
+def official_download_url(page_url: str, href: str, label: str) -> str:
+    """Accept exact PDF attachment controls under Police Agency official file API."""
+    if not str(label).strip().lower().endswith(".pdf"):
+        return ""
+    url=urljoin(page_url,href)
+    p=urlsplit(url)
+    if not police_url(url):
+        return ""
+    if p.path!="/component/file/ND_fileDownload.do":
+        return ""
+    from urllib.parse import parse_qs
+    q=parse_qs(p.query)
+    if not re.fullmatch(r"\d{3,12}",(q.get("q_fileSn") or [""])[0]):
+        return ""
+    if not re.fullmatch(r"[0-9a-fA-F-]{32,40}",(q.get("q_fileId") or [""])[0]):
+        return ""
+    return url
+
 def pdf_metadata(blob: bytes) -> dict:
     """Signature and PDF text sample for format diagnosis, not publication."""
     info={"bytes":len(blob),"sha256":hashlib.sha256(blob).hexdigest()}
@@ -101,20 +119,26 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
                 for candidate in entry["attachment_candidates"][:4]:
                     i=candidate["index"]
                     href=candidate["href"]
-                    if href and href.lower().endswith(".pdf") and police_url(urljoin(page.url,href)):
+                    official_download=official_download_url(page.url,href,candidate["text"])
+                    if official_download:
                         try:
-                            pdf_resp=page.context.request.get(urljoin(page.url,href),timeout=timeout_ms)
+                            pdf_resp=page.context.request.get(official_download,timeout=timeout_ms)
                             blob=pdf_resp.body()
                             md=pdf_metadata(blob)
-                            md["source_url"]=urljoin(page.url,href)
+                            md["source_url"]=official_download
                             md["status"]=pdf_resp.status
                             entry["downloads"].append(md)
-                            if md["format"]=="PDF" and md.get("pages",0)>0:
+                            if pdf_resp.status==200 and md["format"]=="PDF" and md.get("pages",0)>0:
                                 dest=output_dir/(md["sha256"][:16]+".pdf")
                                 dest.write_bytes(blob)
-                            continue
+                                break
                         except Exception as e:
-                            entry["downloads"].append({"error":type(e).__name__+": "+str(e)[:150]})
+                            entry["downloads"].append({"url":official_download,
+                                "error":type(e).__name__+": "+str(e)[:150]})
+                        # Fall back to a browser download click if cookie-bound API
+                        # access still fails, but never click unrelated controls.
+                    if candidate["text"] and not candidate["text"].lower().endswith(".pdf"):
+                        continue
                     if not re.search(r"pdf|다운로드|download",candidate["text"]+" "+candidate["onclick"],re.I):
                         continue
                     try:
