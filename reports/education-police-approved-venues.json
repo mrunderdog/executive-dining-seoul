@@ -1,10 +1,10 @@
 {
   "publication_enabled": true,
-  "generated_at": "2026-10-08T12:12:41.068678+00:00",
-  "approved_venues": 3,
-  "approved_transactions": 5,
+  "generated_at": "2026-10-09T03:54:35.460492+00:00",
+  "approved_venues": 4,
+  "approved_transactions": 6,
   "unpublished_counts": {
-    "UNVERIFIED_VENUE": 214,
+    "UNVERIFIED_VENUE": 33,
     "ACTOR_NOT_EXPLICIT": 2
   },
   "venues": [
@@ -45,6 +45,32 @@
       ]
     },
     {
+      "source_key": "gyeonggi_education",
+      "institution": "경기도교육청",
+      "merchant": "수원갈비상회",
+      "address": "경기도 수원시 영통구 매영로159번길 19, 1층 101호",
+      "category": "한식 · 갈비구이",
+      "phone": "031-546-8299",
+      "verification_confidence": "HIGH",
+      "address_evidence_urls": [
+        "https://www.diningcode.com/profile.php?rid=OwZ2EP1l4DTI",
+        "https://www.bizno.net/article/1764901227",
+        "https://dining.ayo.pe.kr/restaurant/region/%EA%B2%BD%EA%B8%B0/%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%98%81%ED%86%B5%EA%B5%AC/%EC%9B%90%EC%B2%9C%EB%8F%99"
+      ],
+      "transactions": [
+        {
+          "row_id": "23da49198049b7c607131183",
+          "date": "2026-04-10",
+          "amount": 933000,
+          "role": "교육감",
+          "purpose": "교육현안 관련 업무 협의회비 (교육감실)",
+          "target": "교육감 및 현안 담당자 등 30명",
+          "source_url": "https://www.goe.go.kr/resource/goe/na/bbs_1955/2026/07/63e54f70-86c9-4051-9acc-ad7e27de1221.pdf",
+          "source_detail_url": "https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?bbsId=1955&mi=10239&nttSn=2361514"
+        }
+      ]
+    },
+    {
       "source_key": "incheon_education",
       "institution": "인천광역시교육청",
       "merchant": "삿뽀로 한옥마을점",
@@ -65,7 +91,8 @@
           "purpose": "연수구 관내 학교 현안사항 관련 업무협의",
           "target": "교육감, 업무관계자 등 총 5명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682",
+          "carried_forward_from_last_good": true
         },
         {
           "row_id": "2539c22ea061d534500b606a",
@@ -75,9 +102,11 @@
           "purpose": "세계시민교육 관련 교육관계자 업무협의",
           "target": "교육감, 수행직원 등 총 12명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/07/c10f3bc553b347bbb68e1c847974fc64.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3377151"
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3377151",
+          "carried_forward_from_last_good": true
         }
-      ]
+      ],
+      "last_good_preserved_transactions": 2
     },
     {
       "source_key": "incheon_education",
@@ -100,9 +129,13 @@
           "purpose": "인천 교육정책 관련 교육관계자 업무협의",
           "target": "교육감, 교육관계자 등 총 12명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682",
+          "carried_forward_from_last_good": true
         }
-      ]
+      ],
+      "last_good_preserved_transactions": 1
     }
-  ]
+  ],
+  "last_good_preserved_transactions": 3,
+  "last_good_preserved_venues": 2
 }
