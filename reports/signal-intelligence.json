@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-09T03:54:53",
+  "generated_at": "2026-10-09T23:25:56",
   "dataset_records": 1281,
-  "cross_institution_count": 201,
-  "cross_origin_count": 26,
+  "cross_institution_count": 202,
+  "cross_origin_count": 27,
   "top_official_count": 453,
   "regional_head_count": 20,
-  "entity_merges": 43,
-  "entity_merge_audit_count": 37,
+  "entity_merges": 44,
+  "entity_merge_audit_count": 38,
   "entity_merge_audit": [
     {
       "name": "황금복국",
@@ -590,6 +590,27 @@
       "corroborated_address_bridges": 0,
       "visits": 22,
       "spend": 2907000
+    },
+    {
+      "name": "사조미가",
+      "address": "서울특별시 서대문구 통일로 107-39, 2층 201호",
+      "origins": [
+        "경찰청(집행 명의)",
+        "서울시청"
+      ],
+      "institutions": [
+        "경찰청",
+        "서울특별시 본청"
+      ],
+      "source_keys": [
+        "사조미가|서울시청",
+        "사조미가|경찰청(집행 명의)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 17,
+      "spend": 3982000
     },
     {
       "name": "탱글낙지마당",
@@ -2086,6 +2107,38 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "사조미가",
+      "address": "서울특별시 서대문구 통일로 107-39, 2층 201호",
+      "origins": [
+        "경찰청(집행 명의)",
+        "서울시청"
+      ],
+      "institutions": [
+        "경찰청",
+        "서울특별시 본청"
+      ],
+      "cohorts": [
+        "police_leadership",
+        "regional_executive"
+      ],
+      "visits": 17,
+      "spend": 3982000,
+      "date_min": "2024-12-12",
+      "date_max": "2026-08-20",
+      "consensus_score": 74.6,
+      "institution_count": 2,
+      "source_count": 2,
+      "top_role_tier": "",
+      "top_role_label": "",
+      "top_official_visits": 0,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
