@@ -50,6 +50,22 @@
       ],
       "verification_confidence": "HIGH",
       "notes": "Official posted label names both The615 billing entity and Chinese restaurant Dongryusu. Independent official venue and government employment address confirmation."
+    },
+    {
+      "source_key": "gyeonggi_education",
+      "merchant": "수원갈비상회",
+      "address": "경기도 수원시 영통구 매영로159번길 19, 1층 101호",
+      "category": "한식 · 갈비구이",
+      "phone": "031-546-8299",
+      "allowed_roles": [
+        "교육감"
+      ],
+      "sources": [
+        "https://www.diningcode.com/profile.php?rid=OwZ2EP1l4DTI",
+        "https://dining.ayo.pe.kr/restaurant/region/%EA%B2%BD%EA%B8%B0/%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%98%81%ED%86%B5%EA%B5%AC/%EC%9B%90%EC%B2%9C%EB%8F%99"
+      ],
+      "verification_confidence": "HIGH",
+      "notes": "Independently corroborated same merchant spelling and full street-address unit. Source transaction attributed to superintendent on 2026-04-10; publication still requires live official row QA."
     }
   ]
 }
