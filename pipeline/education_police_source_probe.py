@@ -32,33 +32,42 @@ def police_same_host_fallback(url: str) -> str:
         return ""
     return urllib.parse.urlunsplit((p.scheme,p.netloc,"/BZRKZR"+p.path,p.query,""))
 
+def police_official_variants(url: str) -> list[str]:
+    """Finite HTTPS-only variants on verified Police Agency domains."""
+    p=urllib.parse.urlsplit(url)
+    if p.scheme!="https" or p.hostname not in {"www.police.go.kr","police.go.kr"}:
+        return [url]
+    if not p.path.startswith(("/user/bbs/","/BZRKZR/user/bbs/")):
+        return [url]
+    bare=p.path.removeprefix("/BZRKZR")
+    attempts=[url]
+    for host,path in (("police.go.kr",bare),("www.police.go.kr","/BZRKZR"+bare),("police.go.kr","/BZRKZR"+bare)):
+        value=urllib.parse.urlunsplit(("https",host,path,p.query,""))
+        if value not in attempts: attempts.append(value)
+    return attempts
+
 def fetch(url: str, timeout: int = 18) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9"})
-    try:
-        response = urllib.request.urlopen(req, timeout=timeout)
-    except urllib.error.HTTPError as exc:
-        # Some police.go.kr servlet URLs respond with repeated HTTP 307
-        # redirects. Retry only the known same-origin /BZRKZR context.
-        fallback = police_same_host_fallback(url) if exc.code == 307 else ""
-        if not fallback:
-            raise
-        response = urllib.request.urlopen(
-            urllib.request.Request(fallback,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"}),
-            timeout=timeout
-        )
-    with response:
-        if response.status != 200:
-            raise ValueError("HTTP " + str(response.status))
-        raw = response.read(3_000_000)
-        charset = response.headers.get_content_charset()
-    for encoding in [charset, "utf-8", "cp949", "euc-kr"]:
-        if not encoding:
-            continue
+    attempts=police_official_variants(url)
+    last_error=None
+    for attempt in attempts:
+        req=urllib.request.Request(attempt,headers={"User-Agent":UA,"Accept-Language":"ko-KR,ko;q=0.9"})
         try:
-            return raw.decode(encoding)
-        except (UnicodeDecodeError, LookupError):
-            continue
-    return raw.decode("utf-8", "replace")
+            with urllib.request.urlopen(req,timeout=min(timeout,12) if len(attempts)>1 else timeout) as response:
+                if response.status!=200:raise ValueError("HTTP "+str(response.status))
+                raw=response.read(3_000_000)
+                charset=response.headers.get_content_charset()
+            for encoding in (charset,"utf-8","cp949","euc-kr"):
+                if not encoding:continue
+                try:return raw.decode(encoding)
+                except (UnicodeDecodeError,LookupError):continue
+            return raw.decode("utf-8","replace")
+        except (urllib.error.HTTPError,urllib.error.URLError,ConnectionError,TimeoutError,OSError) as exc:
+            last_error=exc
+            if len(attempts)==1:raise
+    raise RuntimeError(
+        "official police endpoints unavailable after "+str(len(attempts))+
+        " bounded HTTPS attempts; last="+type(last_error).__name__+": "+str(last_error)[:140]
+    )
 
 class Anchors(HTMLParser):
     def __init__(self):
