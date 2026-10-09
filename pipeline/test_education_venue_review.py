@@ -2,6 +2,7 @@
 import unittest
 from review_education_venues import review
 from education_police_source_probe import police_same_host_fallback, police_official_variants
+from venue_eligibility import is_non_venue_merchant
 
 class VenueReviewTests(unittest.TestCase):
     def setUp(self):
@@ -11,6 +12,14 @@ class VenueReviewTests(unittest.TestCase):
              "merchant":"밀가마국시집","used_date":"2025-04-02","amount":60000,
              "source_url":"https://www.goe.go.kr/real.pdf",
              "source_detail_url":"https://www.goe.go.kr/detail"}
+    def test_retail_and_florist_labels_not_restaurants(self):
+        for label in ("이마트몰","화월청과","우성화원"):
+            self.assertTrue(is_non_venue_merchant(label),label)
+            row={**self.row,"merchant":label}
+            result=review([row],self.src)
+            self.assertEqual(result["reviewable_transactions"],0)
+            self.assertEqual(result["excluded"]["GENERIC_BILLER_OR_NON_VENUE"],1)
+        self.assertFalse(is_non_venue_merchant("수원갈비상회"))
     def test_official_police_hostname_attempts(self):
         original="https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025"
         urls=police_official_variants(original)
