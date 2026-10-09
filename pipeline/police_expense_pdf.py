@@ -27,13 +27,19 @@ def parse_expense_table(table:list[list], role:str, official_pdf_url:str, sha256
                  if len(row)>=7 and "사용자" in compact(row[0])
                  and "일자" in compact(row[1]) and "사용처" in compact(row[3])),None)
     if header is None:raise ValueError("Missing expected police expense table header")
+    # A Police Deputy Commissioner posting is titled 경찰청차장 but this
+    # official document sometimes abbreviates both heading and user to 차장.
+    # Accept only this exact alias, and only with an explicit deputy budget
+    # heading on the same signed-off PDF table.
+    heading="".join(compact(v) for row in table[:header] for v in row if v)
+    deputy_alias=(role_key=="경찰청차장" and "차장업무추진비" in heading)
     matched_user=False
     expected_count=None
     expected_total=None
     result=[]
     for ix,raw in enumerate(table[header+1:],header+1):
         if len(raw)<7:continue
-        if raw[0] and role_key in compact(raw[0]):
+        if raw[0] and (role_key in compact(raw[0]) or (deputy_alias and compact(raw[0])=="차장")):
             matched_user=True
         daystr=_value(raw[1])
         if daystr=="소 계":
