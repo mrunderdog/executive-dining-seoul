@@ -5,6 +5,7 @@ import json
 from datetime import datetime, timezone
 
 from extra_published import central_records, public_enterprise_records, justice_records, legislator_candidate_records, education_police_records
+from police_expense_publication import load_police_expense_records
 from geocode_cache import (
     GEOCODER_VERSION,
     POLICY_VERSION,
@@ -19,7 +20,7 @@ from geocode_cache import (
 def main():
     # Central records are public candidates already. Legislator records here are the
     # top pre-QA candidates so the QA stage can choose the strongest verified 80.
-    records = central_records() + public_enterprise_records() + justice_records() + legislator_candidate_records(200) + education_police_records()
+    records = central_records() + public_enterprise_records() + justice_records() + legislator_candidate_records(200) + education_police_records() + load_police_expense_records()
     cache = load_cache()
     items = cache.setdefault("records", {})
     ok = failed = requests = 0
