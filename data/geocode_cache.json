@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1684,
-    "success_count": 1294,
-    "updated_at": "2026-10-09T21:42:25+00:00"
+    "record_count": 1685,
+    "success_count": 1295,
+    "updated_at": "2026-10-09T23:26:00+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -10714,6 +10714,24 @@
       "policy_version": 3,
       "reason": "public_enterprise_requires_verified_address",
       "updated_at": "2026-10-09T21:42:24+00:00"
+    },
+    "사조미가|경찰청(집행 명의)": {
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 서대문구 충정로2가 통일로 107-39",
+      "fingerprint": "1d8943a6f1f7ab1f",
+      "geocoder_version": 4,
+      "lat": 37.564200939408,
+      "lon": 126.966119542236,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "서울특별시 서대문구 통일로 107-39, 2층 201호",
+      "result_name": "",
+      "score": 99.57,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 서대문구 통일로 107-39, 2층 201호"
+      ],
+      "updated_at": "2026-10-09T23:26:00+00:00"
     },
     "사조미가|서울시청": {
       "addr_type": "PointAddress",
