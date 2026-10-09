@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1683,
-    "success_count": 1293,
-    "updated_at": "2026-10-09T03:52:03+00:00"
+    "record_count": 1684,
+    "success_count": 1294,
+    "updated_at": "2026-10-09T03:54:57+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -13680,6 +13680,24 @@
         "arcgis:경기 안양시 만안구 삼막로39번길 23"
       ],
       "updated_at": "2026-09-17T23:01:00+00:00"
+    },
+    "수원갈비상회|교육청(고위직)": {
+      "addr_type": "PointAddress",
+      "display_name": "경기도 수원시 영통구 원천동 매영로159번길 19",
+      "fingerprint": "2d8c3fd80026cb09",
+      "geocoder_version": 4,
+      "lat": 37.266247918488,
+      "lon": 127.060276478091,
+      "match_mode": "address",
+      "policy_version": 3,
+      "query": "경기도 수원시 영통구 매영로159번길 19, 1층 101호",
+      "result_name": "",
+      "score": 99.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:경기도 수원시 영통구 매영로159번길 19, 1층 101호"
+      ],
+      "updated_at": "2026-10-09T03:54:57+00:00"
     },
     "수유리우동집 별내별|도봉구": {
       "addr_type": "PointAddress",
