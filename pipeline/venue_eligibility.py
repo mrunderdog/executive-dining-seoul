@@ -1,6 +1,6 @@
 """Conservative non-venue filter for public dining disclosures.
 
-A payment intermediary or chain-wide billing entity is not a mappable restaurant.
+A payment intermediary, chain-wide billing entity or confirmed florist/produce seller is not a mappable restaurant.
 Do not apply fuzzy brand exclusions: individual physical branches must remain eligible.
 """
 from __future__ import annotations
@@ -21,6 +21,9 @@ NON_VENUE_EXACT = frozenset({
     "11번가",
     "지마켓",
     "gmarket",
+    "이마트몰",
+    "화월청과",
+    "우성화원",
 })
 
 
