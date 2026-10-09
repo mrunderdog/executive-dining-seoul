@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-09T03:51:59",
-  "dataset_records": 1280,
+  "generated_at": "2026-10-09T03:54:53",
+  "dataset_records": 1281,
   "cross_institution_count": 201,
   "cross_origin_count": 26,
-  "top_official_count": 452,
+  "top_official_count": 453,
   "regional_head_count": 20,
   "entity_merges": 43,
   "entity_merge_audit_count": 37,
@@ -18315,6 +18315,35 @@
       "source_count": 1,
       "top_role_tier": "cabinet_or_investigative_head",
       "top_role_label": "법무부 장관",
+      "top_official_visits": 1,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 0,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
+      "name": "수원갈비상회",
+      "address": "경기도 수원시 영통구 매영로159번길 19, 1층 101호",
+      "origins": [
+        "교육청(고위직)"
+      ],
+      "institutions": [
+        "경기도교육청"
+      ],
+      "cohorts": [
+        "education_leadership"
+      ],
+      "visits": 1,
+      "spend": 933000,
+      "date_min": "2026-04-10",
+      "date_max": "2026-04-10",
+      "consensus_score": 0.0,
+      "institution_count": 1,
+      "source_count": 1,
+      "top_role_tier": "education_police_senior",
+      "top_role_label": "교육감",
       "top_official_visits": 1,
       "prime_minister_visits": 0,
       "deputy_prime_minister_visits": 0,
