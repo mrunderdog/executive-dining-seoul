@@ -22,9 +22,12 @@ permissions:
   pages: write
   id-token: write
 
+# The build reads latest main for every trigger. Incoming workflow_run
+# completions can be skipped/cancelled and must NOT cancel an in-flight
+# successful deployment of a verified Pages build.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
