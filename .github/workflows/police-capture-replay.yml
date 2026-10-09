@@ -25,13 +25,13 @@ jobs:
       - run: pip install --disable-pip-version-check pdfplumber==0.11.7 pypdf==6.1.1
       - name: Reuse official PDF bytes captured by previous Chromium run
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           curl --fail --location --silent --show-error \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/\${{ github.repository }}/actions/artifacts/11645984133/zip" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/11645984133/zip" \
             -o /tmp/police-evidence.zip
           mkdir -p /tmp/police-evidence
           unzip -oq /tmp/police-evidence.zip -d /tmp/police-evidence
