@@ -79,6 +79,23 @@ def targets(registry: dict) -> list[dict]:
             result.append({"title":seed["title"],"url":seed["url"],"role":seed["role"]})
     return result
 
+def stage_pdf_expenses(entry: dict, blob: bytes, role: str, source_url: str, detail_url: str) -> None:
+    """Only official PDF user-column rows, never restaurant publication."""
+    if not official_download_url(detail_url,source_url,source_url.rsplit("/",1)[-1]+".pdf"):
+        # The title-like filename check above is only an API route assertion,
+        # not a guessed PDF URI. The exact source_url came from the live DOM.
+        entry["parse_error"]="Official PDF endpoint not recognized"
+        return
+    try:
+        from police_expense_pdf import parse_pdf
+        rows,summary=parse_pdf(blob,role,source_url)
+        for row in rows:
+            row["source_detail_url"]=detail_url
+        entry["parsed_expenses"]=rows
+        entry["expense_summary"]=summary
+    except Exception as e:
+        entry["parse_error"]=type(e).__name__+": "+str(e)[:240]
+
 def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> dict:
     result={"title":item["title"],"role":item["role"],"original_url":item["url"],
             "publication_enabled":False,"attempts":[]}
@@ -131,6 +148,7 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
                             if pdf_resp.status==200 and md["format"]=="PDF" and md.get("pages",0)>0:
                                 dest=output_dir/(md["sha256"][:16]+".pdf")
                                 dest.write_bytes(blob)
+                                stage_pdf_expenses(entry,blob,item["role"],official_download,item["url"])
                                 break
                         except Exception as e:
                             entry["downloads"].append({"url":official_download,
@@ -152,6 +170,8 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
                         md["suggested_filename"]=download.suggested_filename[:180]
                         if md["format"]=="PDF" and md.get("pages",0)>0:
                             temp.rename(output_dir/(md["sha256"][:16]+".pdf"))
+                            source=official_download_url(page.url,candidate["href"],candidate["text"])
+                            if source:stage_pdf_expenses(entry,blob,item["role"],source,item["url"])
                         else:temp.unlink(missing_ok=True)
                         entry["downloads"].append(md)
                         break
@@ -197,9 +217,20 @@ def main():
         context.close()
         browser.close()
     report["verified_pdf_count"]=sum(x["verified_pdf_count"] for x in report["records"])
+    staged=[]
+    for record in report["records"]:
+        for attempt in record["attempts"]:
+            staged.extend(attempt.get("parsed_expenses") or [])
+    seen={r["row_id"]:r for r in staged}
+    staged=list(seen.values())
+    report["staged_transactions"]=len(staged)
+    staged_path=ROOT/"data/raw/police_expense_staging.json"
+    staged_path.parent.mkdir(parents=True,exist_ok=True)
+    staged_path.write_text(json.dumps({"publication_enabled":False,
+       "source":"police_browser_pdf","transactions":staged},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("VERIFIED_POLICE_PDFS",report["verified_pdf_count"],flush=True)
+    print("VERIFIED_POLICE_PDFS",report["verified_pdf_count"],"STAGED_TRANSACTIONS",len(staged),flush=True)
 
 if __name__=="__main__":
     main()
