@@ -1,6 +1,6 @@
 """Police attachment Chromium-probe safety tests; offline and fast."""
 import unittest
-from police_browser_probe import police_url,police_variants,pdf_metadata,targets
+from police_browser_probe import police_url,police_variants,pdf_metadata,targets,official_download_url
 
 class BrowserProbeContract(unittest.TestCase):
     def test_allowed_official_https_hosts_only(self):
@@ -21,6 +21,14 @@ class BrowserProbeContract(unittest.TestCase):
         self.assertTrue(all(police_url(x) for x in variants))
         self.assertTrue(all("q_bbsCode=1025" in x for x in variants))
         self.assertEqual(police_variants("https://evil.test/user/bbs/x"),[])
+    def test_official_attachment_api_only(self):
+        detail="https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025"
+        accepted="/component/file/ND_fileDownload.do?q_fileSn=159650&q_fileId=a330edbf-8623-4f19-b4f0-6e276098dfbf"
+        self.assertEqual(official_download_url(detail,accepted,"차장 집행내역.pdf"),
+            "https://www.police.go.kr"+accepted)
+        self.assertEqual(official_download_url(detail,accepted,"바로보기"),"")
+        self.assertEqual(official_download_url(detail,"https://evil.test/component/file/ND_fileDownload.do?q_fileSn=159650&q_fileId=a330edbf-8623-4f19-b4f0-6e276098dfbf","foo.pdf"),"")
+        self.assertEqual(official_download_url(detail,"/component/file/ND_fileDownload.do?q_fileSn=invalid&q_fileId=no","foo.pdf"),"")
     def test_fake_pdf_bytes_never_accepted(self):
         info=pdf_metadata(b"<html>Login Required</html>")
         self.assertEqual(info["format"],"NOT_PDF")
