@@ -1,7 +1,7 @@
 """Offline tests of conservative official dining review gate."""
 import unittest
 from review_education_venues import review
-from education_police_source_probe import police_same_host_fallback
+from education_police_source_probe import police_same_host_fallback, police_official_variants
 
 class VenueReviewTests(unittest.TestCase):
     def setUp(self):
@@ -11,6 +11,16 @@ class VenueReviewTests(unittest.TestCase):
              "merchant":"밀가마국시집","used_date":"2025-04-02","amount":60000,
              "source_url":"https://www.goe.go.kr/real.pdf",
              "source_detail_url":"https://www.goe.go.kr/detail"}
+    def test_official_police_hostname_attempts(self):
+        original="https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025"
+        urls=police_official_variants(original)
+        self.assertEqual(len(urls),4)
+        self.assertEqual(urls[0],original)
+        self.assertTrue(any(u.startswith("https://police.go.kr/user/bbs/") for u in urls))
+        self.assertTrue(any(u.startswith("https://www.police.go.kr/BZRKZR/user/bbs/") for u in urls))
+        self.assertTrue(all("q_bbsCode=1025" in u for u in urls))
+        self.assertEqual(police_official_variants("https://not-police.go.kr/user/bbs/x"),["https://not-police.go.kr/user/bbs/x"])
+        self.assertEqual(police_official_variants("http://police.go.kr/user/bbs/x"),["http://police.go.kr/user/bbs/x"])
     def test_police_fallback_is_same_host_only(self):
         a="https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025"
         self.assertEqual(police_same_host_fallback(a),
