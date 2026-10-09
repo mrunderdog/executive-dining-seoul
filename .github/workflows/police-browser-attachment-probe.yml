@@ -1,0 +1,65 @@
+name: Police Chromium attachment source probe
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/police_browser_probe.py'
+      - 'pipeline/test_police_browser_probe.py'
+      - 'pipeline/police_expense_pdf.py'
+      - 'pipeline/test_police_expense_pdf.py'
+      - '.github/workflows/police-browser-attachment-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  police-chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser and PDF reader
+        run: |
+          pip install --disable-pip-version-check playwright==1.56.0 pypdf==6.1.1 pdfplumber==0.11.7
+          python -m playwright install --with-deps chromium
+      - name: Verify official-host and PDF contracts
+        run: |
+          python -m py_compile pipeline/police_browser_probe.py pipeline/police_expense_pdf.py
+          PYTHONPATH=pipeline python -m unittest -v test_police_browser_probe test_police_expense_pdf
+      - name: Inspect actual police detail pages and downloads
+        run: python pipeline/police_browser_probe.py --max-posts 2
+      - name: Publish diagnostic summary without publishing expenses
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("reports/police-browser-attachment-probe.json")
+          if not p.exists():
+              print("No result file: process failed or browser could not launch")
+          else:
+              d=json.loads(p.read_text(encoding="utf-8"))
+              assert d["publication_enabled"] is False
+              print("OFFICIAL_VERIFIED_PDFS",d["verified_pdf_count"],"STAGED_TRANSACTIONS",d.get("staged_transactions",0))
+              for record in d["records"]:
+                  for attempt in record["attempts"]:
+                      print("ATTEMPT", record["role"], attempt.get("attempted_url"),
+                            "HTTP",attempt.get("response_status"),
+                            "DOM_FILES",len(attempt.get("attachment_candidates") or []),
+                            "PDFS",sum(x.get("format")=="PDF" for x in attempt.get("downloads") or []),
+                            "ERR",attempt.get("exception","")[:120])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-police-browser-diagnostics
+          path: |
+            reports/police-browser-attachment-probe.json
+            data/raw/police_expense_staging.json
+            reports/police-browser-pdfs/*.pdf
+          if-no-files-found: warn
+          retention-days: 7
