@@ -1,11 +1,16 @@
 name: Preserve checksum-verified Police Agency PDF transactions
 
 on:
-  push:
-    branches: [feat/police-chromium-attachment-probe]
-    paths:
-      - 'pipeline/replay_police_browser_artifact.py'
-      - '.github/workflows/police-capture-replay.yml'
+  workflow_dispatch:
+    inputs:
+      artifact_id:
+        description: 'GitHub Actions artifact ID from a successful official Chromium capture'
+        required: true
+        type: string
+      capture_run_id:
+        description: 'GitHub Actions run ID that created the artifact'
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -31,12 +36,12 @@ jobs:
           curl --fail --location --silent --show-error \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/11645984133/zip" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/${{ inputs.artifact_id }}/zip" \
             -o /tmp/police-evidence.zip
           mkdir -p /tmp/police-evidence
           unzip -oq /tmp/police-evidence.zip -d /tmp/police-evidence
           python pipeline/replay_police_browser_artifact.py \
-            --directory /tmp/police-evidence --capture-run-id 37994453585
+            --directory /tmp/police-evidence --capture-run-id '${{ inputs.capture_run_id }}'
       - name: Reject any unverified or published rows
         run: |
           python - <<'PY'
