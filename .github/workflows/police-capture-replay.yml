@@ -1,0 +1,66 @@
+name: Preserve checksum-verified Police Agency PDF transactions
+
+on:
+  push:
+    branches: [feat/police-chromium-attachment-probe]
+    paths:
+      - 'pipeline/replay_police_browser_artifact.py'
+      - '.github/workflows/police-capture-replay.yml'
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  replay-verified:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pdfplumber==0.11.7 pypdf==6.1.1
+      - name: Reuse official PDF bytes captured by previous Chromium run
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/\${{ github.repository }}/actions/artifacts/11645984133/zip" \
+            -o /tmp/police-evidence.zip
+          mkdir -p /tmp/police-evidence
+          unzip -oq /tmp/police-evidence.zip -d /tmp/police-evidence
+          python pipeline/replay_police_browser_artifact.py \
+            --directory /tmp/police-evidence --capture-run-id 37994453585
+      - name: Reject any unverified or published rows
+        run: |
+          python - <<'PY'
+          import json
+          doc=json.load(open('data/raw/police_expense_staging.json'))
+          assert doc['publication_enabled'] is False
+          assert doc['transactions_count']==len(doc['transactions'])>=5
+          assert all(x['publication_status']=='STAGING_ONLY' and
+                     x['attendance_evidence']=='NOT_ESTABLISHED' for x in doc['transactions'])
+          print('OFFICIAL_POLICE_STAGED',doc['transactions_count'],
+                'DOCUMENTS',len(doc['evidence']),
+                'SUM',sum(x['amount'] for x in doc['transactions']))
+          PY
+      - name: Commit only staging evidence to PR branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/police_expense_staging.json
+          if git diff --cached --quiet; then
+            echo "Verified Police staging already current"
+            exit 0
+          fi
+          git commit -m "data: stage verified Police Agency PDF expenses without publishing"
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
