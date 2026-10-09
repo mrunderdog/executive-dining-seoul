@@ -1,11 +1,11 @@
 {
   "publication_enabled": true,
-  "generated_at": "2026-10-09T03:54:35.460492+00:00",
+  "generated_at": "2026-10-09T23:29:48.640627+00:00",
   "approved_venues": 4,
   "approved_transactions": 6,
   "unpublished_counts": {
-    "UNVERIFIED_VENUE": 33,
-    "ACTOR_NOT_EXPLICIT": 2
+    "UNVERIFIED_VENUE": 208,
+    "ACTOR_NOT_EXPLICIT": 3
   },
   "venues": [
     {
@@ -91,8 +91,7 @@
           "purpose": "연수구 관내 학교 현안사항 관련 업무협의",
           "target": "교육감, 업무관계자 등 총 5명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682",
-          "carried_forward_from_last_good": true
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
         },
         {
           "row_id": "2539c22ea061d534500b606a",
@@ -102,11 +101,9 @@
           "purpose": "세계시민교육 관련 교육관계자 업무협의",
           "target": "교육감, 수행직원 등 총 12명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/07/c10f3bc553b347bbb68e1c847974fc64.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3377151",
-          "carried_forward_from_last_good": true
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3377151"
         }
-      ],
-      "last_good_preserved_transactions": 2
+      ]
     },
     {
       "source_key": "incheon_education",
@@ -129,13 +126,11 @@
           "purpose": "인천 교육정책 관련 교육관계자 업무협의",
           "target": "교육감, 교육관계자 등 총 12명",
           "source_url": "https://www.ice.go.kr/upload/ice/na/bbs_1726/2026/09/22225b5ff2b24eedb14ea51b6cb45fe6.xlsx",
-          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682",
-          "carried_forward_from_last_good": true
+          "source_detail_url": "https://www.ice.go.kr/ice/na/ntt/selectNttInfo.do?bbsId=1726&mi=11654&nttSn=3383682"
         }
-      ],
-      "last_good_preserved_transactions": 1
+      ]
     }
   ],
-  "last_good_preserved_transactions": 3,
-  "last_good_preserved_venues": 2
+  "last_good_preserved_transactions": 0,
+  "last_good_preserved_venues": 0
 }
