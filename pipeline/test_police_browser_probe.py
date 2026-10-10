@@ -1,6 +1,6 @@
 """Police attachment Chromium-probe safety tests; offline and fast."""
 import unittest
-from police_browser_probe import police_url,police_variants,pdf_metadata,targets,official_download_url
+from police_browser_probe import police_url,police_variants,pdf_metadata,targets,official_download_url,merge_existing_staging
 
 class BrowserProbeContract(unittest.TestCase):
     def test_allowed_official_https_hosts_only(self):
@@ -33,6 +33,23 @@ class BrowserProbeContract(unittest.TestCase):
         info=pdf_metadata(b"<html>Login Required</html>")
         self.assertEqual(info["format"],"NOT_PDF")
         self.assertNotIn("pages",info)
+    def test_failed_refresh_keeps_previous_verified_staging(self):
+        prior={"publication_enabled":False,"transactions":[{"row_id":"stable-a","source_url":"https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=159650",
+            "pdf_sha256":"a"*64,"publication_status":"STAGING_ONLY","attendance_evidence":"NOT_ESTABLISHED","used_date":"2026-02-02"}]}
+        out=merge_existing_staging(prior,[])
+        self.assertEqual(out["transactions_count"],1)
+        self.assertEqual(out["prior_staged_count"],1)
+        self.assertEqual(out["new_verified_count"],0)
+        newly={**prior["transactions"][0],"row_id":"stable-b","used_date":"2026-03-01"}
+        combined=merge_existing_staging(prior,[newly])
+        self.assertEqual(combined["transactions_count"],2)
+        self.assertEqual(merge_existing_staging(combined,[newly])["transactions_count"],2)
+    def test_invalid_old_staging_not_promoted(self):
+        previous={"publication_enabled":False,"transactions":[{"row_id":"abc","source_url":"https://evil.example/file.pdf",
+          "pdf_sha256":"bad","publication_status":"STAGING_ONLY","attendance_evidence":"NOT_ESTABLISHED"}]}
+        self.assertEqual(merge_existing_staging(previous,[])["transactions_count"],0)
+        with self.assertRaises(ValueError):
+            merge_existing_staging({"publication_enabled":True,"transactions":[]},[])
     def test_official_seed_selection_only(self):
         registry={"sources":[{"key":"national_police","verified_detail_urls":[
             {"title":"Police deputy budget","role":"경찰청차장",

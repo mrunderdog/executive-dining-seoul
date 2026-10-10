@@ -1,7 +1,7 @@
 {
   "publication_enabled": false,
   "source": "official-police-chromium-capture",
-  "capture_run_id": 37994453585,
+  "capture_run_id": 38065116394,
   "transactions": [
     {
       "row_id": "848d0d4706b41a8d070aff9b",
@@ -402,9 +402,129 @@
       "attendance_evidence": "NOT_ESTABLISHED",
       "publication_status": "STAGING_ONLY",
       "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20260928131101336"
+    },
+    {
+      "row_id": "0ef1b45984a6fe4c18aeb84b",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 2,
+      "used_date": "2026-09-08",
+      "merchant": "미소",
+      "purpose": "명절 대비 112시스템 장비 점검 회의",
+      "amount": 92000,
+      "people": 6,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
+    },
+    {
+      "row_id": "062ce951c5a9f3455d495c70",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 3,
+      "used_date": "2026-09-09",
+      "merchant": "사조미가",
+      "purpose": "저위력권총 수용성 검토회의",
+      "amount": 150000,
+      "people": 8,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
+    },
+    {
+      "row_id": "09f19048e57bd70a0d85193b",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 4,
+      "used_date": "2026-09-10",
+      "merchant": "(주)시청해우리",
+      "purpose": "지역경찰업무시스템 보고회 사전검토",
+      "amount": 210000,
+      "people": 12,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
+    },
+    {
+      "row_id": "ccff5571e8d63fb0d8bc7df7",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 5,
+      "used_date": "2026-09-16",
+      "merchant": "미소",
+      "purpose": "사행성 불법 게임장 집중단속 결과보고",
+      "amount": 150000,
+      "people": 10,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
+    },
+    {
+      "row_id": "cf63eab054bbe32fb47d2f04",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 6,
+      "used_date": "2026-09-17",
+      "merchant": "충정로 수연",
+      "purpose": "112시스템 기능 개선 관련 검토보고",
+      "amount": 198000,
+      "people": 14,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
+    },
+    {
+      "row_id": "6e3ba6969663cf734de59bbc",
+      "source_key": "national_police",
+      "institution": "경찰청",
+      "cohort": "police_leadership",
+      "role": "범죄예방대응국장",
+      "role_source": "official_posting_and_pdf_user_column",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "source_row": 7,
+      "used_date": "2026-09-21",
+      "merchant": "사조미가",
+      "purpose": "중심지역관서 운영성과 분석보고",
+      "amount": 180000,
+      "people": 13,
+      "actor_evidence": "EXPLICIT_PDF_USER_COLUMN",
+      "attendance_evidence": "NOT_ESTABLISHED",
+      "publication_status": "STAGING_ONLY",
+      "source_detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846"
     }
   ],
-  "transactions_count": 20,
+  "transactions_count": 26,
   "evidence": [
     {
       "role": "경찰청차장",
@@ -423,7 +543,42 @@
       "bytes": 37942,
       "rows": 5,
       "total_won": 640400
+    },
+    {
+      "role": "범죄예방대응국장",
+      "source_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+      "detail_url": "https://www.police.go.kr/user/bbs/BD_selectBbs.do?q_bbsCode=1025&q_bbscttSn=20261007100255846",
+      "sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+      "bytes": 48201,
+      "rows": 6,
+      "total_won": 980000
     }
   ],
-  "caution": "PDF user column identifies senior expense user. It does not prove presence at a restaurant."
+  "unparsed_pdf_review": [
+    {
+      "role": "치안정보국장",
+      "official_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160136&q_fileId=850c8653-7d35-45d5-816c-5696c0365f3d",
+      "sha256": "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134",
+      "reason": "SCANNED_PDF_REVIEW_REQUIRED"
+    },
+    {
+      "role": "치안정보국장",
+      "official_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2ce2ae03-5ea7-4513-8083-a36600e2b4f9",
+      "sha256": "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b",
+      "reason": "SCANNED_PDF_REVIEW_REQUIRED"
+    },
+    {
+      "role": "치안정보국장",
+      "official_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2116b214-0f2c-4ffd-94fe-055ded7e49f9",
+      "sha256": "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+      "reason": "SCANNED_PDF_REVIEW_REQUIRED"
+    }
+  ],
+  "caution": "PDF user column identifies senior expense user. It does not prove presence at a restaurant.",
+  "new_verified_count": 6,
+  "preserved_prior_count": 20,
+  "capture_runs": [
+    37994453585,
+    38065116394
+  ]
 }

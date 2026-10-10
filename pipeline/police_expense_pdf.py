@@ -43,7 +43,7 @@ def parse_expense_table(table:list[list], role:str, official_pdf_url:str, sha256
             matched_user=True
         daystr=_value(raw[1])
         if daystr=="소 계":
-            mm=re.search(r"(\d+)건",_value(raw[2]))
+            mm=re.fullmatch(r"\s*(\d+)\s*(?:건)?\s*",_value(raw[2]))
             expected_count=int(mm.group(1)) if mm else None
             try:expected_total=int(compact(raw[4]).replace(",",""))
             except ValueError:expected_total=None
@@ -57,7 +57,7 @@ def parse_expense_table(table:list[list], role:str, official_pdf_url:str, sha256
         purpose=_value(raw[2])
         if not merchant or not purpose or amount<=0 or day.year>date.today().year:continue
         person_count=None
-        try:person_count=int(compact(raw[5]))
+        try:person_count=int(re.sub(r"명$","",compact(raw[5])))
         except (ValueError,TypeError):pass
         result.append({
             "row_id":hashlib.sha256(f"{sha256}:{ix}".encode()).hexdigest()[:24],
