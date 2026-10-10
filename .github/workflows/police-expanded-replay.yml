@@ -1,0 +1,70 @@
+name: Backfill verified Police September PDF rows
+
+on:
+  push:
+    branches: [feat/police-four-verified-merchants]
+    paths:
+      - 'pipeline/replay_police_browser_artifact.py'
+      - '.github/workflows/police-expanded-replay.yml'
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pypdf==6.1.1 pdfplumber==0.11.7
+      - name: Download original four official Police PDFs from Chromium artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl -fsSL -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/11674172247/zip" \
+            -o /tmp/police-expanded-evidence.zip
+          mkdir -p /tmp/police-expanded-evidence
+          unzip -oq /tmp/police-expanded-evidence.zip -d /tmp/police-expanded-evidence
+          python pipeline/replay_police_browser_artifact.py \
+            --directory /tmp/police-expanded-evidence --capture-run-id 38065116394
+      - name: Reconcile totals without inventing scanned-PDF rows
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/raw/police_expense_staging.json',encoding='utf-8'))
+          assert d['publication_enabled'] is False
+          assert d['transactions_count']==26, d['transactions_count']
+          assert d['new_verified_count']==6, d['new_verified_count']
+          assert len(d['unparsed_pdf_review'])==3, d['unparsed_pdf_review']
+          assert sum(x['amount'] for x in d['transactions'])==4671800
+          assert all(x['publication_status']=='STAGING_ONLY'
+                    and x['attendance_evidence']=='NOT_ESTABLISHED'
+                    for x in d['transactions'])
+          print('POLICE_CONFIRMED_STAGING',d['transactions_count'],'NEW',d['new_verified_count'],
+                'SCANNED_REVIEW',len(d['unparsed_pdf_review']),
+                'TOTAL',sum(x['amount'] for x in d['transactions']))
+          PY
+          PYTHONPATH=pipeline python -m unittest -v test_police_expense_pdf test_police_browser_probe test_police_expense_merchant_review
+      - name: Commit source-verified staging only
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/police_expense_staging.json
+          if git diff --cached --quiet; then
+            echo "No new Police expense transactions"
+            exit 0
+          fi
+          git commit -m "data: preserve 20 and add 6 Police senior-official verified expenses"
+          git fetch origin "$GITHUB_REF_NAME"
+          git rebase "origin/$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
