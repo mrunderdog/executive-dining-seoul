@@ -91,8 +91,8 @@ def stage_pdf_expenses(entry: dict, blob: bytes, role: str, source_url: str, det
         rows,summary=parse_pdf(blob,role,source_url)
         for row in rows:
             row["source_detail_url"]=detail_url
-        entry["parsed_expenses"]=rows
-        entry["expense_summary"]=summary
+        entry.setdefault("parsed_expenses",[]).extend(rows)
+        entry.setdefault("expense_summaries",[]).append(summary)
     except Exception as e:
         entry["parse_error"]=type(e).__name__+": "+str(e)[:240]
 
@@ -149,7 +149,7 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
                                 dest=output_dir/(md["sha256"][:16]+".pdf")
                                 dest.write_bytes(blob)
                                 stage_pdf_expenses(entry,blob,item["role"],official_download,item["url"])
-                                break
+                                continue
                         except Exception as e:
                             entry["downloads"].append({"url":official_download,
                                 "error":type(e).__name__+": "+str(e)[:150]})
@@ -174,7 +174,7 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
                             if source:stage_pdf_expenses(entry,blob,item["role"],source,item["url"])
                         else:temp.unlink(missing_ok=True)
                         entry["downloads"].append(md)
-                        break
+                        continue
                     except Exception as e:
                         entry["downloads"].append({"click_index":i,"error":type(e).__name__+": "+str(e)[:130]})
             result["attempts"].append(entry)
@@ -189,12 +189,43 @@ def investigate(page, item: dict, output_dir: Path, timeout_ms: int=12000) -> di
     result["verified_pdf_count"]=sum(d.get("format")=="PDF" for a in result["attempts"] for d in a["downloads"])
     return result
 
+def merge_existing_staging(previous: dict, new_rows: list[dict]) -> dict:
+    """Cumulative, read-only ingestion: a transient 307/empty PDF must not erase verified rows."""
+    if previous and previous.get("publication_enabled") is not False:
+        raise ValueError("Prior police staging cannot be published")
+    merged = {}
+    for row in (previous or {}).get("transactions") or []:
+        rid = row.get("row_id")
+        url = row.get("source_url") or ""
+        hash_value = row.get("pdf_sha256") or ""
+        if (not isinstance(rid,str) or not rid
+            or row.get("publication_status")!="STAGING_ONLY"
+            or row.get("attendance_evidence")!="NOT_ESTABLISHED"
+            or not police_url(url)
+            or not re.fullmatch("[0-9a-f]{64}",hash_value)):
+            continue
+        merged[rid]=row
+    preserved=len(merged)
+    for row in new_rows:
+        if row.get("publication_status")!="STAGING_ONLY" or row.get("attendance_evidence")!="NOT_ESTABLISHED":
+            raise ValueError("Probed Police transactions must stay non-published")
+        if not police_url(row.get("source_url") or ""):
+            raise ValueError("Untrusted Police source")
+        merged[row["row_id"]]=row
+    return {"publication_enabled":False,"source":"police_browser_pdf",
+            "transactions":sorted(merged.values(),key=lambda r:(r.get("used_date",""),r["row_id"])),
+            "transactions_count":len(merged),
+            "prior_staged_count":preserved,
+            "new_verified_count":len(set(r["row_id"] for r in new_rows))}
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--max-posts",type=int,default=2)
+    p.add_argument("--offset",type=int,default=0)
     args=p.parse_args()
     registry=json.loads(REGISTRY.read_text(encoding="utf-8"))
-    records=targets(registry)[:max(0,min(args.max_posts,5))]
+    start=max(0,args.offset)
+    records=targets(registry)[start:start+max(0,min(args.max_posts,5))]
     DOWNLOAD_DIR.mkdir(parents=True,exist_ok=True)
     report={"generated_at":datetime.now(timezone.utc).isoformat(),
             "publication_enabled":False,"mode":"browser_probe_only",
@@ -225,9 +256,12 @@ def main():
     staged=list(seen.values())
     report["staged_transactions"]=len(staged)
     staged_path=ROOT/"data/raw/police_expense_staging.json"
+    prior=json.loads(staged_path.read_text(encoding="utf-8")) if staged_path.exists() else {}
+    cumulative=merge_existing_staging(prior,staged)
     staged_path.parent.mkdir(parents=True,exist_ok=True)
-    staged_path.write_text(json.dumps({"publication_enabled":False,
-       "source":"police_browser_pdf","transactions":staged},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    staged_path.write_text(json.dumps(cumulative,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    report["total_staged_transactions"]=cumulative["transactions_count"]
+    report["preserved_staged_transactions"]=cumulative["prior_staged_count"]
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("VERIFIED_POLICE_PDFS",report["verified_pdf_count"],"STAGED_TRANSACTIONS",len(staged),flush=True)
