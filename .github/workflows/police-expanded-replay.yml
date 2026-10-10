@@ -5,6 +5,8 @@ on:
     branches: [feat/police-four-verified-merchants]
     paths:
       - 'pipeline/replay_police_browser_artifact.py'
+      - 'pipeline/test_police_expense_merchant_review.py'
+      - 'pipeline/review_police_expense_merchants.py'
       - '.github/workflows/police-expanded-replay.yml'
 
 permissions:
