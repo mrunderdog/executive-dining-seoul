@@ -37,6 +37,24 @@ class PolicePdfTableTests(unittest.TestCase):
             [None,"2026-02-02","회의","남원추어탕","60,000","6","카드"]]
         with self.assertRaisesRegex(ValueError,"role not found"):
             parse_expense_table(raw,"경찰청차장",URL,"b"*64)
+    def test_crime_prevention_september_bare_number_subtotal(self):
+        data=[
+          ["사용자","일자","내 역(건수)","사용처\\n(상호)","금 액","대상\\n인원(명)","집행\\n방법"],
+          ["범죄예방\\n대응국장","소 계","6","","980,000","",""],
+          [None,"2026-09-08","명절 대비 112시스템 장비 점검 회의","미소","92,000","6명","카드"],
+          [None,"2026-09-09","저위력권총 수용성 검토회의","사조미가","150,000","8명","카드"],
+          [None,"2026-09-10","지역경찰업무시스템 보고회 사전검토","(주)시청해우리","210,000","12명","카드"],
+          [None,"2026-09-16","사행성 불법 게임장 집중단속 결과보고","미소","150,000","10명","카드"],
+          [None,"2026-09-17","112시스템 기능 개선 관련 검토보고","충정로 수연","198,000","14명","카드"],
+          [None,"2026-09-21","중심지역관서 운영성과 분석보고","사조미가","180,000","13명","카드"]
+        ]
+        parsed,summary=parse_expense_table(data,"범죄예방대응국장",URL,"c"*64)
+        self.assertEqual(summary["records"],6)
+        self.assertEqual(summary["amount_total"],980000)
+        self.assertEqual(parsed[0]["people"],6)
+        self.assertEqual(parsed[1]["people"],8)
+        self.assertEqual(parsed[-1]["amount"],180000)
+        self.assertEqual(parsed[-1]["attendance_evidence"],"NOT_ESTABLISHED")
     def test_total_mismatch_fails_entire_pdf(self):
         bad=[list(x) for x in HEADER]
         bad[3][4]="135,500"
