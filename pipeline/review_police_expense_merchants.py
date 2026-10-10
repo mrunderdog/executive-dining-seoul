@@ -15,7 +15,7 @@ def review(staging:dict,manifest:dict)->dict:
     from venue_eligibility import is_non_venue_merchant
     if staging.get("publication_enabled") is not False:
         raise ValueError("Police expenses must remain staging only")
-    approved={x.get("merchant") for x in manifest.get("venues",[]) if x.get("source_key")=="national_police"}
+    approved={x.get("merchant"):x for x in manifest.get("venues",[]) if x.get("source_key")=="national_police"}
     grouped=defaultdict(list)
     for x in staging.get("transactions",[]):
         if x.get("publication_status")!="STAGING_ONLY" or x.get("attendance_evidence")!="NOT_ESTABLISHED":
@@ -27,14 +27,20 @@ def review(staging:dict,manifest:dict)->dict:
     for merchant,rows in grouped.items():
         unique={r["row_id"]:r for r in rows if r.get("row_id")}
         rows=list(unique.values())
-        if merchant in approved: status="VENUE_IDENTITY_APPROVED"
+        policy=approved.get(merchant)
+        approved_rows=sum(bool(policy and x.get("role")==policy.get("approved_role")
+            and x.get("pdf_sha256")==policy.get("source_pdf_sha256")
+            and x.get("source_url")==policy.get("official_pdf_url")) for x in rows)
+        if approved_rows: status="VENUE_IDENTITY_APPROVED"
         elif is_non_venue_merchant(merchant):status="NON_DINING_OR_GENERIC_BILLER"
         else:status="VENUE_LOCATION_NOT_VERIFIED"
         out.append({"merchant":merchant,"status":status,"transactions":len(rows),
            "amount_won":sum(int(x.get("amount") or 0) for x in rows),
            "expense_user_roles":sorted({x["role"] for x in rows}),
            "first_date":min(x["used_date"] for x in rows),"last_date":max(x["used_date"] for x in rows),
-           "publication_authorized":status=="VENUE_IDENTITY_APPROVED",
+           "publication_authorized":bool(approved_rows),
+           "approved_transactions":approved_rows,
+           "remaining_review_transactions":len(rows)-approved_rows,
            "attendance_confirmed":False,
            "official_pdfs":sorted({x.get("source_url") for x in rows if x.get("source_url")})})
     out.sort(key=lambda x:(x["status"]!="VENUE_IDENTITY_APPROVED",-x["transactions"],-x["amount_won"],x["merchant"]))
