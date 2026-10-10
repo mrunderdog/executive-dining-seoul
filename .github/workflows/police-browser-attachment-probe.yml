@@ -7,6 +7,7 @@ on:
       - 'pipeline/test_police_browser_probe.py'
       - 'sources/education_police_registry.json'
       - 'pipeline/review_police_expense_merchants.py'
+      - 'pipeline/diagnose_police_pdf_tables.py'
       - 'pipeline/test_police_expense_merchant_review.py'
       - 'pipeline/police_expense_pdf.py'
       - 'pipeline/test_police_expense_pdf.py'
@@ -36,6 +37,8 @@ jobs:
           PYTHONPATH=pipeline python pipeline/review_police_expense_merchants.py
       - name: Inspect actual police detail pages and downloads
         run: python pipeline/police_browser_probe.py --offset 2 --max-posts 3
+      - name: Diagnose unsupported official PDF table layouts
+        run: python pipeline/diagnose_police_pdf_tables.py
       - name: Publish diagnostic summary without publishing expenses
         if: always()
         run: |
