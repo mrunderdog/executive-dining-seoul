@@ -6,6 +6,8 @@ on:
       - 'pipeline/police_browser_probe.py'
       - 'pipeline/test_police_browser_probe.py'
       - 'sources/education_police_registry.json'
+      - 'pipeline/review_police_expense_merchants.py'
+      - 'pipeline/test_police_expense_merchant_review.py'
       - 'pipeline/police_expense_pdf.py'
       - 'pipeline/test_police_expense_pdf.py'
       - '.github/workflows/police-browser-attachment-probe.yml'
@@ -30,7 +32,8 @@ jobs:
       - name: Verify official-host and PDF contracts
         run: |
           python -m py_compile pipeline/police_browser_probe.py pipeline/police_expense_pdf.py
-          PYTHONPATH=pipeline python -m unittest -v test_police_browser_probe test_police_expense_pdf
+          PYTHONPATH=pipeline python -m unittest -v test_police_browser_probe test_police_expense_pdf test_police_expense_merchant_review
+          PYTHONPATH=pipeline python pipeline/review_police_expense_merchants.py
       - name: Inspect actual police detail pages and downloads
         run: python pipeline/police_browser_probe.py --offset 2 --max-posts 3
       - name: Publish diagnostic summary without publishing expenses
@@ -59,6 +62,8 @@ jobs:
         with:
           name: official-police-browser-diagnostics
           path: |
+            reports/police-expense-merchant-review.json
+            reports/police-expense-merchant-review.md
             reports/police-browser-attachment-probe.json
             data/raw/police_expense_staging.json
             reports/police-browser-pdfs/*.pdf
