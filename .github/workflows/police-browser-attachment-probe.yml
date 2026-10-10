@@ -5,6 +5,7 @@ on:
     paths:
       - 'pipeline/police_browser_probe.py'
       - 'pipeline/test_police_browser_probe.py'
+      - 'sources/education_police_registry.json'
       - 'pipeline/police_expense_pdf.py'
       - 'pipeline/test_police_expense_pdf.py'
       - '.github/workflows/police-browser-attachment-probe.yml'
@@ -31,7 +32,7 @@ jobs:
           python -m py_compile pipeline/police_browser_probe.py pipeline/police_expense_pdf.py
           PYTHONPATH=pipeline python -m unittest -v test_police_browser_probe test_police_expense_pdf
       - name: Inspect actual police detail pages and downloads
-        run: python pipeline/police_browser_probe.py --max-posts 2
+        run: python pipeline/police_browser_probe.py --offset 2 --max-posts 3
       - name: Publish diagnostic summary without publishing expenses
         if: always()
         run: |
@@ -44,7 +45,7 @@ jobs:
           else:
               d=json.loads(p.read_text(encoding="utf-8"))
               assert d["publication_enabled"] is False
-              print("OFFICIAL_VERIFIED_PDFS",d["verified_pdf_count"],"STAGED_TRANSACTIONS",d.get("staged_transactions",0))
+              print("OFFICIAL_VERIFIED_PDFS",d["verified_pdf_count"],"NEW_TRANSACTIONS",d.get("staged_transactions",0),"CUMULATIVE_TRANSACTIONS",d.get("total_staged_transactions",0))
               for record in d["records"]:
                   for attempt in record["attempts"]:
                       print("ATTEMPT", record["role"], attempt.get("attempted_url"),
