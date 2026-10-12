@@ -17,8 +17,8 @@ class PoliceMerchantReview(unittest.TestCase):
         by={x["merchant"]:x for x in d["merchants"]}
         self.assertEqual(by["사조미가"]["status"],"VENUE_IDENTITY_APPROVED")
         self.assertGreaterEqual(by["사조미가"]["transactions"],2)
-        self.assertEqual(by["사조미가"]["approved_transactions"],2)
-        self.assertEqual(by["사조미가"]["remaining_review_transactions"],by["사조미가"]["transactions"]-2)
+        self.assertEqual(by["사조미가"]["approved_transactions"],5)
+        self.assertEqual(by["사조미가"]["remaining_review_transactions"],by["사조미가"]["transactions"]-5)
         self.assertEqual(by["남원추어탕"]["status"],"VENUE_LOCATION_NOT_VERIFIED")
         self.assertEqual(by["스타벅스코리아"]["status"],"NON_DINING_OR_GENERIC_BILLER")
         self.assertFalse(any(x["attendance_confirmed"] for x in d["merchants"]))

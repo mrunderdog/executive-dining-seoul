@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-12",
+  "reviewed_at": "2026-10-13",
   "policy": "Independently verified business identity and address + exact official source row and budget user. Never assert personal attendance; scanned pages require explicit row-id allowlist.",
   "venues": [
     {
@@ -15,10 +15,31 @@
       "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160315&q_fileId=923edce7-c7c0-4778-a281-69058f6836da",
       "address_evidence_urls": [
         "https://www.tabling.co.kr/place/677cca9466de5f06987b8b5d",
-        "https://www.albamon.com/jobs/detail-company/-B4VSA5NsAYEsBYnvTNkzA%3D%3D"
+        "https://www.albamon.com/jobs/detail-company/-B4VSA5NsAYEsBYnvTNkzA%3D%3D",
+        "https://www.diningcode.com/profile.php?rid=vqVjqsuVuNte",
+        "https://opengo.kr/5601fb680e887edf2cecf6f9"
       ],
-      "identification": "exact name and independent address sources",
-      "attendance_confirmed": false
+      "identification": "exact name and independent address sources; independent 2026 street-address verification from DiningCode, Tabling, JobKorea and official-licence listing",
+      "attendance_confirmed": false,
+      "additional_sources": [
+        {
+          "approved_role": "치안정보국장",
+          "source_pdf_sha256": "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134",
+          "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160136&q_fileId=850c8653-7d35-45d5-816c-5696c0365f3d",
+          "approved_row_ids": [
+            "172baf2349b9315e866c0003"
+          ]
+        },
+        {
+          "approved_role": "범죄예방대응국장",
+          "source_pdf_sha256": "e5c9d84fed176a92ec9c44280afc3303189e01ef394f2437cb908cc9704ae1bf",
+          "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160329&q_fileId=ba4f186a-8014-457d-bf8a-ed6a5c93b282",
+          "approved_row_ids": [
+            "062ce951c5a9f3455d495c70",
+            "6e3ba6969663cf734de59bbc"
+          ]
+        }
+      ]
     },
     {
       "source_key": "national_police",
