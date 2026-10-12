@@ -11,6 +11,9 @@ on:
       - 'pipeline/geocode_cache.py'
       - 'pipeline/published_sources.py'
       - 'pipeline/extra_published.py'
+      - 'pipeline/police_expense_publication.py'
+      - 'sources/police_verified_expense_venues.json'
+      - 'pipeline/audit_police_coordinates.py'
       - 'pipeline/coordinate_selection.py'
       - '.github/workflows/geocode.yml'
   workflow_run:
@@ -49,6 +52,9 @@ jobs:
           python pipeline/geocode_extra_cache.py
           python pipeline/geocode_cache.py --mode auto
 
+      - name: Verify all approved Police venue coordinates
+        run: python pipeline/audit_police_coordinates.py
+
       - name: Verify legislator map QA
         if: hashFiles('reports/national-legislator-candidates.json') != ''
         run: python pipeline/qa_national_legislator_map.py
@@ -78,6 +84,7 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python pipeline/geocode_cache.py --mode auto
+            python pipeline/audit_police_coordinates.py
             git add data/geocode_cache.json
             if git diff --cached --quiet; then
               echo "Latest main already contains an equivalent coordinate cache."
