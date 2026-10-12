@@ -66,6 +66,7 @@ jobs:
           name: official-police-browser-diagnostics
           path: |
             reports/police-expense-merchant-review.json
+            reports/police-expense-verification-queue.json
             reports/police-expense-merchant-review.md
             reports/police-browser-attachment-probe.json
             data/raw/police_expense_staging.json
