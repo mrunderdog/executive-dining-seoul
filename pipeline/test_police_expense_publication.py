@@ -12,8 +12,8 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         cls.manifest=json.loads(MANIFEST.read_text(encoding="utf-8"))
     def test_live_official_rows_and_amount(self):
         records=load_police_expense_records()
-        self.assertEqual(len(records),1)
-        x=records[0]
+        self.assertEqual(len(records),5)
+        x=next(r for r in records if r["name"]=="사조미가")
         self.assertEqual(x["name"],"사조미가")
         self.assertEqual(x["evidence"]["spending_events"],2)
         self.assertEqual(x["evidence"]["spend"],318000)
@@ -25,11 +25,25 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         self.assertTrue(all(z["attendance_status"]=="NOT_ESTABLISHED" for z in x["evidence"]["recent"]))
         self.assertTrue(all(z["expense_user_only"] for z in x["evidence"]["recent"]))
     def test_published_site_global_entity_keeps_spending_not_visits(self):
-        x=load_police_expense_records()[0]
+        x=next(r for r in load_police_expense_records() if r["name"]=="사조미가")
         merged=merge_global_entities({"records":[x]})["records"][0]
         self.assertEqual(merged["evidence"]["spending_events"],2)
         self.assertEqual(merged["evidence"]["visits"],0)
         self.assertEqual(merged["evidence"]["spend"],318000)
+    def test_new_scanned_venues_pinned_and_not_attendance(self):
+        by={r["name"]:r for r in load_police_expense_records()}
+        for name,amount in {"설마중":347000,"차이(Chai)797 시청":300000,
+                            "산청숯불가든 을지로":307000,"(주)어반가든":208300}.items():
+            self.assertEqual(by[name]["evidence"]["spend"],amount)
+            self.assertEqual(by[name]["evidence"]["visits"],0)
+            self.assertEqual(by[name]["evidence"]["spending_events"],1)
+        m=copy.deepcopy(self.manifest)
+        target=next(v for v in m["venues"] if v["merchant"]=="설마중")
+        target.pop("approved_row_ids")
+        self.assertNotIn("설마중",[v["name"] for v in select_expense_venues(self.doc,m)])
+        target["approved_row_ids"]=["fabricated-id"]
+        self.assertNotIn("설마중",[v["name"] for v in select_expense_venues(self.doc,m)])
+
     def test_unrelated_merchants_and_companies_never_published(self):
         copy_doc=copy.deepcopy(self.doc)
         for row in copy_doc["transactions"]:
@@ -56,7 +70,7 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
             with self.assertRaises(ValueError,msg=field):
                 select_expense_venues(self.doc,m)
     def test_no_plain_visit_inference(self):
-        x=load_police_expense_records()[0]
+        x=next(r for r in load_police_expense_records() if r["name"]=="사조미가")
         self.assertNotIn("방문 확인",x["why"])
         self.assertIn("실제 식사 참석 여부는 확인되지 않았",x["why"])
 
