@@ -15,8 +15,8 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         self.assertEqual(len(records),5)
         x=next(r for r in records if r["name"]=="사조미가")
         self.assertEqual(x["name"],"사조미가")
-        self.assertEqual(x["evidence"]["spending_events"],2)
-        self.assertEqual(x["evidence"]["spend"],318000)
+        self.assertEqual(x["evidence"]["spending_events"],5)
+        self.assertEqual(x["evidence"]["spend"],900000)
         self.assertEqual(x["evidence"]["visits"],0)
         self.assertEqual(x["executive"]["top_official_visits"],0)
         self.assertEqual(x["attendance_status"],"NOT_ESTABLISHED")
@@ -27,9 +27,27 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
     def test_published_site_global_entity_keeps_spending_not_visits(self):
         x=next(r for r in load_police_expense_records() if r["name"]=="사조미가")
         merged=merge_global_entities({"records":[x]})["records"][0]
-        self.assertEqual(merged["evidence"]["spending_events"],2)
+        self.assertEqual(merged["evidence"]["spending_events"],5)
         self.assertEqual(merged["evidence"]["visits"],0)
-        self.assertEqual(merged["evidence"]["spend"],318000)
+        self.assertEqual(merged["evidence"]["spend"],900000)
+    def test_sajo_multi_pdf_expenses_are_exactly_allowed(self):
+        x=next(r for r in load_police_expense_records() if r["name"]=="사조미가")
+        roles={z["role"]:z for z in x["evidence"]["roles"]}
+        self.assertEqual(x["executive"]["roles"],3)
+        self.assertEqual(x["executive"]["top_official_visits"],0)
+        self.assertEqual(len(x["evidence"]["source_rows"]),5)
+        self.assertEqual(roles["경무인사기획관 (집행 명의)"]["spending_events"],2)
+        self.assertEqual(roles["치안정보국장 (집행 명의)"]["spending_events"],1)
+        self.assertEqual(roles["범죄예방대응국장 (집행 명의)"]["spending_events"],2)
+        m=copy.deepcopy(self.manifest)
+        source=next(v for v in m["venues"] if v["merchant"]=="사조미가")["additional_sources"][0]
+        source["approved_row_ids"]=["fabricated-id"]
+        y=next(r for r in select_expense_venues(self.doc,m) if r["name"]=="사조미가")
+        self.assertEqual(y["evidence"]["spending_events"],4)
+        source["approved_row_ids"]=[]
+        with self.assertRaises(ValueError):
+            select_expense_venues(self.doc,m)
+
     def test_new_scanned_venues_pinned_and_not_attendance(self):
         by={r["name"]:r for r in load_police_expense_records()}
         for name,amount in {"설마중":347000,"차이(Chai)797 시청":300000,
