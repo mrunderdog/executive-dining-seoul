@@ -1,0 +1,50 @@
+name: Police browser map source QA
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/browser_map_smoke.mjs'
+      - 'pipeline/police_expense_publication.py'
+      - 'sources/police_verified_expense_venues.json'
+      - '.github/workflows/police-map-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify approved Police expenses and coordinates
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_police_expense_publication
+          python pipeline/audit_police_coordinates.py
+      - name: Build static site
+        run: python pipeline/build_site.py --output dist/index.html
+      - name: Run real-browser map and Police filter smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [[ -z "$CHROME_BIN" ]]; then
+            echo "Chrome/Chromium not found on runner"
+            exit 1
+          fi
+          python -m http.server 8765 --directory dist >/tmp/police-map-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/police-map-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/police-map-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          if ! node pipeline/browser_map_smoke.mjs; then
+            tail -120 /tmp/police-map-chrome.log || true
+            tail -80 /tmp/police-map-http.log || true
+            exit 1
+          fi
