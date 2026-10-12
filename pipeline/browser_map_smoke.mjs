@@ -274,6 +274,49 @@ console.log('LH_FILTER_SMOKE',JSON.stringify(lhFilterCheck));
 if (lhFilterCheck.error || !lhFilterCheck.allLh || lhFilterCheck.count < 8 || lhFilterCheck.mapped < 2) {
   throw new Error('institution filter failed for 한국토지주택공사');
 }
+const policeMapSmoke=await evaluate(`(() => {
+  const institution='경찰청';
+  const opt=[...ori.options].find(o=>o.value==='institution:'+institution);
+  if(!opt)return {error:'Police institution filter option missing'};
+  ds.value='all';
+  q.value='';
+  ori.value=opt.value;
+  renderList(false);
+  const policeOnly=DATA.filter(r=>(r.published_sources||[]).includes('police_expense_user_only'));
+  const filtered=current;
+  const mapped=geojson().features;
+  const featureIds=new Set(mapped.map(x=>String(x.properties.id)));
+  const expected=[
+    {rowId:'c22920bba55108f288f30003',name:'설마중',address:'남부순환로 2648'},
+    {rowId:'172baf2349b9315e866c0001',name:'차이797 시청',address:'서소문로 120'},
+    {rowId:'c22920bba55108f288f30005',name:'산청숯불가든 을지로',address:'을지로 114-6'},
+    {rowId:'c22920bba55108f288f30007',name:'어반가든',address:'정동길 12-15'}
+  ];
+  const rows=expected.map(w=>{
+    const found=filtered.filter(r=>(r.evidence?.source_rows||[]).includes(w.rowId));
+    const r=found[0];
+    return {name:w.name, matches:found.length,
+      addressOK:!!r&&String(r.address||'').includes(w.address),
+      mapped:!!r&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)&&featureIds.has(String(key(r))),
+      source:!!r&&(r.published_sources||[]).includes('police_expense_user_only'),
+      spendingOnly:!!r&&Number(r.evidence?.spending_events||0)>=1,
+      policeExpenseUnconfirmed:!!r&&(r.evidence?.recent||[]).filter(x=>x.expense_user_only&&String(x.role||'').includes('경찰청')).every(x=>x.attendance_status==='NOT_ESTABLISHED')
+    };
+  });
+  return {option:opt.value,sourceRecords:policeOnly.length,filtered:filtered.length,
+    allArePolice:filtered.every(r=>recordInstitutions(r).includes(institution)),
+    sourceRecordsIncluded:policeOnly.every(r=>filtered.some(f=>key(f)===key(r))),
+    mappedFeatures:mapped.length,rows};
+})()`);
+console.log('POLICE_MAP_SMOKE',JSON.stringify(policeMapSmoke));
+if (policeMapSmoke.error || policeMapSmoke.sourceRecords!==5 ||
+    !policeMapSmoke.allArePolice || !policeMapSmoke.sourceRecordsIncluded ||
+    policeMapSmoke.mappedFeatures<5 ||
+    policeMapSmoke.rows.some(r=>r.matches!==1 || !r.addressOK || !r.mapped || !r.source ||
+                                 !r.spendingOnly || !r.policeExpenseUnconfirmed)) {
+  throw new Error('approved Police restaurant markers, original row provenance, or institution filter failed');
+}
+
 await evaluate(`(() => { ori.value='all'; renderList(false); return current.length; })()`);
 
 const crossResetCheck=await evaluate(`(() => {
