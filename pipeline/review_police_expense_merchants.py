@@ -14,6 +14,7 @@ QUEUE=ROOT/"reports/police-expense-verification-queue.json"
 
 def review(staging:dict,manifest:dict)->dict:
     from venue_eligibility import is_non_venue_merchant
+    from police_expense_publication import is_approved_source_row
     if staging.get("publication_enabled") is not False:
         raise ValueError("Police expenses must remain staging only")
     approved={x.get("merchant"):x for x in manifest.get("venues",[]) if x.get("source_key")=="national_police"}
@@ -29,15 +30,11 @@ def review(staging:dict,manifest:dict)->dict:
         unique={r["row_id"]:r for r in rows if r.get("row_id")}
         rows=list(unique.values())
         policy=approved.get(merchant)
-        approved_rows=sum(bool(policy and x.get("role")==policy.get("approved_role")
-            and x.get("pdf_sha256")==policy.get("source_pdf_sha256")
-            and x.get("source_url")==policy.get("official_pdf_url")) for x in rows)
+        approved_rows=sum(bool(policy and is_approved_source_row(x,policy)) for x in rows)
         if approved_rows: status="VENUE_IDENTITY_APPROVED"
         elif is_non_venue_merchant(merchant):status="NON_DINING_OR_GENERIC_BILLER"
         else:status="VENUE_LOCATION_NOT_VERIFIED"
-        pending_rows=[x for x in rows if not (policy and x.get("role")==policy.get("approved_role")
-            and x.get("pdf_sha256")==policy.get("source_pdf_sha256")
-            and x.get("source_url")==policy.get("official_pdf_url"))]
+        pending_rows=[x for x in rows if not (policy and is_approved_source_row(x,policy))]
         out.append({"merchant":merchant,"status":status,"transactions":len(rows),
            "amount_won":sum(int(x.get("amount") or 0) for x in rows),
            "expense_user_roles":sorted({x["role"] for x in rows}),
