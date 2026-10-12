@@ -34,7 +34,9 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             or not clean(v.get("address")) or not clean(v.get("approved_role"))
             or len(set(v.get("address_evidence_urls") or []))<2
             or not clean(v.get("source_pdf_sha256"))
-            or v.get("attendance_confirmed") is not False):
+            or v.get("attendance_confirmed") is not False
+            or (v.get("approved_row_ids") is not None and
+                (not v["approved_row_ids"] or len(set(v["approved_row_ids"]))!=len(v["approved_row_ids"])))):
             raise ValueError("Invalid, ambiguous or attendee-claiming Police venue policy: "+key)
         url=v.get("official_pdf_url") or ""
         p=urlsplit(url)
@@ -50,10 +52,15 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             or clean(row.get("role"))!=clean(v["approved_role"])
             or row.get("pdf_sha256")!=v["source_pdf_sha256"]
             or row.get("source_url")!=v["official_pdf_url"]
-            or row.get("actor_evidence")!="EXPLICIT_PDF_USER_COLUMN"
+            or (row.get("actor_evidence") not in ("EXPLICIT_PDF_USER_COLUMN","EXPLICIT_SCANNED_PDF_USER_COLUMN"))
             or row.get("attendance_evidence")!="NOT_ESTABLISHED"
             or row.get("publication_status")!="STAGING_ONLY"
-            or not clean(row.get("row_id"))):
+            or not clean(row.get("row_id"))
+            or (v.get("approved_row_ids") is not None and row["row_id"] not in v["approved_row_ids"])
+            or (row.get("actor_evidence")=="EXPLICIT_SCANNED_PDF_USER_COLUMN" and
+                (row.get("transcription_method")!="HUMAN_VISUAL_REVIEW_OF_OFFICIAL_PDF"
+                 or row.get("transcription_review_status")!="SUBTOTAL_RECONCILED_ADDRESS_NOT_VERIFIED"
+                 or row.get("row_id") not in (v.get("approved_row_ids") or [])))):
             continue
         detail=urlsplit(row.get("source_detail_url") or "")
         if detail.scheme!="https" or detail.hostname not in TRUSTED:
