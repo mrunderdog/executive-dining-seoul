@@ -32,6 +32,24 @@ class PoliceMerchantReview(unittest.TestCase):
             if merchant["remaining_review_transactions"]==0:
                 self.assertEqual(merchant["review_priority"],"NOT_REQUIRED")
 
+    def test_scanned_pdf_visual_review_is_source_reconciled_and_unpublished(self):
+        reviewed=[x for x in self.staged["transactions"] if x.get("transcription_method")=="HUMAN_VISUAL_REVIEW_OF_OFFICIAL_PDF"]
+        self.assertEqual(len(reviewed),17)
+        self.assertEqual(sum(x["amount"] for x in reviewed),3041260)
+        expected={
+            "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b":(5,883000),
+            "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a":(8,1449960),
+            "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134":(4,708300),
+        }
+        for sha,(count,total) in expected.items():
+            rows=[x for x in reviewed if x["pdf_sha256"]==sha]
+            self.assertEqual((len(rows),sum(x["amount"] for x in rows)),(count,total))
+        self.assertEqual(len({x["row_id"] for x in self.staged["transactions"]}),len(self.staged["transactions"]))
+        self.assertTrue(all(x["publication_status"]=="STAGING_ONLY" and
+                            x["attendance_evidence"]=="NOT_ESTABLISHED" and
+                            x["source_url"].startswith("https://www.police.go.kr/component/file/")
+                            for x in reviewed))
+
     def test_no_attendee_inference_from_role(self):
         mutated=json.loads(json.dumps(self.staged))
         for x in mutated["transactions"]:
