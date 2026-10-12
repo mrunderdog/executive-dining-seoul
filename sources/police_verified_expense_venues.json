@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-10",
-  "policy": "Verified place of business and official expenditure user. This is not a personal visit or attendance record.",
+  "reviewed_at": "2026-10-12",
+  "policy": "Independently verified business identity and address + exact official source row and budget user. Never assert personal attendance; scanned pages require explicit row-id allowlist.",
   "venues": [
     {
       "source_key": "national_police",
@@ -18,6 +18,89 @@
         "https://www.albamon.com/jobs/detail-company/-B4VSA5NsAYEsBYnvTNkzA%3D%3D"
       ],
       "identification": "exact name and independent address sources",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "설마중",
+      "address": "서울특별시 서초구 남부순환로 2648",
+      "display": "설마중",
+      "category": "한정식·갈비",
+      "phone": "02-3462-8888",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2116b214-0f2c-4ffd-94fe-055ded7e49f9",
+      "approved_row_ids": [
+        "c22920bba55108f288f30003"
+      ],
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/place/677cc74b66de5f0698746dca",
+        "https://www.daangn.com/kr/local-profile/%EC%84%A4%EB%A7%88%EC%A4%91-pm3gg6xt29mz/"
+      ],
+      "identification": "Exact distinctive merchant name and same independently listed business location",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "차이(Chai)797 시청",
+      "address": "서울특별시 중구 서소문로 120",
+      "display": "차이797 시청점",
+      "category": "중식",
+      "phone": "02-6020-7944",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160136&q_fileId=850c8653-7d35-45d5-816c-5696c0365f3d",
+      "approved_row_ids": [
+        "172baf2349b9315e866c0001"
+      ],
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/place/677ccdb666de5f06988195ca",
+        "https://m.jobkorea.co.kr/Recruit/GI_Read/50041331?sc=621",
+        "https://si.re.kr/atch/filePreview.do?cnncSn=2606100003&cnncTy=bbs&ordr=2"
+      ],
+      "identification": "Exact branch named in restaurant listing, operator recruitment and independent public-institution card ledger; floor descriptions differ, so street address only",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "산청숯불가든 을지로",
+      "address": "서울특별시 중구 을지로 114-6, 1층",
+      "display": "산청숯불가든 을지로",
+      "category": "고깃집",
+      "phone": "02-2273-8188",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2116b214-0f2c-4ffd-94fe-055ded7e49f9",
+      "approved_row_ids": [
+        "c22920bba55108f288f30005"
+      ],
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/restaurant/9364",
+        "https://www.diningcode.com/profile.php?rid=ObcZ71MMfF9s",
+        "https://bizno.net/article/3508503253"
+      ],
+      "identification": "Exact branch name corroborated by merchant registration, Tabling and DiningCode at Eulji-ro 114-6; similarly branded adjacent branch and other provider place may differ",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "(주)어반가든",
+      "address": "서울특별시 중구 정동길 12-15",
+      "display": "어반가든 정동",
+      "category": "양식·레스토랑",
+      "phone": "02-777-2254",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2116b214-0f2c-4ffd-94fe-055ded7e49f9",
+      "approved_row_ids": [
+        "c22920bba55108f288f30007"
+      ],
+      "address_evidence_urls": [
+        "https://urbangarden.co.kr/page/map.html",
+        "https://bizno.net/article/1048625632",
+        "https://www.tabling.co.kr/place/677ccb0266de5f06987c7538"
+      ],
+      "identification": "Restaurant's own website and independent business registration use the same company name, registration 104-86-25632, phone and address",
       "attendance_confirmed": false
     }
   ]
