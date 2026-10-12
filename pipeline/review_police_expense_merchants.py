@@ -10,6 +10,7 @@ STAGED=ROOT/"data/raw/police_expense_staging.json"
 VENUES=ROOT/"sources/police_verified_expense_venues.json"
 REPORT=ROOT/"reports/police-expense-merchant-review.json"
 MARKDOWN=ROOT/"reports/police-expense-merchant-review.md"
+QUEUE=ROOT/"reports/police-expense-verification-queue.json"
 
 def review(staging:dict,manifest:dict)->dict:
     from venue_eligibility import is_non_venue_merchant
@@ -34,13 +35,20 @@ def review(staging:dict,manifest:dict)->dict:
         if approved_rows: status="VENUE_IDENTITY_APPROVED"
         elif is_non_venue_merchant(merchant):status="NON_DINING_OR_GENERIC_BILLER"
         else:status="VENUE_LOCATION_NOT_VERIFIED"
+        pending_rows=[x for x in rows if not (policy and x.get("role")==policy.get("approved_role")
+            and x.get("pdf_sha256")==policy.get("source_pdf_sha256")
+            and x.get("source_url")==policy.get("official_pdf_url"))]
         out.append({"merchant":merchant,"status":status,"transactions":len(rows),
            "amount_won":sum(int(x.get("amount") or 0) for x in rows),
            "expense_user_roles":sorted({x["role"] for x in rows}),
            "first_date":min(x["used_date"] for x in rows),"last_date":max(x["used_date"] for x in rows),
            "publication_authorized":bool(approved_rows),
            "approved_transactions":approved_rows,
-           "remaining_review_transactions":len(rows)-approved_rows,
+           "remaining_review_transactions":len(pending_rows),
+           "pending_row_ids":sorted(x["row_id"] for x in pending_rows if x.get("row_id")),
+           "review_priority":("NOT_REQUIRED" if not pending_rows else
+                              "EXCLUDE_OR_RECONCILE" if status=="NON_DINING_OR_GENERIC_BILLER" else
+                              "HIGH" if len(pending_rows)>=2 else "NORMAL"),
            "attendance_confirmed":False,
            "official_pdfs":sorted({x.get("source_url") for x in rows if x.get("source_url")})})
     out.sort(key=lambda x:(x["status"]!="VENUE_IDENTITY_APPROVED",-x["transactions"],-x["amount_won"],x["merchant"]))
@@ -69,6 +77,15 @@ def main():
                "VENUE_LOCATION_NOT_VERIFIED":"업소·주소 검증 대기"}[x["status"]]
         lines.append(f"| {x['merchant'].replace('|','/')} | {label} | {x['transactions']} | {x['amount_won']:,}원 | {', '.join(x['expense_user_roles'])} |")
     MARKDOWN.write_text("\n".join(lines)+"\n",encoding="utf-8")
+    queue={"publication_enabled":False,"attendance_confirmed":False,
+           "policy":"Research queue only. Do not publish without independently proven venue/address and row-level source approval.",
+           "items":sorted(({"merchant":x["merchant"],"priority":x["review_priority"],
+                "status":x["status"],"pending_transactions":x["remaining_review_transactions"],
+                "pending_row_ids":x["pending_row_ids"],"amount_won":x["amount_won"],
+                "official_pdfs":x["official_pdfs"]} for x in d["merchants"]
+                if x["remaining_review_transactions"] and x["status"]!="NON_DINING_OR_GENERIC_BILLER"),
+                key=lambda x:(x["priority"]!="HIGH",-x["pending_transactions"],-x["amount_won"],x["merchant"]))}
+    QUEUE.write_text(json.dumps(queue,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("REVIEW_COUNTS",json.dumps(d["status_counts"],ensure_ascii=False))
     print("REVIEW_TRANSACTIONS",d["staged_transaction_count"],"MERCHANTS",d["merchant_count"])
 if __name__=="__main__":main()
