@@ -22,6 +22,16 @@ class PoliceMerchantReview(unittest.TestCase):
         self.assertEqual(by["남원추어탕"]["status"],"VENUE_LOCATION_NOT_VERIFIED")
         self.assertEqual(by["스타벅스코리아"]["status"],"NON_DINING_OR_GENERIC_BILLER")
         self.assertFalse(any(x["attendance_confirmed"] for x in d["merchants"]))
+    def test_review_queue_preserves_row_level_provenance(self):
+        d=review(self.staged,self.manifest)
+        for merchant in d["merchants"]:
+            self.assertEqual(len(merchant["pending_row_ids"]),merchant["remaining_review_transactions"])
+            self.assertFalse(merchant["attendance_confirmed"])
+            if merchant["status"]=="NON_DINING_OR_GENERIC_BILLER":
+                self.assertEqual(merchant["review_priority"],"EXCLUDE_OR_RECONCILE")
+            if merchant["remaining_review_transactions"]==0:
+                self.assertEqual(merchant["review_priority"],"NOT_REQUIRED")
+
     def test_no_attendee_inference_from_role(self):
         mutated=json.loads(json.dumps(self.staged))
         for x in mutated["transactions"]:
