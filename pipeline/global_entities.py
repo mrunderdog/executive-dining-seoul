@@ -394,6 +394,22 @@ def merge_global_entities(payload: dict) -> dict:
             f"{t(r.get('name'))}|{t(r.get('origin'))}" for r in rows if t(r.get("name")) and t(r.get("origin"))
         ))
         primary["published_sources"] = sorted({t(r.get("published_source")) for r in rows if t(r.get("published_source"))})
+        # A real restaurant address does not prove that a generic Police expense
+        # merchant was this particular branch. Preserve that uncertainty even
+        # when another institution's record wins the merged entity display.
+        uncertain_police = [
+            r for r in rows
+            if t(r.get("published_source")) == "police_expense_user_only"
+            and t(r.get("location_match_confidence")) == "PROBABLE_NAME_AND_PROXIMITY"
+        ]
+        if uncertain_police:
+            primary["police_expense_venue_match_status"] = "PROBABLE_NAME_AND_PROXIMITY"
+            primary["police_expense_uncertain_spending_events"] = sum(
+                int((r.get("evidence") or {}).get("spending_events") or 0)
+                for r in uncertain_police
+            )
+        elif any(t(r.get("published_source")) == "police_expense_user_only" for r in rows):
+            primary["police_expense_venue_match_status"] = "ADDRESS_CORROBORATED"
         primary["cohorts"] = sorted({t(r.get("cohort")) for r in rows if t(r.get("cohort"))})
         primary["entity_id"] = hashlib.sha1(key.encode("utf-8")).hexdigest()[:16]
         if bridged_groups.get(key):
@@ -452,6 +468,12 @@ def merge_global_entities(payload: dict) -> dict:
                     f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
                     f"합산 {total_visits}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
                 )
+        if uncertain_police and is_cross:
+            primary["why"] += (
+                " 주의: 경찰청 업무추진비의 상호와 이 위치는 근접성 기반 후보 매칭이며, "
+                "원문만으로 실제 결제 지점을 확정할 수 없습니다. "
+                "경찰청 관련 교차기관 신호는 확정 방문·동일 매장 선택 증거가 아닙니다."
+            )
         merged.append(primary)
 
     merged.sort(key=lambda r: (_signal(r), int((r.get("evidence") or {}).get("visits") or 0)), reverse=True)
