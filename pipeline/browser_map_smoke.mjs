@@ -322,7 +322,7 @@ const policeMapSmoke=await evaluate(`(() => {
     mappedFeatures:mapped.length,rows,probable};
 })()`);
 console.log('POLICE_MAP_SMOKE',JSON.stringify(policeMapSmoke));
-if (policeMapSmoke.error || policeMapSmoke.sourceRecords!==8 ||
+if (policeMapSmoke.error || policeMapSmoke.sourceRecords!==10 ||
     !policeMapSmoke.allArePolice || !policeMapSmoke.sourceRecordsIncluded ||
     policeMapSmoke.mappedFeatures<5 || policeMapSmoke.probable?.length!==3 ||
     policeMapSmoke.probable.some(r=>!r.found || !r.status || !r.badge || !r.card ||
