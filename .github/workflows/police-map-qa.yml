@@ -21,9 +21,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify approved Police expenses and coordinates
+      - name: Verify approved Police expenses and build candidate coordinates
         run: |
           PYTHONPATH=pipeline python -m unittest -v test_police_expense_publication
+          python pipeline/geocode_extra_cache.py
           python pipeline/audit_police_coordinates.py
       - name: Build static site
         run: python pipeline/build_site.py --output dist/index.html

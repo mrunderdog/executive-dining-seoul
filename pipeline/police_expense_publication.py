@@ -132,6 +132,7 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             "published_source":"police_expense_user_only","cohort":"police_leadership",
             "source_verified_expense_only":True,
             "attendance_status":"NOT_ESTABLISHED",
+            "location_match_confidence":clean(v.get("location_match_confidence")) or "ADDRESS_CORROBORATED",
             "executive":{"rank":len(result)+1,"score":0,"exec_events":0,
               "spending_events":len(tx),"roles":len(role_stats),"months":len({d[:7] for d in dates}),
               "evening_ratio":0,"source":"police_expense_user_only",
@@ -140,9 +141,9 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             "address":clean(v["address"]),"search_query":merchant+" "+clean(v["address"]),
             "business":{"display":clean(v.get("display")) or merchant,
               "category":clean(v.get("category")) or "음식점","phone":clean(v.get("phone")),
-              "status":"업소 위치 독립 검증·경찰청 업무추진비 원문 교차검증",
-              "note":"경찰청 고위직 명의의 공식 업무추진비 집행처입니다. 해당 인물의 실제 참석·방문을 확인한 기록이 아닙니다.",
-              "rating":"","url":v["address_evidence_urls"][0],"verification_confidence":"HIGH"},
+              "status":("상호·주변 위치 기반 매칭(결제 지점 미확정)" if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "업소 위치 독립 검증·경찰청 업무추진비 원문 교차검증"),
+              "note":("원문에 사업자번호와 주소가 없어 동명 거래처와 해당 지점의 동일성은 추정입니다. 실제 참석·방문도 미확인입니다." if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "경찰청 고위직 명의의 공식 업무추진비 집행처입니다. 해당 인물의 실제 참석·방문을 확인한 기록이 아닙니다."),
+              "rating":"","url":v["address_evidence_urls"][0],"verification_confidence":("PROBABLE" if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "HIGH")},
             "evidence":{"visits":0,"spending_events":len(tx),"spend":spend,"people":0,
               "months":len({d[:7] for d in dates}),"evening":0,"evening_ratio":0,"ppc":0,
               "date_min":dates[0],"date_max":dates[-1],
@@ -153,7 +154,7 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
                   "source":r["source_url"],"attendance_status":"NOT_ESTABLISHED",
                   "expense_user_only":True} for r in tx[:12]],
               "source_rows":[r["row_id"] for r in tx]},
-            "why":f"경찰청 {', '.join(sorted(role_stats))} 명의 공식 업무추진비 {len(tx)}건·{spend:,}원. 거래처와 식당 주소는 확인됐으나 명의자의 실제 식사 참석 여부는 확인되지 않았습니다.",
+            "why":f"경찰청 {', '.join(sorted(role_stats))} 명의 공식 업무추진비 {len(tx)}건·{spend:,}원. "+("해당 업체는 상호·지역 기반 후보 매칭으로, 원문 결제 지점과 동일한지는 확정되지 않았습니다. 명의자의 실제 참석도 미확인입니다." if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "거래처와 식당 주소는 확인됐으나 명의자의 실제 식사 참석 여부는 확인되지 않았습니다."),
         })
     return result
 
