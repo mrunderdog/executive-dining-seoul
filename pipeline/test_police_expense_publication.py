@@ -83,7 +83,7 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
             row["attendance_evidence"]="CONFIRMED"
         self.assertEqual(select_expense_venues(copy_doc,self.manifest),[])
     def test_pdf_hash_and_role_cannot_drift(self):
-        for field,value in (("pdf_sha256","0"*64),("role","경찰청차장"),
+        for field,value in (("pdf_sha256","0"*64),("role","없는직책-변조"),
                             ("source_url","https://www.police.go.kr.bad.test/a.pdf"),
                             ("source_detail_url","https://www.police.go.kr.bad.test/detail")):
             bad=copy.deepcopy(self.doc)
