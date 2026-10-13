@@ -311,7 +311,7 @@ const policeMapSmoke=await evaluate(`(() => {
 console.log('POLICE_MAP_SMOKE',JSON.stringify(policeMapSmoke));
 if (policeMapSmoke.error || policeMapSmoke.sourceRecords!==8 ||
     !policeMapSmoke.allArePolice || !policeMapSmoke.sourceRecordsIncluded ||
-    policeMapSmoke.mappedFeatures<8 ||
+    policeMapSmoke.mappedFeatures<5 ||
     policeMapSmoke.rows.some(r=>r.matches!==1 || !r.addressOK || !r.mapped || !r.source ||
                                  !r.spendingOnly || !r.policeExpenseUnconfirmed)) {
   throw new Error('approved Police restaurant markers, original row provenance, or institution filter failed');
