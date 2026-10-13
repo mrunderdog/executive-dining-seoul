@@ -72,6 +72,29 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
             self.assertEqual(row["business"]["verification_confidence"],"PROBABLE")
             self.assertIn("확정되지 않았",row["why"])
 
+    def test_uncertain_police_location_survives_cross_institution_merge(self):
+        probable=next(r for r in load_police_expense_records() if r["name"]=="남원추어탕")
+        self.assertEqual(probable["location_match_confidence"],"PROBABLE_NAME_AND_PROXIMITY")
+        other=copy.deepcopy(probable)
+        other["origin"]="서울시청"
+        other["institution"]="서울시청"
+        other["institutions"]=["서울시청"]
+        other["published_source"]="seoul_executive"
+        other["source_verified_expense_only"]=False
+        other["location_match_confidence"]="ADDRESS_CORROBORATED"
+        other["evidence"]["spending_events"]=0
+        other["evidence"]["visits"]=1
+        other["evidence"]["spend"]=0
+        other["evidence"]["source_rows"]=[]
+        other["evidence"]["recent"]=[]
+        merged=merge_global_entities({"records":[probable,other]})["records"]
+        self.assertEqual(len(merged),1)
+        venue=merged[0]
+        self.assertEqual(venue["police_expense_venue_match_status"],"PROBABLE_NAME_AND_PROXIMITY")
+        self.assertEqual(venue["police_expense_uncertain_spending_events"],4)
+        self.assertIn("경찰청 관련 교차기관 신호",venue["why"])
+        self.assertEqual(venue["evidence"]["spending_events"],4)
+
     def test_unrelated_merchants_and_companies_never_published(self):
         copy_doc=copy.deepcopy(self.doc)
         for row in copy_doc["transactions"]:

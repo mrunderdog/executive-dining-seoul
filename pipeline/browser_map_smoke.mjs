@@ -303,15 +303,30 @@ const policeMapSmoke=await evaluate(`(() => {
       policeExpenseUnconfirmed:!!r&&(r.evidence?.recent||[]).filter(x=>x.expense_user_only&&String(x.role||'').includes('경찰청')).every(x=>x.attendance_status==='NOT_ESTABLISHED')
     };
   });
+  const probable=['남원추어탕','미소','퍼스트플로어'].map(name=>{
+    const r=policeOnly.find(x=>x.name===name||(x.business?.display||'')===name);
+    if(!r)return {name,found:false};
+    renderDetail(r);
+    return {name,found:true,
+      status:r.police_expense_venue_match_status==='PROBABLE_NAME_AND_PROXIMITY',
+      badge:badges(r).includes('결제 지점 미확정'),
+      card:cardHtml(r).includes('결제 지점 미확정'),
+      popup:popupHtml(r).includes('동일한지는 미확정'),
+      detail:detail.textContent.includes('결제 지점 미확정'),
+      score:scoreLabel(r).includes('결제 지점 추정')};
+  });
+  renderDetail(null);
   return {option:opt.value,sourceRecords:policeOnly.length,filtered:filtered.length,
     allArePolice:filtered.every(r=>recordInstitutions(r).includes(institution)),
     sourceRecordsIncluded:policeOnly.every(r=>filtered.some(f=>key(f)===key(r))),
-    mappedFeatures:mapped.length,rows};
+    mappedFeatures:mapped.length,rows,probable};
 })()`);
 console.log('POLICE_MAP_SMOKE',JSON.stringify(policeMapSmoke));
 if (policeMapSmoke.error || policeMapSmoke.sourceRecords!==8 ||
     !policeMapSmoke.allArePolice || !policeMapSmoke.sourceRecordsIncluded ||
-    policeMapSmoke.mappedFeatures<5 ||
+    policeMapSmoke.mappedFeatures<5 || policeMapSmoke.probable?.length!==3 ||
+    policeMapSmoke.probable.some(r=>!r.found || !r.status || !r.badge || !r.card ||
+                                   !r.popup || !r.detail || !r.score) ||
     policeMapSmoke.rows.some(r=>r.matches!==1 || !r.addressOK || !r.mapped || !r.source ||
                                  !r.spendingOnly || !r.policeExpenseUnconfirmed)) {
   throw new Error('approved Police restaurant markers, original row provenance, or institution filter failed');
