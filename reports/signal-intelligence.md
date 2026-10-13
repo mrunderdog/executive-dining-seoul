@@ -1,14 +1,14 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-10-10T16:09:14
-- Published restaurant entities: **1281**
+- Generated: 2026-10-13T05:47:27
+- Published restaurant entities: **1288**
 - Cross-institution restaurants: **202**
 - Cross-origin restaurants: **27**
 - Central top-official restaurants: **453**
 - Regional mayor/vice-mayor restaurants: **20**
 - Entity merges: **44**
 - Merge audit groups: **38**
-- Cross-origin review candidates: **16**
+- Cross-origin review candidates: **17**
 
 > This report ranks restaurant-selection signals, not public officials or political actors.
 
@@ -176,10 +176,11 @@
 | 10 | 한양갈비 | REVIEW | 관악구 · 포천시 | 9 | 1 | exact name + single published address |
 | 11 | 복성각 | REVIEW | 공기업·공공기관 · 중앙정부 | 9 | 1 | exact name + single published address |
 | 12 | 오발탄 | REVIEW | 서초구 · 중앙정부 | 8 | 1 | exact name + single published address |
-| 13 | 샘밭막국수 | REVIEW | 검찰(정보공개 2017–2019) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
-| 14 | 더푸짐 | REVIEW | 관악구 · 법조·법률행정 | 3 | 1 | exact name + single published address |
-| 15 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 39 | 2 | exact name but 2 addressed entities |
-| 16 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
+| 13 | 설마중 | REVIEW | 경찰청(집행 명의) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
+| 14 | 샘밭막국수 | REVIEW | 검찰(정보공개 2017–2019) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
+| 15 | 더푸짐 | REVIEW | 관악구 · 법조·법률행정 | 3 | 1 | exact name + single published address |
+| 16 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 39 | 2 | exact name but 2 addressed entities |
+| 17 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
 
 ## Central top-official dining signal
 
