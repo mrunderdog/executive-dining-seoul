@@ -7,6 +7,10 @@ on:
       - 'pipeline/extra_published.py'
       - 'pipeline/geocode_extra_cache.py'
       - 'pipeline/global_entities.py'
+      - 'pipeline/evidence_semantics.py'
+      - 'pipeline/audit_restaurant_licenses.py'
+      - 'pipeline/test_evidence_semantics.py'
+      - 'pipeline/build_site.py'
       - 'pipeline/test_police_expense_publication.py'
       - 'sources/police_verified_expense_venues.json'
       - 'site/app.js'
@@ -28,7 +32,7 @@ jobs:
       - name: Verify stage provenance and separate attendance
         run: |
           python -m py_compile pipeline/police_expense_publication.py pipeline/extra_published.py pipeline/global_entities.py
-          PYTHONPATH=pipeline python -m unittest -v test_police_expense_publication
+          PYTHONPATH=pipeline python -m unittest -v test_police_expense_publication test_evidence_semantics
       - name: Quality gate and regression checks
         run: |
           python pipeline/quality_gate.py
