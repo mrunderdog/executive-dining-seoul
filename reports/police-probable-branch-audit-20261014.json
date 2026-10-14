@@ -1,0 +1,156 @@
+{
+  "reviewed_at": "2026-10-14",
+  "total": 18,
+  "counts": {
+    "ADDRESS_CORROBORATED": 5,
+    "PROBABLE_NAME_AND_PROXIMITY": 13
+  },
+  "policy": "Physical restaurant corroboration is not transaction branch certification. PROBABLE rows must not count as independent confirmation of cross-institution preference. Police expenses imply no personal attendance.",
+  "venues": [
+    {
+      "merchant": "사조미가",
+      "match_status": "ADDRESS_CORROBORATED",
+      "evidence_count": 4,
+      "verified_business_address": "서울특별시 서대문구 통일로 107-39, 2층 201호",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "설마중",
+      "match_status": "ADDRESS_CORROBORATED",
+      "evidence_count": 2,
+      "verified_business_address": "서울특별시 서초구 남부순환로 2648",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "차이(Chai)797 시청",
+      "match_status": "ADDRESS_CORROBORATED",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 서소문로 120",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "산청숯불가든 을지로",
+      "match_status": "ADDRESS_CORROBORATED",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 을지로 114-6, 1층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "(주)어반가든",
+      "match_status": "ADDRESS_CORROBORATED",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 정동길 12-15",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "남원추어탕",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 통일로 107-25",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "미소",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 충정로 53, 골든타워빌딩 지하1층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "퍼스트플로어",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 통일로 78, 프레이저 플레이스 센트럴 서울 1층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "충정로 수연",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 서소문로 50",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "(주)시청해우리",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 중구 서소문로 95",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "가정옥",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 충정로11길 21-3, 1층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "아담한 어상",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 통일로9안길 36-3",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "막썰이회",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 종로구 새문안로 15-1, 지하1층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "풍요람",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 통일로 107-17",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "바닷가 수라간",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 2,
+      "verified_business_address": "서울특별시 중구 덕수궁길 7, 오천회관빌딩 4층",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "평양옥",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 3,
+      "verified_business_address": "서울특별시 서대문구 통일로 107-23",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "한옥집",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 2,
+      "verified_business_address": "서울특별시 서대문구 통일로9길 12",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    },
+    {
+      "merchant": "청담동마녀김밥 광화",
+      "match_status": "PROBABLE_NAME_AND_PROXIMITY",
+      "evidence_count": 2,
+      "verified_business_address": "서울특별시 종로구 새문안로 105",
+      "expense_card_branch_confirmed": false,
+      "attendance_confirmed": false
+    }
+  ],
+  "action_required": "Acquire card merchant registration number, statement merchant address or original receipt before upgrading any PROBABLE link."
+}
