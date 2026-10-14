@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-13T05:47:27",
-  "dataset_records": 1288,
-  "cross_institution_count": 202,
-  "cross_origin_count": 27,
+  "generated_at": "2026-10-14T06:31:43",
+  "dataset_records": 1298,
+  "cross_institution_count": 201,
+  "cross_origin_count": 26,
   "top_official_count": 453,
   "regional_head_count": 20,
   "entity_merges": 44,
@@ -852,7 +852,7 @@
       "spend": 1277400
     }
   ],
-  "cross_origin_review_count": 17,
+  "cross_origin_review_count": 19,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -999,6 +999,27 @@
       "qa_a": false
     },
     {
+      "name": "사조미가",
+      "strict_name": "사조미가",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "경찰청(집행 명의)",
+        "서울시청"
+      ],
+      "institutions": [
+        "경찰청",
+        "서울특별시 본청"
+      ],
+      "visits": 17,
+      "addresses": [
+        "서울 서대문구 통일로 107-39",
+        "서울특별시 서대문구 통일로 107-39, 2층 201호"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
       "name": "수미수작",
       "strict_name": "수미수작",
       "confidence": "REVIEW",
@@ -1014,6 +1035,26 @@
       "visits": 16,
       "addresses": [
         "경기도 과천시 새술막길 38"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "평양옥",
+      "strict_name": "평양옥",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "경찰청(집행 명의)",
+        "옹진군"
+      ],
+      "institutions": [
+        "경찰청",
+        "옹진군의회"
+      ],
+      "visits": 15,
+      "addresses": [
+        "서울특별시 서대문구 통일로 107-23"
       ],
       "address_entity_count": 1,
       "qa_a": false
@@ -2127,38 +2168,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 1,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "사조미가",
-      "address": "서울특별시 서대문구 통일로 107-39, 2층 201호",
-      "origins": [
-        "경찰청(집행 명의)",
-        "서울시청"
-      ],
-      "institutions": [
-        "경찰청",
-        "서울특별시 본청"
-      ],
-      "cohorts": [
-        "police_leadership",
-        "regional_executive"
-      ],
-      "visits": 17,
-      "spend": 4564000,
-      "date_min": "2024-12-12",
-      "date_max": "2026-09-21",
-      "consensus_score": 74.6,
-      "institution_count": 2,
-      "source_count": 2,
-      "top_role_tier": "",
-      "top_role_label": "",
-      "top_official_visits": 0,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 0,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
