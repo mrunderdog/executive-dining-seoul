@@ -394,6 +394,14 @@ def merge_global_entities(payload: dict) -> dict:
             f"{t(r.get('name'))}|{t(r.get('origin'))}" for r in rows if t(r.get("name")) and t(r.get("origin"))
         ))
         primary["published_sources"] = sorted({t(r.get("published_source")) for r in rows if t(r.get("published_source"))})
+        police_rows=[r for r in rows if t(r.get("published_source"))=="police_expense_user_only"]
+        if police_rows:
+            primary["police_card_branch_status"]="NOT_VERIFIED"
+            primary["police_venue_address_status"]="INDEPENDENT_VENUE_LISTINGS"
+            primary["police_merchant_match_bases"]=sorted({t(r.get("police_merchant_match_basis")) for r in police_rows if t(r.get("police_merchant_match_basis"))})
+            primary["police_venue_evidence_urls"]=list(dict.fromkeys(
+                url for r in police_rows for url in (r.get("police_venue_evidence_urls") or [])
+            ))
         # A real restaurant address does not prove that a generic Police expense
         # merchant was this particular branch. Preserve that uncertainty even
         # when another institution's record wins the merged entity display.

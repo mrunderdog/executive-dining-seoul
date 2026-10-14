@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_at": "2026-10-14",
-  "policy": "Restaurant identity/address independently corroborated. Exact official Police PDF user/source/row gating. For PROBABLE_NAME_AND_PROXIMITY, published geographic association remains an inference because expense PDF has no merchant address or business ID. Actual personal attendance is never established.",
+  "policy": "18 locations are venue candidates with independently corroborated physical addresses, NOT card-merchant-certified Police payment branches. Merchant name/branch tokens or third-party corporate identity links are weaker than an exact official card merchant address/registration ID. All personal attendance remains unconfirmed.",
   "venues": [
     {
       "source_key": "national_police",
@@ -39,7 +39,26 @@
             "6e3ba6969663cf734de59bbc"
           ]
         }
-      ]
+      ],
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677cca9466de5f06987b8b5d",
+          "https://www.albamon.com/jobs/detail-company/-B4VSA5NsAYEsBYnvTNkzA%3D%3D",
+          "https://www.diningcode.com/profile.php?rid=vqVjqsuVuNte",
+          "https://opengo.kr/5601fb680e887edf2cecf6f9"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -59,7 +78,24 @@
         "https://www.daangn.com/kr/local-profile/%EC%84%A4%EB%A7%88%EC%A4%91-pm3gg6xt29mz/"
       ],
       "identification": "Exact distinctive merchant name and same independently listed business location",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677cc74b66de5f0698746dca",
+          "https://www.daangn.com/kr/local-profile/%EC%84%A4%EB%A7%88%EC%A4%91-pm3gg6xt29mz/"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -80,7 +116,25 @@
         "https://si.re.kr/atch/filePreview.do?cnncSn=2606100003&cnncTy=bbs&ordr=2"
       ],
       "identification": "Exact branch named in restaurant listing, operator recruitment and independent public-institution card ledger; floor descriptions differ, so street address only",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "OFFICIAL_MERCHANT_BRANCH_LABEL",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677ccdb666de5f06988195ca",
+          "https://m.jobkorea.co.kr/Recruit/GI_Read/50041331?sc=621",
+          "https://si.re.kr/atch/filePreview.do?cnncSn=2606100003&cnncTy=bbs&ordr=2"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -101,7 +155,25 @@
         "https://bizno.net/article/3508503253"
       ],
       "identification": "Exact branch name corroborated by merchant registration, Tabling and DiningCode at Eulji-ro 114-6; similarly branded adjacent branch and other provider place may differ",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "OFFICIAL_MERCHANT_BRANCH_LABEL",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/restaurant/9364",
+          "https://www.diningcode.com/profile.php?rid=ObcZ71MMfF9s",
+          "https://bizno.net/article/3508503253"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -122,7 +194,25 @@
         "https://www.tabling.co.kr/place/677ccb0266de5f06987c7538"
       ],
       "identification": "Restaurant's own website and independent business registration use the same company name, registration 104-86-25632, phone and address",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "EXTERNAL_CORPORATE_IDENTITY",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://urbangarden.co.kr/page/map.html",
+          "https://bizno.net/article/1048625632",
+          "https://www.tabling.co.kr/place/677ccb0266de5f06987c7538"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -147,7 +237,25 @@
       ],
       "identification": "Same exact business name + address and phone independently agree in Tabling, DiningCode and business-registration record; venue is adjacent to National Police HQ, but transaction-level business registration/address is absent in official PDF.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677cc73766de5f069874485c",
+          "https://www.diningcode.com/profile.php?rid=eZvGtiJWAEum",
+          "https://bizno.net/article/1100225020"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -170,7 +278,25 @@
       ],
       "identification": "Same generic merchant name plus local Police HQ-area restaurant; address/phone corroborated by Tabling, DiningCode, and registration. Original official disclosure lacks business identifier; other Miso venues exist.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677cc73e66de5f0698745543",
+          "https://www.diningcode.com/profile.php?rid=TmOivRr5YLB7",
+          "https://bizno.net/article/1101325176"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -193,7 +319,25 @@
       ],
       "identification": "Hotel official site identifies First Floor restaurant, and independent restaurant sources corroborate road address, hotel 1F and phone. Official expense user disclosure lacks detailed branch or merchant ID.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://fpcs.co.kr/about",
+          "https://www.tablenjoy.com/store/S017976967",
+          "https://www.diningcode.com/profile.php?rid=CfTk01Fx8hMu"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -214,7 +358,25 @@
       ],
       "identification": "2026 independent public institution ledger address and venue name; location is a probable association as Police PDF lacks branch address.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.diningcode.com/profile.php?rid=E28LRefNPiT8",
+          "https://sj.hospitalk.net/workplace_detail.php?id=2203647",
+          "https://marketbz.com/companyDetail/8751302436"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -235,7 +397,25 @@
       ],
       "identification": "Recruitment/business sources associate corporate merchant with city-hall Haewoori venue. Official Police PDF lacks business registration or street address.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "EXTERNAL_CORPORATE_IDENTITY",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.jobkorea.co.kr/company/48678511",
+          "https://www.jobkorea.co.kr/Recruit/GI_Read/49962254",
+          "https://www.jobkorea.co.kr/Recruit/GI_Read/49749161"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -257,7 +437,25 @@
       ],
       "identification": "Exact merchant name plus 2023 City of Seoul official expense ledger independently names this venue at Chungjeong-ro 11-gil 21-3; DiningCode independently agrees on road address, menu, and phone. June 2026 Police PDF does not contain branch address or business identifier.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://opengov.seoul.go.kr/expense/28599384",
+          "https://www.diningcode.com/profile.php?rid=ENBMClio1RuK",
+          "https://unisquads.io/w/%EA%B0%80%EC%A0%95%EC%98%A5"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -279,7 +477,25 @@
       ],
       "identification": "Exact distinctive merchant name identified as business in recruitment listing, address Chungjeong-ro 2-ga Tongil-ro 9an-gil 36-3; DiningCode and third-party venue directory corroborate address and phone. Police PDF itself does not contain a street address or approval merchant ID.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.theteams.kr/recruit/wanted/2262441",
+          "https://www.diningcode.com/profile.php?rid=fZ876MIdbhaU",
+          "https://place.udanax.org/place.php?id=1264704&placeName=%EC%95%84%EB%8B%B4%ED%95%9C+%EC%96%B4%EC%83%81"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -301,7 +517,25 @@
       ],
       "identification": "Exact distinctive merchant name, consistent phone 02-736-0124 in two independent listings; one catalog lists 새문안로 15 and another 15-1 B1, treated as street-number discrepancy. Police source does not include legal business ID or address.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.diningcode.com/profile.php?rid=KSGALJA6mUeB",
+          "https://www.tabling.co.kr/place/677ccfeb66de5f0698851da6",
+          "https://polle.com/place/5CMXMu/%EB%A7%89%EC%8D%B0%EC%9D%B4%ED%9A%8C"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -323,7 +557,25 @@
       ],
       "identification": "Official Visit Seoul tourism directory revised April 2026 independently confirms name, address and phone, matching two venue directories. The disclosed Police expense merchant itself has no payment-terminal or business-ID match.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://korean.visitseoul.net/restaurants/%ED%92%8D%EC%9A%94%EB%9E%8C-K/KOP012268",
+          "https://www.tabling.co.kr/place/677cca9466de5f06987b8b67",
+          "https://www.diningcode.com/profile.php?rid=UGtOTVkMjbPQ"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -344,7 +596,24 @@
       ],
       "identification": "Independent listings corroborate exact 바닷가 수라간 name and 덕수궁길 7, with reports of renaming from 바닷가작은부엌 덕수궁점. No merchant registration/address appears in Police PDF.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677ccb4366de5f06987ceffa",
+          "https://polle.com/place/29oRO6/%EB%B0%94%EB%8B%B7%EA%B0%80%20%EC%88%98%EB%9D%BC%EA%B0%84"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -365,7 +634,25 @@
       ],
       "identification": "Official Visit Seoul tourist business information lists the restaurant near Police HQ. Payment branch ID not present in Police disclosure.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://korean.visitseoul.net/restaurants/%EB%B0%B1%EB%85%84%EA%B0%80%EA%B2%8C-%ED%8F%89%EC%96%91%EC%98%A5/KOP042372",
+          "https://www.tabling.co.kr/place/677cc73766de5f0698744851",
+          "https://www.diningcode.com/profile.php?rid=EvHKZm3I9nFJ"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -385,7 +672,24 @@
       ],
       "identification": "Independent venue listings identify 서대문본점. Generic merchant name in official expense PDF does not uniquely identify this branch.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "NAME_AND_VENUE_ADDRESS",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.tabling.co.kr/place/677cca9466de5f06987b8b75",
+          "https://www.diningcode.com/profile.php?rid=PqVoP6W2oLSz"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     },
     {
       "source_key": "national_police",
@@ -405,7 +709,24 @@
       ],
       "identification": "Official ledger merchant includes truncated 광화 branch token; independent listings show 광화문점 at 새문안로 105; payment address not present in ledger.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
-      "attendance_confirmed": false
+      "attendance_confirmed": false,
+      "payment_branch_evidence": {
+        "status": "NOT_VERIFIED",
+        "merchant_match_basis": "OFFICIAL_MERCHANT_BRANCH_LABEL",
+        "card_merchant_address": null,
+        "card_merchant_registration_id": null,
+        "transaction_document_url": null,
+        "matched_source_row_ids": [],
+        "note": "경찰청 집행 원문은 가맹점 주소·사업자 식별정보를 제시하지 않으므로 해당 결제 지점 동일성을 확정할 수 없습니다."
+      },
+      "venue_address_evidence": {
+        "status": "INDEPENDENT_VENUE_LISTINGS",
+        "urls": [
+          "https://www.diningcode.com/profile.php?rid=kiXa1wRVLO8R",
+          "https://www.tabling.co.kr/place/677cce3666de5f0698827ac6"
+        ],
+        "note": "음식점의 위치 확인일 뿐 경찰청 결제 지점 확정 자료가 아닙니다."
+      }
     }
   ]
 }
