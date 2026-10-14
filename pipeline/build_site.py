@@ -11,6 +11,7 @@ from data_io import load_payload
 from published_sources import merge_published_sources
 from extra_published import merge_extra_published
 from global_entities import merge_global_entities
+from evidence_semantics import apply_evidence_semantics
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
@@ -57,7 +58,7 @@ def main():
     ap.add_argument("--output", default=str(ROOT / "index.html"))
     args = ap.parse_args()
 
-    payload = merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
+    payload = apply_evidence_semantics(merge_global_entities(merge_extra_published(merge_published_sources(load_payload()))))
     records = payload.get("records", [])
     if not records:
         raise SystemExit("published dataset has no records")
