@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-13",
+  "reviewed_at": "2026-10-14",
   "policy": "Restaurant identity/address independently corroborated. Exact official Police PDF user/source/row gating. For PROBABLE_NAME_AND_PROXIMITY, published geographic association remains an inference because expense PDF has no merchant address or business ID. Actual personal attendance is never established.",
   "venues": [
     {
@@ -234,6 +234,50 @@
         "https://www.jobkorea.co.kr/Recruit/GI_Read/49749161"
       ],
       "identification": "Recruitment/business sources associate corporate merchant with city-hall Haewoori venue. Official Police PDF lacks business registration or street address.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "가정옥",
+      "address": "서울특별시 서대문구 충정로11길 21-3, 1층",
+      "display": "가정옥 서대문역",
+      "category": "한식·흑염소요리",
+      "phone": "02-363-8226",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2116b214-0f2c-4ffd-94fe-055ded7e49f9",
+      "approved_row_ids": [
+        "c22920bba55108f288f30004"
+      ],
+      "address_evidence_urls": [
+        "https://opengov.seoul.go.kr/expense/28599384",
+        "https://www.diningcode.com/profile.php?rid=ENBMClio1RuK",
+        "https://unisquads.io/w/%EA%B0%80%EC%A0%95%EC%98%A5"
+      ],
+      "identification": "Exact merchant name plus 2023 City of Seoul official expense ledger independently names this venue at Chungjeong-ro 11-gil 21-3; DiningCode independently agrees on road address, menu, and phone. June 2026 Police PDF does not contain branch address or business identifier.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "아담한 어상",
+      "address": "서울특별시 서대문구 통일로9안길 36-3",
+      "display": "아담한 어상",
+      "category": "한식·보리굴비",
+      "phone": "02-318-0981",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160136&q_fileId=850c8653-7d35-45d5-816c-5696c0365f3d",
+      "approved_row_ids": [
+        "172baf2349b9315e866c0002"
+      ],
+      "address_evidence_urls": [
+        "https://www.theteams.kr/recruit/wanted/2262441",
+        "https://www.diningcode.com/profile.php?rid=fZ876MIdbhaU",
+        "https://place.udanax.org/place.php?id=1264704&placeName=%EC%95%84%EB%8B%B4%ED%95%9C+%EC%96%B4%EC%83%81"
+      ],
+      "identification": "Exact distinctive merchant name identified as business in recruitment listing, address Chungjeong-ro 2-ga Tongil-ro 9an-gil 36-3; DiningCode and third-party venue directory corroborate address and phone. Police PDF itself does not contain a street address or approval merchant ID.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
       "attendance_confirmed": false
     }
