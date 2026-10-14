@@ -12,7 +12,7 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         cls.manifest=json.loads(MANIFEST.read_text(encoding="utf-8"))
     def test_live_official_rows_and_amount(self):
         records=load_police_expense_records()
-        self.assertEqual(len(records),10)
+        self.assertEqual(len(records),12)
         x=next(r for r in records if r["name"]=="사조미가")
         self.assertEqual(x["name"],"사조미가")
         self.assertEqual(x["evidence"]["spending_events"],5)
@@ -104,6 +104,17 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
             self.assertEqual(r["business"]["verification_confidence"],"PROBABLE")
             self.assertEqual(r["evidence"]["visits"],0)
             self.assertIn("확정되지 않았",r["why"])
+
+    def test_two_new_scanned_venue_matches_are_probable_only(self):
+        by={r["name"]:r for r in load_police_expense_records()}
+        for name,amount in [("가정옥",125000),("아담한 어상",128000)]:
+            r=by[name]
+            self.assertEqual(r["evidence"]["spend"],amount)
+            self.assertEqual(r["evidence"]["spending_events"],1)
+            self.assertEqual(r["evidence"]["visits"],0)
+            self.assertEqual(r["business"]["verification_confidence"],"PROBABLE")
+            self.assertIn("확정되지 않았",r["why"])
+        self.assertNotIn("일상정원",by)
 
     def test_unrelated_merchants_and_companies_never_published(self):
         copy_doc=copy.deepcopy(self.doc)
