@@ -280,6 +280,71 @@
       "identification": "Exact distinctive merchant name identified as business in recruitment listing, address Chungjeong-ro 2-ga Tongil-ro 9an-gil 36-3; DiningCode and third-party venue directory corroborate address and phone. Police PDF itself does not contain a street address or approval merchant ID.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
       "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "막썰이회",
+      "address": "서울특별시 종로구 새문안로 15-1, 지하1층",
+      "display": "막썰이회 서대문",
+      "category": "해산물·횟집",
+      "phone": "02-736-0124",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2ce2ae03-5ea7-4513-8083-a36600e2b4f9",
+      "approved_row_ids": [
+        "1139d2be05e073fe6f440002"
+      ],
+      "address_evidence_urls": [
+        "https://www.diningcode.com/profile.php?rid=KSGALJA6mUeB",
+        "https://www.tabling.co.kr/place/677ccfeb66de5f0698851da6",
+        "https://polle.com/place/5CMXMu/%EB%A7%89%EC%8D%B0%EC%9D%B4%ED%9A%8C"
+      ],
+      "identification": "Exact distinctive merchant name, consistent phone 02-736-0124 in two independent listings; one catalog lists 새문안로 15 and another 15-1 B1, treated as street-number discrepancy. Police source does not include legal business ID or address.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "풍요람",
+      "address": "서울특별시 서대문구 통일로 107-17",
+      "display": "풍요람",
+      "category": "한식·한우구이",
+      "phone": "02-362-4203",
+      "approved_role": "경무인사기획관",
+      "source_pdf_sha256": "a10eb2fdaad548d6766a0338b0dbffaaf77d18abda7cfebea7718880b0041f31",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160315&q_fileId=923edce7-c7c0-4778-a281-69058f6836da",
+      "approved_row_ids": [
+        "85e55af1e45ab82786cc7601"
+      ],
+      "address_evidence_urls": [
+        "https://korean.visitseoul.net/restaurants/%ED%92%8D%EC%9A%94%EB%9E%8C-K/KOP012268",
+        "https://www.tabling.co.kr/place/677cca9466de5f06987b8b67",
+        "https://www.diningcode.com/profile.php?rid=UGtOTVkMjbPQ"
+      ],
+      "identification": "Official Visit Seoul tourism directory revised April 2026 independently confirms name, address and phone, matching two venue directories. The disclosed Police expense merchant itself has no payment-terminal or business-ID match.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "바닷가 수라간",
+      "address": "서울특별시 중구 덕수궁길 7, 오천회관빌딩 4층",
+      "display": "바닷가 수라간 (덕수궁)",
+      "category": "해산물·한식",
+      "phone": "",
+      "approved_role": "치안정보국장",
+      "source_pdf_sha256": "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=160078&q_fileId=2ce2ae03-5ea7-4513-8083-a36600e2b4f9",
+      "approved_row_ids": [
+        "1139d2be05e073fe6f440001"
+      ],
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/place/677ccb4366de5f06987ceffa",
+        "https://polle.com/place/29oRO6/%EB%B0%94%EB%8B%B7%EA%B0%80%20%EC%88%98%EB%9D%BC%EA%B0%84"
+      ],
+      "identification": "Independent listings corroborate exact 바닷가 수라간 name and 덕수궁길 7, with reports of renaming from 바닷가작은부엌 덕수궁점. No merchant registration/address appears in Police PDF.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
     }
   ]
 }
