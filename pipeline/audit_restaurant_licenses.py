@@ -5,7 +5,7 @@ Input is a UTF-8/CP949 CSV exported from official LOCALDATA / data.go.kr.
 No paid API or network is needed. Never infer card-merchant identity from licenses.
 """
 from __future__ import annotations
-import argparse,csv,json,re
+import argparse,csv,json,re,codecs
 from pathlib import Path
 from difflib import SequenceMatcher
 
@@ -20,25 +20,35 @@ def field(row,names):
 def normalize(x):
     return re.sub(r"[^0-9가-힣a-z]","",str(x or "").lower().replace("서울특별시","서울").replace("서울시","서울"))
 def load_official(path:Path):
-    blob=path.read_bytes()
-    for encoding in ("utf-8-sig","cp949"):
-        try:
-            text=blob.decode(encoding)
-            break
-        except UnicodeDecodeError:continue
-    else: raise ValueError("Official CSV encoding not supported")
-    rows=list(csv.DictReader(text.splitlines()))
-    if not rows or not any(n in rows[0] for n in NAME) or not any(n in rows[0] for n in ADDRESS):
-        raise ValueError("Missing official restaurant licensing name/address columns")
-    return rows
+    """Stream official multi-million row CSV without materializing the whole file."""
+    with path.open("rb") as fh:
+        sample=fh.read(65536)
+    encoding="utf-8-sig"
+    try: sample.decode(encoding)
+    except UnicodeDecodeError: encoding="cp949"
+    with path.open("r",encoding=encoding,newline="",errors="strict") as fh:
+        reader=csv.DictReader(fh)
+        header=reader.fieldnames or []
+        if not any(n in header for n in NAME) or not any(n in header for n in ADDRESS):
+            raise ValueError("Missing official restaurant licensing name/address columns")
+        for row in reader:
+            yield row
+
 def evaluate(venues,raw):
+    lookup={}
+    for v in venues:
+        lookup.setdefault(normalize(v["merchant"]),[]).append(v)
+    # Store only rows that match one of the 18 approved merchants.
+    candidates={name:[] for name in lookup}
+    for row in raw:
+        key=normalize(field(row,NAME))
+        if key in lookup:candidates[key].append(row)
     result=[]
     for v in venues:
         name=normalize(v["merchant"])
         address=normalize(v["address"])
-        candidates=[r for r in raw if normalize(field(r,NAME))==name]
-        same_address=[r for r in candidates if normalize(field(r,ADDRESS))==address and address]
-        # A partial or similar address is never sufficient to assign an operating license.
+        matches=candidates.get(name,[])
+        same_address=[r for r in matches if normalize(field(r,ADDRESS))==address and address]
         matched=same_address[0] if len(same_address)==1 else None
         result.append({
             "merchant":v["merchant"],"address":v["address"],
@@ -47,7 +57,7 @@ def evaluate(venues,raw):
             "license_address":field(matched,ADDRESS) if matched else None,
             "license_business_status":field(matched,STATUS) if matched else None,
             "license_permit_date":field(matched,PERMIT) if matched else None,
-            "name_candidate_count":len(candidates),"exact_name_address_count":len(same_address),
+            "name_candidate_count":len(matches),"exact_name_address_count":len(same_address),
             "payment_branch_verified":False,"personal_attendance_verified":False,
         })
     return result
