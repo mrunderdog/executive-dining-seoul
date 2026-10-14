@@ -67,6 +67,15 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             or (v.get("approved_row_ids") is not None and
                 (not v["approved_row_ids"] or len(set(v["approved_row_ids"]))!=len(v["approved_row_ids"])))):
             raise ValueError("Invalid, ambiguous or attendee-claiming Police venue policy: "+key)
+        payment=v.get("payment_branch_evidence") or {}
+        address_proof=v.get("venue_address_evidence") or {}
+        if (payment.get("status")!="NOT_VERIFIED"
+            or payment.get("matched_source_row_ids")!=[]
+            or payment.get("card_merchant_address") is not None
+            or payment.get("card_merchant_registration_id") is not None
+            or address_proof.get("status")!="INDEPENDENT_VENUE_LISTINGS"
+            or len(set(address_proof.get("urls") or []))<2):
+            raise ValueError("Unsupported card-branch confirmation or missing venue evidence: "+key)
         extra=v.get("additional_sources") or []
         if not isinstance(extra,list):
             raise ValueError("Invalid Police source rule list: "+key)
@@ -132,6 +141,10 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             "published_source":"police_expense_user_only","cohort":"police_leadership",
             "source_verified_expense_only":True,
             "attendance_status":"NOT_ESTABLISHED",
+            "police_card_branch_status":"NOT_VERIFIED",
+            "police_venue_address_status":"INDEPENDENT_VENUE_LISTINGS",
+            "police_merchant_match_basis":v["payment_branch_evidence"]["merchant_match_basis"],
+            "police_venue_evidence_urls":list(v["venue_address_evidence"]["urls"]),
             "location_match_confidence":clean(v.get("location_match_confidence")) or "ADDRESS_CORROBORATED",
             "executive":{"rank":len(result)+1,"score":0,"exec_events":0,
               "spending_events":len(tx),"roles":len(role_stats),"months":len({d[:7] for d in dates}),
@@ -141,8 +154,8 @@ def select_expense_venues(staging:dict,manifest:dict)->list[dict]:
             "address":clean(v["address"]),"search_query":merchant+" "+clean(v["address"]),
             "business":{"display":clean(v.get("display")) or merchant,
               "category":clean(v.get("category")) or "음식점","phone":clean(v.get("phone")),
-              "status":("상호·주변 위치 기반 매칭(결제 지점 미확정)" if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "업소 위치 독립 검증·경찰청 업무추진비 원문 교차검증"),
-              "note":("원문에 사업자번호와 주소가 없어 동명 거래처와 해당 지점의 동일성은 추정입니다. 실제 참석·방문도 미확인입니다." if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "경찰청 고위직 명의의 공식 업무추진비 집행처입니다. 해당 인물의 실제 참석·방문을 확인한 기록이 아닙니다."),
+              "status":"음식점 주소 확인 · 경찰청 결제 지점 미검증",
+              "note":"음식점 주소는 독립 자료로 확인됐으나 경찰청 카드 결제 지점의 동일성은 미검증입니다. 집행 명의자의 실제 참석도 미확인입니다.",
               "rating":"","url":v["address_evidence_urls"][0],"verification_confidence":("PROBABLE" if v.get("location_match_confidence")=="PROBABLE_NAME_AND_PROXIMITY" else "HIGH")},
             "evidence":{"visits":0,"spending_events":len(tx),"spend":spend,"people":0,
               "months":len({d[:7] for d in dates}),"evening":0,"evening_ratio":0,"ppc":0,
