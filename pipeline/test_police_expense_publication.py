@@ -176,6 +176,21 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         self.assertGreater(cross["score"],0)
         self.assertEqual(cross["candidate_police_expense_events"],4)
 
+    def test_all_eighteen_have_independent_venue_and_unverified_payment_branch(self):
+        records=load_police_expense_records()
+        self.assertEqual(len(records),18)
+        for record in records:
+            with self.subTest(merchant=record["name"]):
+                self.assertEqual(record["police_card_branch_status"],"NOT_VERIFIED")
+                self.assertEqual(record["police_venue_address_status"],"INDEPENDENT_VENUE_LISTINGS")
+                self.assertGreaterEqual(len(record["police_venue_evidence_urls"]),2)
+                self.assertEqual(record["evidence"]["visits"],0)
+                self.assertEqual(record["attendance_status"],"NOT_ESTABLISHED")
+        m=copy.deepcopy(self.manifest)
+        m["venues"][0]["payment_branch_evidence"]["status"]="VERIFIED"
+        with self.assertRaises(ValueError):
+            select_expense_venues(self.doc,m)
+
     def test_unrelated_merchants_and_companies_never_published(self):
         copy_doc=copy.deepcopy(self.doc)
         for row in copy_doc["transactions"]:
