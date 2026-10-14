@@ -312,7 +312,7 @@ const policeMapSmoke=await evaluate(`(() => {
       badge:badges(r).includes('결제 지점 미검증'),
       card:cardHtml(r).includes('결제 지점 미검증'),
       popup:popupHtml(r).includes('동일한지는 미검증'),
-      detail:detail.textContent.includes('결제 지점 미확정')&&detail.textContent.includes('방문 근거')&&detail.textContent.includes('업무추진비 집행 명의'),
+      detail:detail.textContent.includes('결제 지점 미확정')&&detail.textContent.includes('공개 사용처 기록')&&detail.textContent.includes('업무추진비 집행 명의'),
       score:scoreLabel(r).includes('결제 지점 미검증')};
   });
   renderDetail(null);
