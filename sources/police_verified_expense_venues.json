@@ -345,6 +345,66 @@
       "identification": "Independent listings corroborate exact 바닷가 수라간 name and 덕수궁길 7, with reports of renaming from 바닷가작은부엌 덕수궁점. No merchant registration/address appears in Police PDF.",
       "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
       "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "평양옥",
+      "address": "서울특별시 서대문구 통일로 107-23",
+      "display": "평양옥 서대문",
+      "category": "한식",
+      "approved_role": "경찰청차장",
+      "source_pdf_sha256": "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=159650&q_fileId=a330edbf-8623-4f19-b4f0-6e276098dfbf",
+      "approved_row_ids": [
+        "0289703af05486925f04ecb0"
+      ],
+      "address_evidence_urls": [
+        "https://korean.visitseoul.net/restaurants/%ED%8F%89%EC%96%91%EC%98%A5/KOP011468",
+        "https://www.diningcode.com/"
+      ],
+      "identification": "Official Visit Seoul tourist business information lists the restaurant near Police HQ. Payment branch ID not present in Police disclosure.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "한옥집",
+      "address": "서울특별시 서대문구 통일로9길 12",
+      "display": "한옥집 서대문본점",
+      "category": "한식·김치찜",
+      "approved_role": "경찰청차장",
+      "source_pdf_sha256": "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=159650&q_fileId=a330edbf-8623-4f19-b4f0-6e276098dfbf",
+      "approved_row_ids": [
+        "ab1711ecc7e311d7cb8e24d5"
+      ],
+      "address_evidence_urls": [
+        "https://www.tabling.co.kr/",
+        "https://www.diningcode.com/"
+      ],
+      "identification": "Independent venue listings identify 서대문본점. Generic merchant name in official expense PDF does not uniquely identify this branch.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
+    },
+    {
+      "source_key": "national_police",
+      "merchant": "청담동마녀김밥 광화",
+      "address": "서울특별시 종로구 새문안로 105",
+      "display": "청담동마녀김밥 광화문점",
+      "category": "분식·김밥",
+      "approved_role": "경찰청차장",
+      "source_pdf_sha256": "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf",
+      "official_pdf_url": "https://www.police.go.kr/component/file/ND_fileDownload.do?q_fileSn=159650&q_fileId=a330edbf-8623-4f19-b4f0-6e276098dfbf",
+      "approved_row_ids": [
+        "c551b6b98414c3ce18c29f62"
+      ],
+      "address_evidence_urls": [
+        "https://www.diningcode.com/",
+        "https://www.tabling.co.kr/"
+      ],
+      "identification": "Official ledger merchant includes truncated 광화 branch token; independent listings show 광화문점 at 새문안로 105; payment address not present in ledger.",
+      "location_match_confidence": "PROBABLE_NAME_AND_PROXIMITY",
+      "attendance_confirmed": false
     }
   ]
 }
