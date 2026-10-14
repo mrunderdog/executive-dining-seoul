@@ -1,0 +1,211 @@
+{
+  "as_of": "2026-10-14",
+  "policy": "Each unlinked Police row retained in source staging, not mapped or inferred to mean official attendance.",
+  "staging_rows": 43,
+  "linked_rows": 27,
+  "unlinked_rows": 16,
+  "unlinked_amount_won": 3441960,
+  "unlinked_merchants": 13,
+  "items": [
+    {
+      "merchant": "커스텀커피 경찰청",
+      "count": 3,
+      "total_won": 91800,
+      "reason_code": "MULTIPLE_BRANCHES",
+      "reason": "경찰청 내 층별 별도 영업점 존재, 결제 층/가맹점 미식별",
+      "row_ids": [
+        "bbbef16dad4fedc92949d13f",
+        "c22920bba55108f288f30002",
+        "172baf2349b9315e866c0004"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf",
+        "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a",
+        "172baf2349b9315e866ca530623cfe23106d34fc5a1273cb61f3a550dc66f134"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "스타벅스코리아",
+      "count": 2,
+      "total_won": 370500,
+      "reason_code": "GENERIC_CORPORATE_BILLER",
+      "reason": "법인 결제명만 존재하고 실제 가맹점 지점명·주소 없음",
+      "row_ids": [
+        "a7f359877ed39bb64af15ee7",
+        "4bd6f000da39cd471f426cee"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "야심 잔기지떡 서울",
+      "count": 1,
+      "total_won": 1150000,
+      "reason_code": "RETAIL_OR_NON_DINING",
+      "reason": "제조·포장식품 판매처 성격, 식당 방문으로 해석 불가",
+      "row_ids": [
+        "94ae1807d3d6096fa7a27e9d"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "경찰청복지관",
+      "count": 1,
+      "total_won": 400000,
+      "reason_code": "NON_DINING_OR_INTERNAL",
+      "reason": "기관 복지시설 집행처, 외부 식당 좌표·방문 근거 없음",
+      "row_ids": [
+        "eaf7c74db1e8996436d1f0fe"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "참맛집",
+      "count": 1,
+      "total_won": 304000,
+      "reason_code": "AMBIGUOUS_GENERIC_NAME",
+      "reason": "동명/유사 업소 여러 곳, 카드 가맹점 주소 부재",
+      "row_ids": [
+        "1139d2be05e073fe6f440004"
+      ],
+      "official_pdf_sha256": [
+        "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "원기옥",
+      "count": 1,
+      "total_won": 289000,
+      "reason_code": "MULTIPLE_BRANCHES",
+      "reason": "브랜드/동명 지점 다수, 공식 원문으로 특정 불가",
+      "row_ids": [
+        "1139d2be05e073fe6f440003"
+      ],
+      "official_pdf_sha256": [
+        "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "사랑방",
+      "count": 1,
+      "total_won": 270000,
+      "reason_code": "AMBIGUOUS_GENERIC_NAME",
+      "reason": "동명 식당 다수, 결제 지점 미식별",
+      "row_ids": [
+        "c22920bba55108f288f30006"
+      ],
+      "official_pdf_sha256": [
+        "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "일상정원",
+      "count": 1,
+      "total_won": 125160,
+      "reason_code": "MULTIPLE_BRANCHES",
+      "reason": "서울역·코엑스 등 복수 지점, 원문에 지점 표기 없음",
+      "row_ids": [
+        "c22920bba55108f288f30008"
+      ],
+      "official_pdf_sha256": [
+        "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "빠르크",
+      "count": 1,
+      "total_won": 117500,
+      "reason_code": "UNVERIFIED_BRANCH",
+      "reason": "한남동 영업장 정보와 실제 결제처 동일성 불충분",
+      "row_ids": [
+        "a48611d53ee578b6db025b7e"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "황해플라워 까페",
+      "count": 1,
+      "total_won": 111000,
+      "reason_code": "NON_DINING_OR_RETAIL",
+      "reason": "꽃·카페 복합 상호로 식사 장소/지점 확인 불가",
+      "row_ids": [
+        "a8e7bc722dcb77c22650f3e1"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "바른고기",
+      "count": 1,
+      "total_won": 88000,
+      "reason_code": "AMBIGUOUS_GENERIC_NAME",
+      "reason": "동명/체인 영업장 다수, 지점/가맹점 식별자 없음",
+      "row_ids": [
+        "995fec315532269d20a92cfe"
+      ],
+      "official_pdf_sha256": [
+        "51161738d91703c443ce604d9f1d983ab2010234139d801baff723031e9241cf"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "무교동 갯마을낙지",
+      "count": 1,
+      "total_won": 71000,
+      "reason_code": "CONFLICTING_LOCATION",
+      "reason": "서대문·무교동 후보 주소 충돌",
+      "row_ids": [
+        "1139d2be05e073fe6f440005"
+      ],
+      "official_pdf_sha256": [
+        "1139d2be05e073fe6f44c9a7666b23bae26e306d21fbcd7daaa9d6e13f07b08b"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    },
+    {
+      "merchant": "널박지",
+      "count": 1,
+      "total_won": 54000,
+      "reason_code": "NO_CORROBORATED_LOCATION",
+      "reason": "고유 사업장 주소·가맹점 일치 독립 근거 부족",
+      "row_ids": [
+        "c22920bba55108f288f30001"
+      ],
+      "official_pdf_sha256": [
+        "c22920bba55108f288f36c2636e0d98faface0fd1c18c2ded9ec8c184256279a"
+      ],
+      "status": "HOLD_NO_MAP_PUBLICATION",
+      "required_for_upgrade": "공식 카드 승인 가맹점 주소/사업자번호·원본 영수증과 지점 일치 확인 (비식당 거래는 제외 유지)"
+    }
+  ]
+}
