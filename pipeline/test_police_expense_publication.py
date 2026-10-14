@@ -92,7 +92,9 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         venue=merged[0]
         self.assertEqual(venue["police_expense_venue_match_status"],"PROBABLE_NAME_AND_PROXIMITY")
         self.assertEqual(venue["police_expense_uncertain_spending_events"],4)
-        self.assertIn("경찰청 관련 교차기관 신호",venue["why"])
+        self.assertFalse(venue["cross_institution"]["is_cross"])
+        self.assertEqual(venue["cross_institution"]["institution_count"],1)
+        self.assertIn("확정되지 않았",venue["why"])
         self.assertEqual(venue["evidence"]["spending_events"],4)
 
     def test_two_additional_probable_locations(self):
@@ -138,6 +140,41 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
             self.assertIn("확정되지 않았",r["why"])
         self.assertNotIn("커스텀커피 경찰청",by)
         self.assertNotIn("빠르크",by)
+
+    def test_police_expenses_do_not_create_independent_institution_consensus(self):
+        probable=next(r for r in load_police_expense_records() if r["name"]=="남원추어탕")
+        other=copy.deepcopy(probable)
+        other["origin"]="서울시청"
+        other["institution"]="서울시청"
+        other["institutions"]=["서울시청"]
+        other["published_source"]="seoul_executive"
+        other["source_verified_expense_only"]=False
+        other["evidence"]["visits"]=2
+        other["evidence"]["spending_events"]=0
+        other["evidence"]["spend"]=0
+        other["evidence"]["recent"]=[]
+        other["evidence"]["source_rows"]=[]
+        merged=merge_global_entities({"records":[probable,other]})["records"][0]
+        cross=merged["cross_institution"]
+        self.assertFalse(cross["is_cross"])
+        self.assertEqual(cross["institution_count"],1)
+        self.assertEqual(cross["score"],0)
+        self.assertEqual(cross["candidate_police_expense_events"],4)
+        self.assertEqual(merged["evidence"]["visits"],2)
+        self.assertEqual(merged["evidence"]["spending_events"],4)
+        third=copy.deepcopy(other)
+        third["origin"]="교육청"
+        third["institution"]="교육청"
+        third["institutions"]=["교육청"]
+        third["published_source"]="education"
+        third["evidence"]["visits"]=3
+        merged=merge_global_entities({"records":[probable,other,third]})["records"][0]
+        cross=merged["cross_institution"]
+        self.assertTrue(cross["is_cross"])
+        self.assertEqual(cross["institution_count"],2)
+        self.assertEqual(cross["visits"],5)
+        self.assertGreater(cross["score"],0)
+        self.assertEqual(cross["candidate_police_expense_events"],4)
 
     def test_unrelated_merchants_and_companies_never_published(self):
         copy_doc=copy.deepcopy(self.doc)

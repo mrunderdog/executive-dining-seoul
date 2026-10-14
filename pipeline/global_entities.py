@@ -430,44 +430,55 @@ def merge_global_entities(payload: dict) -> dict:
                 "spend": sum(int((r.get("evidence") or {}).get("spend") or 0) for r in rr),
                 "records": len(rr),
             })
-        cohort_count = len(primary["cohorts"])
-        institution_count = len(institutions)
-        source_count = len(origins)
-        total_visits = int(primary["evidence"].get("visits") or 0)
-        is_cross = institution_count >= 2
-        consensus_score = 0.0
+        # Police spending-user disclosures do not establish actual restaurant
+        # attendance or independently confirm this specific card-merchant branch.
+        # Count only origins with independent, non-Police visitation evidence
+        # when computing institution consensus; keep raw spending facts separately.
+        confirmed_rows=[r for r in rows
+                        if t(r.get("published_source"))!="police_expense_user_only"
+                        and int((r.get("evidence") or {}).get("visits") or 0)>0]
+        confirmed_institutions=sorted({
+            t(i) for r in confirmed_rows
+            for i in (r.get("institutions") or ([r.get("institution")] if r.get("institution") else []))
+            if t(i)
+        })
+        confirmed_origins=sorted({t(r.get("origin")) for r in confirmed_rows if t(r.get("origin"))})
+        confirmed_cohorts=sorted({t(r.get("cohort")) for r in confirmed_rows if t(r.get("cohort"))})
+        confirmed_visits=sum(int((r.get("evidence") or {}).get("visits") or 0) for r in confirmed_rows)
+        institution_count=len(confirmed_institutions)
+        source_count=len(confirmed_origins)
+        cohort_count=len(confirmed_cohorts)
+        is_cross=institution_count>=2
+        consensus_score=0.0
         if is_cross:
-            consensus_score = round(100 * (
-                .35 * min(math.log1p(institution_count) / math.log1p(4), 1)
-                + .20 * min(math.log1p(source_count) / math.log1p(4), 1)
-                + .25 * min(math.log1p(total_visits) / math.log1p(20), 1)
-                + .20 * min(cohort_count / 3, 1)
-            ), 1)
-        primary["cross_institution"] = {
-            "source_count": source_count,
-            "institution_count": institution_count,
-            "cohort_count": cohort_count,
-            "origins": origins,
-            "institutions": institutions,
-            "cohorts": primary["cohorts"],
-            "by_origin": by_origin,
-            "visits": total_visits,
-            "score": consensus_score,
-            "is_cross": is_cross,
+            consensus_score=round(100*(
+                .35*min(math.log1p(institution_count)/math.log1p(4),1)
+                +.20*min(math.log1p(source_count)/math.log1p(4),1)
+                +.25*min(math.log1p(confirmed_visits)/math.log1p(20),1)
+                +.20*min(cohort_count/3,1)
+            ),1)
+        primary["cross_institution"]={
+            "source_count":source_count,
+            "institution_count":institution_count,
+            "cohort_count":cohort_count,
+            "origins":confirmed_origins,
+            "institutions":confirmed_institutions,
+            "cohorts":confirmed_cohorts,
+            "by_origin":[x for x in by_origin if x["origin"] in confirmed_origins],
+            "visits":confirmed_visits,
+            "score":consensus_score,
+            "is_cross":is_cross,
+            "candidate_police_expense_events":sum(int((r.get("evidence") or {}).get("spending_events") or 0) for r in rows if t(r.get("published_source"))=="police_expense_user_only"),
+            "candidate_police_expense_institutions":sorted({t(r.get("institution")) for r in rows if t(r.get("published_source"))=="police_expense_user_only" and t(r.get("institution"))}),
         }
         if is_cross:
-            merged_groups += 1
-            if primary["evidence"].get("spending_events"):
-                primary["why"] = (
-                    f"{institution_count}개 기관의 공식 원자료에서 같은 물리 식당을 확인했습니다. "
-                    f"방문 근거 {total_visits}건과 별도로 업무추진비 집행 명의 "
-                    f"{primary['evidence']['spending_events']}건이 있으며, 집행 명의자의 참석 여부는 확인되지 않았습니다."
-                )
-            else:
-                primary["why"] = (
-                    f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당으로 확인됩니다. "
-                    f"합산 {total_visits}회 방문 기록이 있으며, 기관 간 교차 선택 신호입니다."
-                )
+            merged_groups+=1
+            primary["why"]=(
+                f"{institution_count}개 기관의 독립적 방문 근거 {confirmed_visits}건에서 동일 물리 식당으로 교차 확인됩니다. "
+                f"업무추진비 집행 명의 {primary['evidence']['spending_events']}건은 방문·동일 결제 지점 확정 근거에서 제외했습니다."
+                if primary["evidence"].get("spending_events")
+                else f"{institution_count}개 기관·{source_count}개 출처에서 독립적으로 선택된 동일 식당입니다. 방문 근거 {confirmed_visits}회."
+            )
         if uncertain_police and is_cross:
             primary["why"] += (
                 " 주의: 경찰청 업무추진비의 상호와 이 위치는 근접성 기반 후보 매칭이며, "
