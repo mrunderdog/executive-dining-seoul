@@ -92,7 +92,9 @@ class PoliceExpenseSitePolicy(unittest.TestCase):
         venue=merged[0]
         self.assertEqual(venue["police_expense_venue_match_status"],"PROBABLE_NAME_AND_PROXIMITY")
         self.assertEqual(venue["police_expense_uncertain_spending_events"],4)
-        self.assertIn("경찰청 관련 교차기관 신호",venue["why"])
+        self.assertFalse(venue["cross_institution"]["is_cross"])
+        self.assertEqual(venue["cross_institution"]["institution_count"],1)
+        self.assertIn("미확정",venue["why"])
         self.assertEqual(venue["evidence"]["spending_events"],4)
 
     def test_two_additional_probable_locations(self):
