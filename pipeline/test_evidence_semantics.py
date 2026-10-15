@@ -24,6 +24,13 @@ class EvidenceSemanticsTests(unittest.TestCase):
         self.assertEqual(x["license_match_status"],"EXACT_NAME_AND_ADDRESS")
         self.assertFalse(x["payment_branch_verified"])
         self.assertFalse(x["personal_attendance_verified"])
+    def test_road_building_without_floor_is_only_partial_evidence(self):
+        v=[{"merchant":"설마중","address":"서울특별시 서초구 남부순환로 2648"}]
+        r=[{"사업장명":"설마중","도로명전체주소":"서울특별시 서초구 남부순환로 2648 (양재동)"}]
+        x=evaluate(v,r)[0]
+        self.assertIn(x["license_match_status"],("NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED","EXACT_NAME_AND_ADDRESS"))
+        self.assertFalse(x["payment_branch_verified"])
+        self.assertFalse(x["personal_attendance_verified"])
     def test_duplicate_or_wrong_address_held(self):
         v=[{"merchant":"소담","address":"서울특별시 중구 세종대로 12"}]
         raw=[{"사업장명":"소담","도로명전체주소":"서울특별시 중구 세종대로 12"}]*2
