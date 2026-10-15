@@ -48,9 +48,17 @@ def evaluate(venues,raw):
         lookup.setdefault(normalize(v["merchant"]),[]).append(v)
     # Store only rows that match one of the 18 approved merchants.
     candidates={name:[] for name in lookup}
+    # Reverse-search official licenses by actual road/building number, even when
+    # the expense merchant is a corporate name or abbreviated chain label.
+    target_keys={road_building_key(v["address"]) for v in venues}
+    target_keys.discard("")
+    address_candidates={key:[] for key in target_keys}
     for row in raw:
         key=normalize(field(row,NAME))
         if key in lookup:candidates[key].append(row)
+        building=road_building_key(field(row,ADDRESS))
+        if building in target_keys:
+            address_candidates[building].append(row)
     result=[]
     for v in venues:
         name=normalize(v["merchant"])
@@ -64,8 +72,26 @@ def evaluate(venues,raw):
         match_status=("EXACT_NAME_AND_ADDRESS" if len(same_address)==1 else
                       "NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" if len(same_building)==1 else
                       "AMBIGUOUS_LICENSE_RECORDS" if len(pool)>1 else "NOT_MATCHED")
+        neighbors=address_candidates.get(building_key,[])
+        # Business names at the address are *investigation candidates* only.
+        # A shared building cannot by itself identify the restaurant/licensee.
+        hint=normalize(v.get("display") or v["merchant"])
+        ranked=sorted(neighbors,key=lambda x:(
+            SequenceMatcher(None,normalize(field(x,NAME)),hint).ratio(),
+            normalize(field(x,NAME))),reverse=True)
+        candidate_entries=[{
+            "license_name":field(x,NAME),
+            "license_address":field(x,ADDRESS),
+            "license_business_status":field(x,STATUS),
+            "license_permit_date":field(x,PERMIT),
+            "identical_merchant":normalize(field(x,NAME))==name,
+            "same_building_only_not_verified_identity":True
+        } for x in ranked[:40]]
         result.append({
             "merchant":v["merchant"],"address":v["address"],
+            "official_building_businesses":candidate_entries,
+            "official_building_business_count":len(neighbors),
+            "official_building_businesses_truncated":len(neighbors)>40,
             "license_match_status":match_status,
             "license_name":field(matched,NAME) if matched else None,
             "license_address":field(matched,ADDRESS) if matched else None,
@@ -81,9 +107,28 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input",help="Previously downloaded official restaurant licence CSV")
     p.add_argument("--fetch-official",action="store_true")
+    p.add_argument("--scope",choices=["police","all"],default="police",help="Choose Police 18-venue list or all published cohorts within the same four Seoul districts")
     p.add_argument("--output",default=str(ROOT/"reports/restaurant-license-audit.json"))
     args=p.parse_args()
-    venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
+    if args.scope=="police":
+        venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
+    else:
+        from data_io import load_payload
+        from published_sources import merge_published_sources
+        from extra_published import merge_extra_published
+        from global_entities import merge_global_entities
+        merged=merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
+        districts={"서대문구","중구","종로구","서초구"}
+        venues=[]
+        for r in merged.get("records") or []:
+            address=str(r.get("address") or "")
+            key=road_building_key(address)
+            if not key or not any(normalize(district) in key for district in districts):
+                continue
+            venues.append({"merchant":r.get("name") or "", "display":(r.get("business") or {}).get("display") or r.get("name"),
+                           "address":address, "origin":r.get("origin"),"entity_id":r.get("entity_id")})
+        # Cross-agency pilot must not silently claim nationwide source coverage.
+        if not venues:raise RuntimeError("No addressed published cross-agency venues in four selected districts")
     if not args.input and not args.fetch_official: p.error("Specify --input or --fetch-official")
     if args.input and args.fetch_official: p.error("Input modes are mutually exclusive")
     provenance=[]
@@ -115,7 +160,7 @@ def main():
                 for file in paths:
                     yield from load_official(file)
             rows=evaluate(venues,chained_rows())
-    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_FOUR_DISTRICTS","sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
+    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_FOUR_DISTRICTS","scope":args.scope,"geographic_scope":"서울 서대문구·중구·종로구·서초구","sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
          "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in rows),
          "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in rows),
          "policy":"A restaurant licence verifies restaurant identity/status only, not the payment card branch or attendee.",
