@@ -204,6 +204,8 @@ def main():
     stats = payload.get("stats") or {}
     doc = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "score_semantics":"DISCLOSED_OFFICE_USAGE_EVENTS_NOT_PERSON_ATTENDANCE",
+        "confirmed_person_attendances":0,
         "dataset_records": len(records),
         "cross_institution_count": len(cross),
         "cross_origin_count": sum(1 for x in cross if x["source_count"] >= 2),
@@ -226,6 +228,8 @@ def main():
     md = [
         "# Executive Dining signal intelligence",
         "",
+        "**Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.",
+        "",
         f"- Generated: {doc['generated_at']}",
         f"- Published restaurant entities: **{len(records)}**",
         f"- Cross-institution restaurants: **{len(cross)}**",
@@ -236,11 +240,11 @@ def main():
         f"- Merge audit groups: **{len(entity_merge_audit)}**",
         f"- Cross-origin review candidates: **{len(cross_origin_review)}**",
         "",
-        "> This report ranks restaurant-selection signals, not public officials or political actors.",
+        "> These scores rank repeated official spending/usage disclosures, NOT verified personal attendance or card-merchant branches.",
         "",
         "## Cross-institution consensus",
         "",
-        "| # | Restaurant | Consensus | Institutions | Sources | Visits | Origins |",
+        "| # | Restaurant | Disclosed-use consensus | Institutions | Sources | Usage events | Origins |",
         "|---:|---|---:|---:|---:|---:|---|",
     ]
     for i, x in enumerate(cross[:100], 1):
@@ -268,7 +272,7 @@ def main():
         "",
         "## Cross-origin review queue",
         "",
-        "| # | Restaurant | Confidence | Origins | Visits | Address entities | Reason |",
+        "| # | Restaurant | Confidence | Origins | Usage events | Address entities | Reason |",
         "|---:|---|---|---|---:|---:|---|",
     ]
     for i, x in enumerate(cross_origin_review[:100], 1):
@@ -282,7 +286,7 @@ def main():
         "",
         "## Central top-official dining signal",
         "",
-        "| # | Restaurant | Highest role | Top-official visits | Minister | Vice minister | Institutions | Visits |",
+        "| # | Restaurant | Highest disclosed role | Top-role usage records | Minister attributed records | Vice minister attributed records | Institutions | Usage events |",
         "|---:|---|---|---:|---:|---:|---:|---:|",
     ]
     for i, x in enumerate(top_official[:100], 1):
@@ -296,7 +300,7 @@ def main():
         "",
         "## Regional executive dining signal",
         "",
-        "| # | Restaurant | Mayor | Vice mayor | Visits | Origin |",
+        "| # | Restaurant | Mayor-office usage | Vice-mayor-office usage | Usage events | Origin |",
         "|---:|---|---:|---:|---:|---|",
     ]
     for i, x in enumerate(regional_heads[:100], 1):
