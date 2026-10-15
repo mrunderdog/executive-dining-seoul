@@ -25,7 +25,14 @@ def curated_location(cohort:str, merchant:str, registry:dict|None=None)->dict|No
     if len(evidence)<2 or any(urlparse(x.get("url","")).scheme!="https" or not urlparse(x.get("url","")).hostname for x in evidence):
         return None
     hosts={urlparse(x["url"]).hostname.lower() for x in evidence}
-    official=rec.get("basis")=="EXACT_NAMED_BRANCH_OFFICIAL_BRAND" and all(h in {"hiobaltan.com","www.hiobaltan.com"} for h in hosts)
+    approved_official_hosts={
+        ("central_executive","오발탄 세종점"):{"hiobaltan.com","www.hiobaltan.com"},
+        ("public_enterprise_leadership","창고43샛강점"):{"changgo43.co.kr","www.changgo43.co.kr"},
+    }
+    brand_hosts=approved_official_hosts.get((cohort,merchant),set())
+    official=(rec.get("basis")=="EXACT_NAMED_BRANCH_OFFICIAL_BRAND" and
+              any(x.get("type")=="brand_official_branch_directory"
+                  and urlparse(x["url"]).hostname.lower() in brand_hosts for x in evidence))
     corroborated=rec.get("basis")=="EXACT_NAMED_BRANCH_CORROBORATED" and len(hosts)>=2
     if not (official or corroborated):
         return None
