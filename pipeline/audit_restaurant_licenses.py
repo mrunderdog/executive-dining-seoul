@@ -225,7 +225,18 @@ def main():
     dest=Path(args.output);dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     if args.police_output:
+        police_regions={}
+        for item in police_rows:
+            region=item.get("region") or "UNROUTED"
+            slot=police_regions.setdefault(region,{"venues":0,"exact_address":0,"same_building":0,"ambiguous":0,"not_matched":0})
+            slot["venues"]+=1
+            status=item["license_match_status"]
+            if status=="EXACT_NAME_AND_ADDRESS":slot["exact_address"]+=1
+            elif status=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED":slot["same_building"]+=1
+            elif status=="AMBIGUOUS_LICENSE_RECORDS":slot["ambiguous"]+=1
+            else:slot["not_matched"]+=1
         police_output=dict(out)
+        police_output["by_region"]=police_regions
         police_output.update({"scope":"police","total_venues":len(police_rows),
             "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in police_rows),
             "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in police_rows),
