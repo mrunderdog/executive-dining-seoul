@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 415,
+    "failed_count": 413,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1783,
-    "success_count": 1368,
-    "updated_at": "2026-10-15T10:53:11+00:00"
+    "success_count": 1370,
+    "updated_at": "2026-10-15T15:24:27+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -17613,15 +17613,22 @@
       "updated_at": "2026-09-17T23:02:05+00:00"
     },
     "오발탄 세종점|중앙정부": {
-      "failed": true,
-      "fingerprint": "dccdbf2d7945c404",
+      "addr_type": "PointAddress",
+      "display_name": "세종특별자치시 어진동 도움1로 7",
+      "fingerprint": "276cc60fce067fa3",
       "geocoder_version": 4,
+      "lat": 36.500395981828,
+      "lon": 127.258121160445,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "세종특별자치시 도움1로 7 베스트웨스턴플러스호텔 2층 213-219호",
+      "result_name": "",
+      "score": 93.64,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:오발탄 세종점 대한민국",
-        "nominatim:오발탄 세종점 대한민국"
+        "arcgis:세종특별자치시 도움1로 7 베스트웨스턴플러스호텔 2층 213-219호"
       ],
-      "updated_at": "2026-09-18T05:23:33+00:00"
+      "updated_at": "2026-10-15T15:24:27+00:00"
     },
     "오발탄|서초구": {
       "addr_type": "PointAddress",
@@ -23221,12 +23228,22 @@
       "updated_at": "2026-09-18T00:09:09+00:00"
     },
     "창고43샛강점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "8a83f8733ff2c418",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 여의대방로 376",
+      "fingerprint": "64eee90fd492f971",
       "geocoder_version": 4,
+      "lat": 37.518188607655,
+      "lon": 126.931354509169,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-15T10:52:08+00:00"
+      "query": "서울특별시 영등포구 여의대방로 376 나라키움여의도빌딩 2층",
+      "result_name": "",
+      "score": 96.04,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 영등포구 여의대방로 376 나라키움여의도빌딩 2층"
+      ],
+      "updated_at": "2026-10-15T15:24:27+00:00"
     },
     "창고43여의강변점|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
