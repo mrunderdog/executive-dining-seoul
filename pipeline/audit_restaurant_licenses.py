@@ -19,6 +19,14 @@ def field(row,names):
     return next((str(row.get(k) or "").strip() for k in names if str(row.get(k) or "").strip()),"")
 def normalize(x):
     return re.sub(r"[^0-9가-힣a-z]","",str(x or "").lower().replace("서울특별시","서울").replace("서울시","서울"))
+def road_building_key(address):
+    """Match administrative district, whole road name, and exact building number.
+    Floors, commercial unit numbers, landmark text are NOT proof of the payment branch.
+    """
+    a=" ".join(str(address or "").replace("서울특별시","서울").replace("서울시","서울").split())
+    m=re.search(r"(서대문구|중구|종로구|서초구)\s+([^\s,()]+(?:로|길)\s*\d+(?:-\d+)?)",a)
+    return normalize(m.group(0)) if m else ""
+
 def load_official(path:Path):
     """Stream official multi-million row CSV without materializing the whole file."""
     with path.open("rb") as fh:
@@ -49,15 +57,23 @@ def evaluate(venues,raw):
         address=normalize(v["address"])
         matches=candidates.get(name,[])
         same_address=[r for r in matches if normalize(field(r,ADDRESS))==address and address]
-        matched=same_address[0] if len(same_address)==1 else None
+        building_key=road_building_key(v["address"])
+        same_building=[r for r in matches if building_key and road_building_key(field(r,ADDRESS))==building_key]
+        pool=same_address if same_address else same_building
+        matched=pool[0] if len(pool)==1 else None
+        match_status=("EXACT_NAME_AND_ADDRESS" if len(same_address)==1 else
+                      "NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" if len(same_building)==1 else
+                      "AMBIGUOUS_LICENSE_RECORDS" if len(pool)>1 else "NOT_MATCHED")
         result.append({
             "merchant":v["merchant"],"address":v["address"],
-            "license_match_status":"EXACT_NAME_AND_ADDRESS" if matched else ("AMBIGUOUS_LICENSE_RECORDS" if len(same_address)>1 else "NOT_MATCHED"),
+            "license_match_status":match_status,
             "license_name":field(matched,NAME) if matched else None,
             "license_address":field(matched,ADDRESS) if matched else None,
             "license_business_status":field(matched,STATUS) if matched else None,
             "license_permit_date":field(matched,PERMIT) if matched else None,
             "name_candidate_count":len(matches),"exact_name_address_count":len(same_address),
+            "same_building_address_count":len(same_building),
+            "floor_or_unit_proven":bool(same_address),
             "payment_branch_verified":False,"personal_attendance_verified":False,
         })
     return result
@@ -101,6 +117,7 @@ def main():
             rows=evaluate(venues,chained_rows())
     out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_FOUR_DISTRICTS","sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
          "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in rows),
+         "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in rows),
          "policy":"A restaurant licence verifies restaurant identity/status only, not the payment card branch or attendee.",
          "venues":rows}
     dest=Path(args.output);dest.parent.mkdir(parents=True,exist_ok=True)
