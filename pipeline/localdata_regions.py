@@ -72,12 +72,18 @@ def summarize_coverage(records,codes=None):
     codes=codes if codes is not None else registry_codes()
     by={}
     out=[]
+    missing_reasons={}
+    unrouted_origin_counts={}
     for rec in records:
         addr=str(rec.get("address") or "").strip()
         routed=route_localdata(addr,codes)
         if not routed:
+            reason="MISSING_ADDRESS" if not addr else "UNROUTABLE_JURISDICTION"
+            missing_reasons[reason]=missing_reasons.get(reason,0)+1
+            for origin in set(str(x) for x in (rec.get("origins") or [rec.get("origin")]) if x):
+                unrouted_origin_counts[origin]=unrouted_origin_counts.get(origin,0)+1
             out.append({"entity_id":str(rec.get("entity_id") or ""), "name":str(rec.get("name") or ""),
-                        "address":addr[:150],"reason":"UNKNOWN_REGION_OR_MISSING_ADDRESS"})
+                        "address":addr[:150],"reason":reason})
             continue
         name,code=routed
         stats=by.setdefault(name,{"region":name,"orgCode":code,"venues":0,"with_road_building":0,
@@ -97,7 +103,9 @@ def summarize_coverage(records,codes=None):
     ranked.sort(key=lambda r:(-r["with_road_building"],-r["venues"],r["region"]))
     return {"total_published_venues":len(records),"routed_venues":sum(x["venues"] for x in ranked),
             "road_building_verifiable":sum(x["with_road_building"] for x in ranked),
-            "unrouted_venues":len(out),"unrouted_samples":out[:20],
+            "unrouted_venues":len(out),"unrouted_reason_counts":missing_reasons,
+            "unrouted_top_origins":sorted(unrouted_origin_counts.items(),key=lambda x:(-x[1],x[0]))[:15],
+            "unrouted_samples":out[:20],
             "regions":ranked,"source_registry":"sources/localdata_orgcodes.json",
             "routing_policy":"Exact province/city/district and road-building only; no guesses for missing addresses."}
 
