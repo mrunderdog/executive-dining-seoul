@@ -1,6 +1,8 @@
 # Executive Dining signal intelligence
 
-- Generated: 2026-10-14T08:05:28
+**Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.
+
+- Generated: 2026-10-15T00:45:23
 - Published restaurant entities: **1298**
 - Cross-institution restaurants: **201**
 - Cross-origin restaurants: **26**
@@ -10,11 +12,11 @@
 - Merge audit groups: **38**
 - Cross-origin review candidates: **19**
 
-> This report ranks restaurant-selection signals, not public officials or political actors.
+> These scores rank repeated official spending/usage disclosures, NOT verified personal attendance or card-merchant branches.
 
 ## Cross-institution consensus
 
-| # | Restaurant | Consensus | Institutions | Sources | Visits | Origins |
+| # | Restaurant | Disclosed-use consensus | Institutions | Sources | Usage events | Origins |
 |---:|---|---:|---:|---:|---:|---|
 | 1 | 황금복국 | 100.0 | 6 | 4 | 68 | 공기업·공공기관 · 국회의원(정치자금 2024) · 법조·법률행정 · 중앙정부 |
 | 2 | 화담 | 97.2 | 6 | 3 | 186 | 국회의원(정치자금 2024) · 법조·법률행정 · 중앙정부 |
@@ -162,7 +164,7 @@
 
 ## Cross-origin review queue
 
-| # | Restaurant | Confidence | Origins | Visits | Address entities | Reason |
+| # | Restaurant | Confidence | Origins | Usage events | Address entities | Reason |
 |---:|---|---|---|---:|---:|---|
 | 1 | 은주식당 | HIGH | 국회의원(정치자금 2024) · 법조·법률행정 · 중앙정부 | 96 | 1 | exact name + single published address + QA A |
 | 2 | 외백 | HIGH | 국회의원(정치자금 2024) · 중앙정부 | 148 | 1 | exact name + single published address + QA A |
@@ -186,7 +188,7 @@
 
 ## Central top-official dining signal
 
-| # | Restaurant | Highest role | Top-official visits | Minister | Vice minister | Institutions | Visits |
+| # | Restaurant | Highest disclosed role | Top-role usage records | Minister attributed records | Vice minister attributed records | Institutions | Usage events |
 |---:|---|---|---:|---:|---:|---:|---:|
 | 1 | 포도나무 | 차관급 | 25 | 0 | 25 | 3 | 52 |
 | 2 | 곰솔 | 차관급 | 24 | 0 | 24 | 4 | 42 |
@@ -291,7 +293,7 @@
 
 ## Regional executive dining signal
 
-| # | Restaurant | Mayor | Vice mayor | Visits | Origin |
+| # | Restaurant | Mayor-office usage | Vice-mayor-office usage | Usage events | Origin |
 |---:|---|---:|---:|---:|---|
 | 1 | 취홍 | 8 | 10 | 18 | 인천시청 |
 | 2 | 형제복집 | 6 | 7 | 13 | 인천시청 |
