@@ -1,0 +1,60 @@
+name: Rank nationwide LOCALDATA coverage gaps
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'pipeline/localdata_regions.py'
+      - 'pipeline/rank_localdata_expansion.py'
+      - 'pipeline/test_localdata_expansion.py'
+      - 'sources/localdata_orgcodes.json'
+      - '.github/workflows/localdata-expansion-priority.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/localdata_regions.py'
+      - 'pipeline/rank_localdata_expansion.py'
+      - 'pipeline/test_localdata_expansion.py'
+      - 'sources/localdata_orgcodes.json'
+      - '.github/workflows/localdata-expansion-priority.yml'
+  schedule:
+    - cron: '43 2 2 * *'
+permissions:
+  contents: read
+jobs:
+  prioritize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test evidence and ranking semantics
+        run: PYTHONPATH=pipeline python -m unittest pipeline/test_localdata_expansion.py
+      - name: Compute nationwide source-address coverage
+        run: python pipeline/localdata_regions.py
+      - name: Rank next jurisdictions
+        run: python pipeline/rank_localdata_expansion.py
+      - name: Validate all-region coverage and no auto-promotion
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("reports/localdata-expansion-priority.json").read_text())
+          assert d["candidate_jurisdictions"]
+          assert not any(x["official_license_verified"] or x["payment_branch_verified"]
+                         or x["individual_attendance_verified"] for x in d["candidate_jurisdictions"])
+          assert all(x["address_ready_count"] >= 0 for x in d["candidate_jurisdictions"])
+          print("Prioritized:", d["next_candidate_regions"])
+          PY
+      - name: Upload report and address remediation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: localdata-national-expansion-priorities
+          path: |
+            reports/localdata-regional-coverage.json
+            reports/localdata-address-remediation-queue.json
+            reports/localdata-expansion-priority.json
+          retention-days: 30
+          if-no-files-found: warn
