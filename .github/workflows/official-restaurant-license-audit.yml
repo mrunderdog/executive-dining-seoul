@@ -27,12 +27,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch current LOCALDATA district CSVs and verify exact matches
-        run: python pipeline/audit_restaurant_licenses.py --fetch-official --output reports/restaurant-license-audit.json
       - name: Audit 8 priority districts across all published agency venues
         run: |
           python pipeline/audit_restaurant_licenses.py --fetch-official --scope all \
             --regions 서울서대문구,서울중구,서울종로구,서울서초구,서울영등포구,경기광명시,경기고양시,경기안양시 \
+            --police-output reports/restaurant-license-audit.json \
             --output reports/all-agency-eight-region-license-audit.json
       - name: Upload original-source audit report
         if: always()
