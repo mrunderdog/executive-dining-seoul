@@ -158,7 +158,21 @@ def main():
                             if not part:break
                             output.write(part)
                 if dest.stat().st_size<100:raise RuntimeError("Empty official CSV "+district)
-                provenance.append({"district":district,"orgCode":code,"source_url":url,"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"bytes":dest.stat().st_size})
+                # A community code map is only a hint. Reject downloads where
+                # the actual official address rows do not belong to the requested jurisdiction.
+                scoped=0
+                routable=0
+                for official in load_official(dest):
+                    address=field(official,ADDRESS)
+                    found=route_localdata(address,codes)
+                    if found:
+                        routable+=1
+                        if found[0]==district:scoped+=1
+                if scoped==0 or routable==0 or scoped/routable<0.80:
+                    raise RuntimeError(
+                        f"LOCALDATA jurisdiction mismatch {district}: {scoped}/{routable} officially addressed rows"
+                    )
+                provenance.append({"district":district,"orgCode":code,"source_url":url,"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"bytes":dest.stat().st_size,"jurisdiction_confirmed_rows":scoped,"routable_rows":routable})
                 paths.append(dest)
             def chained_rows():
                 for file in paths:
