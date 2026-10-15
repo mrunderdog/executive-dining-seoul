@@ -1,0 +1,85 @@
+{
+  "as_of": "2026-10-15",
+  "source_workflow": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/38668429408",
+  "source_artifact": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/38668429408/artifacts/11942452916",
+  "districts": [
+    "서울서대문구",
+    "서울중구",
+    "서울종로구",
+    "서울서초구"
+  ],
+  "police_venue_counts": {
+    "total": 18,
+    "official_same_name_building_match": 13,
+    "official_legal_name_candidate_at_same_building": 5
+  },
+  "all_agency_four_district_counts": {
+    "total": 171,
+    "official_same_name_building_match": 105,
+    "official_not_matched": 62,
+    "official_ambiguous": 4
+  },
+  "candidate_review": [
+    {
+      "merchant": "차이(Chai)797 시청",
+      "license_name": "차이(Chai)797 시청점",
+      "address": "서울특별시 중구 서소문로 120",
+      "building_license_count": 6,
+      "license_business_status": "영업/정상",
+      "name_and_building_review": "OFFICIAL_NAME_VARIANT_CANDIDATE",
+      "legal_merchant_identity": "NOT_VERIFIED",
+      "card_payment_branch": "NOT_VERIFIED",
+      "individual_attendance": "NOT_ESTABLISHED",
+      "evidence": "LOCALDATA official district restaurant license CSV; candidate extracted by physical building address only"
+    },
+    {
+      "merchant": "(주)어반가든",
+      "license_name": "어반가든(URBANGARDEN)",
+      "address": "서울특별시 중구 정동길 12-15",
+      "building_license_count": 1,
+      "license_business_status": "영업/정상",
+      "name_and_building_review": "OFFICIAL_NAME_VARIANT_CANDIDATE",
+      "legal_merchant_identity": "NOT_VERIFIED",
+      "card_payment_branch": "NOT_VERIFIED",
+      "individual_attendance": "NOT_ESTABLISHED",
+      "evidence": "LOCALDATA official district restaurant license CSV; candidate extracted by physical building address only"
+    },
+    {
+      "merchant": "퍼스트플로어",
+      "license_name": "퍼스트플로어(FIRST FLOOR)",
+      "address": "서울특별시 중구 통일로 78",
+      "building_license_count": 4,
+      "license_business_status": "영업/정상",
+      "name_and_building_review": "OFFICIAL_NAME_VARIANT_CANDIDATE",
+      "legal_merchant_identity": "NOT_VERIFIED",
+      "card_payment_branch": "NOT_VERIFIED",
+      "individual_attendance": "NOT_ESTABLISHED",
+      "evidence": "LOCALDATA official district restaurant license CSV; candidate extracted by physical building address only"
+    },
+    {
+      "merchant": "(주)시청해우리",
+      "license_name": "시청해우리",
+      "address": "서울특별시 중구 서소문로 95",
+      "building_license_count": 11,
+      "license_business_status": "영업/정상",
+      "name_and_building_review": "OFFICIAL_NAME_VARIANT_CANDIDATE",
+      "legal_merchant_identity": "NOT_VERIFIED",
+      "card_payment_branch": "NOT_VERIFIED",
+      "individual_attendance": "NOT_ESTABLISHED",
+      "evidence": "LOCALDATA official district restaurant license CSV; candidate extracted by physical building address only"
+    },
+    {
+      "merchant": "청담동마녀김밥 광화",
+      "license_name": "청담동 마녀김밥 광화문점",
+      "address": "서울특별시 종로구 새문안로 105",
+      "building_license_count": 2,
+      "license_business_status": "영업/정상",
+      "name_and_building_review": "OFFICIAL_NAME_VARIANT_CANDIDATE",
+      "legal_merchant_identity": "NOT_VERIFIED",
+      "card_payment_branch": "NOT_VERIFIED",
+      "individual_attendance": "NOT_ESTABLISHED",
+      "evidence": "LOCALDATA official district restaurant license CSV; candidate extracted by physical building address only"
+    }
+  ],
+  "policy": "Address-coincident license names do not prove card merchant legal identity, floor/unit or individual attendance; never promote automatically."
+}
