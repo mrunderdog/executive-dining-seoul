@@ -5,6 +5,7 @@ from pathlib import Path
 
 from published_sources import _category, ENTITY_OVERRIDES, SOURCE_ENTITY_OVERRIDES
 from police_expense_publication import load_police_expense_records
+from source_address_evidence import curated_location
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -95,7 +96,8 @@ def central_records(max_records: int = 120) -> list[dict]:
     for rank, c in enumerate((d.get("candidates") or [])[:max_records], 1):
         name = t(c.get("merchant"))
         override = ENTITY_OVERRIDES.get(name, {})
-        address = t(c.get("address")) or t(override.get("address"))
+        venue_match = curated_location("central_executive", name) if not (t(c.get("address")) or t(override.get("address"))) else None
+        address = t(c.get("address")) or t(override.get("address")) or t((venue_match or {}).get("address"))
         display_name = t(override.get("display")) or name
         if not name:
             continue
@@ -154,14 +156,20 @@ def central_records(max_records: int = 120) -> list[dict]:
                 "vice_minister_visits": vice_minister_visits,
             },
             "address": address,
+            "venue_location_match_basis": (venue_match or {}).get("basis"),
+            "venue_location_evidence_urls": (venue_match or {}).get("evidence_urls", []),
+            "payment_branch_verified": False,
+            "personal_attendance_verified": False,
             "search_query": f"{display_name} {address or '대한민국'}",
             "business": {
                 "display": display_name,
                 "category": _category(name),
                 "phone": t(override.get("phone")),
-                "status": "중앙부처 공식 업무추진비 원자료 + 업체정보 보강" if override else "중앙부처 공식 업무추진비 원자료상 사용처",
+                "status": ("원천 사용처명과 독립 확인된 매장 소재지 — 카드 가맹점 동일성 미확인" if venue_match else
+                           "중앙부처 공식 업무추진비 원자료 + 업체정보 보강" if override else "중앙부처 공식 업무추진비 원자료상 사용처"),
                 "rating": "",
                 "note": (
+                    "원천 사용처 상호와 매장 안내 소재지를 별도 대조했습니다. 지출 카드 결제 가맹점 동일성 또는 참석자는 확인되지 않았습니다." if venue_match else
                     "중앙행정기관이 공개한 장·차관/고위직 업무추진비 원자료 기반. 주소·전화·업종은 확인 가능한 업체만 별도 보강."
                     if override else
                     "중앙행정기관이 공개한 장·차관/고위직 업무추진비의 파싱 가능한 XLS/XLSX/CSV 원자료 기반."
@@ -206,7 +214,8 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
         if not name:
             continue
         override = SOURCE_ENTITY_OVERRIDES.get(("public_enterprise", name), ENTITY_OVERRIDES.get(name, {}))
-        address = t(c.get("address")) or t(override.get("address"))
+        venue_match = curated_location("public_enterprise_leadership", name) if not (t(c.get("address")) or t(override.get("address"))) else None
+        address = t(c.get("address")) or t(override.get("address")) or t((venue_match or {}).get("address"))
         display_name = t(override.get("display")) or name
         inst = c.get("institutions") or []
         visits = int(c.get("visits") or 0)
@@ -265,14 +274,20 @@ def public_enterprise_records(max_records: int = 180) -> list[dict]:
                 "top_role_label": top_role_label,
             },
             "address": address,
+            "venue_location_match_basis": (venue_match or {}).get("basis"),
+            "venue_location_evidence_urls": (venue_match or {}).get("evidence_urls", []),
+            "payment_branch_verified": False,
+            "personal_attendance_verified": False,
             "search_query": f"{display_name} {address or '대한민국'}",
             "business": {
                 "display": display_name,
                 "category": _category(name),
                 "phone": t(override.get("phone")),
-                "status": "공기업·공공기관 기관장·임원 공식 업무추진비 원자료상 사용처",
+                "status": ("원천 사용처명과 브랜드 공식 매장주소 대조 — 카드 가맹점 동일성 미확인" if venue_match else
+                           "공기업·공공기관 기관장·임원 공식 업무추진비 원자료상 사용처"),
                 "rating": "",
-                "note": "공기업·공공기관이 공개한 기관장·임원 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다.",
+                "note": ("지출 사용처명과 공식 브랜드 매장주소를 대조했습니다. 실제 지출 카드의 가맹점 지점과 개인 참석은 확인되지 않았습니다." if venue_match else
+                         "공기업·공공기관이 공개한 기관장·임원 업무추진비의 식사성 사용처입니다. 식당 품질 평가가 아닙니다."),
                 "url": t(override.get("url")),
                 "verified_at": t(override.get("verified_at")),
                 "verification_confidence": t(override.get("confidence")),

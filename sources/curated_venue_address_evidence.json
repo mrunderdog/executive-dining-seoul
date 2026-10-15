@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "checked_on": "2026-10-16",
+  "policy": "Only exact published source merchant+branch name with independently documented venue address may enrich display location. Never prove payment merchant or personal attendance. REVIEW_ONLY entries cannot enter published venue addresses.",
+  "entries": [
+    {
+      "cohort": "central_executive",
+      "merchant": "오발탄 세종점",
+      "address": "세종특별자치시 도움1로 7 베스트웨스턴플러스호텔 2층 213-219호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_OFFICIAL_BRAND",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://hiobaltan.com/31",
+          "claim": "오발탄 세종점 지점명, 주소, 전화번호 명시"
+        },
+        {
+          "type": "brand_official_store_directory",
+          "url": "https://hiobaltan.com/",
+          "claim": "오발탄 공식 브랜드의 세종점 매장목록 동일 주소"
+        }
+      ]
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "일품진진수라 광화문점",
+      "address": "서울특별시 종로구 종로5길 7 타워8빌딩 지하 2층",
+      "status": "ALREADY_ENRICHED",
+      "basis": "EXISTING_VERIFIED_ENRICHMENT_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_registration_directory",
+          "url": "https://bizno.net/article/1738502905",
+          "claim": "일품진진수라 광화문점 지점명 및 종로5길 7 법인 지점 위치"
+        },
+        {
+          "type": "company_profile",
+          "url": "https://www.jobkorea.co.kr/Recruit/Co_Read/C/jinjinsura1",
+          "claim": "일품진진수라 광화문점 사업장 소개와 지하 2층 주소"
+        }
+      ],
+      "notes": "Existing sources/entity_enrichment.json already contains independently verified venue address dated 2026-09-22; do not count or overwrite."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "모담 서울역점",
+      "address": "서울 중구 세종대로 14 그랜드센트럴 지하3층 B304, B305호",
+      "status": "REVIEW_ONLY",
+      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "evidence": [
+        {
+          "type": "local_platform_listing",
+          "url": "https://www.daangn.com/kr/local-profile/%EB%AA%A8%EB%8B%B4-%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90-sownhppg64s2/",
+          "claim": "모담 서울역점 지점 및 주소"
+        }
+      ]
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "가시리 여의도점",
+      "address": "서울 영등포구 국회대로76길 16",
+      "status": "REVIEW_ONLY",
+      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "evidence": [
+        {
+          "type": "restaurant_platform_listing",
+          "url": "https://www.tabling.co.kr/place/677cc78066de5f069874d706",
+          "claim": "가시리 여의도점 지점 및 주소"
+        }
+      ]
+    },
+    {
+      "cohort": "public_enterprise_leadership",
+      "merchant": "우들목여의도점",
+      "address": "서울 영등포구 여의대방로67길 21",
+      "status": "REVIEW_ONLY",
+      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "evidence": [
+        {
+          "type": "restaurant_platform_listing",
+          "url": "https://www.tabling.co.kr/place/677cc78166de5f069874d87a",
+          "claim": "우들목 여의도점 지점 및 주소"
+        }
+      ]
+    },
+    {
+      "cohort": "public_enterprise_leadership",
+      "merchant": "창고43샛강점",
+      "address": "서울특별시 영등포구 여의대방로 376 나라키움여의도빌딩 2층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_OFFICIAL_BRAND",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://www.changgo43.co.kr/03_restaurants/sky.asp",
+          "claim": "창고43 공식 샛강점 주소, 건물, 층, 전화번호 확인"
+        },
+        {
+          "type": "restaurant_platform_listing",
+          "url": "https://www.tabling.co.kr/place/677cc78166de5f069874d900",
+          "claim": "창고43 샛강점 지점 및 주소"
+        },
+        {
+          "type": "directory_listing",
+          "url": "https://www.placeview.co.kr/id/ODA4NjYwMSAg",
+          "claim": "창고43 샛강점 지점 및 주소"
+        }
+      ]
+    },
+    {
+      "cohort": "public_enterprise_leadership",
+      "merchant": "영덕집",
+      "address": "서울특별시 서초구 강남대로43길 8-3",
+      "status": "REVIEW_ONLY",
+      "basis": "PHONE_CROSS_MATCH_HISTORICAL_CLOSED_POSSIBLE",
+      "evidence": [
+        {
+          "type": "directory_listing",
+          "url": "https://localview.co.kr/store/detail.asp?seq=903201305",
+          "claim": "원천 후보 기록의 전화번호 02-588-5033과 일치하는 영덕집의 주소"
+        },
+        {
+          "type": "historic_business_status",
+          "url": "https://restaurantguru.com/amp/%EC%98%81%EB%8D%95%EC%A7%91-Seoul",
+          "claim": "별도 정보에 영구 폐업 표기; 현재 영업 여부를 판단하지 않음"
+        }
+      ]
+    }
+  ]
+}
