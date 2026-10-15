@@ -6,6 +6,12 @@ on:
       - 'pipeline/test_localdata_regions.py'
       - 'sources/localdata_orgcodes.json'
       - '.github/workflows/localdata-region-coverage.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/localdata_regions.py'
+      - 'pipeline/test_localdata_regions.py'
+      - '.github/workflows/localdata-region-coverage.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,5 +31,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: localdata-region-coverage
-          path: reports/localdata-regional-coverage.json
+          path: |
+            reports/localdata-regional-coverage.json
+            reports/localdata-address-remediation-queue.json
           retention-days: 30
