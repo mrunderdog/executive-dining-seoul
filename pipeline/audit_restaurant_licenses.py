@@ -83,8 +83,13 @@ def evaluate(venues,raw):
             "identical_merchant":normalize(field(x,NAME))==name,
             "same_building_only_not_verified_identity":True
         } for x in ranked[:40]]
+        jurisdiction=route_localdata(v["address"])
         result.append({
             "merchant":v["merchant"],"address":v["address"],
+            "region":jurisdiction[0] if jurisdiction else None,
+            "orgCode":jurisdiction[1] if jurisdiction else None,
+            "entity_id":v.get("entity_id"),
+            "origin":v.get("origin"),
             "official_building_businesses":candidate_entries,
             "official_building_business_count":len(neighbors),
             "official_building_businesses_truncated":len(neighbors)>40,
@@ -178,7 +183,17 @@ def main():
                 for file in paths:
                     yield from load_official(file)
             rows=evaluate(venues,chained_rows())
-    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_REGIONAL_BATCH","scope":args.scope,"geographic_scope":selected,"sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
+    by_region={}
+    for item in rows:
+        name=item.get("region") or "UNROUTED"
+        slot=by_region.setdefault(name,{"venues":0,"exact_address":0,"same_building":0,"ambiguous":0,"not_matched":0})
+        slot["venues"]+=1
+        status=item["license_match_status"]
+        if status=="EXACT_NAME_AND_ADDRESS":slot["exact_address"]+=1
+        elif status=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED":slot["same_building"]+=1
+        elif status=="AMBIGUOUS_LICENSE_RECORDS":slot["ambiguous"]+=1
+        else:slot["not_matched"]+=1
+    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_REGIONAL_BATCH","scope":args.scope,"geographic_scope":selected,"by_region":by_region,"sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
          "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in rows),
          "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in rows),
          "policy":"A restaurant licence verifies restaurant identity/status only, not the payment card branch or attendee.",
