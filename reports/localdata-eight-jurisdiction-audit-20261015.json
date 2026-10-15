@@ -1,0 +1,94 @@
+{
+  "as_of": "2026-10-15",
+  "source_run": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/38674282587",
+  "source_artifact": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/38674282587/artifacts/11945715941",
+  "source_coverage_run": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/38674410532",
+  "audit": {
+    "scope": "all published agency venues in 8 jurisdictions with addresses and road/building IDs",
+    "venues": 310,
+    "full_address_exact": 3,
+    "name_plus_building_match_floor_not_proven": 192,
+    "ambiguous": 8,
+    "not_matched": 107,
+    "payment_branch_verified": 0,
+    "individual_attendance_verified": 0
+  },
+  "full_published_corpus": {
+    "venues": 1298,
+    "routable": 558,
+    "road_building_verifiable": 487,
+    "unrouted": 740,
+    "missing_address": 723,
+    "unrouteable_jurisdiction": 17
+  },
+  "priority_expansion": [
+    {
+      "region": "서울영등포구",
+      "road_building_venues": 81
+    },
+    {
+      "region": "경기광명시",
+      "road_building_venues": 21
+    },
+    {
+      "region": "경기고양시",
+      "road_building_venues": 18
+    },
+    {
+      "region": "경기안양시",
+      "road_building_venues": 17
+    }
+  ],
+  "source_files": [
+    {
+      "name": "서울서대문구",
+      "orgCode": "3120000",
+      "bytes": 5480283,
+      "sha256": "f449647479e640fd8119e61b14534428ac1a2ced9ad62631f119bfb4b62071d0"
+    },
+    {
+      "name": "서울중구",
+      "orgCode": "3010000",
+      "bytes": 6735905,
+      "sha256": "2b1ccff6f037eb1f28a58f49c2eea7ebf61aff783072bc9ee08732fb85f94e1d"
+    },
+    {
+      "name": "서울종로구",
+      "orgCode": "3000000",
+      "bytes": 6075476,
+      "sha256": "fb8af26f3a3784e8a128cb5c413204f72634f03987736c58f8a3889294082e1a"
+    },
+    {
+      "name": "서울서초구",
+      "orgCode": "3210000",
+      "bytes": 8382293,
+      "sha256": "8389853d7f6e65bb55fa7984f532b41bec463946b891d574e196ae7057f896ec"
+    },
+    {
+      "name": "서울영등포구",
+      "orgCode": "3180000",
+      "bytes": 8685561,
+      "sha256": "8469e18c57388f958f5ec6eba8d625878bdd2e1a0ecbb46dac87ad96ca812a50"
+    },
+    {
+      "name": "경기광명시",
+      "orgCode": "3900000",
+      "bytes": 2720610,
+      "sha256": "b059f23a05bdd44abc28dbc3509df0dc7d9fe55c17446767595683b807438cfa"
+    },
+    {
+      "name": "경기고양시",
+      "orgCode": "3940000",
+      "bytes": 12603686,
+      "sha256": "21ec017599f01c9c5e28dc91eb243127365e426cd037665dc085da1761a6550e"
+    },
+    {
+      "name": "경기안양시",
+      "orgCode": "3830000",
+      "bytes": 6429878,
+      "sha256": "3af0a8da1d5f5997f612e86f51bf38f82733f8dcdb1dbcd12b3f0eb35a984f75"
+    }
+  ],
+  "verification_policy": "Org codes are discovery metadata and must be validated against >=80% locality of actual LOCALDATA CSV routable addresses, with all downloads required to succeed. License matched building is not card-merchant branch or personal attendance.",
+  "status": "EIGHT_JURISDICTIONS_COMPLETE_GEO_SCOPE_ONLY"
+}
