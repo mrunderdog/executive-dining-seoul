@@ -38,28 +38,54 @@ def registry_codes():
     return content["codes"]
 
 def route_localdata(address, codes=None):
-    """Resolve at most one matching org code. No coarse province-only fallback."""
+    """Route only an explicit, unambiguous administrative name.
+
+    Permits space-omitted official prefixes (서울영등포구...) and a province-less
+    UNIQUE district/county label (서초구 ...). Never use agency origin as a
+    location, never infer locality from road name or merchant name.
+    """
     codes = codes if codes is not None else registry_codes()
-    raw=" ".join(str(address or "").split()).strip()
-    province=None
-    rest=None
-    for label,aliases in PROVINCE_ALIASES.items():
-        for alias in sorted(aliases,key=len,reverse=True):
-            if raw.startswith(alias+" "):
-                province,rest=label,raw[len(alias):].strip()
-                break
-        if province:break
-    if not province or not rest:return None
-    if province=="세종특별자치시":
-        return ("세종특별자치시 본청",codes["세종특별자치시 본청"]) if "세종특별자치시 본청" in codes else None
-    compact=re.sub(r"\s+","",rest)
-    matches=[(name,code) for name,code in codes.items()
-             if name.startswith(province) and not name.endswith("본청")
-             and compact.startswith(name[len(province):])
-             and name[len(province):]]
-    if not matches:return None
-    matches.sort(key=lambda x:len(x[0]),reverse=True)
-    return matches[0]
+    compact = re.sub(r"\s+", "", str(address or ""))
+    if not compact:
+        return None
+
+    # Explicit province takes precedence over all locality-only interpretations.
+    for label, aliases in PROVINCE_ALIASES.items():
+        for alias in sorted(aliases, key=len, reverse=True):
+            if not compact.startswith(alias):
+                continue
+            rest = compact[len(alias):]
+            if not rest:
+                return None
+            if label == "세종특별자치시":
+                name = "세종특별자치시 본청"
+                return (name, codes[name]) if name in codes else None
+            matches = [(name, code) for name, code in codes.items()
+                       if name.startswith(label) and not name.endswith("본청")
+                       and name[len(label):]
+                       and rest.startswith(name[len(label):])]
+            if matches:
+                return max(matches, key=lambda x: len(x[0]))
+            # Recognized province with no district must NOT be guessed.
+            return None
+
+    # Only county/district prefixes unique across ALL national registry rows.
+    # "중구" and "강서구" are duplicated across cities and stay unresolved.
+    localities = {}
+    for name, code in codes.items():
+        if name.endswith("본청"):
+            continue
+        province = next((p for p in PROVINCE_ALIASES if name.startswith(p)), None)
+        if not province:
+            continue
+        suffix = name[len(province):]
+        if suffix.endswith(("구", "군")) and suffix:
+            localities.setdefault(suffix, []).append((name, code))
+    choices = [(suffix, rows[0]) for suffix, rows in localities.items()
+               if len(rows) == 1 and compact.startswith(suffix) and len(compact) > len(suffix)]
+    if not choices:
+        return None
+    return max(choices, key=lambda x: len(x[0]))[1]
 
 def building_key(address,codes=None):
     found=route_localdata(address,codes)
