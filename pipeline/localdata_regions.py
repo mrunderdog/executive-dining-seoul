@@ -6,6 +6,7 @@ and quality must be checked before a jurisdiction can become VERIFIED.
 from __future__ import annotations
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -31,6 +32,7 @@ PROVINCE_ALIASES={
 }
 ROAD_PATTERN=re.compile(r"(?<![가-힣0-9])([가-힣0-9]+(?:로|길))\s*(\d+(?:-\d+)?)(?!\d)")
 
+@lru_cache(maxsize=1)
 def registry_codes():
     content=json.loads(REGISTRY.read_text(encoding="utf-8"))
     return content["codes"]
