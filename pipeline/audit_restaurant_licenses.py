@@ -5,7 +5,7 @@ Input is a UTF-8/CP949 CSV exported from official LOCALDATA / data.go.kr.
 No paid API or network is needed. Never infer card-merchant identity from licenses.
 """
 from __future__ import annotations
-import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,tempfile,datetime,time
+import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,urllib.error,tempfile,datetime,time
 from pathlib import Path
 from difflib import SequenceMatcher
 from localdata_regions import route_localdata, building_key, registry_codes
@@ -232,7 +232,7 @@ def main():
             "venues":police_rows})
         police_dest=Path(args.police_output)
         police_dest.parent.mkdir(parents=True,exist_ok=True)
-        police_dest.write_text(json.dumps(police_output,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+        police_dest.write_text(json.dumps(police_output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
         print("Police same-download audit "+str(len(police_rows))+" venues -> "+str(police_dest))
 
     print(json.dumps({"total":len(rows),"exact":out["exact_business_and_address_matches"],"building":out["name_and_building_matches"],"sources":len(provenance),"output":str(dest)},ensure_ascii=False))
