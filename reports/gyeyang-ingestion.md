@@ -1,33 +1,45 @@
 # gyeyang expense ingestion
 
-- Normalized rows: **1932**
-- Source posts: **40**
-- Downloaded files: **20**
+- Normalized rows: **2041**
+- Source posts: **42**
+- Refresh mode: **full**
+- Files retained: **21**
+- New files downloaded: **21**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 111
 - 2025: 1229
-- 2026: 592
+- 2026: 701
 
 ## Top roles / sheets
 
-- 의정운영공통경비: 507
-- 의장: 446
-- 기획복지위원장: 297
-- 부의장: 236
-- 자치도시위원장: 147
-- 의회운영위원장: 121
+- 의정운영공통경비: 514
+- 의장: 481
+- 기획복지위원장: 320
+- 부의장: 265
+- 자치도시위원장: 157
+- 의회운영위원장: 125
 - 공통경비: 52
 - 의정운영공통경비_교섭단체(국민의힘): 47
-- 의정운영공통경비_교섭단체(더불어민주당): 36
+- 의정운영공통경비_교섭단체(더불어민주당): 37
 - 자차도시위원장: 17
 - 예산결산위원장: 14
 - 운영위원장: 12
 
 ## Files
 
+- `2026.8월 업무추진비 사용내역.xlsx 2026.8월 업무추진비 사용내역.xlsx 2026.8월 업무추진비 사용내역.xlsx` — 30,484 bytes — 109 rows
+  - 의장: OK / parsed 35 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 부의장: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의회운영위원장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 자치도시위원장: OK / parsed 10 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 기획복지위원장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 예산결산위원장: OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비: OK / parsed 7 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(국민의힘): OK / parsed 0 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
+  - 의정운영공통경비_교섭단체(더불어민주당): OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
 - `2026.7월 업무추진비 사용내역.xlsx 2026.7월 업무추진비 사용내역.xlsx 2026.7월 업무추진비 사용내역.xlsx` — 27,415 bytes — 86 rows
   - 의장: OK / parsed 19 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}
   - 부의장: OK / parsed 4 / mapping {'date': 1, 'merchant': 2, 'amount': 3, 'purpose': 4, 'people': 5, 'method': 7}

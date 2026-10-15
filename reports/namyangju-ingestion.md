@@ -1,38 +1,45 @@
 # namyangju expense ingestion
 
-- Normalized rows: **727**
-- Source posts: **7**
-- Downloaded files: **6**
+- Normalized rows: **865**
+- Source posts: **8**
+- Refresh mode: **full**
+- Files retained: **7**
+- New files downloaded: **7**
 - Errors: **1**
 
 ## Rows by year
 
 - 2025: 1
-- 2026: 726
+- 2026: 864
 
 ## Top roles / sheets
 
-- 의장: 104
+- 의회사무국장: 121
+- 의장: 106
 - 복지환경위원장: 81
-- 의회사무국장: 74
 - 도시교통위원장: 65
+- 교섭단체원내대표: 62
 - 부의장: 61
+- 의사담당: 58
 - 자치행정위원장: 57
-- 의사담당: 53
 - 운영위원장: 51
+- 자치행정전문위원: 35
+- 운영전문위원: 32
 - 예산결산특별위원장: 31
-- 교섭단체원내대표: 27
-- 도시교통전문위원: 23
-- 운영전문위원: 22
-- 복지환경전문위원: 21
-- 회계담당: 20
-- 자치행정전문위원: 19
-- 공무직근로자: 12
+- 복지환경전문위원: 29
+- 회계담당: 27
+- 도시교통전문위원: 27
+- 공무직근로자: 16
 - 행사담당: 5
 - 협의회담당: 1
 
 ## Files
 
+- `Array 첨부파일을 다운받습니다. xlsx 2026년 3분기 업무추진비 집행내역(남양주시의회).xlsx` — 36,049 bytes — 138 rows
+  - 의장: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 공통경비: OK / parsed 51 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 시책: OK / parsed 80 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
+  - 기관: OK / parsed 5 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
 - `Array 첨부파일을 다운받습니다. xlsx 2026년 2분기 업무추진비 집행내역(남양주시의회).xlsx` — 74,285 bytes — 335 rows
   - 의장: OK / parsed 41 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}
   - 부의장: OK / parsed 33 / mapping {'date': 2, 'time': 3, 'merchant': 4, 'purpose': 5, 'people': 7, 'amount': 8, 'method': 9, 'role': 1}

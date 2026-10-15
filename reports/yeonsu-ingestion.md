@@ -1,36 +1,47 @@
 # yeonsu expense ingestion
 
-- Normalized rows: **1385**
-- Source posts: **34**
-- Downloaded files: **21**
+- Normalized rows: **1457**
+- Source posts: **36**
+- Refresh mode: **full**
+- Files retained: **22**
+- New files downloaded: **22**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 56
 - 2025: 429
-- 2026: 222
+- 2026: 255
 
 ## Top roles / sheets
 
-- 의장: 359
-- 연수구의회: 259
-- 부의장: 190
-- 자치도시위원장: 159
-- 운영위원장: 134
-- 기획복지위원장: 100
-- 기획복지위원회: 72
-- 자치도시위원회: 71
-- 예산결산특별위원장: 19
-- 예산결산특별위원회: 12
+- 의장: 372
+- 연수구의회: 274
+- 부의장: 197
+- 자치도시위원장: 164
+- 운영위원장: 141
+- 기획복지위원장: 103
+- 기획복지위원회: 80
+- 자치도시위원회: 79
+- 예산결산특별위원장: 20
+- 예산결산특별위원회: 16
 - 예결위원장: 6
 - 교섭단체: 1
 - 운영위원회: 1
 - 교섭단체 (국민의힘): 1
 - 더불어민주당 교섭단체대표: 1
+- 교섭단체(국민의힘): 1
 
 ## Files
 
+- `(공개용)2026년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2026년 9월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2026년 9월 연수구의` — 1,823,882 bytes — 72 rows
+  - 의장: OK / parsed 13 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 부의장: OK / parsed 7 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 운영위원장: OK / parsed 7 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 기획복지위원장: OK / parsed 3 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 자치도시위원장: OK / parsed 5 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 예결위원장: OK / parsed 1 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
+  - 의정운영공통경비: OK / parsed 36 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
 - `(공개용)2026년 8월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2026년 8월 연수구의회 의회운영업무추진비 및 의정운영공통경비 사용내역.xlsx (공개용)2026년 8월 연수구의` — 921,402 bytes — 43 rows
   - 의장: OK / parsed 14 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}
   - 부의장: OK / parsed 4 / mapping {'date': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 1}

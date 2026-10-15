@@ -1,28 +1,35 @@
 # ongjin expense ingestion
 
-- Normalized rows: **1041**
-- Source posts: **14**
-- Downloaded files: **7**
+- Normalized rows: **1145**
+- Source posts: **16**
+- Refresh mode: **full**
+- Files retained: **8**
+- New files downloaded: **8**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 171
 - 2025: 564
-- 2026: 195
+- 2026: 238
 
 ## Top roles / sheets
 
-- 공통: 248
+- 공통: 307
+- 의장: 242
 - 의회운영위원회: 218
-- 의장: 212
-- 부의장: 149
+- 부의장: 162
 - 기획복지위원회: 126
 - 경제건설위원회: 77
-- 예산결산특별위원회: 11
+- 예산결산특별위원회: 13
 
 ## Files
 
+- `2026년 3분기 업무추진비 사용내역.xlsx 2026년 3분기 업무추진비 사용내역.xlsx 2026년 3분기 업무추진비 사용내역.xlsx` — 45,370 bytes — 104 rows
+  - 의장: OK / parsed 30 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}
+  - 부의장: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}
+  - 예산결산특별위원회: OK / parsed 2 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}
+  - 공통: OK / parsed 59 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}
 - `2026년 2분기 업무추진비 사용내역.xlsx 2026년 2분기 업무추진비 사용내역.xlsx 2026년 2분기 업무추진비 사용내역.xlsx` — 58,095 bytes — 98 rows
   - 의장: OK / parsed 14 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}
   - 부의장: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'method': 3, 'purpose': 4, 'amount': 5, 'people': 6}

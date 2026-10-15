@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T04:21:09",
+  "generated_at": "2026-10-15T10:12:56",
   "year": 2026,
   "listing_template": "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page={page}",
   "role_targets": [
@@ -278,7 +278,7 @@
   "errors": [
     {
       "url": "https://www.gg.go.kr/bbs/board.do?bcIdx=535&bsIdx=535&menuId=1778&page=1",
-      "error": "TimeoutError: The read operation timed out"
+      "error": "NO_SERVER_RENDERED_POST_LINKS"
     }
   ]
 }

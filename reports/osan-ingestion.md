@@ -1,8 +1,10 @@
 # osan expense ingestion
 
-- Normalized rows: **1175**
-- Source posts: **21**
-- Downloaded files: **21**
+- Normalized rows: **1232**
+- Source posts: **22**
+- Refresh mode: **full**
+- Files retained: **22**
+- New files downloaded: **22**
 - Errors: **0**
 
 ## Rows by year
@@ -10,17 +12,17 @@
 - 2020: 2
 - 2024: 68
 - 2025: 708
-- 2026: 395
+- 2026: 452
 
 ## Top roles / sheets
 
-- 부의장: 663
-- 의장: 284
-- 사무과장: 97
+- 부의장: 688
+- 의장: 299
+- 사무과장: 104
 - -: 48
+- 전문위원: 39
 - 홍보팀장: 34
-- 전문위원: 34
-- 의회사무과: 5
+- 의회사무과: 10
 - pdf-page-1: 3
 - 의정팀장: 2
 - 의회: 2
@@ -30,6 +32,11 @@
 
 ## Files
 
+- `e7b8a931d16e5a65eb48631d546f26d5.pdf` — 119,261 bytes — 57 rows
+  - pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}
+  - pdf-page-2: OK / parsed 15 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}
+  - pdf-page-3: OK / parsed 23 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}
+  - pdf-page-4: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}
 - `d2b77744f4a55ceb305a4cb9c8748781.pdf` — 110,485 bytes — 48 rows
   - pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}
   - pdf-page-2: OK / parsed 14 / mapping {'date': 1, 'time': 2, 'merchant': 4, 'purpose': 5, 'people': 6, 'amount': 7, 'method': 8, 'role': 9}

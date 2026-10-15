@@ -1,11 +1,12 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 남양주시의회
 
-- Posts: 7
-- Attachment records: 7
-- Downloadable attachment URLs: 7
+- Posts: 8
+- Attachment records: 8
+- Downloadable attachment URLs: 8
 
+- [2026년 3/4분기 업무추진비 집행내역](https://nyjc.go.kr/content/dataroom/propelclosed.html?fidx=9691&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [2026년 2/4분기 업무추진비 집행내역](https://nyjc.go.kr/content/dataroom/propelclosed.html?fidx=9227&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [2026년 1/4분기 업무추진비 집행내역](https://nyjc.go.kr/content/dataroom/propelclosed.html?fidx=8924&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1
 - [2025년 4/4분기 업무추진비 집행내역](https://nyjc.go.kr/content/dataroom/propelclosed.html?fidx=8454&pg=vv&sid=1000&page=1&opt=&sword=) — attachments 1

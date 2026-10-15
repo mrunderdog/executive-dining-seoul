@@ -1,6 +1,6 @@
 {
   "source": "osan",
-  "candidate_count": 310,
+  "candidate_count": 320,
   "candidates": [
     {
       "merchant": "유림촌",
@@ -30,42 +30,55 @@
     },
     {
       "merchant": "봉순언니 시골밥상",
-      "visits": 24,
+      "visits": 26,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 14,
-      "spend": 3886005,
-      "people": 175,
-      "evening_ratio": 0.333,
-      "score": 93.3
+      "months": 15,
+      "spend": 4536005,
+      "people": 215,
+      "evening_ratio": 0.346,
+      "score": 93.5
     },
     {
-      "merchant": "아구마을",
+      "merchant": "백마강민물장어",
       "visits": 12,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 7,
-      "spend": 2972016,
-      "people": 132,
-      "evening_ratio": 0.167,
-      "score": 91.6
+      "months": 10,
+      "spend": 2871000,
+      "people": 95,
+      "evening_ratio": 0.333,
+      "score": 92.9
     },
     {
       "merchant": "주식회사 청돈고기나",
-      "visits": 10,
+      "visits": 11,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 6,
-      "spend": 2775400,
-      "people": 117,
-      "evening_ratio": 0.2,
-      "score": 91.3
+      "months": 7,
+      "spend": 2988400,
+      "people": 125,
+      "evening_ratio": 0.273,
+      "score": 92.7
+    },
+    {
+      "merchant": "아구마을",
+      "visits": 13,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 8,
+      "spend": 3397016,
+      "people": 146,
+      "evening_ratio": 0.231,
+      "score": 92.3
     },
     {
       "merchant": "(주)신화케이푸드",
@@ -82,29 +95,29 @@
     },
     {
       "merchant": "초심",
-      "visits": 19,
+      "visits": 21,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 15,
+      "spend": 3659100,
+      "people": 249,
+      "evening_ratio": 0.048,
+      "score": 90.5
+    },
+    {
+      "merchant": "논산옛날집",
+      "visits": 17,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 14,
-      "spend": 3269900,
-      "people": 221,
-      "evening_ratio": 0.053,
-      "score": 90.5
-    },
-    {
-      "merchant": "백마강민물장어",
-      "visits": 10,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 9,
-      "spend": 1923000,
-      "people": 70,
-      "evening_ratio": 0.2,
-      "score": 88.4
+      "spend": 2549000,
+      "people": 131,
+      "evening_ratio": 0.059,
+      "score": 89.1
     },
     {
       "merchant": "오색돼야지 오색감자",
@@ -120,17 +133,17 @@
       "score": 88.4
     },
     {
-      "merchant": "논산옛날집",
-      "visits": 16,
+      "merchant": "삼호",
+      "visits": 11,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 13,
-      "spend": 2304000,
-      "people": 121,
-      "evening_ratio": 0.062,
-      "score": 88.3
+      "months": 8,
+      "spend": 1798000,
+      "people": 71,
+      "evening_ratio": 0.091,
+      "score": 86.9
     },
     {
       "merchant": "백가네부대찌게",
@@ -224,19 +237,6 @@
       "score": 80.3
     },
     {
-      "merchant": "삼호",
-      "visits": 8,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 7,
-      "spend": 1142000,
-      "people": 48,
-      "evening_ratio": 0.125,
-      "score": 78.1
-    },
-    {
       "merchant": "성환뚝배기해장국",
       "visits": 8,
       "roles": [
@@ -248,6 +248,19 @@
       "people": 41,
       "evening_ratio": 0.25,
       "score": 77.1
+    },
+    {
+      "merchant": "구리시골식당 오산점",
+      "visits": 8,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 6,
+      "spend": 893000,
+      "people": 64,
+      "evening_ratio": 0.0,
+      "score": 76.0
     },
     {
       "merchant": "동해곰치",
@@ -287,19 +300,6 @@
       "people": 39,
       "evening_ratio": 0.333,
       "score": 73.4
-    },
-    {
-      "merchant": "구리시골식당 오산점",
-      "visits": 7,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 5,
-      "spend": 686000,
-      "people": 50,
-      "evening_ratio": 0.0,
-      "score": 71.8
     },
     {
       "merchant": "귀례정",
@@ -378,6 +378,19 @@
       "score": 66.0
     },
     {
+      "merchant": "사랑방가든",
+      "visits": 5,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 5,
+      "spend": 916000,
+      "people": 45,
+      "evening_ratio": 0.0,
+      "score": 65.6
+    },
+    {
       "merchant": "대우정육점식당",
       "visits": 4,
       "roles": [
@@ -389,6 +402,31 @@
       "people": 37,
       "evening_ratio": 1.0,
       "score": 63.5
+    },
+    {
+      "merchant": "주식회사 푸드명장",
+      "visits": 6,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 660500,
+      "people": 37,
+      "evening_ratio": 0.167,
+      "score": 59.9
+    },
+    {
+      "merchant": "호우동",
+      "visits": 6,
+      "roles": [
+        "부의장"
+      ],
+      "months": 5,
+      "spend": 856500,
+      "people": 61,
+      "evening_ratio": 0.0,
+      "score": 58.9
     },
     {
       "merchant": "다모아한식",
@@ -428,17 +466,30 @@
       "score": 56.7
     },
     {
-      "merchant": "사랑방가든",
+      "merchant": "삼동소바",
       "visits": 4,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 4,
-      "spend": 596000,
-      "people": 36,
+      "spend": 736500,
+      "people": 48,
       "evening_ratio": 0.0,
-      "score": 56.0
+      "score": 56.5
+    },
+    {
+      "merchant": "달빛에구운고등어 오",
+      "visits": 4,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 4,
+      "spend": 678000,
+      "people": 37,
+      "evening_ratio": 0.0,
+      "score": 56.3
     },
     {
       "merchant": "돈가네돼지찌개",
@@ -517,18 +568,6 @@
       "score": 50.1
     },
     {
-      "merchant": "호우동",
-      "visits": 5,
-      "roles": [
-        "부의장"
-      ],
-      "months": 4,
-      "spend": 624500,
-      "people": 47,
-      "evening_ratio": 0.0,
-      "score": 49.6
-    },
-    {
       "merchant": "작은영토",
       "visits": 3,
       "roles": [
@@ -552,19 +591,6 @@
       "people": 23,
       "evening_ratio": 0.0,
       "score": 48.7
-    },
-    {
-      "merchant": "주식회사 푸드명장",
-      "visits": 4,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 2,
-      "spend": 408500,
-      "people": 26,
-      "evening_ratio": 0.25,
-      "score": 47.9
     },
     {
       "merchant": "어인마니산삼궁",
@@ -592,15 +618,15 @@
       "score": 47.6
     },
     {
-      "merchant": "달빛에구운고등어 오",
+      "merchant": "미가정숯불갈비",
       "visits": 3,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 3,
-      "spend": 483000,
-      "people": 25,
+      "spend": 486000,
+      "people": 27,
       "evening_ratio": 0.0,
       "score": 47.1
     },
@@ -752,6 +778,19 @@
       "people": 13,
       "evening_ratio": 0.5,
       "score": 43.3
+    },
+    {
+      "merchant": "삼대째손두부",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 350000,
+      "people": 15,
+      "evening_ratio": 0.5,
+      "score": 43.2
     },
     {
       "merchant": "신갈동태탕",
@@ -951,31 +990,6 @@
       "score": 37.8
     },
     {
-      "merchant": "미가정숯불갈비",
-      "visits": 2,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 2,
-      "spend": 228000,
-      "people": 11,
-      "evening_ratio": 0.0,
-      "score": 37.8
-    },
-    {
-      "merchant": "삼동소바",
-      "visits": 3,
-      "roles": [
-        "부의장"
-      ],
-      "months": 3,
-      "spend": 674500,
-      "people": 44,
-      "evening_ratio": 0.0,
-      "score": 37.7
-    },
-    {
       "merchant": "황칠석가마",
       "visits": 2,
       "roles": [
@@ -1157,6 +1171,18 @@
       "score": 31.7
     },
     {
+      "merchant": "오산시청 구내식당",
+      "visits": 3,
+      "roles": [
+        "부의장"
+      ],
+      "months": 2,
+      "spend": 280800,
+      "people": 72,
+      "evening_ratio": 0.0,
+      "score": 31.4
+    },
+    {
       "merchant": "두메맛골2호점",
       "visits": 3,
       "roles": [
@@ -1224,6 +1250,18 @@
       ],
       "months": 1,
       "spend": 345000,
+      "people": 9,
+      "evening_ratio": 1.0,
+      "score": 29.6
+    },
+    {
+      "merchant": "천지연 세교",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 317600,
       "people": 9,
       "evening_ratio": 1.0,
       "score": 29.6
@@ -1313,6 +1351,18 @@
       "score": 29.3
     },
     {
+      "merchant": "오마카세 오사이초밥",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 234000,
+      "people": 6,
+      "evening_ratio": 1.0,
+      "score": 29.3
+    },
+    {
       "merchant": "소왕자돼지공주",
       "visits": 1,
       "roles": [
@@ -1345,6 +1395,30 @@
       "months": 1,
       "spend": 219000,
       "people": 6,
+      "evening_ratio": 1.0,
+      "score": 29.2
+    },
+    {
+      "merchant": "신전주식당",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 215000,
+      "people": 7,
+      "evening_ratio": 1.0,
+      "score": 29.2
+    },
+    {
+      "merchant": "서서곱창",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 211800,
+      "people": 7,
       "evening_ratio": 1.0,
       "score": 29.2
     },
@@ -1417,6 +1491,18 @@
       "months": 1,
       "spend": 155000,
       "people": 6,
+      "evening_ratio": 1.0,
+      "score": 29.0
+    },
+    {
+      "merchant": "향연177",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 153000,
+      "people": 5,
       "evening_ratio": 1.0,
       "score": 29.0
     },
@@ -2297,6 +2383,18 @@
       "score": 19.3
     },
     {
+      "merchant": "또바기 동태탕",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 230000,
+      "people": 12,
+      "evening_ratio": 0.0,
+      "score": 19.3
+    },
+    {
       "merchant": "(주)신화푸드(세교천지연)",
       "visits": 1,
       "roles": [
@@ -2449,6 +2547,18 @@
       "months": 1,
       "spend": 170000,
       "people": 12,
+      "evening_ratio": 0.0,
+      "score": 19.1
+    },
+    {
+      "merchant": "백청우칼국수 오산시",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 165000,
+      "people": 11,
       "evening_ratio": 0.0,
       "score": 19.1
     },
@@ -3017,18 +3127,6 @@
       "score": 18.8
     },
     {
-      "merchant": "오산시청 구내식당",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 89700,
-      "people": 23,
-      "evening_ratio": 0.0,
-      "score": 18.8
-    },
-    {
       "merchant": "육전국밥 오산 부산동",
       "visits": 1,
       "roles": [
@@ -3281,6 +3379,18 @@
       "score": 18.7
     },
     {
+      "merchant": "송추부흥부대찌개",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 63000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
       "merchant": "돌고래마차",
       "visits": 1,
       "roles": [
@@ -3449,18 +3559,6 @@
       "score": 18.7
     },
     {
-      "merchant": "삼대째손두부",
-      "visits": 1,
-      "roles": [
-        "의장"
-      ],
-      "months": 1,
-      "spend": 50000,
-      "people": 5,
-      "evening_ratio": 0.0,
-      "score": 18.7
-    },
-    {
       "merchant": "주식회사 수본",
       "visits": 1,
       "roles": [
@@ -3505,6 +3603,18 @@
       "months": 1,
       "spend": 47000,
       "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
+      "merchant": "윤실장초밥운암직영점",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 46200,
+      "people": 3,
       "evening_ratio": 0.0,
       "score": 18.7
     },
@@ -3625,6 +3735,18 @@
       "months": 1,
       "spend": 36000,
       "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
+      "merchant": "일오삼한식뷔페",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 32000,
+      "people": 4,
       "evening_ratio": 0.0,
       "score": 18.6
     },

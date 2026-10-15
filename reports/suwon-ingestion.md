@@ -1,30 +1,32 @@
 # suwon expense ingestion
 
-- Normalized rows: **2283**
-- Source posts: **42**
-- Downloaded files: **21**
+- Normalized rows: **2403**
+- Source posts: **44**
+- Refresh mode: **full**
+- Files retained: **22**
+- New files downloaded: **22**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 149
 - 2025: 1249
-- 2026: 880
+- 2026: 1000
 - 2027: 4
 - 2028: 1
 
 ## Top roles / sheets
 
-- 의장: 902
-- 부의장: 330
-- 환경안전위원장: 266
-- 기획경제위원장: 170
-- 의회운영위원장: 169
-- 보건복지위원장: 163
+- 의장: 969
+- 부의장: 340
+- 환경안전위원장: 277
+- 기획경제위원장: 179
+- 의회운영위원장: 178
+- 보건복지위원장: 176
 - 도시미래위원장: 67
 - 도시미래위원회: 50
 - 문화체육교육위원회: 45
-- 예산결산특별위원장: 42
+- 예산결산특별위원장: 43
 - 문화체육위원장: 32
 - 의회운영위원회: 15
 - 문화체육교육위원장: 15
@@ -33,6 +35,18 @@
 
 ## Files
 
+- `2026. 9월 업무추진비 집행내역(의장단).xlsx 2026. 9월 업무추진비 집행내역(의장단).xlsx 2026. 9월 업무추진비 집행내역(의장단).xlsx` — 52,592 bytes — 120 rows
+  - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
+  - 부의장: OK / parsed 10 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
+  - 기획경제: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 도시미래: OK / parsed 16 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 보건복지: OK / parsed 13 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 환경안전: OK / parsed 11 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 문화체육교육: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 의회운영위: OK / parsed 9 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 예산결산특위: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(더불어민주당): OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - 교섭단체(국민의힘): OK / parsed 12 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
 - `2026. 8월 업무추진비 집행내역(의장단).xlsx 2026. 8월 업무추진비 집행내역(의장단).xlsx 2026. 8월 업무추진비 집행내역(의장단).xlsx` — 51,240 bytes — 104 rows
   - 의장: OK / parsed 24 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}
   - 부의장: OK / parsed 9 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 4, 'method': 5}

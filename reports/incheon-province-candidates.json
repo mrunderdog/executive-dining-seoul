@@ -1,178 +1,47 @@
 {
   "source": "incheon_province",
   "cohort": "regional_executive",
-  "entity_count": 239,
-  "eligible_count": 48,
+  "entity_count": 215,
+  "eligible_count": 31,
   "publication_status": "staged_not_published",
   "candidates": [
     {
-      "merchant": "취홍(인천 남동구 소재)",
-      "address": "",
-      "score": 95.5,
-      "visits": 18,
-      "role_count": 3,
-      "roles": [
-        "시장",
-        "정무부시장",
-        "행정부시장"
-      ],
-      "months": 6,
-      "spend": 6070000,
-      "senior_weight": 1.0,
-      "mayor_visits": 8,
-      "vice_mayor_visits": 10,
-      "date_min": "2025-07-03",
-      "date_max": "2026-07-09",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 8
-        },
-        {
-          "role": "행정부시장",
-          "visits": 7
-        },
-        {
-          "role": "정무부시장",
-          "visits": 3
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-09",
-          "time": "19:30",
-          "role": "정무부시장",
-          "amount": 342000,
-          "people": 15,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
-        },
-        {
-          "date": "2026-05-04",
-          "time": "20:35",
-          "role": "정무부시장",
-          "amount": 404000,
-          "people": 15,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
-        },
-        {
-          "date": "2026-04-17",
-          "time": "12:27",
-          "role": "행정부시장",
-          "amount": 306000,
-          "people": 11,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-15",
-          "time": "12:24",
-          "role": "시장",
-          "amount": 1023000,
-          "people": 40,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-04-08",
-          "time": "13:00",
-          "role": "시장",
-          "amount": 940000,
-          "people": 37,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-04-02",
-          "time": "20:55",
-          "role": "시장",
-          "amount": 135000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-04-01",
-          "time": "12:20",
-          "role": "행정부시장",
-          "amount": 221000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-03-20",
-          "time": "12:43",
-          "role": "시장",
-          "amount": 332000,
-          "people": 9,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2026-03-13",
-          "time": "12:39",
-          "role": "시장",
-          "amount": 102000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2026-01-29",
-          "time": "12:30",
-          "role": "정무부시장",
-          "amount": 192000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        }
-      ]
-    },
-    {
       "merchant": "설농가옥(인천 남동구 소재)",
       "address": "",
-      "score": 95.4,
+      "score": 91.0,
       "visits": 12,
-      "role_count": 3,
+      "role_count": 2,
       "roles": [
         "시장",
-        "정무부시장",
-        "행정부시장"
+        "정무부시장"
       ],
       "months": 6,
-      "spend": 4004500,
+      "spend": 5631500,
       "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 10,
-      "date_min": "2025-07-14",
-      "date_max": "2026-08-15",
+      "mayor_visits": 11,
+      "vice_mayor_visits": 1,
+      "date_min": "2025-12-11",
+      "date_max": "2026-07-01",
       "role_stats": [
         {
-          "role": "행정부시장",
-          "visits": 6
+          "role": "시장",
+          "visits": 11
         },
         {
           "role": "정무부시장",
-          "visits": 4
-        },
-        {
-          "role": "시장",
-          "visits": 2
+          "visits": 1
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-08-15",
-          "time": "13:06",
+          "date": "2026-07-01",
+          "time": "12:23",
           "role": "시장",
-          "amount": 700000,
-          "people": 30,
+          "amount": 494000,
+          "people": 26,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
         },
         {
           "date": "2026-06-25",
@@ -180,6 +49,33 @@
           "role": "시장",
           "amount": 418000,
           "people": 26,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-06-22",
+          "time": "13:47",
+          "role": "시장",
+          "amount": 1347000,
+          "people": 65,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-06-06",
+          "time": "12:01",
+          "role": "시장",
+          "amount": 494000,
+          "people": 26,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-06-05",
+          "time": "13:18",
+          "role": "시장",
+          "amount": 1740000,
+          "people": 61,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
         },
@@ -193,281 +89,38 @@
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
         },
         {
-          "date": "2026-04-29",
-          "time": "12\"05",
-          "role": "행정부시장",
-          "amount": 399000,
-          "people": 21,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-28",
-          "time": "11:55",
-          "role": "행정부시장",
-          "amount": 225500,
-          "people": 12,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-23",
-          "time": "12:24",
-          "role": "행정부시장",
-          "amount": 184000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-01-26",
-          "time": "12:38",
-          "role": "정무부시장",
-          "amount": 465500,
-          "people": 17,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        },
-        {
-          "date": "2026-01-19",
-          "time": "12:39",
-          "role": "정무부시장",
-          "amount": 130500,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        },
-        {
-          "date": "2026-01-19",
-          "time": "12:17",
-          "role": "행정부시장",
-          "amount": 185000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2026-01-09",
-          "time": "12:41",
-          "role": "행정부시장",
-          "amount": 185000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "형제복집(인천 남동구 소재)",
-      "address": "",
-      "score": 91.8,
-      "visits": 13,
-      "role_count": 3,
-      "roles": [
-        "시장",
-        "정무부시장",
-        "행정부시장"
-      ],
-      "months": 5,
-      "spend": 2727000,
-      "senior_weight": 1.0,
-      "mayor_visits": 6,
-      "vice_mayor_visits": 7,
-      "date_min": "2025-01-23",
-      "date_max": "2026-06-09",
-      "role_stats": [
-        {
+          "date": "2026-02-13",
+          "time": "20:31",
           "role": "시장",
-          "visits": 6
-        },
-        {
-          "role": "행정부시장",
-          "visits": 5
-        },
-        {
-          "role": "정무부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-09",
-          "time": "12:20",
-          "role": "시장",
-          "amount": 150000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
-        },
-        {
-          "date": "2026-06-02",
-          "time": "12:10",
-          "role": "행정부시장",
-          "amount": 270000,
-          "people": 10,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2026-04-16",
-          "time": "12:19",
-          "role": "행정부시장",
-          "amount": 270000,
+          "amount": 262500,
           "people": 9,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         },
         {
-          "date": "2026-04-10",
-          "time": "12:39",
+          "date": "2026-02-12",
+          "time": "12:35",
           "role": "시장",
-          "amount": 467000,
-          "people": 14,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-04-03",
-          "time": "12:14",
-          "role": "행정부시장",
-          "amount": 240000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-03-02",
-          "time": "12:32",
-          "role": "시장",
-          "amount": 315000,
-          "people": 11,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2026-01-20",
-          "time": "12:20",
-          "role": "행정부시장",
-          "amount": 180000,
+          "amount": 190000,
           "people": 7,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         },
         {
-          "date": "2026-01-14",
-          "time": "12:35",
-          "role": "정무부시장",
-          "amount": 230000,
-          "people": 8,
+          "date": "2026-02-09",
+          "time": "20:36",
+          "role": "시장",
+          "amount": 271000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        },
-        {
-          "date": "2026-01-13",
-          "time": "12:19",
-          "role": "행정부시장",
-          "amount": 120000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         },
         {
           "date": "2026-01-09",
-          "time": "12:33",
-          "role": "정무부시장",
-          "amount": 210000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        }
-      ]
-    },
-    {
-      "merchant": "젊은농부해피타운(인천 남동구 소재)",
-      "address": "",
-      "score": 89.1,
-      "visits": 6,
-      "role_count": 3,
-      "roles": [
-        "시장",
-        "정무부시장",
-        "행정부시장"
-      ],
-      "months": 6,
-      "spend": 1535000,
-      "senior_weight": 1.0,
-      "mayor_visits": 3,
-      "vice_mayor_visits": 3,
-      "date_min": "2026-01-23",
-      "date_max": "2026-08-04",
-      "role_stats": [
-        {
+          "time": "12:40",
           "role": "시장",
-          "visits": 3
-        },
-        {
-          "role": "정무부시장",
-          "visits": 2
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-08-04",
-          "time": "12:59",
-          "role": "시장",
-          "amount": 240000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
-        },
-        {
-          "date": "2026-07-27",
-          "time": "12:01",
-          "role": "정무부시장",
-          "amount": 400000,
-          "people": 16,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
-        },
-        {
-          "date": "2026-06-02",
-          "time": "20:41",
-          "role": "행정부시장",
-          "amount": 488000,
-          "people": 17,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2026-03-12",
-          "time": "12:27",
-          "role": "시장",
-          "amount": 99000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2026-02-23",
-          "time": "20:40",
-          "role": "정무부시장",
-          "amount": 286000,
-          "people": 10,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3065802"
-        },
-        {
-          "date": "2026-01-23",
-          "time": "12:08",
-          "role": "시장",
-          "amount": 22000,
-          "people": 2,
+          "amount": 0,
+          "people": 0,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
         }
@@ -476,72 +129,49 @@
     {
       "merchant": "설화생갈비(인천 남동구 소재)",
       "address": "",
-      "score": 85.9,
-      "visits": 6,
-      "role_count": 3,
+      "score": 87.9,
+      "visits": 8,
+      "role_count": 2,
       "roles": [
         "시장",
-        "정무부시장",
-        "행정부시장"
+        "정무부시장"
       ],
-      "months": 5,
-      "spend": 1968000,
+      "months": 6,
+      "spend": 2131000,
       "senior_weight": 1.0,
-      "mayor_visits": 4,
+      "mayor_visits": 6,
       "vice_mayor_visits": 2,
-      "date_min": "2025-01-10",
-      "date_max": "2026-08-12",
+      "date_min": "2025-12-04",
+      "date_max": "2026-09-15",
       "role_stats": [
         {
           "role": "시장",
-          "visits": 4
+          "visits": 6
         },
         {
           "role": "정무부시장",
-          "visits": 1
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
+          "visits": 2
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-08-12",
-          "time": "12:05",
+          "date": "2026-09-15",
+          "time": "11:57",
           "role": "시장",
-          "amount": 468000,
-          "people": 26,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
-        },
-        {
-          "date": "2026-08-05",
-          "time": "13:19",
-          "role": "시장",
-          "amount": 198000,
+          "amount": 204000,
           "people": 11,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2026-07-14",
-          "time": "12:40",
+          "date": "2026-08-20",
+          "time": "12:30",
           "role": "시장",
-          "amount": 90000,
+          "amount": 103000,
           "people": 6,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
-        },
-        {
-          "date": "2026-06-30",
-          "time": "20:22",
-          "role": "행정부시장",
-          "amount": 460000,
-          "people": 20,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
         },
         {
           "date": "2026-05-07",
@@ -553,58 +183,134 @@
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
         },
         {
-          "date": "2025-01-10",
-          "time": "12:00~13:00",
-          "role": "시장",
-          "amount": 300000,
+          "date": "2026-03-03",
+          "time": "13:21/13:56",
+          "role": "정무부시장",
+          "amount": 394000,
           "people": 20,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        },
+        {
+          "date": "2026-01-12",
+          "time": "12:28",
+          "role": "시장",
+          "amount": 68000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+        },
+        {
+          "date": "2026-01-09",
+          "time": "20:20",
+          "role": "시장",
+          "amount": 500000,
+          "people": 23,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+        },
+        {
+          "date": "2025-12-12",
+          "time": "20:32",
+          "role": "시장",
+          "amount": 210000,
+          "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
+        },
+        {
+          "date": "2025-12-04",
+          "time": "11:30",
+          "role": "시장",
+          "amount": 200000,
+          "people": 11,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
         }
       ]
     },
     {
       "merchant": "경복궁구월점(인천 남동구 소재)",
       "address": "",
-      "score": 83.5,
-      "visits": 5,
-      "role_count": 3,
+      "score": 86.2,
+      "visits": 9,
+      "role_count": 2,
       "roles": [
         "시장",
-        "정무부시장",
-        "행정부시장"
+        "정무부시장"
       ],
       "months": 5,
-      "spend": 901000,
+      "spend": 3477000,
       "senior_weight": 1.0,
-      "mayor_visits": 2,
+      "mayor_visits": 6,
       "vice_mayor_visits": 3,
-      "date_min": "2026-01-21",
-      "date_max": "2026-08-24",
+      "date_min": "2026-03-11",
+      "date_max": "2026-07-29",
       "role_stats": [
         {
-          "role": "정무부시장",
-          "visits": 2
-        },
-        {
           "role": "시장",
-          "visits": 2
+          "visits": 6
         },
         {
-          "role": "행정부시장",
-          "visits": 1
+          "role": "정무부시장",
+          "visits": 3
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-08-24",
-          "time": "13:06",
+          "date": "2026-07-29",
+          "time": "13:31",
           "role": "시장",
-          "amount": 245000,
-          "people": 9,
+          "amount": 383000,
+          "people": 15,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+        },
+        {
+          "date": "2026-07-06",
+          "time": "12:28",
+          "role": "시장",
+          "amount": 285000,
+          "people": 11,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+        },
+        {
+          "date": "2026-07-06",
+          "time": "12:28",
+          "role": "정무부시장",
+          "amount": 128000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-06-11",
+          "time": "11:30",
+          "role": "시장",
+          "amount": 1242000,
+          "people": 39,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-06-06",
+          "time": "19:14",
+          "role": "시장",
+          "amount": 420000,
+          "people": 12,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-06-04",
+          "time": "19:48",
+          "role": "시장",
+          "amount": 485000,
+          "people": 13,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
         },
         {
           "date": "2026-05-05",
@@ -616,428 +322,284 @@
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
         },
         {
-          "date": "2026-04-03",
-          "time": "11:11",
+          "date": "2026-04-26",
+          "time": "13:01",
           "role": "시장",
-          "amount": 78000,
+          "amount": 234000,
+          "people": 8,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+        },
+        {
+          "date": "2026-03-11",
+          "time": "19:24",
+          "role": "정무부시장",
+          "amount": 226000,
+          "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        }
+      ]
+    },
+    {
+      "merchant": "형제복집(인천 남동구 소재)",
+      "address": "",
+      "score": 83.0,
+      "visits": 7,
+      "role_count": 2,
+      "roles": [
+        "시장",
+        "정무부시장"
+      ],
+      "months": 5,
+      "spend": 1809000,
+      "senior_weight": 1.0,
+      "mayor_visits": 4,
+      "vice_mayor_visits": 3,
+      "date_min": "2026-02-12",
+      "date_max": "2026-09-10",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 4
+        },
+        {
+          "role": "정무부시장",
+          "visits": 3
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-09-10",
+          "time": "12:55",
+          "role": "시장",
+          "amount": 480000,
+          "people": 16,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
+        },
+        {
+          "date": "2026-07-23",
+          "time": "13:02",
+          "role": "정무부시장",
+          "amount": 207000,
+          "people": 8,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-06-09",
+          "time": "12:20",
+          "role": "시장",
+          "amount": 150000,
+          "people": 5,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+        },
+        {
+          "date": "2026-03-24",
+          "time": "19:44",
+          "role": "정무부시장",
+          "amount": 120000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        },
+        {
+          "date": "2026-03-18",
+          "time": "12:45",
+          "role": "정무부시장",
+          "amount": 256000,
+          "people": 9,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        },
+        {
+          "date": "2026-02-25",
+          "time": "12:29",
+          "role": "시장",
+          "amount": 385000,
+          "people": 10,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        },
+        {
+          "date": "2026-02-12",
+          "time": "12:33",
+          "role": "시장",
+          "amount": 211000,
+          "people": 8,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        }
+      ]
+    },
+    {
+      "merchant": "취홍(인천 남동구 소재)",
+      "address": "",
+      "score": 79.5,
+      "visits": 7,
+      "role_count": 2,
+      "roles": [
+        "시장",
+        "정무부시장"
+      ],
+      "months": 4,
+      "spend": 1422000,
+      "senior_weight": 1.0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 4,
+      "date_min": "2026-03-16",
+      "date_max": "2026-07-18",
+      "role_stats": [
+        {
+          "role": "정무부시장",
+          "visits": 4
+        },
+        {
+          "role": "시장",
+          "visits": 3
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-07-18",
+          "time": "13:42",
+          "role": "시장",
+          "amount": 270000,
+          "people": 10,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+        },
+        {
+          "date": "2026-07-16",
+          "time": "13:07",
+          "role": "시장",
+          "amount": 162000,
+          "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+        },
+        {
+          "date": "2026-05-04",
+          "time": "20:35",
+          "role": "정무부시장",
+          "amount": 404000,
+          "people": 15,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
+        },
+        {
+          "date": "2026-04-09",
+          "time": "12:25",
+          "role": "시장",
+          "amount": 69000,
           "people": 2,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
         },
         {
-          "date": "2026-02-03",
-          "time": "20:24",
+          "date": "2026-03-31",
+          "time": "12:32",
           "role": "정무부시장",
-          "amount": 214000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3065802"
-        },
-        {
-          "date": "2026-01-21",
-          "time": "12:14",
-          "role": "행정부시장",
-          "amount": 290000,
-          "people": 10,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "옛정(인천 남동구 소재)",
-      "address": "",
-      "score": 79.2,
-      "visits": 6,
-      "role_count": 3,
-      "roles": [
-        "시장",
-        "정무부시장",
-        "행정부시장"
-      ],
-      "months": 3,
-      "spend": 1860000,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 5,
-      "date_min": "2025-07-02",
-      "date_max": "2026-04-07",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 4
-        },
-        {
-          "role": "시장",
-          "visits": 1
-        },
-        {
-          "role": "정무부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-07",
-          "time": "12:27",
-          "role": "행정부시장",
-          "amount": 240000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-01-22",
-          "time": "12:07",
-          "role": "행정부시장",
-          "amount": 330000,
-          "people": 11,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2026-01-12",
-          "time": "12:21",
-          "role": "정무부시장",
-          "amount": 141000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
-        },
-        {
-          "date": "2026-01-07",
-          "time": "12:11",
-          "role": "행정부시장",
-          "amount": 234000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2025-07-04",
-          "time": "19:55",
-          "role": "시장",
-          "amount": 425000,
-          "people": 15,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        },
-        {
-          "date": "2025-07-02",
-          "time": "19:54",
-          "role": "행정부시장",
-          "amount": 490000,
-          "people": 17,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        }
-      ]
-    },
-    {
-      "merchant": "전복촌(인천 남동구 소재)",
-      "address": "",
-      "score": 76.9,
-      "visits": 5,
-      "role_count": 3,
-      "roles": [
-        "시장",
-        "정무부시장",
-        "행정부시장"
-      ],
-      "months": 3,
-      "spend": 1062300,
-      "senior_weight": 1.0,
-      "mayor_visits": 3,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-21",
-      "date_max": "2026-08-13",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 3
-        },
-        {
-          "role": "정무부시장",
-          "visits": 1
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-08-13",
-          "time": "19:43",
-          "role": "시장",
-          "amount": 492600,
-          "people": 17,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
-        },
-        {
-          "date": "2026-04-09",
-          "time": "19:58",
-          "role": "시장",
-          "amount": 79800,
+          "amount": 85000,
           "people": 4,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
         },
         {
-          "date": "2026-04-09",
-          "time": "12:06",
-          "role": "행정부시장",
-          "amount": 283100,
-          "people": 20,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-07",
-          "time": "12:32",
-          "role": "시장",
-          "amount": 60000,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-01-21",
-          "time": "12:34",
+          "date": "2026-03-20",
+          "time": "13:12",
           "role": "정무부시장",
-          "amount": 146800,
+          "amount": 116000,
           "people": 5,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        },
+        {
+          "date": "2026-03-16",
+          "time": "19:43",
+          "role": "정무부시장",
+          "amount": 316000,
+          "people": 10,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
         }
       ]
     },
     {
-      "merchant": "황제삼계탕(인천 남동구 소재)",
+      "merchant": "젊은농부해피타운(인천 남동구 소재)",
       "address": "",
-      "score": 73.3,
+      "score": 72.5,
       "visits": 4,
       "role_count": 2,
       "roles": [
         "시장",
-        "행정부시장"
+        "정무부시장"
       ],
       "months": 4,
-      "spend": 784000,
+      "spend": 235000,
       "senior_weight": 1.0,
-      "mayor_visits": 3,
-      "vice_mayor_visits": 1,
-      "date_min": "2025-01-02",
-      "date_max": "2026-08-20",
+      "mayor_visits": 2,
+      "vice_mayor_visits": 2,
+      "date_min": "2025-12-10",
+      "date_max": "2026-07-24",
       "role_stats": [
         {
           "role": "시장",
-          "visits": 3
+          "visits": 2
         },
         {
-          "role": "행정부시장",
-          "visits": 1
+          "role": "정무부시장",
+          "visits": 2
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-08-20",
-          "time": "13:13",
-          "role": "시장",
-          "amount": 144000,
-          "people": 9,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
-        },
-        {
-          "date": "2026-01-02",
-          "time": "18:13",
-          "role": "행정부시장",
-          "amount": 490000,
-          "people": 18,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2025-07-21",
-          "time": "12:43",
-          "role": "시장",
-          "amount": 90000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        },
-        {
-          "date": "2025-01-02",
-          "time": "12:19",
-          "role": "시장",
-          "amount": 60000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
-        }
-      ]
-    },
-    {
-      "merchant": "이도참치(인천 남동구 소재)",
-      "address": "",
-      "score": 72.3,
-      "visits": 5,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "행정부시장"
-      ],
-      "months": 3,
-      "spend": 852000,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 4,
-      "date_min": "2025-07-04",
-      "date_max": "2026-04-22",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 4
-        },
-        {
-          "role": "시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-22",
-          "time": "12:20",
-          "role": "행정부시장",
-          "amount": 216000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-08",
-          "time": "12:21",
-          "role": "시장",
-          "amount": 60000,
+          "date": "2026-07-24",
+          "time": "12:12",
+          "role": "정무부시장",
+          "amount": 85000,
           "people": 5,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         },
         {
-          "date": "2026-01-14",
-          "time": "12:37",
-          "role": "행정부시장",
-          "amount": 216000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2025-07-23",
-          "time": "12:25",
-          "role": "행정부시장",
-          "amount": 168000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        },
-        {
-          "date": "2025-07-04",
-          "time": "12:26",
-          "role": "행정부시장",
-          "amount": 192000,
-          "people": 8,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        }
-      ]
-    },
-    {
-      "merchant": "용인정(인천 미추홀구 소재)",
-      "address": "",
-      "score": 71.9,
-      "visits": 5,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "행정부시장"
-      ],
-      "months": 3,
-      "spend": 501000,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 4,
-      "date_min": "2026-01-08",
-      "date_max": "2026-04-21",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 4
-        },
-        {
-          "role": "시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-21",
-          "time": "12:24",
-          "role": "행정부시장",
-          "amount": 62000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-08",
-          "time": "12:20",
-          "role": "행정부시장",
-          "amount": 62000,
+          "date": "2026-03-04",
+          "time": "12:42",
+          "role": "정무부시장",
+          "amount": 61000,
           "people": 3,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
         },
         {
-          "date": "2026-03-28",
-          "time": "13:43",
+          "date": "2026-02-05",
+          "time": "12:12",
           "role": "시장",
-          "amount": 250000,
-          "people": 7,
+          "amount": 33000,
+          "people": 3,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         },
         {
-          "date": "2026-01-16",
-          "time": "12:19",
-          "role": "행정부시장",
-          "amount": 62000,
+          "date": "2025-12-10",
+          "time": "12:32",
+          "role": "시장",
+          "amount": 56000,
           "people": 4,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2026-01-08",
-          "time": "12:20",
-          "role": "행정부시장",
-          "amount": 65000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
         }
       ]
     },
     {
-      "merchant": "랑꽁팩토리(인천 남동구 소재)",
+      "merchant": "시옌(인천 남동구 소재)",
       "address": "",
-      "score": 71.1,
+      "score": 71.9,
       "visits": 3,
       "role_count": 3,
       "roles": [
@@ -1046,15 +608,15 @@
         "행정부시장"
       ],
       "months": 3,
-      "spend": 360200,
+      "spend": 1135000,
       "senior_weight": 1.0,
       "mayor_visits": 1,
       "vice_mayor_visits": 2,
-      "date_min": "2026-05-07",
-      "date_max": "2026-07-22",
+      "date_min": "2026-01-21",
+      "date_max": "2026-07-10",
       "role_stats": [
         {
-          "role": "정무부시장",
+          "role": "시장",
           "visits": 1
         },
         {
@@ -1062,78 +624,82 @@
           "visits": 1
         },
         {
-          "role": "시장",
+          "role": "정무부시장",
           "visits": 1
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-07-22",
-          "time": "12:19",
-          "role": "시장",
-          "amount": 50500,
-          "people": 10,
+          "date": "2026-07-10",
+          "time": "18:28",
+          "role": "정무부시장",
+          "amount": 354000,
+          "people": 12,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         },
         {
-          "date": "2026-06-26",
-          "time": "12:51",
+          "date": "2026-06-15",
+          "time": "12:47",
           "role": "행정부시장",
-          "amount": 201900,
-          "people": 9,
+          "amount": 375000,
+          "people": 10,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
         },
         {
-          "date": "2026-05-07",
-          "time": "18:59",
-          "role": "정무부시장",
-          "amount": 107800,
-          "people": 5,
+          "date": "2026-01-21",
+          "time": "12:41",
+          "role": "시장",
+          "amount": 406000,
+          "people": 14,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
         }
       ]
     },
     {
       "merchant": "소래포구해남수산(인천 남동구 소재)",
       "address": "",
-      "score": 70.5,
-      "visits": 4,
-      "role_count": 2,
+      "score": 71.4,
+      "visits": 6,
+      "role_count": 1,
       "roles": [
-        "시장",
         "정무부시장"
       ],
-      "months": 3,
-      "spend": 1848000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-21",
-      "date_max": "2026-07-02",
+      "months": 4,
+      "spend": 2028000,
+      "senior_weight": 0.9,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 6,
+      "date_min": "2026-03-18",
+      "date_max": "2026-07-23",
       "role_stats": [
         {
-          "role": "시장",
-          "visits": 2
-        },
-        {
           "role": "정무부시장",
-          "visits": 2
+          "visits": 6
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-07-02",
-          "time": "19:00",
-          "role": "시장",
-          "amount": 324000,
-          "people": 12,
+          "date": "2026-07-23",
+          "time": "20:24",
+          "role": "정무부시장",
+          "amount": 259000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-07-14",
+          "time": "20:26",
+          "role": "정무부시장",
+          "amount": 257000,
+          "people": 9,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         },
         {
           "date": "2026-05-04",
@@ -1145,109 +711,51 @@
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
         },
         {
-          "date": "2026-01-27",
-          "time": "12:36",
+          "date": "2026-04-02",
+          "time": "20:49",
           "role": "정무부시장",
-          "amount": 428000,
-          "people": 19,
+          "amount": 489000,
+          "people": 13,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3071500"
         },
         {
-          "date": "2026-01-21",
-          "time": "12:52",
-          "role": "시장",
-          "amount": 880000,
-          "people": 40,
+          "date": "2026-03-23",
+          "time": "12:41",
+          "role": "정무부시장",
+          "amount": 416000,
+          "people": 21,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
+        },
+        {
+          "date": "2026-03-18",
+          "time": "20:52",
+          "role": "정무부시장",
+          "amount": 391000,
+          "people": 13,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3068581"
         }
       ]
     },
     {
-      "merchant": "경복궁삼계탕(인천 남동구 소재)",
+      "merchant": "전복촌(인천 남동구 소재)",
       "address": "",
-      "score": 70.0,
-      "visits": 4,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "행정부시장"
-      ],
-      "months": 3,
-      "spend": 890000,
-      "senior_weight": 1.0,
-      "mayor_visits": 3,
-      "vice_mayor_visits": 1,
-      "date_min": "2025-07-03",
-      "date_max": "2026-07-14",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 3
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-14",
-          "time": "12:05",
-          "role": "시장",
-          "amount": 260000,
-          "people": 14,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
-        },
-        {
-          "date": "2026-01-21",
-          "time": "12:43",
-          "role": "시장",
-          "amount": 342000,
-          "people": 19,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
-        },
-        {
-          "date": "2026-01-15",
-          "time": "12:24",
-          "role": "행정부시장",
-          "amount": 198000,
-          "people": 7,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        },
-        {
-          "date": "2025-07-03",
-          "time": "12:18",
-          "role": "시장",
-          "amount": 90000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        }
-      ]
-    },
-    {
-      "merchant": "채원정(인천 남동구 소재)",
-      "address": "",
-      "score": 66.4,
+      "score": 63.8,
       "visits": 3,
       "role_count": 2,
       "roles": [
         "시장",
         "정무부시장"
       ],
-      "months": 3,
-      "spend": 266000,
+      "months": 2,
+      "spend": 777600,
       "senior_weight": 1.0,
       "mayor_visits": 2,
       "vice_mayor_visits": 1,
-      "date_min": "2025-07-02",
-      "date_max": "2026-04-06",
+      "date_min": "2026-01-28",
+      "date_max": "2026-07-30",
       "role_stats": [
         {
           "role": "시장",
@@ -1261,50 +769,50 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-06",
-          "time": "20:01",
+          "date": "2026-07-30",
+          "time": "12:46",
           "role": "시장",
-          "amount": 181000,
-          "people": 8,
+          "amount": 159600,
+          "people": 6,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
         },
         {
-          "date": "2026-01-21",
-          "time": "21:11",
+          "date": "2026-07-07",
+          "time": "19:30",
           "role": "정무부시장",
-          "amount": 0,
-          "people": 20,
+          "amount": 318000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064273"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         },
         {
-          "date": "2025-07-02",
-          "time": "12:39",
+          "date": "2026-01-28",
+          "time": "12:47",
           "role": "시장",
-          "amount": 85000,
-          "people": 8,
+          "amount": 300000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
         }
       ]
     },
     {
-      "merchant": "한우정(인천 남동구 소재)",
+      "merchant": "경복궁삼계탕(인천 남동구 소재)",
       "address": "",
-      "score": 62.8,
+      "score": 62.2,
       "visits": 3,
       "role_count": 1,
       "roles": [
         "시장"
       ],
       "months": 3,
-      "spend": 1026000,
+      "spend": 388000,
       "senior_weight": 1.0,
       "mayor_visits": 3,
       "vice_mayor_visits": 0,
-      "date_min": "2025-07-17",
-      "date_max": "2026-06-11",
+      "date_min": "2025-12-04",
+      "date_max": "2026-04-09",
       "role_stats": [
         {
           "role": "시장",
@@ -1314,36 +822,36 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-06-11",
-          "time": "19:31",
+          "date": "2026-04-09",
+          "time": "12:19",
           "role": "시장",
-          "amount": 361000,
-          "people": 10,
+          "amount": 100000,
+          "people": 5,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
         },
         {
-          "date": "2026-03-29",
-          "time": "20:06",
+          "date": "2026-01-12",
+          "time": "12:31",
           "role": "시장",
-          "amount": 326000,
-          "people": 9,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2025-07-17",
-          "time": "20:04",
-          "role": "시장",
-          "amount": 339000,
+          "amount": 216000,
           "people": 12,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+        },
+        {
+          "date": "2025-12-04",
+          "time": "12:11",
+          "role": "시장",
+          "amount": 72000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
         }
       ]
     },
     {
-      "merchant": "해장국,설렁탕(인천 남동구 소재)",
+      "merchant": "유키돈까스(인천 남동구 소재)",
       "address": "",
       "score": 61.6,
       "visits": 3,
@@ -1352,12 +860,12 @@
         "시장"
       ],
       "months": 3,
-      "spend": 152000,
+      "spend": 169000,
       "senior_weight": 1.0,
       "mayor_visits": 3,
       "vice_mayor_visits": 0,
-      "date_min": "2025-07-04",
-      "date_max": "2026-07-07",
+      "date_min": "2026-04-22",
+      "date_max": "2026-08-19",
       "role_stats": [
         {
           "role": "시장",
@@ -1367,31 +875,31 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-07-07",
-          "time": "12:59",
+          "date": "2026-08-19",
+          "time": "12:21",
           "role": "시장",
-          "amount": 60000,
+          "amount": 87000,
           "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+        },
+        {
+          "date": "2026-07-05",
+          "time": "13:47",
+          "role": "시장",
+          "amount": 44000,
+          "people": 4,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
         },
         {
-          "date": "2026-01-06",
-          "time": "11:57",
+          "date": "2026-04-22",
+          "time": "11:50",
           "role": "시장",
-          "amount": 26000,
-          "people": 2,
+          "amount": 38000,
+          "people": 3,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
-        },
-        {
-          "date": "2025-07-04",
-          "time": "12:11",
-          "role": "시장",
-          "amount": 66000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
         }
       ]
     },
@@ -1406,33 +914,24 @@
         "정무부시장"
       ],
       "months": 2,
-      "spend": 9632030,
+      "spend": 15032950,
       "senior_weight": 1.0,
       "mayor_visits": 1,
       "vice_mayor_visits": 1,
-      "date_min": "2026-05-06",
-      "date_max": "2026-07-04",
+      "date_min": "2026-02-05",
+      "date_max": "2026-05-06",
       "role_stats": [
         {
-          "role": "정무부시장",
+          "role": "시장",
           "visits": 1
         },
         {
-          "role": "시장",
+          "role": "정무부시장",
           "visits": 1
         }
       ],
       "purpose_stats": [],
       "recent": [
-        {
-          "date": "2026-07-04",
-          "time": "-",
-          "role": "시장",
-          "amount": 4529790,
-          "people": 182,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
-        },
         {
           "date": "2026-05-06",
           "time": "-",
@@ -1441,13 +940,22 @@
           "people": 205,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "-",
+          "role": "시장",
+          "amount": 9930710,
+          "people": 349,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         }
       ]
     },
     {
-      "merchant": "곰설채(인천 남동구 소재)",
+      "merchant": "황제삼계탕(인천 남동구 소재)",
       "address": "",
-      "score": 61.0,
+      "score": 59.7,
       "visits": 2,
       "role_count": 2,
       "roles": [
@@ -1455,211 +963,113 @@
         "정무부시장"
       ],
       "months": 2,
-      "spend": 2612000,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 1,
-      "date_min": "2025-07-07",
-      "date_max": "2026-07-07",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 1
-        },
-        {
-          "role": "정무부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-07",
-          "time": "12;13",
-          "role": "정무부시장",
-          "amount": 735000,
-          "people": 50,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
-        },
-        {
-          "date": "2025-07-07",
-          "time": "20:16",
-          "role": "시장",
-          "amount": 1877000,
-          "people": 111,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        }
-      ]
-    },
-    {
-      "merchant": "식물나라(인천 남동구 소재)",
-      "address": "",
-      "score": 60.7,
-      "visits": 2,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 1630000,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 1,
-      "date_min": "2025-01-20",
-      "date_max": "2026-06-03",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 1
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-03",
-          "time": "17:36",
-          "role": "행정부시장",
-          "amount": 1430000,
-          "people": 11,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2025-01-20",
-          "time": "11:04",
-          "role": "시장",
-          "amount": 200000,
-          "people": 2,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
-        }
-      ]
-    },
-    {
-      "merchant": "사도시(인천 남동구 소재)",
-      "address": "",
-      "score": 59.9,
-      "visits": 2,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "정무부시장"
-      ],
-      "months": 2,
-      "spend": 456000,
+      "spend": 380000,
       "senior_weight": 1.0,
       "mayor_visits": 1,
       "vice_mayor_visits": 1,
       "date_min": "2026-02-11",
-      "date_max": "2026-04-14",
+      "date_max": "2026-07-21",
       "role_stats": [
         {
-          "role": "정무부시장",
+          "role": "시장",
           "visits": 1
         },
         {
-          "role": "시장",
+          "role": "정무부시장",
           "visits": 1
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-14",
-          "time": "11:25",
-          "role": "시장",
-          "amount": 130000,
+          "date": "2026-07-21",
+          "time": "13:13",
+          "role": "정무부시장",
+          "amount": 80000,
           "people": 5,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         },
         {
           "date": "2026-02-11",
-          "time": "19:38",
-          "role": "정무부시장",
-          "amount": 326000,
-          "people": 17,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3065802"
-        }
-      ]
-    },
-    {
-      "merchant": "스시초이(인천 남동구 소재)",
-      "address": "",
-      "score": 59.4,
-      "visits": 2,
-      "role_count": 2,
-      "roles": [
-        "시장",
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 215100,
-      "senior_weight": 1.0,
-      "mayor_visits": 1,
-      "vice_mayor_visits": 1,
-      "date_min": "2025-01-03",
-      "date_max": "2026-06-04",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 1
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-04",
-          "time": "12:32",
-          "role": "행정부시장",
-          "amount": 115600,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2025-01-03",
           "time": "12:20",
           "role": "시장",
-          "amount": 99500,
-          "people": 5,
+          "amount": 300000,
+          "people": 20,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         }
       ]
     },
     {
-      "merchant": "청해김밥(인천 미추홀구 소재)",
+      "merchant": "솔잎사골순대아구찜탕(인천 남동구 소재)",
       "address": "",
-      "score": 59.3,
+      "score": 59.6,
       "visits": 2,
       "role_count": 2,
       "roles": [
         "시장",
-        "행정부시장"
+        "정무부시장"
       ],
       "months": 2,
-      "spend": 205000,
+      "spend": 315000,
       "senior_weight": 1.0,
       "mayor_visits": 1,
       "vice_mayor_visits": 1,
-      "date_min": "2026-01-06",
-      "date_max": "2026-04-03",
+      "date_min": "2025-12-24",
+      "date_max": "2026-04-19",
       "role_stats": [
         {
-          "role": "행정부시장",
+          "role": "시장",
+          "visits": 1
+        },
+        {
+          "role": "정무부시장",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-04-19",
+          "time": "20:28",
+          "role": "정무부시장",
+          "amount": 168000,
+          "people": 8,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3071500"
+        },
+        {
+          "date": "2025-12-24",
+          "time": "12:18",
+          "role": "시장",
+          "amount": 147000,
+          "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
+        }
+      ]
+    },
+    {
+      "merchant": "상무초밥(인천 남동구 소재)",
+      "address": "",
+      "score": 59.5,
+      "visits": 2,
+      "role_count": 2,
+      "roles": [
+        "시장",
+        "정무부시장"
+      ],
+      "months": 2,
+      "spend": 259990,
+      "senior_weight": 1.0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 1,
+      "date_min": "2026-07-04",
+      "date_max": "2026-09-02",
+      "role_stats": [
+        {
+          "role": "정무부시장",
           "visits": 1
         },
         {
@@ -1670,82 +1080,233 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-03",
-          "time": "18:37",
+          "date": "2026-09-02",
+          "time": "19:18",
           "role": "시장",
-          "amount": 176000,
-          "people": 12,
+          "amount": 185490,
+          "people": 9,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2026-01-06",
-          "time": "18:39",
-          "role": "행정부시장",
-          "amount": 29000,
-          "people": 3,
+          "date": "2026-07-04",
+          "time": "14:03",
+          "role": "정무부시장",
+          "amount": 74500,
+          "people": 5,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
         }
       ]
     },
     {
-      "merchant": "청실홍실(인천 미추홀구 소재)",
+      "merchant": "옛정(인천 남동구 소재)",
       "address": "",
-      "score": 59.2,
+      "score": 59.1,
       "visits": 3,
       "role_count": 1,
       "roles": [
-        "행정부시장"
+        "시장"
       ],
-      "months": 3,
-      "spend": 108000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 3,
-      "date_min": "2025-07-11",
-      "date_max": "2026-04-18",
+      "months": 2,
+      "spend": 544000,
+      "senior_weight": 1.0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-08-06",
+      "date_max": "2026-09-09",
       "role_stats": [
         {
-          "role": "행정부시장",
+          "role": "시장",
           "visits": 3
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-18",
-          "time": "12\"29",
-          "role": "행정부시장",
-          "amount": 35000,
-          "people": 4,
+          "date": "2026-09-09",
+          "time": "13:13",
+          "role": "시장",
+          "amount": 212000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2026-01-09",
-          "time": "18:43",
-          "role": "행정부시장",
-          "amount": 35500,
-          "people": 3,
+          "date": "2026-09-08",
+          "time": "12:22",
+          "role": "시장",
+          "amount": 132000,
+          "people": 11,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2025-07-11",
-          "time": "18:39",
-          "role": "행정부시장",
-          "amount": 37500,
-          "people": 4,
+          "date": "2026-08-06",
+          "time": "12:53",
+          "role": "시장",
+          "amount": 200000,
+          "people": 10,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
         }
       ]
     },
     {
-      "merchant": "들밥차반 만수점(인천 남동구 소재)",
+      "merchant": "구월애막국수(인천 남동구 소재)",
       "address": "",
-      "score": 57.8,
+      "score": 59.1,
+      "visits": 2,
+      "role_count": 2,
+      "roles": [
+        "시장",
+        "정무부시장"
+      ],
+      "months": 2,
+      "spend": 142000,
+      "senior_weight": 1.0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 1,
+      "date_min": "2025-12-17",
+      "date_max": "2026-07-27",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 1
+        },
+        {
+          "role": "정무부시장",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-07-27",
+          "time": "12:25",
+          "role": "정무부시장",
+          "amount": 70000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2025-12-17",
+          "time": "12:18",
+          "role": "시장",
+          "amount": 72000,
+          "people": 6,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3061973"
+        }
+      ]
+    },
+    {
+      "merchant": "아이갓에브리띵(인천 남동구 소재)",
+      "address": "",
+      "score": 58.8,
+      "visits": 2,
+      "role_count": 2,
+      "roles": [
+        "시장",
+        "정무부시장"
+      ],
+      "months": 2,
+      "spend": 85000,
+      "senior_weight": 1.0,
+      "mayor_visits": 1,
+      "vice_mayor_visits": 1,
+      "date_min": "2026-01-22",
+      "date_max": "2026-07-13",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 1
+        },
+        {
+          "role": "정무부시장",
+          "visits": 1
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-07-13",
+          "time": "16:02",
+          "role": "정무부시장",
+          "amount": 75000,
+          "people": 15,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-01-22",
+          "time": "9:15",
+          "role": "시장",
+          "amount": 10000,
+          "people": 0,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+        }
+      ]
+    },
+    {
+      "merchant": "삿뽀로구월점(인천 남동구 소재)",
+      "address": "",
+      "score": 58.2,
+      "visits": 3,
+      "role_count": 1,
+      "roles": [
+        "시장"
+      ],
+      "months": 2,
+      "spend": 134000,
+      "senior_weight": 1.0,
+      "mayor_visits": 3,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-01-28",
+      "date_max": "2026-02-11",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 3
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-02-11",
+          "time": "12:50",
+          "role": "시장",
+          "amount": 56000,
+          "people": 2,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        },
+        {
+          "date": "2026-02-09",
+          "time": "11:36",
+          "role": "시장",
+          "amount": 0,
+          "people": 0,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        },
+        {
+          "date": "2026-01-28",
+          "time": "10:51",
+          "role": "시장",
+          "amount": 78000,
+          "people": 2,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
+        }
+      ]
+    },
+    {
+      "merchant": "송도갈매기(인천 남동구 소재)",
+      "address": "",
+      "score": 57.7,
       "visits": 2,
       "role_count": 2,
       "roles": [
@@ -1753,522 +1314,20 @@
         "행정부시장"
       ],
       "months": 2,
-      "spend": 537500,
+      "spend": 513500,
       "senior_weight": 0.9,
       "mayor_visits": 0,
       "vice_mayor_visits": 2,
-      "date_min": "2026-02-20",
-      "date_max": "2026-06-02",
-      "role_stats": [
-        {
-          "role": "정무부시장",
-          "visits": 1
-        },
-        {
-          "role": "행정부시장",
-          "visits": 1
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-02",
-          "time": "12:26",
-          "role": "행정부시장",
-          "amount": 99500,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2026-02-20",
-          "time": "12:23",
-          "role": "정무부시장",
-          "amount": 438000,
-          "people": 13,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3065802"
-        }
-      ]
-    },
-    {
-      "merchant": "연미농업회사법인주식회사(인천 강화군 소재)",
-      "address": "",
-      "score": 56.4,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 2395200,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2025-01-10",
-      "date_max": "2026-07-08",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-08",
-          "time": "9:32",
-          "role": "시장",
-          "amount": 1197600,
-          "people": 24,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
-        },
-        {
-          "date": "2025-01-10",
-          "time": "16:20",
-          "role": "시장",
-          "amount": 1197600,
-          "people": 24,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
-        }
-      ]
-    },
-    {
-      "merchant": "서동가청국장(인천 남동구 소재)",
-      "address": "",
-      "score": 56.0,
-      "visits": 3,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 136000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 3,
-      "date_min": "2025-07-16",
-      "date_max": "2026-04-16",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 3
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-16",
-          "time": "18:46",
-          "role": "행정부시장",
-          "amount": 48000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-04-09",
-          "time": "18:42",
-          "role": "행정부시장",
-          "amount": 48000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2025-07-16",
-          "time": "18:45",
-          "role": "행정부시장",
-          "amount": 40000,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        }
-      ]
-    },
-    {
-      "merchant": "우프스낵바(인천 남동구 소재)",
-      "address": "",
-      "score": 55.9,
-      "visits": 3,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 116100,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 3,
-      "date_min": "2025-07-10",
-      "date_max": "2026-04-03",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 3
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-03",
-          "time": "18:00",
-          "role": "행정부시장",
-          "amount": 36200,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2025-07-25",
-          "time": "18:01",
-          "role": "행정부시장",
-          "amount": 34700,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        },
-        {
-          "date": "2025-07-10",
-          "time": "17:48",
-          "role": "행정부시장",
-          "amount": 45200,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        }
-      ]
-    },
-    {
-      "merchant": "대우송도호텔(인천 연수구 소재)",
-      "address": "",
-      "score": 55.8,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 960800,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2026-03-15",
-      "date_max": "2026-06-18",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-18",
-          "time": "19:35",
-          "role": "시장",
-          "amount": 485000,
-          "people": 16,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3081521"
-        },
-        {
-          "date": "2026-03-15",
-          "time": "18:56",
-          "role": "시장",
-          "amount": 475800,
-          "people": 12,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        }
-      ]
-    },
-    {
-      "merchant": "십삼대(인천 남동구 소재)",
-      "address": "",
-      "score": 55.0,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 275000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2025-07-02",
-      "date_max": "2026-01-21",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-01-21",
-          "time": "20:49",
-          "role": "시장",
-          "amount": 230000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
-        },
-        {
-          "date": "2025-07-02",
-          "time": "12:16",
-          "role": "시장",
-          "amount": 45000,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        }
-      ]
-    },
-    {
-      "merchant": "양산도(인천 연수구 소재)",
-      "address": "",
-      "score": 54.7,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 175000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2025-07-23",
-      "date_max": "2026-04-14",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-14",
-          "time": "15:50",
-          "role": "시장",
-          "amount": 75000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2025-07-23",
-          "time": "11:47",
-          "role": "시장",
-          "amount": 100000,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        }
-      ]
-    },
-    {
-      "merchant": "명문가(인천 남동구 소재)",
-      "address": "",
-      "score": 54.7,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 170000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2026-04-08",
-      "date_max": "2026-07-09",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-09",
-          "time": "12:26",
-          "role": "시장",
-          "amount": 68000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
-        },
-        {
-          "date": "2026-04-08",
-          "time": "12:09",
-          "role": "시장",
-          "amount": 102000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        }
-      ]
-    },
-    {
-      "merchant": "제주은희네해장국(인천 남동구 소재)",
-      "address": "",
-      "score": 54.7,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 2,
-      "spend": 153000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2026-01-23",
-      "date_max": "2026-04-15",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-15",
-          "time": "11:46",
-          "role": "시장",
-          "amount": 78000,
-          "people": 6,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
-        },
-        {
-          "date": "2026-01-23",
-          "time": "11:27",
-          "role": "시장",
-          "amount": 75000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
-        }
-      ]
-    },
-    {
-      "merchant": "폴바셋(인천 남동구 소재)",
-      "address": "",
-      "score": 53.6,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 922420,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-21",
-      "date_max": "2026-04-21",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-21",
-          "time": "9:31",
-          "role": "행정부시장",
-          "amount": 800000,
-          "people": 80,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-01-21",
-          "time": "12:45",
-          "role": "행정부시장",
-          "amount": 122420,
-          "people": 13,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "초원에서(인천 남동구 소재)",
-      "address": "",
-      "score": 53.5,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "정무부시장"
-      ],
-      "months": 2,
-      "spend": 770000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-05-03",
-      "date_max": "2026-07-04",
-      "role_stats": [
-        {
-          "role": "정무부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-07-04",
-          "time": "11:30",
-          "role": "정무부시장",
-          "amount": 480000,
-          "people": 16,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
-        },
-        {
-          "date": "2026-05-03",
-          "time": "19:56",
-          "role": "정무부시장",
-          "amount": 290000,
-          "people": 10,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
-        }
-      ]
-    },
-    {
-      "merchant": "송도갈매기(인천 남동구 소재)",
-      "address": "",
-      "score": 53.5,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "정무부시장"
-      ],
-      "months": 2,
-      "spend": 733500,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-02-26",
+      "date_min": "2026-02-05",
       "date_max": "2026-05-01",
       "role_stats": [
         {
+          "role": "행정부시장",
+          "visits": 1
+        },
+        {
           "role": "정무부시장",
-          "visits": 2
+          "visits": 1
         }
       ],
       "purpose_stats": [],
@@ -2283,32 +1342,32 @@
           "source": "https://www.incheon.go.kr/open/OPEN010303/3076690"
         },
         {
-          "date": "2026-02-26",
-          "time": "19:56",
-          "role": "정무부시장",
-          "amount": 369000,
-          "people": 12,
+          "date": "2026-02-05",
+          "time": "20:35",
+          "role": "행정부시장",
+          "amount": 149000,
+          "people": 6,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3065802"
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3065801"
         }
       ]
     },
     {
-      "merchant": "베네치아 송도점(인천 연수구 소재)",
+      "merchant": "샤팰드미앙(인천 남동구 소재)",
       "address": "",
-      "score": 53.3,
+      "score": 56.9,
       "visits": 2,
       "role_count": 1,
       "roles": [
         "시장"
       ],
       "months": 2,
-      "spend": 19500,
+      "spend": 4710000,
       "senior_weight": 1.0,
       "mayor_visits": 2,
       "vice_mayor_visits": 0,
-      "date_min": "2025-07-20",
-      "date_max": "2026-04-08",
+      "date_min": "2026-01-14",
+      "date_max": "2026-04-02",
       "role_stats": [
         {
           "role": "시장",
@@ -2318,217 +1377,41 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-08",
-          "time": "17:59",
+          "date": "2026-04-02",
+          "time": "12:00",
           "role": "시장",
-          "amount": 9000,
-          "people": 2,
+          "amount": 2400000,
+          "people": 80,
           "purpose": "",
           "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
         },
         {
-          "date": "2025-07-20",
-          "time": "13:45",
+          "date": "2026-01-14",
+          "time": "19:14",
           "role": "시장",
-          "amount": 10500,
-          "people": 2,
+          "amount": 2310000,
+          "people": 66,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3064270"
         }
       ]
     },
     {
-      "merchant": "SSG.COM(인터넷 구매)",
+      "merchant": "써브웨이(인천 남동구 소재)",
       "address": "",
-      "score": 53.1,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 449430,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-27",
-      "date_max": "2026-06-04",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-06-04",
-          "time": "14:53",
-          "role": "행정부시장",
-          "amount": 129730,
-          "people": 0,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3081522"
-        },
-        {
-          "date": "2026-01-27",
-          "time": "13:37",
-          "role": "행정부시장",
-          "amount": 319700,
-          "people": 0,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "부암갈비(인천 남동구 소재)",
-      "address": "",
-      "score": 52.8,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 259000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2025-07-30",
-      "date_max": "2026-04-01",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-01",
-          "time": "19:19",
-          "role": "행정부시장",
-          "amount": 131000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2025-07-30",
-          "time": "18:49",
-          "role": "행정부시장",
-          "amount": 128000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3029597"
-        }
-      ]
-    },
-    {
-      "merchant": "마포주먹고기(인천 미추홀구 소재)",
-      "address": "",
-      "score": 52.6,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 200000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-15",
-      "date_max": "2026-04-20",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-20",
-          "time": "20:09",
-          "role": "행정부시장",
-          "amount": 102000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-01-15",
-          "time": "20:45",
-          "role": "행정부시장",
-          "amount": 98000,
-          "people": 5,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "시골두루치기(인천 부평구 소재)",
-      "address": "",
-      "score": 52.1,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "행정부시장"
-      ],
-      "months": 2,
-      "spend": 91000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-01-26",
-      "date_max": "2026-04-09",
-      "role_stats": [
-        {
-          "role": "행정부시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-04-09",
-          "time": "12:05",
-          "role": "행정부시장",
-          "amount": 52000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
-        },
-        {
-          "date": "2026-01-26",
-          "time": "12:00",
-          "role": "행정부시장",
-          "amount": 39000,
-          "people": 3,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3064272"
-        }
-      ]
-    },
-    {
-      "merchant": "애플크로스(인천 남동구 소재)",
-      "address": "",
-      "score": 52.0,
+      "score": 56.1,
       "visits": 2,
       "role_count": 1,
       "roles": [
         "시장"
       ],
-      "months": 1,
-      "spend": 454200,
+      "months": 2,
+      "spend": 1524300,
       "senior_weight": 1.0,
       "mayor_visits": 2,
       "vice_mayor_visits": 0,
-      "date_min": "2025-07-10",
-      "date_max": "2025-07-25",
+      "date_min": "2026-08-18",
+      "date_max": "2026-09-03",
       "role_stats": [
         {
           "role": "시장",
@@ -2538,129 +1421,41 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2025-07-25",
-          "time": "9:52",
-          "role": "시장",
-          "amount": 69200,
-          "people": 10,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        },
-        {
-          "date": "2025-07-10",
-          "time": "9:49",
-          "role": "시장",
-          "amount": 385000,
-          "people": 35,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3029593"
-        }
-      ]
-    },
-    {
-      "merchant": "솔잎사골순대아구찜탕(인천 남동구 소재)",
-      "address": "",
-      "score": 52.0,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 1,
-      "spend": 440000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2026-03-21",
-      "date_max": "2026-03-22",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2026-03-22",
-          "time": "13:37",
-          "role": "시장",
-          "amount": 61000,
-          "people": 4,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        },
-        {
-          "date": "2026-03-21",
-          "time": "19:42",
-          "role": "시장",
-          "amount": 379000,
-          "people": 13,
-          "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3068575"
-        }
-      ]
-    },
-    {
-      "merchant": "바다양푼이동태탕(인천 남동구 소재)",
-      "address": "",
-      "score": 51.7,
-      "visits": 2,
-      "role_count": 1,
-      "roles": [
-        "시장"
-      ],
-      "months": 1,
-      "spend": 270000,
-      "senior_weight": 1.0,
-      "mayor_visits": 2,
-      "vice_mayor_visits": 0,
-      "date_min": "2025-01-06",
-      "date_max": "2025-01-23",
-      "role_stats": [
-        {
-          "role": "시장",
-          "visits": 2
-        }
-      ],
-      "purpose_stats": [],
-      "recent": [
-        {
-          "date": "2025-01-23",
+          "date": "2026-09-03",
           "time": "12:22",
           "role": "시장",
-          "amount": 200000,
-          "people": 20,
+          "amount": 104300,
+          "people": 8,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2025-01-06",
-          "time": "12:09",
+          "date": "2026-08-18",
+          "time": "19:30",
           "role": "시장",
-          "amount": 70000,
-          "people": 5,
+          "amount": 1420000,
+          "people": 185,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
         }
       ]
     },
     {
-      "merchant": "상무초밥(인천 남동구 소재)",
+      "merchant": "육봉달(인천 남동구 소재)",
       "address": "",
-      "score": 51.5,
+      "score": 55.7,
       "visits": 2,
       "role_count": 1,
       "roles": [
         "시장"
       ],
-      "months": 1,
-      "spend": 199300,
+      "months": 2,
+      "spend": 789000,
       "senior_weight": 1.0,
       "mayor_visits": 2,
       "vice_mayor_visits": 0,
-      "date_min": "2025-01-16",
-      "date_max": "2025-01-24",
+      "date_min": "2026-02-26",
+      "date_max": "2026-08-21",
       "role_stats": [
         {
           "role": "시장",
@@ -2670,41 +1465,41 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2025-01-24",
-          "time": "12:13",
+          "date": "2026-08-21",
+          "time": "18:00",
           "role": "시장",
-          "amount": 100000,
-          "people": 10,
+          "amount": 480000,
+          "people": 25,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
         },
         {
-          "date": "2025-01-16",
-          "time": "11:59",
+          "date": "2026-02-26",
+          "time": "20:15",
           "role": "시장",
-          "amount": 99300,
-          "people": 6,
+          "amount": 309000,
+          "people": 15,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/2236406"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         }
       ]
     },
     {
-      "merchant": "부대옥(인천 남동구 소재)",
+      "merchant": "줄줄이원조왕곱창(인천 계양구 소재)",
       "address": "",
-      "score": 51.1,
+      "score": 55.7,
       "visits": 2,
       "role_count": 1,
       "roles": [
         "시장"
       ],
-      "months": 1,
-      "spend": 117000,
+      "months": 2,
+      "spend": 716000,
       "senior_weight": 1.0,
       "mayor_visits": 2,
       "vice_mayor_visits": 0,
-      "date_min": "2026-07-18",
-      "date_max": "2026-07-19",
+      "date_min": "2026-02-05",
+      "date_max": "2026-04-24",
       "role_stats": [
         {
           "role": "시장",
@@ -2714,110 +1509,339 @@
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-07-19",
-          "time": "20:39",
+          "date": "2026-04-24",
+          "time": "22:18",
           "role": "시장",
-          "amount": 87000,
-          "people": 6,
+          "amount": 491000,
+          "people": 15,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3071498"
         },
         {
-          "date": "2026-07-18",
-          "time": "11:56",
+          "date": "2026-02-05",
+          "time": "21:11",
           "role": "시장",
-          "amount": 30000,
-          "people": 3,
+          "amount": 225000,
+          "people": 8,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
         }
       ]
     },
     {
-      "merchant": "초심플러스(인천 남동구 소재)",
+      "merchant": "또고기(인천 남동구 소재)",
       "address": "",
-      "score": 49.8,
+      "score": 55.1,
       "visits": 2,
       "role_count": 1,
       "roles": [
-        "행정부시장"
+        "시장"
       ],
-      "months": 1,
-      "spend": 462500,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-04-07",
-      "date_max": "2026-04-15",
+      "months": 2,
+      "spend": 292000,
+      "senior_weight": 1.0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-07-13",
+      "date_max": "2026-09-14",
       "role_stats": [
         {
-          "role": "행정부시장",
+          "role": "시장",
           "visits": 2
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-15",
-          "time": "21:32",
-          "role": "행정부시장",
-          "amount": 296000,
-          "people": 11,
+          "date": "2026-09-14",
+          "time": "12:34",
+          "role": "시장",
+          "amount": 158000,
+          "people": 8,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2026-04-07",
-          "time": "19:29",
-          "role": "행정부시장",
-          "amount": 166500,
+          "date": "2026-07-13",
+          "time": "19:56",
+          "role": "시장",
+          "amount": 134000,
           "people": 7,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3085409"
         }
       ]
     },
     {
-      "merchant": "변가네옹진냉면(인천 미추홀구 소재)",
+      "merchant": "순남시래기(인천 남동구 소재)",
       "address": "",
-      "score": 48.8,
+      "score": 54.6,
       "visits": 2,
       "role_count": 1,
       "roles": [
-        "행정부시장"
+        "시장"
       ],
-      "months": 1,
-      "spend": 92000,
-      "senior_weight": 0.9,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 2,
-      "date_min": "2026-04-02",
-      "date_max": "2026-04-14",
+      "months": 2,
+      "spend": 148000,
+      "senior_weight": 1.0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-08-07",
+      "date_max": "2026-09-08",
       "role_stats": [
         {
-          "role": "행정부시장",
+          "role": "시장",
           "visits": 2
         }
       ],
       "purpose_stats": [],
       "recent": [
         {
-          "date": "2026-04-14",
-          "time": "12:04",
-          "role": "행정부시장",
-          "amount": 46000,
-          "people": 4,
+          "date": "2026-09-08",
+          "time": "18:51",
+          "role": "시장",
+          "amount": 102000,
+          "people": 8,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
         },
         {
-          "date": "2026-04-02",
-          "time": "12:10",
-          "role": "행정부시장",
+          "date": "2026-08-07",
+          "time": "11:43",
+          "role": "시장",
           "amount": 46000,
           "people": 3,
           "purpose": "",
-          "source": "https://www.incheon.go.kr/open/OPEN010303/3071499"
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+        }
+      ]
+    },
+    {
+      "merchant": "제주은희네해장국(인천 남동구 소재)",
+      "address": "",
+      "score": 54.6,
+      "visits": 2,
+      "role_count": 1,
+      "roles": [
+        "시장"
+      ],
+      "months": 2,
+      "spend": 137000,
+      "senior_weight": 1.0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-08-07",
+      "date_max": "2026-09-09",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-09-09",
+          "time": "11:48",
+          "role": "시장",
+          "amount": 37000,
+          "people": 3,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
+        },
+        {
+          "date": "2026-08-07",
+          "time": "20:37",
+          "role": "시장",
+          "amount": 100000,
+          "people": 5,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3087885"
+        }
+      ]
+    },
+    {
+      "merchant": "피자알볼로(인터넷 결제)",
+      "address": "",
+      "score": 53.6,
+      "visits": 3,
+      "role_count": 1,
+      "roles": [
+        "정무부시장"
+      ],
+      "months": 1,
+      "spend": 605500,
+      "senior_weight": 0.9,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 3,
+      "date_min": "2026-07-20",
+      "date_max": "2026-07-24",
+      "role_stats": [
+        {
+          "role": "정무부시장",
+          "visits": 3
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-07-24",
+          "time": "13:19/13:22",
+          "role": "정무부시장",
+          "amount": 210000,
+          "people": 18,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-07-23",
+          "time": "16:32",
+          "role": "정무부시장",
+          "amount": 105000,
+          "people": 9,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        },
+        {
+          "date": "2026-07-20",
+          "time": "13:17",
+          "role": "정무부시장",
+          "amount": 290500,
+          "people": 29,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3085410"
+        }
+      ]
+    },
+    {
+      "merchant": "삼만시순두부집(인천 남동구 소재)",
+      "address": "",
+      "score": 51.3,
+      "visits": 2,
+      "role_count": 1,
+      "roles": [
+        "시장"
+      ],
+      "months": 1,
+      "spend": 148100,
+      "senior_weight": 1.0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-09-02",
+      "date_max": "2026-09-07",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-09-07",
+          "time": "11:55",
+          "role": "시장",
+          "amount": 64500,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
+        },
+        {
+          "date": "2026-09-02",
+          "time": "11:58",
+          "role": "시장",
+          "amount": 83600,
+          "people": 5,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3090923"
+        }
+      ]
+    },
+    {
+      "merchant": "밥쟁이(인천 남동구 소재)",
+      "address": "",
+      "score": 51.3,
+      "visits": 2,
+      "role_count": 1,
+      "roles": [
+        "시장"
+      ],
+      "months": 1,
+      "spend": 145000,
+      "senior_weight": 1.0,
+      "mayor_visits": 2,
+      "vice_mayor_visits": 0,
+      "date_min": "2026-02-05",
+      "date_max": "2026-02-10",
+      "role_stats": [
+        {
+          "role": "시장",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-02-10",
+          "time": "12:15",
+          "role": "시장",
+          "amount": 106000,
+          "people": 7,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        },
+        {
+          "date": "2026-02-05",
+          "time": "11:57",
+          "role": "시장",
+          "amount": 39000,
+          "people": 4,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010301/3065798"
+        }
+      ]
+    },
+    {
+      "merchant": "하림(인천 미추홀구 소재)",
+      "address": "",
+      "score": 50.1,
+      "visits": 2,
+      "role_count": 1,
+      "roles": [
+        "정무부시장"
+      ],
+      "months": 1,
+      "spend": 730000,
+      "senior_weight": 0.9,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 2,
+      "date_min": "2026-04-10",
+      "date_max": "2026-04-13",
+      "role_stats": [
+        {
+          "role": "정무부시장",
+          "visits": 2
+        }
+      ],
+      "purpose_stats": [],
+      "recent": [
+        {
+          "date": "2026-04-13",
+          "time": "12:43",
+          "role": "정무부시장",
+          "amount": 330000,
+          "people": 11,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3071500"
+        },
+        {
+          "date": "2026-04-10",
+          "time": "19:35",
+          "role": "정무부시장",
+          "amount": 400000,
+          "people": 11,
+          "purpose": "",
+          "source": "https://www.incheon.go.kr/open/OPEN010303/3071500"
         }
       ]
     }

@@ -1,29 +1,41 @@
 # bucheon expense ingestion
 
-- Normalized rows: **1513**
-- Source posts: **19**
-- Downloaded files: **15**
+- Normalized rows: **2283**
+- Source posts: **22**
+- Refresh mode: **full**
+- Files retained: **22**
+- New files downloaded: **22**
 - Errors: **0**
 
 ## Rows by year
 
 - 2023: 2
-- 2025: 724
-- 2026: 787
+- 2024: 125
+- 2025: 1281
+- 2026: 875
 
 ## Top roles / sheets
 
-- 부의장: 299
-- 도시교통위원장: 283
-- 의장: 262
-- 행정복지위원장: 188
-- 교섭단체: 166
-- 재정문화위원장: 166
-- 의회운영위원장: 116
-- 예산결산특별위원장: 33
+- 도시교통위원장: 434
+- 부의장: 400
+- 의장: 392
+- 행정복지위원장: 285
+- 교섭단체: 259
+- 재정문화위원장: 257
+- 의회운영위원장: 197
+- 예산결산특별위원장: 59
 
 ## Files
 
+- `★2026년 9월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2026년 9월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 37,974 bytes — 88 rows
+  - 의장: OK / parsed 23 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 4 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 9 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 8 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 15 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 16 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
 - `★2026년 8월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2026년 8월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 39,808 bytes — 107 rows
   - 의장: OK / parsed 20 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 부의장: OK / parsed 16 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
@@ -96,6 +108,15 @@
   - 도시교통위원장: OK / parsed 23 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 예산결산특별위원장: OK / parsed 4 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 교섭단체 : OK / parsed 8 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2025년 12월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 12월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 38,957 bytes — 103 rows
+  - 의장: OK / parsed 28 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 1 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 13 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 27 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 4 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 10 / mapping {'date': 2, 'time': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
 - `★2025년 11월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 11월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 35,426 bytes — 77 rows
   - 의장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 부의장: OK / parsed 7 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
@@ -114,6 +135,15 @@
   - 도시교통위원장: OK / parsed 23 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 예산결산특별위원장: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 교섭단체 : OK / parsed 7 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2025년 9월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 9월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 36,606 bytes — 89 rows
+  - 의장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 16 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 2 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 19 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 4 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 8 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
 - `★2025년 8월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 8월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 36,698 bytes — 96 rows
   - 의장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 부의장: OK / parsed 28 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
@@ -132,6 +162,15 @@
   - 도시교통위원장: OK / parsed 24 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 예산결산특별위원장: OK / parsed 1 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 교섭단체 : OK / parsed 10 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2025년 6월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 6월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 37,341 bytes — 99 rows
+  - 의장: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 25 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 9 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 6 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 11 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 21 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 7 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 9 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
 - `★2025년 5월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 5월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 38,048 bytes — 106 rows
   - 의장: OK / parsed 8 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 부의장: OK / parsed 30 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
@@ -141,6 +180,15 @@
   - 도시교통위원장: OK / parsed 21 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 예산결산특별위원장: OK / parsed 1 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 교섭단체 : OK / parsed 11 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2025년 4월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 4월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 41,246 bytes — 144 rows
+  - 의장: OK / parsed 16 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 25 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 20 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 26 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 1 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 20 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
 - `★2025년 3월 의회운영업무추진비 집행내역(부천시의회).xlsx ★2025년 3월 의회운영업무추진비 집행내역(부천시의회).xlsx` — 38,782 bytes — 110 rows
   - 의장: OK / parsed 15 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 부의장: OK / parsed 21 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
@@ -159,3 +207,21 @@
   - 도시교통위원장: OK / parsed 21 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 예산결산특별위원장: OK / parsed 3 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
   - 교섭단체 : OK / parsed 22 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2025년 1월 의회운영업무추진비 집행내역.xlsx ★2025년 1월 의회운영업무추진비 집행내역.xlsx` — 39,296 bytes — 123 rows
+  - 의장: OK / parsed 17 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 12 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 22 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 16 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 16 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 20 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 5 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 15 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+- `★2024년 12월 의회운영업무추진비 집행내역.xlsx ★2024년 12월 의회운영업무추진비 집행내역.xlsx` — 39,066 bytes — 124 rows
+  - 의장: OK / parsed 17 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 부의장: OK / parsed 18 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 의회운영위원장: OK / parsed 19 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 재정문화위원장: OK / parsed 17 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 행정복지위원장: OK / parsed 12 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 도시교통위원장: OK / parsed 23 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 예산결산특별위원장: OK / parsed 3 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}
+  - 교섭단체 : OK / parsed 15 / mapping {'date': 2, 'time': 3, 'people': 5, 'amount': 6, 'merchant': 7, 'method': 8}

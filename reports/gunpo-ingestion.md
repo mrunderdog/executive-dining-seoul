@@ -2,7 +2,9 @@
 
 - Normalized rows: **2025**
 - Source posts: **40**
-- Downloaded files: **21**
+- Refresh mode: **full**
+- Files retained: **21**
+- New files downloaded: **21**
 - Errors: **0**
 
 ## Rows by year
@@ -80,7 +82,7 @@
   - 교섭단체대표의원1: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 13 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `'2026년 3월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 44,503 bytes — 125 rows
+- `2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx 2026년 3월 업무추진비 집행내역.xlsx` — 44,503 bytes — 125 rows
   - 의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 26 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -90,7 +92,7 @@
   - 교섭단체대표의원1: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 29 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `2026년 2월 업무추진비 집행내역.xlsx 2026년 2월 업무추진비 집행내역.xlsx 2026년 2월 업무추진비 집행내역.xlsx` — 41,934 bytes — 91 rows
+- `'2026년 2월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 41,934 bytes — 91 rows
   - 의장: OK / parsed 20 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 25 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -110,7 +112,7 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 10 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 9 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `'2025년 12월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 44,362 bytes — 121 rows
+- `2025년 12월 업무추진비 집행내역.xlsx 2025년 12월 업무추진비 집행내역.xlsx 2025년 12월 업무추진비 집행내역.xlsx` — 44,362 bytes — 121 rows
   - 의장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 27 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -130,7 +132,7 @@
   - 교섭단체대표의원1: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 4 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 41 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `2025년 10월 업무추진비 집행내역.xlsx 2025년 10월 업무추진비 집행내역.xlsx 2025년 10월 업무추진비 집행내역.xlsx` — 40,210 bytes — 59 rows
+- `'2025년 10월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,210 bytes — 59 rows
   - 의장: OK / parsed 16 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -180,7 +182,7 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 2 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 42 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `'2025년 5월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 40,326 bytes — 60 rows
+- `2025년 5월 업무추진비 집행내역.xlsx 2025년 5월 업무추진비 집행내역.xlsx 2025년 5월 업무추진비 집행내역.xlsx` — 40,326 bytes — 60 rows
   - 의장: OK / parsed 15 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 7 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 0 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -190,7 +192,7 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 8 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 4 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `'2025년 4월 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 43,772 bytes — 106 rows
+- `2025년 4월 업무추진비 집행내역.xlsx 2025년 4월 업무추진비 집행내역.xlsx 2025년 4월 업무추진비 집행내역.xlsx` — 43,772 bytes — 106 rows
   - 의장: OK / parsed 29 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 부의장: OK / parsed 17 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 예결특위위원장: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
@@ -230,7 +232,7 @@
   - 교섭단체대표의원1: OK / parsed 3 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 교섭단체대표의원2: OK / parsed 6 / mapping {'date': 0, 'merchant': 2, 'purpose': 3, 'amount': 4, 'people': 5}
   - 의정운영공통경비: OK / parsed 7 / mapping {'date': 0, 'merchant': 3, 'purpose': 4, 'amount': 5, 'people': 6, 'role': 2}
-- `'2024년 4분기 업무추진비 집행내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일` — 56,204 bytes — 323 rows
+- `2024년 4분기 업무추진비 집행내역.xlsx 2024년 4분기 업무추진비 집행내역.xlsx 2024년 4분기 업무추진비 집행내역.xlsx` — 56,204 bytes — 323 rows
   - 의장: OK / parsed 36 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
   - 부의장: OK / parsed 48 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}
   - 예결특위위원장: OK / parsed 5 / mapping {'date': 0, 'merchant': 1, 'purpose': 2, 'amount': 3, 'people': 4}

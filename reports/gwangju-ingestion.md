@@ -1,9 +1,11 @@
 # gwangju expense ingestion
 
 - Normalized rows: **1586**
-- Source posts: **33**
-- Downloaded files: **33**
-- Errors: **2**
+- Source posts: **43**
+- Refresh mode: **full**
+- Files retained: **12**
+- New files downloaded: **12**
+- Errors: **1**
 
 ## Rows by year
 
@@ -33,7 +35,7 @@
 
 ## Files
 
-- `'업무추진비 사용내역[2026년7월].xlsx' 파일 내려받기 첨부 파일` — 27,240 bytes — 85 rows
+- `업무추진비 사용내역[2026년7월].xlsx(다운로드) 업무추진비 사용내역[2026년7월].xlsx 업무추진비 사용내역[2026년7월].xlsx` — 27,240 bytes — 85 rows
   - 의회운영업무추진비: OK / parsed 49 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 2 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -43,31 +45,11 @@
   - 의회사무국(시책): OK / parsed 33 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 14 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2026년4월~6월].xlsx' 파일 내려받기 첨부 파일` — 34,245 bytes — 187 rows
-  - 의회운영업무추진비: OK / parsed 127 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 33 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 14 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2026년1월~3월].xlsx(다운로드) 업무추진비 사용내역[2026년1월~3월].xlsx 업무추진비 사용내역[2026년1월~3월].xlsx` — 44,467 bytes — 305 rows
   - 의회운영업무추진비: OK / parsed 223 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 32 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 14 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 36 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2026년1월~3월].xlsx' 파일 내려받기 첨부 파일` — 44,467 bytes — 305 rows
-  - 의회운영업무추진비: OK / parsed 223 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 32 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 14 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 36 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년10월] .xlsx(다운로드) 업무추진비 사용내역[2025년10월] .xlsx 업무추진비 사용내역[2025년10월] .xlsx` — 27,475 bytes — 85 rows
-  - 의회운영업무추진비: OK / parsed 42 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 11 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 7 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 25 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년11월~12월].xlsx(다운로드) 업무추진비 사용내역[2025년11월~12월].xlsx 업무추진비 사용내역[2025년11월~12월].xlsx` — 35,709 bytes — 204 rows
-  - 의회운영업무추진비: OK / parsed 115 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 22 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 14 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 53 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2025년10월] .xlsx(다운로드) 업무추진비 사용내역[2025년10월] .xlsx 업무추진비 사용내역[2025년10월] .xlsx` — 27,475 bytes — 85 rows
   - 의회운영업무추진비: OK / parsed 42 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 11 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -83,17 +65,7 @@
   - 의회사무국(시책): OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 7 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 29 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년9월].xlsx' 파일 내려받기 첨부 파일` — 27,678 bytes — 90 rows
-  - 의회운영업무추진비: OK / parsed 41 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 7 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 29 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2025년8월].xlsx(다운로드) 업무추진비 사용내역[2025년8월].xlsx 업무추진비 사용내역[2025년8월].xlsx` — 26,649 bytes — 77 rows
-  - 의회운영업무추진비: OK / parsed 59 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 2 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년8월].xlsx' 파일 내려받기 첨부 파일` — 26,649 bytes — 77 rows
   - 의회운영업무추진비: OK / parsed 59 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -103,17 +75,7 @@
   - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 5 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년7월].xlsx' 파일 내려받기 첨부 파일` — 27,717 bytes — 98 rows
-  - 의회운영업무추진비: OK / parsed 70 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 10 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 5 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 13 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2025년6월].xlsx(다운로드) 업무추진비 사용내역[2025년6월].xlsx 업무추진비 사용내역[2025년6월].xlsx` — 28,350 bytes — 110 rows
-  - 의회운영업무추진비: OK / parsed 51 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 5 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 48 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년6월].xlsx' 파일 내려받기 첨부 파일` — 28,350 bytes — 110 rows
   - 의회운영업무추진비: OK / parsed 51 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 5 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -123,65 +85,11 @@
   - 의회사무국(시책): OK / parsed 7 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 3 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 8 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년5월].xlsx' 파일 내려받기 첨부 파일` — 25,895 bytes — 53 rows
-  - 의회운영업무추진비: OK / parsed 35 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 7 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 3 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 8 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2025년4월].xlsx(다운로드) 업무추진비 사용내역[2025년4월].xlsx 업무추진비 사용내역[2025년4월].xlsx` — 28,673 bytes — 90 rows
   - 의회운영업무추진비: OK / parsed 58 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국: OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회운영공통경비: OK / parsed 17 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년4월].xlsx' 파일 내려받기 첨부 파일` — 28,673 bytes — 90 rows
-  - 의회운영업무추진비: OK / parsed 58 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 6 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회운영공통경비: OK / parsed 17 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `'업무추진비 사용내역[2025년 1월~3월].xlsx' 파일 내려받기 첨부 파일` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-- `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
-  - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
-  - 의회사무국: OK / parsed 9 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
 - `업무추진비 사용내역[2025년 1월~3월].xlsx(다운로드) 업무추진비 사용내역[2025년 1월~3월].xlsx 업무추진비 사용내역[2025년 1월~3월].xlsx` — 31,697 bytes — 202 rows
   - 의회운영업무추진비: OK / parsed 159 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
   - 의회사무국(시책): OK / parsed 34 / mapping {'date': 1, 'amount': 3, 'merchant': 4, 'purpose': 5, 'people': 6, 'role': 0}
@@ -189,5 +97,4 @@
 
 ## Errors
 
-- URLError: <urlopen error [Errno -3] Temporary failure in name resolution> — https://www.gjcouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A97B4D799C4DEFDB7AA785E39B34D23A
 - NameError: name 'html' is not defined — https://www.gjcouncil.go.kr/common/downloadSelector.do?type=bbs&uid=39578DAC697A9A330F2A1DED80E5BF8E

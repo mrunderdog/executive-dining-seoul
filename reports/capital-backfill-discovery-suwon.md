@@ -1,11 +1,13 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 수원특례시의회
 
-- Posts: 42
-- Attachment records: 21
-- Downloadable attachment URLs: 21
+- Posts: 44
+- Attachment records: 22
+- Downloadable attachment URLs: 22
 
+- [2026년 9월 업무추진비 사용내역 상세보기 2026년 9월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=FA059FADD0A2245797C391EBB5D1D12E&schwrd=&flag=all&page=1&list_style=) — attachments 1
+- ['2026. 9월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2026년 8월 업무추진비 사용내역 상세보기 2026년 8월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=1332B50719DE450C68C69B8DD73EBC01&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['2026. 8월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2026년 7월 업무추진비 사용내역 상세보기 2026년 7월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=E5CA344626DD3CD28B5CE69ADF676EFB&schwrd=&flag=all&page=1&list_style=) — attachments 1
@@ -24,8 +26,8 @@
 - ['2026. 1월 업무추진비 집행내역(의장단).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2025년 12월 업무추진비 사용내역 상세보기 2025년 12월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=46BEBE4C5C264E232A11A5E4F6BA09FB&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['※ 2025년 12월 업무추진비 내역공개(의장단).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
-- [2025년 11월 업무추진비 사용내역 상세보기 2025년 11월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=732D21773FE8D4A3BA8D67AAF3F1FB4E&schwrd=&flag=all&page=1&list_style=) — attachments 1
-- ['※ 2025년 11월 업무추진비 내역공개_의장단.xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
+- [2025년 11월 업무추진비 사용내역 상세보기 2025년 11월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=732D21773FE8D4A3BA8D67AAF3F1FB4E&schwrd=&flag=all&page=2&list_style=) — attachments 1
+- ['※ 2025년 11월 업무추진비 내역공개_의장단.xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025년 10월 업무추진비 사용내역 상세보기 2025년 10월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=581A06EE5D3F79ACD401F04765CBB0B5&schwrd=&flag=all&page=2&list_style=) — attachments 1
 - ['★2025년 10월 업무추진비 내역공개(상임위).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025년 9월 업무추진비 사용내역 상세보기 2025년 9월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=65860C98A92A464D4FD7CBEBB39C3DE8&schwrd=&flag=all&page=2&list_style=) — attachments 1
@@ -34,6 +36,4 @@
 - ['2025년 8월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025년 7월 업무추진비 사용내역 상세보기 2025년 7월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=C6DC6E2DEFCCF641C04DE89AFBF6573A&schwrd=&flag=all&page=2&list_style=) — attachments 1
 - ['2025년 7월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
-- [2025년 6월 업무추진비 사용내역 상세보기 2025년 6월 업무추진비 사용내역](https://council.suwon.go.kr/kr/costBBSview.do?uid=46E7769D1DC371743F5B95DCA522EFF5&schwrd=&flag=all&page=2&list_style=) — attachments 1
-- ['2025년 6월 업무추진비 내역공개(수원시의회).xlsx' 파일 내려받기 첨부 파일](https://council.suwon.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 

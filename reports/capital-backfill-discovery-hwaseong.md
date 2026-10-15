@@ -1,4 +1,4 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 화성특례시의회
 

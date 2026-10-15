@@ -1,30 +1,38 @@
 # pocheon expense ingestion
 
-- Normalized rows: **947**
-- Source posts: **20**
-- Downloaded files: **20**
+- Normalized rows: **1042**
+- Source posts: **21**
+- Refresh mode: **full**
+- Files retained: **21**
+- New files downloaded: **21**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 62
 - 2025: 566
-- 2026: 296
+- 2026: 386
 
 ## Top roles / sheets
 
-- 의장: 618
-- 부의장: 153
-- 운영위원장: 101
-- 예결위원장: 48
-- 포천시의회: 10
-- 교섭단체 대표: 6
-- 특별위원회: 5
-- 사 용 자: 5
-- 홍보팀장: 1
+- 의장: 631
+- 부의장: 168
+- 운영위원장: 115
+- 예결위원장: 54
+- 포천시의회: 27
+- 교섭단체 대표: 20
+- 특별위원회: 16
+- 사 용 자: 9
+- 홍보팀장: 2
 
 ## Files
 
+- `2026년 8월 업무추진비 사용내역.pdf 2026년 8월 업무추진비 사용내역.pdf` — 179,451 bytes — 95 rows
+  - pdf-page-1: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-2: OK / parsed 30 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-3: OK / parsed 6 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-4: OK / parsed 1 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
+  - pdf-page-5: OK / parsed 29 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}
 - `2026년 7월 업무추진비 사용내역.pdf 2026년 7월 업무추진비 사용내역.pdf` — 146,383 bytes — 71 rows
   - pdf-page-1: OK / parsed 23 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'people': 4, 'amount': 5, 'method': 6, 'role': 0}
   - pdf-page-2: OK / parsed 31 / mapping {'date': 1, 'merchant': 2, 'purpose': 3, 'amount': 5, 'method': 6, 'role': 0}

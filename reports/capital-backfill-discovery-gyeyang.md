@@ -1,11 +1,13 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 계양구의회
 
-- Posts: 40
-- Attachment records: 20
-- Downloadable attachment URLs: 20
+- Posts: 42
+- Attachment records: 21
+- Downloadable attachment URLs: 21
 
+- [2026.8월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2026.8월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=F53599E7E7D14EF4FB36625695069E85&schwrd=&flag=all&page=1&list_style=) — attachments 1
+- ['2026.8월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2026.7월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2026.7월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=7E849EDF9AC4795AB0119462CF64CB2E&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['2026.7월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2026.6월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2026.6월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=103AD8FDED67ADE0585197CBDB1A9BCF&schwrd=&flag=all&page=1&list_style=) — attachments 1
@@ -24,8 +26,8 @@
 - ['2025.12월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
 - [2025.11월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.11월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=ECC44E6BD393C5D14F5140A7D052FD88&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['2025.11월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
-- [2025.10월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.10월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=A4A1A929543ACD379590D5E81943DDDF&schwrd=&flag=all&page=1&list_style=) — attachments 1
-- ['2025.10월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 0
+- [2025.10월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.10월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=A4A1A929543ACD379590D5E81943DDDF&schwrd=&flag=all&page=2&list_style=) — attachments 1
+- ['2025.10월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025.9월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.9월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=1ACB2CD2D4949F1364704333A355AD77&schwrd=&flag=all&page=2&list_style=) — attachments 1
 - ['2025.9월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025.8월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.8월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=8043038B73006247EF8D5B7B4B662478&schwrd=&flag=all&page=2&list_style=) — attachments 1
@@ -34,6 +36,4 @@
 - ['2025.7월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 - [2025.6월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.6월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=6D4DB37ED8B84C0372D6734C6CB59CDB&schwrd=&flag=all&page=2&list_style=) — attachments 1
 - ['2025.6월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
-- [2025.5월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개 상세보기 2025.5월 의회운영업무추진비 및 의정운영공통경비 집행 내역 공개](https://council.gyeyang.go.kr/kr/costBBSview.do?uid=C869DA36C8CD75982886FBAE7B06923D&schwrd=&flag=all&page=2&list_style=) — attachments 1
-- ['2025.5월 업무추진비 사용내역.xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.gyeyang.go.kr/kr/costBBS.do?flag=all&page=2) — attachments 0
 

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-07T08:42:05",
+  "generated_at": "2026-10-15T10:51:13",
   "source": "public_enterprise_leadership",
   "cohort": "public_enterprise_leadership",
-  "meal_rows": 1568,
-  "entity_count": 1013,
-  "eligible_count": 1013,
+  "meal_rows": 1526,
+  "entity_count": 998,
+  "eligible_count": 998,
   "candidates": [
     {
       "merchant": "우비노",
@@ -740,9 +740,9 @@
       "address": "",
       "phone": "",
       "score": 99.4,
-      "visits": 11,
-      "months": 7,
-      "spend": 1278000,
+      "visits": 10,
+      "months": 6,
+      "spend": 1213000,
       "institution_count": 3,
       "institutions": [
         "주택도시보증공사",
@@ -767,10 +767,6 @@
         {
           "text": "공사운영 관련 업무협의",
           "count": 1
-        },
-        {
-          "text": "채권매각 관련 현안 협의",
-          "count": 1
         }
       ],
       "role_stats": [
@@ -780,7 +776,7 @@
         },
         {
           "role": "자산관리본부장",
-          "visits": 3
+          "visits": 2
         },
         {
           "role": "기관장",
@@ -807,16 +803,6 @@
           "people": 3,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28386"
-        },
-        {
-          "date": "2026-06-04",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "자산관리본부장",
-          "amount": 65000,
-          "people": 2,
-          "purpose": "채권매각 관련 현안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
         },
         {
           "date": "2026-04-02",
@@ -887,6 +873,16 @@
           "people": 3,
           "purpose": "국정과제 실행방안 협의",
           "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25125"
+        },
+        {
+          "date": "2025-02-04",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 170000,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
         }
       ]
     },
@@ -1139,134 +1135,6 @@
           "people": 3,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kdhc.co.kr/kdhc/publict/publict/list.do?menuNo=200077"
-        }
-      ]
-    },
-    {
-      "merchant": "봄베이브로이",
-      "address": "",
-      "phone": "",
-      "score": 99.2,
-      "visits": 9,
-      "months": 6,
-      "spend": 960600,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-02-26",
-      "date_max": "2026-08-07",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 8
-        },
-        {
-          "text": "국정과제 현안파악 및 의견청취",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "이사",
-          "visits": 8
-        },
-        {
-          "role": "경영전략본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-08-07",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 132000,
-          "people": 6,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28855"
-        },
-        {
-          "date": "2026-07-28",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 82500,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28386"
-        },
-        {
-          "date": "2026-07-01",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 139300,
-          "people": 6,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28386"
-        },
-        {
-          "date": "2026-06-02",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 52800,
-          "people": 3,
-          "purpose": "국정과제 현안파악 및 의견청취",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
-        },
-        {
-          "date": "2025-10-22",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 146300,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
-        },
-        {
-          "date": "2025-10-21",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 95400,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
-        },
-        {
-          "date": "2025-10-17",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 95400,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
-        },
-        {
-          "date": "2025-06-24",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 137400,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23406"
-        },
-        {
-          "date": "2025-02-26",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 79500,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
         }
       ]
     },
@@ -1616,6 +1484,115 @@
       ]
     },
     {
+      "merchant": "봄베이브로이",
+      "address": "",
+      "phone": "",
+      "score": 95.0,
+      "visits": 8,
+      "months": 5,
+      "spend": 907800,
+      "institution_count": 1,
+      "institutions": [
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-02-26",
+      "date_max": "2026-08-07",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 8
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "이사",
+          "visits": 8
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-07",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 132000,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28855"
+        },
+        {
+          "date": "2026-07-28",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 82500,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28386"
+        },
+        {
+          "date": "2026-07-01",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 139300,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=28386"
+        },
+        {
+          "date": "2025-10-22",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 146300,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
+        },
+        {
+          "date": "2025-10-21",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 95400,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
+        },
+        {
+          "date": "2025-10-17",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 95400,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25232"
+        },
+        {
+          "date": "2025-06-24",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 137400,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23406"
+        },
+        {
+          "date": "2025-02-26",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 79500,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
+        }
+      ]
+    },
+    {
       "merchant": "라브리",
       "address": "",
       "phone": "02-739-8930",
@@ -1820,18 +1797,14 @@
       "score": 93.4,
       "visits": 6,
       "months": 6,
-      "spend": 355500,
+      "spend": 347500,
       "institution_count": 1,
       "institutions": [
         "주택도시보증공사"
       ],
       "date_min": "2025-02-06",
-      "date_max": "2026-06-04",
+      "date_max": "2026-03-03",
       "purpose_stats": [
-        {
-          "text": "기금 운용방안 협의",
-          "count": 2
-        },
         {
           "text": "기금 리스크관리 효율화 방안 협의",
           "count": 1
@@ -1845,7 +1818,15 @@
           "count": 1
         },
         {
+          "text": "기금 운용방안 협의",
+          "count": 1
+        },
+        {
           "text": "임대리츠기금출자협의",
+          "count": 1
+        },
+        {
+          "text": "정부 정책 지원방안 협의",
           "count": 1
         }
       ],
@@ -1861,14 +1842,14 @@
       ],
       "recent": [
         {
-          "date": "2026-06-04",
+          "date": "2026-03-03",
           "time": "",
           "institution": "주택도시보증공사",
           "role": "기금사업본부장",
-          "amount": 48000,
+          "amount": 40000,
           "people": 3,
-          "purpose": "기금 운용방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
+          "purpose": "정부 정책 지원방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27172"
         },
         {
           "date": "2025-11-26",
@@ -2101,6 +2082,123 @@
       ]
     },
     {
+      "merchant": "진이",
+      "address": "",
+      "phone": "",
+      "score": 89.2,
+      "visits": 6,
+      "months": 5,
+      "spend": 343000,
+      "institution_count": 1,
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "date_min": "2025-04-28",
+      "date_max": "2026-02-09",
+      "purpose_stats": [
+        {
+          "text": "중장기 기금관리 방안 협의",
+          "count": 1
+        },
+        {
+          "text": "기금 운용방안 협의",
+          "count": 1
+        },
+        {
+          "text": "중장기기금관리방안협의",
+          "count": 1
+        },
+        {
+          "text": "임대리츠 기금출자 협의",
+          "count": 1
+        },
+        {
+          "text": "정부 정책 지원방안 협의",
+          "count": 1
+        },
+        {
+          "text": "국정과제 현안파악 및 의견청취",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "주택도시기금본부장",
+          "visits": 3
+        },
+        {
+          "role": "기금사업본부장",
+          "visits": 2
+        },
+        {
+          "role": "경영전략본부장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-02-09",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 64000,
+          "people": 3,
+          "purpose": "국정과제 현안파악 및 의견청취",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26966"
+        },
+        {
+          "date": "2026-01-12",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "기금사업본부장",
+          "amount": 60000,
+          "people": 3,
+          "purpose": "정부 정책 지원방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26837"
+        },
+        {
+          "date": "2026-01-07",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "기금사업본부장",
+          "amount": 38000,
+          "people": 2,
+          "purpose": "임대리츠 기금출자 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26837"
+        },
+        {
+          "date": "2025-11-04",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 50000,
+          "people": 3,
+          "purpose": "중장기기금관리방안협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26618"
+        },
+        {
+          "date": "2025-10-13",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 41000,
+          "people": 3,
+          "purpose": "기금 운용방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26459"
+        },
+        {
+          "date": "2025-04-28",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 90000,
+          "people": 8,
+          "purpose": "중장기 기금관리 방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25428"
+        }
+      ]
+    },
+    {
       "merchant": "에스서울깍두기전포점",
       "address": "",
       "phone": "",
@@ -2214,24 +2312,24 @@
       "merchant": "워터스톤",
       "address": "",
       "phone": "",
-      "score": 88.7,
+      "score": 88.8,
       "visits": 7,
       "months": 4,
-      "spend": 1411000,
+      "spend": 1633000,
       "institution_count": 2,
       "institutions": [
         "주택도시보증공사",
         "한국자산관리공사"
       ],
       "date_min": "2025-08-01",
-      "date_max": "2026-05-21",
+      "date_max": "2026-04-13",
       "purpose_stats": [
         {
           "text": "유관기관 업무 설명 및 협의 등",
           "count": 6
         },
         {
-          "text": "채권매각 관련 현안 협의",
+          "text": "주택업계 관계자 의견청취",
           "count": 1
         }
       ],
@@ -2249,21 +2347,11 @@
           "visits": 2
         },
         {
-          "role": "자산관리본부장",
+          "role": "경영전략본부장",
           "visits": 1
         }
       ],
       "recent": [
-        {
-          "date": "2026-05-21",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "자산관리본부장",
-          "amount": 183000,
-          "people": 4,
-          "purpose": "채권매각 관련 현안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27492"
-        },
         {
           "date": "2026-04-13",
           "time": "",
@@ -2283,6 +2371,16 @@
           "people": 5,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27450"
+        },
+        {
+          "date": "2026-03-12",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 405000,
+          "people": 9,
+          "purpose": "주택업계 관계자 의견청취",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27172"
         },
         {
           "date": "2026-02-02",
@@ -3550,209 +3648,6 @@
       ]
     },
     {
-      "merchant": "미도방비아이에프씨점",
-      "address": "",
-      "phone": "",
-      "score": 81.8,
-      "visits": 5,
-      "months": 4,
-      "spend": 288500,
-      "institution_count": 1,
-      "institutions": [
-        "주택도시보증공사"
-      ],
-      "date_min": "2025-09-02",
-      "date_max": "2026-06-17",
-      "purpose_stats": [
-        {
-          "text": "주택도시기금 홍보방안 협의",
-          "count": 1
-        },
-        {
-          "text": "임대리츠 기금 출자협의",
-          "count": 1
-        },
-        {
-          "text": "조직문화 개선방안 논의",
-          "count": 1
-        },
-        {
-          "text": "중장기 기금관리방안협의",
-          "count": 1
-        },
-        {
-          "text": "도시재생 상품개발 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "주택도시기금본부장",
-          "visits": 2
-        },
-        {
-          "role": "기금사업본부장",
-          "visits": 2
-        },
-        {
-          "role": "경영전략본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-17",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기금사업본부장",
-          "amount": 58000,
-          "people": 3,
-          "purpose": "도시재생 상품개발 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
-        },
-        {
-          "date": "2026-05-27",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기금사업본부장",
-          "amount": 70500,
-          "people": 4,
-          "purpose": "중장기 기금관리방안협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27492"
-        },
-        {
-          "date": "2026-04-16",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 56500,
-          "people": 4,
-          "purpose": "조직문화 개선방안 논의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
-        },
-        {
-          "date": "2025-09-10",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 46500,
-          "people": 3,
-          "purpose": "임대리츠 기금 출자협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
-        },
-        {
-          "date": "2025-09-02",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 57000,
-          "people": 3,
-          "purpose": "주택도시기금 홍보방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
-        }
-      ]
-    },
-    {
-      "merchant": "스타벅스 코리아",
-      "address": "",
-      "phone": "02-1522-3232",
-      "score": 81.7,
-      "visits": 5,
-      "months": 4,
-      "spend": 237000,
-      "institution_count": 2,
-      "institutions": [
-        "한국남부발전",
-        "한전KDN"
-      ],
-      "date_min": "2025-04-07",
-      "date_max": "2026-05-22",
-      "purpose_stats": [
-        {
-          "text": "에너지업계 동향 및 정책협의",
-          "count": 1
-        },
-        {
-          "text": "에너지시장 동향 및 정책협의",
-          "count": 1
-        },
-        {
-          "text": "에너지풍력사업 경영효율화 방안 협의",
-          "count": 1
-        },
-        {
-          "text": "사행시(케이디엔) 로고송 제작 직원 격려",
-          "count": 1
-        },
-        {
-          "text": "순천지사 직원 격려",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "사장",
-          "visits": 3
-        },
-        {
-          "role": "카드",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-05-22",
-          "time": "",
-          "institution": "한전KDN",
-          "role": "카드",
-          "amount": 90000,
-          "people": 3,
-          "purpose": "순천지사 직원 격려",
-          "source": "https://ns.kdn.com/download.kdn?filename=1786344845154.xlsx&filenameOrg=2026%EB%85%84+5%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24943&seq=1"
-        },
-        {
-          "date": "2026-01-28",
-          "time": "",
-          "institution": "한전KDN",
-          "role": "카드",
-          "amount": 100000,
-          "people": 2,
-          "purpose": "사행시(케이디엔) 로고송 제작 직원 격려",
-          "source": "https://ns.kdn.com/download.kdn?filename=1773036414181.xlsx&filenameOrg=2026%EB%85%84+1%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5%28%EC%9E%84%EC%9B%90%29+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=24358&seq=1"
-        },
-        {
-          "date": "2025-11-24",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 11000,
-          "people": 3,
-          "purpose": "에너지시장 동향 및 정책협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        },
-        {
-          "date": "2025-11-24",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 12000,
-          "people": 4,
-          "purpose": "에너지풍력사업 경영효율화 방안 협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        },
-        {
-          "date": "2025-04-07",
-          "time": "",
-          "institution": "한국남부발전",
-          "role": "사장",
-          "amount": 24000,
-          "people": 4,
-          "purpose": "에너지업계 동향 및 정책협의",
-          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        }
-      ]
-    },
-    {
       "merchant": "기장멸치쌈밥",
       "address": "",
       "phone": "",
@@ -4065,94 +3960,105 @@
       ]
     },
     {
-      "merchant": "삼삼횟집",
+      "merchant": "해운대이름난암소갈비",
       "address": "",
       "phone": "",
       "score": 78.5,
       "visits": 5,
       "months": 3,
-      "spend": 1124000,
-      "institution_count": 2,
+      "spend": 1087000,
+      "institution_count": 1,
       "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
+        "주택도시보증공사"
       ],
-      "date_min": "2026-02-11",
-      "date_max": "2026-06-15",
+      "date_min": "2025-07-15",
+      "date_max": "2026-01-08",
       "purpose_stats": [
         {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 3
-        },
-        {
-          "text": "기관간 협력 강화방안 논의",
+          "text": "정부 정책 지원방안 협의",
           "count": 1
         },
         {
-          "text": "조직문화 개선방안 논의",
+          "text": "기금리스크관리효율화방안협의",
+          "count": 1
+        },
+        {
+          "text": "유관기관 업무협의",
+          "count": 1
+        },
+        {
+          "text": "감사 전문성강화 관련 회의",
+          "count": 1
+        },
+        {
+          "text": "기금 운용방안 협의",
           "count": 1
         }
       ],
       "role_stats": [
         {
-          "role": "이사",
-          "visits": 3
+          "role": "주택도시기금본부장",
+          "visits": 2
         },
         {
-          "role": "경영전략본부장",
+          "role": "상근감사위원",
           "visits": 2
+        },
+        {
+          "role": "기금사업본부장",
+          "visits": 1
         }
       ],
       "recent": [
         {
-          "date": "2026-06-15",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 150000,
-          "people": 3,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
-        },
-        {
-          "date": "2026-06-04",
+          "date": "2026-01-08",
           "time": "",
           "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 334000,
+          "role": "기금사업본부장",
+          "amount": 250000,
+          "people": 9,
+          "purpose": "기금 운용방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26837"
+        },
+        {
+          "date": "2025-09-04",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "상근감사위원",
+          "amount": 217000,
           "people": 8,
-          "purpose": "조직문화 개선방안 논의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
+          "purpose": "감사 전문성강화 관련 회의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
         },
         {
-          "date": "2026-04-29",
+          "date": "2025-07-28",
           "time": "",
           "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 220000,
+          "role": "상근감사위원",
+          "amount": 279000,
+          "people": 10,
+          "purpose": "유관기관 업무협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
+        },
+        {
+          "date": "2025-07-23",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 156000,
           "people": 6,
-          "purpose": "기관간 협력 강화방안 논의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
+          "purpose": "기금리스크관리효율화방안협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
         },
         {
-          "date": "2026-02-11",
+          "date": "2025-07-15",
           "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 210000,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26508"
-        },
-        {
-          "date": "2026-02-11",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 210000,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26770"
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 185000,
+          "people": 7,
+          "purpose": "정부 정책 지원방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
         }
       ]
     },
@@ -4457,180 +4363,6 @@
           "people": 6,
           "purpose": "타 기관 을지연습 훈련 사례 공유",
           "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=20193&pFile_No=1"
-        }
-      ]
-    },
-    {
-      "merchant": "우진생고기",
-      "address": "",
-      "phone": "",
-      "score": 78.0,
-      "visits": 4,
-      "months": 4,
-      "spend": 282000,
-      "institution_count": 1,
-      "institutions": [
-        "주택도시보증공사"
-      ],
-      "date_min": "2025-02-24",
-      "date_max": "2026-06-08",
-      "purpose_stats": [
-        {
-          "text": "주택업계 관계자 의견청취",
-          "count": 1
-        },
-        {
-          "text": "기관간 협력강화 방안 논의",
-          "count": 1
-        },
-        {
-          "text": "정부정책 지원방안 협의",
-          "count": 1
-        },
-        {
-          "text": "기금 리스크관리 효율화 방안 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "경영전략본부장",
-          "visits": 2
-        },
-        {
-          "role": "주택도시기금본부장",
-          "visits": 1
-        },
-        {
-          "role": "기금사업본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-08",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기금사업본부장",
-          "amount": 70000,
-          "people": 3,
-          "purpose": "기금 리스크관리 효율화 방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
-        },
-        {
-          "date": "2025-09-09",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 76000,
-          "people": 3,
-          "purpose": "정부정책 지원방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
-        },
-        {
-          "date": "2025-03-05",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 76000,
-          "people": 4,
-          "purpose": "기관간 협력강화 방안 논의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25311"
-        },
-        {
-          "date": "2025-02-24",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 60000,
-          "people": 3,
-          "purpose": "주택업계 관계자 의견청취",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25125"
-        }
-      ]
-    },
-    {
-      "merchant": "진이",
-      "address": "",
-      "phone": "",
-      "score": 77.9,
-      "visits": 4,
-      "months": 4,
-      "spend": 245000,
-      "institution_count": 1,
-      "institutions": [
-        "주택도시보증공사"
-      ],
-      "date_min": "2025-04-28",
-      "date_max": "2026-02-09",
-      "purpose_stats": [
-        {
-          "text": "중장기 기금관리 방안 협의",
-          "count": 1
-        },
-        {
-          "text": "기금 운용방안 협의",
-          "count": 1
-        },
-        {
-          "text": "중장기기금관리방안협의",
-          "count": 1
-        },
-        {
-          "text": "국정과제 현안파악 및 의견청취",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "주택도시기금본부장",
-          "visits": 3
-        },
-        {
-          "role": "경영전략본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-02-09",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 64000,
-          "people": 3,
-          "purpose": "국정과제 현안파악 및 의견청취",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26966"
-        },
-        {
-          "date": "2025-11-04",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 50000,
-          "people": 3,
-          "purpose": "중장기기금관리방안협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26618"
-        },
-        {
-          "date": "2025-10-13",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 41000,
-          "people": 3,
-          "purpose": "기금 운용방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26459"
-        },
-        {
-          "date": "2025-04-28",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 90000,
-          "people": 8,
-          "purpose": "중장기 기금관리 방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25428"
         }
       ]
     },
@@ -5358,96 +5090,6 @@
       ]
     },
     {
-      "merchant": "통낙지",
-      "address": "",
-      "phone": "",
-      "score": 74.0,
-      "visits": 4,
-      "months": 3,
-      "spend": 343000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-03-17",
-      "date_max": "2026-06-16",
-      "purpose_stats": [
-        {
-          "text": "인력운영 개선 협의",
-          "count": 1
-        },
-        {
-          "text": "내부 감사 효율화 방안 논의",
-          "count": 1
-        },
-        {
-          "text": "주택업계 관계자 의견청취",
-          "count": 1
-        },
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "경영전략본부장",
-          "visits": 2
-        },
-        {
-          "role": "상근감사위원",
-          "visits": 1
-        },
-        {
-          "role": "이사",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-16",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 70000,
-          "people": 4,
-          "purpose": "주택업계 관계자 의견청취",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
-        },
-        {
-          "date": "2026-06-16",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 166000,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
-        },
-        {
-          "date": "2026-05-26",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "상근감사위원",
-          "amount": 43000,
-          "people": 3,
-          "purpose": "내부 감사 효율화 방안 논의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27492"
-        },
-        {
-          "date": "2025-03-17",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 64000,
-          "people": 4,
-          "purpose": "인력운영 개선 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25311"
-        }
-      ]
-    },
-    {
       "merchant": "사랑방메기탕",
       "address": "",
       "phone": "",
@@ -5667,79 +5309,6 @@
       ]
     },
     {
-      "merchant": "우아한형제들",
-      "address": "",
-      "phone": "",
-      "score": 73.8,
-      "visits": 4,
-      "months": 3,
-      "spend": 245500,
-      "institution_count": 1,
-      "institutions": [
-        "한국영유아보육·교육진흥원"
-      ],
-      "date_min": "2025-04-02",
-      "date_max": "2025-10-13",
-      "purpose_stats": [
-        {
-          "text": "내부 운영회의",
-          "count": 3
-        },
-        {
-          "text": "관계기관 업무 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 4
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-10-13",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 35500,
-          "people": 4,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202510"
-        },
-        {
-          "date": "2025-09-16",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 72400,
-          "people": 4,
-          "purpose": "관계기관 업무 협의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202509"
-        },
-        {
-          "date": "2025-04-10",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 81100,
-          "people": 7,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202504"
-        },
-        {
-          "date": "2025-04-02",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 56500,
-          "people": 7,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202504"
-        }
-      ]
-    },
-    {
       "merchant": "길수횟집",
       "address": "",
       "phone": "",
@@ -5805,91 +5374,6 @@
           "people": 8,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25598"
-        }
-      ]
-    },
-    {
-      "merchant": "해운대이름난암소갈비",
-      "address": "",
-      "phone": "",
-      "score": 70.4,
-      "visits": 4,
-      "months": 2,
-      "spend": 837000,
-      "institution_count": 1,
-      "institutions": [
-        "주택도시보증공사"
-      ],
-      "date_min": "2025-07-15",
-      "date_max": "2025-09-04",
-      "purpose_stats": [
-        {
-          "text": "정부 정책 지원방안 협의",
-          "count": 1
-        },
-        {
-          "text": "기금리스크관리효율화방안협의",
-          "count": 1
-        },
-        {
-          "text": "유관기관 업무협의",
-          "count": 1
-        },
-        {
-          "text": "감사 전문성강화 관련 회의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "주택도시기금본부장",
-          "visits": 2
-        },
-        {
-          "role": "상근감사위원",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-09-04",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "상근감사위원",
-          "amount": 217000,
-          "people": 8,
-          "purpose": "감사 전문성강화 관련 회의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
-        },
-        {
-          "date": "2025-07-28",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "상근감사위원",
-          "amount": 279000,
-          "people": 10,
-          "purpose": "유관기관 업무협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
-        },
-        {
-          "date": "2025-07-23",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 156000,
-          "people": 6,
-          "purpose": "기금리스크관리효율화방안협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
-        },
-        {
-          "date": "2025-07-15",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 185000,
-          "people": 7,
-          "purpose": "정부 정책 지원방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25814"
         }
       ]
     },
@@ -6538,78 +6022,6 @@
       ]
     },
     {
-      "merchant": "홍유단",
-      "address": "",
-      "phone": "",
-      "score": 69.7,
-      "visits": 3,
-      "months": 3,
-      "spend": 541000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-02-10",
-      "date_max": "2026-06-15",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 2
-        },
-        {
-          "text": "정책과제 실행방안 공유 및 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 1
-        },
-        {
-          "role": "자산관리본부장",
-          "visits": 1
-        },
-        {
-          "role": "이사",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-15",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 163000,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
-        },
-        {
-          "date": "2026-04-10",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "자산관리본부장",
-          "amount": 173000,
-          "people": 4,
-          "purpose": "정책과제 실행방안 공유 및 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
-        },
-        {
-          "date": "2025-02-10",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "기관장",
-          "amount": 205000,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
-        }
-      ]
-    },
-    {
       "merchant": "한화푸드테크도원스타일서울역점",
       "address": "",
       "phone": "",
@@ -7119,82 +6531,6 @@
       ]
     },
     {
-      "merchant": "민기네밥집",
-      "address": "",
-      "phone": "",
-      "score": 69.6,
-      "visits": 3,
-      "months": 3,
-      "spend": 429000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-06-23",
-      "date_max": "2026-06-12",
-      "purpose_stats": [
-        {
-          "text": "정책목표 달성 방안 등 협의",
-          "count": 1
-        },
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 1
-        },
-        {
-          "text": "청렴도 제고방안 관련 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 1
-        },
-        {
-          "role": "이사",
-          "visits": 1
-        },
-        {
-          "role": "상근감사위원",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-12",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "상근감사위원",
-          "amount": 63000,
-          "people": 7,
-          "purpose": "청렴도 제고방안 관련 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27845"
-        },
-        {
-          "date": "2025-08-25",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 210000,
-          "people": 7,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=24230"
-        },
-        {
-          "date": "2025-06-23",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기관장",
-          "amount": 156000,
-          "people": 6,
-          "purpose": "정책목표 달성 방안 등 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25638"
-        }
-      ]
-    },
-    {
       "merchant": "한화커넥트",
       "address": "",
       "phone": "",
@@ -7642,74 +6978,6 @@
       ]
     },
     {
-      "merchant": "동원활어",
-      "address": "",
-      "phone": "",
-      "score": 69.3,
-      "visits": 3,
-      "months": 3,
-      "spend": 272000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-02-10",
-      "date_max": "2026-05-28",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 2
-        },
-        {
-          "text": "청렴도 향상 방안 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "이사",
-          "visits": 2
-        },
-        {
-          "role": "상근감사위원",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-05-28",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "상근감사위원",
-          "amount": 100000,
-          "people": 3,
-          "purpose": "청렴도 향상 방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27492"
-        },
-        {
-          "date": "2026-04-30",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 100000,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27450"
-        },
-        {
-          "date": "2025-02-10",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 72000,
-          "people": 4,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
-        }
-      ]
-    },
-    {
       "merchant": "소문난구포집",
       "address": "",
       "phone": "",
@@ -7840,69 +7108,132 @@
       ]
     },
     {
-      "merchant": "황금복국",
+      "merchant": "우진생고기",
       "address": "",
       "phone": "",
       "score": 69.1,
       "visits": 3,
       "months": 3,
-      "spend": 204000,
+      "spend": 212000,
       "institution_count": 1,
       "institutions": [
-        "한국장학재단"
+        "주택도시보증공사"
       ],
-      "date_min": "2025-05-16",
-      "date_max": "2026-07-10",
+      "date_min": "2025-02-24",
+      "date_max": "2025-09-09",
       "purpose_stats": [
         {
-          "text": "파란사다리 사업 추진현황 공유(대학별 추진 프로그램 및 운영 현황 공유, 사업활성화를 위한 기관별 피드백 및 역할 논의)",
+          "text": "주택업계 관계자 의견청취",
           "count": 1
         },
         {
-          "text": "유관기관 관계자 업무협의(새정부 국정과제 기반 교육사업 모색 및 활성화 방안 논의, 비수도권 전문대학 정원 외 성인학습자 국가장학금 지원 프로세스 수립 관련 의견 교류",
+          "text": "기관간 협력강화 방안 논의",
           "count": 1
         },
         {
-          "text": "국회관계자 장학금정책 현안 청취 및 의견교류",
+          "text": "정부정책 지원방안 협의",
           "count": 1
         }
       ],
       "role_stats": [
         {
-          "role": "상임이사",
+          "role": "경영전략본부장",
+          "visits": 2
+        },
+        {
+          "role": "주택도시기금본부장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-09",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 76000,
+          "people": 3,
+          "purpose": "정부정책 지원방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
+        },
+        {
+          "date": "2025-03-05",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 76000,
+          "people": 4,
+          "purpose": "기관간 협력강화 방안 논의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25311"
+        },
+        {
+          "date": "2025-02-24",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 60000,
+          "people": 3,
+          "purpose": "주택업계 관계자 의견청취",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25125"
+        }
+      ]
+    },
+    {
+      "merchant": "삼삼횟집",
+      "address": "",
+      "phone": "",
+      "score": 65.6,
+      "visits": 3,
+      "months": 2,
+      "spend": 570000,
+      "institution_count": 1,
+      "institutions": [
+        "한국자산관리공사"
+      ],
+      "date_min": "2026-02-11",
+      "date_max": "2026-06-15",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 3
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "이사",
           "visits": 3
         }
       ],
       "recent": [
         {
-          "date": "2026-07-10",
+          "date": "2026-06-15",
           "time": "",
-          "institution": "한국장학재단",
-          "role": "상임이사",
-          "amount": 64000,
-          "people": 4,
-          "purpose": "국회관계자 장학금정책 현안 청취 및 의견교류",
-          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=21212&pFile_No=1"
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 150000,
+          "people": 3,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
         },
         {
-          "date": "2025-09-04",
+          "date": "2026-02-11",
           "time": "",
-          "institution": "한국장학재단",
-          "role": "상임이사",
-          "amount": 84000,
-          "people": 3,
-          "purpose": "유관기관 관계자 업무협의(새정부 국정과제 기반 교육사업 모색 및 활성화 방안 논의, 비수도권 전문대학 정원 외 성인학습자 국가장학금 지원 프로세스 수립 관련 의견 교류",
-          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=20255&pFile_No=1"
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 210000,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26508"
         },
         {
-          "date": "2025-05-16",
+          "date": "2026-02-11",
           "time": "",
-          "institution": "한국장학재단",
-          "role": "상임이사",
-          "amount": 56000,
-          "people": 3,
-          "purpose": "파란사다리 사업 추진현황 공유(대학별 추진 프로그램 및 운영 현황 공유, 사업활성화를 위한 기관별 피드백 및 역할 논의)",
-          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=18775&pFile_No=1"
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 210000,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26770"
         }
       ]
     },
@@ -8190,65 +7521,6 @@
       ]
     },
     {
-      "merchant": "배달의민족",
-      "address": "",
-      "phone": "",
-      "score": 61.0,
-      "visits": 3,
-      "months": 1,
-      "spend": 276000,
-      "institution_count": 1,
-      "institutions": [
-        "한국영유아보육·교육진흥원"
-      ],
-      "date_min": "2026-03-11",
-      "date_max": "2026-03-13",
-      "purpose_stats": [
-        {
-          "text": "내부 운영회의",
-          "count": 3
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 3
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-03-13",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 105500,
-          "people": 8,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202603"
-        },
-        {
-          "date": "2026-03-12",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 107500,
-          "people": 8,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202603"
-        },
-        {
-          "date": "2026-03-11",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 63000,
-          "people": 8,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202603"
-        }
-      ]
-    },
-    {
       "merchant": "아카사카",
       "address": "",
       "phone": "02-585-1145",
@@ -8355,6 +7627,55 @@
       ]
     },
     {
+      "merchant": "르꼬숑",
+      "address": "",
+      "phone": "",
+      "score": 60.0,
+      "visits": 2,
+      "months": 2,
+      "spend": 830000,
+      "institution_count": 1,
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "date_min": "2025-02-26",
+      "date_max": "2025-11-12",
+      "purpose_stats": [
+        {
+          "text": "관계기관 업무 협의",
+          "count": 2
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-11-12",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 495000,
+          "people": 10,
+          "purpose": "관계기관 업무 협의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202511"
+        },
+        {
+          "date": "2025-02-26",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 335000,
+          "people": 7,
+          "purpose": "관계기관 업무 협의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202502"
+        }
+      ]
+    },
+    {
       "merchant": "몽중헌 페럼타워",
       "address": "",
       "phone": "",
@@ -8453,59 +7774,6 @@
           "people": 15,
           "purpose": "에너지시장 동향 및 정책협의",
           "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
-        }
-      ]
-    },
-    {
-      "merchant": "암소서울",
-      "address": "",
-      "phone": "010-2668-0824",
-      "score": 59.9,
-      "visits": 2,
-      "months": 2,
-      "spend": 728000,
-      "institution_count": 1,
-      "institutions": [
-        "한국무역보험공사"
-      ],
-      "date_min": "2026-03-30",
-      "date_max": "2026-07-13",
-      "purpose_stats": [
-        {
-          "text": "생산적금융 지원 확대 업무협의",
-          "count": 1
-        },
-        {
-          "text": "무역금융 상생 지원 강화 업무협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-07-13",
-          "time": "",
-          "institution": "한국무역보험공사",
-          "role": "기관장",
-          "amount": 492000,
-          "people": 6,
-          "purpose": "무역금융 상생 지원 강화 업무협의",
-          "source": "https://www.ksure.or.kr/rh-kr/bbs/i-480/down.do?bbs_id=1049&ntt_sn=233&data_ty_cd=A&atfile_sn=1"
-        },
-        {
-          "date": "2026-03-30",
-          "time": "",
-          "institution": "한국무역보험공사",
-          "role": "기관장",
-          "amount": 236000,
-          "people": 4,
-          "purpose": "생산적금융 지원 확대 업무협의",
-          "source": "https://www.ksure.or.kr/rh-kr/bbs/i-480/down.do?bbs_id=1049&ntt_sn=233&data_ty_cd=A&atfile_sn=1"
         }
       ]
     },
@@ -8617,6 +7885,64 @@
       ]
     },
     {
+      "merchant": "영빈루블랙",
+      "address": "",
+      "phone": "",
+      "score": 59.7,
+      "visits": 2,
+      "months": 2,
+      "spend": 578000,
+      "institution_count": 2,
+      "institutions": [
+        "한국영유아보육·교육진흥원",
+        "한국장학재단"
+      ],
+      "date_min": "2026-03-11",
+      "date_max": "2026-08-06",
+      "purpose_stats": [
+        {
+          "text": "분야별 청년 정책 제안 논의 및 의견소통",
+          "count": 1
+        },
+        {
+          "text": "관계기관 업무 협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "상임이사",
+          "visits": 1
+        },
+        {
+          "role": "기관장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-06",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 398000,
+          "people": 8,
+          "purpose": "관계기관 업무 협의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202608"
+        },
+        {
+          "date": "2026-03-11",
+          "time": "",
+          "institution": "한국장학재단",
+          "role": "상임이사",
+          "amount": 180000,
+          "people": 6,
+          "purpose": "분야별 청년 정책 제안 논의 및 의견소통",
+          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=20830&pFile_No=1"
+        }
+      ]
+    },
+    {
       "merchant": "다온정",
       "address": "",
       "phone": "",
@@ -8716,6 +8042,59 @@
           "people": 5,
           "purpose": "유관기관 업무협의",
           "source": "https://www.kwater.or.kr/water/sub02/sub02/head/head17Page.do"
+        }
+      ]
+    },
+    {
+      "merchant": "갑돌네",
+      "address": "",
+      "phone": "",
+      "score": 59.5,
+      "visits": 2,
+      "months": 2,
+      "spend": 385000,
+      "institution_count": 1,
+      "institutions": [
+        "한국영유아보육·교육진흥원"
+      ],
+      "date_min": "2025-03-04",
+      "date_max": "2025-07-16",
+      "purpose_stats": [
+        {
+          "text": "내부 운영회의",
+          "count": 1
+        },
+        {
+          "text": "관계기관 업무 협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-16",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 325000,
+          "people": 11,
+          "purpose": "관계기관 업무 협의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202507"
+        },
+        {
+          "date": "2025-03-04",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 60000,
+          "people": 6,
+          "purpose": "내부 운영회의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202503"
         }
       ]
     },
@@ -8880,6 +8259,64 @@
       ]
     },
     {
+      "merchant": "아야진생태찌개",
+      "address": "",
+      "phone": "",
+      "score": 59.2,
+      "visits": 2,
+      "months": 2,
+      "spend": 269000,
+      "institution_count": 2,
+      "institutions": [
+        "주택도시보증공사",
+        "한국남부발전"
+      ],
+      "date_min": "2025-01-13",
+      "date_max": "2025-04-04",
+      "purpose_stats": [
+        {
+          "text": "리스크관리 관련 의견 청취",
+          "count": 1
+        },
+        {
+          "text": "해외투자사업 관련 정책 동향",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 1
+        },
+        {
+          "role": "사장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-04-04",
+          "time": "",
+          "institution": "한국남부발전",
+          "role": "사장",
+          "amount": 166000,
+          "people": 7,
+          "purpose": "해외투자사업 관련 정책 동향",
+          "source": "https://www.alio.go.kr/download/file.json?d=2026041303153866&f=101"
+        },
+        {
+          "date": "2025-01-13",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "기관장",
+          "amount": 103000,
+          "people": 4,
+          "purpose": "리스크관리 관련 의견 청취",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=24996"
+        }
+      ]
+    },
+    {
       "merchant": "송전",
       "address": "",
       "phone": "02-739-8282",
@@ -8987,55 +8424,60 @@
       ]
     },
     {
-      "merchant": "유일초밥",
+      "merchant": "통낙지",
       "address": "",
       "phone": "",
-      "score": 59.0,
+      "score": 59.1,
       "visits": 2,
       "months": 2,
-      "spend": 192729,
-      "institution_count": 1,
+      "spend": 230000,
+      "institution_count": 2,
       "institutions": [
-        "한국중부발전"
+        "주택도시보증공사",
+        "한국자산관리공사"
       ],
-      "date_min": "2026-04-23",
-      "date_max": "2026-08-26",
+      "date_min": "2025-03-17",
+      "date_max": "2026-06-16",
       "purpose_stats": [
         {
-          "text": "에너지환경정책실 직원 소통간담회",
+          "text": "인력운영 개선 협의",
           "count": 1
         },
         {
-          "text": "재생에너지사업처 직원 소통간담회",
+          "text": "유관기관 업무 설명 및 협의 등",
           "count": 1
         }
       ],
       "role_stats": [
         {
-          "role": "사장",
-          "visits": 2
+          "role": "경영전략본부장",
+          "visits": 1
+        },
+        {
+          "role": "이사",
+          "visits": 1
         }
       ],
       "recent": [
         {
-          "date": "2026-08-26",
+          "date": "2026-06-16",
           "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 104546,
-          "people": 7,
-          "purpose": "재생에너지사업처 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22892"
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 166000,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
         },
         {
-          "date": "2026-04-23",
+          "date": "2025-03-17",
           "time": "",
-          "institution": "한국중부발전",
-          "role": "사장",
-          "amount": 88183,
-          "people": 10,
-          "purpose": "에너지환경정책실 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22617"
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 64000,
+          "people": 4,
+          "purpose": "인력운영 개선 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25311"
         }
       ]
     },
@@ -9548,6 +8990,59 @@
       ]
     },
     {
+      "merchant": "미도방비아이에프씨점",
+      "address": "",
+      "phone": "",
+      "score": 54.4,
+      "visits": 2,
+      "months": 1,
+      "spend": 103500,
+      "institution_count": 1,
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "date_min": "2025-09-02",
+      "date_max": "2025-09-10",
+      "purpose_stats": [
+        {
+          "text": "주택도시기금 홍보방안 협의",
+          "count": 1
+        },
+        {
+          "text": "임대리츠 기금 출자협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "주택도시기금본부장",
+          "visits": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-09-10",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 46500,
+          "people": 3,
+          "purpose": "임대리츠 기금 출자협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
+        },
+        {
+          "date": "2025-09-02",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 57000,
+          "people": 3,
+          "purpose": "주택도시기금 홍보방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26192"
+        }
+      ]
+    },
+    {
       "merchant": "진담덮밥앤소바",
       "address": "",
       "phone": "",
@@ -9922,7 +9417,7 @@
           "amount": 300000,
           "people": 20,
           "purpose": "재무개선처 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=21365"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=21365"
         }
       ]
     },
@@ -10001,6 +9496,45 @@
           "people": 8,
           "purpose": "지역밀착형 공사상품 홍보방안 등 논의",
           "source": "https://www.hf.go.kr/ko/sub05/sub05_03_04_05_01.do?mode=download&articleNo=600550&attachNo=96596"
+        }
+      ]
+    },
+    {
+      "merchant": "떡마루",
+      "address": "",
+      "phone": "",
+      "score": 46.8,
+      "visits": 1,
+      "months": 1,
+      "spend": 300000,
+      "institution_count": 1,
+      "institutions": [
+        "한국산업인력공단"
+      ],
+      "date_min": "2026-09-21",
+      "date_max": "2026-09-21",
+      "purpose_stats": [
+        {
+          "text": "경인지역본부 직원 현장소통",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "카드",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-09-21",
+          "time": "",
+          "institution": "한국산업인력공단",
+          "role": "카드",
+          "amount": 300000,
+          "people": 30,
+          "purpose": "경인지역본부 직원 현장소통",
+          "source": "https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq=2053630"
         }
       ]
     },
@@ -10273,7 +9807,7 @@
           "amount": 269092,
           "people": 15,
           "purpose": "경영진 현안사항 회의",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=20695"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=20695"
         }
       ]
     },
@@ -10390,7 +9924,46 @@
           "amount": 260000,
           "people": 20,
           "purpose": "그린에너지사업단 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=21403"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=21403"
+        }
+      ]
+    },
+    {
+      "merchant": "콩이파리",
+      "address": "",
+      "phone": "",
+      "score": 46.7,
+      "visits": 1,
+      "months": 1,
+      "spend": 258000,
+      "institution_count": 1,
+      "institutions": [
+        "한국산업인력공단"
+      ],
+      "date_min": "2026-09-01",
+      "date_max": "2026-09-01",
+      "purpose_stats": [
+        {
+          "text": "AX추진단 업무 수행 격려",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "카드",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-09-01",
+          "time": "",
+          "institution": "한국산업인력공단",
+          "role": "카드",
+          "amount": 258000,
+          "people": 7,
+          "purpose": "AX추진단 업무 수행 격려",
+          "source": "https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq=2053630"
         }
       ]
     },
@@ -10664,6 +10237,45 @@
           "people": 8,
           "purpose": "2직급 간부 승진자 대상 격려",
           "source": "https://ns.kdn.com/download.kdn?filename=1741326846806.xlsx&filenameOrg=2025%EB%85%84+1%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=22917&seq=1"
+        }
+      ]
+    },
+    {
+      "merchant": "윈터가든",
+      "address": "",
+      "phone": "",
+      "score": 46.6,
+      "visits": 1,
+      "months": 1,
+      "spend": 225000,
+      "institution_count": 1,
+      "institutions": [
+        "한국산업인력공단"
+      ],
+      "date_min": "2026-09-14",
+      "date_max": "2026-09-14",
+      "purpose_stats": [
+        {
+          "text": "검정관련 현안업무 보고",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "카드",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-09-14",
+          "time": "",
+          "institution": "한국산업인력공단",
+          "role": "카드",
+          "amount": 225000,
+          "people": 5,
+          "purpose": "검정관련 현안업무 보고",
+          "source": "https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq=2053630"
         }
       ]
     },
@@ -10975,6 +10587,45 @@
       ]
     },
     {
+      "merchant": "메이드인33(투싱)",
+      "address": "",
+      "phone": "",
+      "score": 46.4,
+      "visits": 1,
+      "months": 1,
+      "spend": 165000,
+      "institution_count": 1,
+      "institutions": [
+        "한국산업인력공단"
+      ],
+      "date_min": "2026-09-18",
+      "date_max": "2026-09-18",
+      "purpose_stats": [
+        {
+          "text": "공단사업 관련 업무협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "카드",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-09-18",
+          "time": "",
+          "institution": "한국산업인력공단",
+          "role": "카드",
+          "amount": 165000,
+          "people": 4,
+          "purpose": "공단사업 관련 업무협의",
+          "source": "https://www.hrdkorea.or.kr/cms/download/downloadFile.hrd?attachSeq=2053630"
+        }
+      ]
+    },
+    {
       "merchant": "우리컬쳐 주식회사",
       "address": "",
       "phone": "",
@@ -11077,7 +10728,7 @@
           "amount": 144546,
           "people": 10,
           "purpose": "인사운영실 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22767"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22767"
         }
       ]
     },
@@ -11150,7 +10801,7 @@
           "amount": 120000,
           "people": 9,
           "purpose": "글로벌사업기획실 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22619"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22619"
         }
       ]
     },
@@ -11189,7 +10840,7 @@
           "amount": 114091,
           "people": 10,
           "purpose": "조달협력처 직원 소통간담회",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22618"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22618"
         }
       ]
     },
@@ -11267,7 +10918,46 @@
           "amount": 110910,
           "people": 9,
           "purpose": "인사운영실 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22616"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22616"
+        }
+      ]
+    },
+    {
+      "merchant": "유일초밥",
+      "address": "",
+      "phone": "",
+      "score": 46.1,
+      "visits": 1,
+      "months": 1,
+      "spend": 104546,
+      "institution_count": 1,
+      "institutions": [
+        "한국중부발전"
+      ],
+      "date_min": "2026-08-26",
+      "date_max": "2026-08-26",
+      "purpose_stats": [
+        {
+          "text": "재생에너지사업처 직원 소통간담회",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "사장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-08-26",
+          "time": "",
+          "institution": "한국중부발전",
+          "role": "사장",
+          "amount": 104546,
+          "people": 7,
+          "purpose": "재생에너지사업처 직원 소통간담회",
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22892"
         }
       ]
     },
@@ -11306,7 +10996,7 @@
           "amount": 104000,
           "people": 5,
           "purpose": "총무부 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=20696"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=20696"
         }
       ]
     },
@@ -11447,7 +11137,7 @@
           "amount": 87274,
           "people": 6,
           "purpose": "환경정책실 직원 격려",
-          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardView.do?mnCd=FN010712#boardSeq=22614"
+          "source": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=22614"
         }
       ]
     },
@@ -11695,6 +11385,73 @@
       ]
     },
     {
+      "merchant": "황금복국",
+      "address": "",
+      "phone": "",
+      "score": 69.1,
+      "visits": 3,
+      "months": 3,
+      "spend": 204000,
+      "institution_count": 1,
+      "institutions": [
+        "한국장학재단"
+      ],
+      "date_min": "2025-05-16",
+      "date_max": "2026-07-10",
+      "purpose_stats": [
+        {
+          "text": "파란사다리 사업 추진현황 공유(대학별 추진 프로그램 및 운영 현황 공유, 사업활성화를 위한 기관별 피드백 및 역할 논의)",
+          "count": 1
+        },
+        {
+          "text": "유관기관 관계자 업무협의(새정부 국정과제 기반 교육사업 모색 및 활성화 방안 논의, 비수도권 전문대학 정원 외 성인학습자 국가장학금 지원 프로세스 수립 관련 의견 교류",
+          "count": 1
+        },
+        {
+          "text": "국회관계자 장학금정책 현안 청취 및 의견교류",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "상임이사",
+          "visits": 3
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-07-10",
+          "time": "",
+          "institution": "한국장학재단",
+          "role": "상임이사",
+          "amount": 64000,
+          "people": 4,
+          "purpose": "국회관계자 장학금정책 현안 청취 및 의견교류",
+          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=21212&pFile_No=1"
+        },
+        {
+          "date": "2025-09-04",
+          "time": "",
+          "institution": "한국장학재단",
+          "role": "상임이사",
+          "amount": 84000,
+          "people": 3,
+          "purpose": "유관기관 관계자 업무협의(새정부 국정과제 기반 교육사업 모색 및 활성화 방안 논의, 비수도권 전문대학 정원 외 성인학습자 국가장학금 지원 프로세스 수립 관련 의견 교류",
+          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=20255&pFile_No=1"
+        },
+        {
+          "date": "2025-05-16",
+          "time": "",
+          "institution": "한국장학재단",
+          "role": "상임이사",
+          "amount": 56000,
+          "people": 3,
+          "purpose": "파란사다리 사업 추진현황 공유(대학별 추진 프로그램 및 운영 현황 공유, 사업활성화를 위한 기관별 피드백 및 역할 논의)",
+          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=18775&pFile_No=1"
+        }
+      ]
+    },
+    {
       "merchant": "보따리",
       "address": "",
       "phone": "",
@@ -11750,73 +11507,6 @@
           "people": 2,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
-        }
-      ]
-    },
-    {
-      "merchant": "스타벅스코리아",
-      "address": "",
-      "phone": "",
-      "score": 68.7,
-      "visits": 3,
-      "months": 3,
-      "spend": 112600,
-      "institution_count": 1,
-      "institutions": [
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-03-20",
-      "date_max": "2026-06-02",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 3
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 1
-        },
-        {
-          "role": "부사장",
-          "visits": 1
-        },
-        {
-          "role": "이사",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-06-02",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 31300,
-          "people": 5,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
-        },
-        {
-          "date": "2025-08-13",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "부사장",
-          "amount": 65800,
-          "people": 13,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=24230"
-        },
-        {
-          "date": "2025-03-20",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "기관장",
-          "amount": 15500,
-          "people": 3,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=22166"
         }
       ]
     },
@@ -12381,6 +12071,77 @@
       ]
     },
     {
+      "merchant": "정희네",
+      "address": "",
+      "phone": "",
+      "score": 65.0,
+      "visits": 3,
+      "months": 2,
+      "spend": 246000,
+      "institution_count": 1,
+      "institutions": [
+        "주택도시보증공사"
+      ],
+      "date_min": "2025-10-14",
+      "date_max": "2026-03-26",
+      "purpose_stats": [
+        {
+          "text": "기금 리스크관리 효율화 방안 협의",
+          "count": 1
+        },
+        {
+          "text": "기관간 협력강화 방안논의",
+          "count": 1
+        },
+        {
+          "text": "인력운영 개선협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "경영전략본부장",
+          "visits": 2
+        },
+        {
+          "role": "주택도시기금본부장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-26",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 66000,
+          "people": 5,
+          "purpose": "인력운영 개선협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27172"
+        },
+        {
+          "date": "2026-03-06",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "경영전략본부장",
+          "amount": 120000,
+          "people": 5,
+          "purpose": "기관간 협력강화 방안논의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27172"
+        },
+        {
+          "date": "2025-10-14",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "주택도시기금본부장",
+          "amount": 60000,
+          "people": 3,
+          "purpose": "기금 리스크관리 효율화 방안 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=26459"
+        }
+      ]
+    },
+    {
       "merchant": "온정복",
       "address": "",
       "phone": "",
@@ -12690,112 +12451,6 @@
       ]
     },
     {
-      "merchant": "르꼬숑",
-      "address": "",
-      "phone": "",
-      "score": 60.0,
-      "visits": 2,
-      "months": 2,
-      "spend": 830000,
-      "institution_count": 1,
-      "institutions": [
-        "한국영유아보육·교육진흥원"
-      ],
-      "date_min": "2025-02-26",
-      "date_max": "2025-11-12",
-      "purpose_stats": [
-        {
-          "text": "관계기관 업무 협의",
-          "count": 2
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-11-12",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 495000,
-          "people": 10,
-          "purpose": "관계기관 업무 협의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202511"
-        },
-        {
-          "date": "2025-02-26",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 335000,
-          "people": 7,
-          "purpose": "관계기관 업무 협의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202502"
-        }
-      ]
-    },
-    {
-      "merchant": "미스터홍탁",
-      "address": "",
-      "phone": "",
-      "score": 59.9,
-      "visits": 2,
-      "months": 2,
-      "spend": 762000,
-      "institution_count": 1,
-      "institutions": [
-        "주택도시보증공사"
-      ],
-      "date_min": "2025-03-14",
-      "date_max": "2026-04-20",
-      "purpose_stats": [
-        {
-          "text": "기금 관리 효율화 방안 협의",
-          "count": 1
-        },
-        {
-          "text": "주택업계 관계자 의견청취",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "주택도시기금본부장",
-          "visits": 1
-        },
-        {
-          "role": "경영전략본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-04-20",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "경영전략본부장",
-          "amount": 396000,
-          "people": 8,
-          "purpose": "주택업계 관계자 의견청취",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
-        },
-        {
-          "date": "2025-03-14",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "주택도시기금본부장",
-          "amount": 366000,
-          "people": 13,
-          "purpose": "기금 관리 효율화 방안 협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25311"
-        }
-      ]
-    },
-    {
       "merchant": "연구소",
       "address": "",
       "phone": "",
@@ -12841,6 +12496,59 @@
           "people": 9,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=25598"
+        }
+      ]
+    },
+    {
+      "merchant": "암소서울",
+      "address": "",
+      "phone": "010-2668-0824",
+      "score": 59.9,
+      "visits": 2,
+      "months": 2,
+      "spend": 728000,
+      "institution_count": 1,
+      "institutions": [
+        "한국무역보험공사"
+      ],
+      "date_min": "2026-03-30",
+      "date_max": "2026-07-13",
+      "purpose_stats": [
+        {
+          "text": "생산적금융 지원 확대 업무협의",
+          "count": 1
+        },
+        {
+          "text": "무역금융 상생 지원 강화 업무협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 2
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-07-13",
+          "time": "",
+          "institution": "한국무역보험공사",
+          "role": "기관장",
+          "amount": 492000,
+          "people": 6,
+          "purpose": "무역금융 상생 지원 강화 업무협의",
+          "source": "https://www.ksure.or.kr/rh-kr/bbs/i-480/down.do?bbs_id=1049&ntt_sn=233&data_ty_cd=A&atfile_sn=1"
+        },
+        {
+          "date": "2026-03-30",
+          "time": "",
+          "institution": "한국무역보험공사",
+          "role": "기관장",
+          "amount": 236000,
+          "people": 4,
+          "purpose": "생산적금융 지원 확대 업무협의",
+          "source": "https://www.ksure.or.kr/rh-kr/bbs/i-480/down.do?bbs_id=1049&ntt_sn=233&data_ty_cd=A&atfile_sn=1"
         }
       ]
     },
@@ -13143,6 +12851,64 @@
       ]
     },
     {
+      "merchant": "아바니센트럴부산",
+      "address": "",
+      "phone": "",
+      "score": 59.8,
+      "visits": 2,
+      "months": 2,
+      "spend": 599200,
+      "institution_count": 2,
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-12-30",
+      "date_max": "2026-03-12",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 1
+        },
+        {
+          "text": "기금전산화 관련 협의",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "이사",
+          "visits": 1
+        },
+        {
+          "role": "기금사업본부장",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-03-12",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "기금사업본부장",
+          "amount": 299200,
+          "people": 7,
+          "purpose": "기금전산화 관련 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27172"
+        },
+        {
+          "date": "2025-12-30",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 300000,
+          "people": 6,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26167"
+        }
+      ]
+    },
+    {
       "merchant": "오부찌양재점",
       "address": "",
       "phone": "",
@@ -13188,64 +12954,6 @@
           "people": 6,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27046"
-        }
-      ]
-    },
-    {
-      "merchant": "영빈루블랙",
-      "address": "",
-      "phone": "",
-      "score": 59.7,
-      "visits": 2,
-      "months": 2,
-      "spend": 578000,
-      "institution_count": 2,
-      "institutions": [
-        "한국영유아보육·교육진흥원",
-        "한국장학재단"
-      ],
-      "date_min": "2026-03-11",
-      "date_max": "2026-08-06",
-      "purpose_stats": [
-        {
-          "text": "분야별 청년 정책 제안 논의 및 의견소통",
-          "count": 1
-        },
-        {
-          "text": "관계기관 업무 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "상임이사",
-          "visits": 1
-        },
-        {
-          "role": "기관장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-08-06",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 398000,
-          "people": 8,
-          "purpose": "관계기관 업무 협의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202608"
-        },
-        {
-          "date": "2026-03-11",
-          "time": "",
-          "institution": "한국장학재단",
-          "role": "상임이사",
-          "amount": 180000,
-          "people": 6,
-          "purpose": "분야별 청년 정책 제안 논의 및 의견소통",
-          "source": "https://www.kosaf.go.kr/ko/download.do?pPath=HP.BRD.UPLOAD&pSeq_No=20830&pFile_No=1"
         }
       ]
     },
@@ -13450,64 +13158,6 @@
           "people": 9,
           "purpose": "경영효율화 방안 공유 및 의견 청취",
           "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=24996"
-        }
-      ]
-    },
-    {
-      "merchant": "해운대일품한우",
-      "address": "",
-      "phone": "",
-      "score": 59.7,
-      "visits": 2,
-      "months": 2,
-      "spend": 532000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2026-04-08",
-      "date_max": "2026-05-22",
-      "purpose_stats": [
-        {
-          "text": "기금리스크 관리 효율화 방안협의",
-          "count": 1
-        },
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기금사업본부장",
-          "visits": 1
-        },
-        {
-          "role": "감사",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-05-22",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "감사",
-          "amount": 269000,
-          "people": 7,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27692"
-        },
-        {
-          "date": "2026-04-08",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기금사업본부장",
-          "amount": 263000,
-          "people": 6,
-          "purpose": "기금리스크 관리 효율화 방안협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
         }
       ]
     },
@@ -13859,64 +13509,6 @@
           "people": 6,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=22948"
-        }
-      ]
-    },
-    {
-      "merchant": "아바니센트럴부산",
-      "address": "",
-      "phone": "",
-      "score": 59.6,
-      "visits": 2,
-      "months": 2,
-      "spend": 487000,
-      "institution_count": 2,
-      "institutions": [
-        "주택도시보증공사",
-        "한국자산관리공사"
-      ],
-      "date_min": "2025-12-30",
-      "date_max": "2026-04-27",
-      "purpose_stats": [
-        {
-          "text": "유관기관 업무 설명 및 협의 등",
-          "count": 1
-        },
-        {
-          "text": "금융기관 위수탁 업무협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "이사",
-          "visits": 1
-        },
-        {
-          "role": "기금사업본부장",
-          "visits": 1
-        }
-      ],
-      "recent": [
-        {
-          "date": "2026-04-27",
-          "time": "",
-          "institution": "주택도시보증공사",
-          "role": "기금사업본부장",
-          "amount": 187000,
-          "people": 4,
-          "purpose": "금융기관 위수탁 업무협의",
-          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=27309"
-        },
-        {
-          "date": "2025-12-30",
-          "time": "",
-          "institution": "한국자산관리공사",
-          "role": "이사",
-          "amount": 300000,
-          "people": 6,
-          "purpose": "유관기관 업무 설명 및 협의 등",
-          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26167"
         }
       ]
     },
@@ -14592,59 +14184,6 @@
       ]
     },
     {
-      "merchant": "갑돌네",
-      "address": "",
-      "phone": "",
-      "score": 59.5,
-      "visits": 2,
-      "months": 2,
-      "spend": 385000,
-      "institution_count": 1,
-      "institutions": [
-        "한국영유아보육·교육진흥원"
-      ],
-      "date_min": "2025-03-04",
-      "date_max": "2025-07-16",
-      "purpose_stats": [
-        {
-          "text": "내부 운영회의",
-          "count": 1
-        },
-        {
-          "text": "관계기관 업무 협의",
-          "count": 1
-        }
-      ],
-      "role_stats": [
-        {
-          "role": "기관장",
-          "visits": 2
-        }
-      ],
-      "recent": [
-        {
-          "date": "2025-07-16",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 325000,
-          "people": 11,
-          "purpose": "관계기관 업무 협의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202507"
-        },
-        {
-          "date": "2025-03-04",
-          "time": "",
-          "institution": "한국영유아보육·교육진흥원",
-          "role": "기관장",
-          "amount": 60000,
-          "people": 6,
-          "purpose": "내부 운영회의",
-          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202503"
-        }
-      ]
-    },
-    {
       "merchant": "위치비앤씨",
       "address": "",
       "phone": "",
@@ -14798,6 +14337,117 @@
           "people": 4,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?bIdx=22548&mId=0601060603&ptIdx=479"
+        }
+      ]
+    },
+    {
+      "merchant": "홍유단",
+      "address": "",
+      "phone": "",
+      "score": 59.4,
+      "visits": 2,
+      "months": 2,
+      "spend": 368000,
+      "institution_count": 1,
+      "institutions": [
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-02-10",
+      "date_max": "2026-06-15",
+      "purpose_stats": [
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 2
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 1
+        },
+        {
+          "role": "이사",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-15",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 163000,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27991"
+        },
+        {
+          "date": "2025-02-10",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "기관장",
+          "amount": 205000,
+          "people": 5,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
+        }
+      ]
+    },
+    {
+      "merchant": "민기네밥집",
+      "address": "",
+      "phone": "",
+      "score": 59.4,
+      "visits": 2,
+      "months": 2,
+      "spend": 366000,
+      "institution_count": 2,
+      "institutions": [
+        "주택도시보증공사",
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-06-23",
+      "date_max": "2025-08-25",
+      "purpose_stats": [
+        {
+          "text": "정책목표 달성 방안 등 협의",
+          "count": 1
+        },
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 1
+        },
+        {
+          "role": "이사",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-08-25",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 210000,
+          "people": 7,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=24230"
+        },
+        {
+          "date": "2025-06-23",
+          "time": "",
+          "institution": "주택도시보증공사",
+          "role": "기관장",
+          "amount": 156000,
+          "people": 6,
+          "purpose": "정책목표 달성 방안 등 협의",
+          "source": "https://www.khug.or.kr/khugcms/board/skin/download.jsp?id=1036&fileId=25638"
         }
       ]
     },
@@ -15503,6 +15153,64 @@
           "people": 9,
           "purpose": "유관기관 업무 설명 및 협의 등",
           "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=21725"
+        }
+      ]
+    },
+    {
+      "merchant": "공일부엌",
+      "address": "",
+      "phone": "",
+      "score": 59.3,
+      "visits": 2,
+      "months": 2,
+      "spend": 290000,
+      "institution_count": 2,
+      "institutions": [
+        "한국영유아보육·교육진흥원",
+        "한국자산관리공사"
+      ],
+      "date_min": "2025-02-26",
+      "date_max": "2025-07-03",
+      "purpose_stats": [
+        {
+          "text": "내부 운영회의",
+          "count": 1
+        },
+        {
+          "text": "유관기관 업무 설명 및 협의 등",
+          "count": 1
+        }
+      ],
+      "role_stats": [
+        {
+          "role": "기관장",
+          "visits": 1
+        },
+        {
+          "role": "이사",
+          "visits": 1
+        }
+      ],
+      "recent": [
+        {
+          "date": "2025-07-03",
+          "time": "",
+          "institution": "한국자산관리공사",
+          "role": "이사",
+          "amount": 145000,
+          "people": 4,
+          "purpose": "유관기관 업무 설명 및 협의 등",
+          "source": "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23787"
+        },
+        {
+          "date": "2025-02-26",
+          "time": "",
+          "institution": "한국영유아보육·교육진흥원",
+          "role": "기관장",
+          "amount": 145000,
+          "people": 8,
+          "purpose": "내부 운영회의",
+          "source": "https://www.kicece.or.kr/kcpi/openmag/bzexpenseDetail.do?year=202502"
         }
       ]
     }

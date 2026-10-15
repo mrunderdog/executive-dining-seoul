@@ -1,7 +1,32 @@
 {
   "source": "yangju",
-  "candidate_count": 245,
+  "candidate_count": 277,
   "candidates": [
+    {
+      "merchant": "양주성",
+      "visits": 10,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 8,
+      "spend": 1020000,
+      "people": 58,
+      "evening_ratio": 0.8,
+      "score": 91.4
+    },
+    {
+      "merchant": "곰스시",
+      "visits": 14,
+      "roles": [
+        "의장"
+      ],
+      "months": 10,
+      "spend": 3180000,
+      "people": 134,
+      "evening_ratio": 0.857,
+      "score": 88.6
+    },
     {
       "merchant": "은봉산정육점",
       "visits": 13,
@@ -13,18 +38,6 @@
       "people": 141,
       "evening_ratio": 0.769,
       "score": 87.7
-    },
-    {
-      "merchant": "곰스시",
-      "visits": 12,
-      "roles": [
-        "의장"
-      ],
-      "months": 8,
-      "spend": 2602000,
-      "people": 112,
-      "evening_ratio": 0.833,
-      "score": 87.0
     },
     {
       "merchant": "고우시",
@@ -40,29 +53,16 @@
       "score": 84.6
     },
     {
-      "merchant": "양주성",
-      "visits": 8,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 7,
-      "spend": 799000,
-      "people": 44,
-      "evening_ratio": 0.875,
-      "score": 84.4
-    },
-    {
       "merchant": "소풍",
-      "visits": 15,
+      "visits": 17,
       "roles": [
         "의장"
       ],
-      "months": 10,
-      "spend": 3324000,
-      "people": 145,
-      "evening_ratio": 0.4,
-      "score": 84.0
+      "months": 11,
+      "spend": 3713000,
+      "people": 161,
+      "evening_ratio": 0.412,
+      "score": 84.1
     },
     {
       "merchant": "산꼼장어민물장어",
@@ -114,6 +114,19 @@
       "score": 70.9
     },
     {
+      "merchant": "성희만두",
+      "visits": 5,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 5,
+      "spend": 606000,
+      "people": 31,
+      "evening_ratio": 0.4,
+      "score": 68.5
+    },
+    {
       "merchant": "손오공수타짜장",
       "visits": 9,
       "roles": [
@@ -139,6 +152,19 @@
       "score": 67.0
     },
     {
+      "merchant": "민들레산채정식",
+      "visits": 5,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 5,
+      "spend": 1301000,
+      "people": 58,
+      "evening_ratio": 0.0,
+      "score": 66.8
+    },
+    {
       "merchant": "송추부일기사식당",
       "visits": 6,
       "roles": [
@@ -149,6 +175,31 @@
       "people": 40,
       "evening_ratio": 0.833,
       "score": 65.9
+    },
+    {
+      "merchant": "스카이 돔",
+      "visits": 4,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 4,
+      "spend": 387500,
+      "people": 35,
+      "evening_ratio": 1.0,
+      "score": 65.3
+    },
+    {
+      "merchant": "그집순대국",
+      "visits": 5,
+      "roles": [
+        "의장"
+      ],
+      "months": 5,
+      "spend": 569000,
+      "people": 34,
+      "evening_ratio": 0.8,
+      "score": 62.4
     },
     {
       "merchant": "동경㈜ 양주회천지점",
@@ -213,16 +264,17 @@
       "score": 56.4
     },
     {
-      "merchant": "그집순대국",
-      "visits": 4,
+      "merchant": "덕고개2호점",
+      "visits": 3,
       "roles": [
+        "부의장",
         "의장"
       ],
-      "months": 4,
-      "spend": 529000,
-      "people": 31,
-      "evening_ratio": 1.0,
-      "score": 55.8
+      "months": 3,
+      "spend": 861560,
+      "people": 33,
+      "evening_ratio": 0.667,
+      "score": 55.0
     },
     {
       "merchant": "손오공수타손짜장",
@@ -262,6 +314,19 @@
       "score": 49.4
     },
     {
+      "merchant": "민아산꼼장어",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 650000,
+      "people": 22,
+      "evening_ratio": 1.0,
+      "score": 49.2
+    },
+    {
       "merchant": "대지식당",
       "visits": 4,
       "roles": [
@@ -286,29 +351,17 @@
       "score": 48.7
     },
     {
-      "merchant": "민들레산채정식",
-      "visits": 3,
+      "merchant": "강촌식당 양주고읍점",
+      "visits": 2,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 3,
-      "spend": 745000,
-      "people": 33,
-      "evening_ratio": 0.0,
-      "score": 48.0
-    },
-    {
-      "merchant": "성희만두",
-      "visits": 4,
-      "roles": [
-        "부의장"
-      ],
-      "months": 4,
-      "spend": 406000,
-      "people": 24,
-      "evening_ratio": 0.25,
-      "score": 47.9
+      "months": 2,
+      "spend": 322500,
+      "people": 18,
+      "evening_ratio": 1.0,
+      "score": 48.1
     },
     {
       "merchant": "투썸플레이스 양주옥정테라스DT점",
@@ -323,17 +376,17 @@
       "score": 47.8
     },
     {
-      "merchant": "스카이 돔",
+      "merchant": "푸짐한해장국",
       "visits": 2,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 2,
-      "spend": 221000,
-      "people": 24,
+      "spend": 92000,
+      "people": 9,
       "evening_ratio": 1.0,
-      "score": 47.7
+      "score": 47.3
     },
     {
       "merchant": "대성민물매운탕",
@@ -359,6 +412,31 @@
       "people": 11,
       "evening_ratio": 0.0,
       "score": 45.8
+    },
+    {
+      "merchant": "조리고(양주점)",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 1,
+      "spend": 978000,
+      "people": 72,
+      "evening_ratio": 1.0,
+      "score": 45.3
+    },
+    {
+      "merchant": "여명양평해장국",
+      "visits": 4,
+      "roles": [
+        "의장"
+      ],
+      "months": 4,
+      "spend": 267000,
+      "people": 24,
+      "evening_ratio": 0.0,
+      "score": 44.9
     },
     {
       "merchant": "순두부마을",
@@ -421,6 +499,19 @@
       "score": 44.4
     },
     {
+      "merchant": "선운수산",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 1,
+      "spend": 634000,
+      "people": 36,
+      "evening_ratio": 1.0,
+      "score": 44.1
+    },
+    {
       "merchant": "조리고 양주점",
       "visits": 2,
       "roles": [
@@ -471,17 +562,16 @@
       "score": 43.3
     },
     {
-      "merchant": "덕고개2호점",
-      "visits": 2,
+      "merchant": "양주해장",
+      "visits": 3,
       "roles": [
-        "부의장",
         "의장"
       ],
-      "months": 2,
-      "spend": 388560,
+      "months": 3,
+      "spend": 221000,
       "people": 18,
-      "evening_ratio": 0.5,
-      "score": 43.3
+      "evening_ratio": 0.667,
+      "score": 42.9
     },
     {
       "merchant": "프랭크버거 양주고읍점",
@@ -495,6 +585,32 @@
       "people": 13,
       "evening_ratio": 0.5,
       "score": 42.4
+    },
+    {
+      "merchant": "샤브마니아양주옥정점",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 82700,
+      "people": 6,
+      "evening_ratio": 0.5,
+      "score": 42.3
+    },
+    {
+      "merchant": "주식회사 아름다운비행",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 61000,
+      "people": 6,
+      "evening_ratio": 0.5,
+      "score": 42.2
     },
     {
       "merchant": "양구재래식손두부",
@@ -522,6 +638,18 @@
       "score": 41.2
     },
     {
+      "merchant": "식껍 양주광적점",
+      "visits": 3,
+      "roles": [
+        "의장"
+      ],
+      "months": 2,
+      "spend": 753000,
+      "people": 23,
+      "evening_ratio": 0.667,
+      "score": 39.7
+    },
+    {
       "merchant": "주식회사 지앤지레이크",
       "visits": 4,
       "roles": [
@@ -531,6 +659,18 @@
       "spend": 141800,
       "people": 14,
       "evening_ratio": 0.0,
+      "score": 39.5
+    },
+    {
+      "merchant": "육전국밥 양주광백점",
+      "visits": 3,
+      "roles": [
+        "의장"
+      ],
+      "months": 3,
+      "spend": 191000,
+      "people": 13,
+      "evening_ratio": 0.333,
       "score": 39.5
     },
     {
@@ -607,16 +747,29 @@
       "score": 37.7
     },
     {
-      "merchant": "양주해장",
+      "merchant": "금광족발",
       "visits": 2,
       "roles": [
         "의장"
       ],
       "months": 2,
-      "spend": 201000,
-      "people": 16,
+      "spend": 174000,
+      "people": 8,
       "evening_ratio": 1.0,
-      "score": 37.7
+      "score": 37.6
+    },
+    {
+      "merchant": "마실",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 95000,
+      "people": 9,
+      "evening_ratio": 0.0,
+      "score": 37.3
     },
     {
       "merchant": "㈜보엠에프앤비",
@@ -657,18 +810,6 @@
       "score": 36.4
     },
     {
-      "merchant": "여명양평해장국",
-      "visits": 3,
-      "roles": [
-        "의장"
-      ],
-      "months": 3,
-      "spend": 235000,
-      "people": 21,
-      "evening_ratio": 0.0,
-      "score": 36.3
-    },
-    {
       "merchant": "연곡2리 마을협동조합",
       "visits": 3,
       "roles": [
@@ -691,6 +832,18 @@
       "people": 20,
       "evening_ratio": 0.0,
       "score": 34.1
+    },
+    {
+      "merchant": "생산자직영축산물판매장",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 2,
+      "spend": 516100,
+      "people": 18,
+      "evening_ratio": 0.5,
+      "score": 33.7
     },
     {
       "merchant": "테르시아",
@@ -862,16 +1015,16 @@
       "score": 29.8
     },
     {
-      "merchant": "민아산꼼장어",
+      "merchant": "육부명가",
       "visits": 1,
       "roles": [
-        "부의장"
+        "의장"
       ],
       "months": 1,
-      "spend": 350000,
-      "people": 12,
+      "spend": 382000,
+      "people": 13,
       "evening_ratio": 1.0,
-      "score": 29.7
+      "score": 29.8
     },
     {
       "merchant": "금상첨화",
@@ -882,6 +1035,18 @@
       "months": 1,
       "spend": 335000,
       "people": 0,
+      "evening_ratio": 1.0,
+      "score": 29.6
+    },
+    {
+      "merchant": "㈜승현물산",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 317000,
+      "people": 11,
       "evening_ratio": 1.0,
       "score": 29.6
     },
@@ -898,16 +1063,16 @@
       "score": 29.5
     },
     {
-      "merchant": "생산자직영축산물판매장",
+      "merchant": "마이산흑염소",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 286400,
-      "people": 10,
+      "spend": 266000,
+      "people": 12,
       "evening_ratio": 1.0,
-      "score": 29.5
+      "score": 29.4
     },
     {
       "merchant": "가장맛있는족발 고읍",
@@ -1102,18 +1267,6 @@
       "score": 29.0
     },
     {
-      "merchant": "강촌식당 양주고읍점",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 164500,
-      "people": 8,
-      "evening_ratio": 1.0,
-      "score": 29.0
-    },
-    {
       "merchant": "장수손두부",
       "visits": 1,
       "roles": [
@@ -1150,6 +1303,30 @@
       "score": 29.0
     },
     {
+      "merchant": "처갓집치킨",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 150000,
+      "people": 7,
+      "evening_ratio": 1.0,
+      "score": 29.0
+    },
+    {
+      "merchant": "눈맞은짝태",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 146000,
+      "people": 5,
+      "evening_ratio": 1.0,
+      "score": 29.0
+    },
+    {
       "merchant": "구뜰순대국",
       "visits": 1,
       "roles": [
@@ -1158,6 +1335,18 @@
       "months": 1,
       "spend": 144000,
       "people": 10,
+      "evening_ratio": 1.0,
+      "score": 29.0
+    },
+    {
+      "merchant": "수제갈비전문 청담갈비",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 142000,
+      "people": 6,
       "evening_ratio": 1.0,
       "score": 29.0
     },
@@ -1210,6 +1399,18 @@
       "score": 28.9
     },
     {
+      "merchant": "청년횟집",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 120000,
+      "people": 4,
+      "evening_ratio": 1.0,
+      "score": 28.9
+    },
+    {
       "merchant": "맛닭꼬",
       "visits": 1,
       "roles": [
@@ -1232,6 +1433,18 @@
       "people": 8,
       "evening_ratio": 1.0,
       "score": 28.9
+    },
+    {
+      "merchant": "어울참",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 100000,
+      "people": 4,
+      "evening_ratio": 1.0,
+      "score": 28.8
     },
     {
       "merchant": "이집이좋겠네",
@@ -1270,14 +1483,26 @@
       "score": 28.8
     },
     {
-      "merchant": "육전국밥 양주광백점",
+      "merchant": "쯔란양꼬치",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 90000,
+      "people": 10,
+      "evening_ratio": 1.0,
+      "score": 28.8
+    },
+    {
+      "merchant": "가장맛있는족발 양주덕계점",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 92000,
-      "people": 5,
+      "spend": 84000,
+      "people": 7,
       "evening_ratio": 1.0,
       "score": 28.8
     },
@@ -1426,18 +1651,6 @@
       "score": 28.7
     },
     {
-      "merchant": "푸짐한해장국",
-      "visits": 1,
-      "roles": [
-        "의장"
-      ],
-      "months": 1,
-      "spend": 49000,
-      "people": 5,
-      "evening_ratio": 1.0,
-      "score": 28.7
-    },
-    {
       "merchant": "광릉불고기",
       "visits": 1,
       "roles": [
@@ -1470,18 +1683,6 @@
       "months": 1,
       "spend": 34000,
       "people": 3,
-      "evening_ratio": 1.0,
-      "score": 28.6
-    },
-    {
-      "merchant": "주식회사 아름다운비행",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 33000,
-      "people": 2,
       "evening_ratio": 1.0,
       "score": 28.6
     },
@@ -1546,6 +1747,18 @@
       "score": 28.1
     },
     {
+      "merchant": "김경자 소문난 대구왕뽈찜",
+      "visits": 2,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 259000,
+      "people": 15,
+      "evening_ratio": 0.5,
+      "score": 27.9
+    },
+    {
       "merchant": "퍼블릭양주",
       "visits": 2,
       "roles": [
@@ -1566,6 +1779,18 @@
       "months": 2,
       "spend": 184000,
       "people": 4,
+      "evening_ratio": 0.0,
+      "score": 27.6
+    },
+    {
+      "merchant": "성북돈까스",
+      "visits": 2,
+      "roles": [
+        "부의장"
+      ],
+      "months": 2,
+      "spend": 183500,
+      "people": 7,
       "evening_ratio": 0.0,
       "score": 27.6
     },
@@ -1774,6 +1999,18 @@
       "score": 20.3
     },
     {
+      "merchant": "양주 장어가",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 381000,
+      "people": 13,
+      "evening_ratio": 0.0,
+      "score": 19.8
+    },
+    {
       "merchant": "한류관",
       "visits": 1,
       "roles": [
@@ -1782,6 +2019,18 @@
       "months": 1,
       "spend": 336000,
       "people": 15,
+      "evening_ratio": 0.0,
+      "score": 19.6
+    },
+    {
+      "merchant": "삼도낙지",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 324000,
+      "people": 10,
       "evening_ratio": 0.0,
       "score": 19.6
     },
@@ -2002,6 +2251,18 @@
       "score": 18.9
     },
     {
+      "merchant": "이석 정육식당",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 128000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.9
+    },
+    {
       "merchant": "해물모듬짬뽕",
       "visits": 1,
       "roles": [
@@ -2010,6 +2271,18 @@
       "months": 1,
       "spend": 122000,
       "people": 6,
+      "evening_ratio": 0.0,
+      "score": 18.9
+    },
+    {
+      "merchant": "다인막국수 양주",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 120000,
+      "people": 5,
       "evening_ratio": 0.0,
       "score": 18.9
     },
@@ -2070,6 +2343,18 @@
       "months": 1,
       "spend": 98000,
       "people": 8,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "청담화로",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 95000,
+      "people": 4,
       "evening_ratio": 0.0,
       "score": 18.8
     },
@@ -2192,6 +2477,30 @@
       "people": 5,
       "evening_ratio": 0.0,
       "score": 18.8
+    },
+    {
+      "merchant": "모씨",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 75000,
+      "people": 7,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "뽕스",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 74000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.7
     },
     {
       "merchant": "임가네부대찌개고기",
@@ -2470,6 +2779,18 @@
       "score": 18.7
     },
     {
+      "merchant": "소바랑 양주점",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 46200,
+      "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
       "merchant": "양주불백 명성갈비",
       "visits": 1,
       "roles": [
@@ -2482,6 +2803,18 @@
       "score": 18.6
     },
     {
+      "merchant": "댓돌",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 44000,
+      "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
       "merchant": "포레스트와이(FOREST.Y)",
       "visits": 1,
       "roles": [
@@ -2490,18 +2823,6 @@
       "months": 1,
       "spend": 43800,
       "people": 4,
-      "evening_ratio": 0.0,
-      "score": 18.6
-    },
-    {
-      "merchant": "마실",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 43000,
-      "people": 5,
       "evening_ratio": 0.0,
       "score": 18.6
     },
@@ -2542,6 +2863,18 @@
       "score": 18.6
     },
     {
+      "merchant": "회천식당",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 40000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
       "merchant": "밀땅칼국수",
       "visits": 1,
       "roles": [
@@ -2550,30 +2883,6 @@
       "months": 1,
       "spend": 39000,
       "people": 3,
-      "evening_ratio": 0.0,
-      "score": 18.6
-    },
-    {
-      "merchant": "샤브마니아양주옥정점",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 38700,
-      "people": 4,
-      "evening_ratio": 0.0,
-      "score": 18.6
-    },
-    {
-      "merchant": "성북돈까스",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 38500,
-      "people": 0,
       "evening_ratio": 0.0,
       "score": 18.6
     },
@@ -2610,6 +2919,18 @@
       "months": 1,
       "spend": 35000,
       "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
+      "merchant": "대모시국수",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 35000,
+      "people": 4,
       "evening_ratio": 0.0,
       "score": 18.6
     },
@@ -2758,6 +3079,18 @@
       "score": 18.6
     },
     {
+      "merchant": "백운칡냉면",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 29000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
       "merchant": "㈜심플레이스",
       "visits": 1,
       "roles": [
@@ -2782,6 +3115,18 @@
       "score": 18.6
     },
     {
+      "merchant": "짬뽕잘하는집",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 26000,
+      "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
       "merchant": "브루다양주",
       "visits": 1,
       "roles": [
@@ -2790,6 +3135,18 @@
       "months": 1,
       "spend": 25300,
       "people": 3,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
+      "merchant": "(주)보엠에프엔비",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 25000,
+      "people": 2,
       "evening_ratio": 0.0,
       "score": 18.6
     },
@@ -2830,6 +3187,18 @@
       "score": 18.6
     },
     {
+      "merchant": "로그",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 24000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
       "merchant": "한국맥도날드(유)의정",
       "visits": 1,
       "roles": [
@@ -2855,6 +3224,18 @@
     },
     {
       "merchant": "푸드코트",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 23000,
+      "people": 2,
+      "evening_ratio": 0.0,
+      "score": 18.6
+    },
+    {
+      "merchant": "솥뚜껑 부대찌개",
       "visits": 1,
       "roles": [
         "의장"
@@ -2934,6 +3315,18 @@
       "months": 1,
       "spend": 10000,
       "people": 0,
+      "evening_ratio": 0.0,
+      "score": 18.5
+    },
+    {
+      "merchant": "도담",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 10000,
+      "people": 2,
       "evening_ratio": 0.0,
       "score": 18.5
     },

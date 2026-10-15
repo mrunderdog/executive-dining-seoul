@@ -1,6 +1,6 @@
 {
   "source": "gwacheon",
-  "candidate_count": 161,
+  "candidate_count": 167,
   "candidates": [
     {
       "merchant": "문원한우마을",
@@ -27,6 +27,19 @@
       "people": 308,
       "evening_ratio": 0.444,
       "score": 94.4
+    },
+    {
+      "merchant": "까치식당",
+      "visits": 13,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 8,
+      "spend": 1895000,
+      "people": 106,
+      "evening_ratio": 0.615,
+      "score": 92.5
     },
     {
       "merchant": "제주항",
@@ -68,30 +81,17 @@
       "score": 92.1
     },
     {
-      "merchant": "까치식당",
-      "visits": 12,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 7,
-      "spend": 1740000,
-      "people": 100,
-      "evening_ratio": 0.583,
-      "score": 91.6
-    },
-    {
       "merchant": "수미수작",
-      "visits": 14,
+      "visits": 16,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 9,
-      "spend": 1874500,
-      "people": 76,
-      "evening_ratio": 0.429,
-      "score": 90.5
+      "months": 10,
+      "spend": 2117000,
+      "people": 89,
+      "evening_ratio": 0.375,
+      "score": 90.8
     },
     {
       "merchant": "부팔라 리스토란테",
@@ -158,16 +158,16 @@
     },
     {
       "merchant": "가마솥회관",
-      "visits": 5,
+      "visits": 6,
       "roles": [
         "부의장",
         "의장"
       ],
-      "months": 5,
-      "spend": 937000,
-      "people": 43,
-      "evening_ratio": 0.2,
-      "score": 67.6
+      "months": 6,
+      "spend": 1321000,
+      "people": 63,
+      "evening_ratio": 0.167,
+      "score": 72.1
     },
     {
       "merchant": "과천갈비",
@@ -270,6 +270,19 @@
       "people": 19,
       "evening_ratio": 1.0,
       "score": 59.9
+    },
+    {
+      "merchant": "살살녹소",
+      "visits": 4,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 557000,
+      "people": 22,
+      "evening_ratio": 0.75,
+      "score": 58.4
     },
     {
       "merchant": "청도수산",
@@ -484,6 +497,19 @@
       "score": 42.9
     },
     {
+      "merchant": "더호",
+      "visits": 3,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 648000,
+      "people": 26,
+      "evening_ratio": 0.0,
+      "score": 42.7
+    },
+    {
       "merchant": "토르토니",
       "visits": 3,
       "roles": [
@@ -596,18 +622,6 @@
       "score": 38.5
     },
     {
-      "merchant": "살살녹소",
-      "visits": 3,
-      "roles": [
-        "부의장"
-      ],
-      "months": 2,
-      "spend": 361000,
-      "people": 16,
-      "evening_ratio": 0.667,
-      "score": 38.4
-    },
-    {
       "merchant": "삼등집",
       "visits": 2,
       "roles": [
@@ -691,6 +705,18 @@
       "people": 16,
       "evening_ratio": 0.0,
       "score": 36.5
+    },
+    {
+      "merchant": "해봉농원",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 2,
+      "spend": 2274000,
+      "people": 47,
+      "evening_ratio": 0.0,
+      "score": 34.6
     },
     {
       "merchant": "토성",
@@ -826,6 +852,30 @@
       "score": 29.4
     },
     {
+      "merchant": "만보성",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 246000,
+      "people": 15,
+      "evening_ratio": 1.0,
+      "score": 29.3
+    },
+    {
+      "merchant": "오리THE차돌",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 222000,
+      "people": 15,
+      "evening_ratio": 1.0,
+      "score": 29.2
+    },
+    {
       "merchant": "호랑이굴",
       "visits": 1,
       "roles": [
@@ -858,6 +908,18 @@
       "months": 1,
       "spend": 190000,
       "people": 7,
+      "evening_ratio": 1.0,
+      "score": 29.1
+    },
+    {
+      "merchant": "맛찬들왕소금구이",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 190000,
+      "people": 6,
       "evening_ratio": 1.0,
       "score": 29.1
     },
@@ -954,6 +1016,18 @@
       "months": 1,
       "spend": 112000,
       "people": 4,
+      "evening_ratio": 1.0,
+      "score": 28.9
+    },
+    {
+      "merchant": "복호두",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 110000,
+      "people": 20,
       "evening_ratio": 1.0,
       "score": 28.9
     },
@@ -1210,18 +1284,6 @@
       "score": 27.4
     },
     {
-      "merchant": "해봉농원",
-      "visits": 1,
-      "roles": [
-        "의장"
-      ],
-      "months": 1,
-      "spend": 1242000,
-      "people": 23,
-      "evening_ratio": 0.0,
-      "score": 22.6
-    },
-    {
       "merchant": "신세계몰",
       "visits": 1,
       "roles": [
@@ -1282,18 +1344,6 @@
       "score": 19.6
     },
     {
-      "merchant": "더호",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 296000,
-      "people": 11,
-      "evening_ratio": 0.0,
-      "score": 19.5
-    },
-    {
       "merchant": "SSG(격려품목: 생수)",
       "visits": 1,
       "roles": [
@@ -1316,6 +1366,18 @@
       "people": 10,
       "evening_ratio": 0.0,
       "score": 19.5
+    },
+    {
+      "merchant": "제주아꼼이네",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 250800,
+      "people": 6,
+      "evening_ratio": 0.0,
+      "score": 19.3
     },
     {
       "merchant": "제주항,로드투하나",
@@ -1364,6 +1426,18 @@
       "people": 10,
       "evening_ratio": 0.0,
       "score": 19.3
+    },
+    {
+      "merchant": "배시시홈",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 195700,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 19.2
     },
     {
       "merchant": "동춘국밥집",

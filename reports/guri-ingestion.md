@@ -1,20 +1,26 @@
 # guri expense ingestion
 
-- Normalized rows: **98**
-- Source posts: **3**
-- Downloaded files: **7**
+- Normalized rows: **106**
+- Source posts: **16**
+- Refresh mode: **full**
+- Files retained: **8**
+- New files downloaded: **8**
 - Errors: **10**
 
 ## Rows by year
 
-- 2026: 98
+- 2026: 106
 
 ## Top roles / sheets
 
-- 의회사무과: 98
+- 의회사무과: 106
 
 ## Files
 
+- `attachment` — 21,162 bytes — 8 rows
+  - 부서별 집계표: NO_HEADER / parsed 0 / mapping {}
+  - 집행내역: OK / parsed 8 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'role': 1}
+  - 상품권 구매 및 사용현황: NO_HEADER / parsed 0 / mapping {}
 - `attachment` — 21,291 bytes — 9 rows
   - 부서별 집계표: NO_HEADER / parsed 0 / mapping {}
   - 집행내역: OK / parsed 9 / mapping {'date': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'role': 1}
@@ -48,13 +54,13 @@
 
 ## Errors
 
+- ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_155_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_154_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_153_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_152_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_151_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_150_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_149_01.pdf
-- RemoteDisconnected: Remote end closed connection without response — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_148_01.pdf
+- ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_148_01.pdf
 - ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_147_01.pdf
-- RemoteDisconnected: Remote end closed connection without response — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_146_01.pdf
-- ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_145_01.pdf
+- ValueError: PDF contained no extractable text rows — https://www.gcc.or.kr/board/news/download.do?fileName=news_cost_146_01.pdf

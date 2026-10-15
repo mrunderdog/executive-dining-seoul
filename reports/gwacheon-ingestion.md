@@ -1,25 +1,34 @@
 # gwacheon expense ingestion
 
-- Normalized rows: **723**
-- Source posts: **47**
-- Downloaded files: **67**
+- Normalized rows: **754**
+- Source posts: **49**
+- Refresh mode: **full**
+- Files retained: **70**
+- New files downloaded: **70**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 11
 - 2025: 390
-- 2026: 322
+- 2026: 353
 
 ## Top roles / sheets
 
-- 의장: 349
-- 부의장: 193
-- 의회사무과장: 168
+- 의장: 366
+- 부의장: 194
+- 의회사무과장: 181
 - 결산특별위원장: 13
 
 ## Files
 
+- `의장_업무추진비_공개(2026년 9월).xlsx 의장_업무추진비_공개(2026년 9월).xlsx 의장_업무추진비_공개(2026년 9월).xlsx` — 15,536 bytes — 17 rows
+  - Sheet1: OK / parsed 17 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `부의장_업무추진비_공개(2026년 9월).xlsx 부의장_업무추진비_공개(2026년 9월).xlsx 부의장_업무추진비_공개(2026년 9월).xlsx` — 13,414 bytes — 1 rows
+  - Sheet1: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+- `2026년 9월 의회사무과 업무추진비 집행내역.xlsx 2026년 9월 의회사무과 업무추진비 집행내역.xlsx 2026년 9월 의회사무과 업무추진비 집행내역.xlsx` — 12,078 bytes — 13 rows
+  - 의회사무과(기관): OK / parsed 11 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
+  - 의회사무과(시책): OK / parsed 2 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `의장_업무추진비_공개(2026년 8월).xlsx 의장_업무추진비_공개(2026년 8월).xlsx 의장_업무추진비_공개(2026년 8월).xlsx` — 16,093 bytes — 28 rows
   - Sheet1: OK / parsed 28 / mapping {'date': 1, 'time': 2, 'merchant': 3, 'purpose': 4, 'people': 5, 'amount': 6, 'method': 7, 'role': 0}
 - `부의장_업무추진비_공개(2026년 8월).xlsx 부의장_업무추진비_공개(2026년 8월).xlsx 부의장_업무추진비_공개(2026년 8월).xlsx` — 13,214 bytes — 0 rows

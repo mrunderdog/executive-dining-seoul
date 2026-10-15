@@ -1,4 +1,4 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 강화군의회
 
@@ -14,8 +14,8 @@
 - ['업무추진비 사용내역(2026년 4월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1) — attachments 0
 - [2026년 3월 의장단 업무추진비 사용내역 상세보기 2026년 3월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=30141A4E43AAE618E2BC254390183534&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['업무추진비 사용내역(2026년 3월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1) — attachments 0
-- [2026년 2월 의장단 업무추진비 사용내역 상세보기 2026년 2월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=8403CAF335D8DEB2395FA619C99AFC1B&schwrd=&flag=all&page=1&list_style=) — attachments 0
-- ['업무추진비 사용내역(2026년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1) — attachments 1
+- [2026년 2월 의장단 업무추진비 사용내역 상세보기 2026년 2월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=8403CAF335D8DEB2395FA619C99AFC1B&schwrd=&flag=all&page=1&list_style=) — attachments 1
+- ['업무추진비 사용내역(2026년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1) — attachments 0
 - [2026년 1월 의장단 업무추진비 사용내역 상세보기 2026년 1월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=1056DBB7E4234B6AA7559284D773939B&schwrd=&flag=all&page=1&list_style=) — attachments 1
 - ['업무추진비 사용내역(2026년 1월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1) — attachments 0
 - [2025년 4분기 의장단 업무추진비 사용내역 상세보기 2025년 4분기 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=16A2D062CF194D33001139DDA103A8EC&schwrd=&flag=all&page=1&list_style=) — attachments 1
@@ -34,6 +34,6 @@
 - ['업무추진비 사용내역(2025년 4월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2) — attachments 0
 - [2025년 3월 의장단 업무추진비 사용내역 상세보기 2025년 3월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=A386B7BF07B268A256D0F7464B3D1F64&schwrd=&flag=all&page=2&list_style=) — attachments 1
 - ['업무추진비 사용내역(2025년 3월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2) — attachments 0
-- [2025년 2월 의장단 업무추진비 사용내역 상세보기 2025년 2월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=51F4E68394721584F918A8D51CC8CFE5&schwrd=&flag=all&page=2&list_style=) — attachments 1
-- ['업무추진비 사용내역(2025년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2) — attachments 0
+- [2025년 2월 의장단 업무추진비 사용내역 상세보기 2025년 2월 의장단 업무추진비 사용내역](https://council.ganghwa.go.kr/kr/workBBSview.do?uid=51F4E68394721584F918A8D51CC8CFE5&schwrd=&flag=all&page=2&list_style=) — attachments 0
+- ['업무추진비 사용내역(2025년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일](https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2) — attachments 1
 

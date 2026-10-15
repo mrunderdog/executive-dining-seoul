@@ -1,11 +1,13 @@
-# Capital area backfill discovery — 2024-12 ~ 2026-09
+# Capital area backfill discovery — 2024-12 ~ 2026-10
 
 ## 광명시의회
 
-- Posts: 14
-- Attachment records: 7
-- Downloadable attachment URLs: 7
+- Posts: 16
+- Attachment records: 8
+- Downloadable attachment URLs: 8
 
+- [2026년 3/4분기 업무추진비 및 의정운영공통경비 공개 상세보기 2026년 3/4분기 업무추진비 및 의정운영공통경비 공개](https://council.gm.go.kr/kr/costBBSview.do?uid=3BE149F581A7EA82258379BEB7FDBB8F&schwrd=&flag=all&page=1&list_style=) — attachments 0
+- [의원 업무추진비 집행현황(2026년 3분기).pdf 의원 업무추진비 집행현황(2026년 3분기).pdf 의원 업무추진비 집행현황(2026년 3분기).pdf](https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 1
 - [2026년 2/4분기 업무추진비 및 의정운영공통경비 공개 상세보기 2026년 2/4분기 업무추진비 및 의정운영공통경비 공개](https://council.gm.go.kr/kr/costBBSview.do?uid=3981BA3604DA519C774CB99104AD237B&schwrd=&flag=all&page=1&list_style=) — attachments 0
 - [의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf](https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1) — attachments 1
 - [2026년 1/4분기 업무추진비 공개 상세보기 2026년 1/4분기 업무추진비 공개](https://council.gm.go.kr/kr/costBBSview.do?uid=D83E7F26254C976E80D8E66C2AAE50C7&schwrd=&flag=all&page=1&list_style=) — attachments 0

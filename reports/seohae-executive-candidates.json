@@ -1,18 +1,32 @@
 {
   "source": "seohae",
-  "candidate_count": 25,
+  "candidate_count": 33,
   "candidates": [
     {
       "merchant": "주식회사촌장",
-      "visits": 6,
+      "visits": 7,
       "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 1809000,
+      "people": 58,
+      "evening_ratio": 0.0,
+      "score": 65.5
+    },
+    {
+      "merchant": "나무꾼이야기",
+      "visits": 3,
+      "roles": [
+        "부의장",
         "의장"
       ],
       "months": 2,
-      "spend": 1609000,
-      "people": 53,
+      "spend": 379000,
+      "people": 15,
       "evening_ratio": 0.0,
-      "score": 46.4
+      "score": 41.8
     },
     {
       "merchant": "최복남직화쭈꾸미명가",
@@ -64,6 +78,18 @@
       "score": 23.2
     },
     {
+      "merchant": "참다루",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 299000,
+      "people": 10,
+      "evening_ratio": 0.0,
+      "score": 23.0
+    },
+    {
       "merchant": "청수보쌈한판",
       "visits": 1,
       "roles": [
@@ -74,6 +100,18 @@
       "people": 12,
       "evening_ratio": 0.0,
       "score": 19.6
+    },
+    {
+      "merchant": "등촌샤브칼국수",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 312000,
+      "people": 12,
+      "evening_ratio": 0.0,
+      "score": 19.5
     },
     {
       "merchant": "종합어시장",
@@ -100,7 +138,7 @@
       "score": 19.3
     },
     {
-      "merchant": "나무꾼이야기",
+      "merchant": "소담촌",
       "visits": 1,
       "roles": [
         "의장"
@@ -112,13 +150,13 @@
       "score": 19.3
     },
     {
-      "merchant": "소담촌",
+      "merchant": "토박이 참숯갈비",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 230000,
+      "spend": 227000,
       "people": 6,
       "evening_ratio": 0.0,
       "score": 19.3
@@ -184,6 +222,30 @@
       "score": 19.2
     },
     {
+      "merchant": "솥뚜껑부대찌개",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 197000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 19.2
+    },
+    {
+      "merchant": "만나정생고기",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 170000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 19.1
+    },
+    {
       "merchant": "시골집",
       "visits": 1,
       "roles": [
@@ -191,6 +253,18 @@
       ],
       "months": 1,
       "spend": 120000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.9
+    },
+    {
+      "merchant": "오자매생선촌",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 106000,
       "people": 5,
       "evening_ratio": 0.0,
       "score": 18.9
@@ -244,6 +318,18 @@
       "score": 18.8
     },
     {
+      "merchant": "강가네볼테기찜해장국",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 91000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
       "merchant": "고등어와 갈치",
       "visits": 1,
       "roles": [
@@ -252,6 +338,18 @@
       "months": 1,
       "spend": 90000,
       "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "풍전",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 90000,
+      "people": 3,
       "evening_ratio": 0.0,
       "score": 18.8
     },

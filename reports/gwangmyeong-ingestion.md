@@ -1,30 +1,44 @@
 # gwangmyeong expense ingestion
 
-- Normalized rows: **2316**
-- Source posts: **14**
-- Downloaded files: **7**
+- Normalized rows: **2553**
+- Source posts: **16**
+- Refresh mode: **full**
+- Files retained: **8**
+- New files downloaded: **8**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 371
 - 2025: 1317
-- 2026: 628
+- 2026: 865
 
 ## Top roles / sheets
 
-- 의장: 692
-- 부의장: 450
+- 의장: 746
+- 부의장: 489
 - 복지문화건설위원장: 302
 - 자치행정교육위원장: 296
-- 운영위원장: 215
-- 더불어민주당 대표의원: 171
-- 국민의힘 대표의원: 162
+- 운영위원장: 241
+- 국민의힘 대표의원: 199
+- 더불어민주당 대표의원: 183
+- 기획행정위원장: 37
+- 복지도시위원장: 32
 - 예결위원장: 16
 - 예산결산특별위원장: 12
 
 ## Files
 
+- `의원 업무추진비 집행현황(2026년 3분기).pdf 의원 업무추진비 집행현황(2026년 3분기).pdf 의원 업무추진비 집행현황(2026년 3분기).pdf` — 375,497 bytes — 237 rows
+  - pdf-page-1: OK / parsed 28 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-2: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-3: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-4: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-5: OK / parsed 28 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-6: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-7: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-8: OK / parsed 29 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
+  - pdf-page-9: OK / parsed 7 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
 - `의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf 의원 업무추진비 집행현황(2026년 2분기).pdf` — 412,614 bytes — 275 rows
   - pdf-page-1: OK / parsed 23 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}
   - pdf-page-2: OK / parsed 26 / mapping {'date': 3, 'time': 4, 'merchant': 5, 'purpose': 6, 'amount': 7, 'people': 9, 'method': 10, 'role': 2}

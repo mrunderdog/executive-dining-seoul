@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-10-15T16:48:44+09:00",
+  "rows": [
+    {
+      "key": "seoul_city_hall",
+      "region": "서울",
+      "institution": "서울특별시 본청",
+      "cohort": "regional_executive",
+      "adapter": "seoul_open_data_dataset",
+      "verified": true,
+      "url": "https://data.seoul.go.kr/dataList/OA-22156/S/1/datasetView.do",
+      "discovery_status": "SOURCE_OK_TARGET_PERIOD_NOT_FOUND",
+      "ingestion_status": "IMPLEMENTED",
+      "publication_status": "PUBLISHED",
+      "detail": "HTTP 200; adapter=seoul_open_data_dataset"
+    },
+    {
+      "key": "gyeonggi_provincial_government",
+      "region": "경기",
+      "institution": "경기도청",
+      "cohort": "regional_executive",
+      "adapter": "gyeonggi_expense_boards",
+      "verified": true,
+      "url": "https://www.gg.go.kr/bbs/board.do?bsIdx=803&menuId=1768",
+      "discovery_status": "FETCH_FAILED",
+      "ingestion_status": "IMPLEMENTED",
+      "publication_status": "PUBLISHED",
+      "detail": "The read operation timed out"
+    },
+    {
+      "key": "incheon_metropolitan_government",
+      "region": "인천",
+      "institution": "인천광역시청",
+      "cohort": "regional_executive",
+      "adapter": "incheon_expense_boards",
+      "verified": true,
+      "url": "https://www.incheon.go.kr/open/OPEN010301",
+      "discovery_status": "TARGET_PERIOD_VISIBLE",
+      "ingestion_status": "IMPLEMENTED",
+      "publication_status": "PUBLISHED",
+      "detail": "HTTP 200; adapter=incheon_expense_boards"
+    },
+    {
+      "key": "national_assembly_members",
+      "region": "국회",
+      "institution": "국회의원",
+      "cohort": "national_legislator",
+      "adapter": "discovery_required",
+      "verified": false,
+      "url": "",
+      "discovery_status": "DISCOVERY_REQUIRED",
+      "ingestion_status": "IMPLEMENTED_SEPARATE_2024_DATASET",
+      "publication_status": "PUBLISHED_HISTORICAL_2024",
+      "detail": "Do not treat parliamentary/political-fund spending as directly comparable with local-government business-promotion expenses. Register only an official disclosure source that exposes merchant-level expenditure with sufficient purpose/date/amount lineage; otherwise keep this cohort disabled from publication."
+    }
+  ]
+}

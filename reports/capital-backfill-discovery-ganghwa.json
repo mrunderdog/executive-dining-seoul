@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-23T01:43:57",
+  "generated_at": "2026-10-15T09:39:31",
   "since": "2024-12",
-  "until": "2026-09",
+  "until": "2026-10",
   "sources": [
     "ganghwa"
   ],
@@ -154,8 +154,13 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBSview.do?uid=8403CAF335D8DEB2395FA619C99AFC1B&schwrd=&flag=all&page=1&list_style=",
-      "attachments": [],
-      "error": "detail RemoteDisconnected: Remote end closed connection without response"
+      "attachments": [
+        {
+          "text": "업무추진비 사용내역(2026년 2월).xlsx 업무추진비 사용내역(2026년 2월).xlsx 업무추진비 사용내역(2026년 2월).xlsx",
+          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=7401DF5B35965692D7A6FEBE8FD51C6C",
+          "onclick": ""
+        }
+      ]
     },
     {
       "source": "ganghwa",
@@ -169,12 +174,7 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=1",
-      "attachments": [
-        {
-          "text": "'업무추진비 사용내역(2026년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
-          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=7401DF5B35965692D7A6FEBE8FD51C6C"
-        }
-      ]
+      "attachments": []
     },
     {
       "source": "ganghwa",
@@ -494,13 +494,8 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBSview.do?uid=51F4E68394721584F918A8D51CC8CFE5&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 사용내역(2025년 2월).xlsx 업무추진비 사용내역(2025년 2월).xlsx 업무추진비 사용내역(2025년 2월).xlsx",
-          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=D8ED54494032C4EBD43484D2EF9FEDC8",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail RemoteDisconnected: Remote end closed connection without response"
     },
     {
       "source": "ganghwa",
@@ -514,7 +509,12 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2",
-      "attachments": []
+      "attachments": [
+        {
+          "text": "'업무추진비 사용내역(2025년 2월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
+          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=D8ED54494032C4EBD43484D2EF9FEDC8"
+        }
+      ]
     },
     {
       "source": "ganghwa",
@@ -562,13 +562,8 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBSview.do?uid=7D124FF424408FBB0880B085368E8487&schwrd=&flag=all&page=2&list_style=",
-      "attachments": [
-        {
-          "text": "업무추진비 사용내역(2024년 12월).xlsx 업무추진비 사용내역(2024년 12월).xlsx 업무추진비 사용내역(2024년 12월).xlsx",
-          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=76FD9F5EED68D3CF947B713971150957",
-          "onclick": ""
-        }
-      ]
+      "attachments": [],
+      "error": "detail RemoteDisconnected: Remote end closed connection without response"
     },
     {
       "source": "ganghwa",
@@ -582,6 +577,17 @@
         null
       ],
       "post_url": "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=2",
+      "attachments": [
+        {
+          "text": "'업무추진비 사용내역(2024년 12월).xlsx' 파일 내려받기 글목록 제목 테스트 첨부 파일",
+          "url": "https://council.ganghwa.go.kr/kr/bbs/download.do?bbs_id=work&uid=76FD9F5EED68D3CF947B713971150957"
+        }
+      ]
+    },
+    {
+      "source": "ganghwa",
+      "listing_url": "https://council.ganghwa.go.kr/kr/workBBS.do?flag=all&page=4",
+      "error": "listing RemoteDisconnected: Remote end closed connection without response",
       "attachments": []
     }
   ]

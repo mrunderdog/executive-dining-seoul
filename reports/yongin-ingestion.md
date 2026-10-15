@@ -2,7 +2,9 @@
 
 - Normalized rows: **432**
 - Source posts: **42**
-- Downloaded files: **7**
+- Refresh mode: **full**
+- Files retained: **7**
+- New files downloaded: **7**
 - Errors: **14**
 
 ## Rows by year

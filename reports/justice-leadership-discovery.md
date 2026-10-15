@@ -2,13 +2,13 @@
 
 | Institution | Source | Status | Files | Parseable | Merchant expectation |
 |---|---|---|---:|---:|---|
-| 법무부 | inherited | REUSED_CENTRAL_DISCOVERY | 8 | 4 | merchant-level |
-| 법제처 | inherited | REUSED_CENTRAL_DISCOVERY | 32 | 32 | merchant-level |
+| 법무부 | inherited | REUSED_CENTRAL_DISCOVERY | 8 | 8 | merchant-level |
+| 법제처 | inherited | REUSED_CENTRAL_DISCOVERY | 34 | 34 | merchant-level |
 | 헌법재판소 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 헌법재판소 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 고위공직자범죄수사처 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 대검찰청 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
-| 대법원 | direct | DISCOVERY_REQUIRED | 0 | 0 | merchant_level_reported |
+| 대법원 | direct | MANUAL_ONLY_TRACKED | 0 | 0 | external_disclosure_only_observed |
 | 서울고등검찰청 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 수원고등검찰청 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
 | 대전고등검찰청 | direct | AGGREGATE_ONLY_TRACKED | 0 | 0 | aggregate_only_observed |
