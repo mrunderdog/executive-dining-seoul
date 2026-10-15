@@ -45,7 +45,7 @@ def route_localdata(address, codes=None):
     location, never infer locality from road name or merchant name.
     """
     codes = codes if codes is not None else registry_codes()
-    compact = re.sub(r"\\s+", "", str(address or ""))
+    compact = re.sub(r"\s+", "", str(address or ""))
     if not compact:
         return None
 
