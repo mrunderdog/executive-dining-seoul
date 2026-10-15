@@ -31,6 +31,14 @@ class EvidenceSemanticsTests(unittest.TestCase):
         self.assertIn(x["license_match_status"],("NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED","EXACT_NAME_AND_ADDRESS"))
         self.assertFalse(x["payment_branch_verified"])
         self.assertFalse(x["personal_attendance_verified"])
+    def test_reverse_lookup_does_not_certify_different_business_at_address(self):
+        venues=[{"merchant":"(주)시청해우리","display":"해우리 시청점","address":"서울특별시 중구 서소문로 95"}]
+        licenses=[{"사업장명":"해우리","도로명전체주소":"서울특별시 중구 서소문로 95, 2층","영업상태명":"영업/정상"}]
+        r=evaluate(venues,licenses)[0]
+        self.assertEqual(r["license_match_status"],"NOT_MATCHED")
+        self.assertEqual(r["official_building_business_count"],1)
+        self.assertEqual(r["official_building_businesses"][0]["license_name"],"해우리")
+        self.assertFalse(r["payment_branch_verified"])
     def test_duplicate_or_wrong_address_held(self):
         v=[{"merchant":"소담","address":"서울특별시 중구 세종대로 12"}]
         raw=[{"사업장명":"소담","도로명전체주소":"서울특별시 중구 세종대로 12"}]*2

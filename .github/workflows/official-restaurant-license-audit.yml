@@ -21,11 +21,15 @@ jobs:
           python-version: '3.12'
       - name: Fetch current LOCALDATA district CSVs and verify exact matches
         run: python pipeline/audit_restaurant_licenses.py --fetch-official --output reports/restaurant-license-audit.json
+      - name: Audit published venues from all agencies in four Seoul districts
+        run: python pipeline/audit_restaurant_licenses.py --fetch-official --scope all --output reports/all-agency-four-district-license-audit.json
       - name: Upload original-source audit report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: localdata-restaurant-license-audit
-          path: reports/restaurant-license-audit.json
+          path: |
+            reports/restaurant-license-audit.json
+            reports/all-agency-four-district-license-audit.json
           if-no-files-found: warn
           retention-days: 30
