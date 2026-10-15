@@ -1,9 +1,17 @@
-name: Verify official restaurant permits (four Seoul districts)
+name: Verify official restaurant permits (priority eight jurisdictions)
 on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_restaurant_licenses.py'
+      - 'pipeline/localdata_regions.py'
+      - 'sources/localdata_orgcodes.json'
+      - '.github/workflows/official-restaurant-license-audit.yml'
   push:
     branches: [main]
     paths:
       - 'pipeline/audit_restaurant_licenses.py'
+      - 'pipeline/localdata_regions.py'
+      - 'sources/localdata_orgcodes.json'
       - '.github/workflows/official-restaurant-license-audit.yml'
   workflow_dispatch:
   schedule:
@@ -21,8 +29,11 @@ jobs:
           python-version: '3.12'
       - name: Fetch current LOCALDATA district CSVs and verify exact matches
         run: python pipeline/audit_restaurant_licenses.py --fetch-official --output reports/restaurant-license-audit.json
-      - name: Audit published venues from all agencies in four Seoul districts
-        run: python pipeline/audit_restaurant_licenses.py --fetch-official --scope all --output reports/all-agency-four-district-license-audit.json
+      - name: Audit 8 priority districts across all published agency venues
+        run: |
+          python pipeline/audit_restaurant_licenses.py --fetch-official --scope all \
+            --regions 서울서대문구,서울중구,서울종로구,서울서초구,서울영등포구,경기광명시,경기고양시,경기안양시 \
+            --output reports/all-agency-eight-region-license-audit.json
       - name: Upload original-source audit report
         if: always()
         uses: actions/upload-artifact@v4
@@ -30,6 +41,6 @@ jobs:
           name: localdata-restaurant-license-audit
           path: |
             reports/restaurant-license-audit.json
-            reports/all-agency-four-district-license-audit.json
+            reports/all-agency-eight-region-license-audit.json
           if-no-files-found: warn
           retention-days: 30
