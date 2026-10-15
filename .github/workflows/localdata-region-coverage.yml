@@ -1,0 +1,29 @@
+name: Rank LOCALDATA official licensing jurisdictions
+on:
+  pull_request:
+    paths:
+      - 'pipeline/localdata_regions.py'
+      - 'pipeline/test_localdata_regions.py'
+      - 'sources/localdata_orgcodes.json'
+      - '.github/workflows/localdata-region-coverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check jurisdiction routing and collision avoidance
+        run: PYTHONPATH=pipeline python -m unittest -v test_localdata_regions
+      - name: Generate actual published-address jurisdiction ranking
+        run: python pipeline/localdata_regions.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: localdata-region-coverage
+          path: reports/localdata-regional-coverage.json
+          retention-days: 30
