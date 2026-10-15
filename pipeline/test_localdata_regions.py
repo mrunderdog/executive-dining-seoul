@@ -28,4 +28,19 @@ class RegionRouteTests(unittest.TestCase):
         self.assertEqual(x["routed_venues"],2)
         self.assertEqual(x["road_building_verifiable"],2)
         self.assertEqual(x["unrouted_venues"],1)
+        self.assertEqual(x["unrouted_reason_counts"]["MISSING_ADDRESS"],1)
+        self.assertEqual(len(x["unrouted_review_queue"]),1)
+        self.assertEqual(x["unrouted_review_queue"][0]["reason"],"MISSING_ADDRESS")
+    def test_per_origin_gap_reporting_never_infers_address(self):
+        x=summarize_coverage([
+            {"name":"A","address":"","origin":"중앙정부","evidence":{"visits":8}},
+            {"name":"B","address":"중구 임의로 99","origin":"중앙정부","evidence":{"spending_events":2}},
+            {"name":"C","address":"서울특별시 중구 세종대로 12","origin":"서울시청"}])
+        self.assertEqual(x["total_published_venues"],3)
+        self.assertEqual(x["unrouted_reason_counts"],{"MISSING_ADDRESS":1,"UNROUTABLE_JURISDICTION":1})
+        by={r["origin"]:r for r in x["unrouted_by_origin"]}
+        self.assertEqual(by["중앙정부"]["MISSING_ADDRESS"],1)
+        self.assertEqual(by["중앙정부"]["UNROUTABLE_JURISDICTION"],1)
+        self.assertEqual(x["unrouted_review_queue"][0]["reported_usage_events"],8)
+        self.assertEqual(x["unrouted_review_queue"][0]["address"],"")
 if __name__=="__main__":unittest.main()
