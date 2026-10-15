@@ -5,7 +5,7 @@ Input is a UTF-8/CP949 CSV exported from official LOCALDATA / data.go.kr.
 No paid API or network is needed. Never infer card-merchant identity from licenses.
 """
 from __future__ import annotations
-import argparse,csv,json,re,codecs
+import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,tempfile,datetime
 from pathlib import Path
 from difflib import SequenceMatcher
 
@@ -63,12 +63,43 @@ def evaluate(venues,raw):
     return result
 def main():
     p=argparse.ArgumentParser()
-    p.add_argument("--input",required=True,help="Previously downloaded official restaurant licence CSV")
+    p.add_argument("--input",help="Previously downloaded official restaurant licence CSV")
+    p.add_argument("--fetch-official",action="store_true")
     p.add_argument("--output",default=str(ROOT/"reports/restaurant-license-audit.json"))
     args=p.parse_args()
     venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
-    rows=evaluate(venues,load_official(Path(args.input)))
-    out={"official_csv":Path(args.input).name,"total_venues":len(rows),
+    if not args.input and not args.fetch_official: p.error("Specify --input or --fetch-official")
+    if args.input and args.fetch_official: p.error("Input modes are mutually exclusive")
+    provenance=[]
+    if args.input:
+        file=Path(args.input)
+        provenance.append({"file":file.name,"sha256":hashlib.sha256(file.read_bytes()).hexdigest()})
+        rows=evaluate(venues,load_official(file))
+    else:
+        districts={"서울서대문구":"3120000","서울중구":"3010000","서울종로구":"3000000","서울서초구":"3210000"}
+        with tempfile.TemporaryDirectory() as tmp:
+            paths=[]
+            for district,code in districts.items():
+                url="https://file.localdata.go.kr/file/download/general_restaurants/info?"+urllib.parse.urlencode({"orgCode":code})
+                request=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Referer":"https://file.localdata.go.kr/file/general_restaurants/info"})
+                dest=Path(tmp)/(code+".csv")
+                with urllib.request.urlopen(request,timeout=120) as response:
+                    content_type=response.headers.get("Content-Type","").lower()
+                    if response.status!=200 or not any(x in content_type for x in ("csv","octet-stream","download")):
+                        raise RuntimeError("Unexpected official CSV response "+district+": "+content_type)
+                    with dest.open("wb") as output:
+                        while True:
+                            part=response.read(1024*1024)
+                            if not part:break
+                            output.write(part)
+                if dest.stat().st_size<100:raise RuntimeError("Empty official CSV "+district)
+                provenance.append({"district":district,"orgCode":code,"source_url":url,"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"bytes":dest.stat().st_size})
+                paths.append(dest)
+            def chained_rows():
+                for file in paths:
+                    yield from load_official(file)
+            rows=evaluate(venues,chained_rows())
+    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_FOUR_DISTRICTS","sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
          "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in rows),
          "policy":"A restaurant licence verifies restaurant identity/status only, not the payment card branch or attendee.",
          "venues":rows}
