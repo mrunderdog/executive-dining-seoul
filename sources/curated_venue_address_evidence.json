@@ -26,8 +26,8 @@
       "cohort": "central_executive",
       "merchant": "일품진진수라 광화문점",
       "address": "서울특별시 종로구 종로5길 7 타워8빌딩 지하 2층",
-      "status": "APPROVED_VENUE_LOCATION",
-      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "status": "ALREADY_ENRICHED",
+      "basis": "EXISTING_VERIFIED_ENRICHMENT_CORROBORATED",
       "evidence": [
         {
           "type": "business_registration_directory",
@@ -39,7 +39,8 @@
           "url": "https://www.jobkorea.co.kr/Recruit/Co_Read/C/jinjinsura1",
           "claim": "일품진진수라 광화문점 사업장 소개와 지하 2층 주소"
         }
-      ]
+      ],
+      "notes": "Existing sources/entity_enrichment.json already contains independently verified venue address dated 2026-09-22; do not count or overwrite."
     },
     {
       "cohort": "central_executive",
@@ -86,10 +87,15 @@
     {
       "cohort": "public_enterprise_leadership",
       "merchant": "창고43샛강점",
-      "address": "서울 영등포구 여의대방로 376",
-      "status": "REVIEW_ONLY",
-      "basis": "INDEPENDENT_DIRECTORY_MATCH_WITHOUT_OFFICIAL_BRANCH_CHECK",
+      "address": "서울특별시 영등포구 여의대방로 376 나라키움여의도빌딩 2층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_OFFICIAL_BRAND",
       "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://www.changgo43.co.kr/03_restaurants/sky.asp",
+          "claim": "창고43 공식 샛강점 주소, 건물, 층, 전화번호 확인"
+        },
         {
           "type": "restaurant_platform_listing",
           "url": "https://www.tabling.co.kr/place/677cc78166de5f069874d900",
