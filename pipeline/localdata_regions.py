@@ -74,16 +74,23 @@ def summarize_coverage(records,codes=None):
     out=[]
     missing_reasons={}
     unrouted_origin_counts={}
+    unrouted_origin_reasons={}
     for rec in records:
         addr=str(rec.get("address") or "").strip()
         routed=route_localdata(addr,codes)
         if not routed:
             reason="MISSING_ADDRESS" if not addr else "UNROUTABLE_JURISDICTION"
             missing_reasons[reason]=missing_reasons.get(reason,0)+1
-            for origin in set(str(x) for x in (rec.get("origins") or [rec.get("origin")]) if x):
+            origins=sorted(set(str(x) for x in (rec.get("origins") or [rec.get("origin")]) if x))
+            for origin in origins:
                 unrouted_origin_counts[origin]=unrouted_origin_counts.get(origin,0)+1
+                per=unrouted_origin_reasons.setdefault(origin,{"MISSING_ADDRESS":0,"UNROUTABLE_JURISDICTION":0})
+                per[reason]+=1
+            e=rec.get("evidence") or {}
             out.append({"entity_id":str(rec.get("entity_id") or ""), "name":str(rec.get("name") or ""),
-                        "address":addr[:150],"reason":reason})
+                        "address":addr[:150],"reason":reason,"origins":origins,
+                        "reported_usage_events":int(e.get("visits") or 0),
+                        "disclosed_spending_events":int(e.get("spending_events") or 0)})
             continue
         name,code=routed
         stats=by.setdefault(name,{"region":name,"orgCode":code,"venues":0,"with_road_building":0,
@@ -106,6 +113,12 @@ def summarize_coverage(records,codes=None):
             "unrouted_venues":len(out),"unrouted_reason_counts":missing_reasons,
             "unrouted_top_origins":sorted(unrouted_origin_counts.items(),key=lambda x:(-x[1],x[0]))[:15],
             "unrouted_samples":out[:20],
+            "unrouted_by_origin":[{"origin":origin,**counts,"affected_venue_attributions":sum(counts.values())}
+                                  for origin,counts in sorted(unrouted_origin_reasons.items(),
+                                      key=lambda kv:(-sum(kv[1].values()),kv[0]))],
+            "unrouted_review_queue":sorted(out,key=lambda x:(
+                -(x["reported_usage_events"]+x["disclosed_spending_events"]),
+                x["name"],x["entity_id"])),
             "regions":ranked,"source_registry":"sources/localdata_orgcodes.json",
             "routing_policy":"Exact province/city/district and road-building only; no guesses for missing addresses."}
 
@@ -116,8 +129,14 @@ if __name__=="__main__":
     from global_entities import merge_global_entities
     payload=merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
     report=summarize_coverage(payload.get("records") or [])
+    backlog=report.pop("unrouted_review_queue")
     target=ROOT/"reports/localdata-regional-coverage.json"
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    backlog_path=ROOT/"reports/localdata-address-remediation-queue.json"
+    backlog_path.write_text(json.dumps({"generated_from":"published records with no proven locality or road address",
+        "total_unrouted":len(backlog),
+        "policy":"Venue names/usage counts never justify guessing a geographic location. Verify using a public source before assigning one.",
+        "records":backlog},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({k:report[k] for k in ("total_published_venues","routed_venues","road_building_verifiable","unrouted_venues")},ensure_ascii=False))
     print("TOP_REGIONS="+json.dumps(report["regions"][:15],ensure_ascii=False))
