@@ -5,7 +5,7 @@ Input is a UTF-8/CP949 CSV exported from official LOCALDATA / data.go.kr.
 No paid API or network is needed. Never infer card-merchant identity from licenses.
 """
 from __future__ import annotations
-import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,tempfile,datetime
+import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,tempfile,datetime,time
 from pathlib import Path
 from difflib import SequenceMatcher
 from localdata_regions import route_localdata, building_key, registry_codes
@@ -90,6 +90,7 @@ def evaluate(venues,raw):
             "orgCode":jurisdiction[1] if jurisdiction else None,
             "entity_id":v.get("entity_id"),
             "origin":v.get("origin"),
+            "audit_scope":v.get("audit_scope"),
             "official_building_businesses":candidate_entries,
             "official_building_business_count":len(neighbors),
             "official_building_businesses_truncated":len(neighbors)>40,
@@ -111,6 +112,7 @@ def main():
     p.add_argument("--scope",choices=["police","all"],default="police")
     p.add_argument("--regions",default="서울서대문구,서울중구,서울종로구,서울서초구",help="Comma-separated registry region keys; do not guess codes")
     p.add_argument("--output",default=str(ROOT/"reports/restaurant-license-audit.json"))
+    p.add_argument("--police-output",help="When scope=all, also evaluate the Police 18 venues from the SAME downloaded CSV files")
     args=p.parse_args()
     codes=registry_codes()
     selected=[x.strip() for x in args.regions.split(",") if x.strip()]
@@ -120,6 +122,7 @@ def main():
         if region not in codes or region.endswith("본청") or not re.fullmatch(r"\d{7}",str(codes[region])):
             p.error("Unknown LOCALDATA jurisdiction: "+region)
     allowed=set(selected)
+    if args.police_output and args.scope!="all":p.error("--police-output requires --scope all")
     if args.scope=="police":
         venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
     else:
@@ -138,6 +141,11 @@ def main():
                            "address":address, "origin":r.get("origin"),"entity_id":r.get("entity_id")})
         # Cross-agency pilot must not silently claim nationwide source coverage.
         if not venues:raise RuntimeError("No addressed published cross-agency venues in four selected districts")
+    if args.police_output:
+        all_venues=[dict(v,audit_scope="all") for v in venues]
+        police_venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
+        police_venues=[dict(v,audit_scope="police") for v in police_venues]
+        venues=all_venues+police_venues
     if not args.input and not args.fetch_official: p.error("Specify --input or --fetch-official")
     if args.input and args.fetch_official: p.error("Input modes are mutually exclusive")
     provenance=[]
@@ -153,15 +161,26 @@ def main():
                 url="https://file.localdata.go.kr/file/download/general_restaurants/info?"+urllib.parse.urlencode({"orgCode":code})
                 request=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Referer":"https://file.localdata.go.kr/file/general_restaurants/info"})
                 dest=Path(tmp)/(code+".csv")
-                with urllib.request.urlopen(request,timeout=120) as response:
-                    content_type=response.headers.get("Content-Type","").lower()
-                    if response.status!=200 or not any(x in content_type for x in ("csv","octet-stream","download")):
-                        raise RuntimeError("Unexpected official CSV response "+district+": "+content_type)
-                    with dest.open("wb") as output:
-                        while True:
-                            part=response.read(1024*1024)
-                            if not part:break
-                            output.write(part)
+                last_exc=None
+                for attempt in range(1,4):
+                    try:
+                        with urllib.request.urlopen(request,timeout=55) as response:
+                            content_type=response.headers.get("Content-Type","").lower()
+                            if response.status!=200 or not any(x in content_type for x in ("csv","octet-stream","download")):
+                                raise RuntimeError("Unexpected official CSV response "+district+": "+content_type)
+                            with dest.open("wb") as output:
+                                while True:
+                                    part=response.read(1024*1024)
+                                    if not part:break
+                                    output.write(part)
+                        last_exc=None
+                        break
+                    except (TimeoutError,urllib.error.URLError,ConnectionError) as exc:
+                        last_exc=exc
+                        if dest.exists():dest.unlink()
+                        print(f"retry {district} attempt {attempt}/3: {exc}",flush=True)
+                        if attempt<3:time.sleep(attempt*2)
+                if last_exc is not None:raise RuntimeError(f"Failed official download for {district} after 3 attempts") from last_exc
                 if dest.stat().st_size<100:raise RuntimeError("Empty official CSV "+district)
                 # A community code map is only a hint. Reject downloads where
                 # the actual official address rows do not belong to the requested jurisdiction.
@@ -183,6 +202,11 @@ def main():
                 for file in paths:
                     yield from load_official(file)
             rows=evaluate(venues,chained_rows())
+    police_rows=[]
+    if args.police_output:
+        police_rows=[r for r in rows if r.get("audit_scope")=="police"]
+        rows=[r for r in rows if r.get("audit_scope")=="all"]
+        if len(police_rows)!=18:raise RuntimeError("Police cohort changed unexpectedly: "+str(len(police_rows)))
     by_region={}
     for item in rows:
         name=item.get("region") or "UNROUTED"
@@ -200,5 +224,16 @@ def main():
          "venues":rows}
     dest=Path(args.output);dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    if args.police_output:
+        police_output=dict(out)
+        police_output.update({"scope":"police","total_venues":len(police_rows),
+            "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in police_rows),
+            "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in police_rows),
+            "venues":police_rows})
+        police_dest=Path(args.police_output)
+        police_dest.parent.mkdir(parents=True,exist_ok=True)
+        police_dest.write_text(json.dumps(police_output,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+        print("Police same-download audit "+str(len(police_rows))+" venues -> "+str(police_dest))
+
     print(json.dumps({"total":len(rows),"exact":out["exact_business_and_address_matches"],"building":out["name_and_building_matches"],"sources":len(provenance),"output":str(dest)},ensure_ascii=False))
 if __name__=="__main__":main()
