@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse,csv,json,re,hashlib,urllib.request,urllib.parse,tempfile,datetime
 from pathlib import Path
 from difflib import SequenceMatcher
+from localdata_regions import route_localdata, building_key, registry_codes
 
 ROOT=Path(__file__).resolve().parents[1]
 NAME=("사업장명","업소명","상호명","사업장명칭")
@@ -20,12 +21,7 @@ def field(row,names):
 def normalize(x):
     return re.sub(r"[^0-9가-힣a-z]","",str(x or "").lower().replace("서울특별시","서울").replace("서울시","서울"))
 def road_building_key(address):
-    """Match administrative district, whole road name, and exact building number.
-    Floors, commercial unit numbers, landmark text are NOT proof of the payment branch.
-    """
-    a=" ".join(str(address or "").replace("서울특별시","서울").replace("서울시","서울").split())
-    m=re.search(r"(서대문구|중구|종로구|서초구)\s+([^\s,()]+(?:로|길)\s*\d+(?:-\d+)?)",a)
-    return normalize(m.group(0)) if m else ""
+    return building_key(address)
 
 def load_official(path:Path):
     """Stream official multi-million row CSV without materializing the whole file."""
@@ -107,9 +103,18 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input",help="Previously downloaded official restaurant licence CSV")
     p.add_argument("--fetch-official",action="store_true")
-    p.add_argument("--scope",choices=["police","all"],default="police",help="Choose Police 18-venue list or all published cohorts within the same four Seoul districts")
+    p.add_argument("--scope",choices=["police","all"],default="police")
+    p.add_argument("--regions",default="서울서대문구,서울중구,서울종로구,서울서초구",help="Comma-separated registry region keys; do not guess codes")
     p.add_argument("--output",default=str(ROOT/"reports/restaurant-license-audit.json"))
     args=p.parse_args()
+    codes=registry_codes()
+    selected=[x.strip() for x in args.regions.split(",") if x.strip()]
+    if not selected or len(selected)!=len(set(selected)) or len(selected)>15:
+        p.error("Select 1–15 unique jurisdictions")
+    for region in selected:
+        if region not in codes or region.endswith("본청") or not re.fullmatch(r"\d{7}",str(codes[region])):
+            p.error("Unknown LOCALDATA jurisdiction: "+region)
+    allowed=set(selected)
     if args.scope=="police":
         venues=json.loads((ROOT/"sources/police_verified_expense_venues.json").read_text(encoding="utf-8"))["venues"]
     else:
@@ -118,12 +123,11 @@ def main():
         from extra_published import merge_extra_published
         from global_entities import merge_global_entities
         merged=merge_global_entities(merge_extra_published(merge_published_sources(load_payload())))
-        districts={"서대문구","중구","종로구","서초구"}
         venues=[]
         for r in merged.get("records") or []:
             address=str(r.get("address") or "")
-            key=road_building_key(address)
-            if not key or not any(normalize(district) in key for district in districts):
+            region=route_localdata(address,codes)
+            if not region or region[0] not in allowed or not road_building_key(address):
                 continue
             venues.append({"merchant":r.get("name") or "", "display":(r.get("business") or {}).get("display") or r.get("name"),
                            "address":address, "origin":r.get("origin"),"entity_id":r.get("entity_id")})
@@ -137,7 +141,7 @@ def main():
         provenance.append({"file":file.name,"sha256":hashlib.sha256(file.read_bytes()).hexdigest()})
         rows=evaluate(venues,load_official(file))
     else:
-        districts={"서울서대문구":"3120000","서울중구":"3010000","서울종로구":"3000000","서울서초구":"3210000"}
+        districts={name:codes[name] for name in selected}
         with tempfile.TemporaryDirectory() as tmp:
             paths=[]
             for district,code in districts.items():
@@ -160,12 +164,12 @@ def main():
                 for file in paths:
                     yield from load_official(file)
             rows=evaluate(venues,chained_rows())
-    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_FOUR_DISTRICTS","scope":args.scope,"geographic_scope":"서울 서대문구·중구·종로구·서초구","sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
+    out={"official_csv":Path(args.input).name if args.input else "LOCALDATA_REGIONAL_BATCH","scope":args.scope,"geographic_scope":selected,"sources":provenance,"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"total_venues":len(rows),
          "exact_business_and_address_matches":sum(x["license_match_status"]=="EXACT_NAME_AND_ADDRESS" for x in rows),
          "name_and_building_matches":sum(x["license_match_status"]=="NAME_AND_BUILDING_ADDRESS_FLOOR_UNVERIFIED" for x in rows),
          "policy":"A restaurant licence verifies restaurant identity/status only, not the payment card branch or attendee.",
          "venues":rows}
     dest=Path(args.output);dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({"total":len(rows),"exact":out["exact_business_and_address_matches"],"output":str(dest)},ensure_ascii=False))
+    print(json.dumps({"total":len(rows),"exact":out["exact_business_and_address_matches"],"building":out["name_and_building_matches"],"sources":len(provenance),"output":str(dest)},ensure_ascii=False))
 if __name__=="__main__":main()
