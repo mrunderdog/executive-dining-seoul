@@ -3,16 +3,18 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'data/**'
-      - 'sources/**'
-      - 'reports/*-candidates.json'
-      - 'reports/*-province-candidates.json'
-      - 'reports/education-police-approved-venues.json'
-      - 'reports/signal-intelligence.json'
-      - 'site/**'
-      - 'pipeline/**'
-      - '.github/workflows/pages.yml'
+  workflow_run:
+    workflows:
+      - Build static coordinate cache
+      - Monthly data refresh
+      - Signal intelligence reports
+      - Central + National refresh
+      - Rebuild council candidates
+      - Regional executive refresh
+      - Capital council expense ingestion
+      - Publish verified education dining transactions
+      - Public enterprise refresh on source change
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -20,14 +22,16 @@ permissions:
   pages: write
   id-token: write
 
-# Deploy only after relevant inputs have been committed to main.
-# Do not fan out from unrelated workflow completions.
+# The build reads latest main for every trigger. Incoming workflow_run
+# completions can be skipped/cancelled and must NOT cancel an in-flight
+# successful deployment of a verified Pages build.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     outputs:
       commit: ${{ steps.buildinfo.outputs.commit }}
@@ -117,6 +121,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
