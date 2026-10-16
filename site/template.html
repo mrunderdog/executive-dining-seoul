@@ -60,6 +60,52 @@
       <div class="empty-detail"><div><strong>식당을 선택하세요</strong>왼쪽 목록이나 지도 마커를 누르면 업체 정보와 선정 근거를 표시합니다.</div></div>
     </aside>
   </div>
+
+  <section class="data-story" id="dataStory" aria-labelledby="dataStoryTitle">
+    <div class="data-story-head">
+      <div>
+        <div class="section-eyebrow">BEHIND THE MAP · DATA LINEAGE</div>
+        <h2 id="dataStoryTitle">이 지도는 어떤 데이터로 만들어졌나</h2>
+        <p>기관이 공개한 지출·사용처 기록을 수집하고, 식당 이름과 위치를 검토한 뒤 지도에 반영합니다. 아래 수치는 <strong>실제로 공개된 식당 데이터</strong>를 기준으로 자동 계산합니다.</p>
+      </div>
+      <span class="data-story-icon" aria-hidden="true">↗ DATA</span>
+    </div>
+
+    <div class="data-story-block">
+      <div class="data-story-label"><h3>01. 공개 출처별 식당</h3><span>기관군 · 중복 포함</span></div>
+      <div class="data-story-groups" id="dataStoryGroups"><p class="data-story-empty">출처 집계가 준비되지 않았습니다.</p></div>
+      <p class="data-story-footnote">식당 수는 출처군별 중복을 포함하므로 위 카드의 합계가 전체 식당 수와 일치하지 않을 수 있습니다. 수집된 원자료 총 행 수 또는 기관 수를 뜻하지 않습니다.</p>
+    </div>
+
+    <div class="data-story-block">
+      <div class="data-story-label"><h3>02. 기록에서 지도로</h3><span>공개 결과의 단계별 집계</span></div>
+      <div class="data-story-pipeline" id="dataStoryPipeline" aria-label="데이터 처리 결과"><p class="data-story-empty">처리 단계가 준비되지 않았습니다.</p></div>
+      <p class="data-story-footnote">기관 교차 식당은 위치 확인 식당의 하위집합이 아닐 수 있습니다. 숫자는 각 단계의 개별 집계이며, 같은 원자료의 순차적 감소량을 나타내는 퍼널은 아닙니다.</p>
+    </div>
+
+    <div class="data-story-block">
+      <div class="data-story-label"><h3>03. 어떤 사실이 검증되었나</h3><span>근거의 경계를 분리해서 표시</span></div>
+      <div class="data-story-trust">
+        <div><strong>원자료 공개</strong><span>기관이 게시한 거래·사용처 기록</span></div>
+        <div><strong>위치 확인</strong><span>표시 가능한 식당 주소 또는 좌표</span></div>
+        <div><strong>기관 교차</strong><span>여러 기관의 공개 선택 기록이 겹치는 식당</span></div>
+        <div><strong>별도 미확인</strong><span>카드 가맹점 동일성·개인 참석은 자동 입증되지 않음</span></div>
+      </div>
+    </div>
+
+    <div class="data-story-block data-story-status">
+      <div class="data-story-label"><h3>04. 업데이트 · 품질 상태</h3><span>마지막 사이트 생성 기준</span></div>
+      <div class="data-story-health" aria-live="polite">
+        <div><span>LAST BUILD</span><strong id="storyLastBuild">확인 중</strong><small>사이트 파일 생성 시각 (KST)</small></div>
+        <div><span>SOURCE GROUPS</span><strong id="storySources">—</strong><small>지도에 노출된 출처군</small></div>
+        <div><span>QUALITY GATE</span><strong id="storyQa">미확인</strong><small id="storyQaSub">검증 상태 집계 중</small></div>
+        <div><span>REVIEW QUEUE</span><strong id="storyReview">미확인</strong><small>의회 출처 진단 범위 한정</small></div>
+        <div><span>FETCH FAILURES</span><strong id="storyFailures">미집계</strong><small>실제 최신 수집 실패 로그 미통합</small></div>
+      </div>
+      <p class="data-story-footnote" id="storyFreshness">최근 공개 거래일: 확인 중. 사이트 생성 시각은 원자료 갱신 또는 GitHub Pages 배포 완료 시각이 아닙니다.</p>
+      <p class="data-story-footnote">이 지도에 나타난 공개 지출기록만으로 특정 공직자의 직접 참석이나 식당의 품질을 추론할 수 없습니다. 일부 출처는 원천사이트 장애 시 이전 검증 데이터를 유지할 수 있습니다.</p>
+    </div>
+  </section>
 </div>
   <div class="restaurant-lookup-backdrop" id="restaurantLookupBackdrop" hidden>
     <section class="restaurant-lookup" role="dialog" aria-modal="true" aria-labelledby="restaurantLookupTitle">

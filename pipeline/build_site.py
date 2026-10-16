@@ -12,11 +12,13 @@ from published_sources import merge_published_sources
 from extra_published import merge_extra_published
 from global_entities import merge_global_entities
 from evidence_semantics import apply_evidence_semantics
+from data_story import build_data_story
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
 APP_JS = ROOT / "site" / "app.js"
 APP_CSS = ROOT / "site" / "app.css"
+STORY_JS = ROOT / "site" / "data_story.js"
 GEO_CACHE = ROOT / "data" / "geocode_cache.json"
 QUALITY_REPORT = ROOT / "reports" / "quality.json"
 
@@ -34,6 +36,7 @@ def load_geo_cache():
 def inject_maplibre(html: str) -> str:
     css = APP_CSS.read_text(encoding="utf-8")
     js = APP_JS.read_text(encoding="utf-8")
+    story_js = STORY_JS.read_text(encoding="utf-8")
 
     html = re.sub(r'<link[^>]+leaflet[^>]+>\s*', '', html, flags=re.I)
     html = re.sub(r'<link[^>]+MarkerCluster[^>]+>\s*', '', html, flags=re.I)
@@ -48,7 +51,8 @@ def inject_maplibre(html: str) -> str:
         raise RuntimeError('app runtime marker not found in template')
     replacement = (
         '<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>\n'
-        '<script>\n' + js + '\n</script>\n'
+        '<script>\n' + js + '\n</script>\n' +
+        '<script>\n' + story_js + '\n</script>\n'
     )
     return html.replace(marker, replacement)
 
@@ -132,9 +136,11 @@ def main():
     stats["location_grade_c"] = sum((r.get("location_verification") or {}).get("grade") == "C" for r in records)
     stats["coordinate_candidates_rejected"] = coord_rejected
     stats["geocode_address_backfills"] = geocode_address_backfills
+    quality_doc = None
     if QUALITY_REPORT.exists():
         try:
             quality = json.loads(QUALITY_REPORT.read_text(encoding="utf-8"))
+            quality_doc = quality
             source_health = ((quality.get("checks") or {}).get("source_health") or {})
             stats["source_health"] = source_health
             summary = {}
@@ -146,10 +152,15 @@ def main():
             pass
     origins = payload.get("origins") or sorted({r.get("origin", "") for r in records if r.get("origin")})
 
+    built_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    story = build_data_story(records, quality_doc, built_at)
     html = inject_maplibre(TEMPLATE.read_text(encoding="utf-8"))
     html = html.replace("__DATA__", json.dumps(records, ensure_ascii=False, separators=(",", ":")))
     html = html.replace("__STATS__", json.dumps(stats, ensure_ascii=False, separators=(",", ":")))
     html = html.replace("__ORIGINS__", json.dumps(origins, ensure_ascii=False, separators=(",", ":")))
+    html = html.replace("__STORY__", json.dumps(story, ensure_ascii=False, separators=(",", ":")))
+    if "__STORY__" in html:
+        raise RuntimeError("Story data placeholder was not replaced")
 
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -171,7 +182,7 @@ def main():
         "location_grade_a": stats.get("location_grade_a", 0),
         "location_grade_b": stats.get("location_grade_b", 0),
         "location_grade_c": stats.get("location_grade_c", 0),
-        "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "built_at": built_at,
     }
     meta_out = out.with_name("build-meta.json")
     meta_out.write_text(json.dumps(build_meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
