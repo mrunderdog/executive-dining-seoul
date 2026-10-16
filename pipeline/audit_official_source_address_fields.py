@@ -7,6 +7,8 @@ import argparse
 from collections import defaultdict, Counter
 import hashlib
 from io import BytesIO
+from html.parser import HTMLParser
+from urllib.parse import urljoin
 import json
 from pathlib import Path
 import re
@@ -51,6 +53,32 @@ def fetch(url):
     if len(content)>MAX_BYTES:
         raise ValueError("Over 8 MB download guard")
     return content, content_type
+
+
+class AttachmentLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.hrefs=[]
+        self.current=None
+    def handle_starttag(self,tag,attrs):
+        if tag.lower()=="a":
+            self.current=dict(attrs).get("href","")
+    def handle_data(self,data):
+        if self.current and re.search(r"\.(?:xlsx?|csv|hwpx?|pdf)\b",data,re.I):
+            self.hrefs.append(self.current)
+    def handle_endtag(self,tag):
+        if tag.lower()=="a":self.current=None
+
+def attachment_candidates(html, page_url):
+    parser=AttachmentLinks()
+    parser.feed(html)
+    candidates=[]
+    for href in parser.hrefs:
+        full=urljoin(page_url,href)
+        target=urlparse(full)
+        if target.scheme=="https" and target.hostname==urlparse(page_url).hostname and full not in candidates:
+            candidates.append(full)
+    return candidates[:4]
 
 def source_index():
     by = defaultdict(lambda: defaultdict(set))
@@ -149,7 +177,9 @@ def inspect_doc(url, merchants):
         elif raw[:8]==b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1":
             out["status"]="LEGACY_OFFICE_REQUIRES_PARSER"
         elif b"<html" in raw[:2000].lower() or "text/html" in content_type.lower():
-            out["status"]="HTML_POSTING_ATTACHMENT_NOT_INSPECTED"
+            out["status"]="HTML_ATTACHMENT_DISCOVERY_REVIEW"
+            out["same_host_download_candidates"]=attachment_candidates(raw.decode("utf-8",errors="replace"),url)
+            out["attachment_candidates_not_downloaded"]=True
         else:
             out["status"]="UNKNOWN_FILETYPE"
     except Exception as exc:
