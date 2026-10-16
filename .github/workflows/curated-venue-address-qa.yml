@@ -6,6 +6,7 @@ on:
       - 'pipeline/source_address_evidence.py'
       - 'pipeline/extra_published.py'
       - 'pipeline/test_source_address_evidence.py'
+      - 'pipeline/source_address_remediation_batch.py'
       - '.github/workflows/curated-venue-address-qa.yml'
   push:
     branches: [main]
@@ -42,7 +43,7 @@ jobs:
           approved=[e for e in doc['entries'] if e['status']=='APPROVED_VENUE_LOCATION']
           review=[e for e in doc['entries'] if e['status']=='REVIEW_ONLY']
           existing=[e for e in doc['entries'] if e['status']=='ALREADY_ENRICHED']
-          assert len(approved)==2 and len(existing)==1 and len(review)==4
+          assert len(approved)==5 and len(existing)==1 and len(review)==1
           published={r['name']:r for r in central_records()+public_enterprise_records()}
           for e in approved:
               v=curated_location(e['cohort'],e['merchant'])
@@ -64,6 +65,8 @@ jobs:
               json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print(json.dumps(out,ensure_ascii=False))
           PY
+      - name: Generate official source document remediation batch
+        run: python pipeline/source_address_remediation_batch.py
       - name: Upload evidence and coverage reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,5 +75,6 @@ jobs:
           path: |
             reports/curated-venue-location-audit.json
             reports/localdata-regional-coverage.json
+            reports/source-address-remediation-batch.json
           retention-days: 30
           if-no-files-found: warn

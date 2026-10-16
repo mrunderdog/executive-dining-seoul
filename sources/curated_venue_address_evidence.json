@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "checked_on": "2026-10-16",
-  "policy": "Only exact published source merchant+branch name with independently documented venue address may enrich display location. Never prove payment merchant or personal attendance. REVIEW_ONLY entries cannot enter published venue addresses.",
+  "policy": "Approve only corroborated exact venue branch locations. Review-only, historical closures, or already enriched records never auto-add. Venue address never means card-merchant identity or personal attendance.",
   "entries": [
     {
       "cohort": "central_executive",
@@ -45,42 +45,67 @@
     {
       "cohort": "central_executive",
       "merchant": "모담 서울역점",
-      "address": "서울 중구 세종대로 14 그랜드센트럴 지하3층 B304, B305호",
-      "status": "REVIEW_ONLY",
-      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "address": "서울특별시 중구 세종대로 14 그랜드센트럴 지하 3층 B304, B305호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
       "evidence": [
         {
           "type": "local_platform_listing",
           "url": "https://www.daangn.com/kr/local-profile/%EB%AA%A8%EB%8B%B4-%EC%84%9C%EC%9A%B8%EC%97%AD%EC%A0%90-sownhppg64s2/",
-          "claim": "모담 서울역점 지점 및 주소"
+          "claim": "모담 서울역점 지점명, 전화번호, 세종대로14 B304-305호"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=MDL3NjBBV1Ew",
+          "claim": "모담 서울역점 동일 지점명과 지하3층 B304, B305호 및 전화 일치"
         }
       ]
     },
     {
       "cohort": "central_executive",
       "merchant": "가시리 여의도점",
-      "address": "서울 영등포구 국회대로76길 16",
-      "status": "REVIEW_ONLY",
-      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "address": "서울특별시 영등포구 국회대로76길 16 켄싱턴호텔 별관 C동 3층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
       "evidence": [
         {
           "type": "restaurant_platform_listing",
           "url": "https://www.tabling.co.kr/place/677cc78066de5f069874d706",
-          "claim": "가시리 여의도점 지점 및 주소"
+          "claim": "가시리 여의도점 상호, 영등포구 국회대로76길16, 전화"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=nOi0XkT5oXsE",
+          "claim": "가시리 여의도점 켄싱턴호텔 후문 별관 C동 3층"
+        },
+        {
+          "type": "official_dataset_mirror",
+          "url": "https://fmr.purpleo.co.kr/view/3455",
+          "claim": "공개 모범음식점 인허가번호 20050086972, 상호·주소·영업상태와 변경일자를 표시하는 2차 게시자료; 공식 원문 파일 자체는 아님"
         }
       ]
     },
     {
       "cohort": "public_enterprise_leadership",
       "merchant": "우들목여의도점",
-      "address": "서울 영등포구 여의대방로67길 21",
-      "status": "REVIEW_ONLY",
-      "basis": "SINGLE_THIRD_PARTY_LISTING",
+      "address": "서울특별시 영등포구 여의대방로67길 21 정곡빌딩 2층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
       "evidence": [
         {
           "type": "restaurant_platform_listing",
           "url": "https://www.tabling.co.kr/place/677cc78166de5f069874d87a",
-          "claim": "우들목 여의도점 지점 및 주소"
+          "claim": "우들목 여의도점 상호, 전화 02-785-6692, 여의대방로67길21"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=CcDQYrtcxR9b",
+          "claim": "우들목 동일 전화, 도로명21, 2층"
+        },
+        {
+          "type": "business_company_profile",
+          "url": "https://www.incruit.com/company/5886330/",
+          "claim": "우들목 여의도점 업체 프로필에서 정곡빌딩2층 동일 주소"
         }
       ]
     },
@@ -113,7 +138,7 @@
       "merchant": "영덕집",
       "address": "서울특별시 서초구 강남대로43길 8-3",
       "status": "REVIEW_ONLY",
-      "basis": "PHONE_CROSS_MATCH_HISTORICAL_CLOSED_POSSIBLE",
+      "basis": "HISTORICAL_LOCATION_CLOSED_REVIEW",
       "evidence": [
         {
           "type": "directory_listing",
@@ -124,8 +149,14 @@
           "type": "historic_business_status",
           "url": "https://restaurantguru.com/amp/%EC%98%81%EB%8D%95%EC%A7%91-Seoul",
           "claim": "별도 정보에 영구 폐업 표기; 현재 영업 여부를 판단하지 않음"
+        },
+        {
+          "type": "historical_closure_listing",
+          "url": "https://polle.com/place/2dX0S7/%EC%98%81%EB%8D%95%EC%A7%91",
+          "claim": "현 주소의 영덕집 업소에 '폐점'으로 표기; 영업 여부는 별도 원장 확인 필요"
         }
-      ]
+      ],
+      "notes": "Historical address and phone agree, but closures reported; do not treat as current open store or confirm spend location."
     }
   ]
 }
