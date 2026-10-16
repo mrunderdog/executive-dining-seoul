@@ -33,7 +33,7 @@ def curated_location(cohort:str, merchant:str, registry:dict|None=None)->dict|No
     official=(rec.get("basis")=="EXACT_NAMED_BRANCH_OFFICIAL_BRAND" and
               any(x.get("type")=="brand_official_branch_directory"
                   and urlparse(x["url"]).hostname.lower() in brand_hosts for x in evidence))
-    corroborated=rec.get("basis")=="EXACT_NAMED_BRANCH_CORROBORATED" and len(hosts)>=2
+    corroborated=rec.get("basis")=="EXACT_NAMED_BRANCH_CORROBORATED" and len(hosts)>=2 and any(x.get("type") in {"independent_food_platform","business_company_profile"} for x in evidence)
     if not (official or corroborated):
         return None
     return {
