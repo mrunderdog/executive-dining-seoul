@@ -1,0 +1,46 @@
+name: Audit original expense attachment address fields
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'pipeline/audit_official_source_address_fields.py'
+      - 'pipeline/test_official_source_address_fields.py'
+      - '.github/workflows/official-source-address-field-audit.yml'
+permissions:
+  contents: read
+jobs:
+  original-address-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install spreadsheet reader
+        run: pip install openpyxl==3.1.5
+      - name: Test safe original document extraction
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_official_source_address_fields.py
+      - name: Inspect three highest-impact source URLs per cohort
+        run: python pipeline/audit_official_source_address_fields.py --limit 3
+      - name: Validate evidence isolation
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open("reports/official-source-address-field-audit.json"))
+          assert len(d["cohorts"])==3
+          for c in d["cohorts"]:
+              assert c["audited_source_urls"]<=3
+              for doc in c["documents"]:
+                  for row in doc["exact_official_source_row_candidates"]:
+                      assert row["review_status"]=="OFFICIAL_SOURCE_ROW_CANDIDATE_NOT_APPROVED"
+                      assert row["payment_branch_verified"] is False
+                      assert row["personal_attendance_verified"] is False
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-expense-source-address-field-audit
+          path: reports/official-source-address-field-audit.json
+          if-no-files-found: warn
+          retention-days: 30
