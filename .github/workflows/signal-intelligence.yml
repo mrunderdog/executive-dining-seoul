@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
     paths:
+      - 'data/chunks/**'
+      - 'data/raw/**'
       - 'pipeline/build_signal_reports.py'
       - 'pipeline/global_entities.py'
       - 'pipeline/extra_published.py'
@@ -14,15 +16,6 @@ on:
       - 'reports/education-police-approved-venues.json'
       - 'sources/entity_bridge_overrides.json'
       - '.github/workflows/signal-intelligence.yml'
-  workflow_run:
-    workflows:
-      - Capital council expense ingestion
-      - Rebuild council candidates
-      - Central + National refresh
-      - Regional executive refresh
-      - Publish verified education dining transactions
-      - Monthly data refresh
-    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -34,7 +27,6 @@ concurrency:
 
 jobs:
   build:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest main
