@@ -2,7 +2,7 @@ import unittest
 from io import BytesIO
 from unittest.mock import patch
 from openpyxl import Workbook
-from audit_official_source_address_fields import inspect_xlsx, inspect_doc, fetch
+from audit_official_source_address_fields import inspect_xlsx, inspect_doc, fetch, attachment_candidates
 
 class AuditTests(unittest.TestCase):
     def test_exact_merchant_address_only_and_no_automatic_approval(self):
@@ -17,6 +17,10 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(row["excel_row"],3)
         self.assertEqual(row["candidate_address"],"서울 중구 세종대로 33")
         self.assertFalse(row["payment_branch_verified"])
+    def test_html_attachment_discovery_same_host_only(self):
+        html='<a href="/files/report.xlsx">업무추진비.xlsx</a><a href="https://evil.test/a.xlsx">외부.xlsx</a><a href="javascript:bad()">사기.xlsx</a>'
+        found=attachment_candidates(html,"https://www.kamco.or.kr/portal/bbs/view.do")
+        self.assertEqual(found,["https://www.kamco.or.kr/files/report.xlsx"])
     def test_reject_unofficial_host(self):
         with self.assertRaises(ValueError):
             fetch("https://example.org/test.xlsx")
