@@ -50,6 +50,9 @@ jobs:
       - name: Regression checks
         run: python pipeline/regression_checks.py
 
+      - name: Test data story semantics
+        run: python pipeline/test_data_story.py
+
       - name: Quality gate
         run: python pipeline/quality_gate.py
 
@@ -62,9 +65,13 @@ jobs:
       - name: Check frontend runtime syntax
         run: |
           node --check site/app.js
+          node --check site/data_story.js
           python - <<'PY'
           from pathlib import Path
           html=Path('dist/index.html').read_text(encoding='utf-8')
+          for key in ('id="dataStory"','id="storyLastBuild"','id="storyQa"','id="dataStoryGroups"'):
+              assert key in html, key
+          assert '__STORY__' not in html
           start=html.rfind('<script>')+8
           end=html.rfind('</script>')
           Path('/tmp/executive-dining-runtime.js').write_text(html[start:end], encoding='utf-8')
