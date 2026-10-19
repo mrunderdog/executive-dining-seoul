@@ -1,10 +1,15 @@
 name: Council recovery targeted diagnostics
 on:
+  push:
+    branches: [main]
+    # Single release run upon merging this recovery workflow change.
+    paths: ['.github/workflows/council-recovery-diagnostics.yml']
   pull_request:
     paths:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
+      - 'pipeline/probe_council_board_markup.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
 permissions:
@@ -12,7 +17,7 @@ permissions:
 jobs:
   target-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -20,6 +25,17 @@ jobs:
           python-version: '3.12'
       - name: Verify safe attachment handling
         run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery
+      - name: Capture real board click and download markup
+        shell: bash
+        run: |
+          set +e
+          mkdir -p reports/recovery
+          python pipeline/probe_council_board_markup.py \
+            --source hwaseong --source ansan --source icheon --source dongducheon \
+            > reports/recovery/board-markup.log 2>&1
+          PROBE_RC=$?
+          cat reports/recovery/board-markup.log
+          echo "Probe exit: $PROBE_RC"
       - name: Discover targeted councils without publishing
         shell: bash
         run: |
@@ -41,6 +57,38 @@ jobs:
               Path(f'reports/recovery/{key}.json').write_text(json.dumps({'posts':len(posts),'attachments':len(atts),'sample_posts':posts[:3]},ensure_ascii=False,indent=2))
           PY
           done
+      - name: Install parsers for real transaction QA
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Trial ingest each source into ephemeral runner only
+        shell: bash
+        run: |
+          set +e
+          for SOURCE in hwaseong ansan icheon dongducheon; do
+            echo "### trial ingest $SOURCE ###"
+            python pipeline/ingest_council_expense.py --source "$SOURCE" >"reports/recovery/$SOURCE-ingest.log" 2>&1
+            INGEST_RC=$?
+            if [[ $INGEST_RC -ne 0 ]]; then
+              echo "$SOURCE: INGEST_FAIL (exit $INGEST_RC)"
+              tail -15 "reports/recovery/$SOURCE-ingest.log"
+              continue
+            fi
+            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 >"reports/recovery/$SOURCE-dates.log" 2>&1
+            DATE_RC=$?
+            python - "$SOURCE" "$DATE_RC" <<'PY'
+          import json,sys
+          from pathlib import Path
+          source=sys.argv[1];date_rc=int(sys.argv[2])
+          raw=Path(f"data/raw/{source}_expense.json")
+          obj=json.loads(raw.read_text(encoding="utf-8"))
+          rows=obj.get("rows",[])
+          usable=[x for x in rows if isinstance(x.get("amount"),(int,float)) and x["amount"]>0 and x.get("merchant") and x.get("used_date")]
+          ratio=len(usable)/len(rows) if rows else 0
+          outcome={"source":source,"rows":len(rows),"verified_amount_and_date_rows":len(usable),"amount_date_coverage":round(ratio,4),"date_QA_exit":date_rc,"can_publish": bool(rows and date_rc==0 and ratio>=0.95)}
+          print(json.dumps(outcome,ensure_ascii=False))
+          Path(f"reports/recovery/{source}-quality.json").write_text(json.dumps(outcome,ensure_ascii=False,indent=2))
+          PY
+          done
+          # Diagnostic only. Neither raw records nor public site are committed.
       - name: Upload diagnostic results
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,3 +96,224 @@ jobs:
           name: council-recovery-diagnostics
           path: reports/recovery/
           retention-days: 7
+
+  publish-dongducheon-verified:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    permissions:
+      contents: write
+    concurrency:
+      group: published-data-writer
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install spreadsheet parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Discover real official posts
+        run: python pipeline/capital_backfill.py --since 2026-07 --until 2026-10 --source dongducheon
+      - name: Ingest without discarding last-good
+        run: python pipeline/ingest_council_expense.py --source dongducheon --incremental
+      - name: Validate dates and candidates
+        run: |
+          python pipeline/repair_raw_dates.py --source dongducheon --min-valid 0.95
+          python pipeline/build_source_candidates.py --source dongducheon --top 100
+      - name: Enforce source-specific amount, date and provenance gate
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json, re, subprocess
+          from datetime import date
+          from pathlib import Path
+          p=Path("data/raw/dongducheon_expense.json")
+          obj=json.loads(p.read_text(encoding="utf-8"))
+          rows=obj.get("rows") or []
+          assert obj.get("source")=="dongducheon"
+          assert len(rows)>=50, "Insufficient genuine new transactions"
+          assert len({r.get("row_id") for r in rows})==len(rows), "Duplicate normalized transaction ids"
+          checked=0
+          for r in rows:
+              if (str(r.get("institution") or "").find("동두천")<0 or
+                  not str(r.get("merchant") or "").strip() or
+                  not isinstance(r.get("amount"),(int,float)) or
+                  not 0 < r["amount"] < 50_000_000):
+                  continue
+              try:
+                  dt=date.fromisoformat(str(r.get("used_date") or "")[:10])
+              except ValueError:
+                  continue
+              if date(2024,12,1)<=dt<=date(2026,10,31):
+                  checked+=1
+          coverage=checked/len(rows)
+          assert coverage>=0.95, f"Only {coverage:.1%} source/date/amount coverage"
+          f=[x for x in obj.get("files",[]) if x.get("sha256") and x.get("url")]
+          assert f, "Missing verifiable download hashes and URLs"
+          discovery=json.loads(Path("reports/capital-backfill-discovery-dongducheon.json").read_text(encoding="utf-8"))
+          authorized={a.get("url") for x in discovery.get("posts",[]) for a in x.get("attachments",[])}
+          assert any(x["url"] in authorized for x in f), "File provenance not in fresh official discovery"
+          before=subprocess.run(["git","show","HEAD:data/raw/dongducheon_expense.json"],capture_output=True,text=True)
+          prev=len(json.loads(before.stdout).get("rows",[])) if before.returncode==0 else 0
+          assert len(rows)>=prev, "Would discard previously published records"
+          report={"source":"dongducheon","status":"PUBLISH_READY",
+                  "source_rows":len(rows),"previous_rows":prev,
+                  "valid_rows":checked,"coverage":round(coverage,5),
+                  "official_files":[{"url":x["url"],"sha256":x["sha256"]} for x in f],
+                  "scope":"Official council expense rows only, not confirmed personal attendance or payment branch"}
+          Path("reports/dongducheon-recovery-qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False))
+          PY
+      - name: Commit only QA-approved source records
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/dongducheon_expense.json \
+            reports/capital-backfill-discovery-dongducheon.json \
+            reports/capital-backfill-discovery-dongducheon.md \
+            reports/dongducheon-ingestion.md \
+            reports/dongducheon-executive-candidates.json \
+            reports/dongducheon-executive-candidates.md \
+            reports/dongducheon-recovery-qa.json
+          if git diff --cached --quiet; then
+            echo "No validated new records to publish."
+            exit 0
+          fi
+          git commit -m "data: recover verified Dongducheon council expense records"
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Verified council raw data committed and published."
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "Could not safely update main; retained previously published data." >&2
+          exit 1
+      - name: Refresh derived outputs after GITHUB_TOKEN data commit
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          for WF in geocode.yml signal-intelligence.yml; do
+            gh workflow run "$WF" --ref main ||
+              echo "::warning::Unable to dispatch $WF automatically"
+          done
+
+  publish-hwaseong-verified:
+    needs: publish-dongducheon-verified
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    permissions:
+      contents: write
+    concurrency:
+      group: published-data-writer
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install spreadsheet parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Discover real official posts
+        run: python pipeline/capital_backfill.py --since 2026-07 --until 2026-10 --source hwaseong
+      - name: Ingest without discarding last-good
+        run: python pipeline/ingest_council_expense.py --source hwaseong --incremental
+      - name: Validate dates and candidates
+        run: |
+          python pipeline/repair_raw_dates.py --source hwaseong --min-valid 0.95
+          python pipeline/build_source_candidates.py --source hwaseong --top 100
+      - name: Enforce source-specific amount, date and provenance gate
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json, re, subprocess
+          from datetime import date
+          from pathlib import Path
+          p=Path("data/raw/hwaseong_expense.json")
+          obj=json.loads(p.read_text(encoding="utf-8"))
+          rows=obj.get("rows") or []
+          assert obj.get("source")=="hwaseong"
+          assert len(rows)>=50, "Insufficient genuine new transactions"
+          assert len({r.get("row_id") for r in rows})==len(rows), "Duplicate normalized transaction ids"
+          checked=0
+          for r in rows:
+              if (str(r.get("institution") or "").find("화성")<0 or
+                  not str(r.get("merchant") or "").strip() or
+                  not isinstance(r.get("amount"),(int,float)) or
+                  not 0 < r["amount"] < 50_000_000):
+                  continue
+              try:
+                  dt=date.fromisoformat(str(r.get("used_date") or "")[:10])
+              except ValueError:
+                  continue
+              if date(2024,12,1)<=dt<=date(2026,10,31):
+                  checked+=1
+          coverage=checked/len(rows)
+          assert coverage>=0.95, f"Only {coverage:.1%} source/date/amount coverage"
+          f=[x for x in obj.get("files",[]) if x.get("sha256") and x.get("url")]
+          assert f, "Missing verifiable download hashes and URLs"
+          discovery=json.loads(Path("reports/capital-backfill-discovery-hwaseong.json").read_text(encoding="utf-8"))
+          authorized={a.get("url") for x in discovery.get("posts",[]) for a in x.get("attachments",[])}
+          assert any(x["url"] in authorized for x in f), "File provenance not in fresh official discovery"
+          before=subprocess.run(["git","show","HEAD:data/raw/hwaseong_expense.json"],capture_output=True,text=True)
+          prev=len(json.loads(before.stdout).get("rows",[])) if before.returncode==0 else 0
+          assert len(rows)>=prev, "Would discard previously published records"
+          report={"source":"hwaseong","status":"PUBLISH_READY",
+                  "source_rows":len(rows),"previous_rows":prev,
+                  "valid_rows":checked,"coverage":round(coverage,5),
+                  "official_files":[{"url":x["url"],"sha256":x["sha256"]} for x in f],
+                  "scope":"Official council expense rows only, not confirmed personal attendance or payment branch"}
+          Path("reports/hwaseong-recovery-qa.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False))
+          PY
+      - name: Commit only QA-approved source records
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw/hwaseong_expense.json \
+            reports/capital-backfill-discovery-hwaseong.json \
+            reports/capital-backfill-discovery-hwaseong.md \
+            reports/hwaseong-ingestion.md \
+            reports/hwaseong-executive-candidates.json \
+            reports/hwaseong-executive-candidates.md \
+            reports/hwaseong-recovery-qa.json
+          if git diff --cached --quiet; then
+            echo "No validated new records to publish."
+            exit 0
+          fi
+          git commit -m "data: recover verified Hwasung council expense records"
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Verified council raw data committed and published."
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "Could not safely update main; retained previously published data." >&2
+          exit 1
+      - name: Refresh derived outputs after GITHUB_TOKEN data commit
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          for WF in geocode.yml signal-intelligence.yml; do
+            gh workflow run "$WF" --ref main ||
+              echo "::warning::Unable to dispatch $WF automatically"
+          done
