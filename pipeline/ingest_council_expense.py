@@ -8,15 +8,19 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import http.cookiejar
 import io
 import json
 import re
 import urllib.request
+import urllib.parse
 import zipfile
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
+
+from capital_backfill import canonical_attachment_url
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -207,7 +211,9 @@ def _html_attachment_candidates(base_url: str, blob: bytes) -> list[str]:
             low = url.lower()
             if not any(token in low for token in (".pdf", ".xlsx", ".xls", ".csv", ".zip", "download", "filedown", "attach", "atchfile", "bbsfile")):
                 continue
-            if url == base_url or url in seen:
+            # Ignore UI fragments, dummy '/attach' routes and empty
+            # attachment endpoints; never chase page-navigation elements.
+            if not canonical_attachment_url(url) or url == base_url or url in seen:
                 continue
             seen.add(url)
             candidates.append(url)
@@ -660,6 +666,10 @@ def main():
             if not url:
                 continue
             if args.incremental and url in known_urls:
+                continue
+            if not canonical_attachment_url(url):
+                # A downloaded HTML board may advertise fake links (e.g.
+                # '/attach' and '#lg-download') which are not expense files.
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
             try:
