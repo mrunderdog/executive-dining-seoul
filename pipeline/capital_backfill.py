@@ -200,6 +200,11 @@ def title_period(title: str):
     if m:
         year = int((m.group(1) or "20") + m.group(2))
         return year, None, int(m.group(3))
+    # Council pages also write '2026년도 3분기', '2026년 2/4분기',
+    # or '2026년 2분기' without spaces.
+    q = re.search(r"(20\\d{2})\\s*년(?:도)?\\s*([1-4])\\s*(?:/\\s*4\\s*)?분기", title)
+    if q:
+        return int(q.group(1)), None, int(q.group(2))
     return None
 
 
@@ -314,6 +319,63 @@ def sanitize_discovered_posts(posts):
     return cleaned
 
 
+def council_js_posts(src: Source, base: str, doc: str, since, until):
+    """Resolve *observed* per-board click IDs to official detail pages only.
+
+    Do not invent download URLs from a listing or treat JS UI fragments as
+    proof of an attachment. Detail discovery must provide a real file URL.
+    """
+    if src.key not in {"hwaseong", "ansan", "dongducheon"}:
+        return []
+    result = []
+    seen = set()
+    for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, re.I | re.S):
+        if "업무추진비" not in tr:
+            continue
+        parsed = AnchorParser()
+        parsed.feed(tr)
+        for a in parsed.anchors:
+            title = a.get("text", "")
+            if "업무추진비" not in title:
+                continue
+            period = title_period(title)
+            if not period_overlaps(period, since, until):
+                continue
+            attrs = a.get("attrs", {})
+            href = html.unescape(attrs.get("href", ""))
+            onclick = html.unescape(attrs.get("onclick", ""))
+            detail = ""
+            if src.key == "hwaseong":
+                m = re.fullmatch(r"\s*javascript:\s*goViewPage\(\s*['\"](\d+)['\"]\s*\)\s*;?\s*", href, re.I)
+                if m:
+                    detail = urllib.parse.urljoin(base, "/cnts/bbs/boardView.php")+"?"+urllib.parse.urlencode(
+                        {"bbsCd":"cns", "bbsSubCd":"cns08", "bbsSn":m.group(1)})
+            elif src.key == "ansan":
+                m = re.search(r"fnGoDetail\(\s*(\d+)\s*\)", onclick)
+                if m:
+                    # The actual fnGoDetail() method and request route must be
+                    # verified independently; don't pretend a guessed endpoint
+                    # is an official attachment.
+                    continue
+            elif src.key == "dongducheon":
+                key = attrs.get("data-key", "")
+                if attrs.get("data-reform") == "view" and re.fullmatch(r"[a-f0-9]{32,128}", key, re.I):
+                    split = urllib.parse.urlsplit(base)
+                    params = urllib.parse.parse_qsl(split.query, keep_blank_values=True)
+                    params += [("reform", "view"), ("key", key)]
+                    detail = urllib.parse.urlunsplit((split.scheme, split.netloc, split.path,
+                                                      urllib.parse.urlencode(params), ""))
+            if not detail or detail in seen:
+                continue
+            seen.add(detail)
+            result.append({
+                "source":src.key, "region":src.region, "jurisdiction":src.jurisdiction,
+                "institution":src.institution, "title":title, "period":period,
+                "post_url":detail, "attachments":[],
+            })
+    return result
+
+
 def discover_source(src: Source, since, until):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -327,6 +389,22 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        # Official form/onclick-backed rows are not ordinary href anchors.
+        for row in council_js_posts(src, url, doc, effective_since, until):
+            if row["post_url"] in seen_posts:
+                continue
+            seen_posts.add(row["post_url"])
+            try:
+                detail_html = fetch_text(row["post_url"])
+                found = [x for x in anchors(row["post_url"], detail_html) if attachment_like(x)]
+                if not found:
+                    found = regex_attachment_fallback(row["post_url"], detail_html)
+                row["attachments"] = [
+                    x for x in found if canonical_attachment_url(x.get("url"))
+                ]
+            except Exception as e:
+                row["error"] = f"detail {type(e).__name__}: {e}"
+            posts.append(row)
 
         if src.key == "gimpo":
             for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I|re.S):
