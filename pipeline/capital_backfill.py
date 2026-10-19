@@ -406,9 +406,28 @@ def discover_source(src: Source, since, until):
             seen_posts.add(row["post_url"])
             try:
                 detail_html = fetch_text(row["post_url"])
-                found = [x for x in anchors(row["post_url"], detail_html) if attachment_like(x)]
-                if not found:
-                    found = regex_attachment_fallback(row["post_url"], detail_html)
+                if src.key == "hwaseong":
+                    # Official /js/svc/filedownload.js: fileDownLoad(flSn, flCd)
+                    # navigates to /cms/utl/FileDownLoad.php?flSn=...&flCd=...
+                    # Reject arbitrary JavaScript and any non-cns08 downloads.
+                    parser = AnchorParser()
+                    parser.feed(detail_html)
+                    found = []
+                    for a in parser.anchors:
+                        href = html.unescape((a.get("attrs") or {}).get("href", ""))
+                        m = re.fullmatch(r"\\s*javascript:fileDownLoad\\(['\"](\\d+)['\"]\\s*,\\s*['\"](cns08)['\"]\\)\\s*;?\\s*", href, re.I)
+                        if not m:
+                            continue
+                        label = a.get("text", "")
+                        if not re.search(r"\\.(?:xlsx?|csv|pdf)\\b", label, re.I):
+                            continue
+                        dl = urllib.parse.urljoin(row["post_url"], "/cms/utl/FileDownLoad.php")
+                        dl += "?" + urllib.parse.urlencode({"flSn": m.group(1), "flCd": m.group(2)})
+                        found.append({"text":label, "url":dl})
+                else:
+                    found = [x for x in anchors(row["post_url"], detail_html) if attachment_like(x)]
+                    if not found:
+                        found = regex_attachment_fallback(row["post_url"], detail_html)
                 row["attachments"] = [
                     x for x in found if canonical_attachment_url(x.get("url"))
                 ]
