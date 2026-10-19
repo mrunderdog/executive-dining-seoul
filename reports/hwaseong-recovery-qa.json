@@ -1,0 +1,23 @@
+{
+  "source": "hwaseong",
+  "status": "PUBLISH_READY",
+  "source_rows": 603,
+  "previous_rows": 0,
+  "valid_rows": 603,
+  "coverage": 1.0,
+  "official_files": [
+    {
+      "url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30759",
+      "sha256": "68b53ff8bf3d7408ff8dfb9d2275e04c37d0c229f81710b77b0d6377ac00812a"
+    },
+    {
+      "url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30414",
+      "sha256": "08781feaff7c9afa0877812fa1c9cfb535f7e5de92ae7a2c0d063d036d6f8bdd"
+    },
+    {
+      "url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30178",
+      "sha256": "bdc0d032caf283e945c2ece64e76cd0d0b0b99726521148570d9814e75b1ed17"
+    }
+  ],
+  "scope": "Official council expense rows only, not confirmed personal attendance or payment branch"
+}
