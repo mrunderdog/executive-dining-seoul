@@ -103,6 +103,7 @@ jobs:
     timeout-minutes: 16
     permissions:
       contents: write
+      actions: write
     concurrency:
       group: published-data-writer
       cancel-in-progress: false
@@ -214,6 +215,7 @@ jobs:
     timeout-minutes: 16
     permissions:
       contents: write
+      actions: write
     concurrency:
       group: published-data-writer
       cancel-in-progress: false
