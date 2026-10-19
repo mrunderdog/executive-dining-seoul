@@ -22,6 +22,12 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertIn("reform=view",out[0]["post_url"])
         self.assertIn("key="+("a"*72),out[0]["post_url"])
         self.assertEqual(title_period("2026년도 3분기 업무추진비"),(2026,None,3))
+        a='<tr><td><a onclick="fnGoDetail( 1684397 ); return false;">안산시의회 2026년도 3분기 업무추진비 집행내역 공개</a></td></tr>'
+        src=next(s for s in SOURCES if s.key=="ansan")
+        out=council_js_posts(src,"https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406",a,(2026,7),(2026,10))
+        self.assertEqual(len(out),1)
+        self.assertIn("selectBbsDetail.do",out[0]["post_url"])
+        self.assertIn("bbs_seq=1684397",out[0]["post_url"])
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))
