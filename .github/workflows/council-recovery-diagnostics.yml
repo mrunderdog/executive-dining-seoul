@@ -169,7 +169,7 @@ jobs:
           PY
       - name: Commit only QA-approved source records
         env:
-          GITHUB_REPOSITORY: \${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
@@ -199,7 +199,7 @@ jobs:
       - name: Refresh derived outputs after GITHUB_TOKEN data commit
         if: success()
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           for WF in geocode.yml signal-intelligence.yml; do
