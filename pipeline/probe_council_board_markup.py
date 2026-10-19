@@ -49,6 +49,20 @@ def inspect(source):
         for token in ("bbsViewPageGoFrm", "bbsSn", "fnGoDetail", "bbs_idx", "bbs_id", "list_frm_submit"):
             m=re.search(re.escape(token),body,re.I)
             if m:print("CONTEXT",token,re.sub(r"\s+"," ",body[max(0,m.start()-270):m.start()+650]))
+    if source=="ansan":
+        from capital_backfill import council_js_posts, fetch_text
+        pages=council_js_posts(s,url,body,(2026,7),(2026,10))
+        for p in pages[:1]:
+            try:
+                d=fetch_text(p["post_url"])
+                print("ANSAN DETAIL",p["post_url"],"bytes",len(d))
+                for tag in re.findall(r'<a\\b[^>]*>.*?</a>',d,re.I|re.S):
+                    if re.search(r'fnFileDownLoad|FileDown|p-attach|xlsx?|\\.xls|\\.pdf',tag,re.I):
+                        print("ANSAN FILE ANCHOR:",re.sub(r"\\s+"," ",html.unescape(tag))[:1000])
+                for m in list(re.finditer(r"function\\s+fnFileDownLoad\\s*\\([^)]*\\)\\s*\\{",d,re.I))[:2]:
+                    print("ANSAN DOWNLOAD FUNCTION:",re.sub(r"\\s+"," ",d[m.start():m.start()+1000]))
+            except Exception as e:
+                print("ANSAN DETAIL ERROR",type(e).__name__,str(e))
     if source=="hwaseong":
         try:
             script="https://council.hscity.go.kr/js/svc/filedownload.js?ver=2020707"
