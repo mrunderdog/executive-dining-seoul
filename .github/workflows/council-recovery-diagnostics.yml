@@ -5,6 +5,7 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
+      - 'pipeline/probe_council_board_markup.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
 permissions:
@@ -41,6 +42,13 @@ jobs:
               Path(f'reports/recovery/{key}.json').write_text(json.dumps({'posts':len(posts),'attachments':len(atts),'sample_posts':posts[:3]},ensure_ascii=False,indent=2))
           PY
           done
+      - name: Capture real board click and download markup
+        shell: bash
+        run: |
+          python pipeline/probe_council_board_markup.py \
+            --source hwaseong --source ansan --source icheon --source dongducheon \
+            > reports/recovery/board-markup.log 2>&1
+          cat reports/recovery/board-markup.log
       - name: Upload diagnostic results
         if: always()
         uses: actions/upload-artifact@v4
