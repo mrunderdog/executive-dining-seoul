@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 413,
+    "failed_count": 412,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1783,
-    "success_count": 1370,
-    "updated_at": "2026-10-15T15:30:38+00:00"
+    "success_count": 1371,
+    "updated_at": "2026-10-19T01:32:24+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -532,22 +532,22 @@
       "updated_at": "2026-09-23T00:42:28+00:00"
     },
     "가시리 여의도점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "가시리 여의도점",
-      "fingerprint": "be9fa974f9515895",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 국회대로76길 16",
+      "fingerprint": "566f397771509f75",
       "geocoder_version": 4,
-      "lat": 37.530290356,
-      "lon": 126.921962988,
-      "match_mode": "name",
+      "lat": 37.530537372236,
+      "lon": 126.921734598894,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "가시리 여의도점 대한민국",
-      "result_name": "가시리 여의도점",
-      "score": 100.0,
+      "query": "서울특별시 영등포구 국회대로76길 16 켄싱턴호텔 별관 C동 3층",
+      "result_name": "",
+      "score": 97.24,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:가시리 여의도점 대한민국"
+        "arcgis:서울특별시 영등포구 국회대로76길 16 켄싱턴호텔 별관 C동 3층"
       ],
-      "updated_at": "2026-09-17T23:05:46+00:00"
+      "updated_at": "2026-10-19T01:32:22+00:00"
     },
     "가시리|국회의원(정치자금 2024)": {
       "addr_type": "PointAddress",
@@ -8169,22 +8169,22 @@
       "updated_at": "2026-09-22T07:24:07+00:00"
     },
     "모담 서울역점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "모담 서울역점",
-      "fingerprint": "2f0467e804b8f219",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 중구 남대문로5가 세종대로 14",
+      "fingerprint": "d264b3ab473a94a2",
       "geocoder_version": 4,
-      "lat": 37.557851625,
-      "lon": 126.974434559,
-      "match_mode": "name",
+      "lat": 37.557838488164,
+      "lon": 126.97441502799,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "모담 서울역점 대한민국",
-      "result_name": "모담 서울역점",
-      "score": 100.0,
+      "query": "서울특별시 중구 세종대로 14 그랜드센트럴 지하 3층 B304, B305호",
+      "result_name": "",
+      "score": 95.31,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:모담 서울역점 대한민국"
+        "arcgis:서울특별시 중구 세종대로 14 그랜드센트럴 지하 3층 B304, B305호"
       ],
-      "updated_at": "2026-09-18T05:24:10+00:00"
+      "updated_at": "2026-10-19T01:32:23+00:00"
     },
     "모도우 광화문점|중앙정부": {
       "addr_type": "POI",
@@ -18376,12 +18376,22 @@
       "updated_at": "2026-09-18T00:08:46+00:00"
     },
     "우들목여의도점|공기업·공공기관": {
-      "failed": true,
-      "fingerprint": "0a5bac24fbab7b07",
+      "addr_type": "PointAddress",
+      "display_name": "서울특별시 영등포구 여의도동 여의대방로67길 21",
+      "fingerprint": "2c6d3e7be854b641",
       "geocoder_version": 4,
+      "lat": 37.520551675707,
+      "lon": 126.929475370296,
+      "match_mode": "address",
       "policy_version": 3,
-      "reason": "public_enterprise_requires_verified_address",
-      "updated_at": "2026-10-15T10:52:08+00:00"
+      "query": "서울특별시 영등포구 여의대방로67길 21 정곡빌딩 2층",
+      "result_name": "",
+      "score": 97.6,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:서울특별시 영등포구 여의대방로67길 21 정곡빌딩 2층"
+      ],
+      "updated_at": "2026-10-19T01:32:24+00:00"
     },
     "우래옥|중구": {
       "addr_type": "POI",
