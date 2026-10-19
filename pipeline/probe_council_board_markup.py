@@ -42,6 +42,13 @@ def inspect(source):
         if matches:
             m=matches[0]
             print("JS:",key,re.sub(r'\s+',' ',body[max(0,m.start()-100):m.start()+480])[:550])
+    if source in ("hwaseong","ansan","dongducheon"):
+        for fn in ("goViewPage", "fnGoDetail"):
+            m=re.search(r"function\\s+"+fn+r"\\s*\\([^)]*\\)\\s*\\{",body,re.I)
+            if m:print("FUNCTION",fn,re.sub(r"\\s+"," ",body[m.start():m.start()+1900]))
+        for token in ("bbsViewPageGoFrm", "bbsSn", "fnGoDetail", "bbs_idx", "bbs_id", "list_frm_submit"):
+            m=re.search(re.escape(token),body,re.I)
+            if m:print("CONTEXT",token,re.sub(r"\\s+"," ",body[max(0,m.start()-270):m.start()+650]))
     print("=== end",source,"===")
 
 if __name__=="__main__":
