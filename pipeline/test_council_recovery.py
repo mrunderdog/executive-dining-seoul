@@ -1,5 +1,6 @@
 import unittest
-from capital_backfill import canonical_attachment_url, title_period, council_js_posts, SOURCES
+from unittest.mock import patch
+from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, Source, SOURCES
 from ingest_council_expense import _html_attachment_candidates
 
 class AttachmentSafetyTests(unittest.TestCase):
@@ -28,6 +29,18 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertEqual(len(out),1)
         self.assertIn("selectBbsDetail.do",out[0]["post_url"])
         self.assertIn("bbs_seq=1684397",out[0]["post_url"])
+
+    def test_hwasung_official_file_download_params(self):
+        from capital_backfill import fetch_text
+        src=Source("hwaseong","경기","화성시","화성특례시의회",
+                   "https://council.hscity.go.kr/cnts/bbs/boardList.php?bbsCd=cns&bbsSubCd=cns08&pageNo={page}",1,"monthly")
+        listing="<tr><td><a href=\\\"javascript:goViewPage('40957');\\\">2026년 9월 화성시의회 업무추진비 내역</a></td></tr>"
+        detail="<a href=\\\"javascript:fileDownLoad('30759','cns08');\\\">사용내역(2026년 9월).xlsx</a>"
+        with patch("capital_backfill.fetch_text",side_effect=lambda u: detail if "boardView" in u else listing):
+            result=discover_source(src,(2026,7),(2026,10))
+        self.assertEqual(len(result),1)
+        self.assertEqual(result[0]["attachments"][0]["url"],
+             "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flSn=30759&flCd=cns08")
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))
