@@ -1,0 +1,43 @@
+name: Audit three unresolved official venue identities
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'pipeline/audit_three_unresolved_venues.py'
+      - 'pipeline/test_three_unresolved_venues.py'
+      - 'sources/localdata_name_variant_evidence.json'
+      - '.github/workflows/official-three-unresolved.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate scope isolation
+        run: PYTHONPATH=pipeline python -m unittest -v test_three_unresolved_venues
+      - name: Recheck original restaurant permits across seven jurisdictions
+        run: |
+          python pipeline/audit_restaurant_licenses.py --fetch-official --scope all \
+            --regions 경기의정부시,서울강북구,충남보령시,경기수원시,경기과천시,서울관악구,서울은평구 \
+            --output reports/next-seven-region-license-audit.json
+      - name: Compare separate rest-cafe permits and spending source
+        run: |
+          python pipeline/audit_three_unresolved_venues.py \
+            --audit reports/next-seven-region-license-audit.json \
+            --registry sources/localdata_name_variant_evidence.json \
+            --enterprise reports/public-enterprise-candidates.json \
+            --fetch-official-rest-cafes \
+            --output reports/three-unresolved-official-evidence.json
+      - name: Upload source-bound audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-three-unresolved-evidence
+          path: reports/three-unresolved-official-evidence.json
+          if-no-files-found: warn
+          retention-days: 30
