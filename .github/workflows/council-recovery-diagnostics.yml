@@ -13,7 +13,7 @@ permissions:
 jobs:
   target-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -49,6 +49,38 @@ jobs:
             --source hwaseong --source ansan --source icheon --source dongducheon \
             > reports/recovery/board-markup.log 2>&1
           cat reports/recovery/board-markup.log
+      - name: Install parsers for real transaction QA
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Trial ingest each source into ephemeral runner only
+        shell: bash
+        run: |
+          set +e
+          for SOURCE in hwaseong ansan icheon dongducheon; do
+            echo "### trial ingest $SOURCE ###"
+            python pipeline/ingest_council_expense.py --source "$SOURCE" >"reports/recovery/$SOURCE-ingest.log" 2>&1
+            INGEST_RC=$?
+            if [[ $INGEST_RC -ne 0 ]]; then
+              echo "$SOURCE: INGEST_FAIL (exit $INGEST_RC)"
+              tail -15 "reports/recovery/$SOURCE-ingest.log"
+              continue
+            fi
+            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 >"reports/recovery/$SOURCE-dates.log" 2>&1
+            DATE_RC=$?
+            python - "$SOURCE" "$DATE_RC" <<'PY'
+          import json,sys
+          from pathlib import Path
+          source=sys.argv[1];date_rc=int(sys.argv[2])
+          raw=Path(f"data/raw/{source}_expense.json")
+          obj=json.loads(raw.read_text(encoding="utf-8"))
+          rows=obj.get("rows",[])
+          usable=[x for x in rows if isinstance(x.get("amount"),(int,float)) and x["amount"]>0 and x.get("merchant") and x.get("used_date")]
+          ratio=len(usable)/len(rows) if rows else 0
+          outcome={"source":source,"rows":len(rows),"verified_amount_and_date_rows":len(usable),"amount_date_coverage":round(ratio,4),"date_QA_exit":date_rc,"can_publish": bool(rows and date_rc==0 and ratio>=0.95)}
+          print(json.dumps(outcome,ensure_ascii=False))
+          Path(f"reports/recovery/{source}-quality.json").write_text(json.dumps(outcome,ensure_ascii=False,indent=2))
+          PY
+          done
+          # Diagnostic only. Neither raw records nor public site are committed.
       - name: Upload diagnostic results
         if: always()
         uses: actions/upload-artifact@v4
