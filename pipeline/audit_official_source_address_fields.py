@@ -7,10 +7,11 @@ import argparse
 from collections import defaultdict, Counter
 import hashlib
 from io import BytesIO
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from urllib.request import Request, build_opener, HTTPRedirectHandler
 import zipfile
 import xml.etree.ElementTree as ET
@@ -51,6 +52,63 @@ def fetch(url):
     if len(content)>MAX_BYTES:
         raise ValueError("Over 8 MB download guard")
     return content, content_type
+
+
+class OfficialAttachmentLinks(HTMLParser):
+    """Collect review-only links labeled with a document filename.
+
+    Posting pages are untrusted HTML. Parsing only produces candidate strings:
+    it must never make an extra request or promote evidence.
+    """
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.href = None
+        self.label = []
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag.lower() == "a":
+            self.href = dict(attrs).get("href") or ""
+            self.label = []
+
+    def handle_data(self, data):
+        if self.href is not None:
+            self.label.append(data)
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "a" and self.href is not None:
+            label = "".join(self.label)
+            if re.search(r"\.(?:xlsx?|csv|hwpx?|pdf)(?:\s|$|\b)", label, re.I):
+                self.links.append((self.href, label[:160]))
+            self.href = None
+            self.label = []
+
+
+def attachment_candidates(html, posting_url):
+    """Return at most four same-host HTTPS review links, no network requests.
+
+    An accepted link is not evidence that an attachment exists or that its
+    contents match an expense merchant; manual validation is still required.
+    """
+    origin = urlparse(posting_url)
+    if origin.scheme != "https" or origin.hostname not in SAFE_HOSTS or origin.username or origin.password:
+        return []
+    parser = OfficialAttachmentLinks()
+    parser.feed(html)
+    result = []
+    seen = set()
+    for href, label in parser.links[:120]:
+        absolute = urljoin(posting_url, href)
+        parsed = urlparse(absolute)
+        if (parsed.scheme != "https" or parsed.hostname != origin.hostname
+                or parsed.username or parsed.password or not parsed.path
+                or absolute in seen):
+            continue
+        seen.add(absolute)
+        result.append(absolute)
+        if len(result) == 4:
+            break
+    return result
 
 def source_index():
     by = defaultdict(lambda: defaultdict(set))
@@ -149,7 +207,11 @@ def inspect_doc(url, merchants):
         elif raw[:8]==b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1":
             out["status"]="LEGACY_OFFICE_REQUIRES_PARSER"
         elif b"<html" in raw[:2000].lower() or "text/html" in content_type.lower():
-            out["status"]="HTML_POSTING_ATTACHMENT_NOT_INSPECTED"
+            out["status"]="HTML_ATTACHMENT_DISCOVERY_REVIEW"
+            out["same_host_download_candidates"]=attachment_candidates(
+                raw.decode("utf-8",errors="replace"), url
+            )
+            out["attachment_candidates_not_downloaded"]=True
         else:
             out["status"]="UNKNOWN_FILETYPE"
     except Exception as exc:
