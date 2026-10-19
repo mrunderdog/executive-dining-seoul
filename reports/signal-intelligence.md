@@ -2,7 +2,7 @@
 
 **Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.
 
-- Generated: 2026-10-15T15:30:33
+- Generated: 2026-10-19T01:32:15
 - Published restaurant entities: **1349**
 - Cross-institution restaurants: **198**
 - Cross-origin restaurants: **27**
@@ -10,7 +10,7 @@
 - Regional mayor/vice-mayor restaurants: **13**
 - Entity merges: **46**
 - Merge audit groups: **41**
-- Cross-origin review candidates: **24**
+- Cross-origin review candidates: **25**
 
 > These scores rank repeated official spending/usage disclosures, NOT verified personal attendance or card-merchant branches.
 
@@ -25,8 +25,8 @@
 | 5 | 외계인키친 | 90.6 | 4 | 3 | 99 | 구로구, 은평구 · 국회의원(정치자금 2024) · 중앙정부 |
 | 6 | 신안촌 본점 | 87.0 | 6 | 2 | 69 | 법조·법률행정 · 중앙정부 |
 | 7 | 오롯이 | 87.0 | 6 | 2 | 21 | 법조·법률행정 · 중앙정부 |
-| 8 | 대방골 | 87.0 | 5 | 2 | 101 | 국회의원(정치자금 2024) · 중앙정부 |
-| 9 | 가시리여의도점 | 87.0 | 5 | 2 | 78 | 국회의원(정치자금 2024) · 중앙정부 |
+| 8 | 가시리 | 87.0 | 5 | 2 | 118 | 국회의원(정치자금 2024) · 중앙정부 |
+| 9 | 대방골 | 87.0 | 5 | 2 | 101 | 국회의원(정치자금 2024) · 중앙정부 |
 | 10 | 남도마루 | 87.0 | 4 | 2 | 197 | 국회의원(정치자금 2024) · 중앙정부 |
 | 11 | 해담채여의도 | 87.0 | 4 | 2 | 95 | 국회의원(정치자금 2024) · 중앙정부 |
 | 12 | 참복집 | 87.0 | 4 | 2 | 85 | 국회의원(정치자금 2024) · 중앙정부 |
@@ -129,10 +129,10 @@
 | 4 | 황금복국 | 3 | 국회의원(정치자금 2024) · 법조·법률행정 · 중앙정부 | corroborated_address | 서울 영등포구 국회대로70길 7 (여의도동, 동아빌딩) |
 | 5 | 해초가 | 3 | 공기업·공공기관 · 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로76길 10 (여의도동, 기독교한국침례회총회빌딩) 지하1층 |
 | 6 | 남도마루 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) |
-| 7 | 대방골 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층 |
-| 8 | 해담채여의도 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 15호 |
-| 9 | 참복집 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
-| 10 | 가시리여의도점 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 여의도동 13-4 2층 |
+| 7 | 가시리 | 2 | 국회의원(정치자금 2024) · 중앙정부 | strict_entity_key | 서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층 |
+| 8 | 대방골 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층 |
+| 9 | 해담채여의도 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 30 (여의도동, 중소기업중앙회) 15호 |
+| 10 | 참복집 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 국회대로 750 (여의도동, 금산빌딩) 지하1층 |
 | 11 | 일품당 프리미엄 | 2 | 서울시청 · 중앙정부 | corroborated_address | 서울 종로구 새문안로5가길 7 |
 | 12 | 신안촌 본점 | 2 | 법조·법률행정 · 중앙정부 | strict_entity_key | 서울특별시 종로구 사직로12길 8 |
 | 13 | 노조미 | 2 | 국회의원(정치자금 2024) · 중앙정부 | corroborated_address | 서울 영등포구 은행로 3 (여의도동, 익스콘벤처타워) |
@@ -191,8 +191,9 @@
 | 20 | 설마중 | REVIEW | 경찰청(집행 명의) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
 | 21 | 샘밭막국수 | REVIEW | 검찰(정보공개 2017–2019) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
 | 22 | 더푸짐 | REVIEW | 관악구 · 법조·법률행정 | 3 | 1 | exact name + single published address |
-| 23 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 29 | 2 | exact name but 2 addressed entities |
-| 24 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
+| 23 | 가시리 여의도점 | AMBIGUOUS | 국회의원(정치자금 2024) · 중앙정부 | 78 | 2 | exact name but 2 addressed entities |
+| 24 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 29 | 2 | exact name but 2 addressed entities |
+| 25 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
 
 ## Central top-official dining signal
 

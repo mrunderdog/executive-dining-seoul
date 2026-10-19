@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T15:30:33",
+  "generated_at": "2026-10-19T01:32:15",
   "score_semantics": "DISCLOSED_OFFICE_USAGE_EVENTS_NOT_PERSON_ATTENDANCE",
   "confirmed_person_attendances": 0,
   "dataset_records": 1349,
@@ -162,6 +162,30 @@
       "spend": 45023000
     },
     {
+      "name": "가시리",
+      "address": "서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "가시리 여의도점|중앙정부",
+        "가시리|국회의원(정치자금 2024)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 118,
+      "spend": 22781000
+    },
+    {
       "name": "대방골",
       "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
       "origins": [
@@ -230,30 +254,6 @@
       "corroborated_address_bridges": 1,
       "visits": 85,
       "spend": 16059000
-    },
-    {
-      "name": "가시리여의도점",
-      "address": "서울 영등포구 여의도동 13-4 2층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "source_keys": [
-        "가시리 여의도점|중앙정부",
-        "가시리여의도점|국회의원(정치자금 2024)"
-      ],
-      "source_key_count": 2,
-      "match_basis": "corroborated_address",
-      "corroborated_address_bridges": 1,
-      "visits": 78,
-      "spend": 16169000
     },
     {
       "name": "일품당 프리미엄",
@@ -910,7 +910,7 @@
       "spend": 908000
     }
   ],
-  "cross_origin_review_count": 24,
+  "cross_origin_review_count": 25,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -1363,6 +1363,30 @@
       "qa_a": false
     },
     {
+      "name": "가시리 여의도점",
+      "strict_name": "가시리여의도점",
+      "confidence": "AMBIGUOUS",
+      "reason": "exact name but 2 addressed entities",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "visits": 78,
+      "addresses": [
+        "서울 영등포구 여의도동 13-4 2층",
+        "서울특별시 영등포구 국회대로76길 16 켄싱턴호텔 별관 C동 3층"
+      ],
+      "address_entity_count": 2,
+      "qa_a": true
+    },
+    {
       "name": "취홍",
       "strict_name": "취홍",
       "confidence": "AMBIGUOUS",
@@ -1662,6 +1686,41 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "가시리",
+      "address": "서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 118,
+      "spend": 22781000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-20",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "대방골",
       "address": "서울 영등포구 국회대로 800 (여의도동, 여의도파라곤) 지하1층",
       "origins": [
@@ -1693,41 +1752,6 @@
       "deputy_prime_minister_visits": 0,
       "minister_visits": 0,
       "vice_minister_visits": 6,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "가시리여의도점",
-      "address": "서울 영등포구 여의도동 13-4 2층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 78,
-      "spend": 16169000,
-      "date_min": "2024-01-08",
-      "date_max": "2026-08-20",
-      "consensus_score": 87.0,
-      "institution_count": 5,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
       "mayor_visits": 0,
       "vice_mayor_visits": 0
     },
@@ -4175,7 +4199,7 @@
     },
     {
       "name": "모담 서울역점",
-      "address": "",
+      "address": "서울특별시 중구 세종대로 14 그랜드센트럴 지하 3층 B304, B305호",
       "origins": [
         "중앙정부"
       ],
@@ -8807,7 +8831,7 @@
     },
     {
       "name": "우들목여의도점",
-      "address": "",
+      "address": "서울특별시 영등포구 여의대방로67길 21 정곡빌딩 2층",
       "origins": [
         "공기업·공공기관"
       ],
@@ -8926,7 +8950,7 @@
     },
     {
       "name": "모담 서울역점",
-      "address": "",
+      "address": "서울특별시 중구 세종대로 14 그랜드센트럴 지하 3층 B304, B305호",
       "origins": [
         "중앙정부"
       ],
@@ -11877,6 +11901,41 @@
       "vice_mayor_visits": 0
     },
     {
+      "name": "가시리",
+      "address": "서울 영등포구 국회대로76길 16 (여의도동) 켄싱턴호텔 별관 C동 3층",
+      "origins": [
+        "국회의원(정치자금 2024)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국회의원",
+        "보건복지부",
+        "산업통상부",
+        "통일부"
+      ],
+      "cohorts": [
+        "central_executive",
+        "national_legislator"
+      ],
+      "visits": 118,
+      "spend": 22781000,
+      "date_min": "2024-01-09",
+      "date_max": "2026-08-20",
+      "consensus_score": 87.0,
+      "institution_count": 5,
+      "source_count": 2,
+      "top_role_tier": "vice_minister",
+      "top_role_label": "차관급",
+      "top_official_visits": 3,
+      "prime_minister_visits": 0,
+      "deputy_prime_minister_visits": 0,
+      "minister_visits": 0,
+      "vice_minister_visits": 3,
+      "mayor_visits": 0,
+      "vice_mayor_visits": 0
+    },
+    {
       "name": "외계인키친",
       "address": "서울 영등포구 의사당대로 1 (여의도동, 국회) 국회소통관 1층",
       "origins": [
@@ -11934,41 +11993,6 @@
       "date_max": "2025-11-14",
       "consensus_score": 87.0,
       "institution_count": 4,
-      "source_count": 2,
-      "top_role_tier": "vice_minister",
-      "top_role_label": "차관급",
-      "top_official_visits": 3,
-      "prime_minister_visits": 0,
-      "deputy_prime_minister_visits": 0,
-      "minister_visits": 0,
-      "vice_minister_visits": 3,
-      "mayor_visits": 0,
-      "vice_mayor_visits": 0
-    },
-    {
-      "name": "가시리여의도점",
-      "address": "서울 영등포구 여의도동 13-4 2층",
-      "origins": [
-        "국회의원(정치자금 2024)",
-        "중앙정부"
-      ],
-      "institutions": [
-        "고용노동부",
-        "국회의원",
-        "보건복지부",
-        "산업통상부",
-        "통일부"
-      ],
-      "cohorts": [
-        "central_executive",
-        "national_legislator"
-      ],
-      "visits": 78,
-      "spend": 16169000,
-      "date_min": "2024-01-08",
-      "date_max": "2026-08-20",
-      "consensus_score": 87.0,
-      "institution_count": 5,
       "source_count": 2,
       "top_role_tier": "vice_minister",
       "top_role_label": "차관급",
