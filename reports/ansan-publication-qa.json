@@ -1,0 +1,30 @@
+{
+  "source": "ansan",
+  "institution": "안산시의회",
+  "period": "2026-Q3",
+  "status": "PUBLISH_READY",
+  "rows": 379,
+  "verified_rows": 379,
+  "date_in_period_coverage": 1.0,
+  "amount_and_lineage_coverage": 1.0,
+  "official_posts": 1,
+  "verified_files": 1,
+  "file_bytes": 54670,
+  "file_sha256": "ce1e11a2858d825d14a359f44126f32bcca0fd44625c4f139780c8f066073185",
+  "total_amount_krw": 69388930,
+  "min_amount_krw": 2500,
+  "max_amount_krw": 7445000,
+  "failures": [],
+  "bad_examples": [],
+  "original_post": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397",
+  "attachment": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1684397&file_id=1791194526552UJ6PFYYEWJ7813RN8CIULM1NO",
+  "validation": [
+    "XLSX archive CRC and integrity test: pass",
+    "Normalized transaction rows: 379",
+    "Date repair valid_date_coverage: 1.0",
+    "Date repair in_period_date_coverage: 1.0",
+    "Strict official-source/date/amount gate: PUBLISH_READY",
+    "Regression tests: 7 passed",
+    "Site quality gate: passed"
+  ]
+}
