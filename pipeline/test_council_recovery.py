@@ -25,6 +25,9 @@ class AttachmentSafetyTests(unittest.TestCase):
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))
+        self.assertIsNone(canonical_attachment_url("javascript:fileDownLoad("))
+        self.assertIsNone(canonical_attachment_url("https://council.hscity.go.kr/js/svc/filedownload.js?ver=2020707"))
+        self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsGalleryDownload.do"))
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsCost.do#lg-download"))
         self.assertIsNotNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsAttachDownload.do?key=abc"))
 if __name__=="__main__":unittest.main()
