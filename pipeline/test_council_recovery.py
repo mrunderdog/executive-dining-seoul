@@ -34,8 +34,8 @@ class AttachmentSafetyTests(unittest.TestCase):
         from capital_backfill import fetch_text
         src=Source("hwaseong","경기","화성시","화성특례시의회",
                    "https://council.hscity.go.kr/cnts/bbs/boardList.php?bbsCd=cns&bbsSubCd=cns08&pageNo={page}",1,"monthly")
-        listing="<tr><td><a href=\\\"javascript:goViewPage('40957');\\\">2026년 9월 화성시의회 업무추진비 내역</a></td></tr>"
-        detail="<a href=\\\"javascript:fileDownLoad('30759','cns08');\\\">사용내역(2026년 9월).xlsx</a>"
+        listing="""<tr><td><a href="javascript:goViewPage('40957');">2026년 9월 화성시의회 업무추진비 내역</a></td></tr>"""
+        detail="""<a href="javascript:fileDownLoad('30759','cns08');">사용내역(2026년 9월).xlsx</a>"""
         with patch("capital_backfill.fetch_text",side_effect=lambda u: detail if "boardView" in u else listing):
             result=discover_source(src,(2026,7),(2026,10))
         self.assertEqual(len(result),1)
