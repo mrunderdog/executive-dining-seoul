@@ -106,7 +106,7 @@ def check_three(audit:dict, cafe:dict, registry:dict, enterprise:dict) -> dict:
          "status":"DIFFERENT_GOVERNMENT_SPENDING_LABELS_NO_LICENSE_HISTORY",
          "official_current_license_names":[x["license_name"] for x in ori["official_building_businesses"]],
          "expense_source_pages":[x["url"] for x in cases["오리오리"].get("independent_evidence",[]) if x["type"].startswith("official_expense_")],
-         "comment":"2024–2025 오리오리 and 2026 요리요리 appear on official Gwanak spending lists at same road address; this does not establish a same-permit name-change history."},
+         "comment":"Official Gwanak spending lists show both 오리오리 and 요리요리 interleaved across 2024–2026, including August 2026, at the same address. No direct evidence links their legal licence identities."},
         {"merchant":"빈티지204","entity_id":lookup["빈티지204"]["entity_id"],
          "status":cafe["status"],"official_rest_cafes":cafe,
          "comment":"Official rest-cafe registration is a separate industry from general restaurants. Even exact name/address is not evidence of a particular card terminal."},
@@ -117,7 +117,9 @@ def check_three(audit:dict, cafe:dict, registry:dict, enterprise:dict) -> dict:
                                         for r in seok.get("official_building_businesses",[])],
          "source_expense":[{"date":r["date"],"institution":r["institution"],"merchant":"석갈비",
                             "amount":r.get("amount"),"source":r["source"]} for r in expense_rows],
-         "comment":"Original public expense label is generic '석갈비'. Neither a shared address nor an alias is proof of which licensed business was the paid card merchant."}
+         "spending_source_address":None,"spending_source_address_verified":False,
+         "candidate_venue_location_from_separate_listing":True,
+         "comment":"Original Korea Midland Power expense candidate has no address or telephone. The Boryeong address came from a separate business listing and cannot establish the paid venue or licensed legal merchant."}
       ]
     }
     for case in result["cases"]:
