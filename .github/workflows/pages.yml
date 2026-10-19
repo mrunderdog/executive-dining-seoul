@@ -3,6 +3,8 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
+    # Council source recovery release sync (2026-10): rebuild against the latest
+    # QA-published source commits, not the earlier workflow-config commit.
     # Site inputs only. Workflow completions below still handle GITHUB_TOKEN
     # bot commits, which do not normally fire further push workflows.
     paths:
