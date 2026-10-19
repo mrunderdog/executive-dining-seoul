@@ -9,6 +9,8 @@ on:
       - 'pipeline/build_official_license_evidence.py'
       - 'pipeline/test_official_license_evidence.py'
       - 'pipeline/test_localdata_regions.py'
+      - 'pipeline/audit_localdata_name_variants.py'
+      - 'sources/localdata_name_variant_evidence.json'
       - 'pipeline/localdata_regions.py'
       - 'sources/localdata_orgcodes.json'
       - '.github/workflows/official-restaurant-license-next-seven.yml'
@@ -61,6 +63,12 @@ jobs:
       - name: Summarize official registration matches without confirming payment identity
         run: |
           python pipeline/build_official_license_evidence.py --audit reports/next-seven-region-license-audit.json --output reports/next-seven-official-license-evidence.json
+      - name: Check nine legacy merchant labels against official sources
+        run: |
+          python pipeline/audit_localdata_name_variants.py \
+            --audit reports/next-seven-region-license-audit.json \
+            --registry sources/localdata_name_variant_evidence.json \
+            --output reports/next-seven-name-variant-evidence.json
       - name: Upload official-source audit evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -70,5 +78,6 @@ jobs:
             reports/next-seven-region-license-audit.json
             reports/next-seven-unmatched-review-queue.json
             reports/next-seven-official-license-evidence.json
+            reports/next-seven-name-variant-evidence.json
           retention-days: 30
           if-no-files-found: warn
