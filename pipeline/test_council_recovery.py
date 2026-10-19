@@ -1,7 +1,9 @@
 import unittest
+from copy import deepcopy
 from unittest.mock import patch
-from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, Source, SOURCES
+from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, Source, SOURCES
 from ingest_council_expense import _html_attachment_candidates
+from qa_council_publication import assess
 
 class AttachmentSafetyTests(unittest.TestCase):
     def test_html_wrapper_candidates(self):
@@ -41,6 +43,53 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertEqual(len(result),1)
         self.assertEqual(result[0]["attachments"][0]["url"],
              "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30759")
+
+    def test_ansan_real_file_id_and_form_action(self):
+        # Observed on the official 2026-Q3 page: #aform contains bbs_seq,
+        # bbs_code and file_id, and fnFileDownLoad submits FileDown.do.
+        url = "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397"
+        detail = '''<ul class="p-attach"><li><a href="#" onclick="fnFileDownLoad('1791194526552UJ6PFYYEWJ7813RN8CIULM1NO'); return false;">
+        <span class="p-icon p-icon__xlsx">xlsx 문서</span><span>업무추진비 집행내역(2026년도 3분기).xlsx</span></a>
+        <a href="#" onclick="fnOpenPreview('1791194526552UJ6PFYYEWJ7813RN8CIULM1NO'); return false;">미리보기</a>
+        <a href="#" onclick="fnFileDownLoad('nonsense'); return false;">bogus.xlsx</a></li></ul>'''
+        found = ansan_file_attachments(url, detail)
+        self.assertEqual(found, [{
+            "text": "xlsx 문서 업무추진비 집행내역(2026년도 3분기).xlsx",
+            "url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1684397&file_id=1791194526552UJ6PFYYEWJ7813RN8CIULM1NO",
+        }])
+        self.assertEqual(ansan_file_attachments("https://attacker.example/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397",detail),[])
+        src = next(s for s in SOURCES if s.key == "ansan")
+        listing = "<tr><td><a onclick=\"fnGoDetail(1684397); return false;\">안산시의회 2026년도 3분기 업무추진비 집행내역 공개</a></td></tr>"
+        with patch("capital_backfill.fetch_text", side_effect=lambda u: detail if "selectBbsDetail" in u else listing):
+            discovered = discover_source(src, (2026, 7), (2026, 10))
+        self.assertEqual(len(discovered), 1)
+        self.assertEqual(discovered[0]["attachments"], found)
+
+    def test_quarter_periods(self):
+        self.assertEqual(title_period("안산시의회 2026년도 3분기 업무추진비 집행내역"), (2026, None, 3))
+        self.assertEqual(title_period("2026년 2/4분기 업무추진비"), (2026, None, 2))
+
+    def test_publication_gate_rejects_bad_date_amount_and_file(self):
+        post_url = "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397"
+        file_url = "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1684397&file_id=1791194526552UJ6PFYYEWJ7813RN8CIULM1NO"
+        discovery = {"posts": [{"source": "ansan", "post_url": post_url, "attachments": [{"url": file_url}]}]}
+        good = {"source": "ansan", "files": [{"url": file_url, "sha256": "f" * 64, "bytes": 54670}], "rows": [{
+            "source_key": "ansan", "source_post_url": post_url, "source_attachment_url": file_url,
+            "source_period": [2026, None, 3], "used_date": "2026-08-20", "amount": 120_000,
+            "merchant": "실제식당", "row_id": "unique1",
+        }]}
+        self.assertEqual(assess("ansan", good, discovery, 1)["status"], "PUBLISH_READY")
+        for field, value in [("used_date", "2026-10-01"), ("used_date", "2026-08-32"),
+                             ("amount", 0), ("amount", 500_000_000), ("merchant", "총계")]:
+            bad = deepcopy(good)
+            bad["rows"][0][field] = value
+            self.assertEqual(assess("ansan", bad, discovery, 1)["status"], "HOLD", (field, value))
+        bad = deepcopy(good)
+        bad["files"] = []
+        self.assertEqual(assess("ansan", bad, discovery, 1)["status"], "HOLD")
+        bad = deepcopy(good)
+        bad["errors"] = [{"url": file_url, "error": "file incomplete"}]
+        self.assertEqual(assess("ansan", bad, discovery, 1)["status"], "HOLD")
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))

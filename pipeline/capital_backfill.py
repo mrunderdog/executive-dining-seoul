@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import argparse
 import html
+import http.client
 import json
 import re
+import time
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -44,7 +46,8 @@ SOURCES = [
     Source("uijeongbu", "경기", "의정부시", "의정부시의회", "https://www.ujbcl.go.kr/svc/bbs/BusinessList.do?bbsMnuCd=MNU002300000650400000666&pageNo={page}", 8, "quarterly"),
     Source("gwangmyeong", "경기", "광명시", "광명시의회", "https://council.gm.go.kr/kr/costBBS.do?flag=all&page={page}", 8, "quarterly"),
     Source("gimpo", "경기", "김포시", "김포시의회", "https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702", 1, "quarterly"),
-    Source("ansan", "경기", "안산시", "안산시의회", "https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406", 1, "quarterly"),
+    # fnGoPage sets #aform input[name=currentPage] before GET submission.
+    Source("ansan", "경기", "안산시", "안산시의회", "https://www.ansan.go.kr/council/common/bbs/selectPageListBbs.do?bbs_code=B0406&currentPage={page}", 12, "quarterly"),
     Source("paju", "경기", "파주시", "파주시의회", "https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page={page}", 4, "quarterly"),
     Source("anseong", "경기", "안성시", "안성시의회", "https://anseongcl.go.kr/kr/costBBS.do?flag=all&page={page}", 12, "monthly"),
     Source("icheon", "경기", "이천시", "이천시의회", "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?page={page}", 12, "monthly"),
@@ -143,10 +146,30 @@ def decode_html(raw: bytes, header_charset: str | None) -> str:
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
-    with urllib.request.urlopen(req, timeout=15) as r:
-        raw = r.read()
-        charset = r.headers.get_content_charset()
-    return decode_html(raw, charset)
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                raw = r.read()
+                charset = r.headers.get_content_charset()
+            return decode_html(raw, charset)
+        except http.client.IncompleteRead as exc:
+            # The Ansan gateway sometimes closes a ~150 KB HTML response
+            # after the *complete* data table but before the footer. This is
+            # safe for post/attachment discovery only when core markup is
+            # demonstrably closed; binary downloads remain strictly complete.
+            partial = exc.partial or b""
+            if (urllib.parse.urlsplit(url).hostname == "www.ansan.go.kr"
+                and len(partial) >= 20_000
+                and b"</table>" in partial.lower()
+                and (b"fnGoDetail" in partial or b"fnFileDownLoad" in partial)):
+                return decode_html(partial, None)
+            if attempt == 2:
+                raise
+            time.sleep(0.3 * (attempt + 1))
+        except OSError:
+            if attempt == 2:
+                raise
+            time.sleep(0.3 * (attempt + 1))
 
 
 def onclick_url(base: str, onclick: str) -> str | None:
@@ -202,7 +225,7 @@ def title_period(title: str):
         return year, None, int(m.group(3))
     # Council pages also write '2026년도 3분기', '2026년 2/4분기',
     # or '2026년 2분기' without spaces.
-    q = re.search(r"(20\\d{2})\\s*년(?:도)?\\s*([1-4])\\s*(?:/\\s*4\\s*)?분기", title)
+    q = re.search(r"(20\d{2})\s*년(?:도)?\s*([1-4])\s*(?:/\s*4\s*)?분기", title)
     if q:
         return int(q.group(1)), None, int(q.group(2))
     return None
@@ -386,6 +409,46 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
     return result
 
 
+def ansan_file_attachments(post_url: str, detail_html: str):
+    """Translate the official fnFileDownLoad(file_id) form action to a real URL.
+
+    The Ansan page's #aform submits GET /common/file/FileDown.do with
+    file_id, bbs_code and bbs_seq. Ordinary href='#' and preview buttons
+    are UI controls, *not* attachment URLs. Only observed file IDs paired
+    with a downloadable filename qualify.
+    """
+    parsed_post = urllib.parse.urlsplit(post_url)
+    if parsed_post.hostname != "www.ansan.go.kr" or parsed_post.path != "/council/common/bbs/selectBbsDetail.do":
+        return []
+    params = dict(urllib.parse.parse_qsl(parsed_post.query))
+    if params.get("bbs_code") != "B0406" or not re.fullmatch(r"\d+", params.get("bbs_seq", "")):
+        return []
+    p = AnchorParser()
+    p.feed(detail_html)
+    found = []
+    seen = set()
+    for anchor in p.anchors:
+        attrs = anchor.get("attrs") or {}
+        onclick = html.unescape(attrs.get("onclick") or "")
+        match = re.fullmatch(
+            r"\s*fnFileDownLoad\(\s*['\"]([A-Za-z0-9]{20,64})['\"]\s*\)\s*;?\s*(?:return\s+false\s*;?)?\s*",
+            onclick, re.I,
+        )
+        name = anchor.get("text", "").strip()
+        if not match or not re.search(r"\.(?:xlsx?|csv|pdf|zip)\s*$", name, re.I):
+            continue
+        file_id = match.group(1)
+        if file_id in seen:
+            continue
+        seen.add(file_id)
+        download = urllib.parse.urljoin(post_url, "/common/file/FileDown.do")
+        download += "?" + urllib.parse.urlencode({
+            "file_id": file_id, "bbs_seq": params["bbs_seq"], "bbs_code": "B0406",
+        })
+        found.append({"text": name, "url": canonical_attachment_url(download)})
+    return found
+
+
 def discover_source(src: Source, since, until):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -424,6 +487,8 @@ def discover_source(src: Source, since, until):
                         dl = urllib.parse.urljoin(row["post_url"], "/cms/utl/FileDownLoad.php")
                         dl += "?" + urllib.parse.urlencode({"flSn": m.group(1), "flCd": m.group(2)})
                         found.append({"text":label, "url":dl})
+                elif src.key == "ansan":
+                    found = ansan_file_attachments(row["post_url"], detail_html)
                 else:
                     found = [x for x in anchors(row["post_url"], detail_html) if attachment_like(x)]
                     if not found:
