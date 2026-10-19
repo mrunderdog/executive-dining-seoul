@@ -25,6 +25,7 @@ jobs:
         shell: bash
         run: |
           set +e
+          mkdir -p reports/recovery
           python pipeline/probe_council_board_markup.py \
             --source hwaseong --source ansan --source icheon --source dongducheon \
             > reports/recovery/board-markup.log 2>&1
