@@ -50,6 +50,17 @@ def inspect(source):
             m=re.search(re.escape(token),body,re.I)
             if m:print("CONTEXT",token,re.sub(r"\s+"," ",body[max(0,m.start()-270):m.start()+650]))
     if source=="hwaseong":
+        try:
+            script="https://council.hscity.go.kr/js/svc/filedownload.js?ver=2020707"
+            with urllib.request.urlopen(urllib.request.Request(script,headers={"User-Agent":UA}),timeout=15) as r:
+                script_body=r.read(200000).decode("utf-8",errors="replace")
+            print("DOWNLOAD SCRIPT",script,"bytes",len(script_body))
+            for fn in ("fileDownLoad", "fileDownload"):
+                for m in list(re.finditer(r"function\\s+"+fn+r"\\s*\\([^)]*\\)\\s*\\{",script_body,re.I))[:2]:
+                    print("DOWNLOAD FUNCTION",re.sub(r"\\s+"," ",script_body[m.start():m.start()+1300]))
+        except Exception as e:
+            print("DOWNLOAD SCRIPT ERROR",type(e).__name__,str(e))
+
         from capital_backfill import council_js_posts, fetch_text
         pages=council_js_posts(s,url,body,(2026,7),(2026,10))
         for p in pages[:2]:
