@@ -1,0 +1,50 @@
+name: Council recovery targeted diagnostics
+on:
+  pull_request:
+    paths:
+      - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/capital_backfill.py'
+      - 'pipeline/test_council_recovery.py'
+      - '.github/workflows/council-recovery-diagnostics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  target-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify safe attachment handling
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery
+      - name: Discover targeted councils without publishing
+        shell: bash
+        run: |
+          mkdir -p reports/recovery
+          for SOURCE in hwaseong ansan icheon dongducheon; do
+            echo "### $SOURCE ###"
+            python pipeline/capital_backfill.py --since 2026-07 --source "$SOURCE" >"reports/recovery/$SOURCE.log" 2>&1 || true
+            cat "reports/recovery/$SOURCE.log"
+            python - "$SOURCE" <<'PY'
+          import json,sys
+          from pathlib import Path
+          key=sys.argv[1]
+          p=Path(f'reports/capital-backfill-discovery-{key}.json')
+          if p.exists():
+              data=json.loads(p.read_text(encoding='utf-8'))
+              posts=[x for x in data.get('posts',[]) if x.get('post_url')]
+              atts=[a for x in posts for a in x.get('attachments',[]) if a.get('url')]
+              print(f'{key}: posts={len(posts)}, attachments={len(atts)}')
+              Path(f'reports/recovery/{key}.json').write_text(json.dumps({'posts':len(posts),'attachments':len(atts),'sample_posts':posts[:3]},ensure_ascii=False,indent=2))
+          PY
+          done
+      - name: Upload diagnostic results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: council-recovery-diagnostics
+          path: reports/recovery/
+          retention-days: 7
