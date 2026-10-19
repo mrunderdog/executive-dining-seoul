@@ -357,10 +357,10 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
             elif src.key == "ansan":
                 m = re.search(r"fnGoDetail\(\s*(\d+)\s*\)", onclick)
                 if m:
-                    # The actual fnGoDetail() method and request route must be
-                    # verified independently; don't pretend a guessed endpoint
-                    # is an official attachment.
-                    continue
+                    # Official fnGoDetail() sets bbs_seq in #aform and GETs
+                    # /council/common/bbs/selectBbsDetail.do (verified JS).
+                    detail = urllib.parse.urljoin(base, "/council/common/bbs/selectBbsDetail.do")+"?"+urllib.parse.urlencode(
+                        {"bbs_code":"B0406", "bbs_seq":m.group(1)})
             elif src.key == "dongducheon":
                 key = attrs.get("data-key", "")
                 if attrs.get("data-reform") == "view" and re.fullmatch(r"[a-f0-9]{32,128}", key, re.I):
