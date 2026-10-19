@@ -120,8 +120,8 @@
       "expected_official_license_names": [
         "요리요리"
       ],
-      "assessment": "GOVERNMENT_EXPENSE_LABELS_DIFFER_BY_DATE",
-      "analysis": "관악구청 공식 지출자료에 2024·2025년 오리오리, 2026년 요리요리가 같은 주소로 등장. 이름 변경 가설은 가능하지만 위생 인허가 명의변경 기록 자체는 입수되지 않음.",
+      "assessment": "GOVERNMENT_EXPENSE_LABELS_INTERLEAVED_SAME_ADDRESS",
+      "analysis": "관악구청 공식 집행 기록에서 2024-05-02 요리요리, 2024-05-14 오리오리, 2025-06-12 요리요리, 2025-09-18 오리오리, 2026-08-04 오리오리, 2026-08-13 요리요리가 모두 동일 도로명 주소로 나타남. 연도별 일방향 상호변경 가설은 반증됐으며 동일 영업신고번호·사업자번호가 확인되지 않아 법적 동일업소로 합치지 않음.",
       "independent_evidence": [
         {
           "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=4337",
@@ -142,11 +142,31 @@
           "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/VkhNZWQrSHNjSEpKUUw0K0tkUEJtQT09/company_nm/%EC%98%A4%EB%A6%AC%EC%98%A4%EB%A6%AC",
           "type": "company_profile",
           "claim": "오리오리 사업장 주소 동일, NICE 기반"
+        },
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=4081",
+          "type": "official_expense_2024",
+          "claim": "2024-05-02 요리요리, 관악로12길 3-6, 제로페이 250,000원"
+        },
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=2256",
+          "type": "official_expense_2025",
+          "claim": "2025-06-12 요리요리, 관악로12길 3-6, 제로페이 59,000원"
+        },
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=188",
+          "type": "official_expense_2026",
+          "claim": "2026-08-04 오리오리, 관악로12길 3-6, 제로페이 100,000원"
         }
       ],
       "official_legal_name_link_verified": false,
       "payment_branch_verified": false,
-      "individual_attendance_verified": false
+      "individual_attendance_verified": false,
+      "official_history_continuity_verified": false,
+      "known_public_spending_labels": [
+        "오리오리",
+        "요리요리"
+      ]
     },
     {
       "entity_id": "259acd9431ca2599",
@@ -206,17 +226,25 @@
         "주연네식당"
       ],
       "assessment": "MULTIPLE_LICENSEES_UNRESOLVED",
-      "analysis": "같은 건물에 두 개의 정상 영업허가 상호가 존재하며, 석갈비 단독 표시만으로 수림석갈비를 선택할 수 없음. 직접 사업자번호/영업신고증 확인 전 미승격.",
+      "analysis": "한국중부발전 2025-07-29 업무추진비 원 지출 후보에는 사용처 '석갈비'·104,000원·총무부 직원 격려만 있고 식당 주소·전화번호가 없음. 별도 식당 프로필은 충남 보령시 대흥로91-1을 가리키지만 공공 지출 거래와 해당 업소의 연결은 입증되지 않음. 이 주소에 있는 수림석갈비와 주연네식당은 법적 후보들일 뿐 어느 쪽도 결제업소로 특정할 수 없음.",
       "independent_evidence": [
         {
           "url": "https://www.diningcode.com/profile.php?rid=M0DT87ejDjp5",
           "type": "restaurant_profile",
           "claim": "석갈비 표시명·대흥로91-1 주소만 확인, 허가 명의 불명"
+        },
+        {
+          "url": "https://www.komipo.co.kr/kor/board/BRD_000065/boardMain.do?mnCd=FN010712&schTabCd=KH041301&pageIndex=1#boardSeq=20696",
+          "type": "official_expense_source_pointer",
+          "claim": "2025-07-29 한국중부발전 104,000원 사용처 석갈비. 추출된 지출 후보 데이터에는 주소와 전화번호가 존재하지 않음"
         }
       ],
       "official_legal_name_link_verified": false,
       "payment_branch_verified": false,
-      "individual_attendance_verified": false
+      "individual_attendance_verified": false,
+      "spending_source_address_verified": false,
+      "spending_source_address": null,
+      "candidate_venue_address_basis": "third_party_business_listing_not_official_expense_address"
     },
     {
       "entity_id": "3cc334a046712c81",
