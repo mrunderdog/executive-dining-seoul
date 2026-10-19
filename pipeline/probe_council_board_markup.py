@@ -49,6 +49,18 @@ def inspect(source):
         for token in ("bbsViewPageGoFrm", "bbsSn", "fnGoDetail", "bbs_idx", "bbs_id", "list_frm_submit"):
             m=re.search(re.escape(token),body,re.I)
             if m:print("CONTEXT",token,re.sub(r"\\s+"," ",body[max(0,m.start()-270):m.start()+650]))
+    if source=="hwaseong":
+        from capital_backfill import council_js_posts, fetch_text
+        pages=council_js_posts(s,url,body,(2026,7),(2026,10))
+        for p in pages[:2]:
+            try:
+                d=fetch_text(p["post_url"])
+                print("DETAIL",p["post_url"],"bytes",len(d))
+                for fn in ("fileDownLoad","filedownload","download"):
+                    for m in list(re.finditer(re.escape(fn),d,re.I))[:5]:
+                        print("DOWNLOAD CONTEXT",fn,re.sub(r"\\s+"," ",d[max(0,m.start()-220):m.start()+380])[:600])
+            except Exception as e:
+                print("DETAIL ERROR",p["post_url"],type(e).__name__,str(e))
     print("=== end",source,"===")
 
 if __name__=="__main__":
