@@ -3,7 +3,7 @@
 import argparse,json
 from pathlib import Path
 from collections import Counter
-REVIEW_STATES={"MERCHANT_NAME_AT_ADDRESS_CORROBORATED","GOVERNMENT_EXPENSE_LABELS_DIFFER_BY_DATE","DIFFERENT_BUSINESS_LICENSE_SCOPE_REVIEW","MULTIPLE_LICENSEES_UNRESOLVED"}
+REVIEW_STATES={"MERCHANT_NAME_AT_ADDRESS_CORROBORATED","GOVERNMENT_EXPENSE_LABELS_DIFFER_BY_DATE","GOVERNMENT_EXPENSE_LABELS_INTERLEAVED_SAME_ADDRESS","DIFFERENT_BUSINESS_LICENSE_SCOPE_REVIEW","MULTIPLE_LICENSEES_UNRESOLVED"}
 def build(audit,registry):
     sources={s["district"]:s["sha256"] for s in audit.get("sources",[])}
     expected=registry["source_file_sha256_by_region"]
@@ -22,6 +22,10 @@ def build(audit,registry):
             raise ValueError("Official license candidates changed: "+r["entity_id"])
         if any(r.get(k) is not False for k in ("official_legal_name_link_verified","payment_branch_verified","individual_attendance_verified")):
             raise ValueError("Review registry must not promote legal/payment/attendance identity")
+        if r["merchant"]=="석갈비" and r.get("spending_source_address_verified") is not False:
+            raise ValueError("Seokgalbi original public expense address remains unverified")
+        if r["merchant"]=="오리오리" and r.get("official_history_continuity_verified") is not False:
+            raise ValueError("Interleaved expense labels cannot establish legal continuity")
         rows.append({"entity_id":r["entity_id"],"merchant":r["merchant"],"region":r["region"],
           "original_address":r["original_address"],"official_business_names":r["expected_official_license_names"],
           "assessment":r["assessment"],"research_note":r["analysis"],
