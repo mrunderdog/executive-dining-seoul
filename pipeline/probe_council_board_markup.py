@@ -54,7 +54,7 @@ def inspect(source):
             script="https://council.hscity.go.kr/js/svc/filedownload.js?ver=2020707"
             with urllib.request.urlopen(urllib.request.Request(script,headers={"User-Agent":UA}),timeout=15) as r:
                 script_body=r.read(200000).decode("utf-8",errors="replace")
-            print("DOWNLOAD SCRIPT",script,"bytes",len(script_body))
+            print("DOWNLOAD SCRIPT",script,"bytes",len(script_body),"BODY:",repr(script_body[:2500]))
             for fn in ("fileDownLoad", "fileDownload"):
                 for m in list(re.finditer(r"function\\s+"+fn+r"\\s*\\([^)]*\\)\\s*\\{",script_body,re.I))[:2]:
                     print("DOWNLOAD FUNCTION",re.sub(r"\\s+"," ",script_body[m.start():m.start()+1300]))
