@@ -25,6 +25,16 @@ class RegionRouteTests(unittest.TestCase):
         self.assertNotEqual(a,b)
         self.assertEqual(a,"3010000|통일로78")
         self.assertNotEqual(building_key("서울특별시 중구 통일로 78"),building_key("서울특별시 중구 통일로 78-1"))
+    def test_legacy_zero_at_building_normalization_is_lookup_only(self):
+        self.assertEqual(building_key("경기 의정부시 동일로 131-0@ 1층"),
+                         building_key("경기도 의정부시 동일로 131, 1층"))
+        self.assertEqual(building_key("경기 의정부시 동일로192번길 28-41@"),
+                         building_key("경기도 의정부시 동일로192번길 28-41"))
+        self.assertNotEqual(building_key("경기 의정부시 동일로 131-1@"),
+                            building_key("경기 의정부시 동일로 131"))
+        self.assertNotEqual(building_key("경기 의정부시 동일로 131-0"),
+                            building_key("경기 의정부시 동일로 131"))
+
     def test_unknown_regions_are_not_guessed(self):
         self.assertIsNone(route_localdata("중구 통일로 78"))
         self.assertIsNone(route_localdata("전국 공공기관"))

@@ -92,7 +92,14 @@ def building_key(address,codes=None):
     if not found:return ""
     match=ROAD_PATTERN.search(str(address or ""))
     if not match:return ""
-    return found[1]+"|"+match[1].lower()+match[2]
+    building=match[2]
+    # Legacy scraped source addresses use e.g. "동일로 131-0@" as an
+    # encoding artifact. Normalize ONLY the unambiguous literal '-0@' at the
+    # end of the building number, and ONLY for lookup; never edit raw address.
+    # Ordinary real '-1'/'-10' subnumbers and '-0' without '@' remain distinct.
+    if building.endswith("-0") and str(address or "")[match.end():].startswith("@"):
+        building=building[:-2]
+    return found[1]+"|"+match[1].lower()+building
 
 def summarize_coverage(records,codes=None):
     codes=codes if codes is not None else registry_codes()

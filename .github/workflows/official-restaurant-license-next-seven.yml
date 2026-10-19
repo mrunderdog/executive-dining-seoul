@@ -6,6 +6,9 @@ on:
       - 'pipeline/audit_restaurant_licenses.py'
       - 'pipeline/build_license_review_queue.py'
       - 'pipeline/test_license_review_queue.py'
+      - 'pipeline/build_official_license_evidence.py'
+      - 'pipeline/test_official_license_evidence.py'
+      - 'pipeline/test_localdata_regions.py'
       - 'pipeline/localdata_regions.py'
       - 'sources/localdata_orgcodes.json'
       - '.github/workflows/official-restaurant-license-next-seven.yml'
@@ -48,11 +51,16 @@ jobs:
                 json.dumps({'total':d['total_venues'],'exact_name_address':d['exact_business_and_address_matches'],
                  'name_building':d['name_and_building_matches'],'by_region':d['by_region']},ensure_ascii=False))
           PY
+      - name: Validate address normalization and official evidence boundaries
+        run: PYTHONPATH=pipeline python -m unittest -v test_localdata_regions test_official_license_evidence
       - name: Validate review-only queue semantics
         run: PYTHONPATH=pipeline python -m unittest -v test_license_review_queue
       - name: Generate unmatched merchant review candidates
         run: |
           python pipeline/build_license_review_queue.py --audit reports/next-seven-region-license-audit.json --output reports/next-seven-unmatched-review-queue.json
+      - name: Summarize official registration matches without confirming payment identity
+        run: |
+          python pipeline/build_official_license_evidence.py --audit reports/next-seven-region-license-audit.json --output reports/next-seven-official-license-evidence.json
       - name: Upload official-source audit evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,5 +69,6 @@ jobs:
           path: |
             reports/next-seven-region-license-audit.json
             reports/next-seven-unmatched-review-queue.json
+            reports/next-seven-official-license-evidence.json
           retention-days: 30
           if-no-files-found: warn
