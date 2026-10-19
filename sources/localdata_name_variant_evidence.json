@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0",
+  "checked_on": "2026-10-19",
+  "source_run_id": 39205692412,
+  "source_artifact": "localdata-next-seven-official-audit",
+  "policy": "Official LOCALDATA restaurant licences and independent business names at an address are separate facts. No inference of legal license ownership, merchant acquirer branch or person's attendance from alias similarity.",
+  "source_file_sha256_by_region": {
+    "경기과천시": "de879b20f642c989e25d697d5b9332aaa1e54539535adb5aca6a6fc9dab6c33c",
+    "서울관악구": "c46988d97592ab53117ea1953859447eb901318d859b5a9deea06e096d9a755b",
+    "서울강북구": "a150e3d3e0bc9a667adf0974dce309b4137bb3f174c550522c3c8df715105784",
+    "경기의정부시": "a810064cf3cb0bde6fe8736ec808702178b8a5028a35be6db6f9c87e52690ded",
+    "서울은평구": "84543a68b63805b23ce4aaa24148ea1d2d9cb1e05784431b626680e6be11352b",
+    "충남보령시": "07a89de2f3c65de187b7664cfee44b2c1ba0b51863cf06e15a1e6ef166df0150"
+  },
+  "entries": [
+    {
+      "entity_id": "82b3da8944c20fcf",
+      "merchant": "이대감",
+      "original_address": "경기도 과천시 찬우물로 28",
+      "region": "경기과천시",
+      "expected_official_license_names": [
+        "이대감 철판한정식"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "약칭 이대감과 인허가 이대감 철판한정식의 장소 일치. 법적 인허가상호 변경/카드가맹점 동일성은 미확인.",
+      "independent_evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=EOzoe0Lcnlbq",
+          "type": "restaurant_profile",
+          "claim": "이대감 표시명 및 찬우물로 28"
+        },
+        {
+          "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/47319464",
+          "type": "employer_job_post",
+          "claim": "이대감 철판한정식 사업장 주소 찬우물로 28"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "9362f9600f31bbda",
+      "merchant": "참우돈가",
+      "original_address": "경기도 과천시 과천대로7길 12",
+      "region": "경기과천시",
+      "expected_official_license_names": [
+        "참우돈가 과천점"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "지점명 생략 가능성. 105~106호 위치는 외부 식당정보와 인허가가 교차하나 카드가맹점 식별은 미확인.",
+      "independent_evidence": [
+        {
+          "url": "https://www.daangn.com/kr/local-profile/%EC%B0%B8%EC%9A%B0%EB%8F%88%EA%B0%80-%EA%B3%BC%EC%B2%9C%EC%A0%90-vz29x1p2i1p4/",
+          "type": "merchant_profile",
+          "claim": "참우돈가 과천점·과천대로7길 12"
+        },
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=9nhsvI8PQCMG",
+          "type": "restaurant_profile",
+          "claim": "참우돈가 과천점·105~106호"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "171f2c9a33a365eb",
+      "merchant": "주식회사 황제갈비",
+      "original_address": "서울 관악구 남부순환로 1644",
+      "region": "서울관악구",
+      "expected_official_license_names": [
+        "황제갈비"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "법인명 주식회사 황제갈비와 식당 표시명 황제갈비가 같은 주소에 등록됐지만 영업허가권자/카드 가맹점 동일성은 별도 확인 필요.",
+      "independent_evidence": [
+        {
+          "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/TFc5TGozZ1hyNVl6VGcvckIrc2NEUT09/company_nm/%28%EC%A3%BC%29%ED%99%A9%EC%A0%9C%EA%B0%88%EB%B9%84",
+          "type": "company_profile",
+          "claim": "(주)황제갈비 본점 주소 남부순환로 1644, 2·3층"
+        },
+        {
+          "url": "https://www.tabling.co.kr/place/677cd21c66de5f0698891d3c",
+          "type": "restaurant_profile",
+          "claim": "황제갈비 식당 표시명 및 남부순환로 1644"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "a9d3791e9cd87a64",
+      "merchant": "북한산숯불갈비",
+      "original_address": "서울 강북구 삼각산로 42-1, 이정기",
+      "region": "서울강북구",
+      "expected_official_license_names": [
+        "북한산 갈비, 메밀 막국수"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "외부 식당 정보가 '북한산숯불갈비'와 같은 주소·1층을 직접 확인. 허가 상호는 '북한산 갈비, 메밀 막국수'로 상이하므로 법적 동일업체 확정 불가.",
+      "independent_evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=5Zdy2lEiLKgK",
+          "type": "restaurant_profile",
+          "claim": "북한산숯불갈비 이름, 삼각산로42-1 1층, 메뉴에 메밀막국수 표기"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "f6507f4fea32a880",
+      "merchant": "오리오리",
+      "original_address": "서울 관악구 관악로12길 3-6",
+      "region": "서울관악구",
+      "expected_official_license_names": [
+        "요리요리"
+      ],
+      "assessment": "GOVERNMENT_EXPENSE_LABELS_DIFFER_BY_DATE",
+      "analysis": "관악구청 공식 지출자료에 2024·2025년 오리오리, 2026년 요리요리가 같은 주소로 등장. 이름 변경 가설은 가능하지만 위생 인허가 명의변경 기록 자체는 입수되지 않음.",
+      "independent_evidence": [
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=4337",
+          "type": "official_expense_2024",
+          "claim": "2024-05-14 오리오리(관악로12길 3-6) 지출 기록"
+        },
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=1883",
+          "type": "official_expense_2025",
+          "claim": "2025-09-18 오리오리(관악로12길 3-6) 지출 기록"
+        },
+        {
+          "url": "https://www.gwanak.go.kr/site/gwanak/estimate/estimateList.do?pageIndex=157",
+          "type": "official_expense_2026",
+          "claim": "2026-08-13 요리요리(관악구 관악로12길 3-6) 지출 기록"
+        },
+        {
+          "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/VkhNZWQrSHNjSEpKUUw0K0tkUEJtQT09/company_nm/%EC%98%A4%EB%A6%AC%EC%98%A4%EB%A6%AC",
+          "type": "company_profile",
+          "claim": "오리오리 사업장 주소 동일, NICE 기반"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "259acd9431ca2599",
+      "merchant": "파크프리베",
+      "original_address": "경기 의정부시 동일로192번길 28-41@ (장암동)",
+      "region": "경기의정부시",
+      "expected_official_license_names": [
+        "파크프리베(Parc Prive)"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "영문 병기 공식 인허가명과 국내 표시명 차이. 독립 법인 채용정보에서 같은 주소·브랜드 확인, 결제 가맹점 미검증.",
+      "independent_evidence": [
+        {
+          "url": "https://www.jobkorea.co.kr/Recruit/Co_Read/C/27605468",
+          "type": "company_profile",
+          "claim": "㈜파크프리베(Parc Prive) 법인·주소 동일로192번길28-41"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "69914cda326f3ca2",
+      "merchant": "빈티지204",
+      "original_address": "서울 은평구 은평로 193-1",
+      "region": "서울은평구",
+      "expected_official_license_names": [
+        "충무칼국수",
+        "건강한 밥집"
+      ],
+      "assessment": "DIFFERENT_BUSINESS_LICENSE_SCOPE_REVIEW",
+      "analysis": "LOCALDATA 일반음식점 인허가 자료에는 같은 건물의 과거 폐업 점포 두 곳뿐. 빈티지204는 같은 주소의 카페로 외부 업체정보에서 확인. 휴게음식점 등 별도 인허가 원문 또는 사업자정보 대조 전 동일시 금지.",
+      "independent_evidence": [
+        {
+          "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/WERqbWQvM0drUGVpRkF6R3VzVHlNUT09/company_nm/%EB%B9%88%ED%8B%B0%EC%A7%80204",
+          "type": "company_profile",
+          "claim": "빈티지204 커피 휴게음식점·은평로193-1 1,2층"
+        },
+        {
+          "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49322311",
+          "type": "employer_job_post",
+          "claim": "빈티지204 카페 근무지 은평로193-1 1층"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "4dbe7d20166679e9",
+      "merchant": "석갈비",
+      "original_address": "충청남도 보령시 대흥로 91-1",
+      "region": "충남보령시",
+      "expected_official_license_names": [
+        "수림석갈비",
+        "주연네식당"
+      ],
+      "assessment": "MULTIPLE_LICENSEES_UNRESOLVED",
+      "analysis": "같은 건물에 두 개의 정상 영업허가 상호가 존재하며, 석갈비 단독 표시만으로 수림석갈비를 선택할 수 없음. 직접 사업자번호/영업신고증 확인 전 미승격.",
+      "independent_evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=M0DT87ejDjp5",
+          "type": "restaurant_profile",
+          "claim": "석갈비 표시명·대흥로91-1 주소만 확인, 허가 명의 불명"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    },
+    {
+      "entity_id": "3cc334a046712c81",
+      "merchant": "크라운호프 미아사거",
+      "original_address": "서울 강북구 도봉로10길 6",
+      "region": "서울강북구",
+      "expected_official_license_names": [
+        "크라운호프 미아사거리점"
+      ],
+      "assessment": "MERCHANT_NAME_AT_ADDRESS_CORROBORATED",
+      "analysis": "지출기록의 미아사거는 미아사거리점 축약 표기로 볼 근거가 강함. 공식 프랜차이즈 매장목록에 동일 주소·2층 존재. 결제 가맹점 동일성은 미확인.",
+      "independent_evidence": [
+        {
+          "url": "https://www.crownhof.kr/",
+          "type": "official_brand_directory",
+          "claim": "공식 브랜드 매장 목록: 미아사거리점·도봉로10길6·2층"
+        },
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=H5JaLzhp8NI6",
+          "type": "restaurant_profile",
+          "claim": "미아사거리점 이름과 도봉로10길6 2층"
+        }
+      ],
+      "official_legal_name_link_verified": false,
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false
+    }
+  ]
+}
