@@ -3,6 +3,16 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
+    # Site inputs only. Workflow completions below still handle GITHUB_TOKEN
+    # bot commits, which do not normally fire further push workflows.
+    paths:
+      - 'data/**'
+      - 'sources/**'
+      - 'seed/**'
+      - 'pipeline/**'
+      - 'site/**'
+      - 'reports/**'
+      - '.github/workflows/pages.yml'
   workflow_run:
     workflows:
       - Build static coordinate cache
@@ -30,8 +40,55 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  preflight:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    outputs:
+      needs_build: ${{ steps.compare.outputs.needs_build }}
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Skip already deployed commit
+        id: compare
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # A manual run always forces a rebuild for recovery purposes.
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "needs_build=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          HEAD_SHA="$(git rev-parse HEAD)"
+          LIVE_SHA=""
+          FILE="$(mktemp)"
+          URL="https://mrunderdog.github.io/executive-dining-seoul/build-meta.json?check=${RUN_ID}"
+          if curl -fsSL --retry 2 --max-time 20 "$URL" -o "$FILE"; then
+            LIVE_SHA="$(python - "$FILE" <<'PY'
+          import json,sys
+          try:
+              obj=json.load(open(sys.argv[1],encoding='utf-8'))
+              print(str(obj.get('git_commit') or ''))
+          except (OSError,ValueError,TypeError):
+              print('')
+          PY
+          )"
+          fi
+          if [[ -n "$HEAD_SHA" && "$HEAD_SHA" == "$LIVE_SHA" ]]; then
+            echo "Already deployed $HEAD_SHA: skipping duplicate build."
+            echo "needs_build=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Current main $HEAD_SHA; deployed ${LIVE_SHA:-unknown}. Build required."
+            echo "needs_build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: preflight
+    if: needs.preflight.outputs.needs_build == 'true'
     runs-on: ubuntu-latest
     outputs:
       commit: ${{ steps.buildinfo.outputs.commit }}
@@ -121,12 +178,12 @@ jobs:
           path: dist
 
   deploy:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: needs.preflight.outputs.needs_build == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [preflight, build]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
