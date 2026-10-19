@@ -48,10 +48,28 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Check signal refresh need
+        id: refresh
+        shell: bash
+        run: |
+          python pipeline/refresh_needed.py \
+            --output reports/signal-intelligence.json \
+            --input 'data/chunks/**' \
+            --input 'data/raw/**' \
+            --input 'reports/*-candidates.json' \
+            --input 'reports/*-executive-candidates.json' \
+            --input 'reports/*-province-candidates.json' \
+            --input 'reports/education-police-approved-venues.json' \
+            --input 'sources/**' \
+            --input 'pipeline/**' \
+            ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }} >> "$GITHUB_OUTPUT"
+
       - name: Build signal intelligence reports
+        if: steps.refresh.outputs.needs_refresh == 'true'
         run: python pipeline/build_signal_reports.py
 
       - name: Commit reports
+        if: steps.refresh.outputs.needs_refresh == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
