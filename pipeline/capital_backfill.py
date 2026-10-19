@@ -279,11 +279,15 @@ def canonical_attachment_url(url: str) -> str | None:
         return None
     p = urllib.parse.urlsplit(raw)
     path = p.path.lower().rstrip("/")
+    if p.scheme.lower() not in {"https", "http"} or not p.netloc or p.username or p.password:
+        return None
+    if path.endswith((".js", ".css")):
+        return None
     query = urllib.parse.parse_qsl(p.query, keep_blank_values=False)
     # Bare route names and UI fragments are not downloadable files.
     if path.endswith("/attach"):
         return None
-    if path.endswith("/bbsattachdownload.do") and not query:
+    if path.endswith(("/bbsattachdownload.do", "/bbsgallerydownload.do")) and not query:
         return None
     if not (
         re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
@@ -365,6 +369,12 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
                     params += [("reform", "view"), ("key", key)]
                     detail = urllib.parse.urlunsplit((split.scheme, split.netloc, split.path,
                                                       urllib.parse.urlencode(params), ""))
+            if src.key == "dongducheon" and detail:
+                # Page number is only listing pagination, not post identity.
+                # Repeated encrypted data-key values across pages must collapse.
+                parsed_detail = urllib.parse.urlsplit(detail)
+                detail_params = [(k,v) for k,v in urllib.parse.parse_qsl(parsed_detail.query) if k != "page"]
+                detail = urllib.parse.urlunsplit((parsed_detail.scheme, parsed_detail.netloc, parsed_detail.path, urllib.parse.urlencode(detail_params), ""))
             if not detail or detail in seen:
                 continue
             seen.add(detail)
