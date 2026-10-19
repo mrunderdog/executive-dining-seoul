@@ -44,11 +44,11 @@ def inspect(source):
             print("JS:",key,re.sub(r'\s+',' ',body[max(0,m.start()-100):m.start()+480])[:550])
     if source in ("hwaseong","ansan","dongducheon"):
         for fn in ("goViewPage", "fnGoDetail"):
-            m=re.search(r"function\\s+"+fn+r"\\s*\\([^)]*\\)\\s*\\{",body,re.I)
-            if m:print("FUNCTION",fn,re.sub(r"\\s+"," ",body[m.start():m.start()+1900]))
+            m=re.search(r"function\s+"+fn+r"\s*\([^)]*\)\s*\{",body,re.I)
+            if m:print("FUNCTION",fn,re.sub(r"\s+"," ",body[m.start():m.start()+1900]))
         for token in ("bbsViewPageGoFrm", "bbsSn", "fnGoDetail", "bbs_idx", "bbs_id", "list_frm_submit"):
             m=re.search(re.escape(token),body,re.I)
-            if m:print("CONTEXT",token,re.sub(r"\\s+"," ",body[max(0,m.start()-270):m.start()+650]))
+            if m:print("CONTEXT",token,re.sub(r"\s+"," ",body[max(0,m.start()-270):m.start()+650]))
     if source=="hwaseong":
         from capital_backfill import council_js_posts, fetch_text
         pages=council_js_posts(s,url,body,(2026,7),(2026,10))
@@ -56,15 +56,15 @@ def inspect(source):
             try:
                 d=fetch_text(p["post_url"])
                 print("DETAIL",p["post_url"],"bytes",len(d))
-                for tag in re.findall(r'<a\\b[^>]*>.*?</a>',d,re.I|re.S):
-                    if re.search(r'fileDownLoad|xlsx?|\\.xls|첨부파일|download',tag,re.I):
-                        print("FILE ANCHOR:",re.sub(r"\\s+"," ",html.unescape(tag))[:1200])
-                for tag in re.findall(r'<input\\b[^>]*>',d,re.I|re.S):
+                for tag in re.findall(r'<a\b[^>]*>.*?</a>',d,re.I|re.S):
+                    if re.search(r'fileDownLoad|xlsx?|\.xls|첨부파일|download',tag,re.I):
+                        print("FILE ANCHOR:",re.sub(r"\s+"," ",html.unescape(tag))[:1200])
+                for tag in re.findall(r'<input\b[^>]*>',d,re.I|re.S):
                     if re.search(r'file|bbsSn|atch',tag,re.I):
-                        print("DETAIL INPUT:",re.sub(r"\\s+"," ",tag)[:650])
+                        print("DETAIL INPUT:",re.sub(r"\s+"," ",tag)[:650])
                 for fn in ("fileDownLoad","filedownload","download"):
                     for m in list(re.finditer(re.escape(fn),d,re.I))[:5]:
-                        print("DOWNLOAD CONTEXT",fn,re.sub(r"\\s+"," ",d[max(0,m.start()-220):m.start()+380])[:600])
+                        print("DOWNLOAD CONTEXT",fn,re.sub(r"\s+"," ",d[max(0,m.start()-220):m.start()+380])[:600])
             except Exception as e:
                 print("DETAIL ERROR",p["post_url"],type(e).__name__,str(e))
     print("=== end",source,"===")
