@@ -69,21 +69,17 @@ jobs:
               tail -15 "reports/recovery/$SOURCE-ingest.log"
               continue
             fi
-            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 >"reports/recovery/$SOURCE-dates.log" 2>&1
+            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 1.0 >"reports/recovery/$SOURCE-dates.log" 2>&1
             DATE_RC=$?
-            python - "$SOURCE" "$DATE_RC" <<'PY'
-          import json,sys
-          from pathlib import Path
-          source=sys.argv[1];date_rc=int(sys.argv[2])
-          raw=Path(f"data/raw/{source}_expense.json")
-          obj=json.loads(raw.read_text(encoding="utf-8"))
-          rows=obj.get("rows",[])
-          usable=[x for x in rows if isinstance(x.get("amount"),(int,float)) and x["amount"]>0 and x.get("merchant") and x.get("used_date")]
-          ratio=len(usable)/len(rows) if rows else 0
-          outcome={"source":source,"rows":len(rows),"verified_amount_and_date_rows":len(usable),"amount_date_coverage":round(ratio,4),"date_QA_exit":date_rc,"can_publish": bool(rows and date_rc==0 and ratio>=0.95)}
-          print(json.dumps(outcome,ensure_ascii=False))
-          Path(f"reports/recovery/{source}-quality.json").write_text(json.dumps(outcome,ensure_ascii=False,indent=2))
-          PY
+            PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" \
+              >"reports/recovery/$SOURCE-quality.json" 2>&1
+            QA_RC=$?
+            if [[ $DATE_RC -ne 0 || $QA_RC -ne 0 ]]; then
+              echo "$SOURCE: HOLD (date QA=$DATE_RC, strict lineage/date/amount QA=$QA_RC)"
+            else
+              echo "$SOURCE: PUBLISH_READY (100% official lineage/date/amount coverage)"
+            fi
+            cat "reports/recovery/$SOURCE-quality.json"
           done
           # Diagnostic only. Neither raw records nor public site are committed.
       - name: Upload diagnostic results
