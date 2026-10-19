@@ -24,10 +24,13 @@ jobs:
       - name: Capture real board click and download markup
         shell: bash
         run: |
+          set +e
           python pipeline/probe_council_board_markup.py \
             --source hwaseong --source ansan --source icheon --source dongducheon \
             > reports/recovery/board-markup.log 2>&1
+          PROBE_RC=$?
           cat reports/recovery/board-markup.log
+          echo "Probe exit: $PROBE_RC"
       - name: Discover targeted councils without publishing
         shell: bash
         run: |
