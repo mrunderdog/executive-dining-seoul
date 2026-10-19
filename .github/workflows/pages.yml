@@ -107,6 +107,9 @@ jobs:
       - name: Regression checks
         run: python pipeline/regression_checks.py
 
+      - name: Test refresh gating
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_refresh_needed.py
+
       - name: Test data story semantics
         run: python pipeline/test_data_story.py
 
