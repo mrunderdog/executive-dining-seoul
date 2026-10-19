@@ -5,6 +5,7 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
+      - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
