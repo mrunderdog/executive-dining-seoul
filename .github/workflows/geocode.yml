@@ -47,25 +47,45 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Check coordinate refresh need
+        id: refresh
+        shell: bash
+        run: |
+          python pipeline/refresh_needed.py \
+            --output data/geocode_cache.json \
+            --input 'data/chunks/**' \
+            --input 'data/raw/**' \
+            --input 'reports/*-candidates.json' \
+            --input 'reports/*-executive-candidates.json' \
+            --input 'reports/*-province-candidates.json' \
+            --input 'sources/**' \
+            --input 'pipeline/**' \
+            ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }} >> "$GITHUB_OUTPUT"
+
       - name: Populate only uncached coordinates
+        if: steps.refresh.outputs.needs_refresh == 'true'
         run: |
           python pipeline/geocode_extra_cache.py
           python pipeline/geocode_cache.py --mode auto
 
       - name: Verify all approved Police venue coordinates
+        if: steps.refresh.outputs.needs_refresh == 'true'
         run: python pipeline/audit_police_coordinates.py
 
       - name: Verify legislator map QA
-        if: hashFiles('reports/national-legislator-candidates.json') != ''
+        if: steps.refresh.outputs.needs_refresh == 'true' && hashFiles('reports/national-legislator-candidates.json') != ''
         run: python pipeline/qa_national_legislator_map.py
 
       - name: Verify published dataset quality
+        if: steps.refresh.outputs.needs_refresh == 'true'
         run: python pipeline/quality_gate.py
 
       - name: Verify site build
+        if: steps.refresh.outputs.needs_refresh == 'true'
         run: python pipeline/build_site.py --output /tmp/index.html
 
       - name: Commit coordinate cache
+        if: steps.refresh.outputs.needs_refresh == 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
