@@ -415,11 +415,11 @@ def discover_source(src: Source, since, until):
                     found = []
                     for a in parser.anchors:
                         href = html.unescape((a.get("attrs") or {}).get("href", ""))
-                        m = re.fullmatch(r"\\s*javascript:fileDownLoad\\(['\"](\\d+)['\"]\\s*,\\s*['\"](cns08)['\"]\\)\\s*;?\\s*", href, re.I)
+                        m = re.fullmatch(r"\s*javascript:fileDownLoad\(['\"](\d+)['\"]\s*,\s*['\"](cns08)['\"]\)\s*;?\s*", href, re.I)
                         if not m:
                             continue
                         label = a.get("text", "")
-                        if not re.search(r"\\.(?:xlsx?|csv|pdf)\\b", label, re.I):
+                        if not re.search(r"\.(?:xlsx?|csv|pdf)\b", label, re.I):
                             continue
                         dl = urllib.parse.urljoin(row["post_url"], "/cms/utl/FileDownLoad.php")
                         dl += "?" + urllib.parse.urlencode({"flSn": m.group(1), "flCd": m.group(2)})
