@@ -40,7 +40,7 @@ class AttachmentSafetyTests(unittest.TestCase):
             result=discover_source(src,(2026,7),(2026,10))
         self.assertEqual(len(result),1)
         self.assertEqual(result[0]["attachments"][0]["url"],
-             "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flSn=30759&flCd=cns08")
+             "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30759")
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))
