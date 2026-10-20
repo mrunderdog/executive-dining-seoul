@@ -514,7 +514,79 @@ def resolve_role(cell_value, sheet_name, default_role, purpose=""):
         return contextual
     return cell_role or clean_text(default_role) or clean_text(sheet_name)
 
+
+def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
+    """Parse Icheon PDF layout with joined `amount + merchant` text cells.
+
+    Verified official examples have a 5/6-column header, but PyPDF merges the
+    집행액 and 사용처 columns into a single cell (e.g. '41,800늘고기집'). On some
+    pages the date/time and purpose are also merged. Require a real header,
+    full YYYY-MM-DD date, comma-grouped currency and a nonempty merchant;
+    do not manufacture dates or treat PDF narrative as transactions.
+    """
+    header = next((i for i, row in enumerate(rows[:30])
+                   if {"집행일시", "집행액", "사용처"}.issubset({clean_text(x) for x in row})), None)
+    if header is None:
+        return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
+    context_role = infer_pdf_context_role(rows[:header + 1]) or source_meta.get("default_role")
+    out = []
+    for ri, row in enumerate(rows[header + 1:], start=header + 2):
+        values = [clean_text(v) for v in row]
+        if len(values) < 2:
+            continue
+        observed = re.match(r"^\s*(20\d{2}-\d{2}-\d{2})\s+(\d{1,2}:\d{2}(?::\d{2})?)\s*(.*)$", values[0])
+        if not observed:
+            continue
+        try:
+            used_date = date.fromisoformat(observed.group(1)).isoformat()
+        except ValueError:
+            continue
+        amount_merchant = None
+        amount_idx = -1
+        for idx, value in enumerate(values[1:], start=1):
+            # A space between the amount and merchant is optional in the PDF.
+            m = re.fullmatch(r"\s*(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s*", value)
+            if m and valid_transaction_merchant(m.group(2)):
+                amount_merchant, amount_idx = m, idx
+                break
+        if not amount_merchant:
+            continue
+        amount = parse_amount(amount_merchant.group(1))
+        if amount is None or not 0 < amount < 50_000_000:
+            continue
+        merchant = amount_merchant.group(2).strip()
+        purpose = " ".join(x for x in [observed.group(3), *values[1:amount_idx]] if x)
+        after = values[amount_idx + 1:]
+        people = parse_people(next((x for x in after if re.fullmatch(r"\d+\s*(?:명)?", x)), ""))
+        method = next((x for x in after if x in {"카드", "현금", "계좌이체", "법인카드"}), "")
+        raw = {
+            "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"], "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": source_meta.get("period"), "source_sheet": sheet_name,
+            "source_row": ri, "used_date": used_date,
+            "date_inferred_from_previous_row": False, "used_time": observed.group(2),
+            "role": resolve_role("", sheet_name, context_role, purpose=purpose),
+            "merchant": merchant, "address": "", "purpose": purpose,
+            "people": people, "amount": amount,
+            "amount_inferred_from_row": True,
+            "payment_method": method, "parse_confidence": "medium",
+        }
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    return out, {"sheet": sheet_name, "status": "OK" if out else "NO_ROWS",
+                 "header_row": header + 1, "mapping": "icheon_pdf_joined_amount_merchant",
+                 "section_role": context_role, "parsed_rows": len(out)}
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
+        return normalize_icheon_pdf_rows(rows, sheet_name, source_meta)
     found = find_header(rows)
     if not found:
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
