@@ -1,0 +1,49 @@
+name: Verified official transaction ledger CI
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/build_verified_transactions.py'
+      - 'pipeline/test_verified_transactions.py'
+      - 'pipeline/build_site.py'
+      - 'pipeline/qa_council_publication.py'
+      - 'site/transactions.*'
+      - 'site/template.html'
+      - 'site/app.css'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/verified-ledger-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify fail-closed official ledger
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_verified_transactions.py pipeline/test_council_recovery.py
+      - name: Full site quality gate and build
+        run: |
+          python pipeline/quality_gate.py >/tmp/verified-ledger-quality.json
+          python pipeline/build_site.py --output dist/index.html
+      - name: Verify built links and raw QA payload
+        run: |
+          node --check site/transactions.js
+          node --check pipeline/browser_transactions_smoke.mjs
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          ledger=json.loads(Path('dist/verified-transactions.json').read_text(encoding='utf-8'))
+          assert ledger['qa_policy']=='full_source_100_percent_date_amount_official_attachment'
+          assert ledger['verified_row_count']==len(ledger['rows'])
+          assert sum(x['rows'] for x in ledger['sources'])==len(ledger['rows'])
+          assert all(row['source_post_url'] and row['source_attachment_url'] and row['used_date'] and row['amount']>0 for row in ledger['rows'])
+          assert 'id="transactionRows"' in Path('dist/transactions.html').read_text(encoding='utf-8')
+          assert 'href="./transactions.html"' in Path('dist/index.html').read_text(encoding='utf-8')
+          PY
