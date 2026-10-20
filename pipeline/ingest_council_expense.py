@@ -13,6 +13,7 @@ import http.cookiejar
 import io
 import json
 import re
+import urllib.error
 import urllib.request
 import urllib.parse
 import zipfile
@@ -20,7 +21,7 @@ from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
 
-from capital_backfill import canonical_attachment_url
+from capital_backfill import canonical_attachment_url, curl_verified_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
@@ -249,10 +250,21 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, headers=base_headers)
-            with opener.open(req, timeout=75) as r:
-                blob = r.read()
-                ctype = (r.headers.get("Content-Type") or "").lower()
-                final_url = r.geturl()
+            try:
+                with opener.open(req, timeout=75) as r:
+                    blob = r.read()
+                    ctype = (r.headers.get("Content-Type") or "").lower()
+                    final_url = r.geturl()
+            except urllib.error.URLError as exc:
+                # The board HTML can load with curl on GitHub runners even
+                # while urllib's TLS ClientHello is rejected. The same
+                # verified-HTTPS fallback is needed for the *file* route.
+                if (urllib.parse.urlsplit(url).hostname != "council.icheon.go.kr"
+                    or "handshake failure" not in str(exc).lower()):
+                    raise
+                blob = curl_verified_bytes(url, referer)
+                ctype = ""
+                final_url = url
             head = blob[:512].lstrip().lower()
             is_html = (
                 "text/html" in ctype

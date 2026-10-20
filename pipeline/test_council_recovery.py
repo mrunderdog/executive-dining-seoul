@@ -3,8 +3,8 @@ from copy import deepcopy
 from types import SimpleNamespace
 from urllib.error import URLError
 from unittest.mock import patch
-from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, Source, SOURCES
-from ingest_council_expense import _html_attachment_candidates
+from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, curl_verified_bytes, Source, SOURCES
+from ingest_council_expense import _html_attachment_candidates, fetch_binary
 from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
@@ -101,6 +101,26 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertIn("--proto-redir", cmd)
         self.assertNotIn("-k", cmd)
         self.assertNotIn("--insecure", cmd)
+        with self.assertRaises(ValueError):
+            curl_verified_bytes("http://council.icheon.go.kr/gtb_download.php?fid=4786")
+        with self.assertRaises(ValueError):
+            curl_verified_bytes("https://other.example/gtb_download.php?fid=4786")
+
+    def test_icheon_binary_download_tls_fallback(self):
+        url = "https://council.icheon.go.kr/gtb_download.php?fid=4786&gtid=chujin"
+        referer = "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv"
+        blob = b"%PDF-1.6\n" + b"\x00" * 100
+        with patch("ingest_council_expense.urllib.request.build_opener") as build:
+            build.return_value.open.side_effect = URLError("SSLV3_ALERT_HANDSHAKE_FAILURE: handshake failure")
+            with patch("ingest_council_expense.curl_verified_bytes", return_value=blob) as curl:
+                self.assertEqual(fetch_binary(url, referer), blob)
+                curl.assert_called_once_with(url, referer)
+        # Falling back to a security error page is not successful ingestion.
+        with patch("ingest_council_expense.urllib.request.build_opener") as build:
+            build.return_value.open.side_effect = URLError("SSLV3_ALERT_HANDSHAKE_FAILURE: handshake failure")
+            with patch("ingest_council_expense.curl_verified_bytes", return_value=b"<html>Access denied</html>"):
+                with self.assertRaises(ValueError):
+                    fetch_binary(url, referer)
 
     def test_quarter_periods(self):
         self.assertEqual(title_period("안산시의회 2026년도 3분기 업무추진비 집행내역"), (2026, None, 3))
