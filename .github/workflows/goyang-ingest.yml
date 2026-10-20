@@ -52,20 +52,36 @@ jobs:
             STATUS="/tmp/council-$SOURCE.status"
             restore_last_good() {
               STAGE="$1"
-              if git cat-file -e "HEAD:data/raw/${SOURCE}_expense.json" 2>/dev/null && git cat-file -e "HEAD:reports/${SOURCE}-executive-candidates.json" 2>/dev/null; then
-                git restore --source=HEAD -- "data/raw/${SOURCE}_expense.json" 2>/dev/null || true
-                git restore --source=HEAD -- "reports/${SOURCE}-executive-candidates.json" "reports/${SOURCE}-executive-candidates.md" "reports/${SOURCE}-ingestion.md" 2>/dev/null || true
-                echo "STALE_OK:${STAGE}" > "$STATUS"
-              else
-                echo "${STAGE}_FAILED" > "$STATUS"
+              BASELINE="${STAGE}_FAILED"
+              if git cat-file -e "HEAD:data/raw/${SOURCE}_expense.json" 2>/dev/null; then
+                BASELINE="STALE_OK:${STAGE}"
               fi
+              for F in "data/raw/${SOURCE}_expense.json" \
+                       "reports/${SOURCE}-executive-candidates.json" \
+                       "reports/${SOURCE}-executive-candidates.md" \
+                       "reports/${SOURCE}-ingestion.md" \
+                       "reports/capital-backfill-discovery-${SOURCE}.json" \
+                       "reports/capital-backfill-discovery-${SOURCE}.md"; do
+                if git cat-file -e "HEAD:$F" 2>/dev/null; then
+                  git restore --source=HEAD -- "$F"
+                else
+                  python -c 'from pathlib import Path; import sys; Path(sys.argv[1]).unlink(missing_ok=True)' "$F"
+                fi
+              done
+              echo "$BASELINE" > "$STATUS"
             }
             {
               echo "=== discover $SOURCE ==="
               python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE" || { restore_last_good "DISCOVERY"; exit 0; }
               echo "=== ingest $SOURCE ==="
               python pipeline/ingest_council_expense.py --source "$SOURCE" || { restore_last_good "INGEST"; exit 0; }
-              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.95 || { restore_last_good "DATE_QA"; exit 0; }
+              # Normalize legacy dates; the incremental QA below enforces 100%
+              # on every new/changed row without grandfathering new errors.
+              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0 || { restore_last_good "DATE_REPAIR"; exit 0; }
+              PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
+              QA_RC=$?
+              if [[ $QA_RC -eq 3 ]]; then restore_last_good "NO_CHANGE"; exit 0; fi
+              if [[ $QA_RC -ne 0 ]]; then restore_last_good "STRICT_QA"; exit 0; fi
               python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { restore_last_good "CANDIDATE"; exit 0; }
               echo "OK" > "$STATUS"
             } > "$LOG" 2>&1
@@ -92,7 +108,11 @@ jobs:
           python - <<'PY'
           import json
           import subprocess
+          import sys
           from pathlib import Path
+
+          sys.path.insert(0, str(Path('pipeline').resolve()))
+          from qa_council_publication import assess_incremental, git_json
 
           status = {}
           order = []
@@ -117,6 +137,8 @@ jobs:
                   f'reports/{source}-executive-candidates.json',
                   f'reports/{source}-executive-candidates.md',
                   f'reports/{source}-ingestion.md',
+                  f'reports/capital-backfill-discovery-{source}.json',
+                  f'reports/capital-backfill-discovery-{source}.md',
               ]
               has_last_good = (
                   exists_in_head(paths[0])
@@ -140,8 +162,7 @@ jobs:
           ok = 0
           for source in order:
               state = status[source]
-              usable = state == 'OK' or state.startswith('STALE_OK:')
-              if not usable:
+              if state != 'OK':
                   print(source, state)
                   continue
 
@@ -152,36 +173,21 @@ jobs:
                   if not rows:
                       raise ValueError('no_rows')
 
-                  tx = [r for r in rows if str(r.get('merchant') or '').strip()]
-                  if len(tx) < 10:
-                      raise ValueError(f'too_few_transactions_{len(tx)}')
-
-                  merchant_share = len(tx) / len(rows)
-                  amount = sum(
-                      isinstance(r.get('amount'), int) and r['amount'] >= 0
-                      for r in tx
-                  ) / len(tx)
-                  date = sum(
-                      r.get('date_quality') in ('in_period', 'valid_outside_period')
-                      for r in tx
-                  ) / len(tx)
-
-                  # Amount is supporting evidence, but a fresh scrape with less
-                  # than 70% parsed amounts is usually a column-shift/parser
-                  # regression. Do not let that overwrite a known-good source.
-                  if amount < .70:
-                      raise ValueError(f'amount_{amount:.3f}')
-                  if date < .95:
-                      raise ValueError(f'date_{date:.3f}')
+                  discovery = json.loads(Path(f'reports/capital-backfill-discovery-{source}.json').read_text(encoding='utf-8'))
+                  qa = assess_incremental(
+                      source, d, discovery,
+                      git_json('HEAD', f'data/raw/{source}_expense.json'),
+                      git_json('HEAD', f'reports/capital-backfill-discovery-{source}.json'),
+                  )
+                  if qa['status'] != 'PUBLISH_READY':
+                      raise ValueError('strict_qa_' + ','.join(qa['failures']))
 
                   ok += 1
                   print(source, {
                       'state': state,
                       'rows': len(rows),
-                      'transaction_rows': len(tx),
-                      'merchant_share': merchant_share,
-                      'amount': amount,
-                      'date': date,
+                      'verified_rows': qa['verified_rows'],
+                      'coverage': qa['coverage'],
                       'files': len(d.get('files', [])),
                       'errors': len(d.get('errors', [])),
                   })
@@ -198,7 +204,7 @@ jobs:
               ''.join(f'{source}\t{status[source]}\n' for source in order),
               encoding='utf-8',
           )
-          assert ok >= 1, 'no freshly/previously usable council source is available'
+          print(f'Strict QA publishable sources: {ok} (held sources retain their last-good files)')
           PY
 
       - name: Commit successful council data and reports
@@ -208,9 +214,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           while IFS=$'\t' read -r SOURCE STATE; do
             if [[ "$STATE" != "OK" ]]; then
-              for F in reports/capital-backfill-discovery-${SOURCE}.*; do
-                [[ -e "$F" ]] && git add "$F"
-              done
               continue
             fi
             [[ -f "data/raw/${SOURCE}_expense.json" ]] && git add "data/raw/${SOURCE}_expense.json"

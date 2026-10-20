@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Fail-closed official-council date/amount/provenance publication gate.
 
-No files are changed. GitHub Actions may commit source data only after this
-command exits successfully; a partial success ratio is never publishable.
+No files are changed. First publication checks the whole source. Subsequent
+refreshes can compare against HEAD: unchanged legacy rows remain untouched,
+while every new or modified record must pass all checks. Exit 3 means no
+material source change and triggers restoration of the committed baseline.
 """
 from __future__ import annotations
 
@@ -10,6 +12,7 @@ import argparse
 import calendar
 import json
 import re
+import subprocess
 from datetime import date
 from pathlib import Path
 
@@ -108,17 +111,124 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
     }
 
 
+def assess_incremental(source: str, data: dict, discovery: dict,
+                       baseline: dict | None, baseline_discovery: dict | None) -> dict:
+    """Verify only newly introduced/changed transactions, retaining legacy rows.
+
+    Historical source files predate the 100% QA policy. Existing immutable
+    records are grandfathered *only* while unmodified; any new/changed record
+    or file must independently pass the same strict provenance/date/amount gate.
+    Silent historical row/file loss is not an acceptable refresh.
+    """
+    if not baseline or not baseline.get("rows"):
+        result = assess(source, data, discovery)
+        result["qa_scope"] = "full_first_publication"
+        return result
+
+    errors = []
+    if data.get("source") != source or baseline.get("source") != source:
+        errors.append("source_mismatch")
+    old_rows = baseline.get("rows") or []
+    rows = data.get("rows") or []
+    old_by_id = {r.get("row_id"): r for r in old_rows}
+    new_by_id = {r.get("row_id"): r for r in rows}
+    if (len(old_by_id) != len(old_rows) or len(new_by_id) != len(rows)
+        or None in old_by_id or None in new_by_id):
+        errors.append("duplicate_or_missing_row_id")
+    if set(old_by_id) - set(new_by_id):
+        errors.append("historical_rows_removed")
+
+    old_files = {canonical_attachment_url(f.get("url")): f
+                 for f in baseline.get("files", []) if canonical_attachment_url(f.get("url"))}
+    new_files = {canonical_attachment_url(f.get("url")): f
+                 for f in data.get("files", []) if canonical_attachment_url(f.get("url"))}
+    if set(old_files) - set(new_files):
+        errors.append("historical_files_removed")
+    modified_files = {
+        url for url, file in new_files.items()
+        if url not in old_files or file.get("sha256") != old_files[url].get("sha256")
+    }
+    def official_urls(d):
+        return {canonical_attachment_url(a.get("url"))
+                for p in (d or {}).get("posts", []) if p.get("source") == source
+                for a in p.get("attachments", []) if canonical_attachment_url(a.get("url"))}
+
+    new_official = official_urls(discovery) - official_urls(baseline_discovery)
+    changed = [r for r in rows if r.get("row_id") not in old_by_id
+               or r != old_by_id[r.get("row_id")]
+               or canonical_attachment_url(r.get("source_attachment_url")) in modified_files]
+    changed_ids = {r.get("row_id") for r in changed}
+    urls = modified_files | new_official | {
+        canonical_attachment_url(r.get("source_attachment_url")) for r in changed
+        if canonical_attachment_url(r.get("source_attachment_url"))
+    }
+    if not changed and not urls and not errors:
+        return {"source": source, "status": "NO_CHANGE", "qa_scope": "incremental",
+                "rows": len(rows), "baseline_rows_preserved": len(old_rows),
+                "new_or_changed_rows": 0, "verified_rows": 0,
+                "verified_files": 0, "coverage": 1.0,
+                "failures": [], "bad_examples": []}
+
+    post_sample = []
+    for post in discovery.get("posts", []):
+        if post.get("source") != source or not post.get("post_url"):
+            continue
+        subset = [a for a in post.get("attachments", [])
+                  if canonical_attachment_url(a.get("url")) in urls]
+        if subset:
+            post_sample.append({**post, "attachments": subset})
+
+    selected_files = [f for f in data.get("files", [])
+                      if canonical_attachment_url(f.get("url")) in urls]
+    selected_rows = [r for r in rows
+                     if r.get("row_id") in changed_ids
+                     or canonical_attachment_url(r.get("source_attachment_url")) in urls]
+    selected_errors = [e for e in data.get("errors", [])
+                       if canonical_attachment_url(e.get("url")) in urls]
+    qa = assess(source, {"source": source, "files": selected_files,
+                         "rows": selected_rows, "errors": selected_errors},
+                {"posts": post_sample}, min_rows=1)
+    if any(not any(canonical_attachment_url(r.get("source_attachment_url")) == url
+                   for r in selected_rows) for url in urls):
+        errors.append("official_file_without_transaction_rows")
+    qa["failures"] = sorted(set(qa["failures"] + errors))
+    qa["status"] = "HOLD" if qa["failures"] else "PUBLISH_READY"
+    qa["qa_scope"] = "incremental"
+    qa["baseline_rows_preserved"] = len(old_rows)
+    qa["new_or_changed_rows"] = len(changed)
+    qa["rows"] = len(rows)
+    return qa
+
+
+def git_json(ref: str, path: str) -> dict | None:
+    proc = subprocess.run(["git", "show", f"{ref}:{path}"],
+                          cwd=ROOT, capture_output=True, text=True)
+    if proc.returncode:
+        return None
+    return json.loads(proc.stdout)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", required=True)
     ap.add_argument("--min-rows", type=int, default=5)
+    ap.add_argument("--baseline-ref", help="Verify only changes versus committed baseline (e.g. HEAD)")
     args = ap.parse_args()
     raw_path = ROOT / "data" / "raw" / f"{args.source}_expense.json"
     discovery_path = ROOT / "reports" / f"capital-backfill-discovery-{args.source}.json"
     raw = json.loads(raw_path.read_text(encoding="utf-8"))
     discovery = json.loads(discovery_path.read_text(encoding="utf-8"))
-    result = assess(args.source, raw, discovery, args.min_rows)
+    if args.baseline_ref:
+        result = assess_incremental(
+            args.source, raw, discovery,
+            git_json(args.baseline_ref, f"data/raw/{args.source}_expense.json"),
+            git_json(args.baseline_ref, f"reports/capital-backfill-discovery-{args.source}.json"),
+        )
+    else:
+        result = assess(args.source, raw, discovery, args.min_rows)
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if result["status"] == "NO_CHANGE":
+        raise SystemExit(3)
     if result["status"] != "PUBLISH_READY":
         raise SystemExit(2)
 
