@@ -13,6 +13,7 @@ from extra_published import merge_extra_published
 from global_entities import merge_global_entities
 from evidence_semantics import apply_evidence_semantics
 from data_story import build_data_story
+from build_verified_transactions import build_verified_transactions
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "site" / "template.html"
@@ -186,6 +187,9 @@ def main():
     }
     meta_out = out.with_name("build-meta.json")
     meta_out.write_text(json.dumps(build_meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # A separate, full-history-QA-gated source ledger. Not a restaurant ranking.
+    build_verified_transactions(out.parent, generated_at=built_at)
 
     supplements = stats.get("supplemental", 0)
     print(f"built {out} with {len(records)} records (+{supplements} staged public-sector); static coordinates={coord_count}/{len(records)}")
