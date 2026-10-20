@@ -146,6 +146,30 @@ def decode_html(raw: bytes, header_charset: str | None) -> str:
     return raw.decode("utf-8", errors="replace")
 
 
+def curl_verified_bytes(url: str, referer: str = "") -> bytes:
+    """Alternative TLS client for the public Icheon council, with HTTPS verification.
+
+    This is deliberately origin-scoped; neither certificate validation nor
+    hostname checking is disabled to recover a source that fails TLS.
+    """
+    p = urllib.parse.urlsplit(url)
+    if p.scheme != "https" or p.hostname != "council.icheon.go.kr":
+        raise ValueError("curl fallback is restricted to official Icheon HTTPS")
+    cmd = [
+        "curl", "--fail", "--location", "--silent", "--show-error",
+        "--max-time", "35", "--max-filesize", "50000000", "--max-redirs", "3",
+        "--http1.1", "--tlsv1.2", "--proto", "=https",
+        "--proto-redir", "=https", "--user-agent", UA,
+    ]
+    if referer:
+        ref = urllib.parse.urlsplit(referer)
+        if ref.scheme == "https" and ref.hostname == "council.icheon.go.kr":
+            cmd.extend(["--referer", referer])
+    cmd.append(url)
+    result = subprocess.run(cmd, capture_output=True, check=True, timeout=40)
+    return result.stdout
+
+
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
     for attempt in range(3):
@@ -176,13 +200,7 @@ def fetch_text(url: str) -> str:
                 and isinstance(exc, urllib.error.URLError)
                 and "handshake failure" in str(exc).lower()):
                 try:
-                    proc = subprocess.run(
-                        ["curl", "--fail", "--location", "--silent", "--show-error",
-                         "--max-time", "25", "--http1.1", "--tlsv1.2",
-                         "--proto", "=https", "--proto-redir", "=https", url],
-                        capture_output=True, check=True, timeout=30,
-                    )
-                    return decode_html(proc.stdout, None)
+                    return decode_html(curl_verified_bytes(url), None)
                 except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
                     pass
             if attempt == 2:

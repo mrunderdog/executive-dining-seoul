@@ -3,8 +3,8 @@ from copy import deepcopy
 from types import SimpleNamespace
 from urllib.error import URLError
 from unittest.mock import patch
-from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, Source, SOURCES
-from ingest_council_expense import _html_attachment_candidates
+from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, curl_verified_bytes, Source, SOURCES
+from ingest_council_expense import _html_attachment_candidates, fetch_binary, normalize_sheet
 from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
@@ -101,6 +101,58 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertIn("--proto-redir", cmd)
         self.assertNotIn("-k", cmd)
         self.assertNotIn("--insecure", cmd)
+        with self.assertRaises(ValueError):
+            curl_verified_bytes("http://council.icheon.go.kr/gtb_download.php?fid=4786")
+        with self.assertRaises(ValueError):
+            curl_verified_bytes("https://other.example/gtb_download.php?fid=4786")
+
+    def test_icheon_binary_download_tls_fallback(self):
+        url = "https://council.icheon.go.kr/gtb_download.php?fid=4786&gtid=chujin"
+        referer = "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv"
+        blob = b"%PDF-1.6\n" + b"\x00" * 100
+        with patch("ingest_council_expense.urllib.request.build_opener") as build:
+            build.return_value.open.side_effect = URLError("SSLV3_ALERT_HANDSHAKE_FAILURE: handshake failure")
+            with patch("ingest_council_expense.curl_verified_bytes", return_value=blob) as curl:
+                self.assertEqual(fetch_binary(url, referer), blob)
+                curl.assert_called_once_with(url, referer)
+        # Falling back to a security error page is not successful ingestion.
+        with patch("ingest_council_expense.urllib.request.build_opener") as build:
+            build.return_value.open.side_effect = URLError("SSLV3_ALERT_HANDSHAKE_FAILURE: handshake failure")
+            with patch("ingest_council_expense.curl_verified_bytes", return_value=b"<html>Access denied</html>"):
+                with self.assertRaises(ValueError):
+                    fetch_binary(url, referer)
+
+    def test_icheon_pdf_merged_amount_and_merchant_columns(self):
+        meta = {
+            "region": "경기", "jurisdiction": "이천시", "institution": "이천시의회", "source": "icheon",
+            "post_url": "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv",
+            "attachment_url": "https://council.icheon.go.kr/gtb_download.php?fid=4893&gtid=chujin",
+            "attachment_name": "의회운영업무추진비 집행내역(26.9.).pdf",
+            "period": (2026, 9, None), "default_role": "",
+        }
+        rows = [
+            ["2026년 9월 업무추진비 집행내역(의장)"],
+            ["집행일시", "집행내역", "집행액", "사용처", "인원", "사용방법"],
+            ["2026-09-02 12:54:54", "의정홍보활동 지원 직원 격려 식사", "385,000청와대", "11", "카드"],
+            ["2026-09-04 12:57:26", "의정활동 지원 직원 격려 식사", "303,000청와대", "8", "카드"],
+            ["2026-09-08 12:26:39", "출장 후 수행직원 격려 간식", "14,400렛뚜", "3", "카드"],
+            ["2026-09-14 20:49:35 언론인과의 간담회 식사", "132,080 서경한우프라자", "4", "카드"],
+            ["2026-09-17 12:41:41", "수행직원 식사", "91,000만복식당", "4", "카드"],
+            ["2026-09-18 14:55:26 의정활동 지원 직원 격려 간식", "30,000스타벅스", "6", "카드"],
+            ["2026-09-30 12:36:33", "입법활동 지원 직원 격려 식사", "102,000설봉골생고기", "8", "카드"],
+            ["합계", "", "3,000,000합계", "", ""],
+            ["2026-09-44 14:30", "", "123,000잘못된행", "", ""],
+            ["2026-09-30 15:00", "", "0원", "", ""],
+        ]
+        normalized, info = normalize_sheet(rows, "pdf-page-1", meta)
+        self.assertEqual(info["parsed_rows"], 7)
+        self.assertEqual([x["amount"] for x in normalized], [385000, 303000, 14400, 132080, 91000, 30000, 102000])
+        self.assertTrue(all(x["role"] == "의장" and x["used_date"].startswith("2026-09-") for x in normalized))
+        self.assertEqual(normalized[3]["merchant"], "서경한우프라자")
+        self.assertEqual(normalized[3]["purpose"], "언론인과의 간담회 식사")
+        self.assertEqual(normalized[0]["people"], 11)
+        self.assertEqual(normalized[0]["source_attachment_url"], meta["attachment_url"])
+        self.assertEqual(len({x["row_id"] for x in normalized}), 7)
 
     def test_quarter_periods(self):
         self.assertEqual(title_period("안산시의회 2026년도 3분기 업무추진비 집행내역"), (2026, None, 3))
