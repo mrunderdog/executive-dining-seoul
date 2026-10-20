@@ -82,6 +82,43 @@ jobs:
             cat "reports/recovery/$SOURCE-quality.json"
           done
           # Diagnostic only. Neither raw records nor public site are committed.
+      - name: Inspect Icheon PDF table layout when ingestion is held
+        if: always()
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json
+          from pathlib import Path
+          from ingest_council_expense import fetch_binary, workbook_rows
+
+          path = Path('reports/capital-backfill-discovery-icheon.json')
+          if not path.exists():
+              print('No Icheon discovery to inspect.')
+              raise SystemExit(0)
+          posts = [p for p in json.loads(path.read_text(encoding='utf-8')).get('posts', [])
+                   if p.get('post_url') and p.get('attachments')]
+          samples = []
+          for post in posts[:1]:
+              for att in post['attachments'][:2]:
+                  try:
+                      blob = fetch_binary(att['url'], post['post_url'])
+                      file_sample = {'title': att.get('text'), 'bytes': len(blob), 'pages': []}
+                      for name, rows in workbook_rows(blob, att.get('text') or 'source.pdf'):
+                          file_sample['pages'].append({
+                              'name': name,
+                              'total_extracted_lines': len(rows),
+                              'first_lines': [[str(x)[:150] for x in row[:10]] for row in rows[:25]],
+                          })
+                          if len(file_sample['pages']) >= 2:
+                              break
+                      samples.append(file_sample)
+                  except Exception as e:
+                      samples.append({'title': att.get('text'), 'error': f'{type(e).__name__}: {e}'})
+          output = Path('reports/recovery/icheon-pdf-layout.json')
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(samples, ensure_ascii=False, indent=2), encoding='utf-8')
+          print(json.dumps(samples, ensure_ascii=False, indent=2)[:12000])
+          PY
       - name: Upload diagnostic results
         if: always()
         uses: actions/upload-artifact@v4
