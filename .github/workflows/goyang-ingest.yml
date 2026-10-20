@@ -207,6 +207,9 @@ jobs:
           print(f'Strict QA publishable sources: {ok} (held sources retain their last-good files)')
           PY
 
+      - name: Record council source health
+        run: python pipeline/refresh_health.py --full-status /tmp/council-status.tsv
+
       - name: Commit successful council data and reports
         shell: bash
         run: |
@@ -224,6 +227,7 @@ jobs:
               [[ -e "$F" ]] && git add "$F"
             done
           done < /tmp/council-status.tsv
+          git add reports/refresh-health.json
           if git diff --cached --quiet; then
             echo "No successful council data changes."
             exit 0

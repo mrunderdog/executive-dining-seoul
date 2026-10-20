@@ -112,11 +112,11 @@ jobs:
       - name: Test refresh gating
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_refresh_needed.py
 
+      - name: Test official council adapters and refresh monitoring
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_council_recovery.py pipeline/test_refresh_health.py
+
       - name: Test data story semantics
         run: python pipeline/test_data_story.py
-
-      - name: Test verified transaction ledger
-        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_verified_transactions.py
 
       - name: Quality gate
         run: python pipeline/quality_gate.py
@@ -127,22 +127,21 @@ jobs:
       - name: Build static site
         run: python pipeline/build_site.py --output dist/index.html
 
+      - name: Verify removed transaction explorer is not deployed
+        run: |
+          test ! -e dist/transactions.html
+          test ! -e dist/verified-transactions.json
+          ! grep -q 'transactions.html' dist/index.html
+
       - name: Check frontend runtime syntax
         run: |
           node --check site/app.js
           node --check site/data_story.js
-          node --check site/transactions.js
           python - <<'PY'
           from pathlib import Path
-          import json
           html=Path('dist/index.html').read_text(encoding='utf-8')
           for key in ('id="dataStory"','id="storyLastBuild"','id="storyQa"','id="dataStoryGroups"'):
               assert key in html, key
-          assert 'href="./transactions.html"' in html
-          ledger=json.loads(Path('dist/verified-transactions.json').read_text(encoding='utf-8'))
-          assert ledger['verified_row_count'] == len(ledger['rows'])
-          assert all(r['used_date'] and r['source_post_url'] and r['source_attachment_url'] for r in ledger['rows'])
-          assert 'id="transactionRows"' in Path('dist/transactions.html').read_text(encoding='utf-8')
           assert '__STORY__' not in html
           start=html.rfind('<script>')+8
           end=html.rfind('</script>')
@@ -173,8 +172,6 @@ jobs:
             tail -100 /tmp/executive-dining-http.log || true
             exit 1
           fi
-          node pipeline/browser_transactions_smoke.mjs
-
       - name: Capture build identity
         id: buildinfo
         shell: bash

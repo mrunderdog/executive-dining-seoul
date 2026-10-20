@@ -1,7 +1,9 @@
 import unittest
 from copy import deepcopy
+from types import SimpleNamespace
+from urllib.error import URLError
 from unittest.mock import patch
-from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, Source, SOURCES
+from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, Source, SOURCES
 from ingest_council_expense import _html_attachment_candidates
 from qa_council_publication import assess, assess_incremental
 
@@ -64,6 +66,41 @@ class AttachmentSafetyTests(unittest.TestCase):
             discovered = discover_source(src, (2026, 7), (2026, 10))
         self.assertEqual(len(discovered), 1)
         self.assertEqual(discovered[0]["attachments"], found)
+
+    def test_icheon_official_fidx_and_fid(self):
+        src = next(s for s in SOURCES if s.key == "icheon")
+        list_url = src.listing_template.format(page=1)
+        listing = '''<tr><td><a href="?f_code=&fidx=5942&opt=&page=1&pg=vv&sword=">2026년 7월 이천시의회 업무추진비 내역</a></td></tr>'''
+        detail = '''<div><a href="/gtb_download.php?fid=4786&amp;gtid=chujin">집행내역(7월).pdf</a>
+                  <a href="/gtb_download.php?fid=4787&amp;gtid=chujin">의장 집행내역.pdf</a>
+                  <a href="/gtb_download.php?fid=4786&amp;gtid=chujin">중복</a>
+                  <a href="https://other.example/gtb_download.php?fid=4&amp;gtid=chujin">외부</a>
+                  <a href="/gtb_download.php?fid=488&amp;gtid=other">다른 게시판</a></div>'''
+        rows = council_js_posts(src, list_url, listing, (2026, 7), (2026, 9))
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["period"], (2026, 7, None))
+        self.assertEqual(rows[0]["post_url"],
+                         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv")
+        with patch("capital_backfill.fetch_text", side_effect=lambda u: detail if "fidx=" in u else listing):
+            found = discover_source(src, (2026, 7), (2026, 9))
+        self.assertEqual(len(found), 1)
+        self.assertEqual([a["url"] for a in found[0]["attachments"]], [
+            "https://council.icheon.go.kr/gtb_download.php?fid=4786&gtid=chujin",
+            "https://council.icheon.go.kr/gtb_download.php?fid=4787&gtid=chujin",
+        ])
+        self.assertEqual(icheon_file_attachments("https://other.example/x?fidx=5942", detail), [])
+        self.assertEqual(council_js_posts(src, list_url, '''<tr><a href="javascript:view(999)">2026년 8월 업무추진비 내역</a></tr>''', (2026,7), (2026,9)), [])
+
+    def test_icheon_https_fallback_keeps_certificate_validation(self):
+        url = "https://council.icheon.go.kr/content/information/businessOperatingExpense.html"
+        with patch("capital_backfill.urllib.request.urlopen", side_effect=URLError("SSLV3_ALERT_HANDSHAKE_FAILURE: handshake failure")):
+            with patch("capital_backfill.subprocess.run", return_value=SimpleNamespace(stdout="업무추진비".encode())) as curl:
+                self.assertIn("업무추진비", fetch_text(url))
+        cmd = curl.call_args.args[0]
+        self.assertIn("--tlsv1.2", cmd)
+        self.assertIn("--proto-redir", cmd)
+        self.assertNotIn("-k", cmd)
+        self.assertNotIn("--insecure", cmd)
 
     def test_quarter_periods(self):
         self.assertEqual(title_period("안산시의회 2026년도 3분기 업무추진비 집행내역"), (2026, None, 3))

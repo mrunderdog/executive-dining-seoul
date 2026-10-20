@@ -11,8 +11,10 @@ import html
 import http.client
 import json
 import re
+import subprocess
 import time
 import urllib.parse
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
@@ -166,7 +168,23 @@ def fetch_text(url: str) -> str:
             if attempt == 2:
                 raise
             time.sleep(0.3 * (attempt + 1))
-        except OSError:
+        except OSError as exc:
+            # The Icheon council origin has intermittently rejected Python's
+            # TLS ClientHello. A second HTTPS client may negotiate differently;
+            # keep certificate verification and reject non-HTTPS redirects.
+            if (urllib.parse.urlsplit(url).hostname == "council.icheon.go.kr"
+                and isinstance(exc, urllib.error.URLError)
+                and "handshake failure" in str(exc).lower()):
+                try:
+                    proc = subprocess.run(
+                        ["curl", "--fail", "--location", "--silent", "--show-error",
+                         "--max-time", "25", "--http1.1", "--tlsv1.2",
+                         "--proto", "=https", "--proto-redir", "=https", url],
+                        capture_output=True, check=True, timeout=30,
+                    )
+                    return decode_html(proc.stdout, None)
+                except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+                    pass
             if attempt == 2:
                 raise
             time.sleep(0.3 * (attempt + 1))
@@ -186,7 +204,10 @@ def anchors(url: str, text: str):
     p = AnchorParser(); p.feed(text)
     out = []
     for a in p.anchors:
-        href = html.unescape(a.get("href", "")).strip()
+        # HTMLParser already decodes character references in attributes.
+        # A second unescape corrupts the official `&gtid=chujin` parameter
+        # (misinterpreted as the HTML `&gt;` entity).
+        href = a.get("href", "").strip()
         resolved = None
         if href and href != "#" and not href.lower().startswith("javascript:"):
             resolved = urllib.parse.urljoin(url, href)
@@ -297,7 +318,9 @@ def regex_attachment_fallback(base: str, text: str):
 
 def canonical_attachment_url(url: str) -> str | None:
     """Normalize real attachment URLs and reject obvious HTML/CSS pseudo-links."""
-    raw = html.unescape(str(url or "")).strip()
+    # Only decode literal HTML ampersands, not URL parameters such as
+    # `&gtid=chujin` (which html.unescape mistakes for `&gt;`).
+    raw = re.sub(r"&(?:amp|#0*38|#x0*26);", "&", str(url or ""), flags=re.I).strip()
     if not raw or " " in raw:
         return None
     p = urllib.parse.urlsplit(raw)
@@ -352,7 +375,7 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
     Do not invent download URLs from a listing or treat JS UI fragments as
     proof of an attachment. Detail discovery must provide a real file URL.
     """
-    if src.key not in {"hwaseong", "ansan", "dongducheon"}:
+    if src.key not in {"hwaseong", "ansan", "dongducheon", "icheon"}:
         return []
     result = []
     seen = set()
@@ -369,8 +392,8 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
             if not period_overlaps(period, since, until):
                 continue
             attrs = a.get("attrs", {})
-            href = html.unescape(attrs.get("href", ""))
-            onclick = html.unescape(attrs.get("onclick", ""))
+            href = attrs.get("href", "")
+            onclick = attrs.get("onclick", "")
             detail = ""
             if src.key == "hwaseong":
                 m = re.fullmatch(r"\s*javascript:\s*goViewPage\(\s*['\"](\d+)['\"]\s*\)\s*;?\s*", href, re.I)
@@ -392,6 +415,15 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
                     params += [("reform", "view"), ("key", key)]
                     detail = urllib.parse.urlunsplit((split.scheme, split.netloc, split.path,
                                                       urllib.parse.urlencode(params), ""))
+            elif src.key == "icheon":
+                # Official detail route uses pg=vv and a numeric fidx. Extract
+                # only IDs visibly present in the row, not arbitrary JS digits.
+                for candidate in (href, onclick):
+                    m = re.search(r"(?:^|[?&])fidx=(\d+)(?:&|$|['\"\s])", candidate, re.I)
+                    if m:
+                        detail = urllib.parse.urljoin(base, "/content/information/businessOperatingExpense.html")
+                        detail += "?" + urllib.parse.urlencode({"fidx": m.group(1), "pg": "vv"})
+                        break
             if src.key == "dongducheon" and detail:
                 # Page number is only listing pagination, not post identity.
                 # Repeated encrypted data-key values across pages must collapse.
@@ -449,6 +481,35 @@ def ansan_file_attachments(post_url: str, detail_html: str):
     return found
 
 
+def icheon_file_attachments(post_url: str, detail_html: str):
+    """Accept only actual official Icheon download links with file IDs.
+
+    Observed official pages link to /gtb_download.php?fid=<number>&gtid=chujin.
+    Do not infer an attachment from a board-view or JavaScript-only button.
+    """
+    p = urllib.parse.urlsplit(post_url)
+    params = dict(urllib.parse.parse_qsl(p.query))
+    if (p.hostname != "council.icheon.go.kr"
+        or p.path != "/content/information/businessOperatingExpense.html"
+        or not re.fullmatch(r"\d+", params.get("fidx", ""))):
+        return []
+    result = []
+    seen = set()
+    for a in anchors(post_url, detail_html):
+        url = a.get("url", "")
+        d = urllib.parse.urlsplit(url)
+        q = dict(urllib.parse.parse_qsl(d.query))
+        if (d.hostname != "council.icheon.go.kr" or d.path != "/gtb_download.php"
+            or q.get("gtid") != "chujin"
+            or not re.fullmatch(r"\d+", q.get("fid", ""))):
+            continue
+        canon = canonical_attachment_url(url)
+        if canon and canon not in seen:
+            seen.add(canon)
+            result.append({"text": a.get("text") or "첨부파일", "url": canon})
+    return result
+
+
 def discover_source(src: Source, since, until):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -489,6 +550,8 @@ def discover_source(src: Source, since, until):
                         found.append({"text":label, "url":dl})
                 elif src.key == "ansan":
                     found = ansan_file_attachments(row["post_url"], detail_html)
+                elif src.key == "icheon":
+                    found = icheon_file_attachments(row["post_url"], detail_html)
                 else:
                     found = [x for x in anchors(row["post_url"], detail_html) if attachment_like(x)]
                     if not found:
@@ -527,6 +590,10 @@ def discover_source(src: Source, since, until):
 
         for a in page_anchors:
             title=a.get("text","")
+            if src.key == "icheon":
+                # Icheon rows require a verified fidx detail URL and fid
+                # attachment identifier from the corresponding detail page.
+                continue
             direct_period=title_period(title)
             if "업무추진비" in title and attachment_like(a) and period_overlaps(direct_period, effective_since, until):
                 direct_key="direct:"+a.get("url","")

@@ -46,6 +46,8 @@ def restore_source(source:str):
         f"reports/{source}-executive-candidates.json",
         f"reports/{source}-executive-candidates.md",
         f"reports/{source}-ingestion.md",
+        f"reports/capital-backfill-discovery-{source}.json",
+        f"reports/capital-backfill-discovery-{source}.md",
     ]
     for rel in paths:
         payload=git_head_bytes(rel)
@@ -77,16 +79,23 @@ def refresh_one(source:str,since:str,until:str)->dict:
         result["status"]="STALE_OK:INGEST" if (ROOT/f"data/raw/{source}_expense.json").exists() else "FAILED:INGEST"
         return result
     if '"status": "NO_CHANGE"' in out or '"status":"NO_CHANGE"' in out:
+        restore_source(source)
         result["status"]="NO_CHANGE"
         return result
 
-    # 3) QA/build only when fresh rows or retried errors changed the raw layer.
+    # 3) A newly downloaded row/file must pass P0 lineage, date and amount
+    # QA before its raw data or candidate index can be committed.
     for name,cmd,timeout in [
         ("dates",[sys.executable,"pipeline/repair_raw_dates.py","--source",source,"--min-valid","0.95"],30),
+        ("strict_qa",[sys.executable,"pipeline/qa_council_publication.py","--source",source,"--baseline-ref","HEAD"],30),
         ("candidates",[sys.executable,"pipeline/build_source_candidates.py","--source",source,"--top","100"],30),
     ]:
         ok,out=run(cmd,timeout)
         result["stages"][name]={"ok":ok,"tail":out[-1500:]}
+        if name=="strict_qa" and not ok and '"status": "NO_CHANGE"' in out:
+            restore_source(source)
+            result["status"]="NO_CHANGE"
+            return result
         if not ok:
             restore_source(source)
             result["status"]=f"STALE_OK:{name.upper()}" if (ROOT/f"data/raw/{source}_expense.json").exists() else f"FAILED:{name.upper()}"

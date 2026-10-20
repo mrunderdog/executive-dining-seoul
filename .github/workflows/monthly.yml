@@ -392,6 +392,14 @@ jobs:
           print(f'Strict QA publishable sources: {checked} (other sources remain at last-good baseline)')
           PY
 
+      - name: Record full council source health
+        if: steps.mode.outputs.full == 'true'
+        run: python pipeline/refresh_health.py --full-status /tmp/monthly-council-status.tsv
+
+      - name: Record incremental council source health
+        if: always() && steps.mode.outputs.mode == 'incremental'
+        run: python pipeline/refresh_health.py --incremental-status reports/incremental-council-status.json
+
       - name: Geocode supplemental public-sector candidates
         if: steps.mode.outputs.ingest == 'true'
         run: python pipeline/geocode_extra_cache.py
