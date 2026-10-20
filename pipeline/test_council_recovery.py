@@ -3,7 +3,7 @@ from copy import deepcopy
 from unittest.mock import patch
 from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, Source, SOURCES
 from ingest_council_expense import _html_attachment_candidates
-from qa_council_publication import assess
+from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
     def test_html_wrapper_candidates(self):
@@ -90,6 +90,59 @@ class AttachmentSafetyTests(unittest.TestCase):
         bad = deepcopy(good)
         bad["errors"] = [{"url": file_url, "error": "file incomplete"}]
         self.assertEqual(assess("ansan", bad, discovery, 1)["status"], "HOLD")
+
+    def test_incremental_gate_preserves_legacy_but_checks_every_changed_row(self):
+        old_url = "https://www.ansan.go.kr/common/file/FileDown.do?file_id=old1"
+        new_url = "https://www.ansan.go.kr/common/file/FileDown.do?file_id=new2"
+        old_post, new_post = "https://www.ansan.go.kr/council/old", "https://www.ansan.go.kr/council/new"
+        old_row = {
+            "source_key": "ansan", "row_id": "legacy", "merchant": "기존식당",
+            "source_post_url": old_post, "source_attachment_url": old_url,
+            "source_period": [2026, None, 3], "used_date": "미상", "amount": None,
+        }
+        new_row = {
+            "source_key": "ansan", "row_id": "fresh", "merchant": "새식당",
+            "source_post_url": new_post, "source_attachment_url": new_url,
+            "source_period": [2026, None, 3], "used_date": "2026-09-15", "amount": 120000,
+        }
+        old_file = {"url": old_url, "sha256": "f" * 64, "bytes": 1000}
+        new_file = {"url": new_url, "sha256": "a" * 64, "bytes": 1000}
+        baseline = {"source": "ansan", "rows": [old_row], "files": [old_file]}
+        baseline_discovery = {"posts": [{"source": "ansan", "post_url": old_post,
+                                         "attachments": [{"url": old_url}]}]}
+        candidate = {"source": "ansan", "rows": [old_row, new_row], "files": [old_file, new_file]}
+        discovery = {"posts": baseline_discovery["posts"] + [{"source": "ansan", "post_url": new_post,
+                                                               "attachments": [{"url": new_url}]}]}
+        ready = assess_incremental("ansan", candidate, discovery, baseline, baseline_discovery)
+        self.assertEqual(ready["status"], "PUBLISH_READY")
+        self.assertEqual(ready["verified_rows"], 1)
+        self.assertEqual(ready["baseline_rows_preserved"], 1)
+        self.assertEqual(assess_incremental("ansan", baseline, baseline_discovery,
+                                            baseline, baseline_discovery)["status"], "NO_CHANGE")
+
+        for field, value in [("amount", 0), ("used_date", "2026-10-01"), ("merchant", "합계")]:
+            changed = deepcopy(candidate)
+            changed["rows"][1][field] = value
+            self.assertEqual(assess_incremental("ansan", changed, discovery,
+                                                baseline, baseline_discovery)["status"], "HOLD", field)
+        removed = deepcopy(candidate)
+        removed["rows"] = [new_row]
+        self.assertIn("historical_rows_removed", assess_incremental(
+            "ansan", removed, discovery, baseline, baseline_discovery)["failures"])
+        missing_file = deepcopy(candidate)
+        missing_file["files"] = [old_file]
+        self.assertEqual(assess_incremental("ansan", missing_file, discovery,
+                                            baseline, baseline_discovery)["status"], "HOLD")
+        orphan = deepcopy(candidate)
+        orphan["rows"] = [old_row]
+        self.assertEqual(assess_incremental("ansan", orphan, discovery,
+                                            baseline, baseline_discovery)["status"], "HOLD")
+        altered_historical_file = deepcopy(baseline)
+        altered_historical_file["files"][0]["sha256"] = "b" * 64
+        self.assertEqual(assess_incremental("ansan", altered_historical_file, baseline_discovery,
+                                            baseline, baseline_discovery)["status"], "HOLD")
+        self.assertEqual(assess_incremental("ansan", candidate, discovery, None, None)["status"],
+                         "HOLD")  # Full first-publish gate also rejects the invalid legacy row.
 
     def test_only_canonical_files(self):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/attach"))
