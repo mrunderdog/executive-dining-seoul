@@ -5,6 +5,7 @@ on:
     paths:
       - 'pipeline/p4_map_gap_review.py'
       - 'pipeline/test_p4_map_gap_review.py'
+      - 'sources/curated_venue_address_evidence.json'
       - '.github/workflows/p4-unmapped-review.yml'
   push:
     branches: [main]
@@ -12,6 +13,10 @@ on:
       - 'pipeline/p4_map_gap_review.py'
       - 'pipeline/test_p4_map_gap_review.py'
       - '.github/workflows/p4-unmapped-review.yml'
+  workflow_run:
+    workflows:
+      - Build static coordinate cache
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -19,11 +24,13 @@ permissions:
 
 jobs:
   review:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v6
         with:
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
@@ -41,7 +48,7 @@ jobs:
             reports/p4-unmapped-venue-review.md
           retention-days: 30
       - name: Commit only audit reports on default branch
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
