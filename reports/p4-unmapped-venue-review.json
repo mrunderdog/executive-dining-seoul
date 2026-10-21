@@ -3,17 +3,15 @@
   "purpose": "P4 top unmapped venue address and branch evidence review queue",
   "policy": "Research queue only. No auto-publication, name-only location guesses, card-merchant equivalence or personal-attendance claims.",
   "total_published_venues": 1350,
-  "safe_map_venues": 895,
-  "unmapped_venues": 455,
+  "safe_map_venues": 898,
+  "unmapped_venues": 452,
   "reviewed_in_queue": 50,
   "unmapped_reason_counts": {
-    "APPROVED_VENUE_ADDRESS_NEEDS_SAFE_COORDINATE": 2,
     "MISSING_ADDRESS_AND_TRACEABLE_SOURCE": 8,
-    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 445
+    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 444
   },
   "selected_reason_counts": {
-    "APPROVED_VENUE_ADDRESS_NEEDS_SAFE_COORDINATE": 2,
-    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 48
+    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 50
   },
   "approved_for_map_addition": 0,
   "candidates": [
@@ -166,34 +164,6 @@
       ],
       "venue_address_evidence_urls": [],
       "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
-      "payment_branch_verified": false,
-      "individual_attendance_verified": false,
-      "location_promoted": false
-    },
-    {
-      "id": "",
-      "merchant": "소쿠리밥상세종청사점",
-      "origin": "중앙정부",
-      "jurisdiction": "대한민국",
-      "published_source": "central_executive",
-      "published_address": "세종특별자치시 한누리대로 411 KT&G세종타워A 3층 305호",
-      "disclosed_usage_events": 14,
-      "disclosed_spend_krw": 2851000,
-      "months": 9,
-      "source_origin_count": 1,
-      "listed_institution_count": 2,
-      "review_priority_score": 135.35,
-      "source_urls": [
-        "https://www.moel.go.kr/common/downloadFile.do?file_seq=20260800340&bbs_seq=20260601332&bbs_id=15&file_ext=hwpx",
-        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/0d2985b07b0947dcaa99f151da9843dd",
-        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/dc16fd34085b1f94c4b1d5d79ddc240b"
-      ],
-      "venue_address_evidence_urls": [
-        "https://xn--oy2b88bf5fexa973c.com/",
-        "https://www.diningcode.com/profile.php?rid=0VzPTAyeS9mL",
-        "https://www.tabling.co.kr/place/677cd03a66de5f069885afa1"
-      ],
-      "review_status": "APPROVED_VENUE_ADDRESS_NEEDS_SAFE_COORDINATE",
       "payment_branch_verified": false,
       "individual_attendance_verified": false,
       "location_promoted": false
@@ -372,36 +342,6 @@
       ],
       "venue_address_evidence_urls": [],
       "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
-      "payment_branch_verified": false,
-      "individual_attendance_verified": false,
-      "location_promoted": false
-    },
-    {
-      "id": "",
-      "merchant": "진가와코리아 광화문점",
-      "origin": "중앙정부",
-      "jurisdiction": "대한민국",
-      "published_source": "central_executive",
-      "published_address": "서울특별시 종로구 종로1길 50 더케이트윈타워 지하1층",
-      "disclosed_usage_events": 10,
-      "disclosed_spend_krw": 2504000,
-      "months": 8,
-      "source_origin_count": 1,
-      "listed_institution_count": 2,
-      "review_priority_score": 125.27,
-      "source_urls": [
-        "https://www.unikorea.go.kr/web/unikorea/file/download/uu/216f8f45782e423097ff169140b834df",
-        "https://www.unikorea.go.kr/web/unikorea/file/download/uu/ce29de8bfbeb41a99c2ae009bd32aef4",
-        "https://www.unikorea.go.kr/web/unikorea/file/download/uu/5df75fc109df45a0add896b88d95d55a",
-        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6aea94f68349334a43f5dc7ef7444486",
-        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/0d2985b07b0947dcaa99f151da9843dd"
-      ],
-      "venue_address_evidence_urls": [
-        "https://www.next-dining.com/brands/jinkawa",
-        "https://marketbz.com/companyDetail/5928501048",
-        "https://www.diningcode.com/profile.php?rid=HDcfIRwLV7Ev"
-      ],
-      "review_status": "APPROVED_VENUE_ADDRESS_NEEDS_SAFE_COORDINATE",
       "payment_branch_verified": false,
       "individual_attendance_verified": false,
       "location_promoted": false
@@ -1294,6 +1234,57 @@
         "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=158A0E340C55844B5AD7252BFCC419F9&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
         "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=86011B9CD81CAE3E60C82B4562DC29F5&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
         "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=A02FA06828CA126C9666F51D719F316A&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest"
+      ],
+      "venue_address_evidence_urls": [],
+      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false,
+      "location_promoted": false
+    },
+    {
+      "id": "",
+      "merchant": "영덕집",
+      "origin": "공기업·공공기관",
+      "jurisdiction": "대한민국",
+      "published_source": "public_enterprise_leadership",
+      "published_address": "",
+      "disclosed_usage_events": 9,
+      "disclosed_spend_krw": 1626000,
+      "months": 6,
+      "source_origin_count": 1,
+      "listed_institution_count": 2,
+      "review_priority_score": 93.35,
+      "source_urls": [
+        "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=27046",
+        "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=26167",
+        "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=23787",
+        "https://www.kamco.or.kr/portal/bbs/view.do?mId=0601060603&ptIdx=479&bIdx=22948",
+        "https://ns.kdn.com/download.kdn?filename=1741326874127.xlsx&filenameOrg=2025%EB%85%84+2%EC%9B%94+%EA%B8%B0%EA%B4%80%EC%9E%A5+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EC%A7%91%ED%96%89%EB%82%B4%EC%97%AD.xlsx&f_path=board&bid=0028&type=board&bid=0028&list_no=22918&seq=1"
+      ],
+      "venue_address_evidence_urls": [],
+      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false,
+      "location_promoted": false
+    },
+    {
+      "id": "",
+      "merchant": "고궁",
+      "origin": "고양시",
+      "jurisdiction": "고양특례시",
+      "published_source": "goyang",
+      "published_address": "",
+      "disclosed_usage_events": 11,
+      "disclosed_spend_krw": 499000,
+      "months": 10,
+      "source_origin_count": 1,
+      "listed_institution_count": 1,
+      "review_priority_score": 93.25,
+      "source_urls": [
+        "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=78A3B14524D8A816D543C3987E58FDF4&schwrd=&flag=all&page=1&list_style=",
+        "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=A26F31BA24D6295A0EEF2CA7E2A33DD7&schwrd=&flag=all&page=1&list_style=",
+        "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=FCC9BBC635EBF83B1589291BBC8ED897&schwrd=&flag=all&page=1&list_style=",
+        "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=6CD60F6A8EBB4155E8778E0CFD4C6E24&schwrd=&flag=all&page=1&list_style="
       ],
       "venue_address_evidence_urls": [],
       "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
