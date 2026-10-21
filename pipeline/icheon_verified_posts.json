@@ -1,0 +1,59 @@
+{
+  "source": "icheon",
+  "evidence": {
+    "reviewed_on": "2026-10-20",
+    "workflow_run": "https://github.com/mrunderdog/executive-dining-seoul/actions/runs/39400648925",
+    "artifact_id": 12254378199,
+    "artifact_sha256": "8201de0449e38750318caa954197ded983aa2e593023415906804bfabd92071b",
+    "strict_qa_verified_rows": 141,
+    "strict_qa_verified_files": 6,
+    "note": "Observed official fidx/fid identifiers in the source-discovery and full-QA artifact; source metadata only, not a substitute for downloading and revalidating original PDFs."
+  },
+  "posts": [
+    {
+      "year": 2026,
+      "month": 9,
+      "fidx": 6005,
+      "attachments": [
+        {
+          "fid": 4892,
+          "name": "의회운영공통경비 집행내역(26.9.).pdf"
+        },
+        {
+          "fid": 4893,
+          "name": "의회운영업무추진비 집행내역(26.9.).pdf"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "fidx": 5976,
+      "attachments": [
+        {
+          "fid": 4846,
+          "name": "의회운영공통경비 집행내역(26.8.).pdf"
+        },
+        {
+          "fid": 4847,
+          "name": "의회운영업무추진비 집행내역(26.8.).pdf"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "fidx": 5942,
+      "attachments": [
+        {
+          "fid": 4786,
+          "name": "의회운영업무추진비 집행내역(26.7.).pdf"
+        },
+        {
+          "fid": 4787,
+          "name": "의회운영공통경비 집행내역(26.7.).pdf"
+        }
+      ]
+    }
+  ]
+}
