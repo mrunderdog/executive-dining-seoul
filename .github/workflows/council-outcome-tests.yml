@@ -1,0 +1,21 @@
+name: Council ingestion outcome checks
+on:
+  pull_request:
+    paths:
+      - 'pipeline/check_council_refresh_outcome.py'
+      - 'pipeline/test_council_refresh_outcome.py'
+      - 'pipeline/refresh_health.py'
+      - '.github/workflows/goyang-ingest.yml'
+      - '.github/workflows/council-outcome-tests.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Unit tests (no source crawl and no publication)
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_refresh_outcome test_refresh_health
