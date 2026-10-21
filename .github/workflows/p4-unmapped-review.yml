@@ -1,0 +1,56 @@
+name: P4 unmapped venue evidence review
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/p4_map_gap_review.py'
+      - 'pipeline/test_p4_map_gap_review.py'
+      - '.github/workflows/p4-unmapped-review.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/p4_map_gap_review.py'
+      - 'pipeline/test_p4_map_gap_review.py'
+      - '.github/workflows/p4-unmapped-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Test strict location and identity guards
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_p4_map_gap_review.py
+      - name: Generate 50-venue evidence review queue from actual published dataset
+        run: python pipeline/p4_map_gap_review.py --limit 50
+      - name: Upload review-only results
+        uses: actions/upload-artifact@v4
+        with:
+          name: p4-unmapped-venue-review
+          path: |
+            reports/p4-unmapped-venue-review.json
+            reports/p4-unmapped-venue-review.md
+          retention-days: 30
+      - name: Commit only audit reports on default branch
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/p4-unmapped-venue-review.json reports/p4-unmapped-venue-review.md
+          if git diff --cached --quiet; then
+            echo "P4 review report already up to date."
+            exit 0
+          fi
+          git commit -m "report: rank 50 unmapped venues for source verification"
+          git pull --rebase origin main
+          git push origin HEAD:main
