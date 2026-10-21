@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "checked_on": "2026-10-16",
+  "checked_on": "2026-10-22",
   "policy": "Approve only corroborated exact venue branch locations. Review-only, historical closures, or already enriched records never auto-add. Venue address never means card-merchant identity or personal attendance.",
   "entries": [
     {
@@ -157,6 +157,56 @@
         }
       ],
       "notes": "Historical address and phone agree, but closures reported; do not treat as current open store or confirm spend location."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "소쿠리밥상세종청사점",
+      "address": "세종특별자치시 한누리대로 411 KT&G세종타워A 3층 305호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://xn--oy2b88bf5fexa973c.com/",
+          "claim": "소쿠리밥상 세종청사점 매장 자체 안내: 한누리대로 411, KT&G 세종타워A AK몰 3층 305호"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=0VzPTAyeS9mL",
+          "claim": "다이닝코드 세종청사점 동일 도로명, 건물동, 3층 305호"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/677cd03a66de5f069885afa1",
+          "claim": "테이블링 동일 지점과 한누리대로 411"
+        }
+      ],
+      "notes": "원천 지출 사용처명은 띄어쓰기 없는 명칭. 동일 점포 소재지만 확인. 카드 승인 가맹점 동일성/개인 참석 미확인."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "진가와코리아 광화문점",
+      "address": "서울특별시 종로구 종로1길 50 더케이트윈타워 지하1층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://www.next-dining.com/brands/jinkawa",
+          "claim": "진가와 운영브랜드 공식 광화문점 매장 목록: 종로1길 50 더케이트윈타워 지하1층"
+        },
+        {
+          "type": "business_company_profile",
+          "url": "https://marketbz.com/companyDetail/5928501048",
+          "claim": "진가와코리아 광화문점 지점 사업체명과 종로1길 50 주소 확인"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=HDcfIRwLV7Ev",
+          "claim": "다이닝코드 광화문점 동일 건물 지하1층"
+        }
+      ],
+      "notes": "공개 원천 지출 사용처 '진가와코리아 광화문점'과 실제 브랜드 매장 '진가와 광화문점'의 주소 대응만 확인. 카드 가맹점 법적 동일성 미확인."
     }
   ]
 }

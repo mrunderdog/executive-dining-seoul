@@ -8,6 +8,7 @@ on:
       - 'data/raw/**'
       - 'reports/*-executive-candidates.json'
       - 'sources/entity_enrichment.json'
+      - 'sources/curated_venue_address_evidence.json'
       - 'pipeline/geocode_cache.py'
       - 'pipeline/published_sources.py'
       - 'pipeline/extra_published.py'

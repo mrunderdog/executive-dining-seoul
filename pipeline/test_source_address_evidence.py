@@ -19,6 +19,13 @@ class CuratedAddressEvidenceTest(unittest.TestCase):
         self.assertIn("국회대로76길 16",curated_location("central_executive","가시리 여의도점")["address"])
         self.assertIn("여의대방로67길 21",curated_location("public_enterprise_leadership","우들목여의도점")["address"])
         self.assertIsNone(curated_location("public_enterprise_leadership","영덕집"))
+        so=curated_location("central_executive","소쿠리밥상세종청사점")
+        jin=curated_location("central_executive","진가와코리아 광화문점")
+        self.assertIn("한누리대로 411",so["address"])
+        self.assertIn("종로1길 50",jin["address"])
+        self.assertFalse(so["payment_branch_verified"])
+        self.assertFalse(jin["individual_attendance_verified"])
+
 
     def test_fail_closed_for_unsubstantiated_approval(self):
         registry={"entries":[{"cohort":"central_executive","merchant":"테스트점",
@@ -48,5 +55,12 @@ class CuratedAddressEvidenceTest(unittest.TestCase):
         self.assertIn("종로5길 7",central_rows["일품진진수라 광화문점"]["address"])
         self.assertIsNone(central_rows["일품진진수라 광화문점"]["venue_location_match_basis"])
         self.assertIn("세종대로 14",central_rows["모담 서울역점"]["address"])
+        for name in ("소쿠리밥상세종청사점", "진가와코리아 광화문점"):
+            rec=central_rows[name]
+            self.assertEqual(rec["venue_location_match_basis"],"EXACT_NAMED_BRANCH_CORROBORATED")
+            self.assertFalse(rec["payment_branch_verified"])
+            self.assertFalse(rec["personal_attendance_verified"])
+            self.assertGreaterEqual(len(rec["venue_location_evidence_urls"]), 2)
+
         self.assertIn("여의대방로67길 21",public_rows["우들목여의도점"]["address"])
 
