@@ -1,0 +1,22 @@
+name: One-time Icheon verified refresh (2026-10-21)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/icheon-refresh-once-20261021.yml'
+
+permissions:
+  actions: write
+
+jobs:
+  dispatch:
+    if: github.repository == 'mrunderdog/executive-dining-seoul'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run existing strict QA ingest for Icheon only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run goyang-ingest.yml --repo "$GITHUB_REPOSITORY" --ref main -f source=icheon -f since=2026-07
+          echo "Requested bounded Icheon-only ingest."
