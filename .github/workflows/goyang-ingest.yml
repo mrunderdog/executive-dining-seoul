@@ -255,3 +255,11 @@ jobs:
 
       - name: Verify site build
         run: python pipeline/build_site.py --output /tmp/index.html
+
+      - name: Fail closed on unhealthy targeted refresh
+        if: always()
+        env:
+          REQUESTED_SOURCE: ${{ github.event.inputs.source }}
+        run: |
+          python pipeline/check_council_refresh_outcome.py \
+            --status-file /tmp/council-status.tsv --source "$REQUESTED_SOURCE"
