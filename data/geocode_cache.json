@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 412,
+    "failed_count": 411,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1783,
-    "success_count": 1371,
-    "updated_at": "2026-10-19T12:27:33+00:00"
+    "record_count": 1784,
+    "success_count": 1373,
+    "updated_at": "2026-10-21T23:49:31+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -13198,6 +13198,24 @@
       "reason": "public_enterprise_requires_verified_address",
       "updated_at": "2026-10-19T12:27:32+00:00"
     },
+    "설봉골생고기|이천시": {
+      "addr_type": "POI",
+      "display_name": "설봉골생고기",
+      "fingerprint": "5f3adf0e6dacc697",
+      "geocoder_version": 4,
+      "lat": 37.27904925,
+      "lon": 127.436453753,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "설봉골생고기 이천시",
+      "result_name": "설봉골생고기",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:설봉골생고기 이천시"
+      ],
+      "updated_at": "2026-10-21T23:49:29+00:00"
+    },
     "설화생갈비(인천 남동구 소재)|인천시청": {
       "failed": true,
       "fingerprint": "cefe111f29c10fac",
@@ -13925,22 +13943,22 @@
       "updated_at": "2026-09-18T05:24:03+00:00"
     },
     "소쿠리밥상세종청사점|중앙정부": {
-      "addr_type": "POI",
-      "display_name": "소쿠리밥상 세종청사점",
-      "fingerprint": "cb3d39a11ce94b86",
+      "addr_type": "PointAddress",
+      "display_name": "세종 세종특별자치시 어진동 한누리대로 411",
+      "fingerprint": "0c61549890c97eb5",
       "geocoder_version": 4,
-      "lat": 36.501082887,
-      "lon": 127.258819329,
-      "match_mode": "name",
+      "lat": 36.501132164384,
+      "lon": 127.258850972754,
+      "match_mode": "address",
       "policy_version": 3,
-      "query": "소쿠리밥상세종청사점 대한민국",
-      "result_name": "소쿠리밥상 세종청사점",
-      "score": 100.0,
+      "query": "세종특별자치시 한누리대로 411 KT&G세종타워A 3층 305호",
+      "result_name": "",
+      "score": 97.24,
       "source": "arcgis",
       "tried_queries": [
-        "arcgis:소쿠리밥상세종청사점 대한민국"
+        "arcgis:세종특별자치시 한누리대로 411 KT&G세종타워A 3층 305호"
       ],
-      "updated_at": "2026-09-17T23:05:09+00:00"
+      "updated_at": "2026-10-21T23:49:31+00:00"
     },
     "소풍|강서구": {
       "addr_type": "PointAddress",
@@ -22505,15 +22523,22 @@
       "updated_at": "2026-09-17T23:01:59+00:00"
     },
     "진가와코리아 광화문점|중앙정부": {
-      "failed": true,
-      "fingerprint": "5089eedd54a4ec48",
+      "addr_type": "StreetAddress",
+      "display_name": "서울특별시 종로구 중학동 종로1길 50",
+      "fingerprint": "12643baeb9209403",
       "geocoder_version": 4,
+      "lat": 37.574751005753,
+      "lon": 126.97876148266,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "서울특별시 종로구 종로1길 50 더케이트윈타워 지하1층",
+      "result_name": "",
+      "score": 95.6,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:진가와코리아 광화문점 대한민국",
-        "nominatim:진가와코리아 광화문점 대한민국"
+        "arcgis:서울특별시 종로구 종로1길 50 더케이트윈타워 지하1층"
       ],
-      "updated_at": "2026-09-17T23:05:33+00:00"
+      "updated_at": "2026-10-21T23:49:29+00:00"
     },
     "진가와코리아|중앙정부": {
       "addr_type": "POI",
