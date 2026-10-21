@@ -7,6 +7,10 @@ on:
         description: 'Optional single council source key to refresh (blank = all)'
         required: false
         default: ''
+      since:
+        description: 'Earliest official publication month (YYYY-MM); default 2024-12'
+        required: false
+        default: '2024-12'
 
 permissions:
   contents: write
@@ -18,6 +22,7 @@ concurrency:
 jobs:
   ingest:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v6
         with:
@@ -33,19 +38,25 @@ jobs:
       - name: Run regression checks
         run: python pipeline/regression_checks.py
 
-      - name: Refresh supported councils in parallel
+      - name: Refresh supported councils (bounded workers and per-stage timeouts)
         shell: bash
         run: |
-          set +e
+          set -u
           SOURCES="goyang suwon hwaseong seongnam bucheon namyangju uijeongbu gwangmyeong gimpo ansan paju anseong icheon osan pocheon yangpyeong yongin gwangju guri uiwang gunpo dongducheon gwacheon gapyeong siheung yeoju yangju hanam yeoncheon michuhol bupyeong jemulpo yeongjong seohae yeonsu gyeyang ganghwa ongjin gyeonggi_council incheon_council"
           REQUESTED_SOURCE="${{ github.event.inputs.source }}"
+          SINCE="${{ github.event.inputs.since }}"
+          SINCE="${SINCE:-2024-12}"
+          if [[ ! "$SINCE" =~ ^20[0-9]{2}-(0[1-9]|1[0-2])$ ]]; then
+            echo "::error::Invalid since month: $SINCE"; exit 2
+          fi
           if [[ -n "$REQUESTED_SOURCE" ]]; then
             case " $SOURCES " in
               *" $REQUESTED_SOURCE "*) SOURCES="$REQUESTED_SOURCE" ;;
-              *) echo "Unknown source: $REQUESTED_SOURCE"; exit 2 ;;
+              *) echo "::error::Unknown source: $REQUESTED_SOURCE"; exit 2 ;;
             esac
           fi
-          echo "Refreshing sources: $SOURCES"
+          MAX_PARALLEL=5
+          echo "Refreshing: $SOURCES (since=$SINCE, concurrency=$MAX_PARALLEL)"
           refresh_one() {
             SOURCE="$1"
             LOG="/tmp/council-$SOURCE.log"
@@ -65,43 +76,46 @@ jobs:
                 if git cat-file -e "HEAD:$F" 2>/dev/null; then
                   git restore --source=HEAD -- "$F"
                 else
-                  python -c 'from pathlib import Path; import sys; Path(sys.argv[1]).unlink(missing_ok=True)' "$F"
+                  rm -f -- "$F"
                 fi
               done
               echo "$BASELINE" > "$STATUS"
             }
-            {
-              echo "=== discover $SOURCE ==="
-              python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE" || { restore_last_good "DISCOVERY"; exit 0; }
-              echo "=== ingest $SOURCE ==="
-              python pipeline/ingest_council_expense.py --source "$SOURCE" || { restore_last_good "INGEST"; exit 0; }
-              # Normalize legacy dates; the incremental QA below enforces 100%
-              # on every new/changed row without grandfathering new errors.
-              python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0 || { restore_last_good "DATE_REPAIR"; exit 0; }
-              PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
+            echo "[$SOURCE] START $(date -u +%FT%TZ)"
+            (
+              echo "=== discover $SOURCE (since=$SINCE, max 180s) ==="
+              timeout --signal=TERM --kill-after=10s 180s python pipeline/capital_backfill.py --since "$SINCE" --source "$SOURCE" || { restore_last_good "DISCOVERY"; exit 0; }
+              echo "=== ingest $SOURCE (incremental, max 180s) ==="
+              timeout --signal=TERM --kill-after=10s 180s python pipeline/ingest_council_expense.py --source "$SOURCE" --incremental || { restore_last_good "INGEST"; exit 0; }
+              timeout --signal=TERM --kill-after=10s 60s python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0 || { restore_last_good "DATE_REPAIR"; exit 0; }
+              timeout --signal=TERM --kill-after=10s 60s env PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
               QA_RC=$?
               if [[ $QA_RC -eq 3 ]]; then restore_last_good "NO_CHANGE"; exit 0; fi
               if [[ $QA_RC -ne 0 ]]; then restore_last_good "STRICT_QA"; exit 0; fi
-              python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { restore_last_good "CANDIDATE"; exit 0; }
+              timeout --signal=TERM --kill-after=10s 90s python pipeline/build_source_candidates.py --source "$SOURCE" --top 100 || { restore_last_good "CANDIDATE"; exit 0; }
               echo "OK" > "$STATUS"
-            } > "$LOG" 2>&1
+            ) > "$LOG" 2>&1
+            STATE="$(cat "$STATUS" 2>/dev/null || echo UNKNOWN)"
+            echo "[$SOURCE] FINISH $STATE $(date -u +%FT%TZ)"
+            tail -n 20 "$LOG" | sed -u "s/^/[$SOURCE] /"
           }
-          PIDS=""
+          RUNNING=0
           for SOURCE in $SOURCES; do
             refresh_one "$SOURCE" &
-            PIDS="$PIDS $!"
+            RUNNING=$((RUNNING + 1))
+            if (( RUNNING >= MAX_PARALLEL )); then
+              wait -n || true
+              RUNNING=$((RUNNING - 1))
+            fi
           done
-          for PID in $PIDS; do wait "$PID"; done
-
+          wait || true
           : > /tmp/council-status.tsv
           for SOURCE in $SOURCES; do
             STATE="$(cat "/tmp/council-$SOURCE.status" 2>/dev/null || echo UNKNOWN)"
-            echo -e "$SOURCE\t$STATE" >> /tmp/council-status.tsv
-            echo "===== $SOURCE : $STATE ====="
-            tail -80 "/tmp/council-$SOURCE.log" || true
+            printf "%s\t%s\n" "$SOURCE" "$STATE" >> /tmp/council-status.tsv
+            echo "$SOURCE: $STATE"
           done
           cat /tmp/council-status.tsv
-
       - name: Validate every successfully staged source
         shell: bash
         run: |
