@@ -528,6 +528,78 @@ def icheon_file_attachments(post_url: str, detail_html: str):
     return result
 
 
+
+def recover_verified_icheon_posts(src: Source, since, until):
+    """Recover *only* historically verified Icheon official IDs after discovery fails.
+
+    Seed IDs came from a full successful official PDF ingest, not fabricated
+    endpoint guesses. Recheck the detail when reachable; if TLS/transport is
+    unavailable, current official PDF bytes and every row still require strict
+    publication QA. An accessible detail with mismatched IDs is never bypassed.
+    """
+    if src.key != "icheon":
+        return []
+    seed_path = Path(__file__).with_name("icheon_verified_posts.json")
+    seed = json.loads(seed_path.read_text(encoding="utf-8"))
+    if seed.get("source") != "icheon" or not seed.get("evidence", {}).get("workflow_run"):
+        raise ValueError("Icheon recovery seed is missing historical evidence")
+    recovered = []
+    for item in seed["posts"]:
+        year, month, fidx = item["year"], item["month"], item["fidx"]
+        period = (year, month, None)
+        if not (isinstance(fidx, int) and 0 < fidx and
+                isinstance(year, int) and isinstance(month, int) and 1 <= month <= 12 and
+                period_overlaps(period, since, until)):
+            continue
+        detail_url = ("https://council.icheon.go.kr/content/information/"
+                      "businessOperatingExpense.html?" +
+                      urllib.parse.urlencode({"fidx": fidx, "pg": "vv"}))
+        attachments = []
+        for file in item["attachments"]:
+            fid, name = file["fid"], file["name"]
+            if not (isinstance(fid, int) and fid > 0 and
+                    isinstance(name, str) and name.lower().endswith(".pdf")):
+                raise ValueError("Invalid Icheon verified attachment identifier")
+            url = ("https://council.icheon.go.kr/gtb_download.php?" +
+                   urllib.parse.urlencode({"fid": fid, "gtid": "chujin"}))
+            canon = canonical_attachment_url(url)
+            if not canon:
+                raise ValueError("Unrecognized Icheon official file URL")
+            attachments.append({"text": name, "url": canon})
+
+        # Prefer current detail-page evidence when reachable. Do not accept
+        # changed/missing attachment identifiers as the original verified files.
+        verification = "historically_verified_ids_revalidate_pdf"
+        try:
+            detail_html = decode_html(curl_verified_bytes(detail_url), None)
+            live = icheon_file_attachments(detail_url, detail_html)
+            if {a["url"] for a in live} != {a["url"] for a in attachments}:
+                print(f"::warning::Icheon fidx={fidx} file IDs changed; holding this post")
+                continue
+            attachments = live
+            verification = "live_detail_verified"
+        except subprocess.CalledProcessError as exc:
+            if exc.returncode == 22:
+                # A live HTTP error is NOT a TLS transport failure.
+                print(f"::warning::Icheon fidx={fidx} returned HTTP error; holding this post")
+                continue
+            print(f"Icheon fidx={fidx}: detail transport unavailable; using audited IDs")
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            print(f"Icheon fidx={fidx}: detail transport unavailable ({type(exc).__name__}); using audited IDs")
+
+        recovered.append({
+            "source": "icheon", "region": src.region,
+            "jurisdiction": src.jurisdiction, "institution": src.institution,
+            "title": (f"이천시의회 의회운영업무추진비 및 의회운영공통경비 "
+                      f"집행내역({year}년 {month}월)"),
+            "period": period, "post_url": detail_url,
+            "attachments": attachments, "discovery_method": verification,
+        })
+    if recovered:
+        print(f"Icheon verified-ID recovery: {len(recovered)} official posts; "
+              "all new PDFs and transactions must pass the publication gate")
+    return recovered
+
 def discover_source(src: Source, since, until):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -672,7 +744,13 @@ def discover_source(src: Source, since, until):
             empty_pages += 1
             if posts and empty_pages >= 2:
                 break
-    return sanitize_discovered_posts(posts)
+    result = sanitize_discovered_posts(posts)
+    if src.key == "icheon" and not any(p.get("post_url") and p.get("attachments")
+                                       for p in result):
+        recovered = recover_verified_icheon_posts(src, effective_since, until)
+        if recovered:
+            return sanitize_discovered_posts(recovered)
+    return result
 
 
 def ym(s: str):
