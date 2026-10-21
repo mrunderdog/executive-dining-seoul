@@ -240,4 +240,25 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsGalleryDownload.do"))
         self.assertIsNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsCost.do#lg-download"))
         self.assertIsNotNone(canonical_attachment_url("https://council.ddc.go.kr/kr/news/bbsAttachDownload.do?key=abc"))
+
+    def test_icheon_audited_id_recovery_when_listing_fails(self):
+        from capital_backfill import recover_verified_icheon_posts
+        from subprocess import TimeoutExpired
+        src = next(s for s in SOURCES if s.key == "icheon")
+        with patch("capital_backfill.fetch_text", side_effect=URLError("handshake failure")), \
+             patch("capital_backfill.curl_verified_bytes", side_effect=TimeoutExpired("curl", 35)):
+            recovered = discover_source(src, (2026, 7), (2026, 10))
+        self.assertEqual(len(recovered), 3)
+        self.assertEqual(sum(len(p["attachments"]) for p in recovered), 6)
+        self.assertTrue(all("historically_verified_ids" in p["discovery_method"] for p in recovered))
+        self.assertEqual(recovered[0]["post_url"].split("fidx=")[1].split("&")[0], "6005")
+        self.assertEqual(len(recover_verified_icheon_posts(src, (2026, 10), (2026, 10))), 0)
+
+    def test_icheon_audited_id_mismatch_holds(self):
+        from capital_backfill import recover_verified_icheon_posts
+        src = next(s for s in SOURCES if s.key == "icheon")
+        detail = '<a href="/gtb_download.php?fid=99999&amp;gtid=chujin">Changed.pdf</a>'
+        with patch("capital_backfill.curl_verified_bytes", return_value=detail.encode()):
+            self.assertEqual(recover_verified_icheon_posts(src, (2026, 7), (2026, 9)), [])
+
 if __name__=="__main__":unittest.main()
