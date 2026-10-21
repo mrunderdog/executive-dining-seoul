@@ -38,6 +38,9 @@ jobs:
       - name: Run regression checks
         run: python pipeline/regression_checks.py
 
+      - name: Test council refresh outcome semantics
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_refresh_outcome
+
       - name: Refresh supported councils (bounded workers and per-stage timeouts)
         shell: bash
         run: |
