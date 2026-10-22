@@ -1,0 +1,25 @@
+name: Icheon venue identity QA
+on:
+  pull_request:
+    paths:
+      - 'sources/icheon_venue_review.json'
+      - 'pipeline/published_sources.py'
+      - 'pipeline/test_icheon_venue_review.py'
+      - 'site/app.js'
+      - '.github/workflows/icheon-venue-review-qa.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Check Icheon venue audit and original publication gates
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_icheon_venue_review
+          python pipeline/regression_checks.py
+          node --check site/app.js
+          python pipeline/build_site.py --output /tmp/icheon-venue-site.html
