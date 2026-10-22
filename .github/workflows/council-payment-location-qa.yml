@@ -1,0 +1,31 @@
+name: Council payment-location evidence audit
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_council_payment_locations.py'
+      - 'pipeline/test_council_payment_locations.py'
+      - 'reports/council-payment-location-audit.json'
+      - 'sources/*_venue_review.json'
+      - 'data/raw/icheon_expense.json'
+      - 'data/raw/ansan_expense.json'
+      - 'data/raw/hwaseong_expense.json'
+      - '.github/workflows/council-payment-location-qa.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify original public ledger matches evidence report
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_council_payment_locations
+          python pipeline/audit_council_payment_locations.py --check
+      - name: Verify no separate raw transaction viewer has been added
+        run: |
+          test ! -e site/transactions.html
+          test ! -e site/verified-transactions.json
