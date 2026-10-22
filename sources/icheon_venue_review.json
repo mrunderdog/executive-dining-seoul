@@ -1,16 +1,18 @@
 {
   "schema_version": 1,
   "source": "icheon",
-  "review_date": "2026-10-21",
+  "review_date": "2026-10-22",
   "raw_evidence": "data/raw/icheon_expense.json",
   "candidate_evidence": "reports/icheon-executive-candidates.json",
-  "review_policy": "External directory listings establish that a venue exists, not that an official card payment happened at that exact venue. Never backfill source payment addresses or promote a map pin without receipt/merchant-ID/card-slip/official line-level location proof.",
+  "review_policy": "Three independent scopes: official transaction/merchant string; external establishment existence; exact payment branch proven only from row-linked official address, receipt, or verifiable merchant identifiers. Search results and business addresses NEVER prove which branch accepted the payment.",
   "status_definitions": {
     "VENUE_FOUND_PAYMENT_UNVERIFIED": "Existing restaurant address corroborated, but payment-branch identity not established",
     "MULTIPLE_BRANCHES": "Several plausible establishments for same merchant string",
     "CONFLICTING_LOCATION_EVIDENCE": "Plausible establishment has conflicting published addresses",
     "NON_DINING_BUSINESS": "Business type externally evidenced as not a restaurant",
-    "NOT_REVIEWED": "No external business-identity validation performed"
+    "NOT_REVIEWED": "No external business-identity validation performed",
+    "POSSIBLE_ALIAS_NOT_PROVEN": "Similar trade names may describe the same store or brand, but are not merged absent row-linked evidence",
+    "AMBIGUOUS_NAME_NO_BRANCH": "Merchant name is broad or shared; physical establishment is unverified"
   },
   "candidates": [
     {
@@ -31,7 +33,9 @@
       ],
       "review_note": "동일 상호 음식점과 업종 확인. 원본 PDF에 주소·사업자번호가 없어 결제 지점은 미입증.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 2,
@@ -47,12 +51,15 @@
         "경기도 이천시 호법면 프리미엄아울렛로 177-74"
       ],
       "evidence_urls": [
-        "https://www.tabling.co.kr/place/677ccb1666de5f06987c9aad",
-        "https://www.diningcode.com/profile.php?rid=TrFrNFvOrptu"
+        "https://info.koreacharts.com/tour/2763803/contents.html",
+        "https://www.daangn.com/kr/local-profile/%EC%95%BC%EB%B0%98-ms9n54xco65s/",
+        "https://blog.naver.com/PostView.nhn?blogId=sisi-mom&logNo=223585157329&redirect=Dlog&widgetTypeCall=true"
       ],
-      "review_note": "관고동 음식점과 아울렛 지점이 존재. PDF에 지점 식별정보가 없음.",
+      "review_note": "한국관광공사 기반 관고동 야반(경충대로 2849)과 롯데프리미엄아울렛 이천점(프리미엄아울렛로 177-74 백자동 3층)이 서로 다른 점포임을 재확인. 2026-08~09의 6건 거래에 주소·가맹점ID 없으므로 어느 점포인지 입증 불가.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 3,
@@ -72,7 +79,9 @@
       ],
       "review_note": "한정식 식당 존재·주소 교차 확인. 원문에 주소가 없으므로 결제 지점은 별도 검증 필요.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 4,
@@ -91,9 +100,11 @@
         "https://www.daangn.com/kr/local-profile/%EC%84%B1%EB%A3%A8-2dyr47j6h18y/",
         "https://www.diningcode.com/profile.php?rid=TxWTZ7PT9AO5"
       ],
-      "review_note": "현행 업소 자료는 갈산동 주소, 일부 방문 기록은 중리동 주소를 제시. 이전·중복 가능성 조사 전 지도 결합 금지.",
+      "review_note": "2026-10-22 기준 당근 업체 직접 프로필과 다이닝코드의 현행 주소는 갈산로87번길 13으로 일치. 다이닝코드에서 인용한 과거 방문 기록은 어재연로 13으로 기재되어 있으나 날짜·영업양도·이전 여부가 확인되지 않아 기록 충돌을 유지. 공식 지출 3건 어느 소재지인지 미확정.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 5,
@@ -113,7 +124,9 @@
       ],
       "review_note": "동일 상호 음식점의 주소 교차 확인. 결제 수납지 동일성 입증은 별도.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 6,
@@ -128,7 +141,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 7,
@@ -143,7 +158,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 8,
@@ -162,7 +179,9 @@
       ],
       "review_note": "동일 이름의 이천 음식점 확인. 원문에는 지점 식별 정보가 없음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 9,
@@ -178,12 +197,14 @@
         "경기도 이천시 구만리로 300"
       ],
       "evidence_urls": [
-        "https://www.tabling.co.kr/place/677cd5a166de5f06988f902b",
+        "https://www.jobkorea.co.kr/Recruit/GI_Read/50067743?Oem_Code=C1&listno=38&logpath=1&sc=808&stext=%EB%A7%A4%EC%9E%A5%EA%B4%80%EB%A6%AC+%EC%A0%90%EC%9E%A5",
         "https://www.diningcode.com/profile.php?rid=bZ80yVVtVGzs"
       ],
-      "review_note": "본점·이천점이 다른 주소로 나옴. 원문 거래처 명칭만으로 특정 지점 연결 불가.",
+      "review_note": "운영 주체 서울경기한우협동조합의 2026-09-29 구인공고에 마장본점(덕이로39번길 41) 및 이천지점(구만리로 300)이 서로 다른 근무지로 명시. 원문 2건(2026-09-14, 09-22)은 지점 정보 없이 '서경한우프라자'만 표기. 어느 점포인지 특정할 수 없음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 10,
@@ -203,7 +224,9 @@
       ],
       "review_note": "이천시광고협회 자료에 광고업체로 등재. 카드 기록은 유지하고 식당 후보 분류에서 제외해야 함.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
     },
     {
       "rank": 11,
@@ -218,7 +241,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 12,
@@ -233,7 +258,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 13,
@@ -248,7 +275,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 14,
@@ -263,7 +292,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 15,
@@ -278,7 +309,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 16,
@@ -293,7 +326,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 17,
@@ -308,7 +343,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 18,
@@ -323,7 +360,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 19,
@@ -338,7 +377,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 20,
@@ -353,7 +394,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 21,
@@ -368,7 +411,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 22,
@@ -383,7 +428,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 23,
@@ -398,7 +445,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 24,
@@ -413,7 +462,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 25,
@@ -428,7 +479,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 26,
@@ -443,7 +496,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 27,
@@ -458,7 +513,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 28,
@@ -473,7 +530,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 29,
@@ -488,7 +547,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 30,
@@ -503,7 +564,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 31,
@@ -518,7 +581,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 32,
@@ -533,7 +598,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 33,
@@ -548,7 +615,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 34,
@@ -563,7 +632,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 35,
@@ -578,7 +649,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 36,
@@ -593,7 +666,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 37,
@@ -608,7 +683,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 38,
@@ -623,7 +700,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 39,
@@ -638,7 +717,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 40,
@@ -653,7 +734,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 41,
@@ -668,7 +751,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 42,
@@ -683,7 +768,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 43,
@@ -698,7 +785,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 44,
@@ -713,7 +802,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 45,
@@ -728,7 +819,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 46,
@@ -743,7 +836,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 47,
@@ -758,7 +853,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 48,
@@ -773,7 +870,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 49,
@@ -788,7 +887,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 50,
@@ -803,7 +904,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 51,
@@ -818,7 +921,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 52,
@@ -833,7 +938,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 53,
@@ -848,7 +955,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 54,
@@ -863,7 +972,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 55,
@@ -878,7 +989,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 56,
@@ -893,7 +1006,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 57,
@@ -908,7 +1023,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 58,
@@ -923,7 +1040,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 59,
@@ -938,7 +1057,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 60,
@@ -953,7 +1074,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 61,
@@ -968,7 +1091,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 62,
@@ -983,7 +1108,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 63,
@@ -998,7 +1125,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 64,
@@ -1013,7 +1142,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 65,
@@ -1028,7 +1159,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 66,
@@ -1043,7 +1176,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 67,
@@ -1058,7 +1193,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 68,
@@ -1073,7 +1210,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 69,
@@ -1088,7 +1227,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 70,
@@ -1103,7 +1244,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 71,
@@ -1118,7 +1261,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 72,
@@ -1133,7 +1278,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 73,
@@ -1148,7 +1295,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 74,
@@ -1163,7 +1312,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 75,
@@ -1178,7 +1329,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 76,
@@ -1193,7 +1346,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     },
     {
       "rank": 77,
@@ -1208,7 +1363,9 @@
       "evidence_urls": [],
       "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
       "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
     }
   ],
   "summary": {
