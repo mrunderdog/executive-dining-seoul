@@ -86,7 +86,7 @@ function confirmedAttendances(r){return Number(r.evidence_semantics?.confirmed_p
 function evidenceCountText(r){const e=r.evidence||{},visits=Number(e.visits||0),spends=Number(e.spending_events||0);return [visits?visits+'건 공개 사용처 기록':'',spends?spends+'건 업무추진비 집행 명의(참석 미확인)':''].filter(Boolean).join(' · ')||'0회'}
 function policeHasExpense(r){return Number(r.evidence?.spending_events||0)>0&&((r.published_sources||[]).includes('police_expense_user_only')||r.source_verified_expense_only)}
 function policeBranchUnverified(r){return policeHasExpense(r)&&(r.police_card_branch_status!=='VERIFIED')}
-function councilPaymentBranchUnverified(r){return r.published_source==='icheon'&&!r.payment_branch_verified}
+function councilPaymentBranchUnverified(r){return ['icheon','ansan','hwaseong'].includes(r.published_source)&&!r.payment_branch_verified}
 function evidenceSeparationHtml(r){const e=r.evidence||{},visits=Number(e.visits||0),spends=Number(e.spending_events||0);return '<div class="method-note" data-evidence-separation="true"><b>공개 사용처 기록</b> '+visits+'건 (업무추진비 집행과 별개) · <b>업무추진비 집행 명의</b> '+spends+'건 (명의자 참석 미확인)'+(policeHasExpense(r)?' · <b>결제 지점</b> 미검증 (식당 주소 확인과 별개)':'')+'</div>'}
 function attendanceUnconfirmedNote(r){return '<div class="method-note" data-attendance-notice="true">※ 공개 업무추진비의 사용처·지출 기록은 특정 공직자의 실제 현장 방문을 증명하지 않습니다. 참석 확인: '+confirmedAttendances(r)+'건.</div>'}
 function policeMatchUncertain(r){return r.police_expense_venue_match_status==='PROBABLE_NAME_AND_PROXIMITY'||r.location_match_confidence==='PROBABLE_NAME_AND_PROXIMITY'}
