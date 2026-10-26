@@ -22,9 +22,9 @@ jobs:
           python-version: '3.12'
       - name: Verify monthly failure gates and no lost source keys
         run: PYTHONPATH=pipeline python -m unittest -v test_monthly_entity_guards
-      - name: Compare actual published entity lineages before and after PR 154
+      - name: Compare published entity lineages from before PR 153
         run: |
-          PYTHONPATH=pipeline python pipeline/audit_entity_count_drift.py --before 1ccb25afa631beaa1a64c93f6ea6b20a2b7d3d95 --after HEAD
+          PYTHONPATH=pipeline python pipeline/audit_entity_count_drift.py --before 8cc1881603 --after HEAD
       - name: Show change in entity count and source key continuity
         run: |
           python - <<'PY'
