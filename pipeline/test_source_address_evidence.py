@@ -45,6 +45,23 @@ class CuratedAddressEvidenceTest(unittest.TestCase):
         self.assertIsNone(curated_location("central_executive","차이(chai)797 광화문점"))
         self.assertIsNone(curated_location("central_executive","세종 오이시"))
 
+    def test_five_new_verified_venue_addresses_are_not_payment_proof(self):
+        for source, name, road in [
+            ("bupyeong","진명숯불구이","함봉로36번길 8-15"),
+            ("anseong","백제찌개촌","아양1로 77-31"),
+            ("anseong","더푸짐한밥상","낙원길 112"),
+            ("osan","백가네부대찌게","운천로 89"),
+            ("ganghwa","양푼생돼지김치찌개 강화점","강화대로409번길 4"),
+        ]:
+            loc=curated_location(source,name)
+            self.assertIsNotNone(loc,(source,name))
+            self.assertIn(road,loc["address"])
+            self.assertFalse(loc["payment_branch_verified"])
+            records={r["name"]:r for r in _build_source_records(source,SOURCE_SPECS[source])}
+            self.assertIn(name,records)
+            self.assertIn(road,records[name]["address"])
+            self.assertFalse(records[name]["payment_branch_verified"])
+
     def test_fail_closed_for_unsubstantiated_approval(self):
         registry={"entries":[{"cohort":"central_executive","merchant":"테스트점",
             "status":"APPROVED_VENUE_LOCATION","address":"서울 중구 임의로 1",
