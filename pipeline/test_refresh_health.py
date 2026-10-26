@@ -10,9 +10,20 @@ class RefreshHealthTests(unittest.TestCase):
     def test_classification_and_last_good(self):
         states = from_tsv("icheon\tSTALE_OK:DISCOVERY\nansan\tOK\nsuwon\tSTALE_OK:NO_CHANGE\nyangju\tINGEST_FAILED\n")
         value = report("full", states, now=datetime(2026, 10, 20, tzinfo=timezone.utc))
-        self.assertEqual(value["status"], "FAILED")
+        self.assertEqual(value["status"], "DEGRADED")
         self.assertEqual(value["counts"], {"updated": 1, "no_change": 1, "stale_last_good": 1, "failed": 1})
         self.assertIn("기존 자료 유지", markdown(value))
+
+    def test_total_failure_and_stale_health_is_not_green(self):
+        for rows in (
+            "icheon\\tSTALE_OK:INGEST\\nansan\\tFAILED:DISCOVERY\\n",
+            "icheon\\tSTALE_OK:DISCOVERY\\n",
+            "icheon\\tFAILED:INGEST\\n",
+        ):
+            status = report("full", from_tsv(rows))
+            self.assertEqual(status["status"], "FAILED")
+        partial = report("full", from_tsv("icheon\\tNO_CHANGE\\nansan\\tFAILED:INGEST\\n"))
+        self.assertEqual(partial["status"], "DEGRADED")
 
     def test_incremental_no_change(self):
         statuses = from_incremental('{"mode":"incremental","results":[{"source":"icheon","status":"NO_CHANGE"},{"source":"ansan","status":"UPDATED"}]}')
