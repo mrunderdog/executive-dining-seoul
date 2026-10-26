@@ -552,6 +552,181 @@
         }
       ],
       "notes": "서울스퀘어, 동대문, 건대스타시티 등 복수 장소. 단순 사용처 해초섬의 실제 결제 장소 미확정."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "봉피양(경복궁)",
+      "address": "서울특별시 종로구 자하문로 20",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_OFFICIAL_BRAND",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://www.bjgalbi.com/brand/brand2?mt=02&pt=location&seq=71",
+          "claim": "봉피양 공식 브랜드 경복궁점의 자하문로 20 및 전화 02-732-9292"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/677cc7ac66de5f06987529f5",
+          "claim": "테이블링 봉피양 경복궁점 주소·연락처 02-732-9292 일치"
+        }
+      ],
+      "notes": "공식 브랜드 지점은 경복궁점으로 특정. 사용처명 괄호 내 경복궁과 일치하지만 당시 카드 승인가맹점 동일성은 여전히 미검증."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "로씨니",
+      "address": "서울특별시 종로구 북촌로 18",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_VENUE_OFFICIAL_GOVERNMENT",
+      "evidence": [
+        {
+          "type": "local_government_venue_directory",
+          "url": "https://korean.visitseoul.net/restaurants/%EB%A1%9C%EC%94%A8%EB%8B%88/KOP004951",
+          "claim": "서울시 공식 관광정보 로씨니, 종로구 북촌로18, 전화 02-766-8771, 2026-07 수정"
+        },
+        {
+          "type": "business_company_profile",
+          "url": "https://www.saramin.co.kr/zf_user/company-info/view/csn/dlh3NUk3bThtd29scWRjVE05Wm9NQT09/company_nm/%28%EC%A3%BC%29%EB%A1%9C%EC%94%A8%EB%8B%88",
+          "claim": "NICE평가정보 기반 주식회사 로씨니 서양식 음식점 업종·북촌로18 1층 일치"
+        }
+      ],
+      "notes": "현재 알려진 매장 위치 확인. 공공기관 지출 발생 시점의 실결제 영업점은 확인되지 않음."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "경성한우국밥",
+      "address": "서울특별시 종로구 새문안로5가길 32",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=WXgeXUwA5Ukf",
+          "claim": "경성한우국밥, 새문안로5가길32 및 전화 02-733-0427"
+        },
+        {
+          "type": "business_company_profile",
+          "url": "https://place.udanax.org/p/1290062/%EA%B2%BD%EC%84%B1%ED%95%9C%EC%9A%B0%EA%B5%AD%EB%B0%A5",
+          "claim": "지역 점포 목록 경성한우국밥 새문안로5가길32, 전화 02-733-0427"
+        }
+      ],
+      "notes": "식당 존재와 주소만 일치. 중앙정부 카드 결제 지점 또는 참석 입증은 아님."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "도담도담 민물장어",
+      "address": "세종특별자치시 한누리대로 583 도담센트럴프라자 3층 306호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.theteams.kr/teams/1025884",
+          "claim": "도담도담 민물장어 업체 소개·세종 한누리대로583"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=sUvPLqTuemm7",
+          "claim": "도담도담 장어구이 업소, 한누리대로583 도담센트럴프라자 3층306호"
+        },
+        {
+          "type": "business_recruitment_record",
+          "url": "https://www.alba.co.kr/job/Detail?adid=147175582&listmenucd=SIMILARVIEW&recomyn=Y",
+          "claim": "도담도담 숯불 장어구이 구인 등록 사업장 한누리대로583 3층306호"
+        }
+      ],
+      "notes": "민물장어 업소명과 음식점 주소 대응 확인. 특정 법인카드 거래 장소는 확인되지 않음."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "브이아이피참치(주)",
+      "address": "서울특별시 중구 세종대로 135 코리아나호텔 3층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "public_merchant_directory",
+          "url": "https://zero.appplay.co.kr/zero_srch_aflt_web.act?ctgr=BDEFG",
+          "claim": "비플페이 공식 가맹점 조회 목록: 브이아이피참치(주), 세종대로135 3층, 전화 02-725-7001"
+        },
+        {
+          "type": "business_company_profile",
+          "url": "https://www.114.co.kr/biznumber/detail/d2dde05412b5",
+          "claim": "114On 공공데이터 기반 브이아이피참치(주) 서울 중구 식품접객업·법인명 확인"
+        },
+        {
+          "type": "government_expense_document",
+          "url": "https://www.si.re.kr/atch/filePreview.do?cnncSn=2408100001&cnncTy=bbs&ordr=1",
+          "claim": "서울연구원 2024-07-17 별도 공식 거래내역: 같은 상호 브이아이피참치(주) 및 세종대로135 3층 명시. 중앙정부의 다른 거래와 직접 연결 아님."
+        }
+      ],
+      "notes": "타 기관의 별도 공식 거래에서 가맹점 주소를 확인한 참고 사례. 현재 중앙정부 지출 내역의 결제 지점은 미확정."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "시청해우리",
+      "address": "서울특별시 중구 서소문로 95 정안빌딩 지하1층",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49962254",
+          "claim": "주식회사 시청해우리 직접 채용 공고, 해우리 시청점 서소문로95 정안빌딩 지하1층"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=ZFxrEJJ9RKx2",
+          "claim": "해우리 서울시청점 서소문로95 정안빌딩 지하1층, 전화 02-318-4977"
+        }
+      ],
+      "notes": "법인 상호 시청해우리와 해우리 서울시청점 사업장 주소 대응 확인. 중앙정부 거래의 실제 승인 지점은 별개로 미검증."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "대선칼국수",
+      "address": "",
+      "status": "REVIEW_ONLY",
+      "basis": "MULTIPLE_ACTIVE_LOCATION_MATCHES",
+      "evidence": [
+        {
+          "type": "local_business_profile",
+          "url": "https://www.daangn.com/kr/local-profile/%EB%8C%80%EC%84%A0-%EC%B9%BC%EA%B5%AD%EC%88%98-fej8ostk6riz/",
+          "claim": "서울 통의동 자하문로4길 6 대선칼국수"
+        },
+        {
+          "type": "national_tourism_official",
+          "url": "https://access.visitkorea.or.kr/food/detail.do?cotId=6401b5f4-a3e4-4865-af8b-701cbccc9f12",
+          "claim": "대선칼국수 대전 본점 별도 소재지"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=N3bafGiKkRes",
+          "claim": "대선칼국수 세종 나성점의 별도 소재지"
+        }
+      ],
+      "notes": "서울·세종·대전 동명/브랜드 매장. 원문 상호만으로 특정 가맹점 지점 단정 금지."
+    },
+    {
+      "cohort": "ongjin",
+      "merchant": "청풍면옥",
+      "address": "",
+      "status": "REVIEW_ONLY",
+      "basis": "MULTIPLE_ACTIVE_LOCATION_MATCHES",
+      "evidence": [
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/677cd46766de5f06988d589e",
+          "claim": "충북 괴산의 청풍면옥 읍내로2길42"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/69365b127dadbfe8d3e98d84",
+          "claim": "경기 남양주의 청풍면옥 오남본점 진건오남로878"
+        }
+      ],
+      "notes": "옹진군 예산 사용처 청풍면옥을 충북 괴산 또는 경기 남양주 점포에 귀속할 근거 없음. 지역·지점 확정 금지."
     }
   ]
 }

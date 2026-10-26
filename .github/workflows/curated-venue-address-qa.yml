@@ -44,7 +44,7 @@ jobs:
           approved=[e for e in doc['entries'] if e['status']=='APPROVED_VENUE_LOCATION']
           review=[e for e in doc['entries'] if e['status']=='REVIEW_ONLY']
           existing=[e for e in doc['entries'] if e['status']=='ALREADY_ENRICHED']
-          assert len(approved)==18 and len(existing)==1 and len(review)==6
+          assert len(approved)==24 and len(existing)==1 and len(review)==8
           assert {(e['cohort'],e['merchant']) for e in approved} >= {
               ('central_executive', '소쿠리밥상세종청사점'),
               ('central_executive', '진가와코리아 광화문점'),
