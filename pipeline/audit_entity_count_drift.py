@@ -34,7 +34,10 @@ def audit(old,new):
     for r in new:
         for k in r['source_keys']:
             if k in oldby: counts.setdefault(r['entity_id'],set()).add(oldby[k]['entity_id'])
-    suspected=[{'entity_id':k,'previous_entities':sorted(v)} for k,v in counts.items() if len(v)>1]
+    new_group={r['entity_id']:r for r in new}
+    suspected=[{'entity_id':k,'previous_entities':sorted(v),'merged_name':new_group[k]['name'],
+                'merged_address':new_group[k]['address'],'source_keys':new_group[k]['source_keys']}
+               for k,v in counts.items() if len(v)>1]
     return {'previous_total':len(old),'current_total':len(new),'delta':len(new)-len(old),'lost_source_keys':lost,'new_source_keys':appeared,'moved_source_keys':moved,'merged_previous_entities':suspected,'explanation':'No original source key lost' if not lost else 'SOURCE KEY LOSS'}
 
 def main():
