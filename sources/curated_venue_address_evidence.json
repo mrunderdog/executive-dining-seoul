@@ -312,6 +312,116 @@
         }
       ],
       "notes": "같은 건물이나 3층 대 5층 점포 호실 정보 충돌. 이전 여부·동일업체 여부 확인 전 승격 불가."
+    },
+    {
+      "cohort": "bupyeong",
+      "merchant": "진명숯불구이",
+      "address": "인천광역시 부평구 함봉로36번길 8-15",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.daangn.com/kr/local-profile/%EC%A7%84%EB%AA%85%EC%88%AF%EB%B6%88%EA%B5%AC%EC%9D%B4-2ewhry6n1q1g/",
+          "claim": "동네업체 진명숯불구이 프로필은 십정동 및 함봉로36번길 8-15, 전화 0507-1486-1901 명시"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=MaysE4H6FaJ8",
+          "claim": "다이닝코드 진명숯불구이 이름, 주소 함봉로36번길 8-15, 전화 동일"
+        }
+      ],
+      "notes": "동일 상호 사업장 위치 교차 확인; 의회 원문 카드 결제 영업점 또는 특정인의 현장 참석 확인 아님."
+    },
+    {
+      "cohort": "anseong",
+      "merchant": "백제찌개촌",
+      "address": "경기도 안성시 아양1로 77-31 113호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.daangn.com/kr/local-profile/%EB%B0%B1%EC%A0%9C%EC%B0%8C%EA%B0%9C%EC%B4%8C-t2d34sw1wiu3/",
+          "claim": "동네업체 백제찌개촌은 안성 옥산동 아양1로 77-31의 동일 식당 등록"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=k1aCt7fqTMR9",
+          "claim": "다이닝코드 백제찌개촌 상세 주소 안성시 아양1로 77-31 113호"
+        }
+      ],
+      "notes": "안성시 원천 지출 사용처의 업체 소재지 확인, 결제 지점 증거는 아님."
+    },
+    {
+      "cohort": "anseong",
+      "merchant": "더푸짐한밥상",
+      "address": "경기도 안성시 낙원길 112",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_VENUE_OFFICIAL_GOVERNMENT",
+      "evidence": [
+        {
+          "type": "local_government_venue_directory",
+          "url": "https://www.anseong.go.kr/depart/goodPrice/list.do?mId=0106050000&token=1780999472177",
+          "claim": "안성시청 공식 착한가격업소 목록에 더푸짐한밥상, 낙원길 112, 연락처 031-672-7725 표기"
+        },
+        {
+          "type": "regional_currency_merchant_directory_mirror",
+          "url": "https://fms.purpleo.co.kr/view/51554",
+          "claim": "안성사랑카드 가맹점 제공기관 안성시의 업소명 및 도로명 낙원길 112 표기"
+        },
+        {
+          "type": "public_license_mirror",
+          "url": "https://dining.ayo.pe.kr/restaurant/region/%EA%B2%BD%EA%B8%B0/%EC%95%88%EC%84%B1%EC%8B%9C/%EB%82%99%EC%9B%90%EB%8F%99",
+          "claim": "음식점 인허가 대장 전재 자료: 낙원길 112 1층 더푸짐한밥상"
+        }
+      ],
+      "notes": "안성시 공식 착한가격 업소 장소+외부 인허가/지역화폐 자료 일치; 거래 장소 단정 금지."
+    },
+    {
+      "cohort": "osan",
+      "merchant": "백가네부대찌게",
+      "address": "경기도 오산시 운천로 89",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/list.dc?query=%EC%98%A4%EC%82%B0++%EB%B6%80%EB%8C%80%EC%B0%8C%EA%B0%9C&s_type=force_rn",
+          "claim": "다이닝코드 백가네부대찌게 오산 운천로 89 청강빌딩 1층"
+        },
+        {
+          "type": "public_localdata_directory_mirror",
+          "url": "https://dokdokplace.kr/stores/i2/i201/i20102/gyeonggi-do/osan-si/%EC%A4%91%EC%95%99%EB%8F%99/",
+          "claim": "소상공인시장진흥공단 상가정보 2026-07 자료 기준 백가네부대찌게 오산시 운천로 89"
+        }
+      ],
+      "notes": "동일 상호/도로명 두 곳 일치, 법인카드 원천 지급장소 증거는 아님."
+    },
+    {
+      "cohort": "ganghwa",
+      "merchant": "양푼생돼지김치찌개 강화점",
+      "address": "인천광역시 강화군 강화읍 강화대로409번길 4",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_VENUE_OFFICIAL_GOVERNMENT",
+      "evidence": [
+        {
+          "type": "local_government_venue_directory",
+          "url": "https://isum.incheon.go.kr/spot/view.do?key=2407020020&spotSn=2506300048",
+          "claim": "인천관광공사 운영 공식 섬포털 등록 2025-06-30: 지점명, 강화대로409번길 4, 전화 032-933-1288"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/list.dc?query=%EA%B0%95%ED%99%94%EB%8F%84++%EA%B9%80%EC%B9%98%EC%B0%9C",
+          "claim": "강화점 상호를 별도 음식점으로 수록"
+        },
+        {
+          "type": "business_directory_listing",
+          "url": "https://place.udanax.org/p/1264181/%EC%96%91%ED%91%BC%EC%83%9D%EB%8F%BC%EC%A7%80%EA%B9%80%EC%B9%98%EC%B0%8C%EA%B0%9C%20%EA%B0%95%ED%99%94%EC%A0%90",
+          "claim": "강화점 신문리 102·전화 0329331288이 관광공사 등록 전화와 일치"
+        }
+      ],
+      "notes": "공식 관광 안내의 주소에 독립 업소명·전화번호로 교차 확인; 지출 집행장소 확정 아님."
     }
   ]
 }

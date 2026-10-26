@@ -35,7 +35,8 @@ def curated_location(cohort:str, merchant:str, registry:dict|None=None)->dict|No
               any(x.get("type")=="brand_official_branch_directory"
                   and urlparse(x["url"]).hostname.lower() in brand_hosts for x in evidence))
     corroborated=rec.get("basis")=="EXACT_NAMED_BRANCH_CORROBORATED" and len(hosts)>=2 and any(x.get("type") in {"independent_food_platform","business_company_profile"} for x in evidence)
-    if not (official or corroborated):
+    government=(rec.get("basis")=="EXACT_NAMED_VENUE_OFFICIAL_GOVERNMENT" and any(x.get("type")=="local_government_venue_directory" and urlparse(x["url"]).hostname.lower() in {"www.anseong.go.kr","isum.incheon.go.kr"} for x in evidence) and len(hosts)>=2)
+    if not (official or corroborated or government):
         return None
     return {
         "address":rec["address"],
