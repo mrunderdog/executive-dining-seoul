@@ -1,0 +1,50 @@
+name: November monthly refresh offline preflight
+on:
+  pull_request:
+    paths:
+      - 'pipeline/incremental_monthly_refresh.py'
+      - 'pipeline/check_monthly_incremental_status.py'
+      - 'pipeline/check_council_refresh_outcome.py'
+      - 'pipeline/refresh_health.py'
+      - 'pipeline/test_monthly_preflight.py'
+      - 'pipeline/test_refresh_health.py'
+      - 'pipeline/test_monthly_entity_guards.py'
+      - '.github/workflows/monthly.yml'
+      - '.github/workflows/monthly-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Offline synthetic timeout, fallback, and health scenarios
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_monthly_preflight test_refresh_health test_monthly_entity_guards test_council_refresh_outcome
+      - name: Offline justice baseline validation
+        run: python pipeline/refresh_justice.py --mode validate
+      - name: Build and validate current published dataset without ingestion
+        run: |
+          python pipeline/audit_coordinates.py
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/monthly-preflight-index.html
+          test -s /tmp/monthly-preflight-index.html
+      - name: Verify raw data and curated source files stayed unchanged
+        run: |
+          git diff --exit-code -- data/raw data/chunks sources
+          echo "No committed original source data was modified during offline preflight."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: monthly-preflight-offline-validation
+          path: |
+            reports/justice-refresh-status.json
+            reports/coordinate-audit.json
+            reports/quality.json
+          retention-days: 30
+          if-no-files-found: warn
