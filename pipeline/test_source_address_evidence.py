@@ -4,6 +4,7 @@ from pathlib import Path
 
 from source_address_evidence import curated_location, REGISTRY
 from extra_published import central_records, public_enterprise_records
+from published_sources import _build_source_records, SOURCE_SPECS
 
 class CuratedAddressEvidenceTest(unittest.TestCase):
     def test_only_explicitly_approved_same_cohort_venue_resolves(self):
@@ -26,6 +27,23 @@ class CuratedAddressEvidenceTest(unittest.TestCase):
         self.assertFalse(so["payment_branch_verified"])
         self.assertFalse(jin["individual_attendance_verified"])
 
+
+    def test_three_new_exact_venue_locations_without_payment_identity(self):
+        for source, name, road in [
+            ("gwangmyeong", "폴바셋 광명철산DT점", "오리로 883"),
+            ("suwon", "소미담 수원시청점", "경수대로428번길 15"),
+            ("suwon", "소소한우", "센트럴타운로 94"),
+        ]:
+            evidence=curated_location(source,name)
+            self.assertIsNotNone(evidence)
+            self.assertIn(road,evidence["address"])
+            self.assertFalse(evidence["payment_branch_verified"])
+            rows={r["name"]:r for r in _build_source_records(source,SOURCE_SPECS[source])}
+            self.assertIn(name,rows)
+            self.assertIn(road,rows[name]["address"])
+            self.assertFalse(rows[name]["payment_branch_verified"])
+        self.assertIsNone(curated_location("central_executive","차이(chai)797 광화문점"))
+        self.assertIsNone(curated_location("central_executive","세종 오이시"))
 
     def test_fail_closed_for_unsubstantiated_approval(self):
         registry={"entries":[{"cohort":"central_executive","merchant":"테스트점",

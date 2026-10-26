@@ -28,6 +28,7 @@ def curated_location(cohort:str, merchant:str, registry:dict|None=None)->dict|No
     approved_official_hosts={
         ("central_executive","오발탄 세종점"):{"hiobaltan.com","www.hiobaltan.com"},
         ("public_enterprise_leadership","창고43샛강점"):{"changgo43.co.kr","www.changgo43.co.kr"},
+        ("gwangmyeong","폴바셋 광명철산DT점"):{"baristapaulbassett.co.kr","www.baristapaulbassett.co.kr"},
     }
     brand_hosts=approved_official_hosts.get((cohort,merchant),set())
     official=(rec.get("basis")=="EXACT_NAMED_BRANCH_OFFICIAL_BRAND" and

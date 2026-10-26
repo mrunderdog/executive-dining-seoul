@@ -38,17 +38,20 @@ jobs:
           from pathlib import Path
           from source_address_evidence import curated_location
           from extra_published import central_records, public_enterprise_records
+          from published_sources import _build_source_records, SOURCE_SPECS
           doc=json.loads(Path('sources/curated_venue_address_evidence.json').read_text(encoding='utf-8'))
           coverage=json.loads(Path('reports/localdata-regional-coverage.json').read_text(encoding='utf-8'))
           approved=[e for e in doc['entries'] if e['status']=='APPROVED_VENUE_LOCATION']
           review=[e for e in doc['entries'] if e['status']=='REVIEW_ONLY']
           existing=[e for e in doc['entries'] if e['status']=='ALREADY_ENRICHED']
-          assert len(approved)==7 and len(existing)==1 and len(review)==1
+          assert len(approved)==10 and len(existing)==1 and len(review)==3
           assert {(e['cohort'],e['merchant']) for e in approved} >= {
               ('central_executive', '소쿠리밥상세종청사점'),
               ('central_executive', '진가와코리아 광화문점'),
           }
           published={r['name']:r for r in central_records()+public_enterprise_records()}
+          for cohort in ('gwangmyeong','suwon'):
+              published.update({r['name']:r for r in _build_source_records(cohort,SOURCE_SPECS[cohort])})
           for e in approved:
               v=curated_location(e['cohort'],e['merchant'])
               assert v and published[e['merchant']]['address']==v['address']
