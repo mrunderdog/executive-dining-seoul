@@ -31,6 +31,8 @@ jobs:
           import json
           d=json.load(open('reports/p4-entity-count-drift.json'))
           print(json.dumps({k: len(v) if isinstance(v,list) else v for k,v in d.items()},ensure_ascii=False))
+          print('MERGED_ENTITIES',json.dumps(d['merged_previous_entities'],ensure_ascii=False))
+          print('MOVED_KEYS',json.dumps(d['moved_source_keys'],ensure_ascii=False))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
