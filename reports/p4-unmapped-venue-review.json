@@ -3,12 +3,12 @@
   "purpose": "P4 top unmapped venue address and branch evidence review queue",
   "policy": "Research queue only. No auto-publication, name-only location guesses, card-merchant equivalence or personal-attendance claims.",
   "total_published_venues": 1350,
-  "safe_map_venues": 898,
-  "unmapped_venues": 452,
+  "safe_map_venues": 901,
+  "unmapped_venues": 449,
   "reviewed_in_queue": 50,
   "unmapped_reason_counts": {
     "MISSING_ADDRESS_AND_TRACEABLE_SOURCE": 8,
-    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 444
+    "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 441
   },
   "selected_reason_counts": {
     "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS": 50
@@ -391,31 +391,6 @@
         "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1",
         "https://www.unikorea.go.kr/web/unikorea/file/download/uu/2596fc8b0d8a4ccd8a1bd54aa929946d",
         "https://www.unikorea.go.kr/web/unikorea/file/download/uu/c7043c4435b24fe48f4716ada7cdf2c3"
-      ],
-      "venue_address_evidence_urls": [],
-      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
-      "payment_branch_verified": false,
-      "individual_attendance_verified": false,
-      "location_promoted": false
-    },
-    {
-      "id": "",
-      "merchant": "소소한우",
-      "origin": "수원시",
-      "jurisdiction": "수원특례시",
-      "published_source": "suwon",
-      "published_address": "",
-      "disclosed_usage_events": 31,
-      "disclosed_spend_krw": 5326000,
-      "months": 11,
-      "source_origin_count": 1,
-      "listed_institution_count": 1,
-      "review_priority_score": 122.23,
-      "source_urls": [
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=FA059FADD0A2245797C391EBB5D1D12E&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=1332B50719DE450C68C69B8DD73EBC01&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=E5CA344626DD3CD28B5CE69ADF676EFB&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=84035F08F69233C3E9B61177BB24459D&schwrd=&flag=all&page=1&list_style="
       ],
       "venue_address_evidence_urls": [],
       "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
@@ -988,31 +963,6 @@
     },
     {
       "id": "",
-      "merchant": "소미담 수원시청점",
-      "origin": "수원시",
-      "jurisdiction": "수원특례시",
-      "published_source": "suwon",
-      "published_address": "",
-      "disclosed_usage_events": 15,
-      "disclosed_spend_krw": 537200,
-      "months": 10,
-      "source_origin_count": 1,
-      "listed_institution_count": 1,
-      "review_priority_score": 99.7,
-      "source_urls": [
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=E5CA344626DD3CD28B5CE69ADF676EFB&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=4A458D3A2508394BD6AD184E649C7D49&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=AC9E10EF0D8F13DA03A4A742E432EC41&schwrd=&flag=all&page=1&list_style=",
-        "https://council.suwon.go.kr/kr/costBBSview.do?uid=BE643B2674EAD287C36A56366CE605BA&schwrd=&flag=all&page=1&list_style="
-      ],
-      "venue_address_evidence_urls": [],
-      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
-      "payment_branch_verified": false,
-      "individual_attendance_verified": false,
-      "location_promoted": false
-    },
-    {
-      "id": "",
       "merchant": "세종 오이시",
       "origin": "중앙정부",
       "jurisdiction": "대한민국",
@@ -1195,28 +1145,6 @@
     },
     {
       "id": "",
-      "merchant": "폴바셋 광명철산DT점",
-      "origin": "광명시",
-      "jurisdiction": "광명시",
-      "published_source": "gwangmyeong",
-      "published_address": "",
-      "disclosed_usage_events": 13,
-      "disclosed_spend_krw": 948580,
-      "months": 9,
-      "source_origin_count": 1,
-      "listed_institution_count": 1,
-      "review_priority_score": 94.76,
-      "source_urls": [
-        "https://council.gm.go.kr/kr/costBBS.do?flag=all&page=1"
-      ],
-      "venue_address_evidence_urls": [],
-      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
-      "payment_branch_verified": false,
-      "individual_attendance_verified": false,
-      "location_promoted": false
-    },
-    {
-      "id": "",
       "merchant": "백가네부대찌게",
       "origin": "오산시",
       "jurisdiction": "오산시",
@@ -1285,6 +1213,84 @@
         "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=A26F31BA24D6295A0EEF2CA7E2A33DD7&schwrd=&flag=all&page=1&list_style=",
         "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=FCC9BBC635EBF83B1589291BBC8ED897&schwrd=&flag=all&page=1&list_style=",
         "https://www.goyangcouncil.go.kr/kr/costBBSview.do?uid=6CD60F6A8EBB4155E8778E0CFD4C6E24&schwrd=&flag=all&page=1&list_style="
+      ],
+      "venue_address_evidence_urls": [],
+      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false,
+      "location_promoted": false
+    },
+    {
+      "id": "",
+      "merchant": "이태형의 메구미",
+      "origin": "중앙정부",
+      "jurisdiction": "대한민국",
+      "published_source": "central_executive",
+      "published_address": "",
+      "disclosed_usage_events": 5,
+      "disclosed_spend_krw": 1565000,
+      "months": 5,
+      "source_origin_count": 1,
+      "listed_institution_count": 3,
+      "review_priority_score": 93.04,
+      "source_urls": [
+        "https://www.mpva.go.kr/mpva/downloadBbsFile.do?atchmnflNo=173085",
+        "https://www.mpva.go.kr/mpva/downloadBbsFile.do?atchmnflNo=171152",
+        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/6c2a7085d47150a5c8b840ab21870dc1",
+        "https://www.moel.go.kr/common/downloadFile.do?file_seq=20260800340&bbs_seq=20260601332&bbs_id=15&file_ext=hwpx",
+        "https://www.motie.go.kr/attach/down/82d1f47b3d47f7a40969742175adde05/96458afff23a73e365fe6381d3262146"
+      ],
+      "venue_address_evidence_urls": [],
+      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false,
+      "location_promoted": false
+    },
+    {
+      "id": "",
+      "merchant": "위펀",
+      "origin": "오산시",
+      "jurisdiction": "오산시",
+      "published_source": "osan",
+      "published_address": "",
+      "disclosed_usage_events": 10,
+      "disclosed_spend_krw": 5263670,
+      "months": 9,
+      "source_origin_count": 1,
+      "listed_institution_count": 1,
+      "review_priority_score": 92.72,
+      "source_urls": [
+        "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=A7E60E2B96BD5DA2985014940849C11F&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
+        "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=6296FE18FDFA101334E427752B9B0940&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
+        "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=F917827C834B15CD6EBB27E9E7C34839&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
+        "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=158A0E340C55844B5AD7252BFCC419F9&list_style=&page=1&flag=&keyword=&search_code=council&filter=latest",
+        "https://www.osancouncil.go.kr/kr/info/bbs?bbs_id=work&reform=view&uid=C2B0FDA937B24AC800DDF2E3B37E09A3&list_style=&page=2&flag=&keyword=&search_code=council&filter=latest"
+      ],
+      "venue_address_evidence_urls": [],
+      "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
+      "payment_branch_verified": false,
+      "individual_attendance_verified": false,
+      "location_promoted": false
+    },
+    {
+      "id": "",
+      "merchant": "해초섬",
+      "origin": "중앙정부",
+      "jurisdiction": "대한민국",
+      "published_source": "central_executive",
+      "published_address": "",
+      "disclosed_usage_events": 5,
+      "disclosed_spend_krw": 1055000,
+      "months": 5,
+      "source_origin_count": 1,
+      "listed_institution_count": 3,
+      "review_priority_score": 92.31,
+      "source_urls": [
+        "https://www.moel.go.kr/common/downloadFile.do?file_seq=20260800342&bbs_seq=20260800201&bbs_id=15&file_ext=hwpx",
+        "https://www.mohw.go.kr/boardDownload.es?bid=0022&list_no=1490736&seq=1",
+        "https://www.unikorea.go.kr/web/unikorea/file/download/uu/965846199e9a41c8af36ee84400d2b62",
+        "https://www.mohw.go.kr/boardDownload.es?bid=0022&list_no=1489286&seq=1",
+        "https://www.moel.go.kr/common/downloadFile.do?file_seq=20251203248&bbs_seq=20251201746&bbs_id=15&file_ext=hwpx"
       ],
       "venue_address_evidence_urls": [],
       "review_status": "OFFICIAL_EXPENSE_SOURCE_MUST_BE_CHECKED_FOR_ADDRESS",
