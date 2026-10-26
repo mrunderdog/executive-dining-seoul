@@ -422,6 +422,136 @@
         }
       ],
       "notes": "공식 관광 안내의 주소에 독립 업소명·전화번호로 교차 확인; 지출 집행장소 확정 아님."
+    },
+    {
+      "cohort": "gwacheon",
+      "merchant": "문원한우마을",
+      "address": "경기도 과천시 별양상가1로 10 과천타워 지하1층 12호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=y05WNgwCiRKJ",
+          "claim": "문원한우마을 업소명, 과천타워 지하 1층 12호 주소, 전화 0507-1480-4504"
+        },
+        {
+          "type": "independent_local_directory",
+          "url": "https://hamgae.com/place/64175/%EB%AC%B8%EC%9B%90%ED%95%9C%EC%9A%B0%EB%A7%88%EC%9D%84/",
+          "claim": "문원한우마을 동일 지점명, 별양상가1로 10 과천타워 지하1층 12호 명시"
+        }
+      ],
+      "notes": "과천시 소재 음식점 위치만 확인. 의회 원문 카드 결제 가맹점 동일성 및 특정인의 참석 확인 아님."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "저림숙성그릴",
+      "address": "세종특별자치시 보듬3로 8-27 새한빌딩 2층 203호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/677ccf0266de5f069883bded",
+          "claim": "저림숙성그릴 매장명, 보듬3로 8-27, 전화 044-867-1207"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=zN7C2ohUFzBN",
+          "claim": "저림숙성그릴 도담동 새한빌딩 203호, 보듬3로 8-27"
+        }
+      ],
+      "notes": "세종 도담동의 업소 존재 및 소재지 확인. 국비 업무추진비 거래 장소나 개별 참석 증거 아님."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "이태형의 메구미",
+      "address": "세종특별자치시 도움8로 91 세종마치 4층 405호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "public_license_mirror",
+          "url": "https://dining.ayo.pe.kr/restaurant/87773e32f480a612c0455bb99b6a7dbe",
+          "claim": "공공인허가 2025-12-15 기준 이태형의 메구미, 도움8로 91 세종마치 4층 405호"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=ouzeIwgpYMmA",
+          "claim": "업소 메구미, 도움8로 91 4층, 동일 전화 044-417-6170; 리뷰에 원문명 이태형의 메구미·405호 표시"
+        }
+      ],
+      "notes": "인허가 소재지와 별도 음식점 플랫폼 주소 일치; 과거 거래·참석 장소로 자동 귀속 불가."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "만복림",
+      "address": "",
+      "status": "REVIEW_ONLY",
+      "basis": "MULTIPLE_ACTIVE_LOCATION_MATCHES",
+      "evidence": [
+        {
+          "type": "tourism_official_directory",
+          "url": "https://stage-kr.visitseoul.net/restaurants/%EB%A7%8C%EB%B3%B5%EB%A6%BC/KOP004148",
+          "claim": "서울시 관광 공식 정보: 만복림 서울역, 후암로 98, 02-753-5693"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.tabling.co.kr/place/677ccf8266de5f069884648d",
+          "claim": "동일 상호 만복림 시청 쪽 무교로 17-17 매장, 전화 02-777-6661"
+        }
+      ],
+      "notes": "후암로98 서울역 점포와 무교로17-17 시청 점포가 함께 존재. 중앙정부 원문 상호만으로 매장 선택 불가."
+    },
+    {
+      "cohort": "public_enterprise_leadership",
+      "merchant": "초원복국",
+      "address": "",
+      "status": "REVIEW_ONLY",
+      "basis": "MULTIPLE_ACTIVE_LOCATION_MATCHES",
+      "evidence": [
+        {
+          "type": "tourism_official_directory",
+          "url": "https://www.visitbusan.net/index.do?lang_cd=ko&menuCd=DOM_000000201002002001&uc_seq=1622",
+          "claim": "부산시 관광 공식 정보 초원복국 대연본점 황령대로492번길 30"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=VZ36LucJAhOS",
+          "claim": "별도 초원복국 해운대점 해운대해변로 329-2"
+        },
+        {
+          "type": "institutional_merchant_list",
+          "url": "https://kmou.ac.kr/gfund/cm/cntnts/cntntsView.do?cntntsId=5500&mi=5155",
+          "claim": "국립한국해양대학교 협력업체 초원복국 영도점 태종로89번길 12"
+        }
+      ],
+      "notes": "부산 대연본점, 해운대, 영도 지점이 상호 공유. 공기업 지출 기록의 실제 지점 미확정."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "해초섬",
+      "address": "",
+      "status": "REVIEW_ONLY",
+      "basis": "MULTIPLE_ACTIVE_LOCATION_MATCHES",
+      "evidence": [
+        {
+          "type": "building_official_directory",
+          "url": "https://www.seoulsquare.com/mall/diningZone_view.asp?n_serialnumber=126",
+          "claim": "서울스퀘어 건물 공식 상점 안내: 해초섬 서울스퀘어점 1층"
+        },
+        {
+          "type": "tourism_official_directory",
+          "url": "https://dft.co.kr/bbs/board.php?bo_table=dining&wr_id=40",
+          "claim": "동대문패션타운관광특구 안내: 해초섬 현대시티아울렛 동대문점 9층"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=x0hNEahjrRfX",
+          "claim": "해초섬 롯데 건대스타시티점 능동로 92 10층"
+        }
+      ],
+      "notes": "서울스퀘어, 동대문, 건대스타시티 등 복수 장소. 단순 사용처 해초섬의 실제 결제 장소 미확정."
     }
   ]
 }

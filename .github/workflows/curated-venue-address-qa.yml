@@ -44,13 +44,13 @@ jobs:
           approved=[e for e in doc['entries'] if e['status']=='APPROVED_VENUE_LOCATION']
           review=[e for e in doc['entries'] if e['status']=='REVIEW_ONLY']
           existing=[e for e in doc['entries'] if e['status']=='ALREADY_ENRICHED']
-          assert len(approved)==15 and len(existing)==1 and len(review)==3
+          assert len(approved)==18 and len(existing)==1 and len(review)==6
           assert {(e['cohort'],e['merchant']) for e in approved} >= {
               ('central_executive', '소쿠리밥상세종청사점'),
               ('central_executive', '진가와코리아 광화문점'),
           }
           published={r['name']:r for r in central_records()+public_enterprise_records()}
-          for cohort in ('gwangmyeong','suwon','bupyeong','anseong','osan','ganghwa'):
+          for cohort in ('gwangmyeong','suwon','bupyeong','anseong','osan','ganghwa','gwacheon'):
               published.update({r['name']:r for r in _build_source_records(cohort,SOURCE_SPECS[cohort])})
           for e in approved:
               v=curated_location(e['cohort'],e['merchant'])
