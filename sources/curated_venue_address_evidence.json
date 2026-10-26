@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "checked_on": "2026-10-22",
+  "checked_on": "2026-10-26",
   "policy": "Approve only corroborated exact venue branch locations. Review-only, historical closures, or already enriched records never auto-add. Venue address never means card-merchant identity or personal attendance.",
   "entries": [
     {
@@ -207,6 +207,111 @@
         }
       ],
       "notes": "공개 원천 지출 사용처 '진가와코리아 광화문점'과 실제 브랜드 매장 '진가와 광화문점'의 주소 대응만 확인. 카드 가맹점 법적 동일성 미확인."
+    },
+    {
+      "cohort": "gwangmyeong",
+      "merchant": "폴바셋 광명철산DT점",
+      "address": "경기도 광명시 오리로 883",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_OFFICIAL_BRAND",
+      "evidence": [
+        {
+          "type": "brand_official_branch_directory",
+          "url": "https://www.baristapaulbassett.co.kr/whatsNews/notice/View.pb?seq=1421",
+          "claim": "폴바셋 브랜드가 광명 철산 DT점 개점 안내에 오리로 883 명시"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/profile.php?rid=0diDK1wNOxqm",
+          "claim": "광명 철산DT점 동일 지점명·오리로 883·전화번호 02-2687-4930 일치"
+        }
+      ],
+      "notes": "매장 소재지만 확인, 과거 의회 법인카드의 가맹점 지점 동일성·고위직 참석 미확인."
+    },
+    {
+      "cohort": "suwon",
+      "merchant": "소미담 수원시청점",
+      "address": "경기도 수원시 팔달구 경수대로428번길 15 파크앤시티타워 1층 102-1호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.daangn.com/kr/local-profile/%EC%86%8C%EB%AF%B8%EB%8B%B4-%EC%88%98%EC%9B%90%EC%8B%9C%EC%B2%AD%EC%A0%90-x4w7uhmjz76p/",
+          "claim": "직접 등록한 소미담 수원시청점 프로필, 경수대로428번길 15"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/list.dc?query=%EC%88%98%EC%9B%90+%EB%96%A1%EC%B9%B4%ED%8E%98",
+          "claim": "소미담 수원시청점, 경수대로428번길 15, 1층 102-1호"
+        },
+        {
+          "type": "public_license_mirror",
+          "url": "https://cafe.ayo.pe.kr/snack/e026dba30110a1b802cd561681a94e8c",
+          "claim": "지방행정 인허가자료 기반 소미담 수원시청점 1층 102-1호 기록; 원천 공식 문서는 아님"
+        }
+      ],
+      "notes": "떡·카페 업종 소재지 확인. 카드 결제 장소와 동일성 또는 현장 참석 확정 아님."
+    },
+    {
+      "cohort": "suwon",
+      "merchant": "소소한우",
+      "address": "경기도 수원시 영통구 센트럴타운로 94 앤에스코어빌딩 1층 105호, 103일부호",
+      "status": "APPROVED_VENUE_LOCATION",
+      "basis": "EXACT_NAMED_BRANCH_CORROBORATED",
+      "evidence": [
+        {
+          "type": "business_company_profile",
+          "url": "https://www.daangn.com/kr/local-profile/%EC%86%8C%EC%86%8C%ED%95%9C%EC%9A%B0-9bc5injqosii/",
+          "claim": "업체 직접 등록한 소소한우 매장 안내·센트럴타운로 94 주소"
+        },
+        {
+          "type": "public_license_mirror",
+          "url": "https://dining.ayo.pe.kr/restaurant/6fdaee49e86ae6c6fc5ef7da90556f3d",
+          "claim": "지방행정 인허가자료 기반 소소한우 사업장 센트럴타운로 94 1층 105호·103일부호"
+        }
+      ],
+      "notes": "식당 소재지와 업종만 확정. 원문 거래의 지점 또는 개인 참석을 증명하지 않음."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "차이(chai)797 광화문점",
+      "address": "서울특별시 종로구 새문안로5길 31 센터포인트광화문 2층",
+      "status": "REVIEW_ONLY",
+      "basis": "POSSIBLE_CLOSURE_OR_BRANCH_CHANGE",
+      "evidence": [
+        {
+          "type": "historical_branch_listing",
+          "url": "https://polle.com/place/2dnu3L/%EC%B0%A8%EC%9D%B4%20797",
+          "claim": "차이 797 광화문점 새문안로5길 31, 폐점 표기"
+        },
+        {
+          "type": "business_directory_listing",
+          "url": "https://www.diningcode.com/profile.php?rid=3N0wsMBYTWGy",
+          "claim": "별개 지점 차이797 광화문SFC점(세종대로 136) 표시; 동일 점포 아님"
+        }
+      ],
+      "notes": "센터포인트 광화문점은 폐점 보고, SFC점은 별개. 현재 매장 위치 또는 결제 지점으로 승격 금지."
+    },
+    {
+      "cohort": "central_executive",
+      "merchant": "세종 오이시",
+      "address": "세종특별자치시 절재로 194",
+      "status": "REVIEW_ONLY",
+      "basis": "CONFLICTING_UNIT_FLOOR_EVIDENCE",
+      "evidence": [
+        {
+          "type": "merchant_website",
+          "url": "https://sejongsushi.com/",
+          "claim": "사업자 표시 오이시 Oisi 절재로 194, 5층 506호"
+        },
+        {
+          "type": "independent_food_platform",
+          "url": "https://www.diningcode.com/list.dc?query=%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%8B%9C+%EC%A0%88%EC%9E%AC%EB%A1%9C",
+          "claim": "세종 오이시 절재로 194, 3층 310호·311호 표시"
+        }
+      ],
+      "notes": "같은 건물이나 3층 대 5층 점포 호실 정보 충돌. 이전 여부·동일업체 여부 확인 전 승격 불가."
     }
   ]
 }
