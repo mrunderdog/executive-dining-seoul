@@ -194,14 +194,6 @@ jobs:
           done
           cat /tmp/monthly-council-status.tsv
 
-      - name: Check full council refresh status (fail only if no healthy source)
-        if: always() && steps.mode.outputs.full == 'true'
-        run: python pipeline/check_council_refresh_outcome.py --status-file /tmp/monthly-council-status.tsv
-
-      - name: Check incremental council refresh status (fail only if no healthy source)
-        if: always() && steps.mode.outputs.mode == 'incremental'
-        run: python pipeline/check_monthly_incremental_status.py --status-file reports/incremental-council-status.json
-
       - name: Ingest Seoul City Hall official OpenAPI
         if: steps.mode.outputs.full == 'true' && env.SEOUL_API_KEY != ''
         run: python pipeline/ingest_seoul_city_expense.py --since 2024-12
@@ -447,3 +439,12 @@ jobs:
           fi
           git commit -m "data: ${{ steps.mode.outputs.mode }} monthly refresh"
           git push origin HEAD:main
+
+      - name: Check full council refresh status (fail only if no healthy source)
+        if: always() && steps.mode.outputs.full == 'true'
+        run: python pipeline/check_council_refresh_outcome.py --status-file /tmp/monthly-council-status.tsv
+
+      - name: Check incremental council refresh status (fail only if no healthy source)
+        if: always() && steps.mode.outputs.mode == 'incremental'
+        run: python pipeline/check_monthly_incremental_status.py --status-file reports/incremental-council-status.json
+
