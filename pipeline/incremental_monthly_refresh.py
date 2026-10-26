@@ -130,7 +130,9 @@ def main():
             try: r=fut.result()
             except Exception as e:
                 restore_source(source)
-                r={"source":source,"status":"STALE_OK:WORKER","error":f"{type(e).__name__}: {e}","stages":{}}
+                baseline_exists = (ROOT/f"data/raw/{source}_expense.json").exists()
+                r={"source":source,"status":"STALE_OK:WORKER" if baseline_exists else "FAILED:WORKER",
+                   "error":f"{type(e).__name__}: {e}","stages":{}}
             results.append(r)
             print(json.dumps({"source":r["source"],"status":r["status"]},ensure_ascii=False),flush=True)
 
@@ -149,8 +151,12 @@ def main():
     STATUS.parent.mkdir(exist_ok=True)
     STATUS.write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in summary.items() if k!="results"},ensure_ascii=False,indent=2))
-    if summary["failed"]:
-        raise SystemExit(f"{summary['failed']} source(s) have no usable fallback")
+    # Keep successful agency updates publishable when another agency has no
+    # last-good baseline. Final monthly health records a degraded run.
+    # If every agency failed or remained stale, fail rather than printing green.
+    healthy = summary["updated"] + summary["no_change"]
+    if not healthy:
+        raise SystemExit("no healthy council sources; all outcomes failed/stale")
 
 
 if __name__=="__main__":
