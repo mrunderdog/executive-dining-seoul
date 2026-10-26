@@ -1,6 +1,6 @@
 {
   "meta": {
-    "failed_count": 411,
+    "failed_count": 408,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
@@ -8,8 +8,8 @@
       "OpenStreetMap Nominatim"
     ],
     "record_count": 1784,
-    "success_count": 1373,
-    "updated_at": "2026-10-22T06:05:12+00:00"
+    "success_count": 1376,
+    "updated_at": "2026-10-26T05:39:23+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -13809,15 +13809,22 @@
       "updated_at": "2026-10-19T12:27:32+00:00"
     },
     "소미담 수원시청점|수원시": {
-      "failed": true,
-      "fingerprint": "442581ef7e133038",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 수원시 팔달구 인계동 경수대로428번길 15",
+      "fingerprint": "0c852ef7d1e7172e",
       "geocoder_version": 4,
+      "lat": 37.264277542599,
+      "lon": 127.026781890088,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 수원시 팔달구 경수대로428번길 15 파크앤시티타워 1층 102-1호",
+      "result_name": "",
+      "score": 96.47,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:소미담 수원시청점 수원특례시",
-        "nominatim:소미담 수원시청점 수원특례시"
+        "arcgis:경기도 수원시 팔달구 경수대로428번길 15 파크앤시티타워 1층 102-1호"
       ],
-      "updated_at": "2026-09-18T04:32:55+00:00"
+      "updated_at": "2026-10-26T05:39:23+00:00"
     },
     "소반낙지마당|수원시": {
       "failed": true,
@@ -13903,15 +13910,22 @@
       "updated_at": "2026-09-17T23:03:33+00:00"
     },
     "소소한우|수원시": {
-      "failed": true,
-      "fingerprint": "5ffc80ef2072c596",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 수원시 영통구 이의동 센트럴타운로 94",
+      "fingerprint": "badbd93cd95319ab",
       "geocoder_version": 4,
+      "lat": 37.29193849363,
+      "lon": 127.050911293854,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 수원시 영통구 센트럴타운로 94 앤에스코어빌딩 1층 105호, 103일부호",
+      "result_name": "",
+      "score": 96.11,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:소소한우 수원특례시",
-        "nominatim:소소한우 수원특례시"
+        "arcgis:경기도 수원시 영통구 센트럴타운로 94 앤에스코어빌딩 1층 105호, 103일부호"
       ],
-      "updated_at": "2026-09-18T04:33:04+00:00"
+      "updated_at": "2026-10-26T05:39:22+00:00"
     },
     "소청일식|법조·법률행정": {
       "failed": true,
@@ -25806,15 +25820,22 @@
       "updated_at": "2026-10-19T12:27:32+00:00"
     },
     "폴바셋 광명철산DT점|광명시": {
-      "failed": true,
-      "fingerprint": "d63d464753c6804c",
+      "addr_type": "PointAddress",
+      "display_name": "경기도 광명시 철산동 오리로 883",
+      "fingerprint": "053aa3ef6bef26eb",
       "geocoder_version": 4,
+      "lat": 37.475846753212,
+      "lon": 126.864420234628,
+      "match_mode": "address",
       "policy_version": 3,
+      "query": "경기도 광명시 오리로 883",
+      "result_name": "",
+      "score": 100.0,
+      "source": "arcgis",
       "tried_queries": [
-        "arcgis:폴바셋 광명철산DT점 광명시",
-        "nominatim:폴바셋 광명철산DT점 광명시"
+        "arcgis:경기도 광명시 오리로 883"
       ],
-      "updated_at": "2026-09-22T07:23:38+00:00"
+      "updated_at": "2026-10-26T05:39:23+00:00"
     },
     "푸른기획|포천시": {
       "failed": true,
