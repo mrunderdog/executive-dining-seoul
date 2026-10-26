@@ -16,13 +16,13 @@ class RefreshHealthTests(unittest.TestCase):
 
     def test_total_failure_and_stale_health_is_not_green(self):
         for rows in (
-            "icheon\\tSTALE_OK:INGEST\\nansan\\tFAILED:DISCOVERY\\n",
-            "icheon\\tSTALE_OK:DISCOVERY\\n",
-            "icheon\\tFAILED:INGEST\\n",
+            "icheon\tSTALE_OK:INGEST\nansan\tFAILED:DISCOVERY\n",
+            "icheon\tSTALE_OK:DISCOVERY\n",
+            "icheon\tFAILED:INGEST\n",
         ):
             status = report("full", from_tsv(rows))
             self.assertEqual(status["status"], "FAILED")
-        partial = report("full", from_tsv("icheon\\tNO_CHANGE\\nansan\\tFAILED:INGEST\\n"))
+        partial = report("full", from_tsv("icheon\tNO_CHANGE\nansan\tFAILED:INGEST\n"))
         self.assertEqual(partial["status"], "DEGRADED")
 
     def test_incremental_no_change(self):
@@ -31,7 +31,7 @@ class RefreshHealthTests(unittest.TestCase):
         self.assertEqual(classify("STALE_OK:STRICT_QA"), "stale_last_good")
 
     def test_degraded_without_fail_and_rejects_bad_status(self):
-        self.assertEqual(report("full", from_tsv("icheon\tSTALE_OK:DISCOVERY\n"))["status"], "DEGRADED")
+        self.assertEqual(report("full", from_tsv("icheon\tSTALE_OK:DISCOVERY\n"))["status"], "FAILED")
         for bad in ("", "icheon\tOK\nicheon\tOK\n", "icheon OK"):
             with self.assertRaises(ValueError):
                 from_tsv(bad)
