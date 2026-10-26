@@ -34,6 +34,7 @@ concurrency:
 jobs:
   monthly:
     runs-on: ubuntu-latest
+    timeout-minutes: 330
     env:
       SEOUL_API_KEY: ${{ secrets.SEOUL_API_KEY }}
       SEOUL_SERVICE_NAME: odExpense
@@ -175,19 +176,19 @@ jobs:
               echo -e "$SOURCE\t$BASELINE" >> /tmp/monthly-council-status.tsv
             }
             echo "=== discover $SOURCE ==="
-            python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
+            timeout --signal=TERM --kill-after=10s 180s python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
             if [[ $? -ne 0 ]]; then restore_last_good "DISCOVERY"; continue; fi
-            python pipeline/ingest_council_expense.py --source "$SOURCE"
+            timeout --signal=TERM --kill-after=10s 180s python pipeline/ingest_council_expense.py --source "$SOURCE"
             if [[ $? -ne 0 ]]; then restore_last_good "INGEST"; continue; fi
             # Preserve historic imperfect rows; strict incremental QA enforces
             # 100% provenance/date/amount checks on each changed transaction.
-            python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0
+            timeout --signal=TERM --kill-after=10s 60s python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0
             if [[ $? -ne 0 ]]; then restore_last_good "DATE_REPAIR"; continue; fi
-            PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
+            timeout --signal=TERM --kill-after=10s 60s env PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
             QA_RC=$?
             if [[ $QA_RC -eq 3 ]]; then restore_last_good "NO_CHANGE"; continue; fi
             if [[ $QA_RC -ne 0 ]]; then restore_last_good "STRICT_QA"; continue; fi
-            python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
+            timeout --signal=TERM --kill-after=10s 60s python pipeline/build_source_candidates.py --source "$SOURCE" --top 100
             if [[ $? -ne 0 ]]; then restore_last_good "CANDIDATE"; continue; fi
             echo -e "$SOURCE\tOK" >> /tmp/monthly-council-status.tsv
           done
@@ -438,3 +439,12 @@ jobs:
           fi
           git commit -m "data: ${{ steps.mode.outputs.mode }} monthly refresh"
           git push origin HEAD:main
+
+      - name: Check full council refresh status (fail only if no healthy source)
+        if: always() && steps.mode.outputs.full == 'true'
+        run: python pipeline/check_council_refresh_outcome.py --status-file /tmp/monthly-council-status.tsv
+
+      - name: Check incremental council refresh status (fail only if no healthy source)
+        if: always() && steps.mode.outputs.mode == 'incremental'
+        run: python pipeline/check_monthly_incremental_status.py --status-file reports/incremental-council-status.json
+

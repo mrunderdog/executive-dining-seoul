@@ -1,0 +1,42 @@
+name: Monthly collection and entity-drift regression QA
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_entity_count_drift.py'
+      - 'pipeline/check_monthly_incremental_status.py'
+      - 'pipeline/test_monthly_entity_guards.py'
+      - '.github/workflows/monthly.yml'
+      - '.github/workflows/monthly-entity-qa.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify monthly failure gates and no lost source keys
+        run: PYTHONPATH=pipeline python -m unittest -v test_monthly_entity_guards
+      - name: Compare published entity lineages from before PR 153
+        run: |
+          PYTHONPATH=pipeline python pipeline/audit_entity_count_drift.py --before 8cc1881603 --after HEAD
+      - name: Show change in entity count and source key continuity
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/p4-entity-count-drift.json'))
+          print(json.dumps({k: len(v) if isinstance(v,list) else v for k,v in d.items()},ensure_ascii=False))
+          print('MERGED_ENTITIES',json.dumps(d['merged_previous_entities'],ensure_ascii=False))
+          print('MOVED_KEYS',json.dumps(d['moved_source_keys'],ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: entity-drift-audit
+          path: reports/p4-entity-count-drift.json
+          if-no-files-found: warn
