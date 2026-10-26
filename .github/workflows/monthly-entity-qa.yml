@@ -1,0 +1,40 @@
+name: Monthly collection and entity-drift regression QA
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_entity_count_drift.py'
+      - 'pipeline/check_monthly_incremental_status.py'
+      - 'pipeline/test_monthly_entity_guards.py'
+      - '.github/workflows/monthly.yml'
+      - '.github/workflows/monthly-entity-qa.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify monthly failure gates and no lost source keys
+        run: PYTHONPATH=pipeline python -m unittest -v test_monthly_entity_guards
+      - name: Compare actual published entity lineages before and after PR 154
+        run: |
+          PYTHONPATH=pipeline python pipeline/audit_entity_count_drift.py --before 1ccb25afa631beaa1a64c93f6ea6b20a2b7d3d95 --after HEAD
+      - name: Show change in entity count and source key continuity
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/p4-entity-count-drift.json'))
+          print(json.dumps({k: len(v) if isinstance(v,list) else v for k,v in d.items()},ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: entity-drift-audit
+          path: reports/p4-entity-count-drift.json
+          if-no-files-found: warn
