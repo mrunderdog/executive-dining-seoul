@@ -70,8 +70,10 @@ def from_incremental(text: str) -> list[dict]:
 
 def report(mode: str, statuses: list[dict], now: datetime | None = None, url: str = "") -> dict:
     counts = Counter(row["class"] for row in statuses)
-    state = ("FAILED" if counts["failed"] else
-             "DEGRADED" if counts["stale_last_good"] else "OK")
+    healthy = counts["updated"] + counts["no_change"]
+    problematic = counts["stale_last_good"] + counts["failed"]
+    state = ("FAILED" if not healthy else
+             "DEGRADED" if problematic else "OK")
     return {
         "generated_at_utc": (now or datetime.now(timezone.utc)).astimezone(timezone.utc).isoformat(timespec="seconds"),
         "mode": mode,
