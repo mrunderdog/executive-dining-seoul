@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "sources": {
+    "ansan": {
+      "baseline": 379,
+      "after": 658,
+      "added_rows": 279,
+      "expected_new": 279,
+      "lost_rows": 0,
+      "modified_rows": 0,
+      "duplicate_row_ids": 0,
+      "removed_files": 0,
+      "modified_old_files": 0,
+      "new_files": 1
+    },
+    "hwaseong": {
+      "baseline": 603,
+      "after": 840,
+      "added_rows": 237,
+      "expected_new": 237,
+      "lost_rows": 0,
+      "modified_rows": 0,
+      "duplicate_row_ids": 0,
+      "removed_files": 0,
+      "modified_old_files": 0,
+      "new_files": 1
+    }
+  },
+  "global_before": 1349,
+  "global_after": 1352,
+  "new_entity_source_keys": 3,
+  "lost_entity_source_keys": 0,
+  "moved_entity_source_keys": 0,
+  "merged_previous_entities": [],
+  "changed_scores_count": 0,
+  "changed_scores_examples": [],
+  "unrelated_score_changes": [],
+  "problems": []
+}

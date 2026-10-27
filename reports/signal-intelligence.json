@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-26T05:39:15",
+  "generated_at": "2026-10-27T09:30:48",
   "score_semantics": "DISCLOSED_OFFICE_USAGE_EVENTS_NOT_PERSON_ATTENDANCE",
   "confirmed_person_attendances": 0,
-  "dataset_records": 1350,
+  "dataset_records": 1352,
   "cross_institution_count": 198,
   "cross_origin_count": 27,
   "top_official_count": 473,
   "regional_head_count": 13,
-  "entity_merges": 46,
-  "entity_merge_audit_count": 41,
+  "entity_merges": 47,
+  "entity_merge_audit_count": 42,
   "entity_merge_audit": [
     {
       "name": "화담",
@@ -717,6 +717,28 @@
       "spend": 538000
     },
     {
+      "name": "해우리 시청점",
+      "address": "서울특별시 중구 서소문로 95",
+      "origins": [
+        "경찰청(집행 명의)",
+        "중앙정부"
+      ],
+      "institutions": [
+        "경찰청",
+        "산업통상부",
+        "통일부"
+      ],
+      "source_keys": [
+        "시청해우리|중앙정부",
+        "(주)시청해우리|경찰청(집행 명의)"
+      ],
+      "source_key_count": 2,
+      "match_basis": "strict_entity_key",
+      "corroborated_address_bridges": 0,
+      "visits": 8,
+      "spend": 2350000
+    },
+    {
       "name": "동해도본점",
       "address": "서울특별시 영등포구 은행로 25",
       "origins": [
@@ -910,7 +932,7 @@
       "spend": 908000
     }
   ],
-  "cross_origin_review_count": 25,
+  "cross_origin_review_count": 26,
   "cross_origin_review": [
     {
       "name": "은주식당",
@@ -1298,6 +1320,28 @@
       "visits": 8,
       "addresses": [
         "서울 서초구 반포대로 154"
+      ],
+      "address_entity_count": 1,
+      "qa_a": false
+    },
+    {
+      "name": "이태형의 메구미",
+      "strict_name": "이태형의메구미",
+      "confidence": "REVIEW",
+      "reason": "exact name + single published address",
+      "origins": [
+        "법조·법률행정",
+        "중앙정부"
+      ],
+      "institutions": [
+        "고용노동부",
+        "국가보훈부",
+        "법제처",
+        "산업통상부"
+      ],
+      "visits": 7,
+      "addresses": [
+        "세종특별자치시 도움8로 91 세종마치 4층 405호"
       ],
       "address_entity_count": 1,
       "qa_a": false
@@ -2548,7 +2592,7 @@
     },
     {
       "name": "저림숙성그릴",
-      "address": "",
+      "address": "세종특별자치시 보듬3로 8-27 새한빌딩 2층 203호",
       "origins": [
         "중앙정부"
       ],
@@ -3287,7 +3331,7 @@
     },
     {
       "name": "경성한우국밥",
-      "address": "",
+      "address": "서울특별시 종로구 새문안로5가길 32",
       "origins": [
         "중앙정부"
       ],
@@ -3317,7 +3361,7 @@
     },
     {
       "name": "도담도담 민물장어",
-      "address": "",
+      "address": "세종특별자치시 한누리대로 583 도담센트럴프라자 3층 306호",
       "origins": [
         "중앙정부"
       ],
@@ -3683,7 +3727,7 @@
     },
     {
       "name": "로씨니",
-      "address": "",
+      "address": "서울특별시 종로구 북촌로 18",
       "origins": [
         "중앙정부"
       ],
@@ -3833,7 +3877,7 @@
     },
     {
       "name": "이태형의 메구미",
-      "address": "",
+      "address": "세종특별자치시 도움8로 91 세종마치 4층 405호",
       "origins": [
         "중앙정부"
       ],
@@ -3955,7 +3999,7 @@
     },
     {
       "name": "브이아이피참치(주)",
-      "address": "",
+      "address": "서울특별시 중구 세종대로 135 코리아나호텔 3층",
       "origins": [
         "중앙정부"
       ],
@@ -4258,22 +4302,25 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "시청해우리",
-      "address": "",
+      "name": "해우리 시청점",
+      "address": "서울특별시 중구 서소문로 95",
       "origins": [
+        "경찰청(집행 명의)",
         "중앙정부"
       ],
       "institutions": [
+        "경찰청",
         "산업통상부",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "police_leadership"
       ],
       "visits": 8,
-      "spend": 2140000,
+      "spend": 2350000,
       "date_min": "2024-01-12",
-      "date_max": "2026-04-14",
+      "date_max": "2026-09-10",
       "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
@@ -4350,7 +4397,7 @@
     },
     {
       "name": "봉피양(경복궁)",
-      "address": "",
+      "address": "서울특별시 종로구 자하문로 20",
       "origins": [
         "중앙정부"
       ],
@@ -12132,7 +12179,7 @@
     },
     {
       "name": "저림숙성그릴",
-      "address": "",
+      "address": "세종특별자치시 보듬3로 8-27 새한빌딩 2층 203호",
       "origins": [
         "중앙정부"
       ],
@@ -12164,7 +12211,7 @@
     },
     {
       "name": "봉피양(경복궁)",
-      "address": "",
+      "address": "서울특별시 종로구 자하문로 20",
       "origins": [
         "중앙정부"
       ],
@@ -12315,7 +12362,7 @@
     },
     {
       "name": "이태형의 메구미",
-      "address": "",
+      "address": "세종특별자치시 도움8로 91 세종마치 4층 405호",
       "origins": [
         "중앙정부"
       ],
@@ -13747,7 +13794,7 @@
     },
     {
       "name": "경성한우국밥",
-      "address": "",
+      "address": "서울특별시 종로구 새문안로5가길 32",
       "origins": [
         "중앙정부"
       ],
@@ -16228,7 +16275,7 @@
     },
     {
       "name": "로씨니",
-      "address": "",
+      "address": "서울특별시 종로구 북촌로 18",
       "origins": [
         "중앙정부"
       ],
@@ -16318,7 +16365,7 @@
     },
     {
       "name": "브이아이피참치(주)",
-      "address": "",
+      "address": "서울특별시 중구 세종대로 135 코리아나호텔 3층",
       "origins": [
         "중앙정부"
       ],
@@ -16408,22 +16455,25 @@
       "vice_mayor_visits": 0
     },
     {
-      "name": "시청해우리",
-      "address": "",
+      "name": "해우리 시청점",
+      "address": "서울특별시 중구 서소문로 95",
       "origins": [
+        "경찰청(집행 명의)",
         "중앙정부"
       ],
       "institutions": [
+        "경찰청",
         "산업통상부",
         "통일부"
       ],
       "cohorts": [
-        "central_executive"
+        "central_executive",
+        "police_leadership"
       ],
       "visits": 8,
-      "spend": 2140000,
+      "spend": 2350000,
       "date_min": "2024-01-12",
-      "date_max": "2026-04-14",
+      "date_max": "2026-09-10",
       "consensus_score": 57.2,
       "institution_count": 2,
       "source_count": 1,
@@ -16439,7 +16489,7 @@
     },
     {
       "name": "도담도담 민물장어",
-      "address": "",
+      "address": "세종특별자치시 한누리대로 583 도담센트럴프라자 3층 306호",
       "origins": [
         "중앙정부"
       ],

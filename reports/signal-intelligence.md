@@ -2,15 +2,15 @@
 
 **Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.
 
-- Generated: 2026-10-26T05:39:15
-- Published restaurant entities: **1350**
+- Generated: 2026-10-27T09:30:48
+- Published restaurant entities: **1352**
 - Cross-institution restaurants: **198**
 - Cross-origin restaurants: **27**
 - Central top-official restaurants: **473**
 - Regional mayor/vice-mayor restaurants: **13**
-- Entity merges: **46**
-- Merge audit groups: **41**
-- Cross-origin review candidates: **25**
+- Entity merges: **47**
+- Merge audit groups: **42**
+- Cross-origin review candidates: **26**
 
 > These scores rank repeated official spending/usage disclosures, NOT verified personal attendance or card-merchant branches.
 
@@ -107,7 +107,7 @@
 | 87 | 삿뽀로 | 58.1 | 2 | 1 | 9 | 중앙정부 |
 | 88 | 모담 서울역점 | 57.2 | 2 | 1 | 8 | 중앙정부 |
 | 89 | 사랑방 | 57.2 | 2 | 1 | 8 | 중앙정부 |
-| 90 | 시청해우리 | 57.2 | 2 | 1 | 8 | 중앙정부 |
+| 90 | 해우리 시청점 | 57.2 | 2 | 1 | 8 | 경찰청(집행 명의) · 중앙정부 |
 | 91 | 복성각 서울역점 | 56.8 | 3 | 1 | 3 | 공기업·공공기관 |
 | 92 | 워터스톤 | 56.2 | 2 | 1 | 7 | 공기업·공공기관 |
 | 93 | 봉피양(경복궁) | 56.2 | 2 | 1 | 7 | 중앙정부 |
@@ -154,16 +154,17 @@
 | 29 | 탱글낙지마당 | 2 | 강서구 · 양천구 | strict_entity_key | 서울 양천구 등촌로 186 |
 | 30 | 막썰이회 서대문 | 2 | 경찰청(집행 명의) · 서울시청 | strict_entity_key | 서울특별시 종로구 새문안로 15-1, 지하1층 |
 | 31 | 생선명가거북명태 | 2 | 광명시 · 금천구 | strict_entity_key | 경기 광명시 범안로 856 |
-| 32 | 동해도본점 | 2 | 공기업·공공기관 · 중앙정부 | corroborated_address | 서울특별시 영등포구 은행로 25 |
-| 33 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
-| 34 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
-| 35 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
-| 36 | 진향 중화요리 | 2 | 부평구 | strict_entity_key | 인천광역시 부평구 신트리로6번길 3, 1층 107호 |
-| 37 | 철원오대쌀 갓지은솥밥 | 2 | 의정부시 | strict_entity_key | 경기도 의정부시 동일로 858 |
-| 38 | 해량260도 송도유원지점 | 2 | 연수구 | strict_entity_key | 인천광역시 연수구 청량로109번길 1 |
-| 39 | 먹보한우 광교지점 | 2 | 경기도의회 | strict_entity_key |  |
-| 40 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
-| 41 | 인덕원긴자 | 2 | 법조·법률행정 | strict_entity_key |  |
+| 32 | 해우리 시청점 | 2 | 경찰청(집행 명의) · 중앙정부 | strict_entity_key | 서울특별시 중구 서소문로 95 |
+| 33 | 동해도본점 | 2 | 공기업·공공기관 · 중앙정부 | corroborated_address | 서울특별시 영등포구 은행로 25 |
+| 34 | 주식회사 고려보쌈 | 2 | 서울시청 | strict_entity_key | 서울 중구 세종대로20길 23 |
+| 35 | (주)태맥을지점 | 2 | 서울시청 | strict_entity_key | 서울 중구 을지로3길 34 |
+| 36 | 민소한우 | 2 | 국회의원(정치자금 2024) | strict_entity_key | 서울 영등포구 국회대로68길 17 (여의도동, 해운빌딩) |
+| 37 | 진향 중화요리 | 2 | 부평구 | strict_entity_key | 인천광역시 부평구 신트리로6번길 3, 1층 107호 |
+| 38 | 철원오대쌀 갓지은솥밥 | 2 | 의정부시 | strict_entity_key | 경기도 의정부시 동일로 858 |
+| 39 | 해량260도 송도유원지점 | 2 | 연수구 | strict_entity_key | 인천광역시 연수구 청량로109번길 1 |
+| 40 | 먹보한우 광교지점 | 2 | 경기도의회 | strict_entity_key |  |
+| 41 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
+| 42 | 인덕원긴자 | 2 | 법조·법률행정 | strict_entity_key |  |
 
 ## Cross-origin review queue
 
@@ -188,12 +189,13 @@
 | 17 | 한양갈비 | REVIEW | 관악구 · 포천시 | 9 | 1 | exact name + single published address |
 | 18 | 복성각 | REVIEW | 공기업·공공기관 · 중앙정부 | 9 | 1 | exact name + single published address |
 | 19 | 오발탄 | REVIEW | 서초구 · 중앙정부 | 8 | 1 | exact name + single published address |
-| 20 | 설마중 | REVIEW | 경찰청(집행 명의) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
-| 21 | 샘밭막국수 | REVIEW | 검찰(정보공개 2017–2019) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
-| 22 | 더푸짐 | REVIEW | 관악구 · 법조·법률행정 | 3 | 1 | exact name + single published address |
-| 23 | 가시리 여의도점 | AMBIGUOUS | 국회의원(정치자금 2024) · 중앙정부 | 78 | 2 | exact name but 2 addressed entities |
-| 24 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 29 | 2 | exact name but 2 addressed entities |
-| 25 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
+| 20 | 이태형의 메구미 | REVIEW | 법조·법률행정 · 중앙정부 | 7 | 1 | exact name + single published address |
+| 21 | 설마중 | REVIEW | 경찰청(집행 명의) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
+| 22 | 샘밭막국수 | REVIEW | 검찰(정보공개 2017–2019) · 공기업·공공기관 | 4 | 1 | exact name + single published address |
+| 23 | 더푸짐 | REVIEW | 관악구 · 법조·법률행정 | 3 | 1 | exact name + single published address |
+| 24 | 가시리 여의도점 | AMBIGUOUS | 국회의원(정치자금 2024) · 중앙정부 | 78 | 2 | exact name but 2 addressed entities |
+| 25 | 취홍 | AMBIGUOUS | 서울시청 · 인천시청 | 29 | 2 | exact name but 2 addressed entities |
+| 26 | 소호정 | AMBIGUOUS | 검찰(정보공개 2017–2019) · 국회의원(정치자금 2024) | 19 | 2 | exact name but 2 addressed entities |
 
 ## Central top-official dining signal
 
