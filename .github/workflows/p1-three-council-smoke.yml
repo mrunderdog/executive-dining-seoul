@@ -1,0 +1,93 @@
+name: P1 three-council live collection smoke (isolated)
+on:
+  pull_request:
+    paths:
+      - .github/workflows/p1-three-council-smoke.yml
+permissions:
+  contents: read
+jobs:
+  live-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official-source parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Capture original source baseline
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          baseline={}
+          for source in ('icheon','ansan','hwaseong'):
+              path=Path(f'data/raw/{source}_expense.json')
+              data=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+              baseline[source]={'exists':path.exists(), 'sha256':hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None,
+                                'row_ids':sorted(str(r.get('row_id')) for r in data.get('rows',[])),
+                                'rows':len(data.get('rows',[])), 'files':len(data.get('files',[]))}
+          Path('/tmp/p1-baseline.json').write_text(json.dumps(baseline,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({s:{k:v for k,v in x.items() if k!='row_ids'} for s,x in baseline.items()},ensure_ascii=False))
+          PY
+      - name: Actual official discovery incremental parsing and changed-row QA
+        shell: bash
+        run: |
+          set +e
+          python pipeline/incremental_monthly_refresh.py --lookback-months 5 --workers 3 --source icheon --source ansan --source hwaseong > /tmp/p1-ingestion.log 2>&1
+          RC=$?
+          cat /tmp/p1-ingestion.log
+          echo "$RC" > /tmp/p1-exit-code.txt
+          exit 0
+      - name: Verify original rows preserved and failed source restoration
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          baseline=json.loads(Path('/tmp/p1-baseline.json').read_text(encoding='utf-8'))
+          status_path=Path('reports/incremental-council-status.json')
+          if not status_path.exists():sys.exit('ERROR: no ingestion status artifact')
+          status=json.loads(status_path.read_text(encoding='utf-8'))
+          entries={r['source']:r for r in status.get('results',[])}
+          issues=[]; detail={}
+          for source,old in baseline.items():
+              path=Path(f'data/raw/{source}_expense.json')
+              data=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+              ids=[str(r.get('row_id')) for r in data.get('rows',[])]
+              lost=set(old['row_ids'])-set(ids)
+              state=entries.get(source,{}).get('status','MISSING')
+              digest=hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None
+              restored=state.startswith('STALE_OK:') or state=='NO_CHANGE'
+              if lost:issues.append(f'{source}: lost {len(lost)} original row IDs')
+              if restored and digest!=old['sha256']:issues.append(f'{source}: fallback not byte-identical')
+              if state=='MISSING':issues.append(f'{source}: missing source status')
+              detail[source]={'status':state,'baseline_rows':old['rows'],'after_rows':len(ids),'lost_original_rows':len(lost),
+                              'fallback_byte_identical':digest==old['sha256'] if restored else None}
+          healthy=sum(x['status'] in ('UPDATED','NO_CHANGE') for x in entries.values())
+          if not healthy:issues.append('no healthy source: real collection success not demonstrated')
+          report={'scope':'isolated P1 live three-council smoke; no publish',
+                  'ingestion_exit_code':int(Path('/tmp/p1-exit-code.txt').read_text().strip()),
+                  'source_window':[status.get('since'),status.get('until')],
+                  'sources':detail,'healthy':healthy,'errors':issues,'status':'FAIL' if issues else 'PASS'}
+          Path('reports/p1-three-council-smoke.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if issues:sys.exit(1)
+          PY
+      - name: Confirm no publication from smoke test
+        if: always()
+        run: |
+          echo 'No push or Pages deployment. No write credentials.'
+          git status --short | head -60
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-live-three-council-smoke-results
+          path: |
+            reports/incremental-council-status.json
+            reports/p1-three-council-smoke.json
+          retention-days: 14
+          if-no-files-found: warn
