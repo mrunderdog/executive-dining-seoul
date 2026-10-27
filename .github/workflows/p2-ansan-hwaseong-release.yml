@@ -1,0 +1,155 @@
+name: P2 controlled Ansan Hwaseong source release
+on:
+  pull_request:
+    paths:
+      - .github/workflows/p2-ansan-hwaseong-release.yml
+      - pipeline/p2_release_audit.py
+permissions:
+  contents: write
+jobs:
+  release-qa:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'data/p2-ansan-hwaseong-release-20261027'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data/p2-ansan-hwaseong-release-20261027
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Limit P2 to one guarded release
+        id: guard
+        run: |
+          if test -e reports/p2-ansan-hwaseong-release-audit.json; then echo "run=false" >> "$GITHUB_OUTPUT"; else echo "run=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install source parsers
+        if: steps.guard.outputs.run == 'true'
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Capture original source rows, scores and merged venues
+        if: steps.guard.outputs.run == 'true'
+        run: PYTHONPATH=pipeline python pipeline/p2_release_audit.py baseline
+      - name: Fetch two council sources through production incremental adapters
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          python pipeline/incremental_monthly_refresh.py --lookback-months 5 --workers 2 --source ansan --source hwaseong
+          python - <<'PY'
+          import json
+          d=json.load(open('reports/incremental-council-status.json',encoding='utf-8'))
+          assert {x['source']:x['status'] for x in d['results']} == {'ansan':'UPDATED','hwaseong':'UPDATED'}, d
+          for r in d['results']: assert r['stages']['strict_qa']['ok'],r
+          PY
+      - name: Protect original rows and audit entity merge and rankings
+        if: steps.guard.outputs.run == 'true'
+        run: PYTHONPATH=pipeline python pipeline/p2_release_audit.py verify
+      - name: Full regression, published quality, coordinate, frontend and signal QA
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          python pipeline/regression_checks.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_council_recovery.py pipeline/test_refresh_health.py pipeline/test_monthly_entity_guards.py
+          python pipeline/build_signal_reports.py
+          python pipeline/quality_gate.py
+          python pipeline/audit_coordinates.py
+          python pipeline/build_site.py --output /tmp/p2-index.html
+          test -s /tmp/p2-index.html
+          node --check site/app.js
+          node --check site/data_story.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('reports/p2-ansan-hwaseong-release-audit.json').read_text(encoding='utf-8'))
+          q=json.loads(Path('reports/quality.json').read_text(encoding='utf-8'))
+          assert a['status']=='PASS',a
+          assert q['passed'] is True,q.get('errors')
+          print('P2 RELEASE QA',a['status'],'PUBLISHED QUALITY',q['passed'], 'GLOBAL VENUES',a['global_before'],a['global_after'])
+          PY
+      - name: Commit only approved source data to P2 branch
+        if: steps.guard.outputs.run == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- data/raw/ansan_expense.json data/raw/hwaseong_expense.json
+          git add -- reports/ansan-executive-candidates.json reports/ansan-executive-candidates.md reports/ansan-ingestion.md
+          git add -- reports/hwaseong-executive-candidates.json reports/hwaseong-executive-candidates.md reports/hwaseong-ingestion.md
+          git add -- reports/capital-backfill-discovery-ansan.json reports/capital-backfill-discovery-ansan.md
+          git add -- reports/capital-backfill-discovery-hwaseong.json reports/capital-backfill-discovery-hwaseong.md
+          git add -- reports/p2-ansan-hwaseong-release-audit.json reports/signal-intelligence.json reports/signal-intelligence.md
+          git diff --cached --name-only
+          test "$(git diff --cached --name-only | grep -Ec '^data/raw/(ansan|hwaseong)_expense.json$')" -eq 2
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: P2 verified Ansan and Hwaseong +516 official transaction rows"
+          git push origin HEAD:data/p2-ansan-hwaseong-release-20261027
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.guard.outputs.run == 'true'
+        with:
+          name: p2-ansan-hwaseong-release-quality
+          path: |
+            reports/p2-ansan-hwaseong-release-audit.json
+            reports/quality.json
+            reports/coordinate-audit.json
+          retention-days: 14
+          if-no-files-found: warn
+  icheon-diagnostic:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'data/p2-ansan-hwaseong-release-20261027'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Analyze Icheon unmatched official attachments without publishing
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=json.loads(Path('data/raw/icheon_expense.json').read_text(encoding='utf-8'))
+          Path('/tmp/icheon-old-files.json').write_text(json.dumps(base.get('files',[]),ensure_ascii=False),encoding='utf-8')
+          PY
+          python pipeline/capital_backfill.py --since 2026-06 --until 2026-10 --source icheon
+          python pipeline/ingest_council_expense.py --source icheon --incremental
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          from sys import path
+          path.insert(0,'pipeline')
+          from capital_backfill import canonical_attachment_url
+          old_files=json.loads(Path('/tmp/icheon-old-files.json').read_text(encoding='utf-8'))
+          d=json.loads(Path('data/raw/icheon_expense.json').read_text(encoding='utf-8'))
+          discovery=json.loads(Path('reports/capital-backfill-discovery-icheon.json').read_text(encoding='utf-8'))
+          old_urls={canonical_attachment_url(f.get('url')) for f in old_files}
+          counts=Counter(canonical_attachment_url(r.get('source_attachment_url')) for r in d.get('rows',[]))
+          post_by_url={}
+          for p in discovery.get('posts',[]):
+              for a in p.get('attachments',[]):
+                  u=canonical_attachment_url(a.get('url'))
+                  if u: post_by_url[u]={'post_url':p.get('post_url'),'filename':a.get('filename') or a.get('name') or a.get('text')}
+          new=[]
+          for f in d.get('files',[]):
+              u=canonical_attachment_url(f.get('url'))
+              if u not in old_urls:
+                  new.append({'url':u,'filename':f.get('filename') or f.get('name') or post_by_url.get(u,{}).get('filename'),
+                              'source_post_url':post_by_url.get(u,{}).get('post_url'),'rows_linked':counts[u],
+                              'file_sha256':f.get('sha256')})
+          report={'source':'icheon','scope':'read-only diagnostic; not published','baseline_files':len(old_files),
+                  'new_file_count':len(new),'new_files':new,'unmatched_new_files':[f for f in new if f['rows_linked']==0],
+                  'total_rows_after_discovery':len(d.get('rows',[]))}
+          Path('reports/p2-icheon-diagnostic.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p2-icheon-diagnostic
+          path: reports/p2-icheon-diagnostic.json
+          retention-days: 14
+          if-no-files-found: warn
