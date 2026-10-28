@@ -463,6 +463,16 @@ def infer_pdf_context_role(rows):
     )
     if not head:
         return ""
+    # Committee titles on official multi-page council PDFs are real payer
+    # roles, not continuations of an earlier chair/vice-chair page. Only use
+    # the page's opening heading, never restaurant/purpose cells lower down.
+    opening = " ".join(
+        clean_text(cell) for row in rows[:2] for cell in row if clean_text(cell)
+    )
+    if "업무추진비" in opening or "집행내역" in opening:
+        committee = re.search(r"\(\s*([가-힣]{2,24}위원장)\s*\)", opening)
+        if committee:
+            return committee.group(1)
     patterns = [
         (r"(?:업무추진비|집행내역)[^\n]{0,40}\b1\s*부의장\b", "1부의장"),
         (r"\b1\s*부의장\b[^\n]{0,40}(?:업무추진비|집행내역)", "1부의장"),
@@ -530,6 +540,7 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
     context_role = infer_pdf_context_role(rows[:header + 1]) or source_meta.get("default_role")
     out = []
+    invalid_date_rows = []
     for ri, row in enumerate(rows[header + 1:], start=header + 2):
         values = [clean_text(v) for v in row]
         if len(values) < 2:
@@ -540,6 +551,10 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         try:
             used_date = date.fromisoformat(observed.group(1)).isoformat()
         except ValueError:
+            # The 2026-06 official chair PDF includes a printed
+            # 2026-16-17 date. Do not invent 2026-06-17 or silently
+            # imply every line in the source document was publishable.
+            invalid_date_rows.append({"source_row": ri, "observed_date": observed.group(1)})
             continue
         amount_text = ""
         merchant = ""
@@ -603,7 +618,9 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         out.append(raw)
     return out, {"sheet": sheet_name, "status": "OK" if out else "NO_ROWS",
                  "header_row": header + 1, "mapping": "icheon_pdf_joined_or_separate_amount_merchant",
-                 "section_role": context_role, "parsed_rows": len(out)}
+                 "section_role": context_role, "parsed_rows": len(out),
+                 "invalid_date_rows": len(invalid_date_rows),
+                 "invalid_date_examples": invalid_date_rows[:5]}
 
 
 def normalize_sheet(rows, sheet_name, source_meta):
