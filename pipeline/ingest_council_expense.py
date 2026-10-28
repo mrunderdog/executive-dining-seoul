@@ -587,7 +587,9 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
             "source_period": source_meta.get("period"), "source_sheet": sheet_name,
             "source_row": ri, "used_date": used_date,
             "date_inferred_from_previous_row": False, "used_time": observed.group(2),
-            "role": resolve_role("", sheet_name, context_role, purpose=purpose),
+            # A page label is not an office-holder role. Common-expense
+            # disclosures without a named accountable official remain unassigned.
+            "role": resolve_role("", "", context_role, purpose=purpose),
             "merchant": merchant, "address": "", "purpose": purpose,
             "people": people, "amount": amount,
             "amount_inferred_from_row": not explicit_columns,
