@@ -61,6 +61,28 @@ jobs:
             cat /tmp/icheon-strict-qa.json
           fi
           exit 0
+      - name: Capture exact 2026 June council common-expense PDF for visual parser review
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from ingest_council_expense import fetch_binary, workbook_rows
+          url='https://council.icheon.go.kr/gtb_download.php?fid=4770&gtid=chujin'
+          referer='https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv'
+          blob=fetch_binary(url,referer)
+          if not blob.startswith(b'%PDF'):
+              raise SystemExit('Not a PDF; abort visual inspection')
+          target=Path('reports/icheon-june-common-expense.pdf')
+          target.write_bytes(blob)
+          pages=[]
+          for sheet,rows in workbook_rows(blob,'icheon-common-expense.pdf'):
+              pages.append({'sheet':sheet,'rows':rows[:180]})
+          Path('reports/icheon-june-common-expense-extracted.json').write_text(
+              json.dumps({'source_url':url,'bytes':len(blob),'pages':pages},ensure_ascii=False,indent=2),encoding='utf-8')
+          for page in pages[:3]:
+              print(json.dumps(page,ensure_ascii=False)[:10000])
+          PY
       - name: Restore runner data and verify original unchanged
         if: always()
         run: |
@@ -75,6 +97,8 @@ jobs:
           if-no-files-found: warn
           path: |
             reports/icheon-live-diagnostic.json
+            reports/icheon-june-common-expense.pdf
+            reports/icheon-june-common-expense-extracted.json
             /tmp/icheon-discovery.log
             /tmp/icheon-ingestion.log
             /tmp/icheon-strict-qa.json
