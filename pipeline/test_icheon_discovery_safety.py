@@ -124,4 +124,36 @@ class IcheonRealJunePdfFixture(unittest.TestCase):
         self.assertTrue(all(r["role"]=="" for r in parsed), "Common expenses must not invent a payer identity")
         self.assertTrue(all(r["payment_method"]=="카드" for r in parsed))
 
+class IcheonRoleAndDateGuards(unittest.TestCase):
+    def test_committee_section_role_overrides_prior_page_chair_context(self):
+        from ingest_council_expense import normalize_sheet, infer_pdf_context_role
+        base={"region":"경기","jurisdiction":"이천시","institution":"이천시의회",
+              "source":"icheon","post_url":POST,"attachment_url":NEW1,
+              "attachment_name":"의회운영업무추진비.pdf",
+              "period":[2026,6,None],"default_role":"의장"}
+        for committee in ("자치행정위원장","산업건설위원장","의회운영위원장"):
+            rows=[[f"2026년 6월 업무추진비 집행내역({committee})"],
+                  ["집행일시","집행내역","집행액","사용처","인원","사용방법"],
+                  ["2026-06-05 12:23:00","의정활동 후 식사","100,000","가상식당","4","카드"]]
+            self.assertEqual(infer_pdf_context_role(rows),committee)
+            parsed,report=normalize_sheet(rows,"pdf-page-3",base)
+            self.assertEqual(len(parsed),1)
+            self.assertEqual(parsed[0]["role"],committee)
+            self.assertEqual(report["section_role"],committee)
+
+    def test_invalid_official_date_is_quarantined_not_rewritten(self):
+        from ingest_council_expense import normalize_sheet
+        meta={"region":"경기","jurisdiction":"이천시","institution":"이천시의회",
+              "source":"icheon","post_url":POST,"attachment_url":NEW1,
+              "attachment_name":"업무추진비.pdf","period":[2026,6,None],"default_role":"의장"}
+        rows=[["2026년 6월 업무추진비 집행내역(의장)"],
+              ["집행일시","집행내역","집행액","사용처","인원","사용방법"],
+              ["2026-06-16 12:20:00","점심 식사","100,000","정상식당","5","카드"],
+              ["2026-16-17 12:07:00","이상 날짜","48,000","가상식당","4","카드"]]
+        parsed,report=normalize_sheet(rows,"pdf-page-1",meta)
+        self.assertEqual(len(parsed),1)
+        self.assertEqual(parsed[0]["used_date"],"2026-06-16")
+        self.assertEqual(report["invalid_date_rows"],1)
+        self.assertEqual(report["invalid_date_examples"][0]["observed_date"],"2026-16-17")
+
 if __name__=="__main__":unittest.main()
