@@ -1,7 +1,20 @@
 {
   "source": "icheon",
-  "candidate_count": 77,
+  "candidate_count": 90,
   "candidates": [
+    {
+      "merchant": "정다함",
+      "visits": 8,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 1169000,
+      "people": 46,
+      "evening_ratio": 0.0,
+      "score": 66.9
+    },
     {
       "merchant": "설봉골생고기",
       "visits": 5,
@@ -27,19 +40,6 @@
       "people": 84,
       "evening_ratio": 0.0,
       "score": 57.8
-    },
-    {
-      "merchant": "정다함",
-      "visits": 5,
-      "roles": [
-        "부의장",
-        "의장"
-      ],
-      "months": 2,
-      "spend": 880000,
-      "people": 34,
-      "evening_ratio": 0.0,
-      "score": 50.4
     },
     {
       "merchant": "성루",
@@ -78,6 +78,19 @@
       "people": 32,
       "evening_ratio": 0.333,
       "score": 37.7
+    },
+    {
+      "merchant": "관촌순두부",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 141000,
+      "people": 7,
+      "evening_ratio": 0.0,
+      "score": 37.5
     },
     {
       "merchant": "렛뚜",
@@ -140,6 +153,18 @@
       "people": 14,
       "evening_ratio": 1.0,
       "score": 30.2
+    },
+    {
+      "merchant": "갈비현",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 488700,
+      "people": 20,
+      "evening_ratio": 1.0,
+      "score": 30.1
     },
     {
       "merchant": "이천축산업협동조합 한우프라자",
@@ -214,6 +239,18 @@
       "score": 29.6
     },
     {
+      "merchant": "제주흑돼지",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 285000,
+      "people": 10,
+      "evening_ratio": 1.0,
+      "score": 29.4
+    },
+    {
       "merchant": "생선장수",
       "visits": 1,
       "roles": [
@@ -224,6 +261,30 @@
       "people": 9,
       "evening_ratio": 1.0,
       "score": 29.4
+    },
+    {
+      "merchant": "아리솔밭가든",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 258000,
+      "people": 10,
+      "evening_ratio": 1.0,
+      "score": 29.4
+    },
+    {
+      "merchant": "참치대장",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 200000,
+      "people": 6,
+      "evening_ratio": 1.0,
+      "score": 29.2
     },
     {
       "merchant": "강천섬 매운탕",
@@ -262,6 +323,18 @@
       "score": 29.1
     },
     {
+      "merchant": "공원소머리국밥",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 171000,
+      "people": 7,
+      "evening_ratio": 1.0,
+      "score": 29.1
+    },
+    {
       "merchant": "싱싱종합어시장",
       "visits": 1,
       "roles": [
@@ -284,6 +357,30 @@
       "people": 4,
       "evening_ratio": 1.0,
       "score": 29.0
+    },
+    {
+      "merchant": "신돈가",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 127000,
+      "people": 6,
+      "evening_ratio": 1.0,
+      "score": 28.9
+    },
+    {
+      "merchant": "아리골",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 113500,
+      "people": 5,
+      "evening_ratio": 1.0,
+      "score": 28.9
     },
     {
       "merchant": "이천감자탕",
@@ -334,6 +431,18 @@
       "score": 28.8
     },
     {
+      "merchant": "온정손만두",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 55000,
+      "people": 4,
+      "evening_ratio": 1.0,
+      "score": 28.7
+    },
+    {
       "merchant": "대한민국1등감자탕",
       "visits": 1,
       "roles": [
@@ -344,6 +453,18 @@
       "people": 3,
       "evening_ratio": 1.0,
       "score": 28.7
+    },
+    {
+      "merchant": "송정영양집",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 275000,
+      "people": 11,
+      "evening_ratio": 0.5,
+      "score": 27.9
     },
     {
       "merchant": "해피박스시청점",
@@ -406,6 +527,18 @@
       "score": 19.6
     },
     {
+      "merchant": "호반닭갈비",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 342000,
+      "people": 21,
+      "evening_ratio": 0.0,
+      "score": 19.6
+    },
+    {
       "merchant": "훗스테이크 이천점",
       "visits": 1,
       "roles": [
@@ -416,6 +549,18 @@
       "people": 10,
       "evening_ratio": 0.0,
       "score": 19.5
+    },
+    {
+      "merchant": "강민주의들밥",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 285000,
+      "people": 16,
+      "evening_ratio": 0.0,
+      "score": 19.4
     },
     {
       "merchant": "관고동사랑방",
@@ -594,6 +739,18 @@
       "months": 1,
       "spend": 120500,
       "people": 23,
+      "evening_ratio": 0.0,
+      "score": 18.9
+    },
+    {
+      "merchant": "이천막국수",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 112000,
+      "people": 7,
       "evening_ratio": 0.0,
       "score": 18.9
     },
@@ -802,6 +959,18 @@
       "score": 18.7
     },
     {
+      "merchant": "장가네보신탕",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 55000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
       "merchant": "강남박생태찌개",
       "visits": 1,
       "roles": [
@@ -905,18 +1074,6 @@
       ],
       "months": 1,
       "spend": 32000,
-      "people": 2,
-      "evening_ratio": 0.0,
-      "score": 18.6
-    },
-    {
-      "merchant": "관촌순두부",
-      "visits": 1,
-      "roles": [
-        "부의장"
-      ],
-      "months": 1,
-      "spend": 30000,
       "people": 2,
       "evening_ratio": 0.0,
       "score": 18.6
