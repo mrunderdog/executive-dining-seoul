@@ -85,4 +85,42 @@ class IcheonSafety(unittest.TestCase):
         self.assertEqual(audit["new_rows"],1)
         self.assertEqual(audit["lost_prior_rows"],0)
 
+class IcheonRealJunePdfFixture(unittest.TestCase):
+    def test_official_2026_june_common_expense_separate_columns(self):
+        from ingest_council_expense import normalize_sheet
+        url="https://council.icheon.go.kr/gtb_download.php?fid=4770&gtid=chujin"
+        info={
+            "source":"icheon","region":"경기","jurisdiction":"이천시","institution":"이천시의회",
+            "post_url":"https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv",
+            "attachment_url":url,"attachment_name":"의회운영공통경비 집행내역(26.6.).pdf",
+            "period":[2026,6,None],"default_role":"",
+        }
+        # Exact cells from the official fid=4770 PDF (2026-06, PyPDF layout).
+        rows=[
+            ["2026년 6월 의회운영공통경비 집행내역"],
+            ["• 예 산 액 : 65,400,000원"],
+            ["• 집 행 액 : 12,969,700원"],
+            ["• 집행잔액 : 52,430,300원"],
+            ["집행일시","집행내역","집행액","사용처","사용방법"],
+            ["2026-06-11 15:10:15","의원실 내방 민원을 위한 음료 구입","480,000","광동상사","카드"],
+            ["2026-06-29 12:21:25","제8대 이천시의회 폐원식 식사","412,000","소보양본가","카드"],
+            ["2026-06-29 15:28:45","제262회 임시회 참석자 식권 구입","64,000","이천시청 구내식당","카드"],
+            ["2026-06-30 12:22:15","합계","12,969,700","카드",""],
+            ["2026-06-32 12:20:01","잘못된 날짜","132,000","가상식당","카드"],
+        ]
+        parsed, summary=normalize_sheet(rows,"pdf-page-1",info)
+        self.assertEqual(summary["status"],"OK")
+        self.assertEqual(summary["parsed_rows"],3)
+        self.assertEqual([r["used_date"] for r in parsed],["2026-06-11","2026-06-29","2026-06-29"])
+        self.assertEqual([r["merchant"] for r in parsed],["광동상사","소보양본가","이천시청 구내식당"])
+        self.assertEqual([r["amount"] for r in parsed],[480000,412000,64000])
+        self.assertEqual([r["purpose"] for r in parsed],[
+            "의원실 내방 민원을 위한 음료 구입",
+            "제8대 이천시의회 폐원식 식사",
+            "제262회 임시회 참석자 식권 구입"])
+        self.assertEqual(len({r["row_id"] for r in parsed}),3)
+        self.assertTrue(all(r["source_attachment_url"]==url for r in parsed))
+        self.assertTrue(all(r["parse_confidence"]=="high" and not r["amount_inferred_from_row"] for r in parsed))
+        self.assertTrue(all(r["payment_method"]=="카드" for r in parsed))
+
 if __name__=="__main__":unittest.main()
