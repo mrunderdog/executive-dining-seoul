@@ -516,13 +516,13 @@ def resolve_role(cell_value, sheet_name, default_role, purpose=""):
 
 
 def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
-    """Parse Icheon PDF layout with joined `amount + merchant` text cells.
+    """Parse verified Icheon PDF tables with joined OR separate amount/merchant.
 
-    Verified official examples have a 5/6-column header, but PyPDF merges the
-    집행액 and 사용처 columns into a single cell (e.g. '41,800늘고기집'). On some
-    pages the date/time and purpose are also merged. Require a real header,
-    full YYYY-MM-DD date, comma-grouped currency and a nonempty merchant;
-    do not manufacture dates or treat PDF narrative as transactions.
+    Official 2026-09 PDFs can join the amount and merchant in one extracted
+    cell, e.g. '41,800늘고기집'. Official 2026-06 council-common-expense
+    PDFs instead have two separate cells, e.g. '480,000', '광동상사'.
+    Both require the real table header, full observed datetime, properly
+    comma-grouped amount and meaningful merchant. No dates or rows invented.
     """
     header = next((i for i, row in enumerate(rows[:30])
                    if {"집행일시", "집행액", "사용처"}.issubset({clean_text(x) for x in row})), None)
@@ -541,22 +541,41 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
             used_date = date.fromisoformat(observed.group(1)).isoformat()
         except ValueError:
             continue
-        amount_merchant = None
+        amount_text = ""
+        merchant = ""
         amount_idx = -1
+        after_idx = -1
+        explicit_columns = False
         for idx, value in enumerate(values[1:], start=1):
-            # A space between the amount and merchant is optional in the PDF.
+            # Some PDF extraction layouts join amount+merchant in one cell.
             m = re.fullmatch(r"\s*(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s*", value)
-            if m and valid_transaction_merchant(m.group(2)):
-                amount_merchant, amount_idx = m, idx
+            if m and valid_transaction_merchant(m.group(2)) and m.group(2).strip() not in {"카드", "현금", "법인카드", "계좌이체"}:
+                amount_text, merchant = m.group(1), m.group(2).strip()
+                amount_idx, after_idx = idx, idx + 1
                 break
-        if not amount_merchant:
+        if not amount_text:
+            # In 2026-06 official common-expense PDFs PyPDF returns distinct
+            # amount and merchant columns. Never treat a subtotal or a card
+            # payment-method label as a merchant.
+            for idx, value in enumerate(values[1:-1], start=1):
+                if not re.fullmatch(r"\d{1,3}(?:,\d{3})+", value):
+                    continue
+                candidate = values[idx + 1].strip()
+                if (not valid_transaction_merchant(candidate)
+                    or candidate in {"카드", "현금", "법인카드", "계좌이체"}
+                    or re.fullmatch(r"[\d,]+", candidate)):
+                    continue
+                amount_text, merchant = value, candidate
+                amount_idx, after_idx = idx, idx + 2
+                explicit_columns = True
+                break
+        if not amount_text:
             continue
-        amount = parse_amount(amount_merchant.group(1))
+        amount = parse_amount(amount_text)
         if amount is None or not 0 < amount < 50_000_000:
             continue
-        merchant = amount_merchant.group(2).strip()
         purpose = " ".join(x for x in [observed.group(3), *values[1:amount_idx]] if x)
-        after = values[amount_idx + 1:]
+        after = values[after_idx:]
         people = parse_people(next((x for x in after if re.fullmatch(r"\d+\s*(?:명)?", x)), ""))
         method = next((x for x in after if x in {"카드", "현금", "계좌이체", "법인카드"}), "")
         raw = {
@@ -571,8 +590,9 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
             "role": resolve_role("", sheet_name, context_role, purpose=purpose),
             "merchant": merchant, "address": "", "purpose": purpose,
             "people": people, "amount": amount,
-            "amount_inferred_from_row": True,
-            "payment_method": method, "parse_confidence": "medium",
+            "amount_inferred_from_row": not explicit_columns,
+            "payment_method": method,
+            "parse_confidence": "high" if explicit_columns else "medium",
         }
         raw["row_id"] = hashlib.sha256(
             "|".join(str(raw.get(k, "")) for k in
@@ -580,7 +600,7 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         ).hexdigest()[:20]
         out.append(raw)
     return out, {"sheet": sheet_name, "status": "OK" if out else "NO_ROWS",
-                 "header_row": header + 1, "mapping": "icheon_pdf_joined_amount_merchant",
+                 "header_row": header + 1, "mapping": "icheon_pdf_joined_or_separate_amount_merchant",
                  "section_role": context_role, "parsed_rows": len(out)}
 
 
