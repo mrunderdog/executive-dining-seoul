@@ -1,0 +1,80 @@
+name: Icheon live evidence and source safety preflight
+on:
+  pull_request:
+    paths:
+      - 'pipeline/diagnose_icheon.py'
+      - 'pipeline/capital_backfill.py'
+      - 'pipeline/qa_council_publication.py'
+      - 'pipeline/test_icheon_discovery_safety.py'
+      - '.github/workflows/icheon-preflight.yml'
+permissions:
+  contents: read
+jobs:
+  fixture-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Regression and Icheon fixture verification
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_icheon_discovery_safety
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+  live-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install PDF/Excel readers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Preserve original official raw dataset and count
+        run: |
+          cp data/raw/icheon_expense.json /tmp/icheon-baseline.json
+          git rev-parse HEAD
+      - name: Discover and parse official Icheon files without posting or publishing
+        shell: bash
+        run: |
+          set +e
+          python pipeline/capital_backfill.py --since 2026-06 --until 2026-10 --source icheon > /tmp/icheon-discovery.log 2>&1
+          DRC=$?
+          cat /tmp/icheon-discovery.log
+          echo "discovery_exit_code=$DRC" >> "$GITHUB_ENV"
+          if [[ $DRC == 0 ]]; then
+            python pipeline/ingest_council_expense.py --source icheon --incremental > /tmp/icheon-ingestion.log 2>&1
+            IRC=$?
+            cat /tmp/icheon-ingestion.log
+            echo "ingest_exit_code=$IRC" >> "$GITHUB_ENV"
+          fi
+          if [[ -f reports/capital-backfill-discovery-icheon.json ]]; then
+            python pipeline/diagnose_icheon.py --baseline /tmp/icheon-baseline.json
+          fi
+          if [[ -f reports/icheon-live-diagnostic.json ]]; then
+            python pipeline/qa_council_publication.py --source icheon --baseline-ref HEAD > /tmp/icheon-strict-qa.json 2>&1 || true
+            cat /tmp/icheon-strict-qa.json
+          fi
+          exit 0
+      - name: Restore runner data and verify original unchanged
+        if: always()
+        run: |
+          git restore -- data/raw/icheon_expense.json reports/capital-backfill-discovery-icheon.json 2>/dev/null || true
+          git diff --exit-code -- data/raw/icheon_expense.json
+          echo "Existing Icheon dataset remains untouched in repository."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: icheon-live-source-diagnostics
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            reports/icheon-live-diagnostic.json
+            /tmp/icheon-discovery.log
+            /tmp/icheon-ingestion.log
+            /tmp/icheon-strict-qa.json
