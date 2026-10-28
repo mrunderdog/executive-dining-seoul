@@ -67,6 +67,8 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+          import sys
+          sys.path.insert(0,'pipeline')
           from ingest_council_expense import fetch_binary, workbook_rows
           url='https://council.icheon.go.kr/gtb_download.php?fid=4770&gtid=chujin'
           referer='https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv'
