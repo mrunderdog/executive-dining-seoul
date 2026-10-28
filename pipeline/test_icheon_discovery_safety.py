@@ -121,6 +121,7 @@ class IcheonRealJunePdfFixture(unittest.TestCase):
         self.assertEqual(len({r["row_id"] for r in parsed}),3)
         self.assertTrue(all(r["source_attachment_url"]==url for r in parsed))
         self.assertTrue(all(r["parse_confidence"]=="high" and not r["amount_inferred_from_row"] for r in parsed))
+        self.assertTrue(all(r["role"]=="" for r in parsed), "Common expenses must not invent a payer identity")
         self.assertTrue(all(r["payment_method"]=="카드" for r in parsed))
 
 if __name__=="__main__":unittest.main()
