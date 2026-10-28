@@ -84,6 +84,25 @@ jobs:
               json.dumps({'source_url':url,'bytes':len(blob),'pages':pages},ensure_ascii=False,indent=2),encoding='utf-8')
           for page in pages[:3]:
               print(json.dumps(page,ensure_ascii=False)[:10000])
+          operation_url='https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin'
+          operation_blob=fetch_binary(operation_url,referer)
+          if not operation_blob.startswith(b'%PDF'):
+              raise SystemExit('June business-expense source not PDF')
+          Path('reports/icheon-june-business-expense.pdf').write_bytes(operation_blob)
+          operation_pages=[{'sheet':sheet,'rows':rows} for sheet,rows in workbook_rows(operation_blob,'icheon-business-expense.pdf')]
+          Path('reports/icheon-june-business-expense-extracted.json').write_text(
+              json.dumps({'url':operation_url,'bytes':len(operation_blob),'pages':operation_pages},ensure_ascii=False,indent=2),encoding='utf-8')
+          prior=json.loads(Path('/tmp/icheon-baseline.json').read_text(encoding='utf-8'))
+          now=json.loads(Path('data/raw/icheon_expense.json').read_text(encoding='utf-8'))
+          old_ids={str(x.get('row_id')) for x in prior['rows']}
+          additions=[{'date':x.get('used_date'),'merchant':x.get('merchant'),'amount':x.get('amount'),
+                      'purpose':x.get('purpose'),'role':x.get('role'),
+                      'file_url':x.get('source_attachment_url'),'source_sheet':x.get('source_sheet')}
+                     for x in now['rows'] if str(x.get('row_id')) not in old_ids]
+          Path('reports/icheon-new-row-audit.json').write_text(json.dumps(additions,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('NEW_ROWS',len(additions),'BY_FILE',json.dumps({
+              'fid4769':sum('fid=4769' in (x['file_url'] or '') for x in additions),
+              'fid4770':sum('fid=4770' in (x['file_url'] or '') for x in additions)},ensure_ascii=False))
           PY
       - name: Restore runner data and verify original unchanged
         if: always()
@@ -101,6 +120,9 @@ jobs:
             reports/icheon-live-diagnostic.json
             reports/icheon-june-common-expense.pdf
             reports/icheon-june-common-expense-extracted.json
+            reports/icheon-june-business-expense.pdf
+            reports/icheon-june-business-expense-extracted.json
+            reports/icheon-new-row-audit.json
             /tmp/icheon-discovery.log
             /tmp/icheon-ingestion.log
             /tmp/icheon-strict-qa.json
