@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "source": "icheon",
+  "baseline_rows": 141,
+  "new_total_rows": 186,
+  "verified_new_rows": 45,
+  "rows_by_new_official_pdf": {
+    "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin": 42,
+    "https://council.icheon.go.kr/gtb_download.php?fid=4770&gtid=chujin": 3
+  },
+  "lost_prior_rows": 0,
+  "changed_prior_rows": 0,
+  "duplicate_row_ids": 0,
+  "lost_prior_files": 0,
+  "changed_prior_files": 0,
+  "quarantined_official_invalid_date_rows": [
+    {
+      "url": "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin",
+      "page": "pdf-page-1",
+      "source_row": 15,
+      "observed_date": "2026-16-17"
+    }
+  ],
+  "entities_before": 1352,
+  "entities_after": 1353,
+  "lost_entity_source_keys": 0,
+  "new_entity_source_keys": 1,
+  "moved_entity_source_keys": 0,
+  "merged_previous_entities": [],
+  "changed_existing_scores": [],
+  "unrelated_score_changes": [],
+  "errors": []
+}

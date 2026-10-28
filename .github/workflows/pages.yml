@@ -114,7 +114,7 @@ jobs:
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_refresh_needed.py
 
       - name: Test official council adapters and refresh monitoring
-        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_council_recovery.py pipeline/test_refresh_health.py
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_council_recovery.py pipeline/test_refresh_health.py pipeline/test_icheon_discovery_safety.py
 
       - name: Test data story semantics
         run: python pipeline/test_data_story.py

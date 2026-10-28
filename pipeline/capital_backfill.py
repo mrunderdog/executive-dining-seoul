@@ -749,8 +749,47 @@ def discover_source(src: Source, since, until):
                                        for p in result):
         recovered = recover_verified_icheon_posts(src, effective_since, until)
         if recovered:
+            # A seed-based reconstruction is useful for review, but is NOT a
+            # complete, live board discovery and must never be published as OK.
+            for post in recovered:
+                post['recovery_trigger'] = 'no_current_downloadable_posts'
             return sanitize_discovered_posts(recovered)
     return result
+
+
+def icheon_discovery_issues(posts, prior, since, until):
+    """Fail closed on incomplete Icheon discovery, retaining last-good bytes.
+
+    Existing verified post IDs can guide a retry; they are not evidence that
+    the live board was successfully collected during this run. A single
+    missing historical attachment or failed detail means a partial snapshot.
+    """
+    problems = []
+    current = [p for p in posts if p.get('source') == 'icheon']
+    for post in current:
+        if post.get('error'):
+            problems.append('current_listing_or_detail_error')
+        if post.get('recovery_trigger') or post.get('discovery_method') == 'historically_verified_ids_revalidate_pdf':
+            problems.append('fallback_not_live_discovery')
+    def in_period(post):
+        period = post.get('period')
+        return bool(period and period_overlaps(period, since, until))
+    def urls(items):
+        return {u for p in items if in_period(p)
+                for a in p.get('attachments', [])
+                if (u := canonical_attachment_url(a.get('url')))}
+    fresh_urls = urls(current)
+    prior_urls = urls([p for p in (prior or {}).get('posts', []) if p.get('source') == 'icheon'])
+    if not fresh_urls:
+        problems.append('no_live_downloadable_attachments')
+    missing = sorted(prior_urls - fresh_urls)
+    if missing:
+        problems.append('prior_verified_attachments_missing')
+    return {'status': 'DEGRADED' if problems else 'OK',
+            'problems': sorted(set(problems)),
+            'current_attachment_count': len(fresh_urls),
+            'prior_attachment_count': len(prior_urls),
+            'missing_prior_attachment_urls': missing}
 
 
 def ym(s: str):
@@ -774,6 +813,18 @@ def main():
     suffix = f"-{args.source}" if args.source else ""
     out_json = REPORTS / f"capital-backfill-discovery{suffix}.json"
     out_md = REPORTS / f"capital-backfill-discovery{suffix}.md"
+
+    if args.source == 'icheon':
+        # Never overwrite a verified source snapshot with partially fetched
+        # detail pages, unreachable listings, or seed-only recovery results.
+        try:
+            prior = json.loads(out_json.read_text(encoding='utf-8')) if out_json.exists() else {}
+        except (OSError, ValueError):
+            prior = {}
+        verdict = icheon_discovery_issues(rows, prior, since, until)
+        if verdict['status'] != 'OK':
+            print(json.dumps({'source': 'icheon', **verdict}, ensure_ascii=False))
+            raise SystemExit(2)
 
     # Public boards can transiently time out or change markup. Never replace a
     # previously usable source map with a zero-result discovery.
