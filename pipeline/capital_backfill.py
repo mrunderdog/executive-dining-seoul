@@ -267,6 +267,12 @@ def title_period(title: str):
     q = re.search(r"(20\d{2})\s*년(?:도)?\s*([1-4])\s*(?:/\s*4\s*)?분기", title)
     if q:
         return int(q.group(1)), None, int(q.group(2))
+    # Some official councils print a year at the beginning and the quarter
+    # only at the end, e.g. '2026년 파주시의회 업무추진비 내역(2분기)'.
+    # Both year and exact quarter must appear in the *same* title.
+    late = re.search(r"(20\d{2})\s*년(?:도)?[^\n]{0,100}?\(\s*([1-4])\s*(?:/\s*4\s*)?분기\s*\)", title)
+    if late:
+        return int(late.group(1)), None, int(late.group(2))
     return None
 
 
@@ -613,6 +619,28 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        # Gapyeong's official list table contains attachment downloads in
+        # the same <tr> as each title. Its detail page can render the PDF
+        # viewer without an ordinary downloadable <a>. Bind only files
+        # visibly associated with the exact official post URL in that row.
+        gapyeong_row_downloads = {}
+        if src.key == "gapyeong":
+            for tr in re.findall(r"<tr\\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
+                row_anchors = anchors(url, tr)
+                detail_links = [
+                    a["url"] for a in row_anchors
+                    if "/operations2BBSview.do" in a.get("url", "")
+                ]
+                official_downloads = [
+                    {"text": a["text"], "url": a["url"]}
+                    for a in row_anchors
+                    if "/kr/bbs/download.do" in a.get("url", "")
+                    and urllib.parse.urlsplit(a["url"]).hostname == urllib.parse.urlsplit(url).hostname
+                    and "bbs_id=operations2" in a["url"]
+                    and canonical_attachment_url(a["url"])
+                ]
+                for detail in detail_links:
+                    gapyeong_row_downloads[detail] = official_downloads
         # Official form/onclick-backed rows are not ordinary href anchors.
         for row in council_js_posts(src, url, doc, effective_since, until):
             if row["post_url"] in seen_posts:
@@ -731,7 +759,13 @@ def discover_source(src: Source, since, until):
                 found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
                 if not found:
                     found = regex_attachment_fallback(a["url"], detail)
-                row["attachments"] = found
+                if src.key == "gapyeong":
+                    # Never fetch an unverified viewer/pdf.do wrapper as a
+                    # transaction file. Use only row-bound official downloads.
+                    found = [*found, *gapyeong_row_downloads.get(a["url"], [])]
+                row["attachments"] = [
+                    a for a in found if canonical_attachment_url(a.get("url"))
+                ]
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
