@@ -1,0 +1,37 @@
+name: P1 official board markup inspection (read-only)
+on:
+  pull_request:
+    paths:
+      - .github/workflows/p1-board-markup-inspection.yml
+permissions:
+  contents: read
+jobs:
+  markup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Inspect official list rows and real link attributes
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import re
+          from capital_backfill import SOURCES,fetch_text,anchors,council_js_posts,title_period
+          for name in ['gimpo','bupyeong','paju']:
+              src=next(s for s in SOURCES if s.key==name)
+              url=src.listing_template.format(page=1)
+              print('=== SOURCE',name,url,flush=True)
+              try:
+                  html=fetch_text(url)
+                  rows=re.findall(r'<tr\b[^>]*>.*?</tr>',html,re.I|re.S)
+                  matches=[r for r in rows if '업무추진비' in r][:2]
+                  print('title_rows',len(matches),'page_bytes',len(html),flush=True)
+                  for tr in matches:
+                      print('ROW',tr[:2400],flush=True)
+                      print('ANCHORS',anchors(url,tr),flush=True)
+                      print('PERIOD',title_period(re.sub(r'<[^>]*>',' ',tr)),flush=True)
+              except Exception as exc:
+                  print('ERROR',type(exc).__name__,str(exc)[:600],flush=True)
+          PY
