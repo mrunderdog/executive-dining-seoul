@@ -1,0 +1,51 @@
+name: P1 Bupyeong 2026 September exact-source strict release
+on:
+  pull_request:
+    paths:
+      - pipeline/ingest_council_expense.py
+      - pipeline/audit_p1_bupyeong_release.py
+      - .github/workflows/p1-bupyeong-release.yml
+permissions:
+  contents: read
+jobs:
+  strict-release-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install verified spreadsheet and PDF parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Discover Bupyeong 2026 and historical reference documents
+        run: python pipeline/capital_backfill.py --since 2024-12 --until 2026-10 --source bupyeong
+      - name: Guard official source identity and complete file discovery
+        run: python pipeline/guard_full_council.py --source bupyeong --phase discovery --baseline-ref HEAD
+      - name: Reconcile actual official Excel documents; retain immutable historical transactions
+        run: python pipeline/ingest_council_expense.py --source bupyeong --incremental
+      - name: Normalize only newly sourced dates and protect historical rows
+        run: python pipeline/repair_raw_dates.py --source bupyeong --min-valid 0.0 --preserve-baseline-ref HEAD
+      - name: Independent strict QA, old row/file identity and 2025 duplicated-sheet audit
+        run: |
+          PYTHONPATH=pipeline python pipeline/audit_p1_bupyeong_release.py
+          python pipeline/build_source_candidates.py --source bupyeong --top 100
+          python pipeline/regression_checks.py
+          python pipeline/build_signal_reports.py
+          python pipeline/quality_gate.py
+          python pipeline/audit_coordinates.py
+          python pipeline/build_site.py --output /tmp/bupyeong-index.html
+          test -s /tmp/bupyeong-index.html
+      - name: Preserve provenance diagnostic; no production publish
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-bupyeong-strict-release-results
+          path: |
+            reports/p1-bupyeong-strict-release-audit.json
+            reports/quality.json
+            reports/coordinate-audit.json
+          retention-days: 14
+          if-no-files-found: warn
