@@ -6,15 +6,18 @@ on:
       - pipeline/audit_p1_bupyeong_release.py
       - .github/workflows/p1-bupyeong-release.yml
 permissions:
-  contents: read
+  contents: write
 jobs:
   strict-release-check:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/p1-three-source-row-forensics-20261029'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
         with:
-          persist-credentials: false
+          ref: fix/p1-three-source-row-forensics-20261029
+          fetch-depth: 0
+          persist-credentials: true
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
@@ -42,7 +45,59 @@ jobs:
           python pipeline/audit_coordinates.py
           python pipeline/build_site.py --output /tmp/bupyeong-index.html
           test -s /tmp/bupyeong-index.html
-      - name: Preserve provenance diagnostic; no production publish
+      - name: Commit only exact-source approved Bupyeong rows to P1 PR branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=pipeline python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('reports/p1-bupyeong-strict-release-audit.json').read_text(encoding='utf-8'))
+          assert a['status']=='PASS' and a['strict_qa']['status']=='PUBLISH_READY'
+          assert a['new_rows']==92 and a['reused_source_rows_not_duplicated']==959
+          assert a['historical_integrity']['lost_row_count']==0
+          assert a['historical_integrity']['changed_row_count']==0
+          assert a['historical_integrity']['lost_file_count']==0
+          assert a['historical_integrity']['changed_file_count']==0
+          assert json.loads(Path('reports/quality.json').read_text(encoding='utf-8'))['passed'] is True
+          PY
+          git add -- data/raw/bupyeong_expense.json
+          git add -- reports/bupyeong-executive-candidates.json reports/bupyeong-executive-candidates.md reports/bupyeong-ingestion.md
+          git add -- reports/capital-backfill-discovery-bupyeong.json reports/capital-backfill-discovery-bupyeong.md
+          git add -- reports/p1-bupyeong-strict-release-audit.json
+          echo 'Files to publish in P1 PR:'
+          git diff --cached --name-only
+          test "$(git diff --cached --name-only | grep -Ec '^data/raw/bupyeong_expense.json
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-bupyeong-strict-release-results
+          path: |
+            reports/p1-bupyeong-strict-release-audit.json
+            reports/quality.json
+            reports/coordinate-audit.json
+          retention-days: 14
+          if-no-files-found: warn
+)" -eq 1
+          if git diff --cached --name-only | grep -Eq '^data/raw/(gapyeong|gimpo)_expense.json
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-bupyeong-strict-release-results
+          path: |
+            reports/p1-bupyeong-strict-release-audit.json
+            reports/quality.json
+            reports/coordinate-audit.json
+          retention-days: 14
+          if-no-files-found: warn
+; then
+            echo 'Attempted to stage an unapproved council source'; exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: publish 92 strictly verified Sep 2026 Bupyeong rows, retain all historic source records"
+          git push origin HEAD:fix/p1-three-source-row-forensics-20261029
+      - name: Preserve provenance diagnostic; no direct production publish
         if: always()
         uses: actions/upload-artifact@v4
         with:
