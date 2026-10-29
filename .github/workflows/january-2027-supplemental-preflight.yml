@@ -1,0 +1,54 @@
+name: January 2027 supplemental-source operational preflight (read-only)
+on:
+  pull_request:
+    paths:
+      - .github/workflows/january-2027-supplemental-preflight.yml
+permissions:
+  contents: read
+jobs:
+  supplementary:
+    strategy:
+      fail-fast: false
+      matrix:
+        cohort: [regional, central, enterprise, justice]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install data adapters
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Non-publishing official source checks
+        shell: bash
+        env:
+          COHORT: "${{ matrix.cohort }}"
+          HAS_SEOUL_API_KEY: "${{ secrets.SEOUL_API_KEY != '' }}"
+        run: |
+          mkdir -p reports/january-2027-supplemental
+          python - <<'PY'
+          import os,json
+          from pathlib import Path
+          Path('reports/january-2027-supplemental/config.json').write_text(json.dumps({'cohort':os.environ['COHORT'],'seoul_api_configured':os.environ['HAS_SEOUL_API_KEY']=='true'}))
+          PY
+          if [[ "$COHORT" == "regional" ]]; then
+            timeout 240 python pipeline/supplemental_source_status.py --year 2026 --month 9 > reports/january-2027-supplemental/regional.log 2>&1; echo "regional rc=$?" >> reports/january-2027-supplemental/result.txt
+            cp reports/supplemental-source-status-2026-09.json reports/january-2027-supplemental/ 2>/dev/null || true
+          elif [[ "$COHORT" == "central" ]]; then
+            timeout 240 python pipeline/central_executive_discovery.py --incremental --detail-limit 8 > reports/january-2027-supplemental/central.log 2>&1; echo "central rc=$?" >> reports/january-2027-supplemental/result.txt
+          elif [[ "$COHORT" == "enterprise" ]]; then
+            timeout 240 python pipeline/public_enterprise_discovery.py --incremental --detail-limit 12 > reports/january-2027-supplemental/enterprise.log 2>&1; echo "enterprise rc=$?" >> reports/january-2027-supplemental/result.txt
+          elif [[ "$COHORT" == "justice" ]]; then
+            timeout 240 python pipeline/refresh_justice.py --mode validate > reports/january-2027-supplemental/justice.log 2>&1; echo "justice rc=$?" >> reports/january-2027-supplemental/result.txt
+          fi
+          cat reports/january-2027-supplemental/result.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jan-2027-supplemental-${{ matrix.cohort }}
+          path: reports/january-2027-supplemental/
+          retention-days: 20
+          if-no-files-found: warn
