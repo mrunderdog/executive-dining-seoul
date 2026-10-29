@@ -1,0 +1,79 @@
+name: P1 official source adapter recovery (all 40)
+on:
+  pull_request:
+    paths:
+      - pipeline/capital_backfill.py
+      - pipeline/test_council_p1_adapters.py
+      - pipeline/audit_p1_source_recovery.py
+      - .github/workflows/p1-adapter-validation.yml
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Python parser prerequisites
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Run P1 and all relevant source safety regressions
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_council_p1_adapters test_full_reconciliation_p0 test_council_recovery test_icheon_discovery_safety test_monthly_entity_guards
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/p1-site.html
+  source-probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install XLS/PDF source parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Audit four live official council sources with P1 adapter
+        run: python -u pipeline/audit_p1_source_recovery.py group --group ${{ matrix.shard }} --groups 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-council-group-${{ matrix.shard }}
+          path: reports/p1-source-recovery-council-probe-group-${{ matrix.shard }}.json
+          retention-days: 21
+          if-no-files-found: warn
+  aggregate:
+    if: always()
+    needs: [unit, source-probe]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p1-council-group-*
+          path: reports
+          merge-multiple: true
+      - name: Summarize all 40 official source statuses and data-loss guards
+        run: |
+          python pipeline/audit_p1_source_recovery.py inventory
+          python pipeline/audit_p1_source_recovery.py summarize --path reports
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-all-40-diagnostic
+          path: |
+            reports/p1-source-recovery-readiness-summary.json
+            reports/p1-source-recovery-readiness-summary.md
+          retention-days: 21
+          if-no-files-found: warn
