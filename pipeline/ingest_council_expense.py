@@ -831,6 +831,55 @@ def main():
         print(out)
         return
 
+    # Bupyeong's verified 2026-09 XLSX explicitly recopies 2025-09 sheets.
+    # These same transaction IDs are already published against the correct
+    # 2025 official document. Treat *only* proven identical historical events
+    # as reused worksheet content; do not silently rewrite provenance or turn
+    # old expenditure into 2026 transactions. Any other out-of-period row
+    # is still handled by strict QA (HOLD), unchanged.
+    reused_historic = []
+    if args.incremental and args.source == "bupyeong" and previous_rows:
+        baseline_by_id = {r.get("row_id"):r for r in previous_rows if r.get("row_id")}
+        def is_verified_reuse(reparsed, baseline):
+            if not baseline:
+                return False
+            new_period=reparsed.get("source_period")
+            old_period=baseline.get("source_period")
+            used=str(reparsed.get("used_date") or "")
+            if not (isinstance(new_period,list) and isinstance(old_period,list)
+                    and len(new_period)==3 and len(old_period)==3
+                    and used[:4]!=str(new_period[0])
+                    and used[:4]==str(old_period[0])):
+                return False
+            # All economic identity fields must be unchanged from the older
+            # independently sourced record. A row at another source_row or
+            # source_sheet is NOT automatically the same official event.
+            keys=("institution","source_sheet","source_row","used_date",
+                  "used_time","role","merchant","address","purpose",
+                  "people","amount","payment_method")
+            return all(reparsed.get(k)==baseline.get(k) for k in keys)
+        filtered=[]
+        for row in all_rows:
+            old = baseline_by_id.get(row.get("row_id"))
+            if is_verified_reuse(row,old):
+                reused_historic.append({
+                    "row_id":row["row_id"],
+                    "historic_post_url":old.get("source_post_url"),
+                    "historic_file_url":old.get("source_attachment_url"),
+                    "repeated_in_post_url":row.get("source_post_url"),
+                    "repeated_in_file_url":row.get("source_attachment_url"),
+                    "date":row.get("used_date"),"amount":row.get("amount"),
+                })
+            else:
+                filtered.append(row)
+        all_rows=filtered
+        if reused_historic:
+            print(json.dumps({"source":args.source,"status":"VERIFIED_HISTORICAL_REUSE",
+                              "reused_rows":len(reused_historic),
+                              "sample":reused_historic[:3]},ensure_ascii=False),flush=True)
+    # Never discard unrecognized source-period mismatch rows. They must
+    # continue to fail strict date/amount/provenance QA.
+
     # Stable merge: old rows remain authoritative until a newly discovered
     # attachment produces rows with the same row_id.
     # P0: old published records are immutable in a reconciliation. Never
@@ -874,6 +923,8 @@ def main():
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "refresh_mode": "incremental" if args.incremental else "full",
         "new_files": len(files),
+        "historical_duplicate_rows_verified": len(reused_historic),
+        "historical_duplicate_evidence": reused_historic[:30],
         "row_count": len(all_rows),
         "rows": all_rows,
         "files": merged_files if args.incremental else files,
