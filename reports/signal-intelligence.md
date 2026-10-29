@@ -2,8 +2,8 @@
 
 **Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.
 
-- Generated: 2026-10-28T07:54:56
-- Published restaurant entities: **1353**
+- Generated: 2026-10-29T09:16:53
+- Published restaurant entities: **1356**
 - Cross-institution restaurants: **198**
 - Cross-origin restaurants: **27**
 - Central top-official restaurants: **473**
@@ -163,7 +163,7 @@
 | 38 | 철원오대쌀 갓지은솥밥 | 2 | 의정부시 | strict_entity_key | 경기도 의정부시 동일로 858 |
 | 39 | 해량260도 송도유원지점 | 2 | 연수구 | strict_entity_key | 인천광역시 연수구 청량로109번길 1 |
 | 40 | 먹보한우 광교지점 | 2 | 경기도의회 | strict_entity_key |  |
-| 41 | 공존파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
+| 41 | 공존 파인땡큐다이닝 | 2 | 부평구 | strict_entity_key |  |
 | 42 | 인덕원긴자 | 2 | 법조·법률행정 | strict_entity_key |  |
 
 ## Cross-origin review queue

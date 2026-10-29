@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-28T07:54:56",
+  "generated_at": "2026-10-29T09:16:53",
   "score_semantics": "DISCLOSED_OFFICE_USAGE_EVENTS_NOT_PERSON_ATTENDANCE",
   "confirmed_person_attendances": 0,
-  "dataset_records": 1353,
+  "dataset_records": 1356,
   "cross_institution_count": 198,
   "cross_origin_count": 27,
   "top_official_count": 473,
@@ -894,7 +894,7 @@
       "spend": 2580000
     },
     {
-      "name": "공존파인땡큐다이닝",
+      "name": "공존 파인땡큐다이닝",
       "address": "",
       "origins": [
         "부평구"
@@ -903,14 +903,14 @@
         "부평구의회"
       ],
       "source_keys": [
-        "공존파인땡큐다이닝|부평구",
-        "공존 파인땡큐다이닝|부평구"
+        "공존 파인땡큐다이닝|부평구",
+        "공존파인땡큐다이닝|부평구"
       ],
       "source_key_count": 2,
       "match_basis": "strict_entity_key",
       "corroborated_address_bridges": 0,
-      "visits": 8,
-      "spend": 1277400
+      "visits": 9,
+      "spend": 1359000
     },
     {
       "name": "인덕원긴자",
