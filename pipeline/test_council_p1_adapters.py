@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 
-from capital_backfill import SOURCES, discover_source, title_period
+from capital_backfill import SOURCES, discover_source, title_period, anchors
 
 class CouncilSourceP1Tests(unittest.TestCase):
     def test_trailing_quarter_with_early_year(self):
@@ -10,6 +10,17 @@ class CouncilSourceP1Tests(unittest.TestCase):
         self.assertEqual(title_period("2026년 파주시의회 업무추진비 내역(1분기)"),(2026,None,1))
         self.assertEqual(title_period("2025년 파주시의회 교섭단체 집행내역(4분기)"),(2025,None,4))
         self.assertIsNone(title_period("파주시의회 업무추진비 내역(2분기)"))
+
+    def test_paju_official_nonsemicolon_gtid_query_is_recovered(self):
+        url="https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page=1"
+        html='<a href="?fidx=21770&gtid=chujin&pg=vv&sid=1000&page=1">2026년 파주시의회 업무추진비 내역(2분기)</a>'
+        found=anchors(url,html)
+        self.assertEqual(len(found),1)
+        self.assertIn("fidx=21770&gtid=chujin",found[0]["url"])
+        self.assertNotIn(">id=chujin",found[0]["url"])
+        self.assertEqual(title_period(found[0]["text"]),(2026,None,2))
+        other=anchors("https://example.com/content/data/operatingExpense.html?page=1",html)
+        self.assertIn(">id=chujin",other[0]["url"])
 
     def test_gapyeong_list_attachment_binds_only_exact_official_row(self):
         src=next(s for s in SOURCES if s.key=="gapyeong")
