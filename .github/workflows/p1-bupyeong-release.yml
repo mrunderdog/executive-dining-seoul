@@ -20,6 +20,10 @@ jobs:
           python-version: '3.12'
       - name: Install verified spreadsheet and PDF parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Run exact official cell fixtures and existing safety regression
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_official_file_forensics test_council_p1_adapters test_full_reconciliation_p0 test_icheon_discovery_safety test_council_recovery
+          python pipeline/regression_checks.py
       - name: Discover Bupyeong 2026 and historical reference documents
         run: python pipeline/capital_backfill.py --since 2024-12 --until 2026-10 --source bupyeong
       - name: Guard official source identity and complete file discovery
