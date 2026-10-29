@@ -16,6 +16,16 @@ jobs:
           python-version: '3.12'
       - name: Inspect official list rows and real link attributes
         run: |
+          PY
+          # Inspect *observed* official script functions, never guess the endpoint.
+          PYTHONPATH=pipeline python - <<'PY'
+          import re
+          from capital_backfill import fetch_text
+          url='https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702'
+          html=fetch_text(url)
+          for needle in ('goViewPage','fileDownLoad','boardView.php','infoView.php'):
+              for match in list(re.finditer(re.escape(needle),html,re.I))[:5]:
+                  print('GIMPO_JS',needle,html[max(0,match.start()-350):match.end()+450].replace('\n',' ')[:850])
           PYTHONPATH=pipeline python - <<'PY'
           import re
           from capital_backfill import SOURCES,fetch_text,anchors,council_js_posts,title_period
