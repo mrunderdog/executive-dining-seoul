@@ -1,0 +1,86 @@
+"""P1 official source discovery regressions, preserving strict file provenance."""
+import unittest
+from unittest.mock import patch
+
+from capital_backfill import SOURCES, discover_source, title_period, anchors, canonical_attachment_url
+
+class CouncilSourceP1Tests(unittest.TestCase):
+    def test_trailing_quarter_with_early_year(self):
+        self.assertEqual(title_period("2026년 파주시의회 업무추진비 내역(2분기)"),(2026,None,2))
+        self.assertEqual(title_period("2026년 파주시의회 업무추진비 내역(1분기)"),(2026,None,1))
+        self.assertEqual(title_period("2025년 파주시의회 교섭단체 집행내역(4분기)"),(2025,None,4))
+        self.assertIsNone(title_period("파주시의회 업무추진비 내역(2분기)"))
+
+    def test_gimpo_official_js_ids_and_real_xlsx_route(self):
+        src=next(s for s in SOURCES if s.key=="gimpo")
+        listing_url=src.listing_template.format(page=1)
+        listing="""<table><tr><td><a href="javascript:goViewPage('748449');">2026년 2/4분기 김포시의회 의장단 업무추진비 공개</a></td></tr></table>"""
+        detail="""<li><a class="tit" href="javascript:fileDownLoad('18839','act0702');">의장단업무추진비_2026년2분기.xlsx</a>
+        <a href="javascript:fileDownLoad('9999','other');">fake.xlsx</a>
+        <a href="javascript:fileDownLoad('not-numeric','act0702');">fake2.xlsx</a>
+        <a href="javascript:fileDownLoad('2222','act0702');">파일 없음</a></li>"""
+        expected_detail="https://gimpocouncil.go.kr/cnts/bbs/infoView.php?bbsCd=act&bbsSubCd=act0702&bbsSn=748449"
+        with patch("capital_backfill.fetch_text",side_effect=lambda u: detail if "infoView.php" in u else listing):
+            got=discover_source(src,(2026,4),(2026,6))
+        posts=[p for p in got if p.get("post_url")==expected_detail]
+        self.assertEqual(len(posts),1,got)
+        self.assertEqual(len(posts[0]["attachments"]),1)
+        from urllib.parse import urlsplit, parse_qs
+        actual=urlsplit(posts[0]["attachments"][0]["url"])
+        self.assertEqual(actual.scheme,"https")
+        self.assertEqual(actual.hostname,"gimpocouncil.go.kr")
+        self.assertEqual(actual.path,"/sma/utl/FileDownLoad.php")
+        self.assertEqual(parse_qs(actual.query),{"flSn":["18839"],"flCd":["act0702"]})
+        self.assertEqual(posts[0]["period"],(2026,None,2))
+
+    def test_bupyeong_proven_official_download_route_only(self):
+        url="https://council.icbp.go.kr/kr/news/bbs_process?reform=download&bbs_id=expense&uid=62747"
+        self.assertIsNotNone(canonical_attachment_url(url))
+        self.assertIsNone(canonical_attachment_url(url.replace("https://","http://")))
+        self.assertIsNone(canonical_attachment_url(url.replace("council.icbp.go.kr","evil.invalid")))
+        self.assertIsNone(canonical_attachment_url(url.replace("expense","news")))
+        self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=abc")))
+        self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=62747&unknown=1")))
+        self.assertIsNone(canonical_attachment_url(url.replace("reform=download","reform=delete")))
+
+    def test_paju_official_nonsemicolon_gtid_query_is_recovered(self):
+        url="https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page=1"
+        html='<a href="?fidx=21770&gtid=chujin&pg=vv&sid=1000&page=1">2026년 파주시의회 업무추진비 내역(2분기)</a>'
+        found=anchors(url,html)
+        self.assertEqual(len(found),1)
+        self.assertIn("fidx=21770&gtid=chujin",found[0]["url"])
+        self.assertNotIn(">id=chujin",found[0]["url"])
+        self.assertEqual(title_period(found[0]["text"]),(2026,None,2))
+        other=anchors("https://example.com/content/data/operatingExpense.html?page=1",html)
+        self.assertIn(">id=chujin",other[0]["url"])
+
+    def test_gapyeong_list_attachment_binds_only_exact_official_row(self):
+        src=next(s for s in SOURCES if s.key=="gapyeong")
+        url=src.listing_template.format(page=1)
+        detail="https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=D62A1C9FEF421AC0A2CBF93AB69FDAED&flag=all&page=1"
+        file="https://www.gpassem.go.kr/kr/bbs/download.do?bbs_id=operations2&uid=C6D2F5739D9F2079ED0F6F7E1D0469C0"
+        another="https://www.gpassem.go.kr/kr/bbs/download.do?bbs_id=operations2&uid=DIFFERENT"
+        listing=f"""<table><tr><td><a href="{detail}">2026년도 2분기 업무추진비 사용내역</a></td>
+        <td><a href="{file}">2분기 업무추진비.pdf</a></td></tr>
+        <tr><td><a href="/kr/operations2BBSview.do?uid=other">2025년도 1분기 업무추진비</a></td>
+        <td><a href="{another}">다른 기간 파일</a></td></tr></table>"""
+        def fetch(x):
+            return listing if x==url else "<p>첨부파일 PDF 뷰어 전용</p>"
+        with patch("capital_backfill.fetch_text",side_effect=fetch):
+            got=discover_source(src,(2026,4),(2026,6))
+        relevant=[p for p in got if p.get("post_url")==detail]
+        self.assertEqual(len(relevant),1,got)
+        self.assertEqual(len(relevant[0]["attachments"]),1,relevant)
+        self.assertIn("C6D2F573",relevant[0]["attachments"][0]["url"])
+        self.assertTrue(all("DIFFERENT" not in str(p) for p in relevant))
+
+    def test_gapyeong_cannot_accept_unrelated_file_url(self):
+        src=next(s for s in SOURCES if s.key=="gapyeong")
+        u=src.listing_template.format(page=1)
+        detail="https://www.gpassem.go.kr/kr/operations2BBSview.do?uid=D62A1C9FEF421AC0A2CBF93AB69FDAED"
+        html=f'<tr><td><a href="{detail}">2026년도 2분기 업무추진비 사용내역</a></td><td><a href="https://evil.invalid/kr/bbs/download.do?bbs_id=operations2&uid=fake">fake.pdf</a></td></tr>'
+        with patch("capital_backfill.fetch_text",side_effect=lambda target: html if target==u else "<p>no file</p>"):
+            got=discover_source(src,(2026,4),(2026,6))
+        self.assertEqual([p["attachments"] for p in got if p.get("post_url")==detail],[[]])
+
+if __name__=="__main__":unittest.main()

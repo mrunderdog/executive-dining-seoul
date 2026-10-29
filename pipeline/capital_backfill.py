@@ -233,6 +233,16 @@ def anchors(url: str, text: str):
             resolved = onclick_url(url, a.get("onclick", ""))
         if not resolved:
             continue
+        # Paju's official legacy route encodes '&gtid=chujin' without a
+        # semicolon. HTMLParser interprets '&gt' as the HTML greater-than
+        # entity, changing the genuine query parameter into '>id=chujin'.
+        # Restore only this observed, origin-scoped official board parameter;
+        # never apply generic entity rewriting to arbitrary websites.
+        parsed_route = urllib.parse.urlsplit(resolved)
+        if (parsed_route.hostname in {"www.pajucouncil.go.kr","pajucouncil.go.kr"}
+            and parsed_route.path == "/content/data/operatingExpense.html"
+            and ">id=chujin" in resolved):
+            resolved = resolved.replace(">id=chujin", "&gtid=chujin")
         attrs = a.get("attrs") or {}
         low = resolved.lower()
         if "bbsattachdownload.do" in low and "key=" not in low:
@@ -267,6 +277,12 @@ def title_period(title: str):
     q = re.search(r"(20\d{2})\s*년(?:도)?\s*([1-4])\s*(?:/\s*4\s*)?분기", title)
     if q:
         return int(q.group(1)), None, int(q.group(2))
+    # Some official councils print a year at the beginning and the quarter
+    # only at the end, e.g. '2026년 파주시의회 업무추진비 내역(2분기)'.
+    # Both year and exact quarter must appear in the *same* title.
+    late = re.search(r"(20\d{2})\s*년(?:도)?[^\n]{0,100}?\(\s*([1-4])\s*(?:/\s*4\s*)?분기\s*\)", title)
+    if late:
+        return int(late.group(1)), None, int(late.group(2))
     return None
 
 
@@ -353,8 +369,23 @@ def canonical_attachment_url(url: str) -> str | None:
         return None
     if path.endswith(("/bbsattachdownload.do", "/bbsgallerydownload.do")) and not query:
         return None
+    # Verified Bupyeong official Excel attachment route, observed in the
+    # October 2026 council expense detail page. Unlike most councils this
+    # serves a download via /bbs_process?reform=download, without a suffix.
+    allowed_bupyeong_process = (
+        p.scheme.lower() == "https"
+        and p.hostname == "council.icbp.go.kr"
+        and path == "/kr/news/bbs_process"
+        and len(query) == 3
+        and sorted(query) == sorted([
+            ("reform", "download"), ("bbs_id", "expense"),
+            ("uid", dict(query).get("uid", "")),
+        ])
+        and re.fullmatch(r"\d{1,12}", dict(query).get("uid","")) is not None
+    )
     if not (
-        re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
+        allowed_bupyeong_process
+        or re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
         or any(token in path for token in ("download", "filedown", "attach", "atchfile", "bbsfile"))
     ):
         return None
@@ -393,7 +424,7 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
     Do not invent download URLs from a listing or treat JS UI fragments as
     proof of an attachment. Detail discovery must provide a real file URL.
     """
-    if src.key not in {"hwaseong", "ansan", "dongducheon", "icheon"}:
+    if src.key not in {"hwaseong", "ansan", "dongducheon", "icheon", "gimpo"}:
         return []
     result = []
     seen = set()
@@ -418,6 +449,14 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
                 if m:
                     detail = urllib.parse.urljoin(base, "/cnts/bbs/boardView.php")+"?"+urllib.parse.urlencode(
                         {"bbsCd":"cns", "bbsSubCd":"cns08", "bbsSn":m.group(1)})
+            elif src.key == "gimpo":
+                # Verified official listing: goViewPage(bbsSn) submits
+                # bbsViewPageGoFrm to /cnts/bbs/infoView.php by GET.
+                # Only numeric row-local IDs from act0702 are allowed.
+                m = re.fullmatch(r"\s*javascript:\s*goViewPage\(['\"](\d+)['\"]\)\s*;?\s*", href, re.I)
+                if m:
+                    detail = urllib.parse.urljoin(base, "/cnts/bbs/infoView.php")+"?"+urllib.parse.urlencode(
+                        {"bbsCd":"act", "bbsSubCd":"act0702", "bbsSn":m.group(1)})
             elif src.key == "ansan":
                 m = re.search(r"fnGoDetail\(\s*(\d+)\s*\)", onclick)
                 if m:
@@ -613,6 +652,28 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        # Gapyeong's official list table contains attachment downloads in
+        # the same <tr> as each title. Its detail page can render the PDF
+        # viewer without an ordinary downloadable <a>. Bind only files
+        # visibly associated with the exact official post URL in that row.
+        gapyeong_row_downloads = {}
+        if src.key == "gapyeong":
+            for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
+                row_anchors = anchors(url, tr)
+                detail_links = [
+                    a["url"] for a in row_anchors
+                    if "/operations2BBSview.do" in a.get("url", "")
+                ]
+                official_downloads = [
+                    {"text": a["text"], "url": a["url"]}
+                    for a in row_anchors
+                    if "/kr/bbs/download.do" in a.get("url", "")
+                    and urllib.parse.urlsplit(a["url"]).hostname == urllib.parse.urlsplit(url).hostname
+                    and "bbs_id=operations2" in a["url"]
+                    and canonical_attachment_url(a["url"])
+                ]
+                for detail in detail_links:
+                    gapyeong_row_downloads[detail] = official_downloads
         # Official form/onclick-backed rows are not ordinary href anchors.
         for row in council_js_posts(src, url, doc, effective_since, until):
             if row["post_url"] in seen_posts:
@@ -638,6 +699,22 @@ def discover_source(src: Source, since, until):
                         dl = urllib.parse.urljoin(row["post_url"], "/cms/utl/FileDownLoad.php")
                         dl += "?" + urllib.parse.urlencode({"flSn": m.group(1), "flCd": m.group(2)})
                         found.append({"text":label, "url":dl})
+                elif src.key == "gimpo":
+                    # Verified official /js/svc/filedownload.js:
+                    # fileDownLoad(flSn, 'act0702') redirects to
+                    # /sma/utl/FileDownLoad.php. No generated IDs.
+                    found=[]
+                    parser=AnchorParser()
+                    parser.feed(detail_html)
+                    for link in parser.anchors:
+                        href=link.get("href","")
+                        m=re.fullmatch(r"\s*javascript:\s*fileDownLoad\(['\"](\d+)['\"]\s*,\s*['\"](act0702)['\"]\)\s*;?\s*",href,re.I)
+                        if not m or not re.search(r"\.(?:xlsx?|pdf|csv)\b",link.get("text",""),re.I):
+                            continue
+                        filename=link.get("text","")
+                        url=urllib.parse.urljoin(row["post_url"],"/sma/utl/FileDownLoad.php")
+                        url+="?"+urllib.parse.urlencode({"flSn":m.group(1),"flCd":m.group(2)})
+                        found.append({"text":filename,"url":url})
                 elif src.key == "ansan":
                     found = ansan_file_attachments(row["post_url"], detail_html)
                 elif src.key == "icheon":
@@ -731,7 +808,13 @@ def discover_source(src: Source, since, until):
                 found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
                 if not found:
                     found = regex_attachment_fallback(a["url"], detail)
-                row["attachments"] = found
+                if src.key == "gapyeong":
+                    # Never fetch an unverified viewer/pdf.do wrapper as a
+                    # transaction file. Use only row-bound official downloads.
+                    found = [*found, *gapyeong_row_downloads.get(a["url"], [])]
+                row["attachments"] = [
+                    a for a in found if canonical_attachment_url(a.get("url"))
+                ]
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
