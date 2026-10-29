@@ -25,8 +25,12 @@ class CouncilSourceP1Tests(unittest.TestCase):
         posts=[p for p in got if p.get("post_url")==expected_detail]
         self.assertEqual(len(posts),1,got)
         self.assertEqual(len(posts[0]["attachments"]),1)
-        self.assertEqual(posts[0]["attachments"][0]["url"],
-            "https://gimpocouncil.go.kr/sma/utl/FileDownLoad.php?flSn=18839&flCd=act0702")
+        from urllib.parse import urlsplit, parse_qs
+        actual=urlsplit(posts[0]["attachments"][0]["url"])
+        self.assertEqual(actual.scheme,"https")
+        self.assertEqual(actual.hostname,"gimpocouncil.go.kr")
+        self.assertEqual(actual.path,"/sma/utl/FileDownLoad.php")
+        self.assertEqual(parse_qs(actual.query),{"flSn":["18839"],"flCd":["act0702"]})
         self.assertEqual(posts[0]["period"],(2026,None,2))
 
     def test_bupyeong_proven_official_download_route_only(self):
