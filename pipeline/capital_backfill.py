@@ -424,7 +424,7 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
     Do not invent download URLs from a listing or treat JS UI fragments as
     proof of an attachment. Detail discovery must provide a real file URL.
     """
-    if src.key not in {"hwaseong", "ansan", "dongducheon", "icheon"}:
+    if src.key not in {"hwaseong", "ansan", "dongducheon", "icheon", "gimpo"}:
         return []
     result = []
     seen = set()
@@ -449,6 +449,14 @@ def council_js_posts(src: Source, base: str, doc: str, since, until):
                 if m:
                     detail = urllib.parse.urljoin(base, "/cnts/bbs/boardView.php")+"?"+urllib.parse.urlencode(
                         {"bbsCd":"cns", "bbsSubCd":"cns08", "bbsSn":m.group(1)})
+            elif src.key == "gimpo":
+                # Verified official listing: goViewPage(bbsSn) submits
+                # bbsViewPageGoFrm to /cnts/bbs/infoView.php by GET.
+                # Only numeric row-local IDs from act0702 are allowed.
+                m = re.fullmatch(r"\s*javascript:\s*goViewPage\(['\"](\d+)['\"]\)\s*;?\s*", href, re.I)
+                if m:
+                    detail = urllib.parse.urljoin(base, "/cnts/bbs/infoView.php")+"?"+urllib.parse.urlencode(
+                        {"bbsCd":"act", "bbsSubCd":"act0702", "bbsSn":m.group(1)})
             elif src.key == "ansan":
                 m = re.search(r"fnGoDetail\(\s*(\d+)\s*\)", onclick)
                 if m:
@@ -691,6 +699,22 @@ def discover_source(src: Source, since, until):
                         dl = urllib.parse.urljoin(row["post_url"], "/cms/utl/FileDownLoad.php")
                         dl += "?" + urllib.parse.urlencode({"flSn": m.group(1), "flCd": m.group(2)})
                         found.append({"text":label, "url":dl})
+                elif src.key == "gimpo":
+                    # Verified official /js/svc/filedownload.js:
+                    # fileDownLoad(flSn, 'act0702') redirects to
+                    # /sma/utl/FileDownLoad.php. No generated IDs.
+                    found=[]
+                    parser=AnchorParser()
+                    parser.feed(detail_html)
+                    for link in parser.anchors:
+                        href=link.get("href","")
+                        m=re.fullmatch(r"\s*javascript:\s*fileDownLoad\(['\"](\d+)['\"]\s*,\s*['\"](act0702)['\"]\)\s*;?\s*",href,re.I)
+                        if not m or not re.search(r"\.(?:xlsx?|pdf|csv)\b",link.get("text",""),re.I):
+                            continue
+                        filename=link.get("text","")
+                        url=urllib.parse.urljoin(row["post_url"],"/sma/utl/FileDownLoad.php")
+                        url+="?"+urllib.parse.urlencode({"flSn":m.group(1),"flCd":m.group(2)})
+                        found.append({"text":filename,"url":url})
                 elif src.key == "ansan":
                     found = ansan_file_attachments(row["post_url"], detail_html)
                 elif src.key == "icheon":
