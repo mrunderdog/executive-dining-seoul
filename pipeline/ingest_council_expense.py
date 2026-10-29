@@ -922,8 +922,19 @@ def main():
             used=str(reparsed.get("used_date") or "")
             if not (isinstance(new_period,list) and isinstance(old_period,list)
                     and len(new_period)==3 and len(old_period)==3
-                    and used[:4]!=str(new_period[0])
-                    and used[:4]==str(old_period[0])):
+                    and used[:4]==str(old_period[0])
+                    and new_period!=old_period):
+                return False
+            # Either: (a) an old-year sheet copied into the current file,
+            # or (b) a prior source marked outside its own declared month
+            # now recopied under the month actually printed in its row.
+            copied_old_year=(used[:4]!=str(new_period[0]))
+            corrected_later_month=(
+                baseline.get("date_quality")=="valid_outside_period"
+                and new_period[1] is not None
+                and used[:7]==f"{new_period[0]:04d}-{new_period[1]:02d}"
+            )
+            if not (copied_old_year or corrected_later_month):
                 return False
             # All economic identity fields must be unchanged from the older
             # independently sourced record. A row at another source_row or
