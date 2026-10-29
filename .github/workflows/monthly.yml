@@ -178,12 +178,18 @@ jobs:
             echo "=== discover $SOURCE ==="
             timeout --signal=TERM --kill-after=10s 180s python pipeline/capital_backfill.py --since 2024-12 --source "$SOURCE"
             if [[ $? -ne 0 ]]; then restore_last_good "DISCOVERY"; continue; fi
-            timeout --signal=TERM --kill-after=10s 180s python pipeline/ingest_council_expense.py --source "$SOURCE"
+            # Full reconciliation rediscovers all historical posts, but must
+            # never replace committed rows or files with an incomplete parse.
+            timeout --signal=TERM --kill-after=10s 60s python pipeline/guard_full_council.py --source "$SOURCE" --phase discovery --baseline-ref HEAD
+            if [[ $? -ne 0 ]]; then restore_last_good "DISCOVERY_INCOMPLETE"; continue; fi
+            timeout --signal=TERM --kill-after=10s 180s python pipeline/ingest_council_expense.py --source "$SOURCE" --incremental
             if [[ $? -ne 0 ]]; then restore_last_good "INGEST"; continue; fi
-            # Preserve historic imperfect rows; strict incremental QA enforces
-            # 100% provenance/date/amount checks on each changed transaction.
-            timeout --signal=TERM --kill-after=10s 60s python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0
+            # Normalize only newly introduced rows. Committed legacy rows
+            # remain byte-exact, including existing date_quality fields.
+            timeout --signal=TERM --kill-after=10s 60s python pipeline/repair_raw_dates.py --source "$SOURCE" --min-valid 0.0 --preserve-baseline-ref HEAD
             if [[ $? -ne 0 ]]; then restore_last_good "DATE_REPAIR"; continue; fi
+            timeout --signal=TERM --kill-after=10s 60s python pipeline/guard_full_council.py --source "$SOURCE" --phase integrity --baseline-ref HEAD
+            if [[ $? -ne 0 ]]; then restore_last_good "INTEGRITY"; continue; fi
             timeout --signal=TERM --kill-after=10s 60s env PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source "$SOURCE" --baseline-ref HEAD
             QA_RC=$?
             if [[ $QA_RC -eq 3 ]]; then restore_last_good "NO_CHANGE"; continue; fi
