@@ -850,7 +850,11 @@ def main():
     previous_rows = list(previous.get("rows", []))
     previous_files = list(previous.get("files", []))
     previous_errors = list(previous.get("errors", []))
-    known_urls = {str(f.get("url") or "") for f in previous_files if f.get("url")}
+    # The same verified official download may reorder its query parameters
+    # between historic snapshots and current discovery. Compare canonical
+    # identities, never raw URL bytes, to avoid reparsing all old workbooks.
+    known_urls = {canonical_attachment_url(f.get("url")) for f in previous_files
+                  if canonical_attachment_url(f.get("url"))}
 
     all_rows, files, errors = [], [], []
     for post in posts:
@@ -858,7 +862,7 @@ def main():
             url = att.get("url") or ""
             if not url:
                 continue
-            if args.incremental and url in known_urls:
+            if args.incremental and canonical_attachment_url(url) in known_urls:
                 continue
             if not canonical_attachment_url(url):
                 # A downloaded HTML board may advertise fake links (e.g.
