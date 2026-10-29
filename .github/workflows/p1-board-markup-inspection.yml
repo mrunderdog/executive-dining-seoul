@@ -14,34 +14,15 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Inspect official list rows and real link attributes
+      - name: Inspect official Gimpo JS click-handler route
         run: |
-          PY
-          # Inspect *observed* official script functions, never guess the endpoint.
           PYTHONPATH=pipeline python - <<'PY'
           import re
           from capital_backfill import fetch_text
-          url='https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702'
-          html=fetch_text(url)
-          for needle in ('goViewPage','fileDownLoad','boardView.php','infoView.php'):
-              for match in list(re.finditer(re.escape(needle),html,re.I))[:5]:
-                  print('GIMPO_JS',needle,html[max(0,match.start()-350):match.end()+450].replace('\n',' ')[:850])
-          PYTHONPATH=pipeline python - <<'PY'
-          import re
-          from capital_backfill import SOURCES,fetch_text,anchors,council_js_posts,title_period
-          for name in ['gimpo','bupyeong','paju']:
-              src=next(s for s in SOURCES if s.key==name)
-              url=src.listing_template.format(page=1)
-              print('=== SOURCE',name,url,flush=True)
-              try:
-                  html=fetch_text(url)
-                  rows=re.findall(r'<tr\b[^>]*>.*?</tr>',html,re.I|re.S)
-                  matches=[r for r in rows if '업무추진비' in r][:2]
-                  print('title_rows',len(matches),'page_bytes',len(html),flush=True)
-                  for tr in matches:
-                      print('ROW',tr[:2400],flush=True)
-                      print('ANCHORS',anchors(url,tr),flush=True)
-                      print('PERIOD',title_period(re.sub(r'<[^>]*>',' ',tr)),flush=True)
-              except Exception as exc:
-                  print('ERROR',type(exc).__name__,str(exc)[:600],flush=True)
+          u='https://gimpocouncil.go.kr/cnts/bbs/infoList.php?bbsCd=act&bbsSubCd=act0702'
+          html=fetch_text(u)
+          for token in ('goViewPage','fileDownLoad','boardView.php','infoView.php'):
+              matches=list(re.finditer(re.escape(token),html,re.I))
+              for m in matches[:4]:
+                  print('GIMPO_SCRIPT',token,html[max(0,m.start()-320):m.end()+450].replace('\n',' ')[:800],flush=True)
           PY
