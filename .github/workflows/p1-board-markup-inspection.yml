@@ -26,3 +26,12 @@ jobs:
               for m in matches[:4]:
                   print('GIMPO_SCRIPT',token,html[max(0,m.start()-320):m.end()+450].replace('\n',' ')[:800],flush=True)
           PY
+          PYTHONPATH=pipeline python - <<'PY'
+          import re
+          from capital_backfill import fetch_text
+          url='https://gimpocouncil.go.kr/cnts/bbs/infoView.php?bbsCd=act&bbsSubCd=act0702&bbsSn=748449'
+          html=fetch_text(url)
+          for token in ('의장단업무추진비_2026년2분기.xlsx','fileDownLoad(','FileDownLoad','flSn','fileSn'):
+              for m in list(re.finditer(re.escape(token),html,re.I))[:4]:
+                  print('GIMPO_DETAIL',token,html[max(0,m.start()-390):m.end()+550].replace('\n',' ')[:980],flush=True)
+          PY
