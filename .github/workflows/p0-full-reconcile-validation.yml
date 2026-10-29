@@ -1,0 +1,84 @@
+name: P0 Full Refresh Baseline Safety 40-source Validation
+on:
+  pull_request:
+    paths:
+      - pipeline/guard_full_council.py
+      - pipeline/audit_full_reconcile_p0.py
+      - pipeline/test_full_reconciliation_p0.py
+      - pipeline/repair_raw_dates.py
+      - pipeline/ingest_council_expense.py
+      - .github/workflows/monthly.yml
+      - .github/workflows/p0-full-reconcile-validation.yml
+permissions:
+  contents: read
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install parser dependencies
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: P0 regression & existing council tests
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_full_reconciliation_p0 test_council_recovery test_icheon_discovery_safety test_monthly_entity_guards
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/p0-site.html
+          test -s /tmp/p0-site.html
+  full-reconciliation-probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install real spreadsheet and PDF parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run P0 full-mode isolation across four councils
+        run: python -u pipeline/audit_full_reconcile_p0.py group --group ${{ matrix.shard }} --groups 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p0-full-refresh-group-${{ matrix.shard }}
+          path: reports/p0-full-refresh-council-probe-group-${{ matrix.shard }}.json
+          retention-days: 14
+          if-no-files-found: warn
+  aggregate:
+    if: always()
+    needs: [unit-tests,full-reconciliation-probe]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: p0-full-refresh-group-*
+          path: reports
+          merge-multiple: true
+      - name: Aggregate council-level failures and row-loss outcomes
+        run: |
+          python pipeline/audit_full_reconcile_p0.py inventory
+          python pipeline/audit_full_reconcile_p0.py summarize --path reports
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p0-all-40-results
+          path: |
+            reports/p0-full-refresh-readiness-summary.json
+            reports/p0-full-refresh-readiness-summary.md
+            reports/p0-full-refresh-inventory.json
+          retention-days: 14
+          if-no-files-found: warn
