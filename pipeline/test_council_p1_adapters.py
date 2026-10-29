@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 
-from capital_backfill import SOURCES, discover_source, title_period, anchors
+from capital_backfill import SOURCES, discover_source, title_period, anchors, canonical_attachment_url
 
 class CouncilSourceP1Tests(unittest.TestCase):
     def test_trailing_quarter_with_early_year(self):
@@ -10,6 +10,16 @@ class CouncilSourceP1Tests(unittest.TestCase):
         self.assertEqual(title_period("2026년 파주시의회 업무추진비 내역(1분기)"),(2026,None,1))
         self.assertEqual(title_period("2025년 파주시의회 교섭단체 집행내역(4분기)"),(2025,None,4))
         self.assertIsNone(title_period("파주시의회 업무추진비 내역(2분기)"))
+
+    def test_bupyeong_proven_official_download_route_only(self):
+        url="https://council.icbp.go.kr/kr/news/bbs_process?reform=download&bbs_id=expense&uid=62747"
+        self.assertIsNotNone(canonical_attachment_url(url))
+        self.assertIsNone(canonical_attachment_url(url.replace("https://","http://")))
+        self.assertIsNone(canonical_attachment_url(url.replace("council.icbp.go.kr","evil.invalid")))
+        self.assertIsNone(canonical_attachment_url(url.replace("expense","news")))
+        self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=abc")))
+        self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=62747&unknown=1")))
+        self.assertIsNone(canonical_attachment_url(url.replace("reform=download","reform=delete")))
 
     def test_paju_official_nonsemicolon_gtid_query_is_recovered(self):
         url="https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page=1"
