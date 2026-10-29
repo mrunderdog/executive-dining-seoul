@@ -163,7 +163,14 @@ def assess_incremental(source: str, data: dict, discovery: dict,
                 for p in (d or {}).get("posts", []) if p.get("source") == source
                 for a in p.get("attachments", []) if canonical_attachment_url(a.get("url"))}
 
-    new_official = official_urls(discovery) - official_urls(baseline_discovery)
+    # The committed raw-file inventory is the authoritative baseline for
+    # unchanged historical attachments. A missing/stale discovery report may
+    # list an already-published file as freshly discovered; that must NOT
+    # cause strict incremental QA to retest immutable legacy rows as new.
+    # Every genuinely new file and every changed row is still fully checked.
+    new_official = (
+        official_urls(discovery) - official_urls(baseline_discovery)
+    ) - set(old_files)
     changed = [r for r in rows if r.get("row_id") not in old_by_id
                or r != old_by_id[r.get("row_id")]
                or canonical_attachment_url(r.get("source_attachment_url")) in modified_files]
