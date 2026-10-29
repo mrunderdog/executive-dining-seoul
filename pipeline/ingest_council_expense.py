@@ -833,7 +833,23 @@ def main():
 
     # Stable merge: old rows remain authoritative until a newly discovered
     # attachment produces rows with the same row_id.
-    unique = {r["row_id"]: r for r in previous_rows + all_rows}
+    # P0: old published records are immutable in a reconciliation. Never
+    # overwrite a historical row with a different parser interpretation even
+    # when the new PDF produces the same stable row_id.
+    unique = {}
+    for row in previous_rows:
+        row_id = row.get("row_id")
+        if not row_id or row_id in unique:
+            raise SystemExit("duplicate/missing historical row_id; no publish")
+        unique[row_id] = row
+    for row in all_rows:
+        row_id = row.get("row_id")
+        if not row_id:
+            raise SystemExit("missing newly parsed row_id; no publish")
+        if row_id in unique and unique[row_id] != row:
+            raise SystemExit(f"conflicting historical/new row ID {row_id}; no publish")
+        if row_id not in unique:
+            unique[row_id] = row
     all_rows = sorted(unique.values(), key=lambda r: (r.get("used_date") or "", r.get("institution") or "", r.get("row_id")))
 
     success_urls = {str(f.get("url") or "") for f in files if f.get("url")}
