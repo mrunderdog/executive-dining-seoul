@@ -623,7 +623,77 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
                  "invalid_date_examples": invalid_date_rows[:5]}
 
 
+def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
+    """Decode only the observed Gapyeong numbered expense-table layout.
+
+    A strict row starts with a serial, explicit MM/DD and HH:MM, then
+    free-text purpose, a printed comma-grouped amount joined to a merchant,
+    attendee count and payment method. The source year comes from the
+    actual official post period. No year/quarter rewriting; e.g. a Sep date
+    printed in a Q4 document remains Sep and is rejected by strict QA.
+    """
+    header=" ".join(clean_text(c) for line in rows[:8] for c in line)
+    if not ("사용일자" in header and "사용금액" in header
+            and ("가맹점명" in header or "장소" in header)):
+        return [], {"sheet":sheet_name,"status":"NO_VERIFIED_GAPYEONG_TABLE",
+                    "rows":len(rows),"parsed_rows":0}
+    period=source_meta.get("period")
+    year=period[0] if isinstance(period,(list,tuple)) and len(period)==3 else None
+    if not isinstance(year,int):
+        return [], {"sheet":sheet_name,"status":"NO_OFFICIAL_YEAR","rows":len(rows),"parsed_rows":0}
+    role=source_meta.get("default_role") or ""
+    parsed=[]
+    incomplete=[]
+    for ri,row in enumerate(rows,1):
+        cells=[clean_text(v) for v in row if clean_text(v)]
+        if not cells or not re.fullmatch(r"\d{1,3}",cells[0]):
+            continue
+        if len(cells)<6 or not re.fullmatch(r"\d{2}/\d{2}",cells[1]) or not re.fullmatch(r"\d{1,2}:\d{2}",cells[2]):
+            continue
+        payment=cells[-1]
+        people=cells[-2]
+        amt_merchant=cells[-3]
+        match=re.fullmatch(r"\s*(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s*",amt_merchant)
+        if not match or not re.fullmatch(r"\d{1,3}",people) or payment not in {"신용카드","카드","현금","계좌이체"}:
+            incomplete.append({"row":ri,"cells":cells[:12],"cause":"amount_merchant_or_trailer"})
+            continue
+        mm,dd=map(int,cells[1].split("/"))
+        try:
+            used=date(year,mm,dd).isoformat()
+        except ValueError:
+            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_printed_date"})
+            continue
+        merchant=match.group(2).strip()
+        if not valid_transaction_merchant(merchant):
+            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_merchant"})
+            continue
+        amount=parse_amount(match.group(1))
+        purpose=" ".join(cells[3:-3]).strip()
+        raw={
+            "region":source_meta["region"],"jurisdiction":source_meta["jurisdiction"],
+            "institution":source_meta["institution"],"source_key":source_meta["source"],
+            "source_post_url":source_meta["post_url"],"source_attachment_url":source_meta["attachment_url"],
+            "source_attachment_name":source_meta["attachment_name"],"source_period":period,
+            "source_sheet":sheet_name,"source_row":ri,"used_date":used,
+            "date_inferred_from_previous_row":False,"used_time":cells[2],
+            "role":role,"merchant":merchant,"address":"","purpose":purpose,
+            "people":int(people),"amount":amount,"amount_inferred_from_row":False,
+            "payment_method":payment,"parse_confidence":"high",
+        }
+        raw["row_id"]=hashlib.sha256(
+            "|".join(str(raw.get(k,"")) for k in ("institution","used_date","role","merchant","amount","source_sheet","source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        parsed.append(raw)
+    status="ROW_PARSE_GAPS" if incomplete else ("OK" if parsed else "NO_ROWS")
+    return parsed, {"sheet":sheet_name,"status":status,"header_row":1,
+                    "mapping":"gapyeong_verified_serial_date_time_joined_amount_merchant",
+                    "parsed_rows":len(parsed),"unparsed_transaction_like_rows":len(incomplete),
+                    "unparsed_examples":incomplete[:8]}
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
+        return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
         return normalize_icheon_pdf_rows(rows, sheet_name, source_meta)
     found = find_header(rows)
@@ -780,7 +850,11 @@ def main():
     previous_rows = list(previous.get("rows", []))
     previous_files = list(previous.get("files", []))
     previous_errors = list(previous.get("errors", []))
-    known_urls = {str(f.get("url") or "") for f in previous_files if f.get("url")}
+    # The same verified official download may reorder its query parameters
+    # between historic snapshots and current discovery. Compare canonical
+    # identities, never raw URL bytes, to avoid reparsing all old workbooks.
+    known_urls = {canonical_attachment_url(f.get("url")) for f in previous_files
+                  if canonical_attachment_url(f.get("url"))}
 
     all_rows, files, errors = [], [], []
     for post in posts:
@@ -788,7 +862,7 @@ def main():
             url = att.get("url") or ""
             if not url:
                 continue
-            if args.incremental and url in known_urls:
+            if args.incremental and canonical_attachment_url(url) in known_urls:
                 continue
             if not canonical_attachment_url(url):
                 # A downloaded HTML board may advertise fake links (e.g.
@@ -831,6 +905,72 @@ def main():
         print(out)
         return
 
+    # Bupyeong's verified 2026-09 XLSX explicitly recopies 2025-09 sheets.
+    # These same transaction IDs are already published against the correct
+    # 2025 official document. Treat *only* proven identical historical events
+    # as reused worksheet content; do not silently rewrite provenance or turn
+    # old expenditure into 2026 transactions. Any other out-of-period row
+    # is still handled by strict QA (HOLD), unchanged.
+    reused_historic = []
+    if args.incremental and args.source == "bupyeong" and previous_rows:
+        baseline_by_id = {r.get("row_id"):r for r in previous_rows if r.get("row_id")}
+        def is_verified_reuse(reparsed, baseline):
+            if not baseline:
+                return False
+            new_period=reparsed.get("source_period")
+            old_period=baseline.get("source_period")
+            used=str(reparsed.get("used_date") or "")
+            if not (isinstance(new_period,list) and isinstance(old_period,list)
+                    and len(new_period)==3 and len(old_period)==3
+                    and used[:4]==str(old_period[0])
+                    and new_period!=old_period):
+                return False
+            # Either: (a) an old-year sheet copied into the current file,
+            # or (b) a prior source marked outside its own declared month
+            # now recopied under the month actually printed in its row.
+            copied_old_year=(used[:4]!=str(new_period[0]))
+            # The 2026-09 Bupyeong workbook also repeats one 2026 row
+            # previously published from a 2026-07 workbook, already marked
+            # valid_outside_period. Repeated identical economics are never a
+            # new transaction, even if both official monthly headings conflict
+            # with the printed date. Preserve the older record and *its*
+            # warning; do not relabel or erase the date inconsistency.
+            corrected_later_month=(
+                baseline.get("date_quality")=="valid_outside_period"
+                and used[:4]==str(new_period[0])
+                and old_period[1] is not None and new_period[1] is not None
+            )
+            if not (copied_old_year or corrected_later_month):
+                return False
+            # All economic identity fields must be unchanged from the older
+            # independently sourced record. A row at another source_row or
+            # source_sheet is NOT automatically the same official event.
+            keys=("institution","source_sheet","source_row","used_date",
+                  "used_time","role","merchant","address","purpose",
+                  "people","amount","payment_method")
+            return all(reparsed.get(k)==baseline.get(k) for k in keys)
+        filtered=[]
+        for row in all_rows:
+            old = baseline_by_id.get(row.get("row_id"))
+            if is_verified_reuse(row,old):
+                reused_historic.append({
+                    "row_id":row["row_id"],
+                    "historic_post_url":old.get("source_post_url"),
+                    "historic_file_url":old.get("source_attachment_url"),
+                    "repeated_in_post_url":row.get("source_post_url"),
+                    "repeated_in_file_url":row.get("source_attachment_url"),
+                    "date":row.get("used_date"),"amount":row.get("amount"),
+                })
+            else:
+                filtered.append(row)
+        all_rows=filtered
+        if reused_historic:
+            print(json.dumps({"source":args.source,"status":"VERIFIED_HISTORICAL_REUSE",
+                              "reused_rows":len(reused_historic),
+                              "sample":reused_historic[:3]},ensure_ascii=False),flush=True)
+    # Never discard unrecognized source-period mismatch rows. They must
+    # continue to fail strict date/amount/provenance QA.
+
     # Stable merge: old rows remain authoritative until a newly discovered
     # attachment produces rows with the same row_id.
     # P0: old published records are immutable in a reconciliation. Never
@@ -847,6 +987,13 @@ def main():
         if not row_id:
             raise SystemExit("missing newly parsed row_id; no publish")
         if row_id in unique and unique[row_id] != row:
+            if args.source == "bupyeong":
+                prev = unique[row_id]
+                diff = {key:{"prior":prev.get(key),"incoming":row.get(key)}
+                        for key in sorted(set(prev)|set(row)) if prev.get(key)!=row.get(key)}
+                print("BUPYEONG_REMAINING_CONFLICT "+json.dumps({
+                    "row_id":row_id,"differences":diff
+                },ensure_ascii=False),flush=True)
             raise SystemExit(f"conflicting historical/new row ID {row_id}; no publish")
         if row_id not in unique:
             unique[row_id] = row
@@ -874,6 +1021,8 @@ def main():
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "refresh_mode": "incremental" if args.incremental else "full",
         "new_files": len(files),
+        "historical_duplicate_rows_verified": len(reused_historic),
+        "historical_duplicate_evidence": reused_historic[:30],
         "row_count": len(all_rows),
         "rows": all_rows,
         "files": merged_files if args.incremental else files,

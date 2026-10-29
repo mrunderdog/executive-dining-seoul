@@ -55,6 +55,16 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             failures.append("file_not_verified_or_not_in_official_discovery")
             continue
         official[u] = item
+        # Gapyeong's PDF parser explicitly records transaction-like numbered
+        # rows it could not parse. They cannot be silently dropped to create a
+        # seemingly green publication. A page with no transactions is allowed,
+        # but a row parse gap is a strict publication HOLD.
+        if source == "gapyeong" and any(
+            sheet.get("status") == "ROW_PARSE_GAPS" or
+            (sheet.get("unparsed_transaction_like_rows") or 0) > 0
+            for sheet in item.get("sheets",[])
+        ):
+            failures.append("official_gapyeong_pdf_unparsed_transaction_rows")
     if data.get("source") != source:
         failures.append("source_mismatch")
     if not posts or not official:
@@ -153,7 +163,14 @@ def assess_incremental(source: str, data: dict, discovery: dict,
                 for p in (d or {}).get("posts", []) if p.get("source") == source
                 for a in p.get("attachments", []) if canonical_attachment_url(a.get("url"))}
 
-    new_official = official_urls(discovery) - official_urls(baseline_discovery)
+    # The committed raw-file inventory is the authoritative baseline for
+    # unchanged historical attachments. A missing/stale discovery report may
+    # list an already-published file as freshly discovered; that must NOT
+    # cause strict incremental QA to retest immutable legacy rows as new.
+    # Every genuinely new file and every changed row is still fully checked.
+    new_official = (
+        official_urls(discovery) - official_urls(baseline_discovery)
+    ) - set(old_files)
     changed = [r for r in rows if r.get("row_id") not in old_by_id
                or r != old_by_id[r.get("row_id")]
                or canonical_attachment_url(r.get("source_attachment_url")) in modified_files]
