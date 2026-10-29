@@ -625,7 +625,7 @@ def discover_source(src: Source, since, until):
         # visibly associated with the exact official post URL in that row.
         gapyeong_row_downloads = {}
         if src.key == "gapyeong":
-            for tr in re.findall(r"<tr\\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
+            for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
                 row_anchors = anchors(url, tr)
                 detail_links = [
                     a["url"] for a in row_anchors
