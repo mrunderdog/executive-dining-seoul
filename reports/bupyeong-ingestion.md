@@ -1,23 +1,25 @@
 # bupyeong expense ingestion
 
-- Normalized rows: **2733**
-- Source posts: **21**
-- Downloaded files: **21**
+- Normalized rows: **2825**
+- Source posts: **22**
+- Refresh mode: **incremental**
+- Files retained: **22**
+- New files downloaded: **1**
 - Errors: **0**
 
 ## Rows by year
 
 - 2024: 1034
 - 2025: 1068
-- 2026: 631
+- 2026: 723
 
 ## Top roles / sheets
 
-- 의장: 464
-- 부의장: 355
-- 행정복지위원장: 289
-- 도시환경위원장: 261
-- 의회운영위원장: 240
+- 의장: 484
+- 부의장: 367
+- 행정복지위원장: 296
+- 도시환경위원장: 268
+- 의회운영위원장: 242
 - 의정운영공통경비(11월): 90
 - 의정운영공통경비(10월): 72
 - 의정운영공통경비(12월): 70
@@ -30,9 +32,9 @@
 - 의정운영공통경비(07월): 32
 - 의정운영공통경비(1월): 31
 - 의정운영공통경비(7월): 30
+- 의정운영공통경비(09월): 27
 - 의정운영공통경비(03월): 26
 - 의정운영공통경비(5월): 24
-- 의회사무국(12월): 22
 
 ## Files
 
@@ -2293,3 +2295,127 @@
   - 의회사무국(6월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
   - 의정운영공통경비(5월): OK / parsed 15 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
   - 의정운영공통경비(3월): OK / parsed 36 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+- `2026년_9월_업무추진비_및_의정운영공통경비_집행내역.xlsx 파일 내려받기 2026년_9월_업무추진비_및_의정운영공통경비_집행내역.xlsx` — 920,968 bytes — 1051 rows
+  - 교섭단체(9월)-더불어: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(9월)-무소속: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(9월): OK / parsed 31 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 집행현황: NO_HEADER / parsed 0 / mapping {}
+  - 의장(09월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(09월): OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(09월): OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(09월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(09월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 예산결산특별위원장(09월): OK / parsed 0 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(11월): OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(11월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(9월): OK / parsed 21 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(9월): OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(9월): OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(9월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(9월): OK / parsed 10 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(6월): OK / parsed 14 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(6월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(6월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(6월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(6월): OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 예산결산특별위원장(6월): OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(3월): OK / parsed 17 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(3월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(1월): OK / parsed 18 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(1월): OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(1월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(1월): OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(1월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 예결특위원장(1월): OK / parsed 0 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(2월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(2월): OK / parsed 14 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(2월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(2월): OK / parsed 14 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(2월): OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(2월)-더불어: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(1월)-더불어: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(3월): OK / parsed 14 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(3월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(3월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(4월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(4월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(4월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(4월): OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(4월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(5월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(5월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(5월): OK / parsed 10 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(5월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(5월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(5월)-더불어: OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(4월)-더불어: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(3월)-더불어: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(7월): OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(7월): OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(7월): OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(7월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(7월): OK / parsed 12 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(8월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(8월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(8월): OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(8월): OK / parsed 13 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(8월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의장(10월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 부의장(10월): OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(10월): OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(10월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(10월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(10월)-더불어: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(8월)-더불어: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(7월)-더불어: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(6월)-더불어: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(10월)-국민: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(9월)-국민: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(8월)-국민: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(7월)-국민: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(6월)-국민: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(5월)-국민: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(4월)-국민: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(3월)-국민: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(2월)-국민: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(1월)-국민: OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(1월)-무소속: OK / parsed 0 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(3월)-무소속: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(2월)-무소속: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(5월)-무소속: OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(4월)-무소속: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(4월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(3월): OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(4월): OK / parsed 20 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(5월): OK / parsed 9 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(5월): OK / parsed 11 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(10월)-무소속: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(8월)-무소속: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(7월)-무소속: OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(6월)-무소속: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회운영위원장(11월): OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 행정복지위원장(11월): OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 도시환경위원장(11월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(09월): OK / parsed 27 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(09월)-더불어: OK / parsed 7 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(11월)-더불어: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(09월)-국민: OK / parsed 6 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(11월)-국민: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(07월)-조국: OK / parsed 1 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 교섭단체(11월)-무소속: OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(11월): OK / parsed 49 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(8월): OK / parsed 23 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(10월): OK / parsed 41 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(10월): OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(09월): OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(11월): OK / parsed 2 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(8월): OK / parsed 8 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(7월): OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(6월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(3월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(2월): OK / parsed 26 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(1월): OK / parsed 4 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(2월): OK / parsed 5 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의회사무국(1월): OK / parsed 3 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(7월): OK / parsed 15 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}
+  - 의정운영공통경비(6월): OK / parsed 40 / mapping {'date': 1, 'time': 2, 'purpose': 3, 'merchant': 4, 'people': 5, 'amount': 6, 'method': 7}

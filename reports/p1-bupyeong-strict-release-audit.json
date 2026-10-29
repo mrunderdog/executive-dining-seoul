@@ -1,0 +1,52 @@
+{
+  "source": "bupyeong",
+  "status": "PASS",
+  "baseline_rows": 2733,
+  "total_rows": 2825,
+  "new_rows": 92,
+  "reused_source_rows_not_duplicated": 959,
+  "new_official_files": 1,
+  "historical_integrity": {
+    "source": "bupyeong",
+    "phase": "integrity",
+    "status": "PASS",
+    "old_rows": 2733,
+    "current_rows": 2825,
+    "new_rows": 92,
+    "lost_row_count": 0,
+    "changed_row_count": 0,
+    "old_files": 21,
+    "current_files": 22,
+    "new_files": 1,
+    "lost_file_count": 0,
+    "changed_file_count": 0,
+    "examples": {
+      "lost_rows": [],
+      "changed_rows": [],
+      "lost_files": [],
+      "changed_files": []
+    },
+    "failures": []
+  },
+  "strict_qa": {
+    "source": "bupyeong",
+    "status": "PUBLISH_READY",
+    "rows": 2825,
+    "verified_rows": 92,
+    "official_posts": 1,
+    "verified_files": 1,
+    "coverage": 1.0,
+    "failures": [],
+    "bad_examples": [],
+    "qa_scope": "incremental",
+    "baseline_rows_preserved": 2733,
+    "new_or_changed_rows": 92
+  },
+  "new_year_counts": {
+    "2026": 92
+  },
+  "new_file_url": [
+    "https://council.icbp.go.kr/kr/news/bbs_process?bbs_id=expense&reform=download&uid=62747"
+  ],
+  "errors": []
+}
