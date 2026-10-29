@@ -970,6 +970,13 @@ def main():
         if not row_id:
             raise SystemExit("missing newly parsed row_id; no publish")
         if row_id in unique and unique[row_id] != row:
+            if args.source == "bupyeong":
+                prev = unique[row_id]
+                diff = {key:{"prior":prev.get(key),"incoming":row.get(key)}
+                        for key in sorted(set(prev)|set(row)) if prev.get(key)!=row.get(key)}
+                print("BUPYEONG_REMAINING_CONFLICT "+json.dumps({
+                    "row_id":row_id,"differences":diff
+                },ensure_ascii=False),flush=True)
             raise SystemExit(f"conflicting historical/new row ID {row_id}; no publish")
         if row_id not in unique:
             unique[row_id] = row
