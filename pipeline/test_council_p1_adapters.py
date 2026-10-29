@@ -11,6 +11,24 @@ class CouncilSourceP1Tests(unittest.TestCase):
         self.assertEqual(title_period("2025년 파주시의회 교섭단체 집행내역(4분기)"),(2025,None,4))
         self.assertIsNone(title_period("파주시의회 업무추진비 내역(2분기)"))
 
+    def test_gimpo_official_js_ids_and_real_xlsx_route(self):
+        src=next(s for s in SOURCES if s.key=="gimpo")
+        listing_url=src.listing_template.format(page=1)
+        listing="""<table><tr><td><a href="javascript:goViewPage('748449');">2026년 2/4분기 김포시의회 의장단 업무추진비 공개</a></td></tr></table>"""
+        detail="""<li><a class="tit" href="javascript:fileDownLoad('18839','act0702');">의장단업무추진비_2026년2분기.xlsx</a>
+        <a href="javascript:fileDownLoad('9999','other');">fake.xlsx</a>
+        <a href="javascript:fileDownLoad('not-numeric','act0702');">fake2.xlsx</a>
+        <a href="javascript:fileDownLoad('2222','act0702');">파일 없음</a></li>"""
+        expected_detail="https://gimpocouncil.go.kr/cnts/bbs/infoView.php?bbsCd=act&bbsSubCd=act0702&bbsSn=748449"
+        with patch("capital_backfill.fetch_text",side_effect=lambda u: detail if "infoView.php" in u else listing):
+            got=discover_source(src,(2026,4),(2026,6))
+        posts=[p for p in got if p.get("post_url")==expected_detail]
+        self.assertEqual(len(posts),1,got)
+        self.assertEqual(len(posts[0]["attachments"]),1)
+        self.assertEqual(posts[0]["attachments"][0]["url"],
+            "https://gimpocouncil.go.kr/sma/utl/FileDownLoad.php?flSn=18839&flCd=act0702")
+        self.assertEqual(posts[0]["period"],(2026,None,2))
+
     def test_bupyeong_proven_official_download_route_only(self):
         url="https://council.icbp.go.kr/kr/news/bbs_process?reform=download&bbs_id=expense&uid=62747"
         self.assertIsNotNone(canonical_attachment_url(url))
