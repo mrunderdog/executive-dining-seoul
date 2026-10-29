@@ -55,6 +55,16 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             failures.append("file_not_verified_or_not_in_official_discovery")
             continue
         official[u] = item
+        # Gapyeong's PDF parser explicitly records transaction-like numbered
+        # rows it could not parse. They cannot be silently dropped to create a
+        # seemingly green publication. A page with no transactions is allowed,
+        # but a row parse gap is a strict publication HOLD.
+        if source == "gapyeong" and any(
+            sheet.get("status") == "ROW_PARSE_GAPS" or
+            (sheet.get("unparsed_transaction_like_rows") or 0) > 0
+            for sheet in item.get("sheets",[])
+        ):
+            failures.append("official_gapyeong_pdf_unparsed_transaction_rows")
     if data.get("source") != source:
         failures.append("source_mismatch")
     if not posts or not official:
