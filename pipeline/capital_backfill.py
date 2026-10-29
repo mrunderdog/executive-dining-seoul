@@ -373,7 +373,8 @@ def canonical_attachment_url(url: str) -> str | None:
     # October 2026 council expense detail page. Unlike most councils this
     # serves a download via /bbs_process?reform=download, without a suffix.
     allowed_bupyeong_process = (
-        p.hostname == "council.icbp.go.kr"
+        p.scheme.lower() == "https"
+        and p.hostname == "council.icbp.go.kr"
         and path == "/kr/news/bbs_process"
         and len(query) == 3
         and sorted(query) == sorted([
