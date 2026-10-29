@@ -929,10 +929,16 @@ def main():
             # or (b) a prior source marked outside its own declared month
             # now recopied under the month actually printed in its row.
             copied_old_year=(used[:4]!=str(new_period[0]))
+            # The 2026-09 Bupyeong workbook also repeats one 2026 row
+            # previously published from a 2026-07 workbook, already marked
+            # valid_outside_period. Repeated identical economics are never a
+            # new transaction, even if both official monthly headings conflict
+            # with the printed date. Preserve the older record and *its*
+            # warning; do not relabel or erase the date inconsistency.
             corrected_later_month=(
                 baseline.get("date_quality")=="valid_outside_period"
-                and new_period[1] is not None
-                and used[:7]==f"{new_period[0]:04d}-{new_period[1]:02d}"
+                and used[:4]==str(new_period[0])
+                and old_period[1] is not None and new_period[1] is not None
             )
             if not (copied_old_year or corrected_later_month):
                 return False
