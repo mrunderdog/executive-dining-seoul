@@ -1,15 +1,15 @@
 {
   "meta": {
-    "failed_count": 403,
+    "failed_count": 404,
     "geocoder_version": 4,
     "policy_version": 3,
     "providers": [
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1788,
-    "success_count": 1385,
-    "updated_at": "2026-10-28T07:56:31+00:00"
+    "record_count": 1791,
+    "success_count": 1387,
+    "updated_at": "2026-10-29T09:17:05+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -5349,6 +5349,17 @@
         "arcgis:서울 금천구 독산로85길 21"
       ],
       "updated_at": "2026-09-17T23:02:53+00:00"
+    },
+    "더차이나|부평구": {
+      "failed": true,
+      "fingerprint": "53c8a4fb863b97a4",
+      "geocoder_version": 4,
+      "policy_version": 3,
+      "tried_queries": [
+        "arcgis:더차이나 인천광역시 부평구",
+        "nominatim:더차이나 인천광역시 부평구"
+      ],
+      "updated_at": "2026-10-29T09:17:04+00:00"
     },
     "더푸짐|관악구": {
       "addr_type": "PointAddress",
@@ -13662,6 +13673,24 @@
       ],
       "updated_at": "2026-09-18T05:23:25+00:00"
     },
+    "소금빛풍천장어구이|부평구": {
+      "addr_type": "POI",
+      "display_name": "소금빛풍천장어구이",
+      "fingerprint": "f48faa15042293cb",
+      "geocoder_version": 4,
+      "lat": 37.507806747,
+      "lon": 126.723140052,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "소금빛풍천장어구이 인천광역시 부평구",
+      "result_name": "소금빛풍천장어구이",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:소금빛풍천장어구이 인천광역시 부평구"
+      ],
+      "updated_at": "2026-10-29T09:17:04+00:00"
+    },
     "소꿉당 별내점|도봉구": {
       "addr_type": "PointAddress",
       "display_name": "경기 남양주시 별내동 별내중앙로57번길 19-1",
@@ -16442,6 +16471,24 @@
         "arcgis:서울 영등포구 국제금융로 39 (여의도동, 브라이튼여의도)201.202호"
       ],
       "updated_at": "2026-09-18T00:08:46+00:00"
+    },
+    "알코브565|부평구": {
+      "addr_type": "POI",
+      "display_name": "알코브565",
+      "fingerprint": "d711c93b82ebe75e",
+      "geocoder_version": 4,
+      "lat": 37.507707992,
+      "lon": 126.724859151,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "알코브565 인천광역시 부평구",
+      "result_name": "알코브565",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:알코브565 인천광역시 부평구"
+      ],
+      "updated_at": "2026-10-29T09:17:05+00:00"
     },
     "암소서울|공기업·공공기관": {
       "failed": true,
