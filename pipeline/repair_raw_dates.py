@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 from datetime import datetime, timedelta, date
 from pathlib import Path
 
@@ -91,6 +92,7 @@ def main():
     ap.add_argument('--source',required=True)
     ap.add_argument('--min-valid',type=float,default=.95)
     ap.add_argument('--self-test',action='store_true')
+    ap.add_argument('--preserve-baseline-ref',default='',help='Never mutate previously published transaction rows')
     args=ap.parse_args()
     self_test()
     if args.self_test:
@@ -100,6 +102,13 @@ def main():
     path=RAW/f'{args.source}_expense.json'
     d=json.loads(path.read_text(encoding='utf-8'))
     rows=d.get('rows',[])
+    baseline_rows={}
+    if args.preserve_baseline_ref:
+        cp=subprocess.run(['git','show',f'{args.preserve_baseline_ref}:data/raw/{args.source}_expense.json'],
+                          cwd=ROOT,capture_output=True,text=True)
+        if cp.returncode==0:
+            saved=json.loads(cp.stdout)
+            baseline_rows={r['row_id']:r for r in saved.get('rows',[]) if r.get('row_id')}
     repaired_serial=0
     normalized_text_dates=0
     valid=0
@@ -110,6 +119,13 @@ def main():
     invalid_examples=[]
 
     for r in rows:
+        # P0: only normalize freshly parsed transaction rows. Even benign
+        # metadata changes to a historical row would invalidate its published
+        # identity and must go through separate reviewed migration.
+        if r.get('row_id') in baseline_rows:
+            if r != baseline_rows[r['row_id']]:
+                raise SystemExit('historical row was modified before date repair; fail closed')
+            continue
         raw=r.get('used_date','')
         period=expected_period(r.get('source_period'))
         dt=parse_date_text(raw)
