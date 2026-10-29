@@ -369,8 +369,22 @@ def canonical_attachment_url(url: str) -> str | None:
         return None
     if path.endswith(("/bbsattachdownload.do", "/bbsgallerydownload.do")) and not query:
         return None
+    # Verified Bupyeong official Excel attachment route, observed in the
+    # October 2026 council expense detail page. Unlike most councils this
+    # serves a download via /bbs_process?reform=download, without a suffix.
+    allowed_bupyeong_process = (
+        p.hostname == "council.icbp.go.kr"
+        and path == "/kr/news/bbs_process"
+        and len(query) == 3
+        and sorted(query) == sorted([
+            ("reform", "download"), ("bbs_id", "expense"),
+            ("uid", dict(query).get("uid", "")),
+        ])
+        and re.fullmatch(r"\d{1,12}", dict(query).get("uid","")) is not None
+    )
     if not (
-        re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
+        allowed_bupyeong_process
+        or re.search(r"\.(?:xlsx?|csv|pdf|zip)$", path, flags=re.I)
         or any(token in path for token in ("download", "filedown", "attach", "atchfile", "bbsfile"))
     ):
         return None
