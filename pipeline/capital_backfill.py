@@ -233,6 +233,16 @@ def anchors(url: str, text: str):
             resolved = onclick_url(url, a.get("onclick", ""))
         if not resolved:
             continue
+        # Paju's official legacy route encodes '&gtid=chujin' without a
+        # semicolon. HTMLParser interprets '&gt' as the HTML greater-than
+        # entity, changing the genuine query parameter into '>id=chujin'.
+        # Restore only this observed, origin-scoped official board parameter;
+        # never apply generic entity rewriting to arbitrary websites.
+        parsed_route = urllib.parse.urlsplit(resolved)
+        if (parsed_route.hostname in {"www.pajucouncil.go.kr","pajucouncil.go.kr"}
+            and parsed_route.path == "/content/data/operatingExpense.html"
+            and ">id=chujin" in resolved):
+            resolved = resolved.replace(">id=chujin", "&gtid=chujin")
         attrs = a.get("attrs") or {}
         low = resolved.lower()
         if "bbsattachdownload.do" in low and "key=" not in low:
