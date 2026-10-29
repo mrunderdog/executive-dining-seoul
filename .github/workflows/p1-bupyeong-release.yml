@@ -1,15 +1,15 @@
 name: P1 Bupyeong 2026 September exact-source strict release
 on:
-  pull_request:
+  push:
+    branches:
+      - fix/p1-three-source-row-forensics-20261029
     paths:
-      - pipeline/ingest_council_expense.py
-      - pipeline/audit_p1_bupyeong_release.py
       - .github/workflows/p1-bupyeong-release.yml
 permissions:
   contents: write
 jobs:
   strict-release-check:
-    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/p1-three-source-row-forensics-20261029'
+    if: github.ref == 'refs/heads/fix/p1-three-source-row-forensics-20261029'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
