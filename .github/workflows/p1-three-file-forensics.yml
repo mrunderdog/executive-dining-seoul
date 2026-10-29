@@ -35,3 +35,56 @@ jobs:
           path: reports/p1-forensics/${{ matrix.source }}/
           retention-days: 14
           if-no-files-found: warn
+  approved-branch-blob-export:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'fix/p1-three-source-row-forensics-20261029'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install strict source parser dependencies
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Reproduce Bupyeong strict PASS with immutable prior data
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_official_file_forensics test_full_reconciliation_p0
+          python pipeline/capital_backfill.py --since 2024-12 --until 2026-10 --source bupyeong
+          python pipeline/guard_full_council.py --source bupyeong --phase discovery --baseline-ref HEAD
+          python pipeline/ingest_council_expense.py --source bupyeong --incremental
+          python pipeline/repair_raw_dates.py --source bupyeong --min-valid 0.0 --preserve-baseline-ref HEAD
+          PYTHONPATH=pipeline python pipeline/audit_p1_bupyeong_release.py
+          python pipeline/build_source_candidates.py --source bupyeong --top 100
+          python pipeline/build_signal_reports.py
+          python pipeline/quality_gate.py
+          python pipeline/audit_coordinates.py
+          python pipeline/build_site.py --output /tmp/bupyeong-approved-index.html
+      - name: Emit approved public-source exact file bytes for GitHub API commit
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json
+          from pathlib import Path
+          report=json.loads(Path('reports/p1-bupyeong-strict-release-audit.json').read_text(encoding='utf-8'))
+          assert report['status']=='PASS'
+          assert report['strict_qa']['status']=='PUBLISH_READY'
+          assert report['new_rows']==92 and report['reused_source_rows_not_duplicated']==959
+          assert json.loads(Path('reports/quality.json').read_text(encoding='utf-8'))['passed'] is True
+          paths=['data/raw/bupyeong_expense.json',
+                 'reports/bupyeong-executive-candidates.json',
+                 'reports/bupyeong-executive-candidates.md',
+                 'reports/bupyeong-ingestion.md',
+                 'reports/capital-backfill-discovery-bupyeong.json',
+                 'reports/capital-backfill-discovery-bupyeong.md',
+                 'reports/p1-bupyeong-strict-release-audit.json']
+          for path in paths:
+              data=Path(path).read_bytes()
+              b64=base64.b64encode(data).decode('ascii')
+              chunks=[b64[i:i+8000] for i in range(0,len(b64),8000)]
+              print('P1_MANIFEST|'+path+'|'+str(len(data))+'|'+hashlib.sha256(data).hexdigest()+'|'+str(len(chunks)),flush=True)
+              for i,chunk in enumerate(chunks):
+                  print('P1_BLOB|'+path+'|'+str(i)+'|'+chunk,flush=True)
+              print('P1_END|'+path,flush=True)
+          PY
