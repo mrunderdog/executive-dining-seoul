@@ -102,6 +102,25 @@ jobs:
           path: reports/p1-qtr-reconcile/${{ matrix.source }}/
           retention-days: 20
           if-no-files-found: warn
+  existing-site-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install official XLS/PDF reader dependencies
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: All current P0/P1 strict tests plus published site quality
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_gimpo_exception_ledger test_p1_official_file_forensics test_full_reconciliation_p0 test_council_p1_adapters test_icheon_discovery_safety
+          python pipeline/regression_checks.py
+          python pipeline/build_signal_reports.py
+          python pipeline/quality_gate.py
+          python pipeline/audit_coordinates.py
+          python pipeline/build_site.py --output /tmp/p1-existing-site.html
+          test -s /tmp/p1-existing-site.html
   offline-original-pdf-audit:
     runs-on: ubuntu-latest
     timeout-minutes: 12
