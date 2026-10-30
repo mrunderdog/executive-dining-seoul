@@ -59,7 +59,10 @@ jobs:
                        'status_counts':{v:sum(sh.get('status')==v for sh in f.get('sheets',[]))
                                         for v in sorted({sh.get('status') for sh in f.get('sheets',[])})},
                        'numbered_rows':sum(sh.get('numbered_transaction_rows',0) for sh in f.get('sheets',[])),
-                       'parsed_rows':sum(sh.get('parsed_rows',0) for sh in f.get('sheets',[]))}
+                       'parsed_rows':sum(sh.get('parsed_rows',0) for sh in f.get('sheets',[])),
+                       'unparsed_sheets':[{ 'sheet':sh.get('sheet'),'status':sh.get('status'),
+                         'examples':sh.get('unparsed_examples',[])}
+                         for sh in f.get('sheets',[]) if sh.get('unparsed_transaction_like_rows',0)]}
                        for f in p.get('files',[])],
                    'official_source_accounting':p.get('official_source_accounting'),
                    'exception_ledger':p.get('official_exception_ledger',[])}
