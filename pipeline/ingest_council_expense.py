@@ -624,72 +624,81 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
 
 
 def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
-    """Decode only the observed Gapyeong numbered expense-table layout.
+    """Parse the *printed* serial/date/time/amount/merchant of Gapyeong PDFs.
 
-    A strict row starts with a serial, explicit MM/DD and HH:MM, then
-    free-text purpose, a printed comma-grouped amount joined to a merchant,
-    attendee count and payment method. The source year comes from the
-    actual official post period. No year/quarter rewriting; e.g. a Sep date
-    printed in a Q4 document remains Sep and is rejected by strict QA.
+    Hancom PDF extraction shifts cell boundaries: '260,000항아리토방'
+    is one cell, and sometimes '20:53 집행부...' is another. Match the
+    complete original layout line, not a speculative position-based mapping.
+    A '-' in the attendee column is an explicit absence, not a lost event.
+    The printed MM/DD is retained even if it conflicts with the post quarter.
     """
-    header=" ".join(clean_text(c) for line in rows[:8] for c in line)
-    if not ("사용일자" in header and "사용금액" in header
-            and ("가맹점명" in header or "장소" in header)):
-        return [], {"sheet":sheet_name,"status":"NO_VERIFIED_GAPYEONG_TABLE",
-                    "rows":len(rows),"parsed_rows":0}
-    period=source_meta.get("period")
-    year=period[0] if isinstance(period,(list,tuple)) and len(period)==3 else None
-    if not isinstance(year,int):
-        return [], {"sheet":sheet_name,"status":"NO_OFFICIAL_YEAR","rows":len(rows),"parsed_rows":0}
-    role=source_meta.get("default_role") or ""
-    parsed=[]
-    incomplete=[]
-    for ri,row in enumerate(rows,1):
-        cells=[clean_text(v) for v in row if clean_text(v)]
-        if not cells or not re.fullmatch(r"\d{1,3}",cells[0]):
+    period = source_meta.get("period")
+    year = period[0] if isinstance(period, (list, tuple)) and len(period) == 3 else None
+    if not isinstance(year, int) or not 2000 <= year <= 2100:
+        return [], {"sheet": sheet_name, "status": "NO_OFFICIAL_YEAR", "parsed_rows": 0}
+    whole = " ".join(clean_text(v) for line in rows[:8] for v in line)
+    # Require the observed expense disclosure table, not unrelated numbers
+    # appearing elsewhere in official PDF appendices.
+    if not ("사용일자" in whole and ("사용금액" in whole or "집행금액" in whole)):
+        return [], {"sheet": sheet_name, "status": "NO_VERIFIED_GAPYEONG_TABLE",
+                    "parsed_rows": 0}
+    pattern = re.compile(
+        r"^\s*(\d{1,3})\s+(\d{2}/\d{2})\s+(\d{1,2}:\d{2})\s+"
+        r"(.+?)\s+(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s+"
+        r"(\d{1,3}|-)\s+(신용카드|카드|현금|계좌이체)\s*$"
+    )
+    prefix = re.compile(r"^\s*(\d{1,3})\s+\d{2}/\d{2}\s+\d{1,2}:\d{2}\b")
+    out, failed = [], []
+    for ri, row in enumerate(rows, 1):
+        line = " ".join(clean_text(v) for v in row if clean_text(v))
+        if not prefix.match(line):
             continue
-        if len(cells)<6 or not re.fullmatch(r"\d{2}/\d{2}",cells[1]) or not re.fullmatch(r"\d{1,2}:\d{2}",cells[2]):
+        matched = pattern.fullmatch(line)
+        if not matched:
+            failed.append({"row": ri, "reason": "unparsed_numbered_expense",
+                           "original_cells": [clean_text(v) for v in row][:15]})
             continue
-        payment=cells[-1]
-        people=cells[-2]
-        amt_merchant=cells[-3]
-        match=re.fullmatch(r"\s*(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s*",amt_merchant)
-        if not match or not re.fullmatch(r"\d{1,3}",people) or payment not in {"신용카드","카드","현금","계좌이체"}:
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"amount_merchant_or_trailer"})
-            continue
-        mm,dd=map(int,cells[1].split("/"))
+        serial, mmdd, hhmm, purpose, amt_text, merchant, people, payment = matched.groups()
         try:
-            used=date(year,mm,dd).isoformat()
+            month, day = map(int, mmdd.split("/"))
+            used = date(year, month, day).isoformat()
         except ValueError:
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_printed_date"})
+            failed.append({"row": ri, "reason": "invalid_printed_date",
+                           "original_cells": [clean_text(v) for v in row][:15]})
             continue
-        merchant=match.group(2).strip()
-        if not valid_transaction_merchant(merchant):
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_merchant"})
+        amt = parse_amount(amt_text)
+        if not amt or not valid_transaction_merchant(merchant):
+            failed.append({"row": ri, "reason": "missing_amount_or_merchant",
+                           "original_cells": [clean_text(v) for v in row][:15]})
             continue
-        amount=parse_amount(match.group(1))
-        purpose=" ".join(cells[3:-3]).strip()
-        raw={
-            "region":source_meta["region"],"jurisdiction":source_meta["jurisdiction"],
-            "institution":source_meta["institution"],"source_key":source_meta["source"],
-            "source_post_url":source_meta["post_url"],"source_attachment_url":source_meta["attachment_url"],
-            "source_attachment_name":source_meta["attachment_name"],"source_period":period,
-            "source_sheet":sheet_name,"source_row":ri,"used_date":used,
-            "date_inferred_from_previous_row":False,"used_time":cells[2],
-            "role":role,"merchant":merchant,"address":"","purpose":purpose,
-            "people":int(people),"amount":amount,"amount_inferred_from_row":False,
-            "payment_method":payment,"parse_confidence":"high",
+        raw = {
+            "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"], "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": period, "source_sheet": sheet_name, "source_row": ri,
+            "used_date": used, "date_inferred_from_previous_row": False,
+            "used_time": hhmm, "role": source_meta.get("default_role") or "",
+            "merchant": merchant.strip(), "address": "", "purpose": purpose.strip(),
+            "people": int(people) if people != "-" else None,
+            "amount": amt, "amount_inferred_from_row": False,
+            "payment_method": payment, "parse_confidence": "high",
         }
-        raw["row_id"]=hashlib.sha256(
-            "|".join(str(raw.get(k,"")) for k in ("institution","used_date","role","merchant","amount","source_sheet","source_row")).encode("utf-8")
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in (
+                "institution", "used_date", "role", "merchant", "amount",
+                "source_sheet", "source_row"
+            )).encode("utf-8")
         ).hexdigest()[:20]
-        parsed.append(raw)
-    status="ROW_PARSE_GAPS" if incomplete else ("OK" if parsed else "NO_ROWS")
-    return parsed, {"sheet":sheet_name,"status":status,"header_row":1,
-                    "mapping":"gapyeong_verified_serial_date_time_joined_amount_merchant",
-                    "parsed_rows":len(parsed),"unparsed_transaction_like_rows":len(incomplete),
-                    "unparsed_examples":incomplete[:8]}
-
+        out.append(raw)
+    return out, {"sheet": sheet_name,
+                 "status": "ROW_PARSE_GAPS" if failed else ("OK" if out else "NO_ROWS"),
+                 "parser": "gapyeong_hancom_numbered_layout_v2",
+                 "numbered_transaction_rows": len(out) + len(failed),
+                 "parsed_rows": len(out),
+                 "unparsed_transaction_like_rows": len(failed),
+                 "unparsed_examples": failed[:12]}
 
 def normalize_sheet(rows, sheet_name, source_meta):
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
