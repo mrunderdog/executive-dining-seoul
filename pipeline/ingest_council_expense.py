@@ -642,54 +642,94 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
     if not ("사용일자" in whole and ("사용금액" in whole or "집행금액" in whole)):
         return [], {"sheet": sheet_name, "status": "NO_VERIFIED_GAPYEONG_TABLE",
                     "parsed_rows": 0}
-    pattern = re.compile(
-        r"^\s*(\d{1,3})\s+(\d{2}/\d{2})\s+(\d{1,2}:\d{2})\s+"
-        r"(.+?)\s+(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s+"
-        r"(\d{1,3}|-)\s+(신용카드|카드|현금|계좌이체)\s*$"
-    )
-    prefix = re.compile(r"^\s*(\d{1,3})\s+\d{2}/\d{2}\s+\d{1,2}:\d{2}\b")
+    numbered = re.compile(r"^\s*(\d{1,3})\s+(\d{2}/\d{2})\s+(\d{1,2}:\d{2})\s+(.+)$")
+    date_without_serial = re.compile(r"^\s*\d{2}/\d{2}\s+\d{1,2}:\d{2}\b")
+    amount_token = re.compile(r"\d{1,3}(?:,\d{3})+")
     out, failed = [], []
-    for ri, row in enumerate(rows, 1):
-        line = " ".join(clean_text(v) for v in row if clean_text(v))
-        if not prefix.match(line):
-            continue
-        matched = pattern.fullmatch(line)
+    prepared = [[clean_text(v) for v in row if clean_text(v)] for row in rows]
+    def is_new_transaction(x):
+        return bool(numbered.match(x) or date_without_serial.match(x))
+    for idx, cells in enumerate(prepared):
+        ri = idx + 1
+        line = " ".join(cells)
+        matched = numbered.match(line)
         if not matched:
-            failed.append({"row": ri, "reason": "unparsed_numbered_expense",
-                           "original_cells": [clean_text(v) for v in row][:15]})
+            # A page can break a numbered transaction across three lines,
+            # placing its serial alone at the bottom. Do not silently omit it.
+            if date_without_serial.match(line):
+                failed.append({"row": ri, "reason": "date_first_number_missing_or_reflowed",
+                               "original_cells": cells[:15]})
             continue
-        serial, mmdd, hhmm, purpose, amt_text, merchant, people, payment = matched.groups()
+        serial, mmdd, hhmm, rest = matched.groups()
+        # Only allow a continuation when the next line is not another
+        # transaction, heading or footer. The exact printable cell contents
+        # remain in the evidence, including malformed amounts.
+        if not re.search(r"(신용카드|카드|현금|계좌이체)\s*$", rest):
+            for next_row in prepared[idx+1:idx+3]:
+                nxt = " ".join(next_row)
+                if (is_new_transaction(nxt) or "사용일자" in nxt
+                    or re.search(r"(?:이 문서는|소유로 무단|비고|일련)", nxt)):
+                    break
+                if not nxt:
+                    continue
+                rest += " " + nxt
+                if re.search(r"(신용카드|카드|현금|계좌이체)\s*$", rest):
+                    break
+        full = re.fullmatch(r"(.+?)\s*(신용카드|카드|현금|계좌이체)", rest)
+        if not full:
+            failed.append({"row":ri,"reason":"missing_payment_method",
+                           "original_cells":cells[:15]})
+            continue
+        body, payment = full.groups()
+        amounts = list(amount_token.finditer(body))
+        if not amounts:
+            failed.append({"row":ri,"reason":"amount_not_verified",
+                           "original_cells":cells[:15]})
+            continue
+        amt_match=amounts[-1]
+        purpose=body[:amt_match.start()].strip()
+        amt_text=amt_match.group()
+        trailing=body[amt_match.end():].strip()
+        # A corrupted, split number such as 350,00 0 must remain a HOLD;
+        # never estimate a missing amount digit.
+        if re.match(r"^\d(?:\b|$)",trailing):
+            failed.append({"row":ri,"reason":"possible_split_amount",
+                           "original_cells":cells[:15]})
+            continue
+        attendee=None
+        a=re.search(r"\s+(\d{1,3}|-|내방객|참석자)\s*$",trailing)
+        if a:
+            attendee=a.group(1)
+            trailing=trailing[:a.start()].strip()
+        merchant=trailing
         try:
-            month, day = map(int, mmdd.split("/"))
-            used = date(year, month, day).isoformat()
+            mm, dd = map(int, mmdd.split("/"))
+            used=date(year,mm,dd).isoformat()
         except ValueError:
-            failed.append({"row": ri, "reason": "invalid_printed_date",
-                           "original_cells": [clean_text(v) for v in row][:15]})
+            failed.append({"row":ri,"reason":"invalid_printed_date",
+                           "original_cells":cells[:15]})
             continue
-        amt = parse_amount(amt_text)
+        amt=parse_amount(amt_text)
         if not amt or not valid_transaction_merchant(merchant):
-            failed.append({"row": ri, "reason": "missing_amount_or_merchant",
-                           "original_cells": [clean_text(v) for v in row][:15]})
+            failed.append({"row":ri,"reason":"missing_amount_or_merchant",
+                           "original_cells":cells[:15]})
             continue
-        raw = {
-            "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
-            "institution": source_meta["institution"], "source_key": source_meta["source"],
-            "source_post_url": source_meta["post_url"],
-            "source_attachment_url": source_meta["attachment_url"],
-            "source_attachment_name": source_meta["attachment_name"],
-            "source_period": period, "source_sheet": sheet_name, "source_row": ri,
-            "used_date": used, "date_inferred_from_previous_row": False,
-            "used_time": hhmm, "role": source_meta.get("default_role") or "",
-            "merchant": merchant.strip(), "address": "", "purpose": purpose.strip(),
-            "people": int(people) if people != "-" else None,
-            "amount": amt, "amount_inferred_from_row": False,
-            "payment_method": payment, "parse_confidence": "high",
+        raw={
+            "region":source_meta["region"],"jurisdiction":source_meta["jurisdiction"],
+            "institution":source_meta["institution"],"source_key":source_meta["source"],
+            "source_post_url":source_meta["post_url"],
+            "source_attachment_url":source_meta["attachment_url"],
+            "source_attachment_name":source_meta["attachment_name"],
+            "source_period":period,"source_sheet":sheet_name,"source_row":ri,
+            "used_date":used,"date_inferred_from_previous_row":False,
+            "used_time":hhmm,"role":source_meta.get("default_role") or "",
+            "merchant":merchant,"address":"","purpose":purpose,
+            "people":int(attendee) if attendee and attendee.isdigit() else None,
+            "amount":amt,"amount_inferred_from_row":False,
+            "payment_method":payment,"parse_confidence":"high",
         }
-        raw["row_id"] = hashlib.sha256(
-            "|".join(str(raw.get(k, "")) for k in (
-                "institution", "used_date", "role", "merchant", "amount",
-                "source_sheet", "source_row"
-            )).encode("utf-8")
+        raw["row_id"]=hashlib.sha256(
+            "|".join(str(raw.get(k,"")) for k in ("institution","used_date","role","merchant","amount","source_sheet","source_row")).encode("utf-8")
         ).hexdigest()[:20]
         out.append(raw)
     return out, {"sheet": sheet_name,
