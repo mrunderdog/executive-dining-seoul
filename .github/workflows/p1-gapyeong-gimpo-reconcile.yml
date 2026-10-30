@@ -9,6 +9,7 @@ on:
       - .github/workflows/p1-gapyeong-gimpo-reconcile.yml
 permissions:
   contents: read
+  actions: read
 jobs:
   source-reconcile:
     strategy:
@@ -101,3 +102,63 @@ jobs:
           path: reports/p1-qtr-reconcile/${{ matrix.source }}/
           retention-days: 20
           if-no-files-found: warn
+  offline-original-pdf-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install exact parsers
+        run: pip install --disable-pip-version-check pypdf==6.1.1 openpyxl==3.1.5 xlrd==2.0.2
+      - name: Recover earlier verified five official Gapyeong PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: p1-quarterly-source-gapyeong
+          run-id: 40987164341
+          github-token: ${{ github.token }}
+          path: /tmp/gapyeong-evidence
+      - name: Check every stored original file hash and parse every PDF page
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          from pathlib import Path
+          from ingest_council_expense import workbook_rows,normalize_sheet
+          import json,hashlib
+          files=sorted(Path('/tmp/gapyeong-evidence/official').glob('*.pdf'))
+          assert len(files)==5,[p.name for p in files]
+          checks={}
+          for f in files:
+              year=int(f.name[:4])
+              quarter=int(f.name[6:7])
+              blob=f.read_bytes()
+              assert blob.startswith(b'%PDF')
+              assert hashlib.sha256(blob).hexdigest().startswith(f.stem.split('-')[-1])
+              normalized=0;missed=0;lineage=[]
+              meta={"source":"gapyeong","region":"경기","jurisdiction":"가평군","institution":"가평군의회",
+                    "post_url":"verified-historic-official-post","attachment_url":"verified-historic-official-blob",
+                    "attachment_name":f.name,"period":[year,None,quarter],"default_role":"의장"}
+              for sheet,rows in workbook_rows(blob,f.name):
+                  got,info=normalize_sheet(rows,sheet,meta)
+                  normalized+=len(got)
+                  missed+=int(info.get('unparsed_transaction_like_rows',0))
+                  lineage.extend((sheet,r.get('source_row'),r.get('used_date'),r.get('amount')) for r in got)
+              assert len(lineage)==len(set(lineage)),f
+              assert normalized>=40, (f.name,normalized)
+              if year==2024 and quarter==4:
+                  assert normalized==103,(f.name,normalized)
+                  # Genuine Sept 2024 dates remain printed Sept, Q4 must NOT be forged.
+                  assert any(x[2].startswith('2024-09') for x in lineage)
+              checks[f.name]={"rows":normalized,"unparsed":missed,
+                             "sha256":hashlib.sha256(blob).hexdigest()}
+              print(f.name,checks[f.name],flush=True)
+          Path('reports/p1-gapyeong-offline-pdf-audit.json').write_text(
+             json.dumps(checks,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-gapyeong-offline-pdf-audit
+          path: reports/p1-gapyeong-offline-pdf-audit.json
+          retention-days: 20
