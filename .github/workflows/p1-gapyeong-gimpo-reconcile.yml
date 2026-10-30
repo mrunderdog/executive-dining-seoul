@@ -1,0 +1,79 @@
+name: P1 Gapyeong Gimpo official row reconciliation
+on:
+  pull_request:
+    paths:
+      - pipeline/ingest_council_expense.py
+      - pipeline/qa_council_publication.py
+      - pipeline/reconcile_gimpo_sources.py
+      - pipeline/test_p1_gimpo_exception_ledger.py
+      - .github/workflows/p1-gapyeong-gimpo-reconcile.yml
+permissions:
+  contents: read
+jobs:
+  source-reconcile:
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [gapyeong, gimpo]
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install official XLSX PDF readers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Run P1 source and historic-regression tests
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_gimpo_exception_ledger test_p1_official_file_forensics test_full_reconciliation_p0 test_council_p1_adapters
+          python pipeline/regression_checks.py
+      - name: Discover live official quarterly posts
+        run: python pipeline/capital_backfill.py --since 2024-12 --until 2026-10 --source ${{ matrix.source }}
+      - name: Verify 100% official file lineage / discovery completeness
+        run: python pipeline/guard_full_council.py --source ${{ matrix.source }} --phase discovery --baseline-ref HEAD
+      - name: Parse official PDFs or spreadsheets (no production writes)
+        run: python pipeline/ingest_council_expense.py --source ${{ matrix.source }} --incremental
+      - name: Repair only parseable textual source dates and preserve originals
+        run: python pipeline/repair_raw_dates.py --source ${{ matrix.source }} --min-valid 0.0 --preserve-baseline-ref HEAD
+      - name: Assert no historical record or attachment drift
+        run: python pipeline/guard_full_council.py --source ${{ matrix.source }} --phase integrity --baseline-ref HEAD
+      - name: Publish exact strict QA and exclusion ledger report
+        shell: bash
+        run: |
+          set +e
+          PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source ${{ matrix.source }} --baseline-ref HEAD > /tmp/p1-exact-qa.txt
+          rc=$?
+          cat /tmp/p1-exact-qa.txt
+          python - <<'PY'
+          import json, pathlib, os
+          s='${{ matrix.source }}'
+          p=json.loads(pathlib.Path(f'data/raw/{s}_expense.json').read_text(encoding='utf-8'))
+          d=json.loads(pathlib.Path(f'reports/capital-backfill-discovery-{s}.json').read_text(encoding='utf-8'))
+          summary={'source':s,'parsed_rows':len(p.get('rows',[])),
+                   'new_files':p.get('new_files'),
+                   'files':len(p.get('files',[])),
+                   'file_statuses':[{ 'name':f.get('name'),'url':f.get('url'),
+                       'status_counts':{v:sum(sh.get('status')==v for sh in f.get('sheets',[]))
+                                        for v in sorted({sh.get('status') for sh in f.get('sheets',[])})},
+                       'numbered_rows':sum(sh.get('numbered_transaction_rows',0) for sh in f.get('sheets',[])),
+                       'parsed_rows':sum(sh.get('parsed_rows',0) for sh in f.get('sheets',[]))}
+                       for f in p.get('files',[])],
+                   'official_source_accounting':p.get('official_source_accounting'),
+                   'exception_ledger':p.get('official_exception_ledger',[])}
+          folder=pathlib.Path('reports/p1-qtr-reconcile')/s;folder.mkdir(parents=True,exist_ok=True)
+          (folder/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+          mkdir -p reports/p1-qtr-reconcile/${{ matrix.source }}
+          cp /tmp/p1-exact-qa.txt reports/p1-qtr-reconcile/${{ matrix.source }}/strict_qa.json
+          echo "Strict QA exit $rc (2 = source HOLD, do not publish)"
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-quarterly-source-${{ matrix.source }}
+          path: reports/p1-qtr-reconcile/${{ matrix.source }}/
+          retention-days: 20
+          if-no-files-found: warn
