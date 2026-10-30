@@ -35,6 +35,29 @@ class OfficialGapyeongPDFTests(unittest.TestCase):
         self.assertEqual(records[0]["used_date"],"2024-09-02")
         self.assertEqual(info["status"],"OK")
 
+    def test_gapyeong_missing_attendee_and_glued_payment_are_accounted_for(self):
+        a=HEADER+[
+            ["11","02/03","13:37","의회 내방객 음료 구입비",
+             "718,300가평군청직장금고","신용카드"],
+            ["12","02/05","12:05","전직 의원 간담회 개회",
+             "48,000장가네","3신용카드"],
+            ["13","02/06","21:02","집행부와의 업무협의 간담회",
+             "186,000다한우","6신용카드"],
+        ]
+        rows, info=normalize_sheet(a,"pdf-page-6",META)
+        self.assertEqual(info["status"],"OK",info)
+        self.assertEqual(len(rows),3)
+        self.assertEqual([r["merchant"] for r in rows],
+                         ["가평군청직장금고","장가네","다한우"])
+        self.assertEqual([r["people"] for r in rows],[None,3,6])
+
+    def test_gapyeong_broken_number_must_never_be_invented(self):
+        rows, info=normalize_sheet(HEADER+[
+            ["7","03/19","10:46","화분 구입","350,00 0 꼬슬란","신용카드"]],
+            "pdf-page-3",META)
+        self.assertEqual(len(rows),0)
+        self.assertEqual(info["unparsed_transaction_like_rows"],1)
+
     def test_failed_amount_format_is_a_visible_parse_gap(self):
         rows,info=normalize_sheet(HEADER+[["23","12/11","16:21","간담회","금액없음항아리토방","10","신용카드"]],
                                   "pdf-page-2",META)
