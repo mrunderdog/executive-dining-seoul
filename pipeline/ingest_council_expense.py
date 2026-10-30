@@ -646,6 +646,8 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
     date_without_serial = re.compile(r"^\s*\d{2}/\d{2}\s+\d{1,2}:\d{2}\b")
     amount_token = re.compile(r"\d{1,3}(?:,\d{3})+")
     out, failed = [], []
+    split_first_serials = []
+    verified_pdf_currency_repairs = []
     prepared = [[clean_text(v) for v in row if clean_text(v)] for row in rows]
     def is_new_transaction(x):
         return bool(numbered.match(x) or date_without_serial.match(x))
@@ -653,6 +655,16 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
         ri = idx + 1
         line = " ".join(cells)
         matched = numbered.match(line)
+        # Verified 2025-Q4 official PDF layout: pypdf emits the *printed*
+        # first row number 1 on its own immediately after the table header.
+        # Accept only that literal number and only in the header's first
+        # fourteen extracted lines. Do not fabricate a missing serial.
+        if (not matched and idx < 14 and idx > 0
+            and date_without_serial.match(line)
+            and prepared[idx - 1] == ["1"]):
+            matched = numbered.match("1 " + line)
+            if matched:
+                split_first_serials.append({"source_row":ri, "printed_serial":1})
         if not matched:
             # A page can break a numbered transaction across three lines,
             # placing its serial alone at the bottom. Do not silently omit it.
@@ -661,6 +673,22 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                                "original_cells": cells[:15]})
             continue
         serial, mmdd, hhmm, rest = matched.groups()
+        # 2026 Q1 official PDF p6: text extraction splits the visible
+        # '350,000' as '350,00 0' for the 03/19 florist transaction.
+        # The exact PDF was visually verified against its SHA-256 bytes.
+        # Restrict repair to that digest, original page, serial and merchant.
+        # A different source, amount or PDF cannot invoke this exception.
+        if (source_meta.get("attachment_sha256") ==
+            "5769afc384be8459893ad18bbd209b24e267e96f5dffaeee60d52c10dad7aea2"
+            and sheet_name == "pdf-page-6"
+            and serial == "12" and mmdd == "03/19" and hhmm == "10:46"
+            and rest.endswith("350,00 0 꼬슬란 신용카드")
+            and rest.count("350,00 0") == 1):
+            rest = rest.replace("350,00 0 꼬슬란 신용카드",
+                                "350,000 꼬슬란 신용카드")
+            verified_pdf_currency_repairs.append({
+                "source_row":ri, "pdf_sha256":source_meta["attachment_sha256"],
+                "printed_amount":350000, "merchant":"꼬슬란"})
         # Only allow a continuation when the next line is not another
         # transaction, heading or footer. The exact printable cell contents
         # remain in the evidence, including malformed amounts.
@@ -737,6 +765,8 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                  "parser": "gapyeong_hancom_numbered_layout_v2",
                  "numbered_transaction_rows": len(out) + len(failed),
                  "parsed_rows": len(out),
+                 "verified_first_serial_splits": split_first_serials,
+                 "source_verified_currency_repairs": verified_pdf_currency_repairs,
                  "unparsed_transaction_like_rows": len(failed),
                  "unparsed_examples": failed[:12]}
 
@@ -934,6 +964,7 @@ def main():
                     meta = {
                         "source": post["source"], "region": post["region"], "jurisdiction": post["jurisdiction"], "institution": post["institution"],
                         "post_url": post["post_url"], "attachment_url": url, "attachment_name": name, "period": post.get("period"),
+                        "attachment_sha256": per_file["sha256"],
                         "default_role": (
                             page_role
                             or carried_pdf_role

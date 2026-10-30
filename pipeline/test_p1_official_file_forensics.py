@@ -58,6 +58,33 @@ class OfficialGapyeongPDFTests(unittest.TestCase):
         self.assertEqual(len(rows),0)
         self.assertEqual(info["unparsed_transaction_like_rows"],1)
 
+    def test_2025_q4_split_first_serial_with_actual_pdf_layout(self):
+        meta={**META,"period":[2025,None,4]}
+        # Observed PyPDF page header prints first ordinal in a separate cell.
+        rows=HEADER+[["1"],["10/13","14:43","북면 생활개선회 의견청취 간담회",
+                            "132,000도니우니정육점","5","신용카드"]]
+        parsed,info=normalize_sheet(rows,"pdf-page-1",meta)
+        self.assertEqual(info["status"],"OK",info)
+        self.assertEqual(len(parsed),1)
+        self.assertEqual(parsed[0]["amount"],132000)
+        self.assertEqual(parsed[0]["merchant"],"도니우니정육점")
+        self.assertEqual(info["verified_first_serial_splits"][0]["printed_serial"],1)
+
+    def test_visual_sha_bound_pdf_amount_repair(self):
+        meta={**META,"period":[2026,None,1],
+              "attachment_sha256":"5769afc384be8459893ad18bbd209b24e267e96f5dffaeee60d52c10dad7aea2"}
+        row=["12","03/19","10:46","제336회 가평군의회 임시회 운영을 위한 환경정비 화분 구입",
+             "350,00 0 꼬슬란","신용카드"]
+        parsed,info=normalize_sheet(HEADER+[row],"pdf-page-6",meta)
+        self.assertEqual(len(parsed),1,info)
+        self.assertEqual(parsed[0]["amount"],350000)
+        self.assertEqual(parsed[0]["merchant"],"꼬슬란")
+        self.assertEqual(len(info["source_verified_currency_repairs"]),1)
+        # The same string in any other official file MUST NOT be repaired.
+        unauthorized,failed=normalize_sheet(HEADER+[row],"pdf-page-6",{**meta,"attachment_sha256":"a"*64})
+        self.assertEqual(unauthorized,[])
+        self.assertEqual(failed["status"],"ROW_PARSE_GAPS")
+
     def test_failed_amount_format_is_a_visible_parse_gap(self):
         rows,info=normalize_sheet(HEADER+[["23","12/11","16:21","간담회","금액없음항아리토방","10","신용카드"]],
                                   "pdf-page-2",META)
