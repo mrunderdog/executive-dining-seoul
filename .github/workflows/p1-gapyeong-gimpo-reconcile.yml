@@ -73,6 +73,27 @@ jobs:
           cp /tmp/p1-exact-qa.txt reports/p1-qtr-reconcile/${{ matrix.source }}/strict_qa.json
           echo "Strict QA exit $rc (2 = source HOLD, do not publish)"
           exit 0
+      - name: Preserve exact official Gapyeong PDF bytes for forensic review
+        if: matrix.source == 'gapyeong'
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json,pathlib,hashlib
+          from ingest_council_expense import fetch_binary
+          from capital_backfill import canonical_attachment_url
+          posts=json.loads(pathlib.Path('reports/capital-backfill-discovery-gapyeong.json').read_text(encoding='utf-8'))['posts']
+          root=pathlib.Path('reports/p1-qtr-reconcile/gapyeong/official');root.mkdir(parents=True,exist_ok=True)
+          for post in posts:
+              if post.get('source')!='gapyeong':continue
+              for att in post.get('attachments',[]):
+                  u=att.get('url')
+                  if not canonical_attachment_url(u):continue
+                  b=fetch_binary(u,post['post_url'])
+                  assert b.startswith(b'%PDF')
+                  period=post.get('period')
+                  name=str(period[0])+'-Q'+str(period[2])+'-'+hashlib.sha256(b).hexdigest()[:10]+'.pdf'
+                  (root/name).write_bytes(b)
+                  print(name,len(b),flush=True)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
