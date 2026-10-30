@@ -1,0 +1,85 @@
+name: Gapyeong Seven Official PDF Lines — Strict Evidence Regression
+on:
+  pull_request:
+    paths:
+      - pipeline/ingest_council_expense.py
+      - pipeline/test_p1_official_file_forensics.py
+      - .github/workflows/p1-gapyeong-seven-lines.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verified-original-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install official PDF and spreadsheet parsers
+        run: pip install --disable-pip-version-check pypdf==6.1.1 openpyxl==3.1.5 xlrd==2.0.2
+      - name: Run strict P0 P1 source tests and quality gates
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_official_file_forensics test_p1_gimpo_exception_ledger test_full_reconciliation_p0 test_council_p1_adapters
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output /tmp/site-p1-proof.html
+      - name: Recover SHA-verified public official PDFs from prior audited run
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 40987164341
+          name: p1-quarterly-source-gapyeong
+          github-token: ${{ github.token }}
+          path: /tmp/gapyeong-official
+      - name: Verify all five original PDFs and every numbered record without fabrication
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          from ingest_council_expense import normalize_sheet,workbook_rows
+          files=list(sorted(Path('/tmp/gapyeong-official/official').glob('*.pdf')))
+          assert len(files)==5, files
+          details={}
+          for f in files:
+              parts=f.name.split('-')
+              year=int(parts[0]);quarter=int(parts[1][1:])
+              blob=f.read_bytes()
+              digest=hashlib.sha256(blob).hexdigest()
+              assert digest.startswith(f.stem.rsplit('-',1)[-1]),f.name
+              meta={'source':'gapyeong','region':'경기','jurisdiction':'가평군',
+                    'institution':'가평군의회','post_url':'archived-official-post',
+                    'attachment_url':'archived-official-pdf','attachment_name':f.name,
+                    'period':[year,None,quarter],'default_role':'의장',
+                    'attachment_sha256':digest}
+              parsed=[];holes=[];split=[];repairs=[]
+              for sheet,rows in workbook_rows(blob,f.name):
+                  got,info=normalize_sheet(rows,sheet,meta)
+                  parsed+=got
+                  holes+=info.get('unparsed_examples',[])
+                  split+=info.get('verified_first_serial_splits',[])
+                  repairs+=info.get('source_verified_currency_repairs',[])
+              details[f.name]={'rows':len(parsed),'remaining_holes':len(holes),
+                               'split_serials':len(split),'sha_bound_amount_repairs':len(repairs),
+                               'out_of_period':sum(not
+                                  ( (quarter-1)*3+1 <= int(r['used_date'][5:7]) <= quarter*3)
+                                   for r in parsed)}
+              assert not holes, (f.name,holes)
+              if year==2025 and quarter==4:
+                  assert len(split)==6,split
+              if year==2026 and quarter==1:
+                  assert len(repairs)==1,repairs
+              if year==2024 and quarter==4:
+                  assert details[f.name]['out_of_period']>0
+          assert sum(x['rows'] for x in details.values())==377,details
+          out=Path('reports/gapyeong-seven-original-proof.json')
+          out.write_text(json.dumps(details,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(details,ensure_ascii=False,indent=2),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gapyeong-377-verified-original-records
+          path: reports/gapyeong-seven-original-proof.json
+          retention-days: 14
