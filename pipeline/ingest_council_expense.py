@@ -624,72 +624,121 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
 
 
 def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
-    """Decode only the observed Gapyeong numbered expense-table layout.
+    """Parse the *printed* serial/date/time/amount/merchant of Gapyeong PDFs.
 
-    A strict row starts with a serial, explicit MM/DD and HH:MM, then
-    free-text purpose, a printed comma-grouped amount joined to a merchant,
-    attendee count and payment method. The source year comes from the
-    actual official post period. No year/quarter rewriting; e.g. a Sep date
-    printed in a Q4 document remains Sep and is rejected by strict QA.
+    Hancom PDF extraction shifts cell boundaries: '260,000항아리토방'
+    is one cell, and sometimes '20:53 집행부...' is another. Match the
+    complete original layout line, not a speculative position-based mapping.
+    A '-' in the attendee column is an explicit absence, not a lost event.
+    The printed MM/DD is retained even if it conflicts with the post quarter.
     """
-    header=" ".join(clean_text(c) for line in rows[:8] for c in line)
-    if not ("사용일자" in header and "사용금액" in header
-            and ("가맹점명" in header or "장소" in header)):
-        return [], {"sheet":sheet_name,"status":"NO_VERIFIED_GAPYEONG_TABLE",
-                    "rows":len(rows),"parsed_rows":0}
-    period=source_meta.get("period")
-    year=period[0] if isinstance(period,(list,tuple)) and len(period)==3 else None
-    if not isinstance(year,int):
-        return [], {"sheet":sheet_name,"status":"NO_OFFICIAL_YEAR","rows":len(rows),"parsed_rows":0}
-    role=source_meta.get("default_role") or ""
-    parsed=[]
-    incomplete=[]
-    for ri,row in enumerate(rows,1):
-        cells=[clean_text(v) for v in row if clean_text(v)]
-        if not cells or not re.fullmatch(r"\d{1,3}",cells[0]):
+    period = source_meta.get("period")
+    year = period[0] if isinstance(period, (list, tuple)) and len(period) == 3 else None
+    if not isinstance(year, int) or not 2000 <= year <= 2100:
+        return [], {"sheet": sheet_name, "status": "NO_OFFICIAL_YEAR", "parsed_rows": 0}
+    whole = " ".join(clean_text(v) for line in rows[:8] for v in line)
+    # Require the observed expense disclosure table, not unrelated numbers
+    # appearing elsewhere in official PDF appendices.
+    if not ("사용일자" in whole and ("사용금액" in whole or "집행금액" in whole)):
+        return [], {"sheet": sheet_name, "status": "NO_VERIFIED_GAPYEONG_TABLE",
+                    "parsed_rows": 0}
+    numbered = re.compile(r"^\s*(\d{1,3})\s+(\d{2}/\d{2})\s+(\d{1,2}:\d{2})\s+(.+)$")
+    date_without_serial = re.compile(r"^\s*\d{2}/\d{2}\s+\d{1,2}:\d{2}\b")
+    amount_token = re.compile(r"\d{1,3}(?:,\d{3})+")
+    out, failed = [], []
+    prepared = [[clean_text(v) for v in row if clean_text(v)] for row in rows]
+    def is_new_transaction(x):
+        return bool(numbered.match(x) or date_without_serial.match(x))
+    for idx, cells in enumerate(prepared):
+        ri = idx + 1
+        line = " ".join(cells)
+        matched = numbered.match(line)
+        if not matched:
+            # A page can break a numbered transaction across three lines,
+            # placing its serial alone at the bottom. Do not silently omit it.
+            if date_without_serial.match(line):
+                failed.append({"row": ri, "reason": "date_first_number_missing_or_reflowed",
+                               "original_cells": cells[:15]})
             continue
-        if len(cells)<6 or not re.fullmatch(r"\d{2}/\d{2}",cells[1]) or not re.fullmatch(r"\d{1,2}:\d{2}",cells[2]):
+        serial, mmdd, hhmm, rest = matched.groups()
+        # Only allow a continuation when the next line is not another
+        # transaction, heading or footer. The exact printable cell contents
+        # remain in the evidence, including malformed amounts.
+        if not re.search(r"(신용카드|카드|현금|계좌이체)\s*$", rest):
+            for next_row in prepared[idx+1:idx+3]:
+                nxt = " ".join(next_row)
+                if (is_new_transaction(nxt) or "사용일자" in nxt
+                    or re.search(r"(?:이 문서는|소유로 무단|비고|일련)", nxt)):
+                    break
+                if not nxt:
+                    continue
+                rest += " " + nxt
+                if re.search(r"(신용카드|카드|현금|계좌이체)\s*$", rest):
+                    break
+        full = re.fullmatch(r"(.+?)\s*(신용카드|카드|현금|계좌이체)", rest)
+        if not full:
+            failed.append({"row":ri,"reason":"missing_payment_method",
+                           "original_cells":cells[:15]})
             continue
-        payment=cells[-1]
-        people=cells[-2]
-        amt_merchant=cells[-3]
-        match=re.fullmatch(r"\s*(\d{1,3}(?:,\d{3})+)\s*(\S.*?)\s*",amt_merchant)
-        if not match or not re.fullmatch(r"\d{1,3}",people) or payment not in {"신용카드","카드","현금","계좌이체"}:
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"amount_merchant_or_trailer"})
+        body, payment = full.groups()
+        amounts = list(amount_token.finditer(body))
+        if not amounts:
+            failed.append({"row":ri,"reason":"amount_not_verified",
+                           "original_cells":cells[:15]})
             continue
-        mm,dd=map(int,cells[1].split("/"))
+        amt_match=amounts[-1]
+        purpose=body[:amt_match.start()].strip()
+        amt_text=amt_match.group()
+        trailing=body[amt_match.end():].strip()
+        # A corrupted, split number such as 350,00 0 must remain a HOLD;
+        # never estimate a missing amount digit.
+        if re.match(r"^\d(?:\b|$)",trailing):
+            failed.append({"row":ri,"reason":"possible_split_amount",
+                           "original_cells":cells[:15]})
+            continue
+        attendee=None
+        a=re.search(r"\s+(\d{1,3}|-|내방객|참석자)\s*$",trailing)
+        if a:
+            attendee=a.group(1)
+            trailing=trailing[:a.start()].strip()
+        merchant=trailing
         try:
+            mm, dd = map(int, mmdd.split("/"))
             used=date(year,mm,dd).isoformat()
         except ValueError:
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_printed_date"})
+            failed.append({"row":ri,"reason":"invalid_printed_date",
+                           "original_cells":cells[:15]})
             continue
-        merchant=match.group(2).strip()
-        if not valid_transaction_merchant(merchant):
-            incomplete.append({"row":ri,"cells":cells[:12],"cause":"invalid_merchant"})
+        amt=parse_amount(amt_text)
+        if not amt or not valid_transaction_merchant(merchant):
+            failed.append({"row":ri,"reason":"missing_amount_or_merchant",
+                           "original_cells":cells[:15]})
             continue
-        amount=parse_amount(match.group(1))
-        purpose=" ".join(cells[3:-3]).strip()
         raw={
             "region":source_meta["region"],"jurisdiction":source_meta["jurisdiction"],
             "institution":source_meta["institution"],"source_key":source_meta["source"],
-            "source_post_url":source_meta["post_url"],"source_attachment_url":source_meta["attachment_url"],
-            "source_attachment_name":source_meta["attachment_name"],"source_period":period,
-            "source_sheet":sheet_name,"source_row":ri,"used_date":used,
-            "date_inferred_from_previous_row":False,"used_time":cells[2],
-            "role":role,"merchant":merchant,"address":"","purpose":purpose,
-            "people":int(people),"amount":amount,"amount_inferred_from_row":False,
+            "source_post_url":source_meta["post_url"],
+            "source_attachment_url":source_meta["attachment_url"],
+            "source_attachment_name":source_meta["attachment_name"],
+            "source_period":period,"source_sheet":sheet_name,"source_row":ri,
+            "used_date":used,"date_inferred_from_previous_row":False,
+            "used_time":hhmm,"role":source_meta.get("default_role") or "",
+            "merchant":merchant,"address":"","purpose":purpose,
+            "people":int(attendee) if attendee and attendee.isdigit() else None,
+            "amount":amt,"amount_inferred_from_row":False,
             "payment_method":payment,"parse_confidence":"high",
         }
         raw["row_id"]=hashlib.sha256(
             "|".join(str(raw.get(k,"")) for k in ("institution","used_date","role","merchant","amount","source_sheet","source_row")).encode("utf-8")
         ).hexdigest()[:20]
-        parsed.append(raw)
-    status="ROW_PARSE_GAPS" if incomplete else ("OK" if parsed else "NO_ROWS")
-    return parsed, {"sheet":sheet_name,"status":status,"header_row":1,
-                    "mapping":"gapyeong_verified_serial_date_time_joined_amount_merchant",
-                    "parsed_rows":len(parsed),"unparsed_transaction_like_rows":len(incomplete),
-                    "unparsed_examples":incomplete[:8]}
-
+        out.append(raw)
+    return out, {"sheet": sheet_name,
+                 "status": "ROW_PARSE_GAPS" if failed else ("OK" if out else "NO_ROWS"),
+                 "parser": "gapyeong_hancom_numbered_layout_v2",
+                 "numbered_transaction_rows": len(out) + len(failed),
+                 "parsed_rows": len(out),
+                 "unparsed_transaction_like_rows": len(failed),
+                 "unparsed_examples": failed[:12]}
 
 def normalize_sheet(rows, sheet_name, source_meta):
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
@@ -701,6 +750,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
     score, hi, matched, header_row, header_span = found
     mapping = map_columns(header_row)
+    if source_meta.get("source") == "gimpo" and "purpose" not in mapping:
+        for ci, h in enumerate(header_row):
+            if norm_header(h) == "집행내역":
+                mapping["purpose"] = ci
+                break
     # PDF disclosures often put the accountable role in a section title above
     # the repeated table header, e.g. "업무추진비 집행내역(부의장)", while the
     # table itself contains only 대상인원. Preserve that page/section context.
@@ -905,6 +959,42 @@ def main():
         print(out)
         return
 
+    # On Gimpo, keep all original officially parsed expenses accounted for:
+    # actual merchant transactions, exact cross-quarter duplicates,
+    # genuine non-dining cash support, and unresolved outliers.
+    # No row is silently discarded and strict first-publication QA still
+    # rejects unresolved cases.
+    gimpo_exceptions = list(previous.get("official_exception_ledger") or [])
+    gimpo_accounting = dict(previous.get("official_source_accounting") or {})
+    if args.source == "gimpo":
+        from reconcile_gimpo_sources import reconcile_gimpo
+        accepted, new_exceptions = reconcile_gimpo(all_rows)
+        if previous_rows:
+            previous_exception_ids = {e["original"]["row_id"] for e in gimpo_exceptions}
+            gimpo_exceptions += [e for e in new_exceptions
+                                 if e["original"]["row_id"] not in previous_exception_ids]
+        else:
+            gimpo_exceptions = new_exceptions
+        all_rows = accepted
+        # Original file parsing is recomputed from the saved files' sheet
+        # summaries, never inferred by subtracting failed transactions.
+        parsed_total = sum(sh.get("parsed_rows", 0)
+                           for doc in files for sh in doc.get("sheets", []))
+        if previous_rows:
+            parsed_total += int(gimpo_accounting.get("source_parsed_rows") or 0)
+        counts = Counter(e["disposition"] for e in gimpo_exceptions)
+        gimpo_accounting = {
+            "source_parsed_rows": parsed_total,
+            "included_rows": len(previous_rows) + len(all_rows),
+            "exception_rows": len(gimpo_exceptions),
+            "exception_reason_counts": dict(counts),
+            "policy": "Full-file accounting; unresolved records remain HOLD, not silently excluded",
+        }
+        print(json.dumps({
+            "source": "gimpo", "dispositions": dict(counts),
+            "audited_input_rows": parsed_total, "merchant_rows": len(all_rows)
+        }, ensure_ascii=False), flush=True)
+
     # Bupyeong's verified 2026-09 XLSX explicitly recopies 2025-09 sheets.
     # These same transaction IDs are already published against the correct
     # 2025 official document. Treat *only* proven identical historical events
@@ -1022,6 +1112,9 @@ def main():
         "refresh_mode": "incremental" if args.incremental else "full",
         "new_files": len(files),
         "historical_duplicate_rows_verified": len(reused_historic),
+        **({"official_exception_ledger": gimpo_exceptions,
+            "official_source_accounting": gimpo_accounting}
+           if args.source == "gimpo" else {}),
         "historical_duplicate_evidence": reused_historic[:30],
         "row_count": len(all_rows),
         "rows": all_rows,

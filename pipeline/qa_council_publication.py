@@ -67,6 +67,11 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             failures.append("official_gapyeong_pdf_unparsed_transaction_rows")
     if data.get("source") != source:
         failures.append("source_mismatch")
+    if source == "gimpo":
+        from reconcile_gimpo_sources import verify_gimpo_ledger
+        failures.extend(verify_gimpo_ledger(data))
+        # Even with a complete and tamper-evident source ledger, unresolved
+        # official entries are NOT accepted as successful first publication.
     if not posts or not official:
         failures.append("missing_official_posts_or_hashed_files")
     if authorized != set(official):
