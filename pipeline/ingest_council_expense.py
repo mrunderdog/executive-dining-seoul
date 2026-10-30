@@ -710,6 +710,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
     score, hi, matched, header_row, header_span = found
     mapping = map_columns(header_row)
+    if source_meta.get("source") == "gimpo" and "purpose" not in mapping:
+        for ci, h in enumerate(header_row):
+            if norm_header(h) == "집행내역":
+                mapping["purpose"] = ci
+                break
     # PDF disclosures often put the accountable role in a section title above
     # the repeated table header, e.g. "업무추진비 집행내역(부의장)", while the
     # table itself contains only 대상인원. Preserve that page/section context.
@@ -914,6 +919,42 @@ def main():
         print(out)
         return
 
+    # On Gimpo, keep all original officially parsed expenses accounted for:
+    # actual merchant transactions, exact cross-quarter duplicates,
+    # genuine non-dining cash support, and unresolved outliers.
+    # No row is silently discarded and strict first-publication QA still
+    # rejects unresolved cases.
+    gimpo_exceptions = list(previous.get("official_exception_ledger") or [])
+    gimpo_accounting = dict(previous.get("official_source_accounting") or {})
+    if args.source == "gimpo":
+        from reconcile_gimpo_sources import reconcile_gimpo
+        accepted, new_exceptions = reconcile_gimpo(all_rows)
+        if previous_rows:
+            previous_exception_ids = {e["original"]["row_id"] for e in gimpo_exceptions}
+            gimpo_exceptions += [e for e in new_exceptions
+                                 if e["original"]["row_id"] not in previous_exception_ids]
+        else:
+            gimpo_exceptions = new_exceptions
+        all_rows = accepted
+        # Original file parsing is recomputed from the saved files' sheet
+        # summaries, never inferred by subtracting failed transactions.
+        parsed_total = sum(sh.get("parsed_rows", 0)
+                           for doc in files for sh in doc.get("sheets", []))
+        if previous_rows:
+            parsed_total += int(gimpo_accounting.get("source_parsed_rows") or 0)
+        counts = Counter(e["disposition"] for e in gimpo_exceptions)
+        gimpo_accounting = {
+            "source_parsed_rows": parsed_total,
+            "included_rows": len(previous_rows) + len(all_rows),
+            "exception_rows": len(gimpo_exceptions),
+            "exception_reason_counts": dict(counts),
+            "policy": "Full-file accounting; unresolved records remain HOLD, not silently excluded",
+        }
+        print(json.dumps({
+            "source": "gimpo", "dispositions": dict(counts),
+            "audited_input_rows": parsed_total, "merchant_rows": len(all_rows)
+        }, ensure_ascii=False), flush=True)
+
     # Bupyeong's verified 2026-09 XLSX explicitly recopies 2025-09 sheets.
     # These same transaction IDs are already published against the correct
     # 2025 official document. Treat *only* proven identical historical events
@@ -1031,6 +1072,9 @@ def main():
         "refresh_mode": "incremental" if args.incremental else "full",
         "new_files": len(files),
         "historical_duplicate_rows_verified": len(reused_historic),
+        **({"official_exception_ledger": gimpo_exceptions,
+            "official_source_accounting": gimpo_accounting}
+           if args.source == "gimpo" else {}),
         "historical_duplicate_evidence": reused_historic[:30],
         "row_count": len(all_rows),
         "rows": all_rows,
