@@ -1,11 +1,15 @@
 """P0 immutable-baseline full-refresh safety regression fixtures."""
 from copy import deepcopy
+import contextlib
+import io
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+import capital_backfill as cb
 from guard_full_council import check_discovery, check_integrity
 from ingest_council_expense import main as ingest_main
 
@@ -75,6 +79,78 @@ class FullReconciliationSafety(unittest.TestCase):
             current["files"]=[]
             self.assertIn("historical_files_removed",
                           check_integrity(source,current,prior)["failures"])
+
+
+class DiscoveryExitSafety(unittest.TestCase):
+    """An incomplete official listing must never masquerade as NO_CHANGE."""
+
+    def run_discovery(self, posts, existing=None):
+        with tempfile.TemporaryDirectory() as tmp:
+            reports = Path(tmp)
+            path = reports / "capital-backfill-discovery-bupyeong.json"
+            original = None
+            if existing is not None:
+                original = json.dumps(existing, ensure_ascii=False).encode("utf-8")
+                path.write_bytes(original)
+            output = io.StringIO()
+            with (patch.object(cb, "REPORTS", reports),
+                  patch.object(cb, "discover_source", return_value=posts),
+                  patch.object(sys, "argv", [
+                      "capital_backfill.py", "--source", "bupyeong",
+                      "--since", "2026-01", "--until", "2026-10",
+                  ]),
+                  contextlib.redirect_stdout(output)):
+                try:
+                    cb.main()
+                    rc = 0
+                except SystemExit as exc:
+                    rc = exc.code
+            return rc, original, path.read_bytes() if path.exists() else None, output.getvalue()
+
+    def test_attachmentless_current_listing_preserves_last_good(self):
+        existing = {"posts": [{"source": "bupyeong", "post_url": POST,
+                               "attachments": [{"url": URL}]}]}
+        posts = [{"source": "bupyeong", "post_url": POST,
+                  "period": [2026, 9, None], "attachments": []}]
+        rc, old, current, stdout = self.run_discovery(posts, existing)
+        self.assertEqual(rc, 2)
+        self.assertEqual(current, old)
+        self.assertIn('"status": "DEGRADED"', stdout)
+
+    def test_partial_detail_failure_with_valid_other_attachment_is_hold(self):
+        posts = [
+            {"source": "bupyeong", "post_url": POST,
+             "period": [2026, 9, None], "attachments": [{"url": URL}]},
+            {"source": "bupyeong", "post_url": POST + "2",
+             "period": [2026, 9, None], "attachments": [],
+             "error": "detail TimeoutError: source unavailable"},
+        ]
+        rc, _old, current, stdout = self.run_discovery(posts)
+        self.assertEqual(rc, 2)
+        self.assertIsNone(current)
+        self.assertIn('"reason": "official_discovery_error"', stdout)
+
+    def test_attachmentless_post_without_transport_error_is_hold(self):
+        posts = [
+            {"source": "bupyeong", "post_url": POST,
+             "period": [2026, 9, None], "attachments": [{"url": URL}]},
+            {"source": "bupyeong", "post_url": POST + "2",
+             "period": [2026, 9, None], "attachments": []},
+        ]
+        rc, _old, current, stdout = self.run_discovery(posts)
+        self.assertEqual(rc, 2)
+        self.assertIsNone(current)
+        self.assertIn("official_post_without_attachment", stdout)
+
+    def test_complete_new_listing_writes_snapshot(self):
+        posts = [{"source": "bupyeong", "post_url": POST,
+                  "title": "2026년 9월 업무추진비",
+                  "period": [2026, 9, None], "attachments": [{"url": URL}]}]
+        rc, _old, current, stdout = self.run_discovery(posts)
+        self.assertEqual(rc, 0)
+        self.assertEqual(json.loads(current)["posts"], posts)
+        self.assertNotIn('"status": "DEGRADED"', stdout)
+
 
 if __name__=="__main__":
     unittest.main()

@@ -909,8 +909,10 @@ def main():
             print(json.dumps({'source': 'icheon', **verdict}, ensure_ascii=False))
             raise SystemExit(2)
 
-    # Public boards can transiently time out or change markup. Never replace a
-    # previously usable source map with a zero-result discovery.
+    # A partial live snapshot must not be interpreted as NO_CHANGE by the
+    # incremental runner, even when the last-good discovery file exists.
+    # Preserve that file byte-for-byte and return nonzero so the caller
+    # restores the official raw/candidate baselines and records STALE_OK.
     fresh_posts = [x for x in rows if x.get("post_url")]
     fresh_downloadable = sum(
         1
@@ -918,30 +920,34 @@ def main():
         for a in x.get("attachments", [])
         if canonical_attachment_url(a.get("url"))
     )
-    if args.source and out_json.exists() and (not fresh_posts or fresh_downloadable == 0):
-        try:
-            previous = json.loads(out_json.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            previous = {}
-        previous_posts = [x for x in previous.get("posts", []) if x.get("post_url")]
-        previous_downloadable = sum(
-            1
-            for x in previous_posts
-            for a in x.get("attachments", [])
-            if canonical_attachment_url(a.get("url"))
-        )
-        if previous_posts and previous_downloadable:
+    if args.source:
+        discovery_errors = [
+            {"post_url": x.get("post_url"), "error": str(x.get("error"))}
+            for x in rows if x.get("error")
+        ]
+        attachmentless_posts = [
+            x.get("post_url")
+            for x in fresh_posts
+            if not any(canonical_attachment_url(a.get("url"))
+                       for a in x.get("attachments", []))
+        ]
+        if discovery_errors or not fresh_posts or not fresh_downloadable or attachmentless_posts:
             print(json.dumps({
                 "source": args.source,
-                "status": "STALE_OK",
-                "reason": "fresh discovery returned no usable downloadable posts",
+                "status": "DEGRADED",
+                "reason": (
+                    "official_discovery_error" if discovery_errors else
+                    "no_official_posts" if not fresh_posts else
+                    "no_downloadable_attachments" if not fresh_downloadable else
+                    "official_post_without_attachment"
+                ),
                 "fresh_posts": len(fresh_posts),
                 "fresh_downloadable": fresh_downloadable,
-                "preserved_posts": len(previous_posts),
-                "preserved_downloadable": previous_downloadable,
-            }, ensure_ascii=False))
-            print(out_json)
-            return
+                "discovery_errors": discovery_errors[:8],
+                "attachmentless_posts": attachmentless_posts[:8],
+                "last_good_preserved": out_json.exists(),
+            }, ensure_ascii=False), flush=True)
+            raise SystemExit(2)
 
     result = {"generated_at": datetime.now().isoformat(timespec="seconds"), "since": args.since, "until": args.until, "sources": [s.key for s in selected], "posts": rows}
     out_json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
