@@ -36,6 +36,49 @@ class FullReconciliationSafety(unittest.TestCase):
         self.assertEqual(result["status"],"HOLD")
         self.assertIn("incomplete_official_discovery",result["failures"])
 
+
+    def test_bupyeong_missing_one_of_two_prior_official_files_is_hold(self):
+        first = "https://council.icbp.go.kr/kr/news/bbs_process?uid=62747&bbs_id=expense&reform=download"
+        second = "https://council.icbp.go.kr/kr/news/bbs_process?uid=61992&bbs_id=expense&reform=download"
+        old = {"source": "bupyeong",
+               "rows": [
+                   {"source_period": [2026, 9, None], "source_attachment_url": first},
+                   {"source_period": [2026, 8, None], "source_attachment_url": second},
+               ]}
+        d = {"since": "2024-12", "until": "2026-10", "posts": [
+            {"source": "bupyeong", "post_url": POST, "attachments": [
+                {"url": first}]}]}
+        verdict = check_discovery("bupyeong", d, old)
+        self.assertEqual(verdict["status"], "HOLD")
+        self.assertIn("previously_verified_official_attachments_missing", verdict["failures"])
+        self.assertEqual(verdict["missing_verified_attachment_count"], 1)
+        self.assertIn("uid=61992", verdict["missing_verified_attachment_examples"][0])
+
+    def test_bupyeong_full_discovery_reuses_all_verified_files(self):
+        first = "https://council.icbp.go.kr/kr/news/bbs_process?uid=62747&bbs_id=expense&reform=download"
+        second = "https://council.icbp.go.kr/kr/news/bbs_process?uid=61992&bbs_id=expense&reform=download"
+        old = {"source": "bupyeong",
+               "rows": [
+                   {"source_period": [2026, 9, None], "source_attachment_url": first},
+                   {"source_period": [2026, 8, None], "source_attachment_url": second},
+               ]}
+        d = {"since": "2024-12", "until": "2026-10", "posts": [
+            {"source": "bupyeong", "post_url": POST, "attachments": [
+                {"url": first}, {"url": second.replace("uid=61992&bbs_id=expense&reform=download", "reform=download&bbs_id=expense&uid=61992")}]}]}
+        verdict = check_discovery("bupyeong", d, old)
+        self.assertEqual(verdict["status"], "PASS", verdict)
+        self.assertEqual(verdict["missing_verified_attachment_count"], 0)
+
+    def test_bupyeong_prior_file_outside_full_discovery_window_is_not_required(self):
+        old_url = "https://council.icbp.go.kr/kr/news/bbs_process?uid=11111&bbs_id=expense&reform=download"
+        current_url = "https://council.icbp.go.kr/kr/news/bbs_process?uid=62747&bbs_id=expense&reform=download"
+        old = {"source": "bupyeong", "rows": [
+            {"source_period": [2024, 1, None], "source_attachment_url": old_url},
+            {"source_period": [2026, 9, None], "source_attachment_url": current_url}]}
+        d = {"since": "2024-12", "until": "2026-10", "posts": [
+            {"source": "bupyeong", "post_url": POST, "attachments": [{"url": current_url}]}]}
+        self.assertEqual(check_discovery("bupyeong", d, old)["status"], "PASS")
+
     def test_yongin_missing_rows_rejected(self):
         d=deepcopy(BASE)
         d["rows"]=[]
