@@ -66,12 +66,47 @@ def check_discovery(source: str, discovered: dict, baseline: dict | None) -> dic
         problems.append("no_official_attachment_urls_discovered")
     if errors:
         problems.append("incomplete_official_discovery")
+    # Bupyeong publishes official monthly XLSX files under opaque numeric
+    # /kr/news/bbs_process download IDs. A partial board/pagination response
+    # can still show valid attachments while silently losing older, already
+    # verified files. In a full refresh, require every previously published
+    # in-window attachment to remain discoverable. Do not infer identities
+    # from filenames or silently erase any historic transactions.
+    missing_verified = []
+    if source == "bupyeong" and baseline and discovered.get("since") and discovered.get("until"):
+        from capital_backfill import period_overlaps
+        def month_pair(value):
+            year, month = str(value).split("-", 1)
+            return int(year), int(month)
+        try:
+            since = month_pair(discovered["since"])
+            until = month_pair(discovered["until"])
+        except (TypeError, ValueError, AttributeError):
+            problems.append("invalid_discovery_window")
+        else:
+            expected = set()
+            for row in baseline.get("rows") or []:
+                period = row.get("source_period")
+                if not isinstance(period, (list, tuple)) or len(period) != 3:
+                    continue
+                if not period_overlaps(tuple(period), since, until):
+                    continue
+                url = canonical_attachment_url(row.get("source_attachment_url"))
+                if url:
+                    expected.add(url)
+            found = {canonical_attachment_url(a.get("url")) for a in attachments}
+            missing_verified = sorted(expected - found)
+            if missing_verified:
+                problems.append("previously_verified_official_attachments_missing")
     return {"source":source,"phase":"discovery",
             "status":"PASS" if not problems else "HOLD",
             "post_count":len(posts),"attachment_count":len(attachments),
             "baseline_rows":len((baseline or {}).get("rows") or []),
             "baseline_files":len((baseline or {}).get("files") or []),
-            "discovery_errors":errors[:8],"failures":problems}
+            "discovery_errors":errors[:8],
+            "missing_verified_attachment_count":len(missing_verified),
+            "missing_verified_attachment_examples":missing_verified[:5],
+            "failures":problems}
 
 
 def check_integrity(source: str, current: dict, baseline: dict | None) -> dict:
