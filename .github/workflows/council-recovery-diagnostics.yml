@@ -6,6 +6,7 @@ on:
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
       - 'pipeline/test_full_reconciliation_p0.py'
+      - 'pipeline/guard_full_council.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
