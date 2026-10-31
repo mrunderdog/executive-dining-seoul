@@ -144,6 +144,7 @@ class DiscoveryExitSafety(unittest.TestCase):
 
     def test_complete_new_listing_writes_snapshot(self):
         posts = [{"source": "bupyeong", "post_url": POST,
+                  "title": "2026년 9월 업무추진비",
                   "period": [2026, 9, None], "attachments": [{"url": URL}]}]
         rc, _old, current, stdout = self.run_discovery(posts)
         self.assertEqual(rc, 0)
