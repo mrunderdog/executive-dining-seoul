@@ -253,7 +253,7 @@ jobs:
 
   yongin-pdf-evidence:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -298,6 +298,20 @@ jobs:
               json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf8")
           print(json.dumps(summary, ensure_ascii=False, indent=2))
           PY
+      - name: Verify scanned source pinning regressions
+        run: PYTHONPATH=pipeline python -m unittest -v test_review_scanned_yongin_pdf
+      - name: Install Korean OCR for draft image review
+        if: success()
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng
+          pip install --disable-pip-version-check pymupdf==1.26.7 pytesseract==0.3.13 pillow
+      - name: Generate image-based review evidence only, never auto-publish
+        if: success()
+        run: |
+          python pipeline/review_scanned_yongin_pdf.py \
+            --pdf reports/recovery/yongin-september-official.pdf \
+            --outdir reports/recovery/yongin-september-ocr
       - name: Upload read-only original PDF evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -306,5 +320,6 @@ jobs:
           path: |
             reports/recovery/yongin-september-official.pdf
             reports/recovery/yongin-september-pdf-layout.json
+            reports/recovery/yongin-september-ocr/
           retention-days: 5
           if-no-files-found: warn
