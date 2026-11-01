@@ -87,6 +87,22 @@ jobs:
           done
       - name: Install parsers for real transaction QA
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Trial Yongin incremental ingest with immutable baseline and strict QA
+        shell: bash
+        run: |
+          mkdir -p reports/recovery
+          python pipeline/ingest_council_expense.py --source yongin --incremental > reports/recovery/yongin-ingest.log 2>&1
+          cat reports/recovery/yongin-ingest.log
+          if grep -q '"status": "NO_CHANGE"' reports/recovery/yongin-ingest.log; then
+            echo "Yongin: NO_CHANGE; existing official rows preserved"
+          else
+            python pipeline/repair_raw_dates.py --source yongin --min-valid 0.0 --preserve-baseline-ref HEAD
+            python pipeline/guard_full_council.py --source yongin --phase integrity --baseline-ref HEAD
+            PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source yongin --baseline-ref HEAD \
+              > reports/recovery/yongin-strict-qa.json
+            cat reports/recovery/yongin-strict-qa.json
+          fi
+          # Ephemeral GitHub runner only. Do not git add, commit or publish.
       - name: Trial ingest each source into ephemeral runner only
         shell: bash
         run: |
