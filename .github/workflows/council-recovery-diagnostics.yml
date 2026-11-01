@@ -93,6 +93,32 @@ jobs:
           mkdir -p reports/recovery
           python pipeline/ingest_council_expense.py --source yongin --incremental > reports/recovery/yongin-ingest.log 2>&1
           cat reports/recovery/yongin-ingest.log
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          current = json.loads(Path("data/raw/yongin_expense.json").read_text(encoding="utf-8"))
+          prior = json.loads(subprocess.check_output(
+              ["git", "show", "HEAD:data/raw/yongin_expense.json"], text=True))
+          old_errors = [json.dumps(e, ensure_ascii=False, sort_keys=True)
+                        for e in prior.get("errors", [])]
+          fresh_errors = [e for e in current.get("errors", [])
+                          if json.dumps(e, ensure_ascii=False, sort_keys=True) not in old_errors]
+          known_urls = {x.get("url") for x in prior.get("files", [])}
+          report = {
+              "source": "yongin",
+              "old_rows": len(prior.get("rows", [])),
+              "new_rows_total": len(current.get("rows", [])),
+              "old_files": len(prior.get("files", [])),
+              "new_files_total": len(current.get("files", [])),
+              "new_file_urls": [f.get("url") for f in current.get("files", [])
+                                if f.get("url") not in known_urls],
+              "new_attachment_errors": fresh_errors,
+          }
+          Path("reports/recovery/yongin-attachment-errors.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
           if grep -q '"status": "NO_CHANGE"' reports/recovery/yongin-ingest.log; then
             echo "Yongin: NO_CHANGE; existing official rows preserved"
           else
