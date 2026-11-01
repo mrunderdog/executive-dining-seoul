@@ -249,3 +249,62 @@ jobs:
           name: council-recovery-diagnostics
           path: reports/recovery/
           retention-days: 7
+
+
+  yongin-pdf-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install PDF structural reader
+        run: pip install --disable-pip-version-check pypdf==6.1.1
+      - name: Fetch SHA-verified official September PDF independent of listing outage
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import io, json, hashlib
+          from pathlib import Path
+          from pypdf import PdfReader
+          from ingest_council_expense import fetch_binary
+          detail = ("https://council.yongin.go.kr/kr/costBBSview.do?"
+                    "uid=626E8C4F92753ABB8D09D821F736E64D")
+          url = ("https://council.yongin.go.kr/kr/bbs/download.do?"
+                 "bbs_id=cost&uid=AD95CC294411DF73C7C3D6015DABBFBD")
+          expected = "a43ce6736e8d42cc086c31ecaf935ce5146e550229b25e311e48580d83abe01c"
+          blob = fetch_binary(url, detail)
+          actual = hashlib.sha256(blob).hexdigest()
+          assert actual == expected, f"Official PDF changed! HOLD expected={expected} actual={actual}"
+          reader = PdfReader(io.BytesIO(blob))
+          pages = []
+          for n, p in enumerate(reader.pages, 1):
+              resources = p.get("/Resources")
+              if resources is not None and hasattr(resources, "get_object"):
+                  resources = resources.get_object()
+              def count(name):
+                  item = resources.get(name) if resources else None
+                  if item is not None and hasattr(item, "get_object"):
+                      item = item.get_object()
+                  return len(item) if isinstance(item, dict) else 0
+              pages.append({"page":n, "text_characters":len(p.extract_text() or ""),
+                            "fonts":count("/Font"), "xobjects":count("/XObject")})
+          out = Path("reports/recovery")
+          out.mkdir(parents=True, exist_ok=True)
+          (out/"yongin-september-official.pdf").write_bytes(blob)
+          summary = {"source":"yongin", "pdf_sha256":actual, "bytes":len(blob),
+                     "pages":pages, "status":"SOURCE_VERIFIED_NOT_PARSED"}
+          (out/"yongin-september-pdf-layout.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf8")
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Upload read-only original PDF evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yongin-september-source-pdf
+          path: |
+            reports/recovery/yongin-september-official.pdf
+            reports/recovery/yongin-september-pdf-layout.json
+          retention-days: 5
+          if-no-files-found: warn
