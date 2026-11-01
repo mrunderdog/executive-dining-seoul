@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify safe attachment handling
-        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_p1_adapters
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_p1_adapters test_review_scanned_yongin_pdf
       - name: Verify Yongin live official row-to-PDF mapping without publication
         shell: bash
         run: |
