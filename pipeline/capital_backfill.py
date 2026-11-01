@@ -393,6 +393,49 @@ def canonical_attachment_url(url: str) -> str | None:
     return urllib.parse.urlunsplit((p.scheme, p.netloc, p.path, urllib.parse.urlencode(query), ""))
 
 
+def yongin_row_downloads(base: str, doc: str) -> dict:
+    """Associate only row-local, official Yongin PDF links with their post.
+
+    The council listing presents a detail link and separate PDF download link
+    in the same table row; the detail page may expose no ordinary file anchor.
+    A filename/date alone is never enough to infer an attachment ID.
+    """
+    grouped = {}
+    for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I | re.S):
+        found = anchors(base, tr)
+        details = []
+        downloads = []
+        for a in found:
+            parsed = urllib.parse.urlsplit(a.get("url", ""))
+            if parsed.scheme != "https" or parsed.hostname != "council.yongin.go.kr":
+                continue
+            params = urllib.parse.parse_qs(parsed.query)
+            if parsed.path == "/kr/costBBSview.do" and len(params.get("uid", [])) == 1:
+                if re.fullmatch(r"[A-Fa-f0-9]{32}", params["uid"][0]):
+                    details.append(a["url"])
+            elif parsed.path == "/kr/bbs/download.do" and set(params) == {"bbs_id", "uid"}:
+                if params.get("bbs_id") == ["cost"] and len(params.get("uid", [])) == 1:
+                    if re.fullmatch(r"[A-Fa-f0-9]{32}", params["uid"][0]):
+                        canon = canonical_attachment_url(a["url"])
+                        if canon:
+                            downloads.append({"text": a.get("text", ""), "url": canon})
+        if len(set(details)) != 1:
+            continue
+        post_url = details[0]
+        if post_url in grouped:
+            # Ambiguous duplicate listing rows must not transfer an unrelated
+            # attachment to another post. The discovery gate will HOLD it.
+            grouped[post_url] = []
+        else:
+            seen = set()
+            grouped[post_url] = []
+            for att in downloads:
+                if att["url"] not in seen:
+                    seen.add(att["url"])
+                    grouped[post_url].append(att)
+    return grouped
+
+
 def sanitize_discovered_posts(posts):
     """De-duplicate attachments globally within one source discovery.
 
@@ -652,6 +695,9 @@ def discover_source(src: Source, since, until):
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        # Yongin lists each official post and its PDF link in the same row.
+        # The PDF's standalone anchor is NOT a second transaction post.
+        yongin_row_files = yongin_row_downloads(url, doc) if src.key == "yongin" else {}
         # Gapyeong's official list table contains attachment downloads in
         # the same <tr> as each title. Its detail page can render the PDF
         # viewer without an ordinary downloadable <a>. Bind only files
@@ -761,6 +807,10 @@ def discover_source(src: Source, since, until):
                 # Icheon rows require a verified fidx detail URL and fid
                 # attachment identifier from the corresponding detail page.
                 continue
+            if src.key == "yongin" and attachment_like(a):
+                # Direct PDF anchors on Yongin list rows belong to the
+                # row-local detail post, not synthetic standalone posts.
+                continue
             direct_period=title_period(title)
             if "업무추진비" in title and attachment_like(a) and period_overlaps(direct_period, effective_since, until):
                 direct_key="direct:"+a.get("url","")
@@ -803,20 +853,29 @@ def discover_source(src: Source, since, until):
                 "institution": src.institution, "title": a["text"], "period": period,
                 "post_url": a["url"], "attachments": [],
             }
-            try:
-                detail = fetch_text(a["url"])
-                found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
-                if not found:
-                    found = regex_attachment_fallback(a["url"], detail)
-                if src.key == "gapyeong":
-                    # Never fetch an unverified viewer/pdf.do wrapper as a
-                    # transaction file. Use only row-bound official downloads.
-                    found = [*found, *gapyeong_row_downloads.get(a["url"], [])]
-                row["attachments"] = [
-                    a for a in found if canonical_attachment_url(a.get("url"))
-                ]
-            except Exception as e:
-                row["error"] = f"detail {type(e).__name__}: {e}"
+            if src.key == "yongin" and yongin_row_files.get(a["url"]):
+                # Verified official row binding is sufficient, even when the
+                # detail page hides its download anchor or is unavailable.
+                row["attachments"] = yongin_row_files[a["url"]]
+            else:
+                try:
+                    detail = fetch_text(a["url"])
+                    found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
+                    if not found:
+                        found = regex_attachment_fallback(a["url"], detail)
+                    if src.key == "gapyeong":
+                        # Never fetch an unverified viewer/pdf.do wrapper as a
+                        # transaction file. Use only row-bound official downloads.
+                        found = [*found, *gapyeong_row_downloads.get(a["url"], [])]
+                    if src.key == "yongin":
+                        # Never accept unrelated download controls from a
+                        # missing row binding. Fail closed, without guessing.
+                        found = []
+                    row["attachments"] = [
+                        item for item in found if canonical_attachment_url(item.get("url"))
+                    ]
+                except Exception as e:
+                    row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
 
         # Once target-period posts have been found, two consecutive pages
