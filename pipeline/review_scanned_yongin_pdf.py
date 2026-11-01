@@ -16,6 +16,46 @@ from pathlib import Path
 YONGIN_2026_09_SHA256 = "a43ce6736e8d42cc086c31ecaf935ce5146e550229b25e311e48580d83abe01c"
 MAX_PAGES = 6
 
+# Human visual review of all six original page images (PDF SHA pinned above).
+# These are document control totals, NOT approval to publish OCR rows.
+PAGE_CONTROL_AMOUNTS = (
+    (41580, 126000),
+    (350700, 72000, 239000, 326000, 99000, 300000, 100000),
+    (353000, 391000, 289600, 40000, 226000, 88000, 283000, 66000, 196000),
+    (311000, 350000, 200000, 43000),
+    (68000, 354000, 125500, 96000, 115900, 365500),
+    (110500, 29200, 76000, 215000, 77320, 30000, 34300, 26000,
+     14040, 71500, 300000, 29600, 32000, 13500, 158000, 122000),
+)
+PAGE_ROLES = (
+    "의사입법담당관", "의회운영위원장", "자치행정위원장",
+    "문화복지위원장", "경제환경위원장", "도시건설위원장",
+)
+# Page 2's source '사용처' column sometimes repeats the purpose of the
+# meeting, rather than naming a merchant. Do not fabricate merchant names.
+PAGE_2_VENUE_UNRESOLVED_ROWS = (1, 2, 3, 4, 5, 6)
+
+
+def verified_page_controls():
+    controls = [
+        {"page": i + 1, "role": PAGE_ROLES[i],
+         "source_rows": len(amounts),
+         "source_amount_krw": sum(amounts)}
+        for i, amounts in enumerate(PAGE_CONTROL_AMOUNTS)
+    ]
+    return {
+        "pages": controls,
+        "expected_official_rows": sum(c["source_rows"] for c in controls),
+        "expected_official_amount_krw": sum(c["source_amount_krw"] for c in controls),
+        "unidentified_venue": {
+            "page": 2, "source_row_numbers": list(PAGE_2_VENUE_UNRESOLVED_ROWS),
+            "meaning": "source merchant field describes staff meals, not a verified venue",
+            "disposition": "HOLD; do not turn purpose text into restaurant name",
+        },
+        "source": "manual page-image review of SHA-256 pinned official PDF",
+        "publication_status": "NOT_APPROVED",
+    }
+
 
 def verify_original(blob: bytes, expected_sha: str = YONGIN_2026_09_SHA256) -> str:
     digest = hashlib.sha256(blob).hexdigest()
@@ -82,6 +122,7 @@ def build_review(pdf: Path, outdir: Path) -> dict:
         "period": "2026-09",
         "source_pdf_sha256": digest,
         "pages": page_reports,
+        "source_control_totals": verified_page_controls(),
         "status": "MANUAL_OFFICIAL_ROW_RECONCILIATION_REQUIRED",
         "publication": "FORBIDDEN_FROM_OCR_ALONE",
         "required_checks": ["each original date", "each original merchant",
