@@ -24,6 +24,35 @@ jobs:
           python-version: '3.12'
       - name: Verify safe attachment handling
         run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_p1_adapters
+      - name: Verify Yongin live official row-to-PDF mapping without publication
+        shell: bash
+        run: |
+          mkdir -p reports/recovery
+          python pipeline/capital_backfill.py --since 2026-07 --until 2026-10 --source yongin > reports/recovery/yongin-discovery.log 2>&1
+          cat reports/recovery/yongin-discovery.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlsplit, parse_qs
+          d = json.loads(Path("reports/capital-backfill-discovery-yongin.json").read_text(encoding="utf-8"))
+          posts = [p for p in d.get("posts", []) if p.get("source") == "yongin" and p.get("post_url")]
+          assert posts, "no official Yongin posts"
+          for post in posts:
+              p = urlsplit(post["post_url"])
+              assert p.hostname == "council.yongin.go.kr" and p.path == "/kr/costBBSview.do", post
+              assert post.get("attachments"), f"unlinked post: {post['post_url']}"
+              for att in post["attachments"]:
+                  a = urlsplit(att["url"])
+                  q = parse_qs(a.query)
+                  assert a.hostname == "council.yongin.go.kr"
+                  assert a.path == "/kr/bbs/download.do" and q.get("bbs_id") == ["cost"], att
+          summary = {"source":"yongin", "status":"ROW_LINK_PASS",
+                     "official_posts":len(posts),
+                     "official_attachments":sum(len(x["attachments"]) for x in posts)}
+          Path("reports/recovery/yongin-row-link-check.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(summary, ensure_ascii=False))
+          PY
       - name: Capture real board click and download markup
         shell: bash
         run: |
