@@ -107,6 +107,9 @@ jobs:
           assert len(found) == 1, "September official PDF must be uniquely tied to its post"
           post, attachment = found[0]
           blob = fetch_binary(attachment["url"], post["post_url"])
+          # Original public government disclosure, stored only as a short-lived
+          # CI diagnostic artifact; never committed or published to the site.
+          Path("reports/recovery/yongin-september-official.pdf").write_bytes(blob)
           reader = PdfReader(io.BytesIO(blob))
           page_details = []
           for index, page in enumerate(reader.pages):
