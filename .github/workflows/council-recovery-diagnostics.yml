@@ -87,6 +87,45 @@ jobs:
           done
       - name: Install parsers for real transaction QA
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Inspect source-exact Yongin September PDF structure (no OCR, no publication)
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import hashlib
+          import io
+          import json
+          from pathlib import Path
+          from pypdf import PdfReader
+          from ingest_council_expense import fetch_binary
+          source = json.loads(Path("reports/capital-backfill-discovery-yongin.json").read_text(encoding="utf-8"))
+          found = []
+          for post in source.get("posts", []):
+              if post.get("period") == [2026, 9, None]:
+                  for att in post.get("attachments", []):
+                      if "AD95CC294411DF73C7C3D6015DABBFBD" in att.get("url", ""):
+                          found.append((post, att))
+          assert len(found) == 1, "September official PDF must be uniquely tied to its post"
+          post, attachment = found[0]
+          blob = fetch_binary(attachment["url"], post["post_url"])
+          reader = PdfReader(io.BytesIO(blob))
+          page_details = []
+          for index, page in enumerate(reader.pages):
+              text = page.extract_text() or ""
+              resources = page.get("/Resources")
+              fonts = len(resources.get("/Font", {})) if resources else 0
+              image_objects = len(resources.get("/XObject", {})) if resources else 0
+              page_details.append({"page":index+1, "extracted_characters":len(text),
+                                   "font_resources":fonts,
+                                   "xobject_resources":image_objects})
+          report = {"source":"yongin", "attachment_url":attachment["url"],
+                    "pdf_sha256":hashlib.sha256(blob).hexdigest(),
+                    "pdf_bytes":len(blob), "pages":len(reader.pages),
+                    "page_details":page_details,
+                    "policy":"diagnostic only; no OCR, no speculative rows, QA unchanged"}
+          Path("reports/recovery/yongin-september-pdf-layout.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
       - name: Trial Yongin incremental ingest with immutable baseline and strict QA
         shell: bash
         run: |
