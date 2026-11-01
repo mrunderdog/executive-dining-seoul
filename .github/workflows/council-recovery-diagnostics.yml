@@ -114,7 +114,8 @@ jobs:
           done
           # Diagnostic only. Neither raw records nor public site are committed.
       - name: Inspect Icheon PDF table layout when ingestion is held
-        if: always()
+        if: success()
+        timeout-minutes: 3
         shell: bash
         run: |
           PYTHONPATH=pipeline python - <<'PY'
