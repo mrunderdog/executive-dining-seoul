@@ -108,6 +108,14 @@ def main(source):
                                   "error":p.get("error"),"attachments":len(p.get("attachments",[]))}
                                  for p in posts.get("posts",[]) if p.get("source")==source]
     result["status"]="PASS" if result["integrity"]["status"]=="PASS" and result["qa"]["status"] in ("PUBLISH_READY","NO_CHANGE") else "HOLD"
+    print("SOURCE_FAILURES",json.dumps({
+        "source":source,
+        "new_files":[{"name":f["name"],"url":f["url"],"sha256":f["sha256"],
+                      "rows":f["parsed_rows"],"bad":f["bad_rows"],
+                      "examples":f["examples"][:20]} for f in result["new_file_evidence"]],
+        "invalid_reason_totals":dict(Counter(reason for f in result["new_file_evidence"]
+                                                for x in f["examples"] for reason in x["errors"]))
+    },ensure_ascii=False)[:35000],flush=True)
     write()
 
 if __name__=="__main__":
