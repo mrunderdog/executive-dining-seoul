@@ -762,7 +762,14 @@ def discover_source(src: Source, since, until):
                 # attachment identifier from the corresponding detail page.
                 continue
             direct_period=title_period(title)
-            if "업무추진비" in title and attachment_like(a) and period_overlaps(direct_period, effective_since, until):
+            # Some councils place a file-name label inside an <a> that points
+            # back to the listing page (Gunpo, Michuhol, Incheon Council).
+            # A .xlsx/.pdf label alone is NOT evidence of a downloadable file.
+            # Preserve real detail posts, but admit direct-file posts only when
+            # the observed href itself is a canonical download URL.
+            if ("업무추진비" in title and attachment_like(a)
+                and canonical_attachment_url(a.get("url"))
+                and period_overlaps(direct_period, effective_since, until)):
                 direct_key="direct:"+a.get("url","")
                 if direct_key not in seen_posts:
                     seen_posts.add(direct_key)
