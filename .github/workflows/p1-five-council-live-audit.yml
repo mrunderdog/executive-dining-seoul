@@ -1,0 +1,35 @@
+name: P1 five council live audit
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_p1_five_councils.py'
+      - '.github/workflows/p1-five-council-live-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-live-audit:
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [anseong, gunpo, michuhol, uiwang, incheon_council]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install official attachment parsers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
+      - name: Run isolated live official discovery -> ingestion -> strict QA -> integrity
+        run: python pipeline/audit_p1_five_councils.py --source "${{ matrix.source }}" --since 2026-07 --until 2026-10
+      - name: Upload per-institution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-audit-${{ matrix.source }}
+          path: reports/recovery/p1-five-councils/
+          retention-days: 14
