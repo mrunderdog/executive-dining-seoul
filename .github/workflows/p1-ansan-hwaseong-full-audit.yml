@@ -6,6 +6,7 @@ on:
       - .github/workflows/p1-ansan-hwaseong-full-audit.yml
       - pipeline/ingest_council_expense.py
       - pipeline/qa_council_publication.py
+      - pipeline/test_p1_ansan_hwaseong_full_reconcile.py
 permissions:
   contents: read
 jobs:
@@ -23,6 +24,11 @@ jobs:
           python-version: '3.12'
       - name: Install supported official Excel and PDF readers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Verify strict original-source parser regression tests
+        run: |
+          PYTHONPATH=pipeline python -m unittest -v test_p1_ansan_hwaseong_full_reconcile test_full_reconciliation_p0 test_council_p1_adapters
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
       - name: Run original public-source reconciliation without publishing
         run: python -u pipeline/audit_ansan_hwaseong_full_reconcile.py --source ${{ matrix.source }}
       - name: Attach strict audit results, including failed source stages
