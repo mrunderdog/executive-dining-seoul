@@ -1,0 +1,29 @@
+name: Audit Gapyeong 2024 Q3 and Q4 official PDFs
+on:
+  pull_request:
+    paths:
+      - pipeline/audit_gapyeong_q3_q4_2024.py
+      - .github/workflows/audit-gapyeong-q3-q4.yml
+permissions:
+  contents: read
+jobs:
+  official-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install source PDF readers
+        run: pip install --disable-pip-version-check pypdf==6.1.1 openpyxl==3.1.5 xlrd==2.0.2
+      - name: Verify original Q3 and Q4 official source PDFs and exact economic row matches
+        run: PYTHONPATH=pipeline python -u pipeline/audit_gapyeong_q3_q4_2024.py
+      - name: Attach complete source-match evidence regardless of HOLD
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gapyeong-q3-q4-original-official-compare
+          path: reports/gapyeong-2024-cross-quarter/
+          retention-days: 30
+          if-no-files-found: warn
