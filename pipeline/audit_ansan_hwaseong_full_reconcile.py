@@ -107,6 +107,41 @@ def main(source):
     result["discovered_posts"]=[{"title":p.get("title"),"period":p.get("period"),"url":p.get("post_url"),
                                   "error":p.get("error"),"attachments":len(p.get("attachments",[]))}
                                  for p in posts.get("posts",[]) if p.get("source")==source]
+    # Exact official attachment bytes, source-sheet index and neighboring cells
+    # for every failed candidate. This is source evidence, not an attempted
+    # normalization of an unknown merchant or date.
+    from ingest_council_expense import fetch_binary,workbook_rows
+    original_cells=[]
+    for entry in result["new_file_evidence"]:
+        if not entry["examples"]:
+            continue
+        post=next((p for p in posts.get("posts",[]) if any(
+                canonical_attachment_url(a.get("url"))==canonical_attachment_url(entry["url"])
+                for a in p.get("attachments",[]))),None)
+        if not post:
+            continue
+        try:
+            blob=fetch_binary(entry["url"],post["post_url"])
+            if hashlib.sha256(blob).hexdigest()!=entry["sha256"]:
+                raise ValueError("official attachment SHA-256 changed")
+            sheets={n:table for n,table in workbook_rows(blob,entry["name"])}
+            for bad in entry["examples"]:
+                table=sheets.get(bad["source_sheet"],[])
+                ri=bad["source_row"]
+                original_cells.append({
+                    "source_file":entry["name"],"file_sha256":entry["sha256"],
+                    "sheet":bad["source_sheet"],"sheet_row":ri,
+                    "parsed_error":bad["errors"],
+                    "parsed_date":bad["used_date"],"parsed_merchant":bad["merchant"],
+                    "parsed_amount":bad["amount"],
+                    "exact_source_cells":table[ri-1] if 0<=ri-1<len(table) else None,
+                    "previous_source_cells":table[ri-2] if 0<=ri-2<len(table) else None,
+                    "next_source_cells":table[ri] if ri<len(table) else None,
+                })
+        except Exception as e:
+            original_cells.append({"source_file":entry["name"],"forensic_error":str(e)})
+    result["original_source_cells"]=original_cells
+    print("OFFICIAL_ORIGINAL_CELLS",json.dumps(original_cells,ensure_ascii=False,default=str)[:50000],flush=True)
     result["status"]="PASS" if result["integrity"]["status"]=="PASS" and result["qa"]["status"] in ("PUBLISH_READY","NO_CHANGE") else "HOLD"
     print("SOURCE_FAILURES",json.dumps({
         "source":source,
