@@ -810,6 +810,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         if samples and not any(infer_leadership_role(v) for v in samples):
             mapping.pop("role", None)
     out = []
+    # Proven Ansan official XLSX layout-only rows are not transactions:
+    # monthly subtotal 'N월 합계', <N>건, amount in a different numeric cell;
+    # and a separate '내 역 없 음' notice in an empty budget category.
+    # Record every excluded source row with exact source-cell evidence.
+    structural_layout_rows = []
     blank_run = 0
     last_used_date = ""
     for ri, row in enumerate(rows[hi + header_span:], start=hi + header_span + 1):
@@ -818,6 +823,25 @@ def normalize_sheet(rows, sheet_name, source_meta):
             if blank_run >= 8 and out: break
             continue
         blank_run = 0
+        if source_meta.get("source") == "ansan":
+            cells=[clean_text(x) for x in row]
+            if (len(cells)>=6
+                and re.fullmatch(r"\d{1,2}월\s*합계",cells[0])
+                and not cells[1] and not cells[2]
+                and re.fullmatch(r"\d{1,4}건",cells[3])
+                and isinstance(row[4],(int,float)) and row[4]>=0
+                and cells[5]=="원"):
+                structural_layout_rows.append({
+                    "sheet_row":ri,"type":"MONTHLY_AGGREGATE",
+                    "source_cells":cells[:8]})
+                continue
+            if (len(cells)>=4 and
+                cells[:4]==["내","역","없","음"] and
+                not any(cells[4:])):
+                structural_layout_rows.append({
+                    "sheet_row":ri,"type":"NO_EXPENSE_NOTICE",
+                    "source_cells":cells[:8]})
+                continue
         merchant = clean_text(cell(row, mapping, "merchant"))
         amount = parse_amount(cell(row, mapping, "amount"))
         amount_inferred = False
@@ -908,6 +932,9 @@ def normalize_sheet(rows, sheet_name, source_meta):
         ).hexdigest()[:20]
         out.append(raw)
     info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_span": header_span, "header_score": score, "matched": sorted(matched), "mapping": mapping, "section_role": section_role, "parsed_rows": len(out)}
+    if source_meta.get("source") == "ansan":
+        info["structural_non_transaction_rows"] = structural_layout_rows
+        info["structural_non_transaction_count"] = len(structural_layout_rows)
     return out, info
 
 
