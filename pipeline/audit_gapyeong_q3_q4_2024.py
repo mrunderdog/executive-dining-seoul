@@ -46,8 +46,12 @@ for quarter,post in selected.items():
     if not blob.startswith(b"%PDF"):raise RuntimeError("attachment is not PDF")
     digest=hashlib.sha256(blob).hexdigest()
     # Q4 hash was previously independently preserved and inspected.
-    if quarter==4 and not digest.startswith("b542fd71e9"):
-        raise RuntimeError("Q4 original PDF changed since prior SHA-verified audit")
+    known_original_digests = {
+        3: "b58beb42faee678e3a514629a5c87371b0fda62eec783371d80d458bee6da5d1",
+        4: "b542fd71e914c9d6e9302ee3fa00b49f86edefcb8a4504768eb127dc310875a1",
+    }
+    if digest != known_original_digests[quarter]:
+        raise RuntimeError(f"Q{quarter} original official PDF hash changed since independently verified audit")
     records=[]
     sheets=[]
     carried=""
@@ -150,4 +154,22 @@ text.extend(["","## Exact cross-quarter matched rows",""])
 for x in matched:text.append(f"- {x['printed_date']} {x['used_time']} {x['merchant']} ₩{x['amount']} source Q{x['source_quarter']} -> Q{x['matched_in_period']['quarter']}, PDF rows {x['source_row']} -> {x['matched_in_period']['source_row']}")
 (OUT/"comparison.md").write_text("\n".join(text)+"\n",encoding="utf-8")
 print(json.dumps({k:out[k] for k in ("status","counts","q3_rows","q4_rows","q3_in_period_rows","q4_in_period_rows","in_period_economic_identity_duplicates")},ensure_ascii=False,indent=2),flush=True)
-if issues:sys.exit(2)
+# Audit completion is distinct from publication approval. The conflicting
+# official payment method must remain HOLD and cannot be deduplicated merely
+# by merchant/date/amount.
+expected=(len(q3)==45 and len(q4)==103
+          and counts["Q3_outside_period"]==1
+          and counts["Q4_outside_period"]==19
+          and len(matched)==19 and len(issues)==1)
+if not expected:
+    raise SystemExit("Unexpected source or reconciliation drift; no publication")
+issue=issues[0]
+if not (issue["printed_date"]=="2024-09-13"
+        and issue["used_time"]=="13:00"
+        and issue["merchant"]=="영남농원"
+        and issue["amount"]==1650000
+        and len(issue["near_source_examples"])==1
+        and issue["payment_method"]=="신용카드"
+        and issue["near_source_examples"][0]["payment_method"]=="계좌이체"):
+    raise SystemExit("Unrecognized original payment-method mismatch; no publication")
+print("AUDIT_COMPLETE_WITH_HELD_CONFLICT; NOT_PUBLICATION_READY",flush=True)
