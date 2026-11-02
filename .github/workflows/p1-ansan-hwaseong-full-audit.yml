@@ -7,6 +7,7 @@ on:
       - pipeline/ingest_council_expense.py
       - pipeline/qa_council_publication.py
       - pipeline/test_p1_ansan_hwaseong_full_reconcile.py
+      - pipeline/audit_hwaseong_period_duplicates.py
 permissions:
   contents: read
 jobs:
@@ -31,6 +32,9 @@ jobs:
           python pipeline/quality_gate.py
       - name: Run original public-source reconciliation without publishing
         run: python -u pipeline/audit_ansan_hwaseong_full_reconcile.py --source ${{ matrix.source }}
+      - name: Test exact independently sourced month-boundary duplicates (Hwaseong)
+        if: matrix.source == 'hwaseong'
+        run: PYTHONPATH=pipeline python pipeline/audit_hwaseong_period_duplicates.py
       - name: Attach strict audit results, including failed source stages
         uses: actions/upload-artifact@v4
         if: always()
