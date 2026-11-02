@@ -1,0 +1,35 @@
+name: P1 Ansan Hwaseong real Full Refresh audit
+on:
+  pull_request:
+    paths:
+      - pipeline/audit_ansan_hwaseong_full_reconcile.py
+      - .github/workflows/p1-ansan-hwaseong-full-audit.yml
+      - pipeline/ingest_council_expense.py
+      - pipeline/qa_council_publication.py
+permissions:
+  contents: read
+jobs:
+  real-source-full-reconciliation:
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [ansan, hwaseong]
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install supported official Excel and PDF readers
+        run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Run original public-source reconciliation without publishing
+        run: python -u pipeline/audit_ansan_hwaseong_full_reconcile.py --source ${{ matrix.source }}
+      - name: Attach strict audit results, including failed source stages
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p1-full-audit-${{ matrix.source }}
+          path: reports/p1-ansan-hwaseong-qa/
+          retention-days: 14
+          if-no-files-found: warn
