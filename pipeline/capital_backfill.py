@@ -414,6 +414,14 @@ def sanitize_discovered_posts(posts):
             item["url"] = canon
             atts.append(item)
         row["attachments"] = atts
+        # On council boards an official attachment appears both under its
+        # detail post and as a direct download link on the listing itself.
+        # The latter becomes an empty *synthetic* post after global URL
+        # deduplication. Only drop such confirmed duplicates: never hide
+        # a detail post that failed to provide its required attachment.
+        if (post.get("post_kind") == "listing_direct_attachment"
+            and not atts and post.get("attachments")):
+            continue
         cleaned.append(row)
     return cleaned
 
@@ -776,7 +784,8 @@ def discover_source(src: Source, since, until):
                     posts.append({
                         "source":src.key,"region":src.region,"jurisdiction":src.jurisdiction,
                         "institution":src.institution,"title":title,"period":direct_period,
-                        "post_url":url,"attachments":[{"text":title or "attachment","url":a["url"]}],
+                        "post_url":url,"post_kind":"listing_direct_attachment",
+                        "attachments":[{"text":title or "attachment","url":a["url"]}],
                     })
                 continue
             if src.key == "gyeonggi_council":
