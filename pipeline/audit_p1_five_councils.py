@@ -109,6 +109,14 @@ def main():
                 if ingest["rc"] != 0:
                     hold("INGEST", {"log_tail": ingest["tail"]})
                 else:
+                    if source == "uiwang":
+                        reparse = run_stage(
+                            [sys.executable, "pipeline/reparse_verified_uiwang_pdfs.py"],
+                            360, "uiwang-verified-reparse.log")
+                        record["stages"]["VERIFIED_REPARSE"] = reparse
+                        if reparse["rc"] != 0:
+                            hold("VERIFIED_REPARSE", {"log_tail": reparse["tail"]})
+                            return
                     current = load(raw_path)
                     record["ingested"] = {
                         "rows": len(current.get("rows") or []),
