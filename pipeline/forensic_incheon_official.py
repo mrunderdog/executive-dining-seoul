@@ -31,6 +31,7 @@ TARGETS = {
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--msg-seq",type=int,choices=sorted(TARGETS),required=True)
+    ap.add_argument("--strict-parse",action="store_true")
     a=ap.parse_args()
     seq=a.msg_seq
     expected,month=TARGETS[seq]
@@ -85,6 +86,13 @@ def main():
                                  "purpose","role","source_sheet")}
                                 for r in candidates[:150]]})
         report["sections"]=sections
+        if a.strict_parse:
+            from incheon_verified_pdf import VERIFIED
+            spec=VERIFIED.get(observed)
+            actual={s["name"]:s["normalized_count"] for s in sections}
+            statuses=[s["parser"].get("status") for s in sections]
+            if not spec or actual!=spec[3] or any(x!="OK" for x in statuses):
+                raise ValueError(f"verified PDF pages mismatch: source={seq} expected={spec[3] if spec else None} actual={actual} statuses={statuses}")
         report["pdf_pages"]=pages
         report["status"]="CAPTURED_BASELINE_SHA_OK" if expected else "CAPTURED_NEW_OFFICIAL_UNPINNED"
     except Exception as exc:
