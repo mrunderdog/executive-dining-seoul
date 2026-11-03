@@ -6,6 +6,7 @@ on:
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
       - 'pipeline/test_council_phantom_links.py'
+      - 'pipeline/test_uiwang_pdf_rows.py'
       - 'pipeline/test_full_reconciliation_p0.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
@@ -23,7 +24,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify safe attachment handling
-        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_phantom_links
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_phantom_links test_uiwang_pdf_rows
       - name: Capture real board click and download markup
         shell: bash
         run: |
