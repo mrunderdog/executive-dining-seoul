@@ -1,0 +1,57 @@
+name: P1 Uiwang verified legacy PDF backfill preflight
+on:
+  pull_request:
+    paths:
+      - 'pipeline/reparse_verified_uiwang_pdfs.py'
+      - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/test_uiwang_pdf_rows.py'
+      - '.github/workflows/p1-uiwang-verified-backfill.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  immutable-backfill-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Test source verified layout
+        run: PYTHONPATH=pipeline python -m unittest -v test_uiwang_pdf_rows
+      - name: Reparse only exact two official PDF digests into ephemeral checkout
+        run: python pipeline/reparse_verified_uiwang_pdfs.py
+      - name: Strict incremental QA against HEAD
+        run: python pipeline/qa_council_publication.py --source uiwang --baseline-ref HEAD
+      - name: Verify all historical rows and attachments immutable
+        run: python pipeline/guard_full_council.py --source uiwang --phase integrity --baseline-ref HEAD
+      - name: Ensure original 85 row identities and 33 file identities preserved
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import json
+          from pathlib import Path
+          from qa_council_publication import git_json
+          x=json.loads(Path("data/raw/uiwang_expense.json").read_text(encoding="utf-8"))
+          b=git_json("HEAD","data/raw/uiwang_expense.json")
+          assert len(b["rows"])==85 and len(b["files"])==33
+          assert len(x["rows"])==182 and len(x["files"])==33
+          ids={r["row_id"] for r in x["rows"]}
+          assert len(ids)==182
+          assert all(r in x["rows"] for r in b["rows"])
+          assert x["files"]==b["files"]
+          ledger=json.loads(Path("reports/recovery/uiwang-verified-reparse.json").read_text(encoding="utf-8"))
+          assert ledger["newly_recovered_rows"]==97
+          print("STAGED_ONLY: 97 verified rows, 85 immutable baseline rows, 33 immutable baseline files")
+          PY
+      - name: Upload isolated evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-uiwang-verified-backfill-evidence
+          path: reports/recovery/uiwang-verified-reparse.json
+          retention-days: 14
