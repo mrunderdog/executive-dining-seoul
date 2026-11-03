@@ -770,7 +770,122 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                  "unparsed_transaction_like_rows": len(failed),
                  "unparsed_examples": failed[:12]}
 
+def normalize_uiwang_pdf_rows(rows, sheet_name, source_meta):
+    """Verified official Uiwang council PDF pages (2026-08/09).
+
+    Page heading identifies the accountable expense section; split '금','액'
+    labels form the amount header. Reconcile *all* date-bearing source lines
+    with the printed page subtotal. Any mismatch or malformed field is HOLD,
+    never a reason to silently discard a source transaction.
+    """
+    heading = " ".join(clean_text(v) for row in rows[:2] for v in row)
+    if not ("집행내역" in heading and
+            any(k in heading for k in ("의회운영업무추진비", "교섭단체", "의정운영공통경비",
+                                       "기관운영업무추진비"))):
+        return [], {"sheet": sheet_name, "status": "NO_VERIFIED_UIWANG_HEADING", "parsed_rows": 0}
+    hi = next((i for i, row in enumerate(rows[:5])
+               if {"집행내역", "지출처", "금", "액"}.issubset(
+                   {clean_text(v).replace(" ", "") for v in row})), None)
+    if hi is None:
+        return [], {"sheet": sheet_name, "status": "NO_HEADER", "parsed_rows": 0}
+    context = clean_text(rows[0][0])
+    if context.startswith("부의장 "):
+        role = "부의장"
+    elif context.startswith("의장 "):
+        role = "의장"
+    elif context.startswith("예결위원장 "):
+        role = "예결위원장"
+    elif context.startswith("교섭단체 "):
+        role = "교섭단체"
+    elif context.startswith("의정운영공통경비 "):
+        role = "의정운영공통경비"
+    elif context.startswith("기관운영업무추진비 "):
+        role = "기관운영업무추진비"
+    else:
+        return [], {"sheet": sheet_name, "status": "UNKNOWN_ROLE", "context": context,
+                    "parsed_rows": 0}
+    period = source_meta.get("period")
+    expected_year = period[0] if isinstance(period, (tuple, list)) and len(period) == 3 else None
+    expected_month = period[1] if isinstance(period, (tuple, list)) and len(period) == 3 else None
+    observed_date = re.compile(
+        r"^\s*(20\d{2})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*(?:(\d{1,2})\s*([:;])\s*(\d{2}))?\s*$")
+    amount_pattern = re.compile(r"\d{1,3}(?:,\d{3})+")
+    out, errors, printed_total = [], [], None
+    for ri, cells in enumerate(rows[hi + 1:], start=hi + 2):
+        values = [clean_text(c) for c in cells]
+        if not any(values):
+            continue
+        first = values[0]
+        if len(values) == 1 and amount_pattern.fullmatch(first):
+            if printed_total is not None:
+                errors.append({"row": ri, "reason": "multiple_page_subtotals", "source": values})
+            printed_total = int(first.replace(",", ""))
+            continue
+        if first.endswith("업무추진비") or first.endswith("교섭단체") or first.endswith("공통경비"):
+            continue
+        if "2026." not in first and not re.match(r"^\d{4}\.", first):
+            # Only the observed page title and section label may be skipped.
+            errors.append({"row": ri, "reason": "unrecognized_nonempty_row", "source": values[:6]})
+            continue
+        m = observed_date.fullmatch(first)
+        if not m or len(values) not in (4, 5):
+            errors.append({"row": ri, "reason": "invalid_date_or_columns", "source": values[:6]})
+            continue
+        try:
+            used = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            errors.append({"row": ri, "reason": "invalid_calendar_date", "source": values[:6]})
+            continue
+        if (used.year, used.month) != (expected_year, expected_month):
+            errors.append({"row": ri, "reason": "date_outside_original_month", "source": values[:6]})
+            continue
+        if not amount_pattern.fullmatch(values[2]) or not valid_transaction_merchant(values[3]):
+            errors.append({"row": ri, "reason": "amount_or_merchant_invalid", "source": values[:6]})
+            continue
+        amount = parse_amount(values[2])
+        if amount is None or not 0 < amount < 50_000_000:
+            errors.append({"row": ri, "reason": "amount_out_of_bounds", "source": values[:6]})
+            continue
+        # Preserve the exact printed time separator: official 2026-08 p1
+        # contains '12;21' and it must not be silently rewritten to '12:21'.
+        time_text = (f"{m.group(4)}{m.group(5)}{m.group(6)}"
+                     if m.group(4) is not None else "")
+        raw = {
+            "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"], "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": period, "source_sheet": sheet_name,
+            "source_row": ri, "used_date": used.isoformat(), "used_time": time_text,
+            "date_inferred_from_previous_row": False, "role": role,
+            "merchant": values[3], "address": "", "purpose": values[1],
+            "people": parse_people(values[4]) if len(values) > 4 else None,
+            "amount": amount, "amount_inferred_from_row": False,
+            "payment_method": "", "parse_confidence": "high",
+        }
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    actual_total = sum(r["amount"] for r in out)
+    if printed_total is None or actual_total != printed_total:
+        errors.append({"reason": "subtotal_mismatch_or_missing",
+                       "printed": printed_total, "parsed": actual_total})
+    return out, {
+        "sheet": sheet_name, "status": "ROW_PARSE_GAPS" if errors else "OK",
+        "parser": "uiwang_official_pdf_page_v1", "context_role": role,
+        "header_row": hi + 1, "parsed_rows": len(out),
+        "printed_page_total": printed_total, "parsed_page_total": actual_total,
+        "unparsed_transaction_like_rows": len(errors),
+        "unparsed_examples": errors[:10],
+    }
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-"):
+        return normalize_uiwang_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
         return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
@@ -1000,6 +1115,8 @@ def main():
                         ),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
+                    if args.source == "uiwang" and sheet_name.startswith("pdf-page-") and info.get("status") != "OK":
+                        raise ValueError(f"Uiwang official PDF page not fully accounted: {sheet_name}: {info}")
                     if sheet_name.startswith("pdf-page-"):
                         info["pdf_page_role"] = page_role
                         info["carried_pdf_role"] = carried_pdf_role
