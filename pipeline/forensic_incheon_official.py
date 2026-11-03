@@ -20,6 +20,11 @@ sys.path.insert(0,str(ROOT/"pipeline"))
 from ingest_council_expense import fetch_binary, workbook_rows, normalize_sheet
 
 TARGETS = {
+    # 2026-08 public council posts, independently verified from official detail pages:
+    # 1314 Education / 1315 Urban Construction / 1318 Public Administration
+    1314: (None, 8),
+    1315: (None, 8),
+    1318: (None, 8),
     1320: ("d85541d349a5f5e20fb4023be5c34093ad59a7e80483a3409af2c61143ef6dcb", 8),
     1321: (None, 8),  # explicit 2026-08 official posting from discovery
     1322: ("4856197cef57cff59e5ecb3825e7fad9ed1a88697222a9bdc2da7d1d03bd43f3", 9),
