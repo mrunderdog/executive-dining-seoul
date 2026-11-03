@@ -7,6 +7,7 @@ The scanned 1321 PDF and other unresolved official files are explicitly NOT
 covered; stage success must not be treated as complete source publication.
 """
 from __future__ import annotations
+import argparse
 import hashlib
 import json
 import sys
@@ -20,6 +21,10 @@ from qa_council_publication import git_json,assess_incremental
 from guard_full_council import check_integrity
 
 def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--evidence-dir", type=Path, required=True,
+                    help="SHA-verified official originals retained by previous 5 independent source jobs")
+    args=ap.parse_args()
     source="incheon_council"
     raw_path=ROOT/"data/raw/incheon_council_expense.json"
     discover_path=ROOT/"reports/capital-backfill-discovery-incheon_council.json"
@@ -55,7 +60,16 @@ def main():
         owner=next((p for p in owners if "bbsMsgDetail.do" in p.get("post_url","")), owners[0])
         if owner.get("period") != [2026,month,None]:
             raise SystemExit(f"HOLD: official reporting month mismatch {seq}")
-        blob=fetch_binary(filename_url,owner["post_url"])
+        artifact_root=args.evidence_dir / f"incheon-original-{seq}"
+        archived=artifact_root / f"official-{seq}.pdf"
+        record=artifact_root / "evidence.json"
+        if not archived.is_file() or not record.is_file():
+            raise SystemExit(f"HOLD: missing independently captured official PDF artifact {seq}")
+        receipt=json.loads(record.read_text(encoding="utf-8"))
+        if (receipt.get("seq") != seq or receipt.get("status") != "CAPTURED_BASELINE_SHA_OK"
+            or receipt.get("official_file") != filename_url or receipt.get("observed_sha256") != sha):
+            raise SystemExit(f"HOLD: invalid original source capture receipt {seq}")
+        blob=archived.read_bytes()
         actualsha=hashlib.sha256(blob).hexdigest()
         if actualsha!=sha or not blob.startswith(b"%PDF"):
             raise SystemExit(f"HOLD: original PDF changed or invalid {seq}")
@@ -83,21 +97,34 @@ def main():
                 key=lambda x:(x.get("used_date",""),x.get("row_id","")))}
     candidate["row_count"]=len(candidate["rows"])
     integrity=check_integrity(source,candidate,baseline)
-    qa=assess_incremental(source,candidate,discovery,baseline,baseline_disc)
-    if integrity.get("status")!="PASS" or qa.get("status")!="PUBLISH_READY":
-        raise SystemExit(f"HOLD: strict QA/integrity rejected verified recovery: {qa}, {integrity}")
+    # Verify exactly the five SHA-locked official attachments without
+    # granting publication clearance to other unaccounted official sources.
+    allowed={canonical_attachment_url(x["file"]) for x in proof}
+    scoped_posts=[]
+    for post in discovery.get("posts",[]):
+        verified=[att for att in post.get("attachments",[])
+                  if canonical_attachment_url(att.get("url")) in allowed]
+        if verified:
+            scoped_posts.append({**post,"attachments":verified})
+    scoped_discovery={"posts":scoped_posts}
+    scope_qa=assess_incremental(source,candidate,scoped_discovery,baseline,baseline_disc)
+    all_source_qa=assess_incremental(source,candidate,discovery,baseline,baseline_disc)
+    if integrity.get("status")!="PASS" or scope_qa.get("status")!="PUBLISH_READY":
+        raise SystemExit(f"HOLD: source-scoped strict QA/integrity failed: {scope_qa}, {integrity}")
     evidence={"source":source,"status":"PARTIAL_STAGED_ONLY_NOT_PUBLISHED",
               "baseline_rows":len(oldrows),"recovered_rows":len(all_rows),
               "candidate_rows":len(candidate["rows"]),"original_files_unchanged":len(oldfiles),
               "scope_exclusions":["scanned official 1321 PDF","unresolved null amount row e6256a2ab172f5fd2ac7",
                                   "all other not-yet-accounted official attachments"],
-              "proof":proof,"qa":qa,"integrity":integrity}
+              "proof":proof,"scoped_qa":scope_qa,"complete_source_qa":all_source_qa,
+              "full_source_publication_authorized":False,"integrity":integrity}
     dest=ROOT/"reports/recovery/incheon-verified-partial-backfill.json"
     dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"status":evidence["status"],"baseline":len(oldrows),
                       "recovered":len(all_rows),"candidate":len(candidate["rows"]),
-                      "qa":qa["status"],"integrity":integrity["status"]},ensure_ascii=False))
+                      "scoped_qa":scope_qa["status"],"complete_source_qa":all_source_qa["status"],
+                      "integrity":integrity["status"],"publish":False},ensure_ascii=False))
     # Intentional: do not write candidate to source JSON; this is a read-only
     # proof, and release remains blocked until scanned/invalid files are fixed.
 
