@@ -1,0 +1,36 @@
+name: P1 Incheon 1321 scanned PDF source-total audit
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_incheon_scan_1321.py'
+      - '.github/workflows/p1-incheon-scan-1321-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-total-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pypdf==6.1.1
+      - name: Retrieve independently captured official source file
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 41579798147
+          github-token: ${{ github.token }}
+          name: incheon-original-1321
+          path: reports/recovery/original-1321/
+      - name: Audit 10 printed rows against official printed grand total
+        run: python pipeline/audit_incheon_scan_1321.py --pdf reports/recovery/original-1321/official-1321.pdf --out reports/recovery/incheon-scan-1321-source-discrepancy.json
+      - name: Upload evidence of source mismatch (no transaction publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-1321-source-total-mismatch
+          path: reports/recovery/incheon-scan-1321-source-discrepancy.json
+          retention-days: 14
