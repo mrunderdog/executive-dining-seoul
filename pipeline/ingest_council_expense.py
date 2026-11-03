@@ -883,6 +883,10 @@ def normalize_uiwang_pdf_rows(rows, sheet_name, source_meta):
 
 
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "incheon_council" and sheet_name.startswith("pdf-page-"):
+        from incheon_verified_pdf import VERIFIED, normalize_verified_incheon
+        if source_meta.get("attachment_sha256") in VERIFIED:
+            return normalize_verified_incheon(rows, sheet_name, source_meta)
     if source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-"):
         return normalize_uiwang_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
@@ -1114,6 +1118,10 @@ def main():
                         ),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
+                    if (args.source == "incheon_council" and sheet_name.startswith("pdf-page-")
+                        and meta.get("attachment_sha256") in __import__("incheon_verified_pdf").VERIFIED
+                        and info.get("status") != "OK"):
+                        raise ValueError(f"Incheon verified official PDF incomplete: {sheet_name}: {info}")
                     if args.source == "uiwang" and sheet_name.startswith("pdf-page-") and info.get("status") != "OK":
                         raise ValueError(f"Uiwang official PDF page not fully accounted: {sheet_name}: {info}")
                     if sheet_name.startswith("pdf-page-"):
