@@ -1,0 +1,33 @@
+name: P1 Incheon verified partial historical backfill preflight
+on:
+  pull_request:
+    paths:
+      - 'pipeline/reparse_verified_incheon_pdfs.py'
+      - '.github/workflows/p1-incheon-partial-backfill.yml'
+      - 'pipeline/incheon_verified_pdf.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-ledger-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Reconcile five official sources against 194 immutable historical rows
+        run: python pipeline/reparse_verified_incheon_pdfs.py
+      - name: Ensure no source ledger or public score was modified
+        run: git diff --exit-code -- data/raw/ reports/capital-backfill-discovery-incheon_council.json
+      - name: Preserve partial forensic proof only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-58-row-forensic-verification
+          path: reports/recovery/incheon-verified-partial-backfill.json
+          retention-days: 14
