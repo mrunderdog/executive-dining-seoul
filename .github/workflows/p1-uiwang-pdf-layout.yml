@@ -1,0 +1,28 @@
+name: P1 Uiwang official PDF layout evidence
+on:
+  pull_request:
+    paths:
+      - 'pipeline/inspect_uiwang_pdf_layout.py'
+      - '.github/workflows/p1-uiwang-pdf-layout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Verify hashes and capture official 2026-08/09 PDF pages
+        run: python pipeline/inspect_uiwang_pdf_layout.py
+      - name: Upload original PDF and layout evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-uiwang-pdf-layout
+          path: reports/recovery/uiwang-pdf-evidence/
+          retention-days: 14
