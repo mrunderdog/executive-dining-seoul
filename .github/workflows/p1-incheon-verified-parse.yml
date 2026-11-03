@@ -1,0 +1,34 @@
+name: P1 Incheon verified PDF row accounting
+on:
+  pull_request:
+    paths:
+      - 'pipeline/incheon_verified_pdf.py'
+      - 'pipeline/forensic_incheon_official.py'
+      - 'pipeline/ingest_council_expense.py'
+      - '.github/workflows/p1-incheon-verified-parse.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verified-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        seq: [1320, 1322, 1323, 1326, 1327]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: SHA-bound original PDF transaction-completeness check
+        run: python pipeline/forensic_incheon_official.py --msg-seq ${{ matrix.seq }} --strict-parse
+      - name: Upload source evidence and failure rows
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-verified-${{ matrix.seq }}
+          path: reports/recovery/incheon-official-${{ matrix.seq }}/
+          retention-days: 14
