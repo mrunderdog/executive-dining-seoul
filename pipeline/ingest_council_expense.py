@@ -808,7 +808,7 @@ def normalize_uiwang_pdf_rows(rows, sheet_name, source_meta):
     expected_year = period[0] if isinstance(period, (tuple, list)) and len(period) == 3 else None
     expected_month = period[1] if isinstance(period, (tuple, list)) and len(period) == 3 else None
     observed_date = re.compile(
-        r"^\s*(20\d{2})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*(?:(\d{1,2})\s*([:;])\s*(\d{2}))?\s*$")
+        r"^\s*(20\d{2})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*((?:\d{1,2}[:;]\d{2})(?:,\s*\d{1,2}[:;]\d{2})*)?\s*$")
     amount_pattern = re.compile(r"\d{1,3}(?:,\d{3})+")
     out, errors, printed_total = [], [], None
     for ri, cells in enumerate(rows[hi + 1:], start=hi + 2):
@@ -848,8 +848,7 @@ def normalize_uiwang_pdf_rows(rows, sheet_name, source_meta):
             continue
         # Preserve the exact printed time separator: official 2026-08 p1
         # contains '12;21' and it must not be silently rewritten to '12:21'.
-        time_text = (f"{m.group(4)}{m.group(5)}{m.group(6)}"
-                     if m.group(4) is not None else "")
+        time_text = m.group(4) or ""
         raw = {
             "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
             "institution": source_meta["institution"], "source_key": source_meta["source"],
