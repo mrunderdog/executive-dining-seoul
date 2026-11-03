@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   source-ledger-check:
     runs-on: ubuntu-latest
@@ -20,8 +21,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
-      - name: Reconcile five official sources against 194 immutable historical rows
-        run: python pipeline/reparse_verified_incheon_pdfs.py
+      - name: Retrieve previously SHA-verified official PDF evidence
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 41579798147
+          github-token: ${{ github.token }}
+          pattern: incheon-original-*
+          path: reports/recovery/original-source-archives/
+          merge-multiple: false
+      - name: Reconcile five independently captured originals against 194 immutable historical rows
+        run: python pipeline/reparse_verified_incheon_pdfs.py --evidence-dir reports/recovery/original-source-archives/
       - name: Ensure no source ledger or public score was modified
         run: git diff --exit-code -- data/raw/ reports/capital-backfill-discovery-incheon_council.json
       - name: Preserve partial forensic proof only
