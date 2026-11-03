@@ -18,7 +18,7 @@ VERIFIED = {
  "44129be489aee23846fa19c4e0de465ef105164be42f74e2a1fe99c06d5b89dd": (1327, 9, "환경교통위원장", {"pdf-page-1":12}),
 }
 AMOUNT=re.compile(r"^(\d{1,3}(?:,\d{3})+)(.*)$")
-DATETIME_JOINED=re.compile(r"^\s*(20\d{2})[.\-](\d{2})[.\-](\d{2})\.?\s*(\d{2}:\d{2})(.+)$")
+DATETIME_JOINED=re.compile(r"^\s*(20\d{2})[.\-](\d{2})[.\-](\d{2})\.?\s*(\d{2}:\d{2})(.*)$")
 DATE_ONLY=re.compile(r"^20\d{2}-\d{2}-\d{2}$")
 
 def normalize_verified_incheon(rows, sheet, meta):
