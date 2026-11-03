@@ -117,23 +117,46 @@ def main():
                         "new_files": current.get("new_files"),
                     }
                     # Existing source QA rules, without relaxing them or
-                    # automatic date corrections.
+                    # automatic date corrections. Inspect provenance even when
+                    # QA holds so missing/changed historical entries are visible.
                     qa = assess_incremental(
                         source, current, d,
                         git_json("HEAD", f"data/raw/{source}_expense.json"),
                         git_json("HEAD", f"reports/capital-backfill-discovery-{source}.json"))
                     record["stages"]["STRICT_QA"] = qa
+                    integrity = check_integrity(source, current, prior if prior else None)
+                    record["stages"]["DATA_INTEGRITY"] = integrity
                     if qa["status"] not in ("PUBLISH_READY", "NO_CHANGE"):
+                        bad_ids = {str(e.get("row_id")) for e in qa.get("bad_examples", [])}
+                        record["qa_forensics"] = {
+                            "invalid_rows": [
+                                {k: row.get(k) for k in (
+                                    "row_id", "source_post_url",
+                                    "source_attachment_url", "source_attachment_name",
+                                    "source_sheet", "source_row", "used_date", "merchant",
+                                    "amount", "purpose", "source_period")}
+                                for row in current.get("rows", [])
+                                if str(row.get("row_id")) in bad_ids
+                            ],
+                            "ingestion_errors": (current.get("errors") or [])[-15:],
+                            "zero_row_files": [
+                                {"name": f.get("name"), "url": f.get("url"),
+                                 "sha256": f.get("sha256"),
+                                 "sheets": f.get("sheets", [])[:4]}
+                                for f in current.get("files", [])
+                                if not any(
+                                    str(x.get("source_attachment_url")) == str(f.get("url"))
+                                    for x in current.get("rows", [])
+                                )
+                            ][:15],
+                        }
                         hold("STRICT_QA", {"failures": qa.get("failures", []),
                                             "bad_examples": qa.get("bad_examples", [])})
+                    elif integrity["status"] != "PASS":
+                        hold("DATA_INTEGRITY", {"failures": integrity.get("failures", []),
+                                                "examples": integrity.get("examples", {})})
                     else:
-                        integrity = check_integrity(source, current, prior if prior else None)
-                        record["stages"]["DATA_INTEGRITY"] = integrity
-                        if integrity["status"] != "PASS":
-                            hold("DATA_INTEGRITY", {"failures": integrity.get("failures", []),
-                                                    "examples": integrity.get("examples", {})})
-                        else:
-                            record["status"] = "NO_CHANGE" if qa["status"] == "NO_CHANGE" else "PUBLISH_READY"
+                        record["status"] = "NO_CHANGE" if qa["status"] == "NO_CHANGE" else "PUBLISH_READY"
     except Exception as e:
         hold("AUDIT_EXCEPTION", {"exception": repr(e)})
     finally:
