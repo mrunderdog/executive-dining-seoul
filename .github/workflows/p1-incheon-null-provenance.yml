@@ -1,0 +1,31 @@
+name: P1 Incheon null amount provenance check
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_incheon_null_row_provenance.py'
+      - '.github/workflows/p1-incheon-null-provenance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 41579798147
+          github-token: ${{ github.token }}
+          name: incheon-original-1320
+          path: reports/recovery/original-1320/
+      - name: Compare observed official 8-31 row but do not infer null row identity
+        run: python pipeline/audit_incheon_null_row_provenance.py --artifact-dir reports/recovery/original-1320/ --out reports/recovery/incheon-null-provenance.json
+      - name: Preserve read-only provenance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-null-amount-provenance
+          path: reports/recovery/incheon-null-provenance.json
+          retention-days: 14
