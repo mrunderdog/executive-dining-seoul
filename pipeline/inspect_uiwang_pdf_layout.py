@@ -71,7 +71,13 @@ def main():
                               "split_rows": rows, "parser_info": info,
                               "normalized_count": len(normalized)})
             record["pages"] = pages
-            record["status"] = "CAPTURED"
+            bad_pages = [
+                {"page": p["page"], "parser_info": p["parser_info"]}
+                for p in pages if p["parser_info"].get("status") != "OK"
+            ]
+            record["parsed_rows"] = sum(p["normalized_count"] for p in pages)
+            record["bad_pages"] = bad_pages
+            record["status"] = "PARSER_HOLD" if bad_pages else "CAPTURED"
             (target / f"uiwang-2026-{month:02d}-layout.json").write_text(
                 json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
         except Exception as exc:
