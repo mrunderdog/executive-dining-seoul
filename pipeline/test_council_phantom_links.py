@@ -36,5 +36,30 @@ class PhantomListingLinkTests(unittest.TestCase):
         self.assertEqual(len(posts), 1, posts)
         self.assertEqual(posts[0]["attachments"][0]["url"], file_url)
 
+
+    def test_duplicate_direct_listing_file_is_not_phantom_post(self):
+        from capital_backfill import sanitize_discovered_posts
+        official = "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A1B2C3"
+        detail = {"source": "gunpo", "post_url": "https://www.gunpocouncil.go.kr/kr/costBBSview.do?uid=123",
+                  "title": "2026년 8월 업무추진비", "attachments": [{"url": official, "text": "2026년 8월.xlsx"}]}
+        synthetic = {"source": "gunpo", "post_url": "https://www.gunpocouncil.go.kr/kr/costBBS.do?flag=all&page=1",
+                     "post_kind": "listing_direct_attachment", "title": "2026년 8월 업무추진비.xlsx",
+                     "attachments": [{"url": official, "text": "2026년 8월.xlsx"}]}
+        got = sanitize_discovered_posts([detail, synthetic])
+        self.assertEqual(len(got), 1, got)
+        self.assertEqual(got[0]["post_url"], detail["post_url"])
+
+    def test_real_attachmentless_detail_post_is_still_held(self):
+        from capital_backfill import sanitize_discovered_posts
+        official = "https://www.gunpocouncil.go.kr/kr/bbs/download.do?bbs_id=cost&uid=A1B2C3"
+        detail = {"source": "gunpo", "post_url": "https://www.gunpocouncil.go.kr/kr/costBBSview.do?uid=124",
+                  "title": "2026년 7월 업무추진비", "attachments": []}
+        synthetic = {"source": "gunpo", "post_url": "https://www.gunpocouncil.go.kr/kr/costBBS.do?flag=all&page=1",
+                     "post_kind": "listing_direct_attachment", "title": "2026년 8월 업무추진비.xlsx",
+                     "attachments": [{"url": official, "text": "2026년 8월.xlsx"}]}
+        got = sanitize_discovered_posts([detail, synthetic])
+        self.assertEqual(len(got), 2, got)
+        self.assertEqual(got[0]["attachments"], [])
+
 if __name__ == "__main__":
     unittest.main()
