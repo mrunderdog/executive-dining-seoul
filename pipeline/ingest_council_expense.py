@@ -13,6 +13,7 @@ import http.cookiejar
 import io
 import json
 import re
+import subprocess
 import urllib.error
 import urllib.request
 import urllib.parse
@@ -221,6 +222,43 @@ def _html_attachment_candidates(base_url: str, blob: bytes) -> list[str]:
     return candidates
 
 
+def curl_incheon_public_file_bytes(url: str) -> bytes:
+    """Exact observed public Incheon file routes via independent verified TLS.
+
+    The official source URLs were observed in HTML list items. Curl is only
+    called on this host, route and nonempty verified query parameters; it
+    neither follows redirects nor disables certificate/hostname verification.
+    """
+    parsed = urllib.parse.urlsplit(url)
+    q = urllib.parse.parse_qs(parsed.query)
+    valid_route = parsed.path in (
+        "/main/bbs/bbsMsgFileDown.do",
+        "/main/bbs/bbsMsgFileDownCompress.do",
+    )
+    if (parsed.scheme != "https" or parsed.hostname != "www.icouncil.go.kr"
+        or not valid_route or q.get("bcd") != ["infordisc"]
+        or len(q.get("msg_seq", [])) != 1
+        or not re.fullmatch(r"\\d{1,12}", q["msg_seq"][0])
+        or (parsed.path.endswith("bbsMsgFileDown.do")
+            and (len(q.get("fileno", [])) != 1
+                 or not re.fullmatch(r"[1-9]\\d*", q["fileno"][0])))):
+        raise ValueError("unverified Incheon official file URL")
+    cmd = [
+        "curl", "--fail", "--silent", "--show-error",
+        "--connect-timeout", "6", "--max-time", "18",
+        "--max-filesize", "30000000", "--proto", "=https",
+        "--http1.1", "--user-agent", UA, url,
+    ]
+    completed = subprocess.run(cmd, capture_output=True, check=True, timeout=22)
+    blob = completed.stdout
+    head = blob[:512].lstrip().lower()
+    if (len(blob) < 32 or head.startswith(b"<!doctype html")
+        or head.startswith(b"<html")
+        or not (blob.startswith((b"%PDF", b"PK", bytes.fromhex("D0CF11E0A1B11AE1"))))):
+        raise ValueError("official attachment did not return a supported binary file")
+    return blob
+
+
 def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     """Download public-board attachments with browser-like session semantics.
 
@@ -236,6 +274,13 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
             "/main/bbs/bbsMsgFileDownCompress.do"
         )
     )
+    if incheon_listing_file:
+        try:
+            return curl_incheon_public_file_bytes(url)
+        except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            # Transport failure only: one bounded Python HTTPS fallback.
+            # Malformed content / source URL is never silently accepted.
+            pass
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     base_headers = {
