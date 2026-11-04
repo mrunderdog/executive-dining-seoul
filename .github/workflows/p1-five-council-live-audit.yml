@@ -6,6 +6,7 @@ on:
       - 'pipeline/incheon_source_capture.py'
       - 'pipeline/test_incheon_source_capture.py'
       - 'pipeline/test_incheon_discovery_trace.py'
+      - 'pipeline/test_incheon_list_item_attachments.py'
       - 'pipeline/capital_backfill.py'
       - 'pipeline/ingest_council_expense.py'
       - '.github/workflows/p1-five-council-live-audit.yml'
@@ -30,7 +31,7 @@ jobs:
       - name: Install official attachment parsers
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1 --pre pyhwp six
       - name: Offline source capture regression tests
-        run: PYTHONPATH=pipeline python -m unittest -v test_incheon_source_capture test_incheon_discovery_trace
+        run: PYTHONPATH=pipeline python -m unittest -v test_incheon_source_capture test_incheon_discovery_trace test_incheon_list_item_attachments
       - name: Run isolated live official discovery -> ingestion -> strict QA -> integrity
         run: python pipeline/audit_p1_five_councils.py --source "${{ matrix.source }}" --since 2026-07 --until 2026-10
       - name: Upload per-institution evidence
