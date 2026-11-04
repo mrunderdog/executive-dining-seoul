@@ -68,5 +68,34 @@ class IncheonSourceCaptureTests(unittest.TestCase):
             self.assertEqual(out["attachment_errors"][0]["recorded_sheets"], ["pdf-page-3"])
 
 
+    def test_inflight_http_request_is_checkpointed_before_completion(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / "capture.json"
+            c = OriginalSourceCapture("incheon_council", p)
+            e = c.start({"post_url": "official-post", "period": [2026, 8, None]},
+                        "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?msg_seq=1324",
+                        "source.pdf")
+            snapshot = json.loads(p.read_text(encoding="utf-8"))
+            self.assertEqual(snapshot["status"], "INCOMPLETE")
+            self.assertEqual(snapshot["files"][0]["status"], "FETCH_STARTED")
+            self.assertEqual(snapshot["files"][0]["attachment_url"], e["attachment_url"])
+            self.assertFalse(snapshot["publication_authorized"])
+
+    def test_incheon_direct_download_bounded_no_detail_warmup(self):
+        import urllib.error
+        from unittest.mock import patch, MagicMock
+        from ingest_council_expense import fetch_binary
+        url = ("https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do"
+               "?bcd=infordisc&fileno=1&msg_seq=1324")
+        post = "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1324"
+        mock_opener = MagicMock()
+        mock_opener.open.side_effect = urllib.error.URLError("official timeout")
+        with patch("ingest_council_expense.urllib.request.build_opener",
+                   return_value=mock_opener):
+            with self.assertRaises(urllib.error.URLError):
+                fetch_binary(url, post)
+        self.assertEqual(mock_opener.open.call_count, 1)
+        self.assertEqual(mock_opener.open.call_args.kwargs["timeout"], 12)
+
 if __name__ == "__main__":
     unittest.main()
