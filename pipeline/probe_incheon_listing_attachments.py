@@ -73,15 +73,20 @@ def main():
             "all_file_like_links":[{"url":a["url"],"text":a["text"],"onclick":a.get("onclick")}
                 for a in all_links if re.search(r"download|filedown|\.pdf|\.xls|첨부",a["url"]+" "+a["text"]+" "+str(a.get("onclick")),re.I)][:150],
         })
-        if not matched_details or not validated:
+        # A complete old page may have ten well-formed official links but
+        # no posts in the requested 2026-07..10 window. This is not a source
+        # fetch error; report it separately without authorizing publication.
+        if not matched_details:
             result["status"]="HOLD_NO_OFFICIAL_DETAIL_LINKS"
+        elif not validated:
+            result["status"]="CAPTURED_OUTSIDE_TARGET_WINDOW"
     except Exception as exc:
         result.update(status="HOLD_FETCH_FAILED",error=f"{type(exc).__name__}: {exc}")
     (dest/"evidence.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({k:v for k,v in result.items() if k not in
                       ("rows","unique_detail_urls","all_file_like_links","unbound_download_links")},
                      ensure_ascii=False),flush=True)
-    if result["status"]!="CAPTURED_NOT_PUBLISHABLE":
+    if result["status"] not in ("CAPTURED_NOT_PUBLISHABLE", "CAPTURED_OUTSIDE_TARGET_WINDOW"):
         raise SystemExit(2)
 
 if __name__=="__main__":
