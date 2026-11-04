@@ -35,10 +35,12 @@ class OriginalSourceCapture:
             "attachment_errors": [],
             "status": "RUNNING",
         }
-        atexit.register(self.write)
+        atexit.register(self.checkpoint)
+        self.checkpoint()
 
     def skipped(self, url):
         self.doc["skipped_baseline_file_urls"].append(url)
+        self.checkpoint()
 
     def start(self, post, url, name):
         entry = {
@@ -53,6 +55,7 @@ class OriginalSourceCapture:
             "sheets": [],
         }
         self.doc["files"].append(entry)
+        self.checkpoint()
         return entry
 
     def downloaded(self, entry, data, sha):
@@ -60,6 +63,7 @@ class OriginalSourceCapture:
         entry["bytes"] = len(data)
         entry["status"] = "DOWNLOADED"
         entry["phase"] = "parse"
+        self.checkpoint()
 
     def sheet(self, entry, name, rows):
         record = {
@@ -74,6 +78,7 @@ class OriginalSourceCapture:
         }
         entry["sheets"].append(record)
         entry["phase"] = "normalize"
+        self.checkpoint()
         return record
 
     def normalized(self, entry, record, normalized_rows, info):
@@ -93,10 +98,12 @@ class OriginalSourceCapture:
             })
         entry["status"] = "SHEET_PARSED"
         entry["phase"] = "parse"
+        self.checkpoint()
 
     def succeeded(self, entry):
         entry["status"] = "PARSED"
         entry["phase"] = "complete"
+        self.checkpoint()
 
     def failed(self, entry, exc):
         error = {
@@ -112,18 +119,30 @@ class OriginalSourceCapture:
         entry["status"] = "ERROR"
         entry["failure"] = error
         self.doc["attachment_errors"].append(error)
+        self.checkpoint()
 
-    def write(self):
+    def _atomic(self):
         self.destination.parent.mkdir(parents=True, exist_ok=True)
-        self.doc["status"] = (
-            "COMPLETE_WITH_ERRORS" if self.doc["attachment_errors"]
-            else "CAPTURE_COMPLETE"
-        )
         self.doc["saved_at_utc"] = datetime.now(timezone.utc).isoformat()
         tmp = self.destination.with_name(self.destination.name + ".tmp")
         tmp.write_text(json.dumps(self.doc, ensure_ascii=False, indent=2, default=str) + "\n",
                        encoding="utf-8")
         os.replace(tmp, self.destination)
+
+    def checkpoint(self):
+        # Never present a hard-killed ingest as completed. This file exists
+        # even if the current HTTP request never returns.
+        if self.doc["status"] not in ("CAPTURE_COMPLETE", "COMPLETE_WITH_ERRORS"):
+            self.doc["status"] = ("INCOMPLETE_WITH_ERRORS"
+                                  if self.doc["attachment_errors"] else "INCOMPLETE")
+        self._atomic()
+
+    def write(self):
+        self.doc["status"] = (
+            "COMPLETE_WITH_ERRORS" if self.doc["attachment_errors"]
+            else "CAPTURE_COMPLETE"
+        )
+        self._atomic()
 
 
 def match_invalid_rows(capture, invalid_ids):
