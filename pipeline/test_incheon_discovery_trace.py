@@ -39,5 +39,30 @@ class IncheonTraceTests(unittest.TestCase):
             self.assertFalse(persisted["publication_authorized"])
             self.assertEqual(persisted["events"][-1]["page"], 1)
 
+    def test_official_incheon_detail_is_single_bounded_attempt(self):
+        import urllib.error
+        import urllib.request
+        from capital_backfill import fetch_text
+        url = "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1328&bcd=infordisc&pgno=1"
+        with patch("capital_backfill.urllib.request.urlopen",
+                   side_effect=urllib.error.URLError("official timeout")) as opened:
+            with self.assertRaises(urllib.error.URLError):
+                fetch_text(url)
+        self.assertEqual(opened.call_count, 1)
+        self.assertEqual(opened.call_args.kwargs["timeout"], 6)
+
+    def test_other_official_routes_keep_original_retry_policy(self):
+        import urllib.error
+        from capital_backfill import fetch_text
+        url = "https://www.icouncil.go.kr/main/bbs/bbsMsgList.do?bcd=infordisc&pgno=1"
+        with patch("capital_backfill.urllib.request.urlopen",
+                   side_effect=urllib.error.URLError("official timeout")) as opened:
+            with patch("capital_backfill.time.sleep"):
+                with self.assertRaises(urllib.error.URLError):
+                    fetch_text(url)
+        self.assertEqual(opened.call_count, 3)
+        self.assertTrue(all(call.kwargs.get("timeout") == 20
+                            for call in opened.call_args_list))
+
 if __name__ == "__main__":
     unittest.main()
