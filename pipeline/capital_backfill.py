@@ -207,9 +207,21 @@ def curl_verified_bytes(url: str, referer: str = "") -> bytes:
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
-    for attempt in range(3):
+    # Incheon Council's official detail route has demonstrably spent
+    # ~60 s per unreachable post (3 x 20 s). That starves the 320 s
+    # discovery budget before the second listing page is visited.
+    # Bound *only* this exact official detail route to a single 6 s
+    # attempt. Failure is still recorded as an explicit HOLD, never
+    # accepted as a complete discovery or empty official post.
+    parsed = urllib.parse.urlsplit(url)
+    incheon_detail = (parsed.scheme == "https"
+                      and parsed.hostname == "www.icouncil.go.kr"
+                      and parsed.path == "/main/bbs/bbsMsgDetail.do")
+    timeout_seconds = 6 if incheon_detail else 20
+    attempts = 1 if incheon_detail else 3
+    for attempt in range(attempts):
         try:
-            with urllib.request.urlopen(req, timeout=20) as r:
+            with urllib.request.urlopen(req, timeout=timeout_seconds) as r:
                 raw = r.read()
                 charset = r.headers.get_content_charset()
             return decode_html(raw, charset)
@@ -224,7 +236,7 @@ def fetch_text(url: str) -> str:
                 and b"</table>" in partial.lower()
                 and (b"fnGoDetail" in partial or b"fnFileDownLoad" in partial)):
                 return decode_html(partial, None)
-            if attempt == 2:
+            if attempt == attempts - 1:
                 raise
             time.sleep(0.3 * (attempt + 1))
         except OSError as exc:
@@ -238,7 +250,7 @@ def fetch_text(url: str) -> str:
                     return decode_html(curl_verified_bytes(url), None)
                 except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
                     pass
-            if attempt == 2:
+            if attempt == attempts - 1:
                 raise
             time.sleep(0.3 * (attempt + 1))
 
