@@ -1079,6 +1079,11 @@ def main():
     previous_rows = list(previous.get("rows", []))
     previous_files = list(previous.get("files", []))
     previous_errors = list(previous.get("errors", []))
+    capture = None
+    if args.source == "incheon_council":
+        from incheon_source_capture import OriginalSourceCapture
+        capture = OriginalSourceCapture(
+            args.source, REPORTS / "recovery" / "incheon-source-capture.json")
     # The same verified official download may reorder its query parameters
     # between historic snapshots and current discovery. Compare canonical
     # identities, never raw URL bytes, to avoid reparsing all old workbooks.
@@ -1092,17 +1097,23 @@ def main():
             if not url:
                 continue
             if args.incremental and canonical_attachment_url(url) in known_urls:
+                if capture:
+                    capture.skipped(url)
                 continue
             if not canonical_attachment_url(url):
                 # A downloaded HTML board may advertise fake links (e.g.
                 # '/attach' and '#lg-download') which are not expense files.
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
+            evidence = capture.start(post, url, name) if capture else None
             try:
                 blob = fetch_binary(url, post.get("post_url") or "")
+                if capture:
+                    capture.downloaded(evidence, blob, hashlib.sha256(blob).hexdigest())
                 per_file = {"title": post.get("title"), "url": url, "name": name, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(), "sheets": []}
                 carried_pdf_role = ""
                 for sheet_name, rows in workbook_rows(blob, name):
+                    original_sheet = capture.sheet(evidence, sheet_name, rows) if capture else None
                     page_role = infer_pdf_context_role(rows) if sheet_name.startswith("pdf-page-") else ""
                     if page_role:
                         carried_pdf_role = page_role
@@ -1118,6 +1129,8 @@ def main():
                         ),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
+                    if capture:
+                        capture.normalized(evidence, original_sheet, normalized, info)
                     if (args.source == "incheon_council" and sheet_name.startswith("pdf-page-")
                         and meta.get("attachment_sha256") in __import__("incheon_verified_pdf").VERIFIED
                         and info.get("status") != "OK"):
@@ -1130,10 +1143,16 @@ def main():
                     per_file["sheets"].append(info)
                     all_rows.extend(normalized)
                 files.append(per_file)
+                if capture:
+                    capture.succeeded(evidence)
             except Exception as e:
+                if capture:
+                    capture.failed(evidence, e)
                 errors.append({"post": post.get("title"), "url": url, "error": f"{type(e).__name__}: {e}"})
 
     if args.incremental and not files and not errors:
+        if capture:
+            capture.write()
         print(json.dumps({
             "source": args.source, "status": "NO_CHANGE",
             "known_files": len(previous_files), "rows": len(previous_rows),
@@ -1303,6 +1322,8 @@ def main():
         "files": merged_files if args.incremental else files,
         "errors": merged_errors if args.incremental else errors,
     }
+    if capture:
+        capture.write()
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     files = payload["files"]
