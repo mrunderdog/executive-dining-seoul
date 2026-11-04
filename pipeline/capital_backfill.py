@@ -694,6 +694,64 @@ def recover_verified_icheon_posts(src: Source, since, until):
               "all new PDFs and transactions must pass the publication gate")
     return recovered
 
+def incheon_listing_row_posts(src: Source, listing_url: str, document: str, since, until):
+    """Use only exact official file hrefs in the same generalList <li>."""
+    posts = []
+    items = re.findall(
+        r'<li\s*>\s*<p\s+class=["\']title["\'][\s\S]*?</div>\s*</li\s*>',
+        document, flags=re.I)
+    for ordinal, item in enumerate(items, 1):
+        links = anchors(listing_url, item)
+        details = []
+        for a in links:
+            p = urllib.parse.urlsplit(a["url"])
+            q = urllib.parse.parse_qs(p.query)
+            if (p.scheme == "https" and p.hostname == "www.icouncil.go.kr"
+                and p.path == "/main/bbs/bbsMsgDetail.do"
+                and q.get("bcd") == ["infordisc"] and len(q.get("msg_seq", [])) == 1
+                and re.fullmatch(r"\d{1,12}", q["msg_seq"][0])
+                and "업무추진비" in a["text"]):
+                details.append((a, q["msg_seq"][0]))
+        if not details:
+            continue
+        if len(details) != 1:
+            posts.append({"source": src.key, "listing_url": listing_url,
+                          "error": f"ambiguous official list item {ordinal}: {len(details)} details"})
+            continue
+        detail, seq = details[0]
+        period = title_period(detail["text"])
+        if not period_overlaps(period, since, until):
+            continue
+        files = []
+        for a in links:
+            p = urllib.parse.urlsplit(a["url"])
+            q = urllib.parse.parse_qs(p.query)
+            if (p.scheme != "https" or p.hostname != "www.icouncil.go.kr"
+                or p.path not in ("/main/bbs/bbsMsgFileDown.do",
+                                  "/main/bbs/bbsMsgFileDownCompress.do")
+                or q.get("bcd") != ["infordisc"] or q.get("msg_seq") != [seq]):
+                continue
+            if p.path.endswith("bbsMsgFileDown.do") and (
+                len(q.get("fileno", [])) != 1 or
+                not re.fullmatch(r"[1-9]\d*", q["fileno"][0])):
+                continue
+            verified = canonical_attachment_url(a["url"])
+            if verified:
+                files.append({"text":a["text"], "url":verified})
+        files = list({f["url"]:f for f in files}.values())
+        post = {
+            "source":src.key,"region":src.region,
+            "jurisdiction":src.jurisdiction,"institution":src.institution,
+            "title":detail["text"],"period":period,"post_url":detail["url"],
+            "attachments":files,"discovery_method":"official_same_list_item",
+            "listing_url":listing_url,"listing_row":ordinal,
+        }
+        if not files:
+            post["error"] = "official list item has no verified attached file"
+        posts.append(post)
+    return posts
+
+
 def discover_source(src: Source, since, until, trace=None):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
@@ -716,6 +774,27 @@ def discover_source(src: Source, since, until, trace=None):
             trace.add("listing_fetched", page=page, url=url,
                       html_sha256=hashlib.sha256(doc.encode("utf-8")).hexdigest(),
                       anchor_count=len(page_anchors))
+        if src.key == "incheon_council":
+            found = incheon_listing_row_posts(src, url, doc, effective_since, until)
+            for row in found:
+                if row.get("post_url") and row["post_url"] in seen_posts:
+                    continue
+                if row.get("post_url"):
+                    seen_posts.add(row["post_url"])
+                posts.append(row)
+                if trace:
+                    trace.add("list_item_observed", page=page,
+                              post_url=row.get("post_url"),
+                              period=row.get("period"),
+                              attachment_urls=[a["url"] for a in row.get("attachments", [])],
+                              error=row.get("error"))
+            if len(posts) > before_page:
+                empty_pages = 0
+            else:
+                empty_pages += 1
+                if posts and empty_pages >= 2:
+                    break
+            continue
         # Gapyeong's official list table contains attachment downloads in
         # the same <tr> as each title. Its detail page can render the PDF
         # viewer without an ordinary downloadable <a>. Bind only files
