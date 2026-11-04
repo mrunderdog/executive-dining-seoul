@@ -7,9 +7,11 @@ handled separately and may only publish after schema/quality checks.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import http.client
 import json
+import os
 import re
 import subprocess
 import time
@@ -81,6 +83,39 @@ SOURCES = [
     Source("gyeonggi_council", "경기", "경기도", "경기도의회", "https://www.ggc.go.kr/site/main/duty/list?cp={page}&listType=list&sortOrder=DT_USE_DT", 12, "quarterly"),
     Source("incheon_council", "인천", "인천광역시", "인천광역시의회", "https://www.icouncil.go.kr/main/bbs/bbsMsgList.do?bcd=infordisc&pgno={page}", 25, "monthly"),
 ]
+
+
+class DiscoveryTrace:
+    """Atomically checkpoint each official listing and detail fetch.
+
+    A process killed during discovery retains completed checkpoints. These
+    diagnostics do not authorize a partial listing as a published source.
+    """
+    def __init__(self, path, source, since, until):
+        self.path = Path(path)
+        self.doc = {
+            "source": source, "period": [list(since), list(until)],
+            "status": "INCOMPLETE", "publication_authorized": False,
+            "events": [],
+        }
+        self.add("started")
+
+    def add(self, stage, **data):
+        self.doc["events"].append({
+            "stage": stage,
+            "observed_at": datetime.now().isoformat(timespec="seconds"),
+            **data,
+        })
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = self.path.with_suffix(self.path.suffix + ".tmp")
+        tmp.write_text(json.dumps(self.doc, ensure_ascii=False, indent=2) + "\n",
+                       encoding="utf-8")
+        os.replace(tmp, self.path)
+
+    def finish(self, posts):
+        self.doc["status"] = "DIAGNOSTIC_CAPTURED"
+        self.add("discovery_returned", posts=len(posts),
+                 errors=sum(bool(p.get("error")) for p in posts))
 
 
 class AnchorParser(HTMLParser):
@@ -647,7 +682,7 @@ def recover_verified_icheon_posts(src: Source, since, until):
               "all new PDFs and transactions must pass the publication gate")
     return recovered
 
-def discover_source(src: Source, since, until):
+def discover_source(src: Source, since, until, trace=None):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
     empty_pages = 0
@@ -656,10 +691,17 @@ def discover_source(src: Source, since, until):
         try:
             doc = fetch_text(url)
         except Exception as e:
+            if trace:
+                trace.add("listing_failed", page=page, url=url,
+                          error=f"{type(e).__name__}: {e}")
             posts.append({"source": src.key, "listing_url": url, "error": f"listing {type(e).__name__}: {e}"})
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        if trace:
+            trace.add("listing_fetched", page=page, url=url,
+                      html_sha256=hashlib.sha256(doc.encode("utf-8")).hexdigest(),
+                      anchor_count=len(page_anchors))
         # Gapyeong's official list table contains attachment downloads in
         # the same <tr> as each title. Its detail page can render the PDF
         # viewer without an ordinary downloadable <a>. Bind only files
@@ -737,6 +779,11 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+            if trace:
+                trace.add("detail_observed", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"),
+                          attachment_urls=[x.get("url") for x in row.get("attachments", [])],
+                          error=row.get("error"))
 
         if src.key == "gimpo":
             for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I|re.S):
@@ -834,6 +881,11 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+            if trace:
+                trace.add("detail_observed", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"),
+                          attachment_urls=[x.get("url") for x in row.get("attachments", [])],
+                          error=row.get("error"))
 
         # Once target-period posts have been found, two consecutive pages
         # that add nothing mean we have moved beyond the useful backfill window.
@@ -844,6 +896,8 @@ def discover_source(src: Source, since, until):
             if posts and empty_pages >= 2:
                 break
     result = sanitize_discovered_posts(posts)
+    if trace:
+        trace.finish(result)
     if src.key == "icheon" and not any(p.get("post_url") and p.get("attachments")
                                        for p in result):
         recovered = recover_verified_icheon_posts(src, effective_since, until)
@@ -906,7 +960,12 @@ def main():
     selected = [s for s in SOURCES if not args.source or s.key == args.source]
     rows = []
     for src in selected:
-        rows.extend(discover_source(src, since, until))
+        trace = (
+            DiscoveryTrace(ROOT / "reports/recovery/incheon-discovery-trace.json",
+                           src.key, since, until)
+            if src.key == "incheon_council" else None
+        )
+        rows.extend(discover_source(src, since, until, trace=trace))
 
     REPORTS.mkdir(parents=True, exist_ok=True)
     suffix = f"-{args.source}" if args.source else ""
