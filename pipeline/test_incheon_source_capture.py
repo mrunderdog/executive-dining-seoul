@@ -97,5 +97,38 @@ class IncheonSourceCaptureTests(unittest.TestCase):
         self.assertEqual(mock_opener.open.call_count, 1)
         self.assertEqual(mock_opener.open.call_args.kwargs["timeout"], 12)
 
+    def test_verified_curl_official_file_and_host_whitelist(self):
+        from unittest.mock import patch, MagicMock
+        from ingest_council_expense import curl_incheon_public_file_bytes
+        url = ("https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do"
+               "?bcd=infordisc&msg_seq=1326&fileno=1")
+        official = b"%PDF-1.7\n" + b"verified official source bytes" * 4
+        completed = MagicMock()
+        completed.stdout = official
+        with patch("ingest_council_expense.subprocess.run", return_value=completed) as run:
+            result = curl_incheon_public_file_bytes(url)
+        self.assertEqual(result, official)
+        self.assertIn("--max-time", run.call_args.args[0])
+        self.assertNotIn("--insecure", run.call_args.args[0])
+        with patch("ingest_council_expense.subprocess.run") as run:
+            with self.assertRaises(ValueError):
+                curl_incheon_public_file_bytes(url.replace("www.icouncil.go.kr", "example.invalid"))
+            with self.assertRaises(ValueError):
+                curl_incheon_public_file_bytes(url.replace("msg_seq=1326", "msg_seq=x"))
+            run.assert_not_called()
+
+    def test_fetch_prefers_verified_curl_before_python_network(self):
+        from unittest.mock import patch
+        from ingest_council_expense import fetch_binary
+        url = ("https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do"
+               "?bcd=infordisc&msg_seq=1326&fileno=1")
+        with patch("ingest_council_expense.curl_incheon_public_file_bytes",
+                   return_value=b"%PDF original source") as request:
+            with patch("ingest_council_expense.urllib.request.build_opener") as python_http:
+                self.assertEqual(fetch_binary(url, "official-list-page"),
+                                 b"%PDF original source")
+        request.assert_called_once_with(url)
+        python_http.assert_not_called()
+
 if __name__ == "__main__":
     unittest.main()
