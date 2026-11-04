@@ -238,10 +238,10 @@ def curl_incheon_public_file_bytes(url: str) -> bytes:
     if (parsed.scheme != "https" or parsed.hostname != "www.icouncil.go.kr"
         or not valid_route or q.get("bcd") != ["infordisc"]
         or len(q.get("msg_seq", [])) != 1
-        or not re.fullmatch(r"\\d{1,12}", q["msg_seq"][0])
+        or not re.fullmatch(r"\d{1,12}", q["msg_seq"][0])
         or (parsed.path.endswith("bbsMsgFileDown.do")
             and (len(q.get("fileno", [])) != 1
-                 or not re.fullmatch(r"[1-9]\\d*", q["fileno"][0])))):
+                 or not re.fullmatch(r"[1-9]\d*", q["fileno"][0])))):
         raise ValueError("unverified Incheon official file URL")
     cmd = [
         "curl", "--fail", "--silent", "--show-error",
