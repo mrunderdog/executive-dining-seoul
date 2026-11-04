@@ -13,7 +13,7 @@ import re
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from capital_backfill import SOURCES, anchors, fetch_text, canonical_attachment_url, title_period, post_like
+from capital_backfill import SOURCES, anchors, fetch_text, canonical_attachment_url, title_period, post_like, incheon_listing_row_posts
 
 def main():
     ap=argparse.ArgumentParser()
@@ -32,7 +32,7 @@ def main():
         rows=[]
         matched_details=set()
         observed_urls=set()
-        for ordinal,match in enumerate(re.finditer(r"<tr\b[^>]*>[\s\S]*?</tr\s*>",html,flags=re.I),1):
+        for ordinal,match in enumerate(re.finditer(r'<li\s*>\s*<p\s+class=["\']title["\'][\s\S]*?</div>\s*</li\s*>',html,flags=re.I),1):
             row_html=match.group(0)
             row_links=anchors(url,row_html)
             detail=[a for a in row_links if post_like(a,source)]
@@ -54,6 +54,7 @@ def main():
                          "has_download_word":bool(re.search(r"(?:download|filedown|첨부|파일)",row_html,re.I)),
                          "raw_onclick_attributes":re.findall(r"\bonclick\s*=\s*([\"'])(.*?)\1",row_html,re.I|re.S)[:8],
                          "file_id_attributes":re.findall(r"\b(?:fileno|file_seq|file_id|file_no|atch_file_id)\s*[=:]\s*[\"']?[\w-]+",row_html,re.I)[:12]})
+        validated = incheon_listing_row_posts(source, url, html, (2026,7), (2026,10))
         direct_other=[{"text":a["text"],"url":a["url"]} for a in all_links
                       if canonical_attachment_url(a.get("url")) and a["url"] not in observed_urls]
         result.update({
@@ -61,13 +62,18 @@ def main():
             "html_sha256":hashlib.sha256(html.encode("utf-8")).hexdigest(),
             "html_length":len(html),"html_anchor_count":len(all_links),
             "rows":rows,"matching_row_count":len(rows),
+            "verified_same_item_posts":[{"url":p.get("post_url"),"period":p.get("period"),
+                                         "files":p.get("attachments"),"error":p.get("error")}
+                                        for p in validated],
+            "verified_posts":len(validated),
+            "verified_posts_with_file":sum(bool(p.get("attachments")) for p in validated),
             "unique_detail_urls":sorted(matched_details),
             "row_bound_download_urls":sorted(observed_urls),
             "unbound_download_links":direct_other[:100],
             "all_file_like_links":[{"url":a["url"],"text":a["text"],"onclick":a.get("onclick")}
                 for a in all_links if re.search(r"download|filedown|\.pdf|\.xls|첨부",a["url"]+" "+a["text"]+" "+str(a.get("onclick")),re.I)][:150],
         })
-        if not matched_details:
+        if not matched_details or not validated:
             result["status"]="HOLD_NO_OFFICIAL_DETAIL_LINKS"
     except Exception as exc:
         result.update(status="HOLD_FETCH_FAILED",error=f"{type(exc).__name__}: {exc}")
