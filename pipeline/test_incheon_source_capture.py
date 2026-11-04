@@ -90,10 +90,15 @@ class IncheonSourceCaptureTests(unittest.TestCase):
         post = "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1324"
         mock_opener = MagicMock()
         mock_opener.open.side_effect = urllib.error.URLError("official timeout")
-        with patch("ingest_council_expense.urllib.request.build_opener",
-                   return_value=mock_opener):
-            with self.assertRaises(urllib.error.URLError):
-                fetch_binary(url, post)
+        import subprocess
+        # Verify bounded Python fallback only when primary, TLS-verified
+        # curl transport has a genuine transport error.
+        with patch("ingest_council_expense.curl_incheon_public_file_bytes",
+                   side_effect=subprocess.CalledProcessError(28, ["curl"])):
+            with patch("ingest_council_expense.urllib.request.build_opener",
+                       return_value=mock_opener):
+                with self.assertRaises(urllib.error.URLError):
+                    fetch_binary(url, post)
         self.assertEqual(mock_opener.open.call_count, 1)
         self.assertEqual(mock_opener.open.call_args.kwargs["timeout"], 12)
 
