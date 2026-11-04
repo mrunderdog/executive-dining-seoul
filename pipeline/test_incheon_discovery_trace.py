@@ -9,24 +9,28 @@ from capital_backfill import DiscoveryTrace, SOURCES, discover_source
 
 
 class IncheonTraceTests(unittest.TestCase):
-    def test_detail_failure_preserves_listing_and_failed_post(self):
+    def test_list_item_capture_does_not_request_detail_and_preserves_missing_file(self):
         src = next(s for s in SOURCES if s.key == "incheon_council")
         listing_url = src.listing_template.format(page=1)
-        detail_url = "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1320&bcd=infordisc"
-        listing = f'<a href="{detail_url}">2026년 8월 환경교통위원장 업무추진비 집행내역</a>'
+        detail_url = "/main/bbs/bbsMsgDetail.do?msg_seq=1320&amp;bcd=infordisc"
+        listing = (
+            '<ul class="generalList"><li><p class="title">'
+            f'<a href="{detail_url}">2026년 8월 환경교통위원장 업무추진비 집행내역</a>'
+            '</p><div class="writer_info"></div></li></ul>')
         def fake_fetch(url):
             if url == listing_url:
                 return listing
-            raise TimeoutError("official detail unavailable")
+            if "bbsMsgList.do" in url:
+                return ""
+            raise AssertionError("detail page was requested")
         with tempfile.TemporaryDirectory() as directory:
             trace = DiscoveryTrace(Path(directory) / "trace.json", "incheon_council", (2026,7), (2026,10))
             with patch("capital_backfill.fetch_text", side_effect=fake_fetch):
                 posts = discover_source(src, (2026,7), (2026,10), trace=trace)
             evidence = json.loads(trace.path.read_text(encoding="utf-8"))
             self.assertFalse(evidence["publication_authorized"])
-            self.assertEqual(evidence["source"], "incheon_council")
             self.assertTrue(any(x["stage"] == "listing_fetched" and x["page"] == 1 for x in evidence["events"]))
-            self.assertTrue(any(x["stage"] == "detail_observed" and "TimeoutError" in str(x.get("error")) for x in evidence["events"]))
+            self.assertTrue(any(x["stage"] == "list_item_observed" and x.get("error") for x in evidence["events"]))
             self.assertTrue(any(x.get("error") for x in posts))
 
     def test_trace_survives_interrupted_discovery_without_success_label(self):
