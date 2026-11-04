@@ -135,7 +135,32 @@ def main():
                     integrity = check_integrity(source, current, prior if prior else None)
                     record["stages"]["DATA_INTEGRITY"] = integrity
                     if qa["status"] not in ("PUBLISH_READY", "NO_CHANGE"):
-                        bad_ids = {str(e.get("row_id")) for e in qa.get("bad_examples", [])}
+                        # bad_examples is intentionally truncated by the QA
+                        # summary. Re-evaluate all changed/invalid records
+                        # against the unchanged strict row policy.
+                        from qa_council_publication import period_bounds
+                        from ingest_council_expense import valid_transaction_merchant
+                        from datetime import date
+                        baseline_rows = {r.get("row_id"): r for r in prior.get("rows", [])}
+                        bad_ids = set()
+                        for row in current.get("rows", []):
+                            if row == baseline_rows.get(row.get("row_id")):
+                                continue
+                            try:
+                                used = date.fromisoformat(str(row.get("used_date") or ""))
+                            except ValueError:
+                                used = None
+                            bounds = period_bounds(row.get("source_period"))
+                            invalid = (
+                                not used or not bounds or not bounds[0] <= used <= bounds[1]
+                                or not valid_transaction_merchant(row.get("merchant"))
+                                or isinstance(row.get("amount"), bool)
+                                or not isinstance(row.get("amount"), (int, float))
+                                or not 0 < row["amount"] < 50_000_000
+                            )
+                            if invalid:
+                                bad_ids.add(str(row.get("row_id")))
+                        bad_ids.update(str(e.get("row_id")) for e in qa.get("bad_examples", []))
                         record["qa_forensics"] = {
                             "invalid_rows": [
                                 {k: row.get(k) for k in (
@@ -146,7 +171,7 @@ def main():
                                 for row in current.get("rows", [])
                                 if str(row.get("row_id")) in bad_ids
                             ],
-                            "ingestion_errors": (current.get("errors") or [])[-15:],
+                            "ingestion_errors": current.get("errors") or [],
                             "zero_row_files": [
                                 {"name": f.get("name"), "url": f.get("url"),
                                  "sha256": f.get("sha256"),
@@ -156,8 +181,20 @@ def main():
                                     str(x.get("source_attachment_url")) == str(f.get("url"))
                                     for x in current.get("rows", [])
                                 )
-                            ][:15],
+                            ],
                         }
+                        if source == "incheon_council":
+                            from incheon_source_capture import match_invalid_rows
+                            capture_path = ROOT / "reports/recovery/incheon-source-capture.json"
+                            capture = load(capture_path)
+                            record["qa_forensics"]["original_source_capture"] = (
+                                match_invalid_rows(capture, bad_ids)
+                                if capture else {
+                                    "invalid_row_ids": sorted(bad_ids),
+                                    "missing_capture_file": True,
+                                    "reason": "source capture was not produced; do not infer evidence",
+                                }
+                            )
                         hold("STRICT_QA", {"failures": qa.get("failures", []),
                                             "bad_examples": qa.get("bad_examples", [])})
                     elif integrity["status"] != "PASS":
@@ -171,6 +208,13 @@ def main():
         # CI checkout is ephemeral and no changes are pushed. For failure cases,
         # show that the working copy alone may differ from the committed baseline;
         # this is never an authorized publication.
+        if source == "incheon_council":
+            evidence = ROOT / "reports/recovery/incheon-source-capture.json"
+            record["incheon_source_capture"] = {
+                "exists": evidence.is_file(),
+                "path": str(evidence.relative_to(ROOT)) if evidence.is_file() else None,
+                "capture_sha256": digest(evidence) if evidence.is_file() else None,
+            }
         record["ephemeral_working_copy_changed"] = {
             "raw": digest(raw_path) != before["raw"],
             "discovery": digest(discovery_path) != before["discovery"],
