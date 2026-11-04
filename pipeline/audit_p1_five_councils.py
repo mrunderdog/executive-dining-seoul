@@ -104,7 +104,8 @@ def main():
                 ingest = run_stage(
                     [sys.executable, "pipeline/ingest_council_expense.py",
                      "--source", source, "--incremental"],
-                    360, f"{source}-ingest.log")
+                    540 if source == "incheon_council" else 360,
+                    f"{source}-ingest.log")
                 record["stages"]["INGEST"] = ingest
                 if ingest["rc"] != 0:
                     hold("INGEST", {"log_tail": ingest["tail"]})
