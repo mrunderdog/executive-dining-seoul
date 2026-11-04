@@ -1,0 +1,31 @@
+name: P1 Incheon official listing row-bound attachment inspection
+on:
+  pull_request:
+    paths:
+      - 'pipeline/probe_incheon_listing_attachments.py'
+      - '.github/workflows/p1-incheon-listing-links.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        page: [1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Inspect exact original listing HTML and row-bound official links
+        run: python pipeline/probe_incheon_listing_attachments.py --page ${{ matrix.page }}
+      - name: Upload verified original HTML and per-row evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-listing-page-${{ matrix.page }}
+          path: reports/recovery/incheon-listing-forensics/page-${{ matrix.page }}/
+          retention-days: 14
