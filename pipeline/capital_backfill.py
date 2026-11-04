@@ -7,9 +7,11 @@ handled separately and may only publish after schema/quality checks.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import http.client
 import json
+import os
 import re
 import subprocess
 import time
@@ -81,6 +83,39 @@ SOURCES = [
     Source("gyeonggi_council", "경기", "경기도", "경기도의회", "https://www.ggc.go.kr/site/main/duty/list?cp={page}&listType=list&sortOrder=DT_USE_DT", 12, "quarterly"),
     Source("incheon_council", "인천", "인천광역시", "인천광역시의회", "https://www.icouncil.go.kr/main/bbs/bbsMsgList.do?bcd=infordisc&pgno={page}", 25, "monthly"),
 ]
+
+
+class DiscoveryTrace:
+    """Atomically checkpoint each official listing and detail fetch.
+
+    A process killed during discovery retains completed checkpoints. These
+    diagnostics do not authorize a partial listing as a published source.
+    """
+    def __init__(self, path, source, since, until):
+        self.path = Path(path)
+        self.doc = {
+            "source": source, "period": [list(since), list(until)],
+            "status": "INCOMPLETE", "publication_authorized": False,
+            "events": [],
+        }
+        self.add("started")
+
+    def add(self, stage, **data):
+        self.doc["events"].append({
+            "stage": stage,
+            "observed_at": datetime.now().isoformat(timespec="seconds"),
+            **data,
+        })
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = self.path.with_suffix(self.path.suffix + ".tmp")
+        tmp.write_text(json.dumps(self.doc, ensure_ascii=False, indent=2) + "\n",
+                       encoding="utf-8")
+        os.replace(tmp, self.path)
+
+    def finish(self, posts):
+        self.doc["status"] = "DIAGNOSTIC_CAPTURED"
+        self.add("discovery_returned", posts=len(posts),
+                 errors=sum(bool(p.get("error")) for p in posts))
 
 
 class AnchorParser(HTMLParser):
@@ -172,9 +207,21 @@ def curl_verified_bytes(url: str, referer: str = "") -> bytes:
 
 def fetch_text(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8"})
-    for attempt in range(3):
+    # Incheon Council's official detail route has demonstrably spent
+    # ~60 s per unreachable post (3 x 20 s). That starves the 320 s
+    # discovery budget before the second listing page is visited.
+    # Bound *only* this exact official detail route to a single 6 s
+    # attempt. Failure is still recorded as an explicit HOLD, never
+    # accepted as a complete discovery or empty official post.
+    parsed = urllib.parse.urlsplit(url)
+    incheon_detail = (parsed.scheme == "https"
+                      and parsed.hostname == "www.icouncil.go.kr"
+                      and parsed.path == "/main/bbs/bbsMsgDetail.do")
+    timeout_seconds = 6 if incheon_detail else 20
+    attempts = 1 if incheon_detail else 3
+    for attempt in range(attempts):
         try:
-            with urllib.request.urlopen(req, timeout=20) as r:
+            with urllib.request.urlopen(req, timeout=timeout_seconds) as r:
                 raw = r.read()
                 charset = r.headers.get_content_charset()
             return decode_html(raw, charset)
@@ -189,7 +236,7 @@ def fetch_text(url: str) -> str:
                 and b"</table>" in partial.lower()
                 and (b"fnGoDetail" in partial or b"fnFileDownLoad" in partial)):
                 return decode_html(partial, None)
-            if attempt == 2:
+            if attempt == attempts - 1:
                 raise
             time.sleep(0.3 * (attempt + 1))
         except OSError as exc:
@@ -203,7 +250,7 @@ def fetch_text(url: str) -> str:
                     return decode_html(curl_verified_bytes(url), None)
                 except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
                     pass
-            if attempt == 2:
+            if attempt == attempts - 1:
                 raise
             time.sleep(0.3 * (attempt + 1))
 
@@ -414,6 +461,14 @@ def sanitize_discovered_posts(posts):
             item["url"] = canon
             atts.append(item)
         row["attachments"] = atts
+        # On council boards an official attachment appears both under its
+        # detail post and as a direct download link on the listing itself.
+        # The latter becomes an empty *synthetic* post after global URL
+        # deduplication. Only drop such confirmed duplicates: never hide
+        # a detail post that failed to provide its required attachment.
+        if (post.get("post_kind") == "listing_direct_attachment"
+            and not atts and post.get("attachments")):
+            continue
         cleaned.append(row)
     return cleaned
 
@@ -639,19 +694,107 @@ def recover_verified_icheon_posts(src: Source, since, until):
               "all new PDFs and transactions must pass the publication gate")
     return recovered
 
-def discover_source(src: Source, since, until):
+def incheon_listing_row_posts(src: Source, listing_url: str, document: str, since, until):
+    """Use only exact official file hrefs in the same generalList <li>."""
+    posts = []
+    items = re.findall(
+        r'<li\s*>\s*<p\s+class=["\']title["\'][\s\S]*?</div>\s*</li\s*>',
+        document, flags=re.I)
+    for ordinal, item in enumerate(items, 1):
+        links = anchors(listing_url, item)
+        details = []
+        for a in links:
+            p = urllib.parse.urlsplit(a["url"])
+            q = urllib.parse.parse_qs(p.query)
+            if (p.scheme == "https" and p.hostname == "www.icouncil.go.kr"
+                and p.path == "/main/bbs/bbsMsgDetail.do"
+                and q.get("bcd") == ["infordisc"] and len(q.get("msg_seq", [])) == 1
+                and re.fullmatch(r"\d{1,12}", q["msg_seq"][0])
+                and "업무추진비" in a["text"]):
+                details.append((a, q["msg_seq"][0]))
+        if not details:
+            continue
+        if len(details) != 1:
+            posts.append({"source": src.key, "listing_url": listing_url,
+                          "error": f"ambiguous official list item {ordinal}: {len(details)} details"})
+            continue
+        detail, seq = details[0]
+        period = title_period(detail["text"])
+        if not period_overlaps(period, since, until):
+            continue
+        files = []
+        for a in links:
+            p = urllib.parse.urlsplit(a["url"])
+            q = urllib.parse.parse_qs(p.query)
+            if (p.scheme != "https" or p.hostname != "www.icouncil.go.kr"
+                or p.path not in ("/main/bbs/bbsMsgFileDown.do",
+                                  "/main/bbs/bbsMsgFileDownCompress.do")
+                or q.get("bcd") != ["infordisc"] or q.get("msg_seq") != [seq]):
+                continue
+            if p.path.endswith("bbsMsgFileDown.do") and (
+                len(q.get("fileno", [])) != 1 or
+                not re.fullmatch(r"[1-9]\d*", q["fileno"][0])):
+                continue
+            verified = canonical_attachment_url(a["url"])
+            if verified:
+                files.append({"text":a["text"], "url":verified})
+        files = list({f["url"]:f for f in files}.values())
+        post = {
+            "source":src.key,"region":src.region,
+            "jurisdiction":src.jurisdiction,"institution":src.institution,
+            "title":detail["text"],"period":period,"post_url":detail["url"],
+            "attachments":files,"discovery_method":"official_same_list_item",
+            "listing_url":listing_url,"listing_row":ordinal,
+        }
+        if not files:
+            post["error"] = "official list item has no verified attached file"
+        posts.append(post)
+    return posts
+
+
+def discover_source(src: Source, since, until, trace=None):
     effective_since = max(since, src.active_from) if src.active_from else since
     seen_posts = set(); posts = []
     empty_pages = 0
     for page in range(1, src.max_pages + 1):
         url = src.listing_template.format(page=page)
+        if trace:
+            trace.add("listing_started", page=page, url=url)
         try:
             doc = fetch_text(url)
         except Exception as e:
+            if trace:
+                trace.add("listing_failed", page=page, url=url,
+                          error=f"{type(e).__name__}: {e}")
             posts.append({"source": src.key, "listing_url": url, "error": f"listing {type(e).__name__}: {e}"})
             break
         before_page = len(posts)
         page_anchors = anchors(url, doc)
+        if trace:
+            trace.add("listing_fetched", page=page, url=url,
+                      html_sha256=hashlib.sha256(doc.encode("utf-8")).hexdigest(),
+                      anchor_count=len(page_anchors))
+        if src.key == "incheon_council":
+            found = incheon_listing_row_posts(src, url, doc, effective_since, until)
+            for row in found:
+                if row.get("post_url") and row["post_url"] in seen_posts:
+                    continue
+                if row.get("post_url"):
+                    seen_posts.add(row["post_url"])
+                posts.append(row)
+                if trace:
+                    trace.add("list_item_observed", page=page,
+                              post_url=row.get("post_url"),
+                              period=row.get("period"),
+                              attachment_urls=[a["url"] for a in row.get("attachments", [])],
+                              error=row.get("error"))
+            if len(posts) > before_page:
+                empty_pages = 0
+            else:
+                empty_pages += 1
+                if posts and empty_pages >= 2:
+                    break
+            continue
         # Gapyeong's official list table contains attachment downloads in
         # the same <tr> as each title. Its detail page can render the PDF
         # viewer without an ordinary downloadable <a>. Bind only files
@@ -679,6 +822,9 @@ def discover_source(src: Source, since, until):
             if row["post_url"] in seen_posts:
                 continue
             seen_posts.add(row["post_url"])
+            if trace:
+                trace.add("detail_started", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"))
             try:
                 detail_html = fetch_text(row["post_url"])
                 if src.key == "hwaseong":
@@ -729,6 +875,11 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+            if trace:
+                trace.add("detail_observed", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"),
+                          attachment_urls=[x.get("url") for x in row.get("attachments", [])],
+                          error=row.get("error"))
 
         if src.key == "gimpo":
             for tr in re.findall(r"<tr\b[^>]*>.*?</tr>", doc, flags=re.I|re.S):
@@ -762,14 +913,22 @@ def discover_source(src: Source, since, until):
                 # attachment identifier from the corresponding detail page.
                 continue
             direct_period=title_period(title)
-            if "업무추진비" in title and attachment_like(a) and period_overlaps(direct_period, effective_since, until):
+            # Some councils place a file-name label inside an <a> that points
+            # back to the listing page (Gunpo, Michuhol, Incheon Council).
+            # A .xlsx/.pdf label alone is NOT evidence of a downloadable file.
+            # Preserve real detail posts, but admit direct-file posts only when
+            # the observed href itself is a canonical download URL.
+            if ("업무추진비" in title and attachment_like(a)
+                and canonical_attachment_url(a.get("url"))
+                and period_overlaps(direct_period, effective_since, until)):
                 direct_key="direct:"+a.get("url","")
                 if direct_key not in seen_posts:
                     seen_posts.add(direct_key)
                     posts.append({
                         "source":src.key,"region":src.region,"jurisdiction":src.jurisdiction,
                         "institution":src.institution,"title":title,"period":direct_period,
-                        "post_url":url,"attachments":[{"text":title or "attachment","url":a["url"]}],
+                        "post_url":url,"post_kind":"listing_direct_attachment",
+                        "attachments":[{"text":title or "attachment","url":a["url"]}],
                     })
                 continue
             if src.key == "gyeonggi_council":
@@ -803,6 +962,9 @@ def discover_source(src: Source, since, until):
                 "institution": src.institution, "title": a["text"], "period": period,
                 "post_url": a["url"], "attachments": [],
             }
+            if trace:
+                trace.add("detail_started", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"))
             try:
                 detail = fetch_text(a["url"])
                 found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
@@ -818,6 +980,11 @@ def discover_source(src: Source, since, until):
             except Exception as e:
                 row["error"] = f"detail {type(e).__name__}: {e}"
             posts.append(row)
+            if trace:
+                trace.add("detail_observed", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"),
+                          attachment_urls=[x.get("url") for x in row.get("attachments", [])],
+                          error=row.get("error"))
 
         # Once target-period posts have been found, two consecutive pages
         # that add nothing mean we have moved beyond the useful backfill window.
@@ -828,6 +995,8 @@ def discover_source(src: Source, since, until):
             if posts and empty_pages >= 2:
                 break
     result = sanitize_discovered_posts(posts)
+    if trace:
+        trace.finish(result)
     if src.key == "icheon" and not any(p.get("post_url") and p.get("attachments")
                                        for p in result):
         recovered = recover_verified_icheon_posts(src, effective_since, until)
@@ -890,7 +1059,12 @@ def main():
     selected = [s for s in SOURCES if not args.source or s.key == args.source]
     rows = []
     for src in selected:
-        rows.extend(discover_source(src, since, until))
+        trace = (
+            DiscoveryTrace(ROOT / "reports/recovery/incheon-discovery-trace.json",
+                           src.key, since, until)
+            if src.key == "incheon_council" else None
+        )
+        rows.extend(discover_source(src, since, until, trace=trace))
 
     REPORTS.mkdir(parents=True, exist_ok=True)
     suffix = f"-{args.source}" if args.source else ""

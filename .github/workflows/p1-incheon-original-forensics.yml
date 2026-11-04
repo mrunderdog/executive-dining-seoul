@@ -1,0 +1,32 @@
+name: P1 Incheon Council original attachment forensics
+on:
+  pull_request:
+    paths:
+      - 'pipeline/forensic_incheon_official.py'
+      - '.github/workflows/p1-incheon-original-forensics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        seq: [1314, 1315, 1318, 1320, 1321, 1322, 1323, 1326, 1327]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Fetch observed official file and capture page/row evidence
+        run: python pipeline/forensic_incheon_official.py --msg-seq ${{ matrix.seq }}
+      - name: Upload original byte evidence and parser diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-original-${{ matrix.seq }}
+          path: reports/recovery/incheon-official-${{ matrix.seq }}/
+          retention-days: 14

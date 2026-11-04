@@ -13,6 +13,7 @@ import http.cookiejar
 import io
 import json
 import re
+import subprocess
 import urllib.error
 import urllib.request
 import urllib.parse
@@ -221,12 +222,65 @@ def _html_attachment_candidates(base_url: str, blob: bytes) -> list[str]:
     return candidates
 
 
+def curl_incheon_public_file_bytes(url: str) -> bytes:
+    """Exact observed public Incheon file routes via independent verified TLS.
+
+    The official source URLs were observed in HTML list items. Curl is only
+    called on this host, route and nonempty verified query parameters; it
+    neither follows redirects nor disables certificate/hostname verification.
+    """
+    parsed = urllib.parse.urlsplit(url)
+    q = urllib.parse.parse_qs(parsed.query)
+    valid_route = parsed.path in (
+        "/main/bbs/bbsMsgFileDown.do",
+        "/main/bbs/bbsMsgFileDownCompress.do",
+    )
+    if (parsed.scheme != "https" or parsed.hostname != "www.icouncil.go.kr"
+        or not valid_route or q.get("bcd") != ["infordisc"]
+        or len(q.get("msg_seq", [])) != 1
+        or not re.fullmatch(r"\d{1,12}", q["msg_seq"][0])
+        or (parsed.path.endswith("bbsMsgFileDown.do")
+            and (len(q.get("fileno", [])) != 1
+                 or not re.fullmatch(r"[1-9]\d*", q["fileno"][0])))):
+        raise ValueError("unverified Incheon official file URL")
+    cmd = [
+        "curl", "--fail", "--silent", "--show-error",
+        "--connect-timeout", "6", "--max-time", "18",
+        "--max-filesize", "30000000", "--proto", "=https",
+        "--http1.1", "--user-agent", UA, url,
+    ]
+    completed = subprocess.run(cmd, capture_output=True, check=True, timeout=22)
+    blob = completed.stdout
+    head = blob[:512].lstrip().lower()
+    if (len(blob) < 32 or head.startswith(b"<!doctype html")
+        or head.startswith(b"<html")
+        or not (blob.startswith((b"%PDF", b"PK", bytes.fromhex("D0CF11E0A1B11AE1"))))):
+        raise ValueError("official attachment did not return a supported binary file")
+    return blob
+
+
 def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     """Download public-board attachments with browser-like session semantics.
 
     Several council endpoints return a small HTML viewer/wrapper rather than
     the attachment bytes. Follow one nested PDF/download target when present.
     """
+    parsed_url = urllib.parse.urlsplit(url)
+    incheon_listing_file = (
+        parsed_url.scheme == "https"
+        and parsed_url.hostname == "www.icouncil.go.kr"
+        and parsed_url.path in (
+            "/main/bbs/bbsMsgFileDown.do",
+            "/main/bbs/bbsMsgFileDownCompress.do"
+        )
+    )
+    if incheon_listing_file:
+        try:
+            return curl_incheon_public_file_bytes(url)
+        except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            # Transport failure only: one bounded Python HTTPS fallback.
+            # Malformed content / source URL is never silently accepted.
+            pass
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     base_headers = {
@@ -236,22 +290,27 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     }
     if referer:
         base_headers["Referer"] = referer
-        try:
-            warm = urllib.request.Request(
-                referer,
-                headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8", "Accept-Language": base_headers["Accept-Language"]},
-            )
-            with opener.open(warm, timeout=25) as r:
-                r.read(2048)
-        except Exception:
-            pass
+        # Public Incheon listing has the exact file href. The previously
+        # unreachable detail page must not be prefetched for each file.
+        if not incheon_listing_file:
+            try:
+                warm = urllib.request.Request(
+                    referer,
+                    headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8",
+                             "Accept-Language": base_headers["Accept-Language"]},
+                )
+                with opener.open(warm, timeout=25) as r:
+                    r.read(2048)
+            except Exception:
+                pass
 
     last_exc = None
-    for attempt in range(3):
+    attempts = 1 if incheon_listing_file else 3
+    for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers=base_headers)
             try:
-                with opener.open(req, timeout=75) as r:
+                with opener.open(req, timeout=12 if incheon_listing_file else 75) as r:
                     blob = r.read()
                     ctype = (r.headers.get("Content-Type") or "").lower()
                     final_url = r.geturl()
@@ -284,7 +343,7 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
             return blob
         except Exception as exc:
             last_exc = exc
-            if attempt == 2:
+            if attempt == attempts - 1:
                 break
     raise last_exc
 
@@ -770,7 +829,125 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                  "unparsed_transaction_like_rows": len(failed),
                  "unparsed_examples": failed[:12]}
 
+def normalize_uiwang_pdf_rows(rows, sheet_name, source_meta):
+    """Verified official Uiwang council PDF pages (2026-08/09).
+
+    Page heading identifies the accountable expense section; split '금','액'
+    labels form the amount header. Reconcile *all* date-bearing source lines
+    with the printed page subtotal. Any mismatch or malformed field is HOLD,
+    never a reason to silently discard a source transaction.
+    """
+    heading = " ".join(clean_text(v) for row in rows[:2] for v in row)
+    if not ("집행내역" in heading and
+            any(k in heading for k in ("의회운영업무추진비", "교섭단체", "의정운영공통경비",
+                                       "기관운영업무추진비"))):
+        return [], {"sheet": sheet_name, "status": "NO_VERIFIED_UIWANG_HEADING", "parsed_rows": 0}
+    hi = next((i for i, row in enumerate(rows[:5])
+               if {"집행내역", "지출처", "금", "액"}.issubset(
+                   {clean_text(v).replace(" ", "") for v in row})), None)
+    if hi is None:
+        return [], {"sheet": sheet_name, "status": "NO_HEADER", "parsed_rows": 0}
+    context = clean_text(rows[0][0])
+    if context.startswith("부의장 "):
+        role = "부의장"
+    elif context.startswith("의장 "):
+        role = "의장"
+    elif context.startswith("예결위원장 "):
+        role = "예결위원장"
+    elif context.startswith("교섭단체 "):
+        role = "교섭단체"
+    elif context.startswith("의정운영공통경비 "):
+        role = "의정운영공통경비"
+    elif context.startswith("기관운영업무추진비 "):
+        role = "기관운영업무추진비"
+    else:
+        return [], {"sheet": sheet_name, "status": "UNKNOWN_ROLE", "context": context,
+                    "parsed_rows": 0}
+    period = source_meta.get("period")
+    expected_year = period[0] if isinstance(period, (tuple, list)) and len(period) == 3 else None
+    expected_month = period[1] if isinstance(period, (tuple, list)) and len(period) == 3 else None
+    observed_date = re.compile(
+        r"^\s*(20\d{2})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*((?:\d{1,2}[:;]\d{2})(?:,\s*\d{1,2}[:;]\d{2})*)?\s*$")
+    amount_pattern = re.compile(r"\d{1,3}(?:,\d{3})+")
+    out, errors, printed_total = [], [], None
+    for ri, cells in enumerate(rows[hi + 1:], start=hi + 2):
+        values = [clean_text(c) for c in cells]
+        if not any(values):
+            continue
+        first = values[0]
+        if len(values) == 1 and amount_pattern.fullmatch(first):
+            if printed_total is not None:
+                errors.append({"row": ri, "reason": "multiple_page_subtotals", "source": values})
+            printed_total = int(first.replace(",", ""))
+            continue
+        if first.endswith("업무추진비") or first.endswith("교섭단체") or first.endswith("공통경비"):
+            continue
+        if "2026." not in first and not re.match(r"^\d{4}\.", first):
+            # Only the observed page title and section label may be skipped.
+            errors.append({"row": ri, "reason": "unrecognized_nonempty_row", "source": values[:6]})
+            continue
+        m = observed_date.fullmatch(first)
+        if not m or len(values) not in (4, 5):
+            errors.append({"row": ri, "reason": "invalid_date_or_columns", "source": values[:6]})
+            continue
+        try:
+            used = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            errors.append({"row": ri, "reason": "invalid_calendar_date", "source": values[:6]})
+            continue
+        if (used.year, used.month) != (expected_year, expected_month):
+            errors.append({"row": ri, "reason": "date_outside_original_month", "source": values[:6]})
+            continue
+        if not amount_pattern.fullmatch(values[2]) or not valid_transaction_merchant(values[3]):
+            errors.append({"row": ri, "reason": "amount_or_merchant_invalid", "source": values[:6]})
+            continue
+        amount = parse_amount(values[2])
+        if amount is None or not 0 < amount < 50_000_000:
+            errors.append({"row": ri, "reason": "amount_out_of_bounds", "source": values[:6]})
+            continue
+        # Preserve the exact printed time separator: official 2026-08 p1
+        # contains '12;21' and it must not be silently rewritten to '12:21'.
+        time_text = m.group(4) or ""
+        raw = {
+            "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"], "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": period, "source_sheet": sheet_name,
+            "source_row": ri, "used_date": used.isoformat(), "used_time": time_text,
+            "date_inferred_from_previous_row": False, "role": role,
+            "merchant": values[3], "address": "", "purpose": values[1],
+            "people": parse_people(values[4]) if len(values) > 4 else None,
+            "amount": amount, "amount_inferred_from_row": False,
+            "payment_method": "", "parse_confidence": "high",
+        }
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    actual_total = sum(r["amount"] for r in out)
+    if printed_total is None or actual_total != printed_total:
+        errors.append({"reason": "subtotal_mismatch_or_missing",
+                       "printed": printed_total, "parsed": actual_total})
+    return out, {
+        "sheet": sheet_name, "status": "ROW_PARSE_GAPS" if errors else "OK",
+        "parser": "uiwang_official_pdf_page_v1", "context_role": role,
+        "header_row": hi + 1, "parsed_rows": len(out),
+        "printed_page_total": printed_total, "parsed_page_total": actual_total,
+        "unparsed_transaction_like_rows": len(errors),
+        "unparsed_examples": errors[:10],
+    }
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "incheon_council" and sheet_name.startswith("pdf-page-"):
+        from incheon_verified_pdf import VERIFIED, normalize_verified_incheon
+        if source_meta.get("attachment_sha256") in VERIFIED:
+            return normalize_verified_incheon(rows, sheet_name, source_meta)
+    if source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-"):
+        return normalize_uiwang_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
         return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
@@ -961,6 +1138,11 @@ def main():
     previous_rows = list(previous.get("rows", []))
     previous_files = list(previous.get("files", []))
     previous_errors = list(previous.get("errors", []))
+    capture = None
+    if args.source == "incheon_council":
+        from incheon_source_capture import OriginalSourceCapture
+        capture = OriginalSourceCapture(
+            args.source, REPORTS / "recovery" / "incheon-source-capture.json")
     # The same verified official download may reorder its query parameters
     # between historic snapshots and current discovery. Compare canonical
     # identities, never raw URL bytes, to avoid reparsing all old workbooks.
@@ -974,17 +1156,33 @@ def main():
             if not url:
                 continue
             if args.incremental and canonical_attachment_url(url) in known_urls:
+                if capture:
+                    capture.skipped(url)
                 continue
             if not canonical_attachment_url(url):
                 # A downloaded HTML board may advertise fake links (e.g.
                 # '/attach' and '#lg-download') which are not expense files.
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
+            parsed_file_url = urllib.parse.urlsplit(url)
+            # Official compress download sends a ZIP but its list label
+            # lacks an extension. The suffix selects the archive decoder;
+            # the original URL and bytes remain unchanged.
+            if (args.source == "incheon_council"
+                and parsed_file_url.scheme == "https"
+                and parsed_file_url.hostname == "www.icouncil.go.kr"
+                and parsed_file_url.path == "/main/bbs/bbsMsgFileDownCompress.do"
+                and not name.lower().endswith(".zip")):
+                name += ".zip"
+            evidence = capture.start(post, url, name) if capture else None
             try:
                 blob = fetch_binary(url, post.get("post_url") or "")
+                if capture:
+                    capture.downloaded(evidence, blob, hashlib.sha256(blob).hexdigest())
                 per_file = {"title": post.get("title"), "url": url, "name": name, "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(), "sheets": []}
                 carried_pdf_role = ""
                 for sheet_name, rows in workbook_rows(blob, name):
+                    original_sheet = capture.sheet(evidence, sheet_name, rows) if capture else None
                     page_role = infer_pdf_context_role(rows) if sheet_name.startswith("pdf-page-") else ""
                     if page_role:
                         carried_pdf_role = page_role
@@ -1000,16 +1198,30 @@ def main():
                         ),
                     }
                     normalized, info = normalize_sheet(rows, sheet_name, meta)
+                    if capture:
+                        capture.normalized(evidence, original_sheet, normalized, info)
+                    if (args.source == "incheon_council" and sheet_name.startswith("pdf-page-")
+                        and meta.get("attachment_sha256") in __import__("incheon_verified_pdf").VERIFIED
+                        and info.get("status") != "OK"):
+                        raise ValueError(f"Incheon verified official PDF incomplete: {sheet_name}: {info}")
+                    if args.source == "uiwang" and sheet_name.startswith("pdf-page-") and info.get("status") != "OK":
+                        raise ValueError(f"Uiwang official PDF page not fully accounted: {sheet_name}: {info}")
                     if sheet_name.startswith("pdf-page-"):
                         info["pdf_page_role"] = page_role
                         info["carried_pdf_role"] = carried_pdf_role
                     per_file["sheets"].append(info)
                     all_rows.extend(normalized)
                 files.append(per_file)
+                if capture:
+                    capture.succeeded(evidence)
             except Exception as e:
+                if capture:
+                    capture.failed(evidence, e)
                 errors.append({"post": post.get("title"), "url": url, "error": f"{type(e).__name__}: {e}"})
 
     if args.incremental and not files and not errors:
+        if capture:
+            capture.write()
         print(json.dumps({
             "source": args.source, "status": "NO_CHANGE",
             "known_files": len(previous_files), "rows": len(previous_rows),
@@ -1179,6 +1391,8 @@ def main():
         "files": merged_files if args.incremental else files,
         "errors": merged_errors if args.incremental else errors,
     }
+    if capture:
+        capture.write()
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     files = payload["files"]

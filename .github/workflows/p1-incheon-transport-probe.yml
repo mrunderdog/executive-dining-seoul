@@ -1,0 +1,28 @@
+name: P1 Incheon verified official attachment transport probe
+on:
+  pull_request:
+    paths:
+      - 'pipeline/probe_incheon_file_transport.py'
+      - '.github/workflows/p1-incheon-transport-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  transport:
+    strategy:
+      fail-fast: false
+      matrix:
+        seq: [1326, 1327, 1333]
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v6
+      - name: Probe official file by independent TLS verified curl
+        run: python pipeline/probe_incheon_file_transport.py --seq ${{ matrix.seq }}
+      - name: Upload read-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-transport-${{ matrix.seq }}
+          path: reports/recovery/incheon-transport-${{ matrix.seq }}.json
+          retention-days: 14
