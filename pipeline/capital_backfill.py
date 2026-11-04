@@ -688,6 +688,8 @@ def discover_source(src: Source, since, until, trace=None):
     empty_pages = 0
     for page in range(1, src.max_pages + 1):
         url = src.listing_template.format(page=page)
+        if trace:
+            trace.add("listing_started", page=page, url=url)
         try:
             doc = fetch_text(url)
         except Exception as e:
@@ -729,6 +731,9 @@ def discover_source(src: Source, since, until, trace=None):
             if row["post_url"] in seen_posts:
                 continue
             seen_posts.add(row["post_url"])
+            if trace:
+                trace.add("detail_started", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"))
             try:
                 detail_html = fetch_text(row["post_url"])
                 if src.key == "hwaseong":
@@ -866,6 +871,9 @@ def discover_source(src: Source, since, until, trace=None):
                 "institution": src.institution, "title": a["text"], "period": period,
                 "post_url": a["url"], "attachments": [],
             }
+            if trace:
+                trace.add("detail_started", post_url=row.get("post_url"),
+                          period=row.get("period"), title=row.get("title"))
             try:
                 detail = fetch_text(a["url"])
                 found = [x for x in anchors(a["url"], detail) if attachment_like(x)]
