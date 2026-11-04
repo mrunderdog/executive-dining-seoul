@@ -227,6 +227,15 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     Several council endpoints return a small HTML viewer/wrapper rather than
     the attachment bytes. Follow one nested PDF/download target when present.
     """
+    parsed_url = urllib.parse.urlsplit(url)
+    incheon_listing_file = (
+        parsed_url.scheme == "https"
+        and parsed_url.hostname == "www.icouncil.go.kr"
+        and parsed_url.path in (
+            "/main/bbs/bbsMsgFileDown.do",
+            "/main/bbs/bbsMsgFileDownCompress.do"
+        )
+    )
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     base_headers = {
@@ -236,22 +245,27 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
     }
     if referer:
         base_headers["Referer"] = referer
-        try:
-            warm = urllib.request.Request(
-                referer,
-                headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8", "Accept-Language": base_headers["Accept-Language"]},
-            )
-            with opener.open(warm, timeout=25) as r:
-                r.read(2048)
-        except Exception:
-            pass
+        # Public Incheon listing has the exact file href. The previously
+        # unreachable detail page must not be prefetched for each file.
+        if not incheon_listing_file:
+            try:
+                warm = urllib.request.Request(
+                    referer,
+                    headers={"User-Agent": UA, "Accept": "text/html,*/*;q=0.8",
+                             "Accept-Language": base_headers["Accept-Language"]},
+                )
+                with opener.open(warm, timeout=25) as r:
+                    r.read(2048)
+            except Exception:
+                pass
 
     last_exc = None
-    for attempt in range(3):
+    attempts = 1 if incheon_listing_file else 3
+    for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers=base_headers)
             try:
-                with opener.open(req, timeout=75) as r:
+                with opener.open(req, timeout=12 if incheon_listing_file else 75) as r:
                     blob = r.read()
                     ctype = (r.headers.get("Content-Type") or "").lower()
                     final_url = r.geturl()
@@ -284,7 +298,7 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
             return blob
         except Exception as exc:
             last_exc = exc
-            if attempt == 2:
+            if attempt == attempts - 1:
                 break
     raise last_exc
 
@@ -1105,6 +1119,16 @@ def main():
                 # '/attach' and '#lg-download') which are not expense files.
                 continue
             name = clean_text(att.get("text")) or url.rsplit("/", 1)[-1]
+            parsed_file_url = urllib.parse.urlsplit(url)
+            # Official compress download sends a ZIP but its list label
+            # lacks an extension. The suffix selects the archive decoder;
+            # the original URL and bytes remain unchanged.
+            if (args.source == "incheon_council"
+                and parsed_file_url.scheme == "https"
+                and parsed_file_url.hostname == "www.icouncil.go.kr"
+                and parsed_file_url.path == "/main/bbs/bbsMsgFileDownCompress.do"
+                and not name.lower().endswith(".zip")):
+                name += ".zip"
             evidence = capture.start(post, url, name) if capture else None
             try:
                 blob = fetch_binary(url, post.get("post_url") or "")
