@@ -1,0 +1,49 @@
+name: P0-01 Product UX Audit (non-publishing)
+on:
+  pull_request:
+    paths:
+      - 'pipeline/p0_01_product_qa.mjs'
+      - '.github/workflows/p0-01-product-ux-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  product-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Build snapshot from current working branch (no publish)
+        run: python pipeline/build_site.py --output dist/index.html
+      - name: Verify frontend syntax
+        run: node --check pipeline/p0_01_product_qa.mjs
+      - name: Browser audit at desktop and mobile sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [[ -z "$CHROME_BIN" ]]; then
+            echo "Chrome browser unavailable"
+            exit 1
+          fi
+          python -m http.server 8765 --directory dist >/tmp/p0-01-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/p0-01-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/p0-01-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/p0_01_product_qa.mjs
+      - name: Preserve evidence even on failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p0-01-product-ux-evidence
+          path: |
+            reports/p0-01-product-ux/
+            /tmp/p0-01-chrome.log
+            /tmp/p0-01-http.log
+          retention-days: 14
