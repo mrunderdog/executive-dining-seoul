@@ -260,6 +260,15 @@ function renderList(fit=true){
         if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
       }else lastKeyboardSelection=null;
     };
+    c.addEventListener('keydown',event=>{
+      if(event.repeat||event.altKey||event.ctrlKey||event.metaKey)return;
+      if(event.key==='Enter'||event.key===' '){
+        // Some embedded browsers do not synthesize Enter-click for buttons.
+        // preventDefault avoids a second native click for Space/Enter.
+        event.preventDefault();
+        c.click();
+      }
+    });
     list.appendChild(c);
   }
   if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';
