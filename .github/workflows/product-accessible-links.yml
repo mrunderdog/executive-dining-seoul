@@ -21,6 +21,9 @@ jobs:
       - name: Run existing local regression and build
         run: |
           python pipeline/regression_checks.py
+          # Reconfirm the preserved data baseline after #189, rather than
+          # treating frontend-only smoke tests as authorization to deploy.
+          PYTHONPATH=pipeline python -m unittest -v test_icheon_venue_review test_multicouncil_venue_review test_council_payment_locations
           node --check site/app.js
           node --check pipeline/test_product_accessible_links.mjs
           python pipeline/build_site.py --output dist/index.html
