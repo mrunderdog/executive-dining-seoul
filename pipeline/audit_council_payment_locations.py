@@ -74,7 +74,7 @@ def build() -> dict:
     results = [scan_source(k) for k in SOURCES]
     return {
         "schema_version": 1,
-        "scope": "official council transaction files available as of 2026-10-22",
+        "scope": "official council transactions in current committed raw ledgers; identity review status independently scoped",
         "methodology": "Check parsed original public-expense rows, not inferred geocodes or directory restaurant addresses.",
         "sources": results,
         "totals": {
