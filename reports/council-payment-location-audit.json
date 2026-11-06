@@ -1,18 +1,19 @@
 {
   "schema_version": 1,
-  "scope": "official council transaction files available as of 2026-10-22",
+  "scope": "official council transactions in current committed raw ledgers; identity review status independently scoped",
   "methodology": "Check parsed original public-expense rows, not inferred geocodes or directory restaurant addresses.",
   "sources": [
     {
       "source": "icheon",
-      "official_transactions": 141,
+      "official_transactions": 186,
       "transactions_with_business_address": 0,
       "transactions_with_merchant_identifier": 0,
-      "transactions_without_branch_evidence": 141,
-      "candidate_merchants": 77,
+      "transactions_without_branch_evidence": 186,
+      "candidate_merchants": 90,
       "reviewed_merchants": 8,
-      "source_files": 6,
+      "source_files": 8,
       "official_document_urls": [
+        "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5976&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv"
@@ -20,9 +21,16 @@
       "priority_merchants": [
         {
           "merchant": "야반",
-          "matching_source_transactions": 6,
+          "matching_source_transactions": 7,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
+            {
+              "row_id": "0bb5d349d21cc8d6eda7",
+              "date": "2026-06-29",
+              "amount": 102000,
+              "official_post_url": "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv",
+              "official_attachment_url": "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+            },
             {
               "row_id": "1c34e73b5860821fa6f8",
               "date": "2026-08-10",
@@ -120,14 +128,15 @@
     },
     {
       "source": "ansan",
-      "official_transactions": 379,
+      "official_transactions": 658,
       "transactions_with_business_address": 0,
       "transactions_with_merchant_identifier": 0,
-      "transactions_without_branch_evidence": 379,
-      "candidate_merchants": 56,
+      "transactions_without_branch_evidence": 658,
+      "candidate_merchants": 83,
       "reviewed_merchants": 4,
-      "source_files": 1,
+      "source_files": 2,
       "official_document_urls": [
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1676503",
         "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397"
       ],
       "priority_merchants": [
@@ -275,14 +284,15 @@
     },
     {
       "source": "hwaseong",
-      "official_transactions": 603,
+      "official_transactions": 840,
       "transactions_with_business_address": 0,
       "transactions_with_merchant_identifier": 0,
-      "transactions_without_branch_evidence": 603,
-      "candidate_merchants": 89,
+      "transactions_without_branch_evidence": 840,
+      "candidate_merchants": 118,
       "reviewed_merchants": 3,
-      "source_files": 3,
+      "source_files": 4,
       "official_document_urls": [
+        "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
         "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466",
         "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764",
         "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957"
@@ -290,9 +300,30 @@
       "priority_merchants": [
         {
           "merchant": "훈장골",
-          "matching_source_transactions": 13,
+          "matching_source_transactions": 16,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
+            {
+              "row_id": "4661dea068a25832d225",
+              "date": "2026-06-08",
+              "amount": 129000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
+            {
+              "row_id": "165f2b7b8449ceb2a614",
+              "date": "2026-06-09",
+              "amount": 260000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
+            {
+              "row_id": "145477e7cf306b36cd30",
+              "date": "2026-06-18",
+              "amount": 171000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
             {
               "row_id": "d66bbfd5085e0ba1e035",
               "date": "2026-07-09",
@@ -430,9 +461,37 @@
         },
         {
           "merchant": "뜰안에",
-          "matching_source_transactions": 11,
+          "matching_source_transactions": 15,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
+            {
+              "row_id": "61134d23f21ad6b1f294",
+              "date": "2026-06-09",
+              "amount": 114000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
+            {
+              "row_id": "2ba422605955cb28d943",
+              "date": "2026-06-18",
+              "amount": 114000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
+            {
+              "row_id": "8de26093ab8ba2c3fd4c",
+              "date": "2026-06-22",
+              "amount": 265220,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
+            {
+              "row_id": "5e78ee8df7753414429e",
+              "date": "2026-06-29",
+              "amount": 190000,
+              "official_post_url": "https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40192",
+              "official_attachment_url": "https://council.hscity.go.kr/cms/utl/FileDownLoad.php?flCd=cns08&flSn=30024"
+            },
             {
               "row_id": "03dcb1935f6d596dce71",
               "date": "2026-07-01",
@@ -516,12 +575,12 @@
     }
   ],
   "totals": {
-    "transactions": 1123,
+    "transactions": 1684,
     "with_merchant_address": 0,
     "with_merchant_identifier": 0,
-    "candidate_merchants": 222,
+    "candidate_merchants": 291,
     "reviewed_merchants": 15,
-    "priority_transactions": 57,
+    "priority_transactions": 65,
     "confirmed_payment_branches": 0
   },
   "not_a_payment_branch_proof": [

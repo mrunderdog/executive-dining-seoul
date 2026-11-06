@@ -17,6 +17,28 @@
   "candidates": [
     {
       "rank": 1,
+      "merchant": "정다함",
+      "source_visits": 8,
+      "source_months": 3,
+      "source_score": 66.9,
+      "source_spend": 1169000,
+      "review_status": "VENUE_FOUND_PAYMENT_UNVERIFIED",
+      "establishment_type": "restaurant",
+      "place_address_candidates": [
+        "경기도 이천시 영창로 42"
+      ],
+      "evidence_urls": [
+        "https://www.tabling.co.kr/place/677cca4066de5f06987adda0",
+        "https://www.diningcode.com/profile.php?rid=pmP9uSWVB8A4"
+      ],
+      "review_note": "한정식 식당 존재·주소 교차 확인. 원문에 주소가 없으므로 결제 지점은 별도 검증 필요.",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": "2026-10-22"
+    },
+    {
+      "rank": 2,
       "merchant": "설봉골생고기",
       "source_visits": 5,
       "source_months": 3,
@@ -38,7 +60,7 @@
       "reviewed_at": "2026-10-22"
     },
     {
-      "rank": 2,
+      "rank": 3,
       "merchant": "야반",
       "source_visits": 6,
       "source_months": 2,
@@ -56,28 +78,6 @@
         "https://blog.naver.com/PostView.nhn?blogId=sisi-mom&logNo=223585157329&redirect=Dlog&widgetTypeCall=true"
       ],
       "review_note": "한국관광공사 기반 관고동 야반(경충대로 2849)과 롯데프리미엄아울렛 이천점(프리미엄아울렛로 177-74 백자동 3층)이 서로 다른 점포임을 재확인. 2026-08~09의 6건 거래에 주소·가맹점ID 없으므로 어느 점포인지 입증 불가.",
-      "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false,
-      "payment_branch_evidence": [],
-      "reviewed_at": "2026-10-22"
-    },
-    {
-      "rank": 3,
-      "merchant": "정다함",
-      "source_visits": 5,
-      "source_months": 2,
-      "source_score": 50.4,
-      "source_spend": 880000,
-      "review_status": "VENUE_FOUND_PAYMENT_UNVERIFIED",
-      "establishment_type": "restaurant",
-      "place_address_candidates": [
-        "경기도 이천시 영창로 42"
-      ],
-      "evidence_urls": [
-        "https://www.tabling.co.kr/place/677cca4066de5f06987adda0",
-        "https://www.diningcode.com/profile.php?rid=pmP9uSWVB8A4"
-      ],
-      "review_note": "한정식 식당 존재·주소 교차 확인. 원문에 주소가 없으므로 결제 지점은 별도 검증 필요.",
       "payment_branch_verified": false,
       "publish_as_verified_payment_location": false,
       "payment_branch_evidence": [],
@@ -147,6 +147,23 @@
     },
     {
       "rank": 7,
+      "merchant": "관촌순두부",
+      "source_visits": 2,
+      "source_months": 2,
+      "source_score": 37.5,
+      "source_spend": 141000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null
+    },
+    {
+      "rank": 8,
       "merchant": "렛뚜",
       "source_visits": 2,
       "source_months": 2,
@@ -163,7 +180,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 8,
+      "rank": 9,
       "merchant": "거진항코다리",
       "source_visits": 3,
       "source_months": 3,
@@ -184,7 +201,7 @@
       "reviewed_at": "2026-10-22"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "merchant": "서경한우프라자",
       "source_visits": 2,
       "source_months": 1,
@@ -207,7 +224,7 @@
       "reviewed_at": "2026-10-22"
     },
     {
-      "rank": 10,
+      "rank": 11,
       "merchant": "동아기획",
       "source_visits": 2,
       "source_months": 1,
@@ -229,7 +246,7 @@
       "reviewed_at": "2026-10-22"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "merchant": "정참치",
       "source_visits": 1,
       "source_months": 1,
@@ -246,7 +263,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 12,
+      "rank": 13,
+      "merchant": "갈비현",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 30.1,
+      "source_spend": 488700,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "62a4e41152f32f18cb41"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 14,
       "merchant": "이천축산업협동조합 한우프라자",
       "source_visits": 1,
       "source_months": 1,
@@ -263,7 +303,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 13,
+      "rank": 15,
       "merchant": "금수산",
       "source_visits": 1,
       "source_months": 1,
@@ -280,7 +320,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 14,
+      "rank": 16,
       "merchant": "통통화로구이",
       "source_visits": 1,
       "source_months": 1,
@@ -297,7 +337,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 15,
+      "rank": 17,
       "merchant": "참치선수",
       "source_visits": 1,
       "source_months": 1,
@@ -314,7 +354,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 16,
+      "rank": 18,
       "merchant": "태산",
       "source_visits": 1,
       "source_months": 1,
@@ -331,7 +371,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 17,
+      "rank": 19,
       "merchant": "포항이야기",
       "source_visits": 1,
       "source_months": 1,
@@ -348,7 +388,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 18,
+      "rank": 20,
+      "merchant": "제주흑돼지",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.4,
+      "source_spend": 285000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "ac44436598e013bbfa9b"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 21,
       "merchant": "생선장수",
       "source_visits": 1,
       "source_months": 1,
@@ -365,7 +428,53 @@
       "reviewed_at": null
     },
     {
-      "rank": 19,
+      "rank": 22,
+      "merchant": "아리솔밭가든",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.4,
+      "source_spend": 258000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "8204902df38c88fbe513"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 23,
+      "merchant": "참치대장",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.2,
+      "source_spend": 200000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "88162867f578112ffe12"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 24,
       "merchant": "강천섬 매운탕",
       "source_visits": 1,
       "source_months": 1,
@@ -382,7 +491,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 20,
+      "rank": 25,
       "merchant": "황금곱창",
       "source_visits": 1,
       "source_months": 1,
@@ -399,7 +508,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 21,
+      "rank": 26,
       "merchant": "꿀꿀이 삼겹살",
       "source_visits": 1,
       "source_months": 1,
@@ -416,7 +525,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 22,
+      "rank": 27,
+      "merchant": "공원소머리국밥",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.1,
+      "source_spend": 171000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "bac5518882fa1b3faf5a"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 28,
       "merchant": "싱싱종합어시장",
       "source_visits": 1,
       "source_months": 1,
@@ -433,7 +565,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 23,
+      "rank": 29,
       "merchant": "숯불정원",
       "source_visits": 1,
       "source_months": 1,
@@ -450,7 +582,53 @@
       "reviewed_at": null
     },
     {
-      "rank": 24,
+      "rank": 30,
+      "merchant": "신돈가",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.9,
+      "source_spend": 127000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "9af7f2b11ae36abf34ce"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 31,
+      "merchant": "아리골",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.9,
+      "source_spend": 113500,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "18f2f08cd6c0305f945b"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 32,
       "merchant": "이천감자탕",
       "source_visits": 1,
       "source_months": 1,
@@ -467,7 +645,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 25,
+      "rank": 33,
       "merchant": "나들애청목",
       "source_visits": 2,
       "source_months": 2,
@@ -484,7 +662,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 26,
+      "rank": 34,
       "merchant": "동래곱창",
       "source_visits": 1,
       "source_months": 1,
@@ -501,7 +679,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 27,
+      "rank": 35,
       "merchant": "대진도원참치",
       "source_visits": 1,
       "source_months": 1,
@@ -518,7 +696,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 28,
+      "rank": 36,
+      "merchant": "온정손만두",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.7,
+      "source_spend": 55000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "f7f35ecc37dcd9e8494a"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 37,
       "merchant": "대한민국1등감자탕",
       "source_visits": 1,
       "source_months": 1,
@@ -535,7 +736,31 @@
       "reviewed_at": null
     },
     {
-      "rank": 29,
+      "rank": 38,
+      "merchant": "송정영양집",
+      "source_visits": 2,
+      "source_months": 1,
+      "source_score": 27.9,
+      "source_spend": 275000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "bad1e19e1dd8b854b807",
+        "1de9e93f9e1d872060a4"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 39,
       "merchant": "해피박스시청점",
       "source_visits": 2,
       "source_months": 2,
@@ -552,7 +777,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 30,
+      "rank": 40,
       "merchant": "연탄위에 고등어 이섭",
       "source_visits": 2,
       "source_months": 1,
@@ -569,7 +794,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 31,
+      "rank": 41,
       "merchant": "현대가든",
       "source_visits": 2,
       "source_months": 1,
@@ -586,7 +811,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 32,
+      "rank": 42,
       "merchant": "착한낙지",
       "source_visits": 1,
       "source_months": 1,
@@ -603,7 +828,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 33,
+      "rank": 43,
       "merchant": "소보양본가",
       "source_visits": 1,
       "source_months": 1,
@@ -620,7 +845,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 34,
+      "rank": 44,
+      "merchant": "호반닭갈비",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19.6,
+      "source_spend": 342000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "f384829c7f326055eeee"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 45,
       "merchant": "훗스테이크 이천점",
       "source_visits": 1,
       "source_months": 1,
@@ -637,7 +885,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 35,
+      "rank": 46,
+      "merchant": "강민주의들밥",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19.4,
+      "source_spend": 285000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "6b7a25da23674fb47af0"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 47,
       "merchant": "관고동사랑방",
       "source_visits": 1,
       "source_months": 1,
@@ -654,7 +925,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 36,
+      "rank": 48,
       "merchant": "이천축산업협동조합",
       "source_visits": 1,
       "source_months": 1,
@@ -671,7 +942,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 37,
+      "rank": 49,
       "merchant": "주식회사 오늘해물찜",
       "source_visits": 1,
       "source_months": 1,
@@ -688,7 +959,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 38,
+      "rank": 50,
       "merchant": "소담본가",
       "source_visits": 1,
       "source_months": 1,
@@ -705,7 +976,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 39,
+      "rank": 51,
       "merchant": "연촌염소탕",
       "source_visits": 1,
       "source_months": 1,
@@ -722,7 +993,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 40,
+      "rank": 52,
       "merchant": "총각와플",
       "source_visits": 1,
       "source_months": 1,
@@ -739,7 +1010,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 41,
+      "rank": 53,
       "merchant": "오르또",
       "source_visits": 1,
       "source_months": 1,
@@ -756,7 +1027,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 42,
+      "rank": 54,
       "merchant": "미솥지음",
       "source_visits": 1,
       "source_months": 1,
@@ -773,7 +1044,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 43,
+      "rank": 55,
       "merchant": "산방",
       "source_visits": 1,
       "source_months": 1,
@@ -790,7 +1061,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 44,
+      "rank": 56,
       "merchant": "강릉짬뽕순두부(동화가든)",
       "source_visits": 1,
       "source_months": 1,
@@ -807,7 +1078,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 45,
+      "rank": 57,
       "merchant": "수백당",
       "source_visits": 1,
       "source_months": 1,
@@ -824,7 +1095,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 46,
+      "rank": 58,
       "merchant": "고블린",
       "source_visits": 1,
       "source_months": 1,
@@ -841,7 +1112,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 47,
+      "rank": 59,
       "merchant": "겹돈",
       "source_visits": 1,
       "source_months": 1,
@@ -858,7 +1129,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 48,
+      "rank": 60,
       "merchant": "재운방주",
       "source_visits": 1,
       "source_months": 1,
@@ -875,7 +1146,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 49,
+      "rank": 61,
       "merchant": "투썸플레이스",
       "source_visits": 1,
       "source_months": 1,
@@ -892,7 +1163,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 50,
+      "rank": 62,
+      "merchant": "이천막국수",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.9,
+      "source_spend": 112000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "46d006e86bb349323724"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 63,
       "merchant": "동원해물칼국수",
       "source_visits": 1,
       "source_months": 1,
@@ -909,7 +1203,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 51,
+      "rank": 64,
       "merchant": "바우갈비",
       "source_visits": 1,
       "source_months": 1,
@@ -926,7 +1220,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 52,
+      "rank": 65,
       "merchant": "이천쌀초밥",
       "source_visits": 1,
       "source_months": 1,
@@ -943,7 +1237,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 53,
+      "rank": 66,
       "merchant": "이진꽉찬숯불고기",
       "source_visits": 1,
       "source_months": 1,
@@ -960,7 +1254,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 54,
+      "rank": 67,
       "merchant": "멸치국시와돈까스",
       "source_visits": 1,
       "source_months": 1,
@@ -977,7 +1271,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 55,
+      "rank": 68,
       "merchant": "느티나무집",
       "source_visits": 1,
       "source_months": 1,
@@ -994,7 +1288,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 56,
+      "rank": 69,
       "merchant": "만복식당",
       "source_visits": 1,
       "source_months": 1,
@@ -1011,7 +1305,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 57,
+      "rank": 70,
       "merchant": "3대이포나루막국수",
       "source_visits": 1,
       "source_months": 1,
@@ -1028,7 +1322,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 58,
+      "rank": 71,
       "merchant": "암파스타레 이천",
       "source_visits": 1,
       "source_months": 1,
@@ -1045,7 +1339,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 59,
+      "rank": 72,
       "merchant": "Café Re(뤼)",
       "source_visits": 1,
       "source_months": 1,
@@ -1062,7 +1356,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 60,
+      "rank": 73,
       "merchant": "강민주의 들밥",
       "source_visits": 1,
       "source_months": 1,
@@ -1079,7 +1373,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 61,
+      "rank": 74,
       "merchant": "나랏님 장작불곰탕",
       "source_visits": 1,
       "source_months": 1,
@@ -1096,7 +1390,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 62,
+      "rank": 75,
       "merchant": "금룡",
       "source_visits": 1,
       "source_months": 1,
@@ -1113,7 +1407,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 63,
+      "rank": 76,
       "merchant": "유",
       "source_visits": 1,
       "source_months": 1,
@@ -1130,7 +1424,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 64,
+      "rank": 77,
       "merchant": "자운",
       "source_visits": 1,
       "source_months": 1,
@@ -1147,7 +1441,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 65,
+      "rank": 78,
       "merchant": "삼동소바 이천점",
       "source_visits": 1,
       "source_months": 1,
@@ -1164,7 +1458,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 66,
+      "rank": 79,
       "merchant": "순대일번지이천점",
       "source_visits": 1,
       "source_months": 1,
@@ -1181,7 +1475,30 @@
       "reviewed_at": null
     },
     {
-      "rank": 67,
+      "rank": 80,
+      "merchant": "장가네보신탕",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.7,
+      "source_spend": 55000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "b014f4e52dec3bfa9e97"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+      ]
+    },
+    {
+      "rank": 81,
       "merchant": "강남박생태찌개",
       "source_visits": 1,
       "source_months": 1,
@@ -1198,7 +1515,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 68,
+      "rank": 82,
       "merchant": "한상차림코다리명가",
       "source_visits": 1,
       "source_months": 1,
@@ -1215,7 +1532,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 69,
+      "rank": 83,
       "merchant": "한솔찜",
       "source_visits": 1,
       "source_months": 1,
@@ -1232,7 +1549,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 70,
+      "rank": 84,
       "merchant": "경사골국수",
       "source_visits": 1,
       "source_months": 1,
@@ -1249,7 +1566,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 71,
+      "rank": 85,
       "merchant": "두품육개장",
       "source_visits": 1,
       "source_months": 1,
@@ -1266,7 +1583,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 72,
+      "rank": 86,
       "merchant": "중리골",
       "source_visits": 1,
       "source_months": 1,
@@ -1283,7 +1600,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 73,
+      "rank": 87,
       "merchant": "늘고기집",
       "source_visits": 1,
       "source_months": 1,
@@ -1300,7 +1617,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 74,
+      "rank": 88,
       "merchant": "오노브",
       "source_visits": 1,
       "source_months": 1,
@@ -1317,7 +1634,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 75,
+      "rank": 89,
       "merchant": "오가",
       "source_visits": 1,
       "source_months": 1,
@@ -1334,24 +1651,7 @@
       "reviewed_at": null
     },
     {
-      "rank": 76,
-      "merchant": "관촌순두부",
-      "source_visits": 1,
-      "source_months": 1,
-      "source_score": 18.6,
-      "source_spend": 30000,
-      "review_status": "NOT_REVIEWED",
-      "establishment_type": "unverified",
-      "place_address_candidates": [],
-      "evidence_urls": [],
-      "review_note": "검증 전. 공식 원문에는 가맹점 식별번호·사업장 주소가 확인되지 않음.",
-      "payment_branch_verified": false,
-      "publish_as_verified_payment_location": false,
-      "payment_branch_evidence": [],
-      "reviewed_at": null
-    },
-    {
-      "rank": 77,
+      "rank": 90,
       "merchant": "도지울순대국",
       "source_visits": 1,
       "source_months": 1,
@@ -1369,14 +1669,24 @@
     }
   ],
   "summary": {
-    "total": 77,
+    "total": 90,
     "status_counts": {
       "VENUE_FOUND_PAYMENT_UNVERIFIED": 4,
       "MULTIPLE_BRANCHES": 2,
       "CONFLICTING_LOCATION_EVIDENCE": 1,
-      "NOT_REVIEWED": 69,
+      "NOT_REVIEWED": 82,
       "NON_DINING_BUSINESS": 1
     },
     "verified_payment_branches": 0
+  },
+  "candidate_snapshot_sync": {
+    "source_commit": "cb44b8aea4295edea73a50727432704260a16ced",
+    "raw_data_generated_at": "2026-10-28T07:54:53",
+    "candidates_total": 90,
+    "prior_reviewed_entries": 77,
+    "new_unreviewed_candidates": 13,
+    "original_review_date": "2026-10-22",
+    "scope": "candidate inventory alignment only; no additional location or payment branch independently verified",
+    "source_file": "data/raw/icheon_expense.json"
   }
 }
