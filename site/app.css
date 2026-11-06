@@ -1409,3 +1409,24 @@ body{
 .ui-v2 .data-story-empty{padding:18px;border:1px dashed #888;border-radius:5px}
 @media(max-width:950px){.ui-v2 .data-story-pipeline,.ui-v2 .data-story-trust{grid-template-columns:repeat(2,minmax(0,1fr))}.ui-v2 .data-story-health{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.ui-v2 .data-story-head{flex-direction:column}}
+
+/* Keyboard-accessible venue controls preserve the prior card appearance. */
+.ui-v2 button.restaurant-card{
+  display:block;
+  width:100%;
+  text-align:left;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.ui-v2 button.restaurant-card:focus-visible{
+  outline:3px solid #2522a5!important;
+  outline-offset:2px!important;
+  box-shadow:0 0 0 5px #fff!important;
+}
+.ui-v2 .detail h2:focus{
+  outline:2px solid var(--magenta);
+  outline-offset:3px;
+}

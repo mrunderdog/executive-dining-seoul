@@ -31,6 +31,7 @@ function buildOriginInstitutionOptions(){
 }
 buildOriginInstitutionOptions();
 let current=[],selected=null,mapReady=false,hoverPopup=null,selectedPopup=null,styleMode='positron',bound=false;
+let lastKeyboardSelection=null;
 const STYLES={positron:'https://tiles.openfreemap.org/styles/positron',liberty:'https://tiles.openfreemap.org/styles/liberty'};
 const map=new maplibregl.Map({container:'map',style:STYLES[styleMode],center:[126.98,37.53],zoom:9.1,attributionControl:true});
 map.addControl(new maplibregl.NavigationControl(),'bottom-right');
@@ -110,7 +111,7 @@ function renderEmpty(){detail.innerHTML='<div class="empty-detail"><div><strong>
 function renderDetail(r){if(!r){renderEmpty();return}const e=r.evidence||{},b=r.business||{},cross=r.cross_institution||{},roles=(e.roles||[]).map(x=>`<div class="role-row"><span><b>${esc(x.role)}</b><br><span style="color:var(--muted)">${x.spending_events?x.spending_events+"건 집행 · 참석 미확인":x.visits+"회 · "+x.people+"명"}</span></span><span>${won(x.spend)}</span></div>`).join(''),pur=(e.purposes||[]).map(x=>`<div class="visit-row"><div class="date">${esc(x.text)}</div><div class="meta">${x.count}회 확인</div></div>`).join(''),vis=(e.recent||[]).map(x=>`<div class="visit-row"><div class="date">${esc(x.date)} ${esc(x.time)}</div><div class="meta">${esc(x.role)} · ${x.expense_user_only?"실제 참석 미확인":x.people+"명"} · ${won(x.amount)}<br>${esc(x.purpose)}${x.source?`<br><a href="${esc(x.source)}" target="_blank" rel="noopener">공식 원자료 보기</a>`:''}</div></div>`).join('');detail.innerHTML=`<div class="detail-top"><div><h2>${esc(b.display||r.name)}</h2><div class="detail-category">${esc(b.category||'업종 확인 필요')} · ${esc(sourceLabel(r))}</div></div><div class="detail-score">${esc(scoreLabel(r))}<br>${r.source_verified_expense_only?'Official Spending · 참석 미확인':r.type==='both'?'Destination + Executive':r.type==='destination'?'Destination VIP':'Executive Repeat'}</div></div>${evidenceSeparationHtml(r)}${attendanceUnconfirmedNote(r)}${councilPaymentBranchUnverified(r)?'<div class="method-note">※ 결제 지점 미확정: 공개 거래처 상호와 실제 식당 소재지가 동일한지는 입증되지 않았습니다. 특정 공직자의 실제 참석 역시 미확인입니다.</div>':''}${policeBranchUnverified(r)?'<div class="method-note">※ 결제 지점 미확정: 원문에는 사업자번호·지점 주소가 없으며 상호와 인근 위치로 연결한 후보입니다. 고위직 참석도 확인되지 않았습니다.</div>':''}<div class="why-card"><div class="why-title">Why selected</div><div class="why-text">${esc(r.why||'선정 근거 요약 없음')}</div></div><div class="action-row"><a class="btn primary" href="${googleUrl(r)}" target="_blank" rel="noopener">Google Maps</a>${b.url?`<a class="btn ghost" href="${esc(b.url)}" target="_blank" rel="noopener">업체 정보 출처</a>`:''}</div>${cross.is_cross?`<div class="detail-section"><h3>공식 사용처 교차</h3><div class="cross-grid">${(cross.by_origin||[]).map(x=>`<div class="cross-row"><span><b>${esc(x.origin)}</b></span><span>${Number(x.visits||0).toLocaleString('ko-KR')}회 · ${shortWon(x.spend||0)}원</span></div>`).join('')}</div><div class="method-note">Consensus ${cross.score||0} · ${cross.institution_count||0}개 기관 · ${cross.source_count||0}개 출처 · ${cross.cohort_count||0}개 계층에서 공식 사용처가 겹치는 식당으로 연결했습니다. 특정인의 현장 참석 여부는 확인되지 않았습니다.</div></div>`:''}<div class="detail-section"><h3>업체 정보</h3><div class="detail-grid"><div class="k">위치 검증</div><div class="v">${esc((r.location_verification||{}).label||'미분류')}</div><div class="k">주소</div><div class="v">${esc(r.address||'확인 필요')}</div><div class="k">전화</div><div class="v">${esc(b.phone||'-')}</div><div class="k">현재 업소</div><div class="v">${esc(b.status||'자동 확인 미실시')}</div><div class="k">업체정보 확인</div><div class="v">${b.verified_at?esc(b.verified_at+(b.verification_confidence?' · '+b.verification_confidence:'')):'별도 검증 기록 없음'}</div><div class="k">평점 정보</div><div class="v">${esc(b.rating||'-')}</div><div class="k">메모</div><div class="v">${esc(b.note||'-')}</div></div></div><div class="detail-section"><h3>업무추진비 원자료</h3><div class="metric-grid"><div class="metric-card"><div class="label">공개 사용처 기록</div><div class="value">${sourceEvents(r)}건</div></div><div class="metric-card"><div class="label">집행 명의 · 참석 미확인</div><div class="value">${e.spending_events||0}건</div></div><div class="metric-card"><div class="label">Spend</div><div class="value">${shortWon(e.spend||0)}원</div></div><div class="metric-card"><div class="label">People</div><div class="value">${Number(e.people||0).toLocaleString('ko-KR')}명</div></div><div class="metric-card"><div class="label">Evening</div><div class="value">${pct(e.evening_ratio||0)}</div></div></div><div class="detail-grid" style="margin-top:12px"><div class="k">기록 기간</div><div class="v">${esc(e.date_min||'-')} ~ ${esc(e.date_max||'-')}</div><div class="k">기록 월</div><div class="v">${e.months||0}개월</div><div class="k">가중 1인당</div><div class="v">${won(e.ppc||0)}</div></div></div><div class="detail-section"><h3>${e.spending_events?"업무추진비 집행 명의 (실제 참석 미확인)":"어떤 직책의 집행 명의인가"}</h3>${roles||'<div class="method-note">원자료 매칭 정보 없음</div>'}</div><div class="detail-section"><h3>주요 집행 목적</h3>${pur||'<div class="method-note">목적 정보 없음</div>'}</div><div class="detail-section"><h3>${e.spending_events?"최근 집행 원자료 (실제 참석 미확인)":"최근 사용처 원자료"}</h3>${vis||'<div class="method-note">공개 사용처 기록 없음</div>'}</div><div class="method-note">※ 이 서비스의 점수는 식당의 맛이나 품질을 평가하는 평점이 아닙니다.</div>`}
 function badges(r){const a=[];if(councilPaymentBranchUnverified(r))a.push('<span class="badge outline">결제 지점 미검증</span>');if(policeBranchUnverified(r))a.push('<span class="badge outline">결제 지점 미검증</span>');if((r.evidence?.spending_events||0)>0)a.push('<span class="badge outline">집행 명의 · 참석 미확인</span>');const vg=r.location_verification||{};if(vg.grade)a.push(`<span class="badge ${vg.grade==='A'?'soft':'outline'}" title="A=주소와 좌표 확인 · B=좌표만 확인 · C=원자료 사용처만 확인">위치 ${esc(vg.grade)}</span>`);a.push(r.source_verified_expense_only?(policeMatchUncertain(r)?'<span class="badge outline">원문 사용처 · 지점 추정</span>':'<span class="badge solid">공식 집행처</span>'):r.type==='both'?'<span class="badge solid">Destination + Executive</span>':r.type==='destination'?'<span class="badge outline">Destination VIP</span>':'<span class="badge solid">Executive Repeat</span>');if(r.cross_institution?.is_cross)a.push(`<span class="badge cross">기관 교차 ${r.cross_institution.institution_count}</span>`);if((r.executive?.top_official_visits||0)>0)a.push(`<span class="badge outline">${esc(r.executive.top_role_label||'장·차관급')} ${r.executive.top_official_visits}회</span>`);if((r.executive?.mayor_visits||0)+(r.executive?.vice_mayor_visits||0)>0)a.push(`<span class="badge outline">시장·부시장 ${(r.executive.mayor_visits||0)+(r.executive.vice_mayor_visits||0)}회</span>`);a.push(`<span class="badge soft">${esc(r.business?.category||'업종 확인 필요')}</span>`);return a.join('')}
 function cardHtml(r){const e=r.evidence||{},miss=Number.isFinite(r.lat)&&Number.isFinite(r.lon)?'':' · 좌표 미확인';return`<div class="card-head"><div class="card-title">${esc(r.business?.display||r.name)}</div><div class="score" title="맛 평점이 아닌 공개 지출기록 기반 신호 점수입니다. 반복=반복·고위직 사용, 교차=복수 기관 선택, 목적지=관외·목적지 선택">${esc(scoreLabel(r))}</div></div><div class="badge-row">${badges(r)}</div><div class="card-meta">${esc(r.address||'주소 확인 필요')}<br>${esc(sourceLabel(r))}${r.cross_institution?.is_cross?' · 검증된 방문기관 교차':''}${miss}</div><div class="card-metrics"><div class="mini-metric"><div class="mini-label">공개 사용처 기록</div><div class="mini-value">${sourceEvents(r)}건</div></div><div class="mini-metric"><div class="mini-label">집행 명의 · 참석 미확인</div><div class="mini-value">${e.spending_events||0}건</div></div><div class="mini-metric"><div class="mini-label">집행액</div><div class="mini-value">${shortWon(e.spend||0)}원</div></div><div class="mini-metric"><div class="mini-label">저녁</div><div class="mini-value">${pct(e.evening_ratio||0)}</div></div></div>`}
-function highlight(){for(const c of list.querySelectorAll('.restaurant-card'))c.classList.toggle('active',c.dataset.key===selected)}
+function highlight(){for(const c of list.querySelectorAll('.restaurant-card')){const active=c.dataset.key===selected;c.classList.toggle('active',active);c.setAttribute('aria-pressed',String(active))}}
 function recordByKey(k){return DATA.find(r=>key(r)===k)}
 function geojson(){return{type:'FeatureCollection',features:current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).map(r=>({type:'Feature',geometry:{type:'Point',coordinates:mapCoordinate(r)},properties:{id:key(r),display:r.business?.display||r.name,address:r.address||'',kind:r.type||'',selected:key(r)===selected?1:0,offset:markerWasOffset(r)?1:0}}))}}
 function addLayers(){
@@ -214,14 +215,73 @@ function updateMap(fit=false){
   if(fit)fitMap();
 }
 function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
-function selectRecord(r,move=true,popup=false){selected=key(r);renderDetail(r);highlight();updateMap(false);if(selectedPopup){selectedPopup.remove();selectedPopup=null}if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){const point=mapCoordinate(r);if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map)}else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.'}
-function renderList(fit=true){current=sortRecords(DATA.filter(pass));const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;const unmapped=current.length-mapped;sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;list.innerHTML='';for(const r of current){const c=document.createElement('article');c.className='restaurant-card'+(key(r)===selected?' active':'');c.dataset.key=key(r);c.innerHTML=cardHtml(r);c.onclick=()=>selectRecord(r,true,true);list.appendChild(c)}if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';updateMap(fit);syncCrossAllButton()}
+function selectionUrlFor(restaurantId){
+  const url=new URL(window.location.href);
+  if(restaurantId)url.searchParams.set('restaurant',restaurantId);
+  else url.searchParams.delete('restaurant');
+  return url.pathname+url.search+url.hash;
+}
+function writeSelectionUrl(restaurantId,mode='push'){
+  const target=selectionUrlFor(restaurantId);
+  if(target===location.pathname+location.search+location.hash)return;
+  if(mode==='push')history.pushState(null,'',target);
+  else if(mode==='replace')history.replaceState(null,'',target);
+}
+function selectRecord(r,move=true,popup=false,historyMode='push'){
+  selected=key(r);
+  renderDetail(r);highlight();updateMap(false);
+  if(selectedPopup){selectedPopup.remove();selectedPopup=null}
+  if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
+    const point=mapCoordinate(r);
+    if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});
+    if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map);
+  }else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.';
+  if(historyMode!=='none')writeSelectionUrl(key(r),historyMode);
+}
+function renderList(fit=true){
+  current=sortRecords(DATA.filter(pass));
+  const mapped=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length;
+  const unmapped=current.length-mapped;
+  sum.innerHTML=`목록 <strong>${current.length}</strong>곳 · 지도표시 <strong>${mapped}</strong>곳${unmapped?` · 위치미확인 <strong>${unmapped}</strong>곳`:''}`;
+  list.innerHTML='';
+  for(const r of current){
+    const c=document.createElement('button');
+    c.type='button';
+    c.className='restaurant-card'+(key(r)===selected?' active':'');
+    c.dataset.key=key(r);
+    c.setAttribute('aria-pressed',String(key(r)===selected));
+    c.setAttribute('aria-label',displayName(r)+', '+(r.address||'주소 미확인')+', 식당 상세 보기');
+    c.innerHTML=cardHtml(r);
+    c.onclick=event=>{
+      selectRecord(r,true,true);
+      if(event.detail===0){
+        lastKeyboardSelection=c;
+        const heading=detail.querySelector('h2');
+        if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+      }else lastKeyboardSelection=null;
+    };
+    c.addEventListener('keydown',event=>{
+      if(event.repeat||event.altKey||event.ctrlKey||event.metaKey)return;
+      if(event.key==='Enter'||event.key===' '){
+        // Some embedded browsers do not synthesize Enter-click for buttons.
+        // preventDefault avoids a second native click for Space/Enter.
+        event.preventDefault();
+        c.click();
+      }
+    });
+    list.appendChild(c);
+  }
+  if(!current.length)list.innerHTML='<div style="padding:28px 16px;text-align:center;color:var(--muted)">조건에 맞는 식당이 없습니다.</div>';
+  updateMap(fit);syncCrossAllButton();
+}
 function updateStats(){const visits=DATA.reduce((s,r)=>s+Number(r.evidence?.visits||0),0),spend=DATA.reduce((s,r)=>s+Number(r.evidence?.spend||0),0),exec=DATA.filter(r=>!!r.executive).length;$('statRestaurants').textContent=(STATS.total||DATA.length).toLocaleString('ko-KR');$('statVisits').textContent=visits.toLocaleString('ko-KR');$('statSpend').textContent=shortWon(spend)+'원';$('statExec').textContent=exec.toLocaleString('ko-KR')}
-function clearSelection(){
+function clearSelection(updateHistory=true){
+  const hadSelection=selected!==null;
   selected=null;
   if(selectedPopup){selectedPopup.remove();selectedPopup=null}
   if(hoverPopup){hoverPopup.remove();hoverPopup=null}
   renderEmpty();
+  if(updateHistory&&hadSelection)writeSelectionUrl(null,'push');
 }
 function resetFilters(){ds.value='all';ori.value='all';q.value='';sort.value='signal';clearSelection();renderList(true)}
 function syncCrossAllButton(){
@@ -571,6 +631,9 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
       workspace.classList.remove('detail-open');
       highlight();
       updateMap(false);
+      writeSelectionUrl(null,'push');
+      if(lastKeyboardSelection?.isConnected)lastKeyboardSelection.focus({preventScroll:true});
+      lastKeyboardSelection=null;
       setTimeout(()=>{try{map.resize()}catch(e){}},180);
     });
     detail.prepend(close);
@@ -634,7 +697,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
     results.querySelectorAll('.restaurant-lookup-result').forEach(btn=>{btn.onclick=()=>{
       const r=recordByKey(btn.dataset.key);if(!r)return;
       ds.value='all';ori.value='all';q.value='';sort.value='signal';
-      clearSelection();renderList(false);selectRecord(r,true,true);closeLookup();
+      clearSelection(false);renderList(false);selectRecord(r,true,true);closeLookup();
       requestAnimationFrame(()=>list.querySelector('.restaurant-card.active')?.scrollIntoView({block:'nearest',behavior:'smooth'}));
     }});
   }
@@ -645,3 +708,33 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
   input.addEventListener('input',renderLookup);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!backdrop.hidden)closeLookup()});
 })();
+
+/* Restaurant deep links. Preserve unrelated query parameters; fail closed for
+ * stale IDs and restore the selected detail on browser Back/Forward/reload. */
+function restoreSelectedFromUrl(){
+  lastKeyboardSelection=null;
+  const restaurantId=new URL(location.href).searchParams.get('restaurant');
+  if(!restaurantId){
+    if(selected!==null){clearSelection(false);highlight();updateMap(false);}
+    return;
+  }
+  const restaurant=restaurantId.length<=512?recordByKey(restaurantId):null;
+  if(!restaurant){
+    if(selected!==null){clearSelection(false);highlight();updateMap(false);}
+    writeSelectionUrl(null,'replace');
+    return;
+  }
+  ds.value='all';ori.value='all';q.value='';sort.value='signal';
+  clearSelection(false);
+  renderList(false);
+  selectRecord(restaurant,mapReady,false,'none');
+  if(!mapReady&&Number.isFinite(restaurant.lat)&&Number.isFinite(restaurant.lon)){
+    map.once('load',()=>{
+      if(selected===key(restaurant))map.flyTo({
+        center:mapCoordinate(restaurant),zoom:15.2,duration:0
+      });
+    });
+  }
+}
+window.addEventListener('popstate',restoreSelectedFromUrl);
+restoreSelectedFromUrl();

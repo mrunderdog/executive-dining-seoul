@@ -1,0 +1,60 @@
+name: Product keyboard and deep-link regression (non-publishing)
+on:
+  pull_request:
+    paths:
+      - 'site/app.js'
+      - 'site/app.css'
+      - 'pipeline/test_product_accessible_links.mjs'
+      - '.github/workflows/product-accessible-links.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run existing local regression and build
+        run: |
+          python pipeline/regression_checks.py
+          # Reconfirm the preserved data baseline after #189, rather than
+          # treating frontend-only smoke tests as authorization to deploy.
+          PYTHONPATH=pipeline python -m unittest -v test_icheon_venue_review test_multicouncil_venue_review test_council_payment_locations
+          node --check site/app.js
+          node --check pipeline/test_product_accessible_links.mjs
+          python pipeline/build_site.py --output dist/index.html
+      - name: Run Chromium keyboard, history and responsive checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          python -m http.server 8765 --directory dist >/tmp/ux-nav-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/ux-nav-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/ux-nav-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/test_product_accessible_links.mjs
+          # The product test ends with a 390px viewport and URL-reload cases.
+          # Start fresh Chrome to verify the existing 1440px map workflow
+          # independently, without state leaking between test suites.
+          kill "$CHROME_PID" 2>/dev/null || true
+          sleep 1
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/ux-nav-map-chrome \
+            --window-size=1440,900 http://127.0.0.1:8765/ >/tmp/ux-nav-map-chrome.log 2>&1 &
+          CHROME_PID=$!
+          node pipeline/browser_map_smoke.mjs
+      - name: Upload QA evidence even if test fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-keyboard-deeplink-evidence
+          path: reports/p0-ux-navigation/
+          retention-days: 14
