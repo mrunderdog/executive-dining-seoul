@@ -237,6 +237,13 @@ function selectRecord(r,move=true,popup=false,historyMode='push'){
     if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map);
   }else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.';
   if(historyMode!=='none')writeSelectionUrl(key(r),historyMode);
+  if(window.matchMedia('(max-width: 960px)').matches){
+    // On small screens the detail follows the map in normal document flow.
+    // A card tap otherwise leaves the selected information below the fold.
+    requestAnimationFrame(()=>{
+      if(selected===key(r))detail.scrollIntoView({block:'start',behavior:'instant'});
+    });
+  }
 }
 function renderList(fit=true){
   current=sortRecords(DATA.filter(pass));
@@ -625,6 +632,7 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
     close.setAttribute('aria-label','상세 닫기');
     close.textContent='×';
     close.addEventListener('click',()=>{
+      const closingId=selected;
       selected=null;
       if(selectedPopup){selectedPopup.remove();selectedPopup=null;}
       baseRenderEmpty();
@@ -634,6 +642,12 @@ updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordina
       writeSelectionUrl(null,'push');
       if(lastKeyboardSelection?.isConnected)lastKeyboardSelection.focus({preventScroll:true});
       lastKeyboardSelection=null;
+      if(window.matchMedia('(max-width: 960px)').matches){
+        requestAnimationFrame(()=>{
+          const previous=[...list.querySelectorAll('.restaurant-card')].find(card=>card.dataset.key===closingId);
+          (previous||list).scrollIntoView({block:'center',behavior:'instant'});
+        });
+      }
       setTimeout(()=>{try{map.resize()}catch(e){}},180);
     });
     detail.prepend(close);

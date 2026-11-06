@@ -759,7 +759,12 @@ body{
     pointer-events:auto!important;
   }
   .ui-v2 .detail-drawer-close{
-    display:none!important;
+    display:block!important;
+    position:sticky!important;
+    top:8px!important;
+    margin-left:auto!important;
+    float:right!important;
+    z-index:30!important;
   }
 }
 
