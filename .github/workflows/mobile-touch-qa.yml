@@ -1,0 +1,42 @@
+name: Mobile product touch QA (audit only)
+on:
+  pull_request:
+    paths:
+      - 'pipeline/mobile_touch_qa.mjs'
+      - '.github/workflows/mobile-touch-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  touch-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: |
+          node --check pipeline/mobile_touch_qa.mjs
+          python pipeline/build_site.py --output dist/index.html
+      - name: Execute real Chromium touch interactions at mobile dimensions
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          python -m http.server 8765 --directory dist >/tmp/mobile-http.log 2>&1 &
+          SERVER_PID=$!
+          "$CHROME_BIN" --headless=new --no-sandbox --disable-gpu --enable-unsafe-swiftshader \
+            --remote-debugging-port=9222 --user-data-dir=/tmp/mobile-audit-chrome \
+            --window-size=390,844 http://127.0.0.1:8765/ >/tmp/mobile-chrome.log 2>&1 &
+          CHROME_PID=$!
+          trap 'kill "$CHROME_PID" "$SERVER_PID" 2>/dev/null || true' EXIT
+          node pipeline/mobile_touch_qa.mjs
+      - name: Preserve findings and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-touch-ux-evidence
+          path: reports/p0-02-mobile/
+          retention-days: 14
