@@ -14,7 +14,7 @@ class IcheonVenueReviewTests(unittest.TestCase):
         self.assertEqual(sum(r["review_status"] == "NOT_REVIEWED" for r in src["candidates"]),82)
         self.assertEqual(sum(r["review_status"] != "NOT_REVIEWED" for r in src["candidates"]),8)
         self.assertEqual(src["summary"]["verified_payment_branches"],0)
-        self.assertEqual(len(set(r["merchant"] for r in src["candidates"])),77)
+        self.assertEqual(len(set(r["merchant"] for r in src["candidates"])),90)
 
     def test_new_june_candidates_have_transaction_lineage_without_branch_claim(self):
         src=json.loads((ROOT/"sources/icheon_venue_review.json").read_text(encoding="utf-8"))
