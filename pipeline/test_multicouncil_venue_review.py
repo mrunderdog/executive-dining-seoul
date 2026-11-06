@@ -4,7 +4,7 @@ from published_sources import ROOT, SOURCE_SPECS, _build_source_records
 
 class MulticouncilReviewTests(unittest.TestCase):
     def test_candidate_coverage(self):
-        for key, count in (("icheon", 90), ("ansan", 56), ("hwaseong", 89)):
+        for key, count in (("icheon", 90), ("ansan", 83), ("hwaseong", 118)):
             doc=json.loads((ROOT/"sources"/f"{key}_venue_review.json").read_text(encoding="utf-8"))
             original=json.loads((ROOT/"reports"/f"{key}-executive-candidates.json").read_text(encoding="utf-8"))
             self.assertEqual(len(doc["candidates"]),count)
