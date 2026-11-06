@@ -17,6 +17,68 @@
   "candidates": [
     {
       "rank": 1,
+      "merchant": "THE376",
+      "source_visits": 4,
+      "source_months": 3,
+      "source_score": 49.8,
+      "source_spend": 245400,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 2,
+      "merchant": "방자화로 고잔점",
+      "source_visits": 3,
+      "source_months": 2,
+      "source_score": 49.5,
+      "source_spend": 688000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 3,
+      "merchant": "우리참숯구이",
+      "source_visits": 4,
+      "source_months": 2,
+      "source_score": 47.6,
+      "source_spend": 1087000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "164076f889ff8cf382cc",
+        "d6a250d771f9a959e54a",
+        "9b8b45e686e9e417a7c6",
+        "a267272d4181981184c3"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 4,
       "merchant": "다인",
       "source_visits": 6,
       "source_months": 3,
@@ -34,7 +96,43 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 2,
+      "rank": 5,
+      "merchant": "스푼위에포크",
+      "source_visits": 3,
+      "source_months": 2,
+      "source_score": 45.4,
+      "source_spend": 469100,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 6,
+      "merchant": "남도횟집",
+      "source_visits": 3,
+      "source_months": 3,
+      "source_score": 44.6,
+      "source_spend": 735000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 7,
       "merchant": "다빈",
       "source_visits": 5,
       "source_months": 3,
@@ -52,7 +150,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 3,
+      "rank": 8,
       "merchant": "영월애곤드레",
       "source_visits": 4,
       "source_months": 3,
@@ -75,7 +173,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 4,
+      "rank": 9,
       "merchant": "명품우리소",
       "source_visits": 3,
       "source_months": 2,
@@ -93,7 +191,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 5,
+      "rank": 10,
       "merchant": "두껍집",
       "source_visits": 2,
       "source_months": 2,
@@ -111,7 +209,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 6,
+      "rank": 11,
       "merchant": "수암산쉼터",
       "source_visits": 2,
       "source_months": 2,
@@ -129,7 +227,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 7,
+      "rank": 12,
       "merchant": "어머님칼국수",
       "source_visits": 2,
       "source_months": 2,
@@ -147,43 +245,51 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 8,
-      "merchant": "남도횟집",
-      "source_visits": 2,
+      "rank": 13,
+      "merchant": "칠보네집",
+      "source_visits": 3,
+      "source_months": 3,
+      "source_score": 35.9,
+      "source_spend": 117000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 14,
+      "merchant": "동경동태찜,탕,북어구이전문",
+      "source_visits": 4,
       "source_months": 2,
-      "source_score": 33.9,
-      "source_spend": 580000,
+      "source_score": 35.5,
+      "source_spend": 457000,
       "review_status": "NOT_REVIEWED",
       "establishment_type": "unverified",
       "place_address_candidates": [],
       "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
+      "review_note": "공식 거래 지점 미확인",
       "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
       "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "af703315a752b1007c84",
+        "1d8fb16a9c07a87401e7",
+        "ff2308ba122f8c51e16f",
+        "2d7af195ea2a15172f48"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
     },
     {
-      "rank": 9,
-      "merchant": "방자화로 고잔점",
-      "source_visits": 2,
-      "source_months": 1,
-      "source_score": 33.9,
-      "source_spend": 558000,
-      "review_status": "NOT_REVIEWED",
-      "establishment_type": "unverified",
-      "place_address_candidates": [],
-      "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
-      "payment_branch_verified": false,
-      "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
-    },
-    {
-      "rank": 10,
+      "rank": 15,
       "merchant": "양평해장국",
       "source_visits": 5,
       "source_months": 1,
@@ -201,7 +307,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 11,
+      "rank": 16,
       "merchant": "이영자숯불고기집",
       "source_visits": 2,
       "source_months": 2,
@@ -219,7 +325,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 12,
+      "rank": 17,
       "merchant": "주식회사 촌장골",
       "source_visits": 2,
       "source_months": 2,
@@ -237,7 +343,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 13,
+      "rank": 18,
       "merchant": "소플러스",
       "source_visits": 1,
       "source_months": 1,
@@ -255,7 +361,53 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 14,
+      "rank": 19,
+      "merchant": "진동횟집",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.7,
+      "source_spend": 366000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "5574b1e17f9885eed09c"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 20,
+      "merchant": "싹쓰리솥뚜껑삼겹살",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.6,
+      "source_spend": 320000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "1d2f4cba4acef23862c0"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 21,
       "merchant": "식껍 사동점",
       "source_visits": 1,
       "source_months": 1,
@@ -273,7 +425,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 15,
+      "rank": 22,
       "merchant": "통영상회",
       "source_visits": 1,
       "source_months": 1,
@@ -291,7 +443,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 16,
+      "rank": 23,
       "merchant": "바른정육점",
       "source_visits": 1,
       "source_months": 1,
@@ -309,7 +461,53 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 17,
+      "rank": 24,
+      "merchant": "빛고을",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.2,
+      "source_spend": 218000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "3e4bdb75cd99b735d379"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 25,
+      "merchant": "청화대",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.2,
+      "source_spend": 216000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "91f9f32200340be60c6c"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 26,
       "merchant": "산과바다",
       "source_visits": 1,
       "source_months": 1,
@@ -327,7 +525,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 18,
+      "rank": 27,
       "merchant": "주식회사촌장골",
       "source_visits": 1,
       "source_months": 1,
@@ -345,7 +543,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 19,
+      "rank": 28,
       "merchant": "우성생고기",
       "source_visits": 1,
       "source_months": 1,
@@ -363,7 +561,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 20,
+      "rank": 29,
       "merchant": "족슐랭",
       "source_visits": 1,
       "source_months": 1,
@@ -381,7 +579,122 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 21,
+      "rank": 30,
+      "merchant": "원산면옥",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.1,
+      "source_spend": 172000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "03fcbb6027c2be606511"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 31,
+      "merchant": "박씨상회",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29.1,
+      "source_spend": 165000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "c3414d87e5a180e867c1"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 32,
+      "merchant": "훈이네",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 29,
+      "source_spend": 156000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "c4c34123cae8987d646f"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 33,
+      "merchant": "태능골",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.9,
+      "source_spend": 134000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "0a442c1f6629b382816e"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 34,
+      "merchant": "돼순이",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.8,
+      "source_spend": 97000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "e1007b1517d47a9a0067"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 35,
       "merchant": "피아식 추어탕 매운탕",
       "source_visits": 1,
       "source_months": 1,
@@ -399,7 +712,71 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 22,
+      "rank": 36,
+      "merchant": "양심소 안산고잔점",
+      "source_visits": 2,
+      "source_months": 2,
+      "source_score": 28.7,
+      "source_spend": 507000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "potential_aliases": [],
+      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
+      "reviewed_at": null,
+      "payment_branch_verified": false,
+      "payment_branch_evidence": [],
+      "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 37,
+      "merchant": "유일",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.7,
+      "source_spend": 58500,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "8243b0d4b2d28bee8a7c"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 38,
+      "merchant": "엄마네생선구이",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 28.6,
+      "source_spend": 43000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "0e0f336bbca3ae9118de"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 39,
       "merchant": "십년한우실비집",
       "source_visits": 1,
       "source_months": 1,
@@ -417,7 +794,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 23,
+      "rank": 40,
       "merchant": "강원도손두부칡냉면",
       "source_visits": 1,
       "source_months": 1,
@@ -435,7 +812,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 24,
+      "rank": 41,
       "merchant": "한방전주콩나물국밥",
       "source_visits": 1,
       "source_months": 1,
@@ -453,7 +830,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 25,
+      "rank": 42,
       "merchant": "남도목포맛집",
       "source_visits": 2,
       "source_months": 1,
@@ -471,7 +848,31 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 26,
+      "rank": 43,
+      "merchant": "진한우한돈숯불구이",
+      "source_visits": 2,
+      "source_months": 2,
+      "source_score": 27.4,
+      "source_spend": 126000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "0ed696faeed4025b5e6a",
+        "7afbac0cc7bfb2f2dff4"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 44,
       "merchant": "라떼는말이야",
       "source_visits": 2,
       "source_months": 2,
@@ -489,25 +890,32 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 27,
-      "merchant": "칠보네집",
-      "source_visits": 2,
-      "source_months": 2,
-      "source_score": 27.3,
-      "source_spend": 78000,
+      "rank": 45,
+      "merchant": "성포복집",
+      "source_visits": 3,
+      "source_months": 1,
+      "source_score": 26.1,
+      "source_spend": 176000,
       "review_status": "NOT_REVIEWED",
       "establishment_type": "unverified",
       "place_address_candidates": [],
       "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
+      "review_note": "공식 거래 지점 미확인",
       "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
       "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "f3230b6808380884a235",
+        "7ffa5009abbe0d449cd6",
+        "c5f0f97219121c4fff07"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
     },
     {
-      "rank": 28,
+      "rank": 46,
       "merchant": "㈜에치와이",
       "source_visits": 2,
       "source_months": 1,
@@ -525,7 +933,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 29,
+      "rank": 47,
       "merchant": "주문진횟집",
       "source_visits": 2,
       "source_months": 1,
@@ -543,7 +951,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 30,
+      "rank": 48,
       "merchant": "미므",
       "source_visits": 1,
       "source_months": 1,
@@ -561,7 +969,30 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 31,
+      "rank": 49,
+      "merchant": "마늘통닭손칼국수",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19.6,
+      "source_spend": 335000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "4db18774cb28f8c5dc75"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 50,
       "merchant": "짱도리식당",
       "source_visits": 1,
       "source_months": 1,
@@ -579,7 +1010,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 32,
+      "rank": 51,
       "merchant": "천하일미",
       "source_visits": 1,
       "source_months": 1,
@@ -597,7 +1028,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 33,
+      "rank": 52,
       "merchant": "롯데쇼핑㈜안산점(다솥맛집)",
       "source_visits": 1,
       "source_months": 1,
@@ -615,7 +1046,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 34,
+      "rank": 53,
       "merchant": "궁중삼계탕",
       "source_visits": 1,
       "source_months": 1,
@@ -633,25 +1064,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 35,
-      "merchant": "양심소 안산고잔점",
-      "source_visits": 1,
-      "source_months": 1,
-      "source_score": 19,
-      "source_spend": 146000,
-      "review_status": "NOT_REVIEWED",
-      "establishment_type": "unverified",
-      "place_address_candidates": [],
-      "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
-      "payment_branch_verified": false,
-      "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
-    },
-    {
-      "rank": 36,
+      "rank": 54,
       "merchant": "송호전복",
       "source_visits": 1,
       "source_months": 1,
@@ -669,7 +1082,99 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 37,
+      "rank": 55,
+      "merchant": "서브웨이 안산중앙",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19,
+      "source_spend": 144400,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "b69fa8bf7c995cf32c7c"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 56,
+      "merchant": "쉐프스라운지",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19,
+      "source_spend": 140000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "4f1abd9b47023a5a2f3f"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 57,
+      "merchant": "샐러드농장",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 19,
+      "source_spend": 137000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "e682413655755ee21cf9"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 58,
+      "merchant": "굿맘할매순대국 고잔점",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.9,
+      "source_spend": 134500,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "00cb3bd0b1f4e1aa9f59"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 59,
       "merchant": "경복궁안산점",
       "source_visits": 1,
       "source_months": 1,
@@ -687,7 +1192,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 38,
+      "rank": 60,
       "merchant": "바카",
       "source_visits": 1,
       "source_months": 1,
@@ -705,43 +1210,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 39,
-      "merchant": "THE376",
-      "source_visits": 1,
-      "source_months": 1,
-      "source_score": 18.8,
-      "source_spend": 101200,
-      "review_status": "NOT_REVIEWED",
-      "establishment_type": "unverified",
-      "place_address_candidates": [],
-      "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
-      "payment_branch_verified": false,
-      "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
-    },
-    {
-      "rank": 40,
-      "merchant": "스푼위에포크",
-      "source_visits": 1,
-      "source_months": 1,
-      "source_score": 18.8,
-      "source_spend": 98400,
-      "review_status": "NOT_REVIEWED",
-      "establishment_type": "unverified",
-      "place_address_candidates": [],
-      "evidence_urls": [],
-      "potential_aliases": [],
-      "review_note": "공식 원문 상호만 확보. 업체·지점 검증 전.",
-      "reviewed_at": null,
-      "payment_branch_verified": false,
-      "payment_branch_evidence": [],
-      "publish_as_verified_payment_location": false
-    },
-    {
-      "rank": 41,
+      "rank": 61,
       "merchant": "추억의서서갈비",
       "source_visits": 1,
       "source_months": 1,
@@ -759,7 +1228,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 42,
+      "rank": 62,
       "merchant": "푸르파파",
       "source_visits": 1,
       "source_months": 1,
@@ -777,7 +1246,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 43,
+      "rank": 63,
       "merchant": "라렌느",
       "source_visits": 1,
       "source_months": 1,
@@ -795,7 +1264,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 44,
+      "rank": 64,
       "merchant": "전국수",
       "source_visits": 1,
       "source_months": 1,
@@ -813,7 +1282,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 45,
+      "rank": 65,
       "merchant": "이천영양돌솥밥",
       "source_visits": 1,
       "source_months": 1,
@@ -831,7 +1300,30 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 46,
+      "rank": 66,
+      "merchant": "웅가네추어탕",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.7,
+      "source_spend": 72000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "cad997ecfc2a95e36b10"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 67,
       "merchant": "백합칼국수",
       "source_visits": 1,
       "source_months": 1,
@@ -849,7 +1341,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 47,
+      "rank": 68,
       "merchant": "김명자낙지마당",
       "source_visits": 1,
       "source_months": 1,
@@ -867,7 +1359,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 48,
+      "rank": 69,
       "merchant": "김제삼김치찌개",
       "source_visits": 1,
       "source_months": 1,
@@ -885,7 +1377,30 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 49,
+      "rank": 70,
+      "merchant": "황제상황버섯삼계탕",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.7,
+      "source_spend": 61000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "3d8b11b6a523004af140"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 71,
       "merchant": "목포뻘낙지",
       "source_visits": 1,
       "source_months": 1,
@@ -903,7 +1418,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 50,
+      "rank": 72,
       "merchant": "제이원",
       "source_visits": 1,
       "source_months": 1,
@@ -921,7 +1436,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 51,
+      "rank": 73,
       "merchant": "돈기부여",
       "source_visits": 1,
       "source_months": 1,
@@ -939,7 +1454,30 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 52,
+      "rank": 74,
+      "merchant": "열려문횟집",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.7,
+      "source_spend": 51000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "6cdfb2e582707908dc78"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 75,
       "merchant": "로이드페스츄리",
       "source_visits": 1,
       "source_months": 1,
@@ -957,7 +1495,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 53,
+      "rank": 76,
       "merchant": "코알라집",
       "source_visits": 1,
       "source_months": 1,
@@ -975,7 +1513,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 54,
+      "rank": 77,
       "merchant": "아르떼 빈",
       "source_visits": 1,
       "source_months": 1,
@@ -993,7 +1531,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 55,
+      "rank": 78,
       "merchant": "김흥관힘센낙지마당",
       "source_visits": 1,
       "source_months": 1,
@@ -1011,7 +1549,7 @@
       "publish_as_verified_payment_location": false
     },
     {
-      "rank": 56,
+      "rank": 79,
       "merchant": "파스타픽 성포점",
       "source_visits": 1,
       "source_months": 1,
@@ -1027,15 +1565,116 @@
       "payment_branch_verified": false,
       "payment_branch_evidence": [],
       "publish_as_verified_payment_location": false
+    },
+    {
+      "rank": 80,
+      "merchant": "육회장",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.6,
+      "source_spend": 35000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "f11a021e1cae6cef4773"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 81,
+      "merchant": "신촌설렁탕",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.6,
+      "source_spend": 30000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "e50a65248130dfad325f"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 82,
+      "merchant": "백년교동짬뽕",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.6,
+      "source_spend": 25000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "c663e81e797ad66660d0"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
+    },
+    {
+      "rank": 83,
+      "merchant": "엘라임",
+      "source_visits": 1,
+      "source_months": 1,
+      "source_score": 18.6,
+      "source_spend": 15000,
+      "review_status": "NOT_REVIEWED",
+      "establishment_type": "unverified",
+      "place_address_candidates": [],
+      "evidence_urls": [],
+      "review_note": "공식 거래 지점 미확인",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": [],
+      "reviewed_at": null,
+      "candidate_source_row_ids": [
+        "1559daf0c95ec20f50c0"
+      ],
+      "candidate_source_attachment_urls": [
+        "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1676503&file_id=1783167642462S00KNWG19NORFEV1586KYLITH"
+      ]
     }
   ],
   "summary": {
-    "total": 56,
+    "total": 83,
     "status_counts": {
+      "NOT_REVIEWED": 79,
       "AMBIGUOUS_NAME_NO_BRANCH": 3,
-      "VENUE_FOUND_PAYMENT_UNVERIFIED": 1,
-      "NOT_REVIEWED": 52
+      "VENUE_FOUND_PAYMENT_UNVERIFIED": 1
     },
     "verified_payment_branches": 0
+  },
+  "candidate_snapshot_sync": {
+    "scope": "candidate inventory alignment only; no new venue/address/payment-branch validation",
+    "raw_data_generated_at": "2026-10-27T09:30:45",
+    "original_review_date": "2026-10-22",
+    "previous_inventory": 56,
+    "new_unreviewed_candidates": 27,
+    "current_inventory": 83,
+    "source_file": "data/raw/ansan_expense.json"
   }
 }
