@@ -1,18 +1,19 @@
 {
   "schema_version": 1,
-  "scope": "official council transaction files available as of 2026-10-22",
+  "scope": "official council transactions in current committed raw ledgers; identity review status independently scoped",
   "methodology": "Check parsed original public-expense rows, not inferred geocodes or directory restaurant addresses.",
   "sources": [
     {
       "source": "icheon",
-      "official_transactions": 141,
+      "official_transactions": 186,
       "transactions_with_business_address": 0,
       "transactions_with_merchant_identifier": 0,
-      "transactions_without_branch_evidence": 141,
-      "candidate_merchants": 77,
+      "transactions_without_branch_evidence": 186,
+      "candidate_merchants": 90,
       "reviewed_merchants": 8,
-      "source_files": 6,
+      "source_files": 8,
       "official_document_urls": [
+        "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5976&pg=vv",
         "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv"
@@ -20,9 +21,16 @@
       "priority_merchants": [
         {
           "merchant": "야반",
-          "matching_source_transactions": 6,
+          "matching_source_transactions": 7,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
+            {
+              "row_id": "0bb5d349d21cc8d6eda7",
+              "date": "2026-06-29",
+              "amount": 102000,
+              "official_post_url": "https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5927&pg=vv",
+              "official_attachment_url": "https://council.icheon.go.kr/gtb_download.php?fid=4769&gtid=chujin"
+            },
             {
               "row_id": "1c34e73b5860821fa6f8",
               "date": "2026-08-10",
@@ -516,12 +524,12 @@
     }
   ],
   "totals": {
-    "transactions": 1123,
+    "transactions": 1168,
     "with_merchant_address": 0,
     "with_merchant_identifier": 0,
-    "candidate_merchants": 222,
+    "candidate_merchants": 235,
     "reviewed_merchants": 15,
-    "priority_transactions": 57,
+    "priority_transactions": 58,
     "confirmed_payment_branches": 0
   },
   "not_a_payment_branch_proof": [
