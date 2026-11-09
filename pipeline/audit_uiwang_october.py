@@ -176,6 +176,8 @@ def main():
         "failures": report["failures"], "publish": False,
         "report": str(out / "audit.json")
     }, ensure_ascii=False), flush=True)
+    if report["status"] != "READY_FOR_CLASSIFICATION":
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":
