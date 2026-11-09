@@ -814,7 +814,8 @@ def normalize_sheet(rows, sheet_name, source_meta):
         return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
         return normalize_icheon_pdf_rows(rows, sheet_name, source_meta)
-    uiwang_pdf = source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-")
+    uiwang_pdf = (source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-")
+                  and "의회운영업무추진비" in source_meta.get("attachment_name", ""))
     found = find_uiwang_pdf_header(rows) if uiwang_pdf else find_header(rows)
     if not found:
         suspected = [i + 1 for i, row in enumerate(rows)
