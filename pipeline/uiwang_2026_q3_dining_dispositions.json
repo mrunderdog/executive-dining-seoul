@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "source": "uiwang",
+  "window": "2026-07..2026-09",
+  "basis": "Verified public Uiwang Council source file and SHA-pinned candidate row_id",
+  "policy": "Immutable expense source; apply only to recommendation staging. Never drop, split, or alter financial records.",
+  "dispositions": [
+    {
+      "row_id": "7c3ddb7d79516b7c4c28",
+      "merchant": "GS25 의왕퍼스트힐점",
+      "amount_krw": 464000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "상품·격려 물품 구입"
+    },
+    {
+      "row_id": "81c9bc299496eb999b9c",
+      "merchant": "GS25 의왕퍼스트힐점",
+      "amount_krw": 232000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "상품·격려 물품 구입"
+    },
+    {
+      "row_id": "bdf7354e27ac5d2428f4",
+      "merchant": "백운인쇄기획사",
+      "amount_krw": 165000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "명함 제작"
+    },
+    {
+      "row_id": "f57a8886732c87db015a",
+      "merchant": "쿠팡",
+      "amount_krw": 341730,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 다과류 구입, 식당 방문 근거 없음"
+    },
+    {
+      "row_id": "f38d2c2e52e4c329737a",
+      "merchant": "건강누리의왕시립노인요양원",
+      "amount_krw": 700000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "복지시설 위문품 구입"
+    },
+    {
+      "row_id": "bb2732c8bc6e91c85533",
+      "merchant": "쿠팡",
+      "amount_krw": 28950,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 다과류 구입, 식당 방문 근거 없음"
+    },
+    {
+      "row_id": "e3e9aec6c3e57de87283",
+      "merchant": "백운인쇄기획사",
+      "amount_krw": 275000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "명함 제작"
+    },
+    {
+      "row_id": "5d1f62557d3c22cceb03",
+      "merchant": "쿠팡",
+      "amount_krw": 398360,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 물품·다과 구입"
+    },
+    {
+      "row_id": "c4e121e63121a52133bd",
+      "merchant": "고천화원",
+      "amount_krw": 100000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "축하 화분 구입"
+    },
+    {
+      "row_id": "fbb9fe47079f966b4ca2",
+      "merchant": "백운인쇄기획사",
+      "amount_krw": 396000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "명함 제작"
+    },
+    {
+      "row_id": "cb73c707efa54ae13d48",
+      "merchant": "쿠팡",
+      "amount_krw": 472520,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 다과류 구입"
+    },
+    {
+      "row_id": "613a35cd52df9beff0fb",
+      "merchant": "쿠팡",
+      "amount_krw": 105160,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 다과류 구입"
+    },
+    {
+      "row_id": "3aa6d6659643d8da8b56",
+      "merchant": "쿠팡",
+      "amount_krw": 287510,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "통신판매 다과류 구입"
+    },
+    {
+      "row_id": "d7082108b348487a690d",
+      "merchant": "황금코다리, 손커피연구소",
+      "amount_krw": 287900,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "복수 가맹점 1건 합산액: 식당별 금액 배분 근거 없음"
+    },
+    {
+      "row_id": "e4da6583021e7effa875",
+      "merchant": "해물왕찜탕, 메가엠지씨커피 의왕오전점",
+      "amount_krw": 271000,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "복수 가맹점 1건 합산액: 식당별 금액 배분 근거 없음"
+    },
+    {
+      "row_id": "3795bc8226d430bdd11d",
+      "merchant": "배드해빗 의왕점, 해마루",
+      "amount_krw": 80500,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "복수 가맹점 1건 합산액: 식당별 금액 배분 근거 없음"
+    },
+    {
+      "row_id": "ae8a294f81e724383571",
+      "merchant": "상상드림카페3, 메가엠지씨",
+      "amount_krw": 95000,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "복수 가맹점 1건 합산액: 식당별 금액 배분 근거 없음"
+    }
+  ]
+}
