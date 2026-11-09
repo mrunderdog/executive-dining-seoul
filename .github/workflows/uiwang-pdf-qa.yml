@@ -12,6 +12,8 @@ on:
       - 'pipeline/uiwang_2026_q3_dining_dispositions.json'
       - 'pipeline/audit_uiwang_october.py'
       - 'pipeline/uiwang_official_2026_10_evidence.json'
+      - 'pipeline/audit_uiwang_integrated.py'
+      - 'pipeline/uiwang_2026_10_dining_dispositions.json'
       - '.github/workflows/uiwang-pdf-qa.yml'
   workflow_dispatch:
 
@@ -76,5 +78,33 @@ jobs:
         with:
           name: uiwang-october-official-audit
           path: reports/recovery/uiwang-october/
+          if-no-files-found: warn
+          retention-days: 14
+  integrated-release-review:
+    runs-on: ubuntu-latest
+    needs: [official-pdf-replay-audit, october-source-audit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download staged Q3 official replay
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - name: Download staged October official audit
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
+      - name: Run strict integrated source QA and zero-loss guard
+        run: PYTHONPATH=pipeline python pipeline/audit_uiwang_integrated.py
+      - name: Upload integrated release review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated/
           if-no-files-found: warn
           retention-days: 14
