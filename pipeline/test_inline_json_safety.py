@@ -13,12 +13,12 @@ class InlineJsonSafetyTests(unittest.TestCase):
         self.assertNotIn("<", output)
         self.assertNotIn(">", output)
         self.assertNotIn("&", output)
-        self.assertIn(r"\\u003c/script\\u003e", output)
+        self.assertIn(r"\u003c/script\\u003e", output)
 
     def test_line_separators_remain_valid_escaped_json(self):
         output = inline_json({"text": "a\u2028b\u2029c"})
-        self.assertIn(r"\\u2028", output)
-        self.assertIn(r"\\u2029", output)
+        self.assertIn(r"\u2028", output)
+        self.assertIn(r"\u2029", output)
         self.assertNotIn("\u2028", output)
         self.assertNotIn("\u2029", output)
 
