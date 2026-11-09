@@ -85,7 +85,7 @@ class ReprocessTests(unittest.TestCase):
         from ingest_council_expense import normalize_sheet
         meta = {"source": "uiwang", "region": "경기", "jurisdiction": "의왕시",
                 "institution": "의왕시의회", "post_url": POST,
-                "attachment_url": URL, "attachment_name": "8월", "period": PERIOD}
+                "attachment_url": URL, "attachment_name": BASE["files"][0]["name"], "period": PERIOD}
         parsed, _ = normalize_sheet([HEADER, ROW], "pdf-page-1", meta)
         same["rows"].append(parsed[0])
         result, rows = self.run_replay(base=same)
