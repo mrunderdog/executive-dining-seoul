@@ -65,6 +65,12 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             for sheet in item.get("sheets",[])
         ):
             failures.append("official_gapyeong_pdf_unparsed_transaction_rows")
+        if source == "uiwang" and any(
+            sheet.get("status") == "ROW_PARSE_GAPS" or
+            (sheet.get("unparsed_transaction_like_rows") or 0) > 0
+            for sheet in item.get("sheets", [])
+        ):
+            failures.append("official_uiwang_pdf_unparsed_transaction_rows")
     if data.get("source") != source:
         failures.append("source_mismatch")
     if source == "gimpo":
