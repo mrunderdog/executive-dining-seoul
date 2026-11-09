@@ -57,6 +57,17 @@ def inject_maplibre(html: str) -> str:
     return html.replace(marker, replacement)
 
 
+def inline_json(value):
+    """Serialize JSON safely inside an HTML <script> JavaScript expression."""
+    encoded = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+    # HTML parsing ends script elements even inside JavaScript string literals.
+    return (encoded.replace("&", "\\u0026")
+                   .replace("<", "\\u003c")
+                   .replace(">", "\\u003e")
+                   .replace("\u2028", "\\u2028")
+                   .replace("\u2029", "\\u2029"))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--output", default=str(ROOT / "index.html"))
@@ -155,10 +166,10 @@ def main():
     built_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     story = build_data_story(records, quality_doc, built_at)
     html = inject_maplibre(TEMPLATE.read_text(encoding="utf-8"))
-    html = html.replace("__DATA__", json.dumps(records, ensure_ascii=False, separators=(",", ":")))
-    html = html.replace("__STATS__", json.dumps(stats, ensure_ascii=False, separators=(",", ":")))
-    html = html.replace("__ORIGINS__", json.dumps(origins, ensure_ascii=False, separators=(",", ":")))
-    html = html.replace("__STORY__", json.dumps(story, ensure_ascii=False, separators=(",", ":")))
+    html = html.replace("__DATA__", inline_json(records))
+    html = html.replace("__STATS__", inline_json(stats))
+    html = html.replace("__ORIGINS__", inline_json(origins))
+    html = html.replace("__STORY__", inline_json(story))
     if "__STORY__" in html:
         raise RuntimeError("Story data placeholder was not replaced")
 
