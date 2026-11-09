@@ -298,6 +298,68 @@ def classify_review_flags(rows):
     return out
 
 
+
+def apply_dining_dispositions(rows, policy):
+    """Apply explicitly reviewed recommendations rules without mutating raw rows.
+
+    All raw transaction candidates remain immutable. An unlisted/ambiguous
+    source row may be staged for review, but never receives an inferred share
+    of another merchant's amount.
+    """
+    by_id = {r["row_id"]: r for r in rows}
+    decisions = policy.get("dispositions") or []
+    issues = []
+    if len(by_id) != len(rows):
+        issues.append("duplicate_source_row_id")
+    seen = set()
+    resolved = []
+    for d in decisions:
+        rid = d.get("row_id")
+        if rid in seen:
+            issues.append("duplicate_dining_disposition")
+            continue
+        seen.add(rid)
+        raw = by_id.get(rid)
+        if raw is None:
+            issues.append("disposition_not_in_replay")
+            continue
+        if raw.get("merchant") != d.get("merchant") or raw.get("amount") != d.get("amount_krw"):
+            issues.append("disposition_source_content_mismatch")
+            continue
+        disposition = d.get("disposition")
+        if disposition not in {"EXCLUDE_RECOMMENDATION", "HOLD_SHARED_AMOUNT"}:
+            issues.append("unknown_dining_disposition")
+            continue
+        if disposition == "HOLD_SHARED_AMOUNT" and not (
+            "," in raw.get("merchant", "") or "，" in raw.get("merchant", "")
+        ):
+            issues.append("shared_amount_not_evident_in_merchant")
+            continue
+        resolved.append({**d, "source_period": raw.get("source_period"),
+                         "source_sheet": raw.get("source_sheet"),
+                         "source_row": raw.get("source_row")})
+    flagged = classify_review_flags(rows)
+    if {r["row_id"] for r in flagged} != seen:
+        issues.append("unresolved_or_stale_dining_flags")
+    if len(decisions) != 17 or sum(d["disposition"] == "HOLD_SHARED_AMOUNT" for d in decisions) != 4:
+        issues.append("unexpected_dining_disposition_coverage")
+    excluded = {d["row_id"] for d in resolved}
+    eligible = [r for r in rows if r["row_id"] not in excluded]
+    if len(eligible) + len(excluded) != len(rows):
+        issues.append("dining_partition_mismatch")
+    return {
+        "status": "PASS" if not issues else "HOLD",
+        "source_rows": len(rows),
+        "excluded_non_dining": sum(d["disposition"] == "EXCLUDE_RECOMMENDATION" for d in resolved),
+        "held_multi_merchant": sum(d["disposition"] == "HOLD_SHARED_AMOUNT" for d in resolved),
+        "remaining_candidate_rows": len(eligible),
+        "disposition_rows": resolved,
+        "remaining_candidates": eligible,
+        "failures": sorted(set(issues)),
+        "publish": False,
+    }
+
+
 def output_path(path):
     out = Path(path).resolve()
     sandbox = (ROOT / "reports" / "recovery").resolve()
@@ -327,6 +389,16 @@ def main():
     report["independent_official_evidence"] = independent
     report["dining_review_flags"] = classify_review_flags(rows)
     report["dining_review_flag_count"] = len(report["dining_review_flags"])
+    policy_path = ROOT / "pipeline" / "uiwang_2026_q3_dining_dispositions.json"
+    policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    reviewed = apply_dining_dispositions(rows, policy)
+    report["dining_disposition_audit"] = {
+        k: v for k, v in reviewed.items() if k not in {"remaining_candidates", "disposition_rows"}
+    }
+    report["dining_disposition_audit"]["disposition_rows"] = reviewed["disposition_rows"]
+    if reviewed["status"] != "PASS":
+        report["status"] = "HOLD"
+        report["failures"] = sorted(set(report["failures"] + reviewed["failures"]))
     if independent["status"] != "PASS":
         report["status"] = "HOLD"
         report["failures"] = sorted(set(report["failures"] + independent["failures"]))
@@ -336,6 +408,9 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out_dir / "candidate_rows.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (out_dir / "recommendation_candidates.json").write_text(
+        json.dumps(reviewed["remaining_candidates"], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
     print(json.dumps({
         "source": args.source, "status": report["status"],
         "selected_failed_files": report["selected_failed_files"],
