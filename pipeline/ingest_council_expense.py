@@ -770,14 +770,59 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                  "unparsed_transaction_like_rows": len(failed),
                  "unparsed_examples": failed[:12]}
 
+def find_uiwang_pdf_header(rows):
+    """Map only the observed Uiwang council leadership-PDF columns.
+
+    The printed header is: 일시/일자 | 집행내역 | 금 액 | 지출처 | 비 고.
+    pypdf may split the internal space in 금 액 and 비 고 into two
+    extracted cells; combine only those *header* fragments, never values.
+    """
+    for hi, row in enumerate(rows[:40]):
+        tokens = [norm_header(x) for x in row]
+        if not any(x in {"일시", "일자"} for x in tokens):
+            continue
+        if "집행내역" not in tokens or "지출처" not in tokens:
+            continue
+        joined = []
+        i = 0
+        while i < len(tokens):
+            if i + 1 < len(tokens) and (tokens[i], tokens[i + 1]) in {("금", "액"), ("비", "고")}:
+                joined.append(tokens[i] + tokens[i + 1])
+                i += 2
+            else:
+                joined.append(tokens[i])
+                i += 1
+        replacements = {"일시":"집행일시", "일자":"집행일자",
+                        "집행내역":"집행목적", "금액":"집행액", "지출처":"사용처"}
+        header = [replacements.get(x, x) for x in joined]
+        mapping = map_columns(header)
+        required = ("date", "purpose", "amount", "merchant")
+        if (all(field in mapping for field in required)
+            and len({mapping[field] for field in required}) == 4):
+            return 8, hi, set(required), header, 1
+    return None
+
+
+def uiwang_pdf_transaction_like(row):
+    """Find printed dated transactions, including malformed rows that must HOLD."""
+    first = clean_text(row[0]) if row else ""
+    return bool(re.match(r"^\\s*20\\d{2}\\s*[.\\-/]\\s*\\d{1,2}\\s*[.\\-/]\\s*\\d{1,2}(?:[.\\s]|$)", first))
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
         return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
         return normalize_icheon_pdf_rows(rows, sheet_name, source_meta)
-    found = find_header(rows)
+    uiwang_pdf = source_meta.get("source") == "uiwang" and sheet_name.startswith("pdf-page-")
+    found = find_uiwang_pdf_header(rows) if uiwang_pdf else find_header(rows)
     if not found:
-        return [], {"sheet": sheet_name, "status": "NO_HEADER", "rows": len(rows)}
+        suspected = [i + 1 for i, row in enumerate(rows)
+                     if uiwang_pdf and uiwang_pdf_transaction_like(row)]
+        return [], {"sheet": sheet_name,
+                    "status": "ROW_PARSE_GAPS" if suspected else "NO_HEADER",
+                    "rows": len(rows), "unparsed_transaction_like_rows": len(suspected),
+                    "unparsed_source_rows": suspected[:20]}
     score, hi, matched, header_row, header_span = found
     mapping = map_columns(header_row)
     if source_meta.get("source") == "gimpo" and "purpose" not in mapping:
@@ -894,6 +939,11 @@ def normalize_sheet(rows, sheet_name, source_meta):
         if structural_date or (any(k in joined for k in ("합계", "총계", "누계")) and not used_date):
             continue
         purpose = clean_text(cell(row, mapping, "purpose"))
+        uiwang_note = ""
+        if uiwang_pdf:
+            note_idx = next((i for i, h in enumerate(header_row) if norm_header(h) == "비고"), None)
+            if note_idx is not None and note_idx < len(row):
+                uiwang_note = clean_text(row[note_idx])
         raw = {
             "region": source_meta["region"],
             "jurisdiction": source_meta["jurisdiction"],
@@ -908,16 +958,22 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "used_date": used_date,
             "date_inferred_from_previous_row": date_inferred,
             "used_time": clean_text(cell(row, mapping, "time")),
-            "role": resolve_role(
-                cell(row, mapping, "role"),
-                sheet_name,
-                section_role or source_meta.get("default_role"),
-                purpose=purpose,
+            "role": (
+                (infer_leadership_role(uiwang_note)
+                 or ("의원" if re.search(r"(?:^|\\s)[가-힣]{2,4}\\s*의원(?:\\s|등|$)", uiwang_note) else "")
+                 or infer_leadership_role(section_role or source_meta.get("default_role") or ""))
+                if uiwang_pdf else
+                resolve_role(
+                    cell(row, mapping, "role"),
+                    sheet_name,
+                    section_role or source_meta.get("default_role"),
+                    purpose=purpose,
+                )
             ),
             "merchant": merchant,
             "address": clean_text(cell(row, mapping, "address")),
             "purpose": purpose,
-            "people": parse_people(cell(row, mapping, "people")),
+            "people": parse_people(uiwang_note) if uiwang_pdf else parse_people(cell(row, mapping, "people")),
             "amount": amount,
             "amount_inferred_from_row": amount_inferred,
             "payment_method": clean_text(cell(row, mapping, "method")),
@@ -932,6 +988,15 @@ def normalize_sheet(rows, sheet_name, source_meta):
         ).hexdigest()[:20]
         out.append(raw)
     info = {"sheet": sheet_name, "status": "OK", "header_row": hi + 1, "header_span": header_span, "header_score": score, "matched": sorted(matched), "mapping": mapping, "section_role": section_role, "parsed_rows": len(out)}
+    if uiwang_pdf:
+        parsed_source_rows = {record["source_row"] for record in out}
+        missed = [ri for ri, row in enumerate(rows[hi + header_span:], start=hi + header_span + 1)
+                  if uiwang_pdf_transaction_like(row) and ri not in parsed_source_rows]
+        info["unparsed_transaction_like_rows"] = len(missed)
+        info["unparsed_source_rows"] = missed[:20]
+        info["parser"] = "uiwang_pdf_printed_columns_v1"
+        if missed:
+            info["status"] = "ROW_PARSE_GAPS"
     if source_meta.get("source") == "ansan":
         info["structural_non_transaction_rows"] = structural_layout_rows
         info["structural_non_transaction_count"] = len(structural_layout_rows)
