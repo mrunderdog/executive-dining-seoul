@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source": "uiwang",
+  "period": "2026-10",
+  "status": "SOURCE_DISCOVERED_NOT_INGESTED",
+  "official_post": "https://council.uiwang.go.kr/kr/Information/bbsCost.do?reform=view&key=367aaf5b6d6ad18df26b49e9382e32d2840dac016bffdf3ad14d66252134bcca00c56ff539519deb&pageNum=1&flag=all&keyword=",
+  "published_on": "2026-11-02",
+  "items": [
+    {
+      "category": "council_operations",
+      "name": "10월 의회운영업무추진비 사용내역_의왕시의회.pdf",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=b805cb4fbdf4a25949bc210f74b6d10d4fb81a4474dfd2054d3d02c28f5eb4221a248d44b89fa66f",
+      "official_transaction_count": 70,
+      "official_total_krw": 11381430,
+      "official_section_totals_krw": [
+        2257210,
+        1579600,
+        262500,
+        259200,
+        6802920,
+        220000
+      ],
+      "date_amount_fnv1a32": "80f743db",
+      "known_date_anomalies": [
+        {
+          "printed": "2026. 10 6. 12:39",
+          "printed_amount_krw": 30000,
+          "merchant": "가온길순두부",
+          "note": "Missing dot after month in official date text; must not silently omit"
+        }
+      ]
+    },
+    {
+      "category": "secretariat",
+      "name": "10월 시책추진업무추진비 사용내역_의회사무과.pdf",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=e44a83906bd6689f9cb01073d64881935268360dbed36ec8dab5eea50256f03dde7ff5cf622f3d29",
+      "official_transaction_count": 4,
+      "official_total_krw": 389000,
+      "official_section_totals_krw": [
+        178000,
+        211000
+      ],
+      "date_amount_fnv1a32": "e06cbb00"
+    }
+  ],
+  "acceptance": "HOLD until both official files are freshly SHA-verified, pypdf pages parsed without gaps, 74 dated transactions and 11770430 KRW reconciled, first-publication strict QA and zero-loss integrity pass.",
+  "publish": false
+}
