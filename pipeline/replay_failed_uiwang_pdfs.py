@@ -234,6 +234,70 @@ def replay(source, baseline, discovery, since, until, *, download=fetch_binary,
     return report, candidate
 
 
+
+def fnv1a_date_amount(rows):
+    """Fingerprint sorted independently observed transaction dates and amounts."""
+    keys = sorted(f'{r["used_date"]}|{int(r["amount"])}' for r in rows)
+    h = 0x811c9dc5
+    for character in "\n".join(keys):
+        h = ((h ^ ord(character)) * 0x01000193) & 0xffffffff
+    return f"{h:08x}"
+
+
+def independent_source_evidence_check(candidate_rows, evidence):
+    """Cross-check candidate date/amount records against the official source ledger."""
+    issues, per_period = [], []
+    for item in evidence.get("files", []):
+        month = item["period"]
+        selected = [r for r in candidate_rows if period_key(r.get("source_period")) == month]
+        amount_total = sum(int(r["amount"]) for r in selected)
+        fp = fnv1a_date_amount(selected)
+        printed_sections = sum(item.get("printed_section_totals_krw", []))
+        matched = (len(selected) == item["transaction_count"]
+                   and amount_total == item["transaction_total_krw"]
+                   and amount_total == printed_sections
+                   and fp == item["transaction_date_amount_fnv1a32"])
+        if not matched:
+            issues.append("official_source_date_amount_or_subtotal_mismatch:" + month)
+        per_period.append({"period": month, "rows": len(selected),
+                           "amount_krw": amount_total,
+                           "date_amount_fingerprint": fp,
+                           "expected_rows": item["transaction_count"],
+                           "expected_amount_krw": item["transaction_total_krw"],
+                           "expected_fingerprint": item["transaction_date_amount_fnv1a32"],
+                           "matched": matched})
+    candidate_periods = {period_key(row.get("source_period")) for row in candidate_rows}
+    official_periods = {f["period"] for f in evidence.get("files", [])}
+    if candidate_periods != official_periods:
+        issues.append("official_source_period_coverage_mismatch")
+    if len(evidence.get("files", [])) != 3:
+        issues.append("incomplete_official_source_evidence")
+    return {"status": "PASS" if not issues else "HOLD",
+            "months": per_period, "failures": issues}
+
+
+def classify_review_flags(rows):
+    """Report unresolved dining/recommendation cases without allocating shared amounts."""
+    out = []
+    for r in rows:
+        merchant = str(r.get("merchant") or "")
+        purpose = str(r.get("purpose") or "")
+        flags = []
+        if "," in merchant or "，" in merchant:
+            flags.append("MULTI_MERCHANT_SHARED_AMOUNT")
+        if any(token in merchant for token in ("쿠팡", "백운인쇄기획사", "GS25", "고천화원", "요양원")):
+            flags.append("NON_DINING_MERCHANT_REVIEW")
+        if any(token in purpose for token in ("명함 제작", "화분 구입", "위문품 구입", "격려 물품 구입")):
+            if "NON_DINING_MERCHANT_REVIEW" not in flags:
+                flags.append("NON_DINING_PURPOSE_REVIEW")
+        if flags:
+            out.append({"row_id": r["row_id"], "source_period": r.get("source_period"),
+                        "source_sheet": r.get("source_sheet"), "source_row": r.get("source_row"),
+                        "date": r.get("used_date"), "merchant": merchant,
+                        "amount_krw": r.get("amount"), "flags": flags})
+    return out
+
+
 def output_path(path):
     out = Path(path).resolve()
     sandbox = (ROOT / "reports" / "recovery").resolve()
@@ -257,6 +321,15 @@ def main():
     baseline = json.loads(baseline_bytes)
     discovery = json.loads(discovery_path.read_text(encoding="utf-8"))
     report, rows = replay(args.source, baseline, discovery, args.since, args.until)
+    evidence_path = ROOT / "pipeline" / "uiwang_official_2026_q3_evidence.json"
+    evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+    independent = independent_source_evidence_check(rows, evidence)
+    report["independent_official_evidence"] = independent
+    report["dining_review_flags"] = classify_review_flags(rows)
+    report["dining_review_flag_count"] = len(report["dining_review_flags"])
+    if independent["status"] != "PASS":
+        report["status"] = "HOLD"
+        report["failures"] = sorted(set(report["failures"] + independent["failures"]))
     report["baseline_json_sha256"] = hashlib.sha256(baseline_bytes).hexdigest()
     if raw_path.read_bytes() != baseline_bytes:
         raise RuntimeError("raw baseline changed during read-only replay")
