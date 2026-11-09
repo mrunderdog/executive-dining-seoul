@@ -17,7 +17,7 @@ from ingest_council_expense import (
     infer_leadership_role, clean_text
 )
 from qa_council_publication import assess_incremental
-from replay_failed_uiwang_pdfs import fnv1a_date_amount, classify_review_flags
+from replay_failed_uiwang_pdfs import fnv1a_date_amount, classify_review_flags, apply_dining_dispositions
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "pipeline/uiwang_official_2026_10_evidence.json"
@@ -137,6 +137,11 @@ def audit_october(baseline, discovery, evidence, *, download=fetch_binary, read_
         failures += qa["failures"] or ["october_strict_qa_not_ready"]
 
     flags = classify_review_flags(candidates)
+    policy_path = ROOT / "pipeline/uiwang_2026_10_dining_dispositions.json"
+    policy = json.loads(policy_path.read_text(encoding="utf-8"))
+    dining = apply_dining_dispositions(candidates, policy)
+    if dining["status"] != "PASS":
+        failures += dining["failures"] or ["october_dining_disposition_qa_hold"]
     # DO NOT mark published/recommendable even if financial QA passes:
     # October dining classification and complete discovery remain separate gates.
     report = {
@@ -148,6 +153,9 @@ def audit_october(baseline, discovery, evidence, *, download=fetch_binary, read_
         "candidate_total_krw": sum(int(r.get("amount") or 0) for r in candidates),
         "file_results": per_file, "strict_qa": qa, "integrity": integrity,
         "dining_review_flags": flags,
+        "dining_disposition_audit": {
+            k: v for k, v in dining.items() if k not in {"remaining_candidates", "disposition_rows"}
+        },
         "status": "READY_FOR_CLASSIFICATION" if not failures else "HOLD",
         "failures": sorted(set(failures)),
         "publish": False,
@@ -170,6 +178,11 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     (out / "audit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (out / "candidate_rows.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    policy = json.loads((ROOT / "pipeline/uiwang_2026_10_dining_dispositions.json").read_text(encoding="utf-8"))
+    reviewed = apply_dining_dispositions(rows, policy)
+    (out / "recommendation_candidates.json").write_text(
+        json.dumps(reviewed["remaining_candidates"], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
     print(json.dumps({
         "status": report["status"], "candidate_rows": report["candidate_rows"],
         "total_krw": report["candidate_total_krw"],
