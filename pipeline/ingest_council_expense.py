@@ -259,8 +259,10 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
                 # The board HTML can load with curl on GitHub runners even
                 # while urllib's TLS ClientHello is rejected. The same
                 # verified-HTTPS fallback is needed for the *file* route.
-                if (urllib.parse.urlsplit(url).hostname != "council.icheon.go.kr"
-                    or "handshake failure" not in str(exc).lower()):
+                if (urllib.parse.urlsplit(url).hostname not in {"council.icheon.go.kr", "council.uiwang.go.kr"}
+                    or ("handshake failure" not in str(exc).lower()
+                        and "temporary failure in name resolution" not in str(exc).lower()
+                        and "name or service not known" not in str(exc).lower())):
                     raise
                 blob = curl_verified_bytes(url, referer)
                 ctype = ""
