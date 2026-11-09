@@ -6,6 +6,8 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/test_uiwang_pdf.py'
+      - 'pipeline/replay_failed_uiwang_pdfs.py'
+      - 'pipeline/test_replay_failed_uiwang_pdfs.py'
       - '.github/workflows/uiwang-pdf-qa.yml'
   workflow_dispatch:
 
@@ -21,8 +23,10 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile modified parser files
-        run: python -m py_compile pipeline/ingest_council_expense.py pipeline/qa_council_publication.py pipeline/test_uiwang_pdf.py
+        run: python -m py_compile pipeline/ingest_council_expense.py pipeline/qa_council_publication.py pipeline/test_uiwang_pdf.py pipeline/replay_failed_uiwang_pdfs.py pipeline/test_replay_failed_uiwang_pdfs.py
       - name: Run official Uiwang fixtures
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_pdf.py
+      - name: Test immutable failed-PDF replay
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_replay_failed_uiwang_pdfs.py
       - name: Run unchanged full-reconciliation safeguards
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_full_reconciliation_p0.py
