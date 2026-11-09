@@ -1,0 +1,33 @@
+name: P1 Incheon August 31 cross-source lineage
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_incheon_aug31_artifacts.py'
+      - '.github/workflows/p1-incheon-aug31-cross-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  original-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v6
+      - name: Retrieve verified original source evidence
+        uses: actions/download-artifact@v4
+        with:
+          run-id: 41599059574
+          github-token: ${{ github.token }}
+          pattern: incheon-original-*
+          path: reports/recovery/incheon-aug31-artifacts
+          merge-multiple: false
+      - name: Verify SHA and compare all observed August 31 source rows
+        run: python pipeline/audit_incheon_aug31_artifacts.py --artifacts reports/recovery/incheon-aug31-artifacts --out reports/recovery/incheon-aug31-cross-source.json
+      - name: Preserve no-publication source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-aug31-cross-source
+          path: reports/recovery/incheon-aug31-cross-source.json
+          retention-days: 14
