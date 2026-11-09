@@ -5,6 +5,7 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/capital_backfill.py'
       - 'pipeline/test_council_recovery.py'
+      - 'pipeline/test_council_p1_adapters.py'
       - 'pipeline/test_full_reconciliation_p0.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
@@ -22,7 +23,36 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify safe attachment handling
-        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_council_p1_adapters test_review_scanned_yongin_pdf
+      - name: Verify Yongin live official row-to-PDF mapping without publication
+        shell: bash
+        run: |
+          mkdir -p reports/recovery
+          python pipeline/capital_backfill.py --since 2026-07 --until 2026-10 --source yongin > reports/recovery/yongin-discovery.log 2>&1
+          cat reports/recovery/yongin-discovery.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlsplit, parse_qs
+          d = json.loads(Path("reports/capital-backfill-discovery-yongin.json").read_text(encoding="utf-8"))
+          posts = [p for p in d.get("posts", []) if p.get("source") == "yongin" and p.get("post_url")]
+          assert posts, "no official Yongin posts"
+          for post in posts:
+              p = urlsplit(post["post_url"])
+              assert p.hostname == "council.yongin.go.kr" and p.path == "/kr/costBBSview.do", post
+              assert post.get("attachments"), f"unlinked post: {post['post_url']}"
+              for att in post["attachments"]:
+                  a = urlsplit(att["url"])
+                  q = parse_qs(a.query)
+                  assert a.hostname == "council.yongin.go.kr"
+                  assert a.path == "/kr/bbs/download.do" and q.get("bbs_id") == ["cost"], att
+          summary = {"source":"yongin", "status":"ROW_LINK_PASS",
+                     "official_posts":len(posts),
+                     "official_attachments":sum(len(x["attachments"]) for x in posts)}
+          Path("reports/recovery/yongin-row-link-check.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(summary, ensure_ascii=False))
+          PY
       - name: Capture real board click and download markup
         shell: bash
         run: |
@@ -57,6 +87,97 @@ jobs:
           done
       - name: Install parsers for real transaction QA
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Inspect source-exact Yongin September PDF structure (no OCR, no publication)
+        shell: bash
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import hashlib
+          import io
+          import json
+          from pathlib import Path
+          from pypdf import PdfReader
+          from ingest_council_expense import fetch_binary
+          source = json.loads(Path("reports/capital-backfill-discovery-yongin.json").read_text(encoding="utf-8"))
+          found = []
+          for post in source.get("posts", []):
+              if post.get("period") == [2026, 9, None]:
+                  for att in post.get("attachments", []):
+                      if "AD95CC294411DF73C7C3D6015DABBFBD" in att.get("url", ""):
+                          found.append((post, att))
+          assert len(found) == 1, "September official PDF must be uniquely tied to its post"
+          post, attachment = found[0]
+          blob = fetch_binary(attachment["url"], post["post_url"])
+          # Original public government disclosure, stored only as a short-lived
+          # CI diagnostic artifact; never committed or published to the site.
+          Path("reports/recovery/yongin-september-official.pdf").write_bytes(blob)
+          reader = PdfReader(io.BytesIO(blob))
+          page_details = []
+          for index, page in enumerate(reader.pages):
+              text = page.extract_text() or ""
+              resources = page.get("/Resources")
+              if resources is not None and hasattr(resources, "get_object"):
+                  resources = resources.get_object()
+              def child_count(name):
+                  obj = resources.get(name) if resources else None
+                  if obj is not None and hasattr(obj, "get_object"):
+                      obj = obj.get_object()
+                  return len(obj) if isinstance(obj, dict) else 0
+              fonts = child_count("/Font")
+              image_objects = child_count("/XObject")
+              page_details.append({"page":index+1, "extracted_characters":len(text),
+                                   "font_resources":fonts,
+                                   "xobject_resources":image_objects})
+          report = {"source":"yongin", "attachment_url":attachment["url"],
+                    "pdf_sha256":hashlib.sha256(blob).hexdigest(),
+                    "pdf_bytes":len(blob), "pages":len(reader.pages),
+                    "page_details":page_details,
+                    "policy":"diagnostic only; no OCR, no speculative rows, QA unchanged"}
+          Path("reports/recovery/yongin-september-pdf-layout.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
+      - name: Trial Yongin incremental ingest with immutable baseline and strict QA
+        shell: bash
+        run: |
+          mkdir -p reports/recovery
+          python pipeline/ingest_council_expense.py --source yongin --incremental > reports/recovery/yongin-ingest.log 2>&1
+          cat reports/recovery/yongin-ingest.log
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          current = json.loads(Path("data/raw/yongin_expense.json").read_text(encoding="utf-8"))
+          prior = json.loads(subprocess.check_output(
+              ["git", "show", "HEAD:data/raw/yongin_expense.json"], text=True))
+          old_errors = [json.dumps(e, ensure_ascii=False, sort_keys=True)
+                        for e in prior.get("errors", [])]
+          fresh_errors = [e for e in current.get("errors", [])
+                          if json.dumps(e, ensure_ascii=False, sort_keys=True) not in old_errors]
+          known_urls = {x.get("url") for x in prior.get("files", [])}
+          report = {
+              "source": "yongin",
+              "old_rows": len(prior.get("rows", [])),
+              "new_rows_total": len(current.get("rows", [])),
+              "old_files": len(prior.get("files", [])),
+              "new_files_total": len(current.get("files", [])),
+              "new_file_urls": [f.get("url") for f in current.get("files", [])
+                                if f.get("url") not in known_urls],
+              "new_attachment_errors": fresh_errors,
+          }
+          Path("reports/recovery/yongin-attachment-errors.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
+          if grep -q '"status": "NO_CHANGE"' reports/recovery/yongin-ingest.log; then
+            echo "Yongin: NO_CHANGE; existing official rows preserved"
+          else
+            python pipeline/repair_raw_dates.py --source yongin --min-valid 0.0 --preserve-baseline-ref HEAD
+            python pipeline/guard_full_council.py --source yongin --phase integrity --baseline-ref HEAD
+            PYTHONPATH=pipeline python pipeline/qa_council_publication.py --source yongin --baseline-ref HEAD \
+              > reports/recovery/yongin-strict-qa.json
+            cat reports/recovery/yongin-strict-qa.json
+          fi
+          # Ephemeral GitHub runner only. Do not git add, commit or publish.
       - name: Trial ingest each source into ephemeral runner only
         shell: bash
         run: |
@@ -84,7 +205,8 @@ jobs:
           done
           # Diagnostic only. Neither raw records nor public site are committed.
       - name: Inspect Icheon PDF table layout when ingestion is held
-        if: always()
+        if: success()
+        timeout-minutes: 3
         shell: bash
         run: |
           PYTHONPATH=pipeline python - <<'PY'
@@ -127,3 +249,77 @@ jobs:
           name: council-recovery-diagnostics
           path: reports/recovery/
           retention-days: 7
+
+
+  yongin-pdf-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install PDF structural reader
+        run: pip install --disable-pip-version-check pypdf==6.1.1
+      - name: Fetch SHA-verified official September PDF independent of listing outage
+        run: |
+          PYTHONPATH=pipeline python - <<'PY'
+          import io, json, hashlib
+          from pathlib import Path
+          from pypdf import PdfReader
+          from ingest_council_expense import fetch_binary
+          detail = ("https://council.yongin.go.kr/kr/costBBSview.do?"
+                    "uid=626E8C4F92753ABB8D09D821F736E64D")
+          url = ("https://council.yongin.go.kr/kr/bbs/download.do?"
+                 "bbs_id=cost&uid=AD95CC294411DF73C7C3D6015DABBFBD")
+          expected = "a43ce6736e8d42cc086c31ecaf935ce5146e550229b25e311e48580d83abe01c"
+          blob = fetch_binary(url, detail)
+          actual = hashlib.sha256(blob).hexdigest()
+          assert actual == expected, f"Official PDF changed! HOLD expected={expected} actual={actual}"
+          reader = PdfReader(io.BytesIO(blob))
+          pages = []
+          for n, p in enumerate(reader.pages, 1):
+              resources = p.get("/Resources")
+              if resources is not None and hasattr(resources, "get_object"):
+                  resources = resources.get_object()
+              def count(name):
+                  item = resources.get(name) if resources else None
+                  if item is not None and hasattr(item, "get_object"):
+                      item = item.get_object()
+                  return len(item) if isinstance(item, dict) else 0
+              pages.append({"page":n, "text_characters":len(p.extract_text() or ""),
+                            "fonts":count("/Font"), "xobjects":count("/XObject")})
+          out = Path("reports/recovery")
+          out.mkdir(parents=True, exist_ok=True)
+          (out/"yongin-september-official.pdf").write_bytes(blob)
+          summary = {"source":"yongin", "pdf_sha256":actual, "bytes":len(blob),
+                     "pages":pages, "status":"SOURCE_VERIFIED_NOT_PARSED"}
+          (out/"yongin-september-pdf-layout.json").write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf8")
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - name: Verify scanned source pinning regressions
+        run: PYTHONPATH=pipeline python -m unittest -v test_review_scanned_yongin_pdf
+      - name: Install Korean OCR for draft image review
+        if: success()
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng
+          pip install --disable-pip-version-check pymupdf==1.26.7 pytesseract==0.3.13 pillow
+      - name: Generate image-based review evidence only, never auto-publish
+        if: success()
+        run: |
+          python pipeline/review_scanned_yongin_pdf.py \
+            --pdf reports/recovery/yongin-september-official.pdf \
+            --outdir reports/recovery/yongin-september-ocr
+      - name: Upload read-only original PDF evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yongin-september-source-pdf
+          path: |
+            reports/recovery/yongin-september-official.pdf
+            reports/recovery/yongin-september-pdf-layout.json
+            reports/recovery/yongin-september-ocr/
+          retention-days: 5
+          if-no-files-found: warn

@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 
-from capital_backfill import SOURCES, discover_source, title_period, anchors, canonical_attachment_url
+from capital_backfill import SOURCES, discover_source, title_period, anchors, canonical_attachment_url, yongin_row_downloads
 
 class CouncilSourceP1Tests(unittest.TestCase):
     def test_trailing_quarter_with_early_year(self):
@@ -42,6 +42,51 @@ class CouncilSourceP1Tests(unittest.TestCase):
         self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=abc")))
         self.assertIsNone(canonical_attachment_url(url.replace("uid=62747","uid=62747&unknown=1")))
         self.assertIsNone(canonical_attachment_url(url.replace("reform=download","reform=delete")))
+
+
+    def test_yongin_row_local_pdf_is_bound_to_real_detail_post(self):
+        src = next(s for s in SOURCES if s.key == "yongin")
+        listing_url = src.listing_template.format(page=1)
+        first = "626E8C4F92753ABB8D09D821F736E64D"
+        second = "BB4BA3335ABF52BC132E9E86CD75533F"
+        pdf1 = "AD95CC294411DF73C7C3D6015DABBFBD"
+        pdf2 = "33E14A14637CAB838E42CE3A6E6E2D9A"
+        html = f"""<table>
+        <tr><td><a href="/kr/costBBSview.do?uid={first}&page=1">2026년 9월 업무추진비 공개</a></td>
+            <td><a href="/kr/bbs/download.do?bbs_id=cost&uid={pdf1}">2026년 9월 업무추진비.pdf</a></td></tr>
+        <tr><td><a href="/kr/costBBSview.do?uid={second}&page=1">2026년 8월 업무추진비 공개</a></td>
+            <td><a href="/kr/bbs/download.do?bbs_id=cost&uid={pdf2}">2026년 8월 업무추진비.pdf</a></td></tr>
+        </table>"""
+        def fetch(url):
+            if url == listing_url:
+                return html
+            if "/kr/costBBSview.do" in url:
+                raise AssertionError("listing-bound PDFs must not require detail fetch")
+            return "<table></table>"
+        with patch("capital_backfill.fetch_text", side_effect=fetch):
+            posts = discover_source(src, (2026, 8), (2026, 9))
+        good = [p for p in posts if p.get("post_url")]
+        self.assertEqual(len(good), 2, good)
+        self.assertTrue(all("costBBSview" in p["post_url"] for p in good))
+        self.assertEqual([len(p["attachments"]) for p in good], [1, 1])
+        self.assertIn(pdf1, good[0]["attachments"][0]["url"])
+        self.assertIn(pdf2, good[1]["attachments"][0]["url"])
+
+    def test_yongin_row_binding_does_not_cross_post_or_accept_fake_download(self):
+        base = "https://council.yongin.go.kr/kr/costBBS.do?flag=all&page=1"
+        first = "626E8C4F92753ABB8D09D821F736E64D"
+        second = "BB4BA3335ABF52BC132E9E86CD75533F"
+        pdf = "33E14A14637CAB838E42CE3A6E6E2D9A"
+        html = f"""<table>
+        <tr><td><a href="/kr/costBBSview.do?uid={first}">2026년 9월 업무추진비</a></td>
+            <td><a href="https://evil.invalid/kr/bbs/download.do?bbs_id=cost&uid={pdf}">fake.pdf</a></td></tr>
+        <tr><td><a href="/kr/costBBSview.do?uid={second}">2026년 8월 업무추진비</a></td>
+            <td><a href="/kr/bbs/download.do?bbs_id=wrong&uid={pdf}">wrong.pdf</a></td></tr>
+        <tr><td><a href="/kr/bbs/download.do?bbs_id=cost&uid={pdf}">unbound.pdf</a></td></tr>
+        </table>"""
+        bound = yongin_row_downloads(base, html)
+        self.assertEqual(len(bound), 2)
+        self.assertTrue(all(not files for files in bound.values()), bound)
 
     def test_paju_official_nonsemicolon_gtid_query_is_recovered(self):
         url="https://www.pajucouncil.go.kr/content/data/operatingExpense.html?page=1"
