@@ -595,6 +595,14 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         after = values[after_idx:]
         people = parse_people(next((x for x in after if re.fullmatch(r"\d+\s*(?:명)?", x)), ""))
         method = next((x for x in after if x in {"카드", "현금", "계좌이체", "법인카드"}), "")
+        # Uiwang leadership PDF prints timestamp in the '일시' column,
+        # while the standard '시간' column is absent. Recover only a literal
+        # HH:MM embedded in the same printed transaction date cell.
+        used_time = clean_text(cell(row, mapping, "time"))
+        if uiwang_pdf and not used_time:
+            observed_clock = re.search(r"(?<!\\d)([01]?\\d|2[0-3]):([0-5]\\d)(?!\\d)", raw_date_text)
+            if observed_clock:
+                used_time = f"{int(observed_clock.group(1)):02d}:{observed_clock.group(2)}"
         raw = {
             "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
             "institution": source_meta["institution"], "source_key": source_meta["source"],
@@ -960,7 +968,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "source_row": ri,
             "used_date": used_date,
             "date_inferred_from_previous_row": date_inferred,
-            "used_time": clean_text(cell(row, mapping, "time")),
+            "used_time": used_time,
             "role": (
                 (infer_leadership_role(uiwang_note)
                  or ("의원" if re.search(r"(?:^|\\s)[가-힣]{2,4}\\s*의원(?:\\s|등|$)", uiwang_note) else ""))
