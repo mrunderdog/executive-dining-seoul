@@ -806,7 +806,7 @@ def find_uiwang_pdf_header(rows):
 def uiwang_pdf_transaction_like(row):
     """Find printed dated transactions, including malformed rows that must HOLD."""
     first = clean_text(row[0]) if row else ""
-    return bool(re.match(r"^\\s*20\\d{2}\\s*[.\\-/]\\s*\\d{1,2}\\s*[.\\-/]\\s*\\d{1,2}(?:[.\\s]|$)", first))
+    return bool(re.match(r"^\s*20\d{2}\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}(?:[.\s]|$)", first))
 
 
 def normalize_sheet(rows, sheet_name, source_meta):
