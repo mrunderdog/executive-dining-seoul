@@ -35,6 +35,8 @@ class UiwangLeadershipPdfTests(unittest.TestCase):
         self.assertEqual(info["status"], "OK", info)
         self.assertEqual(len(records), 3, info)
         self.assertEqual(records[0]["used_date"], "2026-08-03")
+        self.assertEqual(records[0]["used_time"], "13:38")
+        self.assertEqual(records[1]["used_time"], "21:12")
         self.assertEqual(records[0]["merchant"], "월수금통돼지김치찌개(의왕오전점)")
         self.assertEqual(records[0]["amount"], 49000)
         self.assertEqual(records[0]["role"], "의장")
