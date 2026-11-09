@@ -107,5 +107,61 @@ class ReprocessTests(unittest.TestCase):
                    download=lambda *_: PDF, read_sheets=fake_sheets)
 
 
+
+class IndependentOfficialEvidenceTests(unittest.TestCase):
+    def test_independently_verified_monthly_date_amount_ledger(self):
+        from replay_failed_uiwang_pdfs import (
+            independent_source_evidence_check, fnv1a_date_amount,
+        )
+        records = [
+            {"used_date": "2026-08-03", "amount": 49000, "source_period": [2026, 8, None]},
+            {"used_date": "2026-08-04", "amount": 416200, "source_period": [2026, 8, None]},
+        ]
+        evidence = {"files": []}
+        for month in ("2026-07", "2026-08", "2026-09"):
+            filtered = [r for r in records if r["source_period"][1] == int(month[-2:])]
+            total = sum(r["amount"] for r in filtered)
+            evidence["files"].append({
+                "period": month, "transaction_count": len(filtered),
+                "transaction_total_krw": total,
+                "printed_section_totals_krw": [total],
+                "transaction_date_amount_fnv1a32": fnv1a_date_amount(filtered),
+            })
+        # Empty months still count as official periods in the comparison.
+        verdict = independent_source_evidence_check(records, evidence)
+        self.assertEqual(verdict["status"], "HOLD")  # coverage requires all 3 months
+        modified = [*records, {"used_date": "2026-07-03", "amount": 5000,
+                               "source_period": [2026, 7, None]},
+                    {"used_date": "2026-09-07", "amount": 6000,
+                     "source_period": [2026, 9, None]}]
+        for item in evidence["files"]:
+            selected = [r for r in modified if r["source_period"][1] == int(item["period"][-2:])]
+            item["transaction_count"] = len(selected)
+            item["transaction_total_krw"] = sum(r["amount"] for r in selected)
+            item["printed_section_totals_krw"] = [item["transaction_total_krw"]]
+            item["transaction_date_amount_fnv1a32"] = fnv1a_date_amount(selected)
+        good = independent_source_evidence_check(modified, evidence)
+        self.assertEqual(good["status"], "PASS", good)
+        modified[0]["amount"] = 49001
+        bad = independent_source_evidence_check(modified, evidence)
+        self.assertEqual(bad["status"], "HOLD")
+        self.assertTrue(any("mismatch" in x for x in bad["failures"]))
+
+    def test_multiple_merchants_and_nondining_flagged_without_splitting(self):
+        from replay_failed_uiwang_pdfs import classify_review_flags
+        rows = [
+            {"row_id": "a", "merchant": "황금코다리, 손커피연구소",
+             "purpose": "간담회", "amount": 287900},
+            {"row_id": "b", "merchant": "백운인쇄기획사",
+             "purpose": "의원 명함 제작", "amount": 165000},
+            {"row_id": "c", "merchant": "구이마을",
+             "purpose": "간담회", "amount": 55000},
+        ]
+        flags = classify_review_flags(rows)
+        self.assertEqual(len(flags), 2)
+        self.assertIn("MULTI_MERCHANT_SHARED_AMOUNT", flags[0]["flags"])
+        self.assertIn("NON_DINING_MERCHANT_REVIEW", flags[1]["flags"])
+        self.assertEqual(rows[0]["amount"], 287900)
+
 if __name__ == "__main__":
     unittest.main()
