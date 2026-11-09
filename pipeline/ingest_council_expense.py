@@ -952,7 +952,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
         # HH:MM embedded in the same printed transaction date cell.
         used_time = clean_text(cell(row, mapping, "time"))
         if uiwang_pdf and not used_time:
-            observed_clock = re.search(r"(?<!\\d)([01]?\\d|2[0-3]):([0-5]\\d)(?!\\d)", raw_date_text)
+            observed_clock = re.search(r"(?<!\d)([01]?\d|2[0-3]):([0-5]\d)(?!\d)", raw_date_text)
             if observed_clock:
                 used_time = f"{int(observed_clock.group(1)):02d}:{observed_clock.group(2)}"
         raw = {
