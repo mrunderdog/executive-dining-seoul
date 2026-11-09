@@ -982,6 +982,8 @@ def normalize_sheet(rows, sheet_name, source_meta):
                 else "medium"
             ),
         }
+        if uiwang_pdf:
+            raw["source_note"] = uiwang_note
         raw["row_id"] = hashlib.sha256(
             "|".join(str(raw.get(k, "")) for k in ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
         ).hexdigest()[:20]
