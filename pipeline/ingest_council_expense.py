@@ -960,8 +960,7 @@ def normalize_sheet(rows, sheet_name, source_meta):
             "used_time": clean_text(cell(row, mapping, "time")),
             "role": (
                 (infer_leadership_role(uiwang_note)
-                 or ("의원" if re.search(r"(?:^|\\s)[가-힣]{2,4}\\s*의원(?:\\s|등|$)", uiwang_note) else "")
-                 or infer_leadership_role(section_role or source_meta.get("default_role") or ""))
+                 or ("의원" if re.search(r"(?:^|\\s)[가-힣]{2,4}\\s*의원(?:\\s|등|$)", uiwang_note) else ""))
                 if uiwang_pdf else
                 resolve_role(
                     cell(row, mapping, "role"),
