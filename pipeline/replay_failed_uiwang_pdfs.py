@@ -341,7 +341,12 @@ def apply_dining_dispositions(rows, policy):
     flagged = classify_review_flags(rows)
     if {r["row_id"] for r in flagged} != seen:
         issues.append("unresolved_or_stale_dining_flags")
-    if len(decisions) != 17 or sum(d["disposition"] == "HOLD_SHARED_AMOUNT" for d in decisions) != 4:
+    expected_total = policy.get("expected_dispositions", 17)
+    expected_excluded = policy.get("expected_excluded_non_dining", 13)
+    expected_held = policy.get("expected_held_multi_merchant", 4)
+    if (len(decisions) != expected_total
+        or sum(d["disposition"] == "EXCLUDE_RECOMMENDATION" for d in decisions) != expected_excluded
+        or sum(d["disposition"] == "HOLD_SHARED_AMOUNT" for d in decisions) != expected_held):
         issues.append("unexpected_dining_disposition_coverage")
     excluded = {d["row_id"] for d in resolved}
     eligible = [r for r in rows if r["row_id"] not in excluded]
