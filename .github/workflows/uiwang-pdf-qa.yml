@@ -30,3 +30,25 @@ jobs:
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_replay_failed_uiwang_pdfs.py
       - name: Run unchanged full-reconciliation safeguards
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_full_reconciliation_p0.py
+
+  official-pdf-replay-audit:
+    runs-on: ubuntu-latest
+    needs: uiwang-parser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official PDF reader
+        run: python -m pip install 'pypdf>=5,<7'
+      - name: Replay official failed attachments (audit only)
+        run: |
+          PYTHONPATH=pipeline python pipeline/replay_failed_uiwang_pdfs.py --source uiwang --since 2026-07 --until 2026-09 --output-dir reports/recovery/uiwang-replay
+      - name: Upload page-level audit and staged candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay/
+          if-no-files-found: warn
+          retention-days: 14
