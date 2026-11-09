@@ -595,14 +595,6 @@ def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
         after = values[after_idx:]
         people = parse_people(next((x for x in after if re.fullmatch(r"\d+\s*(?:명)?", x)), ""))
         method = next((x for x in after if x in {"카드", "현금", "계좌이체", "법인카드"}), "")
-        # Uiwang leadership PDF prints timestamp in the '일시' column,
-        # while the standard '시간' column is absent. Recover only a literal
-        # HH:MM embedded in the same printed transaction date cell.
-        used_time = clean_text(cell(row, mapping, "time"))
-        if uiwang_pdf and not used_time:
-            observed_clock = re.search(r"(?<!\\d)([01]?\\d|2[0-3]):([0-5]\\d)(?!\\d)", raw_date_text)
-            if observed_clock:
-                used_time = f"{int(observed_clock.group(1)):02d}:{observed_clock.group(2)}"
         raw = {
             "region": source_meta["region"], "jurisdiction": source_meta["jurisdiction"],
             "institution": source_meta["institution"], "source_key": source_meta["source"],
@@ -955,6 +947,14 @@ def normalize_sheet(rows, sheet_name, source_meta):
             note_idx = next((i for i, h in enumerate(header_row) if norm_header(h) == "비고"), None)
             if note_idx is not None and note_idx < len(row):
                 uiwang_note = clean_text(row[note_idx])
+        # Uiwang leadership PDF prints timestamp in the '일시' column,
+        # while the standard '시간' column is absent. Recover only a literal
+        # HH:MM embedded in the same printed transaction date cell.
+        used_time = clean_text(cell(row, mapping, "time"))
+        if uiwang_pdf and not used_time:
+            observed_clock = re.search(r"(?<!\\d)([01]?\\d|2[0-3]):([0-5]\\d)(?!\\d)", raw_date_text)
+            if observed_clock:
+                used_time = f"{int(observed_clock.group(1)):02d}:{observed_clock.group(2)}"
         raw = {
             "region": source_meta["region"],
             "jurisdiction": source_meta["jurisdiction"],
