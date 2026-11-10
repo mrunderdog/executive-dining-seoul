@@ -120,7 +120,8 @@ def one_snapshot(raw_doc, staged_raw, staged_reports, output_path, *, eligible_i
     original_plausible = published_sources._plausible_transaction
     def permitted(row, original):
         rid=row.get("row_id")
-        if eligible_ids is not None and rid not in baseline_ids and rid not in eligible_ids:
+        if (eligible_ids is not None and row.get("source_key") == "uiwang"
+            and rid not in baseline_ids and rid not in eligible_ids):
             return False
         return original(row)
     with override_paths(staged_raw,staged_reports), \
