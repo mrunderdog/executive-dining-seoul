@@ -157,6 +157,16 @@ jobs:
         with:
           name: uiwang-venue-prepublication-audit
           path: reports/recovery/uiwang-venue
+      - name: Download complete Q3 financial original rows
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - name: Download complete October financial original rows
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
       - name: Run real scoring + static site baseline/proposal diff in disposable staging
         run: PYTHONPATH=pipeline python pipeline/audit_uiwang_site_dryrun.py
       - name: Upload compare-only evidence
