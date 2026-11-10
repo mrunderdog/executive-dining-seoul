@@ -47,42 +47,43 @@ def copy_overlay(source, target, *, excluded=()):
             (target/item.name).symlink_to(item.resolve(),target_is_directory=item.is_dir())
 
 
-def checked_candidate_rows(baseline, staged, decisions):
-    """Restore date_quality ONLY for independently verified staged source rows."""
-    if len(staged)!=193 or len(decisions)!=193:
-        raise ValueError("candidate coverage must equal 193/193")
-    if len({r.get("row_id") for r in staged})!=193:
-        raise ValueError("duplicate staged row IDs")
-    by_id={x["row_id"]:x for x in decisions}
-    if set(by_id)!={x["row_id"] for x in staged}:
-        raise ValueError("ranking screening does not exactly cover staged transactions")
-    historic={r.get("row_id") for r in baseline["rows"]}
-    out=[]
-    for item in staged:
-        row=copy.deepcopy(item)
+def checked_candidate_rows(baseline, staged, decisions, all_transactions):
+    """Keep 218 financial records in scratch; only 84 score-qualified."""
+    if (len(staged),len(decisions),len(all_transactions))!=(193,193,218):
+        raise ValueError("expected 193/193/218 independent source coverage")
+    screened={d["row_id"]:d for d in decisions}
+    candidates={r["row_id"]:r for r in staged}
+    if len(screened)!=193 or len(candidates)!=193 or set(screened)!=set(candidates):
+        raise ValueError("inconsistent screening or duplicate IDs")
+    existing={r["row_id"] for r in baseline["rows"]}
+    full, eligible=[],set()
+    for original in all_transactions:
+        row=copy.deepcopy(original)
         rid=row.get("row_id")
-        decision=by_id[rid]
         period=row.get("source_period")
-        observed_date=row.get("used_date")
-        if rid in historic or len(period or [])!=3 or not period[0] or not period[1]:
-            raise ValueError("source identity/period failed")
         try:
-            when=date.fromisoformat(str(observed_date))
-        except (ValueError, TypeError):
-            raise ValueError("invalid source date") from None
-        if [when.year,when.month]!=period[:2]:
-            raise ValueError("source date outside verified official period")
-        if (decision["merchant"]!=row.get("merchant") or decision["source_date"]!=observed_date
-            or decision["amount_krw"]!=row.get("amount")):
-            raise ValueError("screening evidence mismatch")
-        # This is a sandbox annotation derived from observed date and posted
-        # official period, not a mutation of the archived disclosure record.
-        row["date_quality"]="in_period"
-        if decision.get("score_eligible") is True:
-            out.append(row)
-    if len(out)!=84:
-        raise ValueError(f"unexpected score-row coverage {len(out)}, expected 84")
-    return out
+            when=date.fromisoformat(str(row["used_date"]))
+        except (ValueError,TypeError,KeyError):
+            raise ValueError("invalid official source date") from None
+        if (rid in existing or not rid or len(period or [])!=3
+            or [when.year,when.month]!=period[:2]):
+            raise ValueError("date/identity outside source")
+        if rid in candidates and candidates[rid]!=original:
+            raise ValueError("financial row differs from candidate source")
+        if rid in screened:
+            d=screened[rid]
+            if (d["merchant"]!=row["merchant"] or d["source_date"]!=row["used_date"]
+                or d["amount_krw"]!=row["amount"]):
+                raise ValueError("screening evidence mismatch")
+            if d.get("score_eligible") is True:
+                eligible.add(rid)
+        row["date_quality"]="in_period"  # in scratch overlay ONLY
+        full.append(row)
+    if len({r["row_id"] for r in full})!=218 or len(eligible)!=84:
+        raise ValueError("wrong financial row/eligible role count")
+    if not set(candidates).issubset({r["row_id"] for r in full}):
+        raise ValueError("missing original rows")
+    return full,eligible
 
 
 def serialize_record(row):
@@ -112,10 +113,21 @@ def render_site(output):
     return load(output.with_name("build-meta.json"))
 
 
-def one_snapshot(raw_doc, staged_raw, staged_reports, output_path):
+def one_snapshot(raw_doc, staged_raw, staged_reports, output_path, *, eligible_ids=None, baseline_ids=None):
     (staged_raw/"uiwang_expense.json").write_text(
         json.dumps(raw_doc,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    with override_paths(staged_raw,staged_reports):
+    original_meal = build_source_candidates.looks_meal
+    original_plausible = published_sources._plausible_transaction
+    def permitted(row, original):
+        rid=row.get("row_id")
+        if eligible_ids is not None and rid not in baseline_ids and rid not in eligible_ids:
+            return False
+        return original(row)
+    with override_paths(staged_raw,staged_reports), \
+         patch.object(build_source_candidates,"looks_meal",
+                      lambda row: permitted(row,original_meal)), \
+         patch.object(published_sources,"_plausible_transaction",
+                      lambda row: permitted(row,original_plausible)):
         source_rows, candidates=build_source_candidates.build_candidates("uiwang")
         (staged_reports/"uiwang-executive-candidates.json").write_text(
             json.dumps({"source":"uiwang","candidate_count":len(candidates),
@@ -162,10 +174,11 @@ def simulate(baseline,screened,integrated,venue):
     if venue.get("source_validation")!="PASS" or venue.get("release_decision")!="HOLD_IDENTITY_AND_RANKING":
         raise ValueError("unapproved screening or source coverage")
     original=copy.deepcopy(baseline)
-    new=checked_candidate_rows(baseline,screened["rows"],screened["decisions"])
-    # Mutate only scratch copies, NEVER the archived financial ledger.
+    all_new,eligible_ids=checked_candidate_rows(
+        baseline,screened["rows"],screened["decisions"],screened["financial_rows"])
+    baseline_ids={r.get("row_id") for r in baseline["rows"]}
     proposed={**copy.deepcopy(baseline),
-              "rows":[*copy.deepcopy(baseline["rows"]),*new]}
+              "rows":[*copy.deepcopy(baseline["rows"]),*all_new]}
     if baseline!=original:
         raise AssertionError("historical rows changed while staging")
     with tempfile.TemporaryDirectory(prefix="uiwang-site-dryrun-") as workdir:
@@ -175,7 +188,8 @@ def simulate(baseline,screened,integrated,venue):
         copy_overlay(RAW,stage_raw,excluded=("uiwang_expense.json",))
         copy_overlay(REPORTS,stage_reports,excluded=("uiwang-executive-candidates.json",))
         base=one_snapshot(baseline,stage_raw,stage_reports,work/"baseline.html")
-        revised=one_snapshot(proposed,stage_raw,stage_reports,work/"proposed.html")
+        revised=one_snapshot(proposed,stage_raw,stage_reports,work/"proposed.html",
+                             eligible_ids=eligible_ids,baseline_ids=baseline_ids)
     new_other = revised["non_uiwang_signatures"] - base["non_uiwang_signatures"]
     removed_other = base["non_uiwang_signatures"] - revised["non_uiwang_signatures"]
     failures=[]
@@ -186,12 +200,13 @@ def simulate(baseline,screened,integrated,venue):
     if revised["published_source_record_count"] > 0 and any(
         x["payment_branch_verified"] for x in revised["published_source_records"]):
         failures.append("unsupported_payment_branch_verification")
-    if len(new)!=84 or baseline!=original:
+    if len(all_new)!=218 or len(eligible_ids)!=84 or baseline!=original:
         failures.append("baseline_or_eligible_row_mismatch")
     return {
         "status":"PREVIEW_PASS" if not failures else "HOLD",
         "baseline_raw_rows":len(baseline["rows"]),
-        "new_scoring_input_rows":len(new),
+        "new_scoring_input_rows":len(eligible_ids),
+        "new_financial_rows_staged":len(all_new),
         "full_source_staged_rows":integrated["total_staged_rows"],
         "financial_source_staged_files":integrated["total_staged_files"],
         "baseline":{"ranking_input_rows":base["ranking_input_transactions"],
@@ -221,7 +236,10 @@ def main():
     report=simulate(
         json.loads(bytes_before),
         {"rows":load(INTEGRATED/"recommendation_candidates.json"),
-         "decisions":load(VENUE/"transaction_screening.json")},
+         "decisions":load(VENUE/"transaction_screening.json"),
+         "financial_rows":[
+             *load(REPORTS/"recovery/uiwang-replay/candidate_rows.json"),
+             *load(REPORTS/"recovery/uiwang-october/candidate_rows.json")]},
         load(INTEGRATED/"audit.json"),
         load(VENUE/"audit.json"))
     if baseline_path.read_bytes()!=bytes_before:
