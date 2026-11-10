@@ -135,10 +135,19 @@ def one_snapshot(raw_doc, staged_raw, staged_reports, output_path, *, eligible_i
             encoding="utf-8")
         published=published_sources._build_source_records("uiwang",
                                                          published_sources.SOURCE_SPECS["uiwang"])
-        payload=build_site.apply_evidence_semantics(
-            build_site.merge_global_entities(
-                build_site.merge_extra_published(
-                    build_site.merge_published_sources(build_site.load_payload()))))
+        canonical=build_site.load_payload()
+        after_council=build_site.merge_published_sources(canonical)
+        after_extra=build_site.merge_extra_published(after_council)
+        after_entities=build_site.merge_global_entities(after_extra)
+        payload=build_site.apply_evidence_semantics(after_entities)
+        source_stage_counts={
+            "canonical":len(canonical.get("records") or []),
+            "after_council":len(after_council.get("records") or []),
+            "after_extra":len(after_extra.get("records") or []),
+            "after_entities":len(after_entities.get("records") or []),
+            "after_semantics":len(payload.get("records") or []),
+            "council_sources":Counter(str(x.get("published_source") or "") for x in after_council.get("records") or []),
+        }
         meta=render_site(output_path)
     # App-level entity merging can join an Uiwang establishment with another
     # source. Keep the full dataset hash, source-specific recommendations, and
@@ -158,6 +167,7 @@ def one_snapshot(raw_doc, staged_raw, staged_reports, output_path, *, eligible_i
                                      "location":x.get("address")}
                                     for x in published],
         "site":meta,
+        "source_stage_counts":source_stage_counts,
         "site_record_count":len(visible),
         "non_uiwang_signatures":Counter(
             serialize_record(r) for r in visible
@@ -212,6 +222,9 @@ def simulate(baseline,screened,integrated,venue):
         "baseline_repeat_non_uiwang_changed_count":sum(
             (base["non_uiwang_signatures"]-repeat_base["non_uiwang_signatures"]).values()),
         "baseline_repeat_site_sha256":repeat_base["page_sha256"],
+        "baseline_stages":base["source_stage_counts"],
+        "repeated_baseline_stages":repeat_base["source_stage_counts"],
+        "proposed_stages":revised["source_stage_counts"],
         "other_origin_removed_samples":[{
             "origin":json.loads(key).get("origin"),
             "name":json.loads(key).get("name"),
