@@ -16,6 +16,8 @@ on:
       - 'pipeline/audit_uiwang_venue_release.py'
       - 'pipeline/test_uiwang_venue_release.py'
       - 'pipeline/audit_uiwang_site_dryrun.py'
+      - 'pipeline/test_uiwang_site_dryrun.py'
+      - 'sources/uiwang_venue_review.json'
       - 'pipeline/uiwang_2026_10_dining_dispositions.json'
       - '.github/workflows/uiwang-pdf-qa.yml'
   workflow_dispatch:
@@ -41,6 +43,8 @@ jobs:
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_dining_dispositions.py
       - name: Test merchant identity and scoring preflight
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_venue_release.py
+      - name: Test site scoring scope does not filter unrelated councils
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_site_dryrun.py
       - name: Run unchanged full-reconciliation safeguards
         run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_full_reconciliation_p0.py
 
