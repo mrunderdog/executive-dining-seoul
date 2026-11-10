@@ -188,11 +188,15 @@ def simulate(baseline,screened,integrated,venue):
         copy_overlay(RAW,stage_raw,excluded=("uiwang_expense.json",))
         copy_overlay(REPORTS,stage_reports,excluded=("uiwang-executive-candidates.json",))
         base=one_snapshot(baseline,stage_raw,stage_reports,work/"baseline.html")
+        repeat_base=one_snapshot(baseline,stage_raw,stage_reports,work/"repeated_baseline.html")
         revised=one_snapshot(proposed,stage_raw,stage_reports,work/"proposed.html",
                              eligible_ids=eligible_ids,baseline_ids=baseline_ids)
     new_other = revised["non_uiwang_signatures"] - base["non_uiwang_signatures"]
     removed_other = base["non_uiwang_signatures"] - revised["non_uiwang_signatures"]
     failures=[]
+    baseline_repeat_drift=base["non_uiwang_signatures"]!=repeat_base["non_uiwang_signatures"]
+    if baseline_repeat_drift:
+        failures.append("baseline_site_is_not_repeatable_within_process")
     if removed_other:
         failures.append("existing_non_uiwang_site_records_changed_or_removed")
     if base["published_source_record_count"] > revised["published_source_record_count"]:
@@ -204,6 +208,16 @@ def simulate(baseline,screened,integrated,venue):
         failures.append("baseline_or_eligible_row_mismatch")
     return {
         "status":"PREVIEW_PASS" if not failures else "HOLD",
+        "baseline_repeat_site_record_count":repeat_base["site_record_count"],
+        "baseline_repeat_non_uiwang_changed_count":sum(
+            (base["non_uiwang_signatures"]-repeat_base["non_uiwang_signatures"]).values()),
+        "baseline_repeat_site_sha256":repeat_base["page_sha256"],
+        "other_origin_removed_samples":[{
+            "origin":json.loads(key).get("origin"),
+            "name":json.loads(key).get("name"),
+            "entity_id":json.loads(key).get("entity_id"),
+            "count":count,
+        } for key,count in (removed_other).most_common(12)],
         "baseline_raw_rows":len(baseline["rows"]),
         "new_scoring_input_rows":len(eligible_ids),
         "new_financial_rows_staged":len(all_new),
