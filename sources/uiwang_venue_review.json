@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "source": "uiwang",
+  "review_date": "2026-11-10",
+  "review_policy": "External establishment directory confirms existence/address only; official council PDF has no card merchant branch identifier. Directory is not payment-branch proof. Do not mark payment_branch_verified unless independently documented.",
+  "candidates": [
+    {
+      "merchant": "부곡역 돼지갈비",
+      "source_visits": 4,
+      "source_months": 3,
+      "source_score": 61.9,
+      "source_spend": 884300,
+      "review_status": "VENUE_FOUND_PAYMENT_UNVERIFIED",
+      "establishment_type": "restaurant",
+      "place_address_candidates": [
+        "경기도 의왕시 부곡중앙로 9, 2층 (삼동)"
+      ],
+      "evidence_urls": [
+        "https://bizsurfing.com/l/101312855/%EB%B6%80%EA%B3%A1%EC%97%AD-%EB%8F%BC%EC%A7%80%EA%B0%88%EB%B9%84"
+      ],
+      "review_note": "일반음식점 인허가와 동명 업체 위치 확인. 동일 주소 내 유사업종 점포가 있어 카드 가맹점 동일성 미확인.",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": []
+    },
+    {
+      "merchant": "김엄마24시감자탕",
+      "source_visits": 5,
+      "source_months": 3,
+      "source_score": 57.2,
+      "source_spend": 821000,
+      "review_status": "VENUE_FOUND_PAYMENT_UNVERIFIED",
+      "establishment_type": "restaurant",
+      "place_address_candidates": [
+        "경기도 의왕시 부곡중앙로 32-2, 벽상빌딩 1층 (삼동)"
+      ],
+      "evidence_urls": [
+        "https://www.onkorea.co.kr/uiwang/Sv23TRXa9wTX",
+        "https://bizsurfing.com/l/65856099/%EA%B9%80%EC%97%84%EB%A7%88%EA%B0%90%EC%9E%90%ED%83%95"
+      ],
+      "review_note": "일반음식점 존재·소재지는 확인되나 상세 호수 표기가 자료마다 1호/102호로 불일치. 결제 카드 가맹점 주소·호수 미확인.",
+      "payment_branch_verified": false,
+      "publish_as_verified_payment_location": false,
+      "payment_branch_evidence": []
+    }
+  ],
+  "summary": {
+    "name_matched_establishments": 2,
+    "payment_branch_verified": 0,
+    "verified_recommendations_ready": 0
+  }
+}

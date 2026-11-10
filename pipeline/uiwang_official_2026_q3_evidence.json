@@ -1,0 +1,59 @@
+{
+  "schema": "uiwang-official-evidence-v1",
+  "source": "Uiwang City Council public expense attachments (2026-07 to 2026-09)",
+  "method": "Independent official attachment text extraction; dates and comma-formatted transaction amounts sorted lexicographically, joined with LF, FNV-1a 32-bit; each period's printed subtotals independently summed.",
+  "status": "SOURCE_DATE_AMOUNT_VERIFIED_ONLY_NOT_PUBLISH_APPROVAL",
+  "files": [
+    {
+      "period": "2026-07",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=4548171f90b777ca3529a04bd0ea289c3c9c04dd922841d816025c4272a556f501ad79d0aa830695",
+      "sha256": "1c0d36b922bc2ea832afb4239f71ee27ff1da04e10e8a8e26cc05a55450bac87",
+      "transaction_count": 47,
+      "transaction_total_krw": 9768450,
+      "transaction_date_amount_fnv1a32": "b3a1c847",
+      "printed_section_totals_krw": [
+        2952290,
+        1035470,
+        5318690,
+        462000
+      ]
+    },
+    {
+      "period": "2026-08",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=42b2c5366f2c05875cf874d5b459ee33bc9aed47fe9a14592bc85b3c52ef51f63a7b570c532bd8e1",
+      "sha256": "e175375b752fdc70b408a5a0dce22cf4317358c4780935496a58ba63b3b4dc58",
+      "transaction_count": 42,
+      "transaction_total_krw": 5585810,
+      "transaction_date_amount_fnv1a32": "752d3755",
+      "printed_section_totals_krw": [
+        2709350,
+        1338800,
+        378600,
+        1159060
+      ],
+      "note": "One official date printed '2026. 8. 18 18:37' without dot after day; count and amount are verified against source."
+    },
+    {
+      "period": "2026-09",
+      "url": "https://council.uiwang.go.kr/bbsAttachDownload.do?key=1ab017c72c5f4961632c043b0404a1bec512b9811d482bba563e6ae17ae1183cb37d39e5b3a14b42",
+      "sha256": "bc5df5028318f46a62894cd4a08c59472a02a0e105c7599157191ca8d986ba5c",
+      "transaction_count": 55,
+      "transaction_total_krw": 10950530,
+      "transaction_date_amount_fnv1a32": "dff1bd9d",
+      "printed_section_totals_krw": [
+        2703200,
+        1538300,
+        253700,
+        378300,
+        5949030,
+        128000
+      ]
+    }
+  ],
+  "publication_rules": [
+    "Do not split multi-merchant spend into separate restaurants or assign full amount to one restaurant",
+    "Non-restaurant purchases remain in audit but are excluded from dining recommendations after verified classification",
+    "Preserve existing 85 records and 33 file metadata; do not overwrite NO_HEADER audit history",
+    "Keep source HOLD until strict source-scope QA and refreshed official discovery including October pass"
+  ]
+}

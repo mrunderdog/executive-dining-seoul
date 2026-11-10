@@ -1,0 +1,214 @@
+name: Uiwang official PDF parser regression
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/qa_council_publication.py'
+      - 'pipeline/test_uiwang_pdf.py'
+      - 'pipeline/replay_failed_uiwang_pdfs.py'
+      - 'pipeline/test_replay_failed_uiwang_pdfs.py'
+      - 'pipeline/test_uiwang_dining_dispositions.py'
+      - 'pipeline/uiwang_2026_q3_dining_dispositions.json'
+      - 'pipeline/audit_uiwang_october.py'
+      - 'pipeline/uiwang_official_2026_10_evidence.json'
+      - 'pipeline/audit_uiwang_integrated.py'
+      - 'pipeline/audit_uiwang_venue_release.py'
+      - 'pipeline/test_uiwang_venue_release.py'
+      - 'pipeline/audit_uiwang_site_dryrun.py'
+      - 'pipeline/test_uiwang_site_dryrun.py'
+      - 'pipeline/prepare_uiwang_source_release.py'
+      - 'sources/uiwang_venue_review.json'
+      - 'pipeline/uiwang_2026_10_dining_dispositions.json'
+      - '.github/workflows/uiwang-pdf-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  uiwang-parser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile modified parser files
+        run: python -m py_compile pipeline/ingest_council_expense.py pipeline/qa_council_publication.py pipeline/test_uiwang_pdf.py pipeline/replay_failed_uiwang_pdfs.py pipeline/test_replay_failed_uiwang_pdfs.py pipeline/test_uiwang_dining_dispositions.py pipeline/audit_uiwang_october.py pipeline/audit_uiwang_venue_release.py pipeline/test_uiwang_venue_release.py
+      - name: Run official Uiwang fixtures
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_pdf.py
+      - name: Test immutable failed-PDF replay
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_replay_failed_uiwang_pdfs.py
+      - name: Test exact recommendation-only dispositions
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_dining_dispositions.py
+      - name: Test merchant identity and scoring preflight
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_venue_release.py
+      - name: Test site scoring scope does not filter unrelated councils
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_uiwang_site_dryrun.py
+      - name: Run unchanged full-reconciliation safeguards
+        run: PYTHONPATH=pipeline python -m unittest -v pipeline/test_full_reconciliation_p0.py
+
+  official-pdf-replay-audit:
+    runs-on: ubuntu-latest
+    needs: uiwang-parser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official PDF reader
+        run: python -m pip install 'pypdf>=5,<7'
+      - name: Replay official failed attachments (audit only)
+        run: |
+          PYTHONPATH=pipeline python pipeline/replay_failed_uiwang_pdfs.py --source uiwang --since 2026-07 --until 2026-09 --output-dir reports/recovery/uiwang-replay
+      - name: Upload page-level audit and staged candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay/
+          if-no-files-found: warn
+          retention-days: 14
+  october-source-audit:
+    runs-on: ubuntu-latest
+    needs: uiwang-parser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verified PDF parser
+        run: python -m pip install 'pypdf>=5,<7'
+      - name: Audit newly disclosed October official files without publishing
+        run: PYTHONPATH=pipeline python pipeline/audit_uiwang_october.py
+      - name: Upload October file and Strict QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october/
+          if-no-files-found: warn
+          retention-days: 14
+  integrated-release-review:
+    runs-on: ubuntu-latest
+    needs: [official-pdf-replay-audit, october-source-audit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download staged Q3 official replay
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - name: Download staged October official audit
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
+      - name: Run strict integrated source QA and zero-loss guard
+        run: PYTHONPATH=pipeline python pipeline/audit_uiwang_integrated.py
+      - name: Upload integrated release review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated/
+          if-no-files-found: warn
+          retention-days: 14
+  venue-ranking-release-audit:
+    runs-on: ubuntu-latest
+    needs: integrated-release-review
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download integrated verified candidate set
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated
+      - name: Verify merchant roles, exclusions, identity and ranking thresholds
+        run: PYTHONPATH=pipeline python pipeline/audit_uiwang_venue_release.py
+      - name: Upload per-merchant score preview and pending identity reviews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-venue-prepublication-audit
+          path: reports/recovery/uiwang-venue/
+          if-no-files-found: warn
+          retention-days: 14
+  site-dryrun-diff:
+    runs-on: ubuntu-latest
+    needs: venue-ranking-release-audit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source/site dependencies
+        run: |
+          python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7'
+      - name: Download integrated source candidates
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated
+      - name: Download independently screened venue candidates
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-venue-prepublication-audit
+          path: reports/recovery/uiwang-venue
+      - name: Download complete Q3 financial original rows
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - name: Download complete October financial original rows
+        uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
+      - name: Run real scoring + static site baseline/proposal diff in disposable staging
+        run: PYTHONPATH=pipeline python pipeline/audit_uiwang_site_dryrun.py
+      - name: Upload compare-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-site-dryrun-diff
+          path: reports/recovery/uiwang-site-dryrun/
+          if-no-files-found: warn
+          retention-days: 14
+  source-only-release-package:
+    runs-on: ubuntu-latest
+    needs: [integrated-release-review, site-dryrun-diff]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated
+      - name: Verify strict source-only release package
+        run: PYTHONPATH=pipeline python pipeline/prepare_uiwang_source_release.py
+      - name: Upload source-only reviewed release candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-source-only-release-candidate
+          path: reports/recovery/uiwang-source-release/
+          if-no-files-found: warn
+          retention-days: 14

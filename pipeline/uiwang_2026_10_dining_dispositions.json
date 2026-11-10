@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source": "uiwang",
+  "window": "2026-10",
+  "expected_dispositions": 8,
+  "expected_excluded_non_dining": 3,
+  "expected_held_multi_merchant": 5,
+  "policy": "Keep immutable original 74-row expense records; exclude or HOLD only recommendations. Comma may be brand punctuation: HOLD pending original merchant verification.",
+  "dispositions": [
+    {
+      "row_id": "7a25833f31c9a4129670",
+      "merchant": "소플러스, 메가엠지씨커피",
+      "amount_krw": 402500,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "2개 상호 합산 금액"
+    },
+    {
+      "row_id": "274a5215e2d5b35d292a",
+      "merchant": "정육점 불을 피우다, 마장동정씨",
+      "amount_krw": 184000,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "2개 상호 합산 금액"
+    },
+    {
+      "row_id": "fa74fe2feb94649fdeab",
+      "merchant": "백운인쇄기획사",
+      "amount_krw": 165000,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "인쇄업체 거래"
+    },
+    {
+      "row_id": "6c038dbedcfea0133f05",
+      "merchant": "쿠팡",
+      "amount_krw": 473940,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "온라인 상품·다과 구매"
+    },
+    {
+      "row_id": "8226e4461e1aa2553d37",
+      "merchant": "쿠팡",
+      "amount_krw": 93990,
+      "disposition": "EXCLUDE_RECOMMENDATION",
+      "reason": "온라인 상품·다과 구매"
+    },
+    {
+      "row_id": "b60d8b1ff1f96488343a",
+      "merchant": "쿠팡, 스타",
+      "amount_krw": 255190,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "원본 상호 모호·합산 금액, 개별 금액 불명"
+    },
+    {
+      "row_id": "19bd6227e1cae7373960",
+      "merchant": "오늘도, 샌드",
+      "amount_krw": 107600,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "상호 쉼표가 브랜드명 일부인지 복수 가맹점인지 미확인"
+    },
+    {
+      "row_id": "527adba071676d8a3eb1",
+      "merchant": "오늘도, 샌드",
+      "amount_krw": 98600,
+      "disposition": "HOLD_SHARED_AMOUNT",
+      "reason": "상호 쉼표가 브랜드명 일부인지 복수 가맹점인지 미확인"
+    }
+  ]
+}

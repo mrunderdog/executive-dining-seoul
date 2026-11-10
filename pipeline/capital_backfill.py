@@ -147,14 +147,14 @@ def decode_html(raw: bytes, header_charset: str | None) -> str:
 
 
 def curl_verified_bytes(url: str, referer: str = "") -> bytes:
-    """Alternative TLS client for the public Icheon council, with HTTPS verification.
+    """Alternative TLS client for approved official councils, with HTTPS verification.
 
     This is deliberately origin-scoped; neither certificate validation nor
     hostname checking is disabled to recover a source that fails TLS.
     """
     p = urllib.parse.urlsplit(url)
-    if p.scheme != "https" or p.hostname != "council.icheon.go.kr":
-        raise ValueError("curl fallback is restricted to official Icheon HTTPS")
+    if p.scheme != "https" or p.hostname not in {"council.icheon.go.kr", "council.uiwang.go.kr"}:
+        raise ValueError("curl fallback is restricted to listed official council HTTPS origins")
     cmd = [
         "curl", "--fail", "--location", "--silent", "--show-error",
         "--max-time", "35", "--max-filesize", "50000000", "--max-redirs", "3",
@@ -163,7 +163,7 @@ def curl_verified_bytes(url: str, referer: str = "") -> bytes:
     ]
     if referer:
         ref = urllib.parse.urlsplit(referer)
-        if ref.scheme == "https" and ref.hostname == "council.icheon.go.kr":
+        if ref.scheme == "https" and ref.hostname == p.hostname:
             cmd.extend(["--referer", referer])
     cmd.append(url)
     result = subprocess.run(cmd, capture_output=True, check=True, timeout=40)
