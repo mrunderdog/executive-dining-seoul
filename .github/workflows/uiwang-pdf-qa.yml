@@ -17,6 +17,7 @@ on:
       - 'pipeline/test_uiwang_venue_release.py'
       - 'pipeline/audit_uiwang_site_dryrun.py'
       - 'pipeline/test_uiwang_site_dryrun.py'
+      - 'pipeline/prepare_uiwang_source_release.py'
       - 'sources/uiwang_venue_review.json'
       - 'pipeline/uiwang_2026_10_dining_dispositions.json'
       - '.github/workflows/uiwang-pdf-qa.yml'
@@ -179,5 +180,35 @@ jobs:
         with:
           name: uiwang-site-dryrun-diff
           path: reports/recovery/uiwang-site-dryrun/
+          if-no-files-found: warn
+          retention-days: 14
+  source-only-release-package:
+    runs-on: ubuntu-latest
+    needs: [integrated-release-review, site-dryrun-diff]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-failed-pdf-replay-audit
+          path: reports/recovery/uiwang-replay
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-october-official-audit
+          path: reports/recovery/uiwang-october
+      - uses: actions/download-artifact@v4
+        with:
+          name: uiwang-integrated-release-audit
+          path: reports/recovery/uiwang-integrated
+      - name: Verify strict source-only release package
+        run: PYTHONPATH=pipeline python pipeline/prepare_uiwang_source_release.py
+      - name: Upload source-only reviewed release candidate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiwang-source-only-release-candidate
+          path: reports/recovery/uiwang-source-release/
           if-no-files-found: warn
           retention-days: 14
