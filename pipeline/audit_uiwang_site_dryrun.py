@@ -113,22 +113,25 @@ def render_site(output):
     return load(output.with_name("build-meta.json"))
 
 
+def ranking_input_allowed(row, eligible_ids, baseline_ids, original):
+    """Never suppress rows from any other source while previewing Uiwang."""
+    rid=row.get("row_id")
+    if (eligible_ids is not None and row.get("source_key") == "uiwang"
+        and rid not in baseline_ids and rid not in eligible_ids):
+        return False
+    return original(row)
+
+
 def one_snapshot(raw_doc, staged_raw, staged_reports, output_path, *, eligible_ids=None, baseline_ids=None):
     (staged_raw/"uiwang_expense.json").write_text(
         json.dumps(raw_doc,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     original_meal = build_source_candidates.looks_meal
     original_plausible = published_sources._plausible_transaction
-    def permitted(row, original):
-        rid=row.get("row_id")
-        if (eligible_ids is not None and row.get("source_key") == "uiwang"
-            and rid not in baseline_ids and rid not in eligible_ids):
-            return False
-        return original(row)
     with override_paths(staged_raw,staged_reports), \
          patch.object(build_source_candidates,"looks_meal",
-                      lambda row: permitted(row,original_meal)), \
+                      lambda row: ranking_input_allowed(row,eligible_ids,baseline_ids,original_meal)), \
          patch.object(published_sources,"_plausible_transaction",
-                      lambda row: permitted(row,original_plausible)):
+                      lambda row: ranking_input_allowed(row,eligible_ids,baseline_ids,original_plausible)):
         source_rows, candidates=build_source_candidates.build_candidates("uiwang")
         (staged_reports/"uiwang-executive-candidates.json").write_text(
             json.dumps({"source":"uiwang","candidate_count":len(candidates),
