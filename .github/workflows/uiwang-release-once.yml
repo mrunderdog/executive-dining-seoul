@@ -1,0 +1,143 @@
+name: One-shot Uiwang source-only release
+
+on:
+  push:
+    branches: [release/uiwang-source-only-20261110]
+    paths: ['.github/workflows/uiwang-release-once.yml']
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  source-release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: pipeline
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/uiwang-source-only-20261110
+      - name: Fetch verified prior audit artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/source"
+          gh run download 42774458469 -R "$GITHUB_REPOSITORY" --name uiwang-source-only-release-candidate --dir "$RUNNER_TEMP/source"
+          test -s "$RUNNER_TEMP/source/uiwang_expense.json"
+      - name: Capture baseline public site
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/before"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/before/index.html"
+      - name: Verify and stage source-only data (no rankings)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import copy,datetime,hashlib,json,os
+          from collections import Counter
+          from pathlib import Path
+          from qa_council_publication import assess_incremental
+          from guard_full_council import check_integrity
+          from build_source_candidates import build_candidates
+          p=Path(os.environ["RUNNER_TEMP"])/"source"
+          raw=Path("data/raw/uiwang_expense.json")
+          disc=Path("reports/capital-backfill-discovery-uiwang.json")
+          oldbytes=raw.read_bytes()
+          old=json.loads(oldbytes)
+          olddisc=json.loads(disc.read_text(encoding="utf-8"))
+          manifest=json.loads((p/"release_manifest.json").read_text(encoding="utf-8"))
+          candidatebytes=(p/"uiwang_expense.json").read_bytes()
+          candidate=json.loads(candidatebytes)
+          newdisc=json.loads((p/"capital-backfill-discovery-uiwang.json").read_text(encoding="utf-8"))
+          if (manifest["status"]!="SOURCE_RELEASE_READY"
+              or manifest["integrity"]!="PASS"
+              or manifest["strict_qa"]!="PUBLISH_READY"
+              or hashlib.sha256(oldbytes).hexdigest()!=manifest["original_raw_sha256"]
+              or hashlib.sha256(candidatebytes).hexdigest()!=manifest["proposed_raw_sha256"]):
+              raise SystemExit("STOP: source package, baseline, or SHA-256 mismatch")
+          if (len(old["rows"])!=85 or len(old["files"])!=33
+              or candidate["rows"][:85]!=old["rows"] or candidate["files"][:33]!=old["files"]
+              or len(candidate["rows"])!=303 or len(candidate["files"])!=35):
+              raise SystemExit("STOP: historical rows/files changed or incomplete release")
+          if (newdisc.get("posts",[])[:-1]!=olddisc.get("posts",[])
+              or len(newdisc.get("posts",[]))!=len(olddisc.get("posts",[]))+1):
+              raise SystemExit("STOP: official discovery not append-only")
+          new=candidate["rows"][85:]
+          keys={r["row_id"] for r in old["rows"]}
+          counts=Counter()
+          for row in new:
+              d=datetime.date.fromisoformat(row["used_date"])
+              year,month,_=row["source_period"]
+              if (row["row_id"] in keys or row.get("source_key")!="uiwang"
+                  or row.get("date_quality")!="in_period" or (year,month)!=(d.year,d.month)):
+                  raise SystemExit("STOP: recovered transaction lineage or date mismatch")
+              keys.add(row["row_id"])
+              counts[f"{year:04d}-{month:02d}"]+=1
+              row["date_quality"]="source_verified_unranked"
+              row["recommendation_status"]="HOLD_PAYMENT_BRANCH_UNVERIFIED"
+          if (len(new)!=218 or dict(counts)!={"2026-07":47,"2026-08":42,"2026-09":55,"2026-10":74}):
+              raise SystemExit(f"STOP: recovered month coverage incomplete {counts}")
+          candidate["row_count"]=303
+          candidate["new_files"]=2
+          candidate["refresh_mode"]="verified_source_only_unranked"
+          candidate["generated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          q=copy.deepcopy(old.get("raw_quality") or {})
+          q["rows"]=q["transaction_rows"]=303
+          valid=0;within=0
+          for r in candidate["rows"]:
+              try: d=datetime.date.fromisoformat(str(r.get("used_date") or ""))
+              except ValueError: continue
+              valid+=1
+              sp=r.get("source_period") or []
+              if len(sp)==3 and sp[:2]==[d.year,d.month]: within+=1
+          q["valid_date_coverage"]=q["all_row_valid_date_coverage"]=round(valid/303,4)
+          q["in_period_date_coverage"]=q["all_row_in_period_date_coverage"]=round(within/303,4)
+          candidate["raw_quality"]=q
+          integrity=check_integrity("uiwang",candidate,old)
+          qa=assess_incremental("uiwang",candidate,newdisc,old,olddisc)
+          if integrity["status"]!="PASS" or qa["status"]!="PUBLISH_READY":
+              raise SystemExit(f"STOP: {integrity['failures']} {qa['failures']}")
+          prior_rows,prior_rank=build_candidates("uiwang")
+          if prior_rank:
+              raise SystemExit("STOP: current recommendation baseline not empty")
+          raw.write_text(json.dumps(candidate,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          disc.write_text(json.dumps(newdisc,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          after_rows,after_rank=build_candidates("uiwang")
+          if after_rank!=prior_rank:
+              raise SystemExit("STOP: unverified merchants entered recommendation score")
+          print(json.dumps({"financial_rows":303,"added_rows":218,"files":35,"new_ranked":0,"integrity":integrity["status"],"strict_qa":qa["status"]},ensure_ascii=False))
+          PY
+      - name: Quality gate and before/after site entity count
+        shell: bash
+        run: |
+          set -euo pipefail
+          python pipeline/quality_gate.py
+          mkdir -p "$RUNNER_TEMP/after"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/after/index.html"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])
+          before=json.loads((root/"before/build-meta.json").read_text())
+          after=json.loads((root/"after/build-meta.json").read_text())
+          if before["dataset_total"]!=after["dataset_total"]:
+              raise SystemExit(f"STOP: site entity count changed {before['dataset_total']} -> {after['dataset_total']}")
+          print("SITE DATASET UNCHANGED:",after["dataset_total"])
+          PY
+      - name: Commit exactly two tracked JSON files; remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/raw/uiwang_expense.json reports/capital-backfill-discovery-uiwang.json
+          git rm .github/workflows/uiwang-release-once.yml
+          git commit -m 'data(uiwang): release verified 303-row expense ledger with ranking held'
+          git push origin HEAD:release/uiwang-source-only-20261110
+          git fetch origin main
+          ACTUAL="$(git diff --name-only origin/main...HEAD | sort)"
+          EXPECTED="$(printf '%s\n' data/raw/uiwang_expense.json reports/capital-backfill-discovery-uiwang.json | sort)"
+          test "$ACTUAL" = "$EXPECTED"
