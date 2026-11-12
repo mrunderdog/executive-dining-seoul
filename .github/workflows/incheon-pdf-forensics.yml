@@ -158,3 +158,49 @@ jobs:
           path: reports/recovery/incheon-source-subset/
           if-no-files-found: warn
           retention-days: 14
+
+  source-only-site-dryrun:
+    runs-on: ubuntu-latest
+    needs: [source-only-subset-review]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install static site build dependency
+        run: python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7'
+      - uses: actions/download-artifact@v4
+        with:
+          name: incheon-265-row-source-subset-not-published
+          path: reports/recovery/incheon-source-subset/
+      - name: Compare static website before and after nonranking source addition
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE=data/raw/incheon_council_expense.json
+          BASELINE_HASH="$(sha256sum "$SOURCE" | cut -d' ' -f1)"
+          mkdir -p "$RUNNER_TEMP/baseline" "$RUNNER_TEMP/proposed"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/baseline/index.html"
+          cp "$SOURCE" "$RUNNER_TEMP/archived-incheon.json"
+          trap 'cp "$RUNNER_TEMP/archived-incheon.json" data/raw/incheon_council_expense.json' EXIT
+          cp reports/recovery/incheon-source-subset/incheon_council_expense.json "$SOURCE"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/proposed/index.html"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          top=Path(os.environ['RUNNER_TEMP'])
+          before=json.loads((top/'baseline/build-meta.json').read_text())
+          after=json.loads((top/'proposed/build-meta.json').read_text())
+          if before.get('dataset_total')!=after.get('dataset_total'):
+              raise SystemExit(f"FAIL: changed publicly displayed entities {before.get('dataset_total')}->{after.get('dataset_total')}")
+          b=(top/'baseline/index.html').read_bytes()
+          a=(top/'proposed/index.html').read_bytes()
+          if b!=a:
+              raise SystemExit("FAIL: static HTML changed in supposedly financial-source-only release")
+          print(json.dumps({'baseline_entities':before['dataset_total'],
+                            'proposed_entities':after['dataset_total'],
+                            'identical_html':True,'new_public_rankings':0,
+                            'publish':False}))
+          PY
+          cp "$RUNNER_TEMP/archived-incheon.json" "$SOURCE"
+          test "$(sha256sum "$SOURCE" | cut -d' ' -f1)" = "$BASELINE_HASH"
