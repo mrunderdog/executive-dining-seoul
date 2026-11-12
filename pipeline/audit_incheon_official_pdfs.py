@@ -31,7 +31,7 @@ def inspect_one(seq, month, role):
     post=("https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?"
           f"bcd=infordisc&msg_seq={seq}")
     record={"msg_seq":seq,"role":role,"period":month,"url":url,
-            "pages":[],"transactions":[],"exceptions":[]}
+            "pages":[],"transactions":[],"staged_full_rows":[],"exceptions":[]}
     try:
         blob=fetch_binary(url,post)
         record["sha256"]=hashlib.sha256(blob).hexdigest()
@@ -63,6 +63,7 @@ def inspect_one(seq, month, role):
                 normalized,info=normalize_sheet(rows,sheet_name,meta)
                 page["current_parser"]=info
                 page["normalized_count"]=len(normalized)
+                record["staged_full_rows"].extend(normalized)
                 record["transactions"] += [{
                     "row_id":r.get("row_id"),"source_row":r.get("source_row"),
                     "date":r.get("used_date"),"merchant":r.get("merchant"),
