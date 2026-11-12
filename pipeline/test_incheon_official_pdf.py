@@ -1,6 +1,6 @@
 """Official Incheon Council PDF row fixtures: fail closed, no money inference."""
 import unittest
-from ingest_council_expense import normalize_sheet
+from ingest_council_expense import normalize_sheet, INCH_FIXED_OFFICIAL_PDF_SHA
 
 FILE="https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&fileno=1&msg_seq=1320"
 META={
@@ -54,7 +54,8 @@ class IncheonOriginalPdfFixtures(unittest.TestCase):
         for seq,role,head,text,amount,merchant in cases:
             with self.subTest(seq=seq):
                 meta={**META,"attachment_url":FILE.replace("1320",str(seq)),
-                      "default_role":role}
+                      "default_role":role,
+                      "attachment_sha256":INCH_FIXED_OFFICIAL_PDF_SHA[seq]}
                 parsed,info=normalize_sheet([[head],[text]],"pdf-page-1",meta)
                 self.assertEqual(info["status"],"OK",info)
                 self.assertEqual(len(parsed),1)
