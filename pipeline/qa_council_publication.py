@@ -69,7 +69,7 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
         for item in files:
             sheets=item.get("sheets",[])
             attachment=item.get("url") or ""
-            seq_match=re.search(r"(?:[?&])msg_seq=(\\d+)(?:&|$)",attachment)
+            seq_match=re.search(r"(?:[?&])msg_seq=(\d+)(?:&|$)",attachment)
             seq=int(seq_match.group(1)) if seq_match else None
             for sheet in sheets:
                 status=sheet.get("status")
