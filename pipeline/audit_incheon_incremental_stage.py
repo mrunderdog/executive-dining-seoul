@@ -12,6 +12,7 @@ from pathlib import Path
 from capital_backfill import canonical_attachment_url
 from guard_full_council import check_integrity
 from qa_council_publication import assess_incremental
+from incheon_reparse_attestation import attest_legacy_files, make_attested_qa_view
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGED=ROOT/"reports/recovery/incheon-forensics/official_pdf_diagnostics.json"
@@ -81,7 +82,18 @@ def analyze(base, discovery, forensic):
     proposed={**base, "rows":[*base.get("rows",[]),*evidence_rows],
               "files":new_files}
     integrity=check_integrity(source,proposed,base)
-    qa=assess_incremental(source,proposed,new_discovery,base,discovery)
+    independent=json.loads((ROOT/"pipeline/incheon_official_2026_08_09_text_evidence.json").read_text(encoding="utf-8"))
+    proof, verified_files=attest_legacy_files(base,forensic,independent)
+    if proof["status"]=="PASS":
+        transient_qa_data=make_attested_qa_view(proposed,verified_files,proof)
+        qa=assess_incremental(source,transient_qa_data,new_discovery,base,discovery)
+    else:
+        qa=assess_incremental(source,proposed,new_discovery,base,discovery)
+        failures+=proof["failures"]
+    # This assertion uses the historical objects, not the transient QA view.
+    post_integrity=check_integrity(source,proposed,base)
+    if post_integrity["status"]!="PASS":
+        failures.append("attested_view_changed_immutable_baseline")
     if integrity["status"]!="PASS":
         failures+=integrity["failures"]
     if qa["status"]!="PUBLISH_READY":
@@ -100,6 +112,15 @@ def analyze(base, discovery, forensic):
         "staged_total_files":len(proposed.get("files",[])),
         "integrity":integrity,
         "strict_qa_subset":qa,
+        "legacy_reparse_attestation":proof,
+        "strict_qa_view":"VERIFIED_SHADOW_METADATA" if proof["status"]=="PASS" else "UNVERIFIED_LEGACY",
+        "release_scope":"TEXT_PDF_SOURCE_ONLY_NONRANKING",
+        "excluded_official_documents":[
+            {"msg_seq":1321,"reason":"OFFICIAL_PRINTED_TOTAL_DIFFERS_FROM_SUM_BY_438200_KRW",
+             "disposition":"QUARANTINE_NO_SYNTHETIC_TRANSACTION"},
+            {"msg_seq":1329,"reason":"SCANNED_ORIGINAL_PAYEE_IDENTITY_NOT_FULLY_VERIFIED",
+             "disposition":"QUARANTINE_PENDING_COMPLETE_SOURCE_VERIFICATION"}
+        ],
         "release_criteria_satisfied":False,
         "site_rankings_changed":False,
         "publish":False,
