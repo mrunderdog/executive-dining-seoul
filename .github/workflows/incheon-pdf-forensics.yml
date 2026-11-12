@@ -5,6 +5,7 @@ on:
       - 'pipeline/audit_incheon_official_pdfs.py'
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/test_incheon_official_pdf.py'
+      - 'pipeline/render_incheon_scanned_pdfs.py'
       - '.github/workflows/incheon-pdf-forensics.yml'
   workflow_dispatch:
 permissions:
@@ -33,5 +34,25 @@ jobs:
         with:
           name: incheon-official-pdf-forensics
           path: reports/recovery/incheon-forensics
+          if-no-files-found: warn
+          retention-days: 14
+
+  scanned-original-page-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF renderer
+        run: python -m pip install 'pymupdf>=1.24,<2' 'pypdf>=5,<7'
+      - name: Render only SHA-matched official scanned PDFs
+        run: PYTHONPATH=pipeline python pipeline/render_incheon_scanned_pdfs.py
+      - name: Upload original image pages for manual evidence review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-scanned-original-pages
+          path: reports/recovery/incheon-scanned-pages/
           if-no-files-found: warn
           retention-days: 14
