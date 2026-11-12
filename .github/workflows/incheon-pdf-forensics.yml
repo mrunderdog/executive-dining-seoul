@@ -6,6 +6,9 @@ on:
       - 'pipeline/ingest_council_expense.py'
       - 'pipeline/test_incheon_official_pdf.py'
       - 'pipeline/render_incheon_scanned_pdfs.py'
+      - 'pipeline/incheon_scan_original_evidence.json'
+      - 'pipeline/test_incheon_scanned_evidence.py'
+      - 'pipeline/audit_incheon_compressed_archive.py'
       - '.github/workflows/incheon-pdf-forensics.yml'
   workflow_dispatch:
 permissions:
@@ -23,6 +26,7 @@ jobs:
       - name: Run original-source fixtures and preserve shared parser regressions
         run: |
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_official_pdf.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_scanned_evidence.py
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_p1_official_file_forensics.py
       - name: Preserve source files and inspect official PDFs (no publication)
         run: |
@@ -54,5 +58,23 @@ jobs:
         with:
           name: incheon-scanned-original-pages
           path: reports/recovery/incheon-scanned-pages/
+          if-no-files-found: warn
+          retention-days: 14
+
+  compressed-1328-file-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit original compressed download file inventory
+        run: PYTHONPATH=pipeline python pipeline/audit_incheon_compressed_archive.py
+      - name: Upload exact ZIP member manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-1328-archive-inventory
+          path: reports/recovery/incheon-archive/
           if-no-files-found: warn
           retention-days: 14
