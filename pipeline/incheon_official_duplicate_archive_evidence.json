@@ -1,0 +1,26 @@
+{
+  "source": "incheon_council",
+  "msg_seq": 1328,
+  "archive_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDownCompress.do?bcd=infordisc&msg_seq=1328",
+  "archive_sha256": "ef50bc4525368b0e66b6f50813a828829ba9a6dd3da96592071d44f8d9c713ea",
+  "archive_bytes": 47312,
+  "original_zip_members_are_absolute_paths": true,
+  "members": [
+    {
+      "name": "/2026년_7월~9월_업무추진비_공개_의장.xlsx",
+      "sha256": "56babc5e8b3b2f729c77ff32ac39f180543883f2524864779bbe52b2f4032853"
+    },
+    {
+      "name": "/부의장실_업무추진비_집행내역(7~9월,_제1부).xlsx",
+      "sha256": "17e209944e4589e50ac2ea14c2da55c7d2d94abd971aeabdcb615276e4f61f4c"
+    },
+    {
+      "name": "/부의장실_업무추진비_집행내역(7~9월,_제2부).xlsx",
+      "sha256": "24188487a4b0a275bb47e211f76a06fac29e75fd2756d2bfaf9d7d949bd55224"
+    }
+  ],
+  "finding": "Verified exact byte-duplicate archive of three separately published and already ingested Q3 leadership spreadsheets",
+  "disposition": "NO_NEW_TRANSACTIONS_VERIFY_DUPLICATE_ONLY",
+  "publish": false,
+  "archive_extraction_prohibited": true
+}
