@@ -8,6 +8,7 @@ META={
     "institution":"인천광역시의회","post_url":"https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1320&bcd=infordisc",
     "attachment_url":FILE,"attachment_name":"2026년 8월 환경교통위원장 업무추진비 집행내역.pdf",
     "period":[2026,8,None],"default_role":"환경교통위원장",
+    "attachment_sha256":"d85541d349a5f5e20fb4023be5c34093ad59a7e80483a3409af2c61143ef6dcb",
 }
 HEADER=["사 용 일 시", "집   행   목   적", "대상인원", "금   액", "장   소", "결제방법"]
 
