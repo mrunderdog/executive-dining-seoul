@@ -14,6 +14,11 @@ from ingest_council_expense import fetch_binary
 
 ROOT=Path(__file__).resolve().parents[1]
 URL="https://www.icouncil.go.kr/main/bbs/bbsMsgFileDownCompress.do?bcd=infordisc&msg_seq=1328"
+KNOWN_OFFICIAL_COMPONENT_SHA={
+    "56babc5e8b3b2f729c77ff32ac39f180543883f2524864779bbe52b2f4032853",
+    "17e209944e4589e50ac2ea14c2da55c7d2d94abd971aeabdcb615276e4f61f4c",
+    "24188487a4b0a275bb47e211f76a06fac29e75fd2756d2bfaf9d7d949bd55224",
+}
 REF="https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?bcd=infordisc&msg_seq=1328"
 def inspect(blob):
     out={"url":URL,"sha256":hashlib.sha256(blob).hexdigest(),
@@ -36,8 +41,10 @@ def inspect(blob):
             # Windows-generated ZIPs legitimately use backslashes as path
             # separators. Inspect read-only, normalize only for validation.
             normalized=name.replace("\\","/")
-            unsafe=(normalized.startswith("/") or
-                    normalized.startswith("//") or
+            # Leading slash in these official ZIP member names prevents
+            # safe on-disk extraction. It is nevertheless safe to *read bytes
+            # into memory* by archive entry name for comparison only.
+            unsafe=(normalized.startswith("//") or
                     ".." in Path(normalized).parts or
                     (len(normalized)>1 and normalized[1]==":") or
                     bool(item.flag_bits & 1))
@@ -48,13 +55,21 @@ def inspect(blob):
             if item.is_dir():
                 continue
             info={"name":name,"size":item.file_size,
-                  "supported":name.lower().endswith((".xlsx",".xls",".csv",".pdf"))}
+                  "supported":name.lower().endswith((".xlsx",".xls",".csv",".pdf")),
+                  "extraction_prohibited":normalized.startswith("/")}
             if info["supported"]:
                 payload=z.read(item)
                 info["sha256"]=hashlib.sha256(payload).hexdigest()
             out["members"].append(info)
-        out["reason"]="archive_inventory_requires_comparison_to_existing_official_Q3_files"
         out["supported_files"]=sum(x["supported"] for x in out["members"])
+        observed={x.get("sha256") for x in out["members"] if x["supported"]}
+        if (len(out["members"])==len(KNOWN_OFFICIAL_COMPONENT_SHA)
+            and all(x["supported"] for x in out["members"])
+            and observed==KNOWN_OFFICIAL_COMPONENT_SHA):
+            out["reason"]="archive_duplicates_three_already_ingested_verified_q3_xlsx"
+            out["status"]="DUPLICATE_OFFICIAL_ARCHIVE_NO_NEW_ROWS"
+        else:
+            out["reason"]="archive_inventory_does_not_exactly_match_baseline_components"
     return out
 
 def main():
