@@ -193,14 +193,27 @@ jobs:
           after=json.loads((top/'proposed/build-meta.json').read_text())
           if before.get('dataset_total')!=after.get('dataset_total'):
               raise SystemExit(f"FAIL: changed publicly displayed entities {before.get('dataset_total')}->{after.get('dataset_total')}")
-          b=(top/'baseline/index.html').read_bytes()
-          a=(top/'proposed/index.html').read_bytes()
-          if b!=a:
-              raise SystemExit("FAIL: static HTML changed in supposedly financial-source-only release")
+          b=(top/'baseline/index.html').read_text(encoding='utf-8')
+          a=(top/'proposed/index.html').read_text(encoding='utf-8')
+          # The site's data story embeds a UTC built_at timestamp. Normalize
+          # *only* that independently recorded build timestamp, never any
+          # transaction, merchant or public location fields.
+          stamp_before=before['built_at']
+          stamp_after=after['built_at']
+          if not stamp_before or not stamp_after or stamp_before not in b or stamp_after not in a:
+              raise SystemExit("FAIL: cannot verify build timestamp normalization")
+          norm_before=b.replace(stamp_before,'__AUDIT_BUILD_TIMESTAMP__')
+          norm_after=a.replace(stamp_after,'__AUDIT_BUILD_TIMESTAMP__')
+          if norm_before!=norm_after:
+              idx=next((i for i,(x,y) in enumerate(zip(norm_before,norm_after)) if x!=y), min(len(norm_before),len(norm_after)))
+              print(json.dumps({'first_mismatch_offset':idx,
+                                'baseline_context':norm_before[max(0,idx-80):idx+120],
+                                'proposed_context':norm_after[max(0,idx-80):idx+120]},ensure_ascii=False))
+              raise SystemExit("FAIL: public HTML differs after normalizing sole build timestamp")
           print(json.dumps({'baseline_entities':before['dataset_total'],
                             'proposed_entities':after['dataset_total'],
-                            'identical_html':True,'new_public_rankings':0,
-                            'publish':False}))
+                            'identical_content_except_generated_timestamp':True,
+                            'new_public_rankings':0,'publish':False}))
           PY
           cp "$RUNNER_TEMP/archived-incheon.json" "$SOURCE"
           test "$(sha256sum "$SOURCE" | cut -d' ' -f1)" = "$BASELINE_HASH"
