@@ -11,6 +11,8 @@ on:
       - 'pipeline/audit_incheon_compressed_archive.py'
       - 'pipeline/audit_incheon_release_scope.py'
       - 'pipeline/audit_incheon_incremental_stage.py'
+      - 'pipeline/incheon_reparse_attestation.py'
+      - 'pipeline/test_incheon_reparse_attestation.py'
       - 'pipeline/incheon_official_2026_08_09_text_evidence.json'
       - 'pipeline/test_incheon_release_qa.py'
       - '.github/workflows/incheon-pdf-forensics.yml'
@@ -32,6 +34,7 @@ jobs:
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_official_pdf.py
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_scanned_evidence.py
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_release_qa.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_reparse_attestation.py
           PYTHONPATH=pipeline python -m unittest -v pipeline/test_p1_official_file_forensics.py
       - name: Preserve source files and inspect official PDFs (no publication)
         run: |
