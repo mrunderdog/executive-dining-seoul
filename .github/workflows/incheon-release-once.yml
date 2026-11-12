@@ -41,6 +41,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p "$RUNNER_TEMP/incheon-before"
+          python pipeline/quality_gate.py
           python pipeline/build_site.py --output "$RUNNER_TEMP/incheon-before/index.html"
       - name: Verify all 71 official transactions, 194 historic rows, and explicit partial-coverage status
         shell: bash
@@ -223,13 +224,59 @@ jobs:
               raise SystemExit("STOP: public website record count changed")
           b=(p/"incheon-before/index.html").read_text(encoding="utf-8")
           a=(p/"incheon-after/index.html").read_text(encoding="utf-8")
-          bt=bmeta["built_at"];at=ameta["built_at"]
-          if bt not in b or at not in a:
-              raise SystemExit("STOP: site build time field unknown")
-          if b.replace(bt,"__AUDITED_BUILD_TIME__")!=a.replace(at,"__AUDITED_BUILD_TIME__"):
-              raise SystemExit("STOP: public site HTML contents differ")
-          print(json.dumps({"baseline_entities":1356,"after_entities":1356,
-                            "same_user_visible_html":True,"new_rankings":0},ensure_ascii=False))
+          def field(text,start,stop):
+              if start not in text: raise SystemExit("STOP: missing compiled site field "+start)
+              return json.loads(text.split(start,1)[1].split(stop,1)[0])
+          data_before=field(b,"const DATA=",",STATS=")
+          data_after=field(a,"const DATA=",",STATS=")
+          if data_before!=data_after or len(data_before)!=1356:
+              raise SystemExit("STOP: published restaurant entities/rankings differ")
+          origins_before=field(b,",ORIGINS=",";")
+          origins_after=field(a,",ORIGINS=",";")
+          if origins_before!=origins_after: raise SystemExit("STOP: published regions changed")
+          stats_before=field(b,",STATS=",",ORIGINS=")
+          stats_after=field(a,",STATS=",",ORIGINS=")
+          health_before=stats_before.get("source_health",{}).get("incheon_council",{})
+          health_after=stats_after.get("source_health",{}).get("incheon_council",{})
+          if (health_before.get("raw_rows")!=194 or health_after.get("raw_rows")!=265
+              or health_after.get("discovery_posts")!=health_before.get("discovery_posts",0)+1):
+              raise SystemExit("STOP: only allowed 71-row + one-source-post health delta not observed")
+          allowed={"raw_rows","discovery_posts","discovery_attachments"}
+          if ({k:v for k,v in health_before.items() if k not in allowed}
+              !={k:v for k,v in health_after.items() if k not in allowed}):
+              raise SystemExit("STOP: unexpected Incheon source health changes")
+          stats_before["source_health"].pop("incheon_council",None)
+          stats_after["source_health"].pop("incheon_council",None)
+          if stats_before!=stats_after:
+              raise SystemExit("STOP: public site statistics outside Incheon source health differ")
+          story_before=field(b,"const STORY=",";\n  const root=")
+          story_after=field(a,"const STORY=",";\n  const root=")
+          story_before.pop("generated_at_utc",None)
+          story_after.pop("generated_at_utc",None)
+          if story_before!=story_after:
+              raise SystemExit("STOP: non-timestamp story metrics changed")
+          # All other static HTML must be byte-identical; replace only the
+          # serialized JSON objects compared above and recorded build time.
+          def clean(text,meta):
+              start="const DATA="
+              end=";\nconst $="
+              if end not in text: raise SystemExit("STOP: app payload boundary changed")
+              left,right=text.split(start,1)
+              remainder=right.split(end,1)[1]
+              text=left+start+"__AUDITED_APP_DATA__"+end+remainder
+              start="const STORY="
+              end=";\n  const root="
+              left,right=text.split(start,1)
+              text=left+start+"__AUDITED_STORY__"+end+right.split(end,1)[1]
+              return text.replace(meta["built_at"],"__AUDITED_BUILT_AT__")
+          if clean(b,bmeta)!=clean(a,ameta):
+              raise SystemExit("STOP: user-visible static HTML changed unexpectedly")
+          print(json.dumps({"baseline_entities":len(data_before),
+                            "proposed_entities":len(data_after),
+                            "identical_public_restaurants":True,
+                            "identical_rankings":True,
+                            "only_incheon_source_health_count_changes":True,
+                            "new_rankings":0,"publish":False},ensure_ascii=False))
           PY
       - name: Commit only two source JSON files and self-remove temporary workflow
         shell: bash
