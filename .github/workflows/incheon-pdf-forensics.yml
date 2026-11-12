@@ -10,6 +10,7 @@ on:
       - 'pipeline/test_incheon_scanned_evidence.py'
       - 'pipeline/audit_incheon_compressed_archive.py'
       - 'pipeline/audit_incheon_release_scope.py'
+      - 'pipeline/audit_incheon_incremental_stage.py'
       - 'pipeline/incheon_official_2026_08_09_text_evidence.json'
       - 'pipeline/test_incheon_release_qa.py'
       - '.github/workflows/incheon-pdf-forensics.yml'
@@ -104,5 +105,29 @@ jobs:
         with:
           name: incheon-source-reconciliation
           path: reports/recovery/incheon-source-reconciliation/
+          if-no-files-found: warn
+          retention-days: 14
+
+  nonpublishing-incremental-strict-qa:
+    runs-on: ubuntu-latest
+    needs: [source-reconciliation]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download same-run complete official PDF source rows
+        uses: actions/download-artifact@v4
+        with:
+          name: incheon-official-pdf-forensics
+          path: reports/recovery/incheon-forensics/
+      - name: Trial 194+71 append-only source with Strict QA and Data Integrity
+        run: PYTHONPATH=pipeline python pipeline/audit_incheon_incremental_stage.py
+      - name: Upload publication HOLD evidence and exact failure reasons
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-append-only-qa-hold
+          path: reports/recovery/incheon-incremental-qa/
           if-no-files-found: warn
           retention-days: 14
