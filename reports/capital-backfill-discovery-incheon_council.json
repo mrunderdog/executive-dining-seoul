@@ -366,6 +366,25 @@
       "listing_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgList.do?bcd=infordisc&pgno=2",
       "error": "listing URLError: <urlopen error timed out>",
       "attachments": []
+    },
+    {
+      "source": "incheon_council",
+      "region": "인천",
+      "jurisdiction": "인천광역시",
+      "institution": "인천광역시의회",
+      "title": "2026년 9월 산업경제위원장 업무추진비 지출내역",
+      "post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?bcd=infordisc&msg_seq=1330",
+      "period": [
+        2026,
+        9,
+        null
+      ],
+      "attachments": [
+        {
+          "url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&fileno=1&msg_seq=1330",
+          "text": "2026년 9월 산업경제위원장 공식 PDF"
+        }
+      ]
     }
   ]
 }
