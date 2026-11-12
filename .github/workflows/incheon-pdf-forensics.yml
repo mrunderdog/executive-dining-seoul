@@ -1,0 +1,31 @@
+name: Incheon Council official PDF forensics
+on:
+  pull_request:
+    paths:
+      - 'pipeline/audit_incheon_official_pdfs.py'
+      - '.github/workflows/incheon-pdf-forensics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-pdf-readonly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF and worksheet parsing
+        run: python -m pip install 'pypdf>=5,<7' 'openpyxl>=3.1,<4' xlrd
+      - name: Preserve source files and inspect official PDFs (no publication)
+        run: |
+          python -m py_compile pipeline/audit_incheon_official_pdfs.py
+          PYTHONPATH=pipeline python pipeline/audit_incheon_official_pdfs.py
+      - name: Retain full source-page forensic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-official-pdf-forensics
+          path: reports/recovery/incheon-forensics
+          if-no-files-found: warn
+          retention-days: 14
