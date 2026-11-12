@@ -95,6 +95,51 @@ class IncheonOriginalPdfFixtures(unittest.TestCase):
         self.assertEqual(info["status"],"ROW_PARSE_GAPS")
         self.assertEqual(info["unparsed_transaction_like_rows"],1)
 
+
+    def test_industry_two_pages_represent_only_13_unique_transactions(self):
+        from ingest_council_expense import INCH_INDUSTRY_EXPECTED
+        meta={**META,"attachment_url":FILE.replace("1320","1330"),
+              "default_role":"산업경제위원장",
+              "attachment_sha256":INCH_FIXED_OFFICIAL_PDF_SHA[1330],
+              "period":[2026,9,None]}
+        cases=[
+            ("2026-09-04","16:20:46",205000,"꿀닭이네"),
+            ("2026-09-04","16:27:41",140000,"수림 주식회사"),
+            ("2026-09-07","16:58:44",350000,"젊은농부해피타운"),
+            ("2026-09-10","08:21:33",344000,"젊은농부해피타운"),
+            ("2026-09-10","08:26:53",144000,"형제복집"),
+            ("2026-09-14","10:45:21",117000,"상일회관"),
+            ("2026-09-14","10:46:14",219000,"유성집"),
+            ("2026-09-15","12:57:52",91000,"향계"),
+            ("2026-09-15","12:59:04",291000,"경복궁구월점"),
+            ("2026-09-15","15:00:41",190000,"경복궁계산점"),
+            ("2026-09-22","08:00:15",210000,"유심초밥"),
+            ("2026-09-22","08:01:02",91800,"에이스테이크"),
+            ("2026-09-22","10:32:24",125000,"코즈요리"),
+        ]
+        self.assertEqual({(d,a) for d,t,a,m in cases},INCH_INDUSTRY_EXPECTED)
+        def rows(second):
+            header=["일시","적 요","사용대상","지출금액","장 소"]
+            if second:header.append("집행방법")
+            out=[["산업경제위원장 업무추진비 지출내역"],header]
+            for day,clock,amount,name in cases:
+                out.append([day,f"경제활성화 방안 논의를 위한 간담회", "5",
+                            f"{amount:,} {name}",*(["카드"] if second else [])])
+                out.append([day+clock])
+            return out
+        old,metadata1=normalize_sheet(rows(False),"pdf-page-1",meta)
+        newer,metadata2=normalize_sheet(rows(True),"pdf-page-2",meta)
+        self.assertEqual(old,[])
+        self.assertEqual(metadata1["status"],"DUPLICATE_OFFICIAL_PAGE_NO_NEW_ROWS")
+        self.assertEqual(metadata2["status"],"OK",metadata2)
+        self.assertEqual(len(newer),13)
+        self.assertEqual(sum(r["amount"] for r in newer),2517800)
+        self.assertEqual(len({r["row_id"] for r in newer}),13)
+        badrows=rows(True)
+        badrows[2][3]="999,000 임의업체"
+        _,mismatch=normalize_sheet(badrows,"pdf-page-2",meta)
+        self.assertEqual(mismatch["status"],"ROW_PARSE_GAPS")
+
     def test_unrecognized_pdf_has_no_source_specific_inference(self):
         meta={**META,"attachment_url":FILE.replace("1320","1329")}
         _,info=normalize_sheet([HEADER,["2026-09-01 18:00 테스트 1 20,000 상호 카드"]],"pdf-page-1",meta)
