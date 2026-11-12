@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "source": "incheon_council",
+  "window": "2026-08..2026-09",
+  "method": "Independent original official public PDF text transaction date/amount recount, checked against pypdf exact SHA source downloads; no guessed amounts and no restaurant scoring",
+  "publish": false,
+  "files": [
+    {
+      "msg_seq": 1320,
+      "period": "2026-08",
+      "role": "환경교통위원장",
+      "sha256": "d85541d349a5f5e20fb4023be5c34093ad59a7e80483a3409af2c61143ef6dcb",
+      "transactions": 20,
+      "amount_total_krw": 1496800,
+      "pages": 2
+    },
+    {
+      "msg_seq": 1322,
+      "period": "2026-09",
+      "role": "도시건설위원장",
+      "sha256": "4856197cef57cff59e5ecb3825e7fad9ed1a88697222a9bdc2da7d1d03bd43f3",
+      "transactions": 12,
+      "amount_total_krw": 2750500,
+      "pages": 1
+    },
+    {
+      "msg_seq": 1323,
+      "period": "2026-09",
+      "role": "교육위원장",
+      "sha256": "860248268daf693651bff18e8a3c737acbeb7d123e09629f041ac4540e0d21e8",
+      "transactions": 2,
+      "amount_total_krw": 321500,
+      "pages": 1
+    },
+    {
+      "msg_seq": 1326,
+      "period": "2026-09",
+      "role": "의회운영위원장",
+      "sha256": "e1459b54a55c040caa86af3f5fcc582a630543b79cf6030acc86f96153a97e1e",
+      "transactions": 12,
+      "amount_total_krw": 1995500,
+      "pages": 1
+    },
+    {
+      "msg_seq": 1327,
+      "period": "2026-09",
+      "role": "환경교통위원장",
+      "sha256": "44129be489aee23846fa19c4e0de465ef105164be42f74e2a1fe99c06d5b89dd",
+      "transactions": 12,
+      "amount_total_krw": 1375200,
+      "pages": 1
+    },
+    {
+      "msg_seq": 1330,
+      "period": "2026-09",
+      "role": "산업경제위원장",
+      "sha256": "a958b2f26f025d100ba3c7d7310e434e21aad4c029d2fe6f4c0c9008e1a374e3",
+      "transactions": 13,
+      "amount_total_krw": 2517800,
+      "pages": 2,
+      "document_repeats_all_transactions_twice": true
+    }
+  ],
+  "review_status": "HOLD_UNTIL_ALL_DOWNLOADED_ORIGINALS_AND_SCANS_RESOLVED"
+}
