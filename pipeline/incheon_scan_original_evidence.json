@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source": "incheon_council",
+  "verification": "SHA-pinned official PDF original page images inspected manually; no OCR and no inferred merchant amounts",
+  "publish": false,
+  "documents": [
+    {
+      "msg_seq": 1321,
+      "period": "2026-08",
+      "role": "문화복지위원장",
+      "sha256": "1ed8414992e06999cfb60c12e23c1d72ccff041941007aa0145012cb4c5a927e",
+      "page": 1,
+      "printed_transactions": 10,
+      "printed_total_krw": 1367400,
+      "visually_read_date_amounts": [
+        [
+          "2026-08-03",
+          131000
+        ],
+        [
+          "2026-08-06",
+          140000
+        ],
+        [
+          "2026-08-11",
+          56000
+        ],
+        [
+          "2026-08-11",
+          52000
+        ],
+        [
+          "2026-08-12",
+          77000
+        ],
+        [
+          "2026-08-13",
+          39000
+        ],
+        [
+          "2026-08-14",
+          69200
+        ],
+        [
+          "2026-08-19",
+          53000
+        ],
+        [
+          "2026-08-20",
+          249000
+        ],
+        [
+          "2026-08-20",
+          63000
+        ]
+      ],
+      "source_mismatch_status": "HOLD_PRINTED_TOTAL_DIFFERS_FROM_ROW_SUM",
+      "notes": "Official scanned PDF displays a grand total of 1,367,400 despite 10 individual visibly printed amounts totaling 929,200. Do not fabricate an extra 438,200 KRW transaction or silently alter an observed amount.",
+      "visual_row_total_krw": 929200,
+      "printed_minus_rows_krw": 438200
+    },
+    {
+      "msg_seq": 1329,
+      "period": "2026-09",
+      "role": "문화복지위원장",
+      "sha256": "81e2d85f2dd0c5c43463da8e34fa724d38223790921f657c49a2fb480886e264",
+      "page": 1,
+      "printed_transactions": 9,
+      "printed_total_krw": 784000,
+      "visually_read_date_amounts": [
+        [
+          "2026-09-03",
+          51000
+        ],
+        [
+          "2026-09-07",
+          75000
+        ],
+        [
+          "2026-09-14",
+          90000
+        ],
+        [
+          "2026-09-16",
+          24800
+        ],
+        [
+          "2026-09-21",
+          49600
+        ],
+        [
+          "2026-09-21",
+          300000
+        ],
+        [
+          "2026-09-28",
+          55100
+        ],
+        [
+          "2026-09-29",
+          110000
+        ],
+        [
+          "2026-09-29",
+          28500
+        ]
+      ],
+      "source_mismatch_status": "DATES_AND_AMOUNTS_VISUALLY_RECONCILED_MERCHANTS_NOT_YET_VERIFIED",
+      "notes": "9 visually identified rows sum to official printed 784,000 KRW; no automatic transcription into ranking.",
+      "visual_row_total_krw": 784000,
+      "printed_minus_rows_krw": 0
+    }
+  ]
+}
