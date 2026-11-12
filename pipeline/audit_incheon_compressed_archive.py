@@ -33,8 +33,16 @@ def inspect(blob):
             return out
         for item in members:
             name=item.filename
-            if (name.startswith("/") or ".." in Path(name).parts
-                or "\\" in name or item.flag_bits & 1):
+            # Windows-generated ZIPs legitimately use backslashes as path
+            # separators. Inspect read-only, normalize only for validation.
+            normalized=name.replace("\\","/")
+            unsafe=(normalized.startswith("/") or
+                    normalized.startswith("//") or
+                    ".." in Path(normalized).parts or
+                    (len(normalized)>1 and normalized[1]==":") or
+                    bool(item.flag_bits & 1))
+            if unsafe:
+                out["members"].append({"name":name,"reason":"unsafe_archive_member"})
                 out["reason"]="unsafe_archive_member"
                 return out
             if item.is_dir():
