@@ -60,6 +60,39 @@ class IncheonOriginalPdfFixtures(unittest.TestCase):
                 self.assertEqual(parsed[0]["amount"],amount)
                 self.assertEqual(parsed[0]["merchant"],merchant)
 
+    def test_official_page_two_without_repeated_header_uses_digest_pin(self):
+        row=["2026-08-31 18:37온실가스 감축목표 달성 방안 논의를 위한 간담회비 지출", "2", "25,500본죽&비빔밥 인천서해구청점카드"]
+        meta={**META, "attachment_sha256":"d85541d349a5f5e20fb4023be5c34093ad59a7e80483a3409af2c61143ef6dcb"}
+        parsed,info=normalize_sheet([row], "pdf-page-2", meta)
+        self.assertEqual(info["status"],"OK",info)
+        self.assertEqual(parsed[0]["amount"],25500)
+        bad={**meta,"attachment_sha256":"0"*64}
+        parsed2,info2=normalize_sheet([row],"pdf-page-2",bad)
+        self.assertEqual(parsed2,[])
+        self.assertEqual(info2["status"],"OFFICIAL_SOURCE_SHA_CHANGED")
+
+    def test_education_payee_from_official_column(self):
+        meta={**META,"attachment_url":FILE.replace("1320","1323"),
+              "default_role":"교육위원장",
+              "attachment_sha256":"860248268daf693651bff18e8a3c737acbeb7d123e09629f041ac4540e0d21e8"}
+        rows=[["일자","일시","적요","채주","대상","금액","집행방법"],
+              ["2026-09-16","13:46","전문위원실 직원 격려 간담회 실시",
+               "애플크로스","교육위원장등10명","121,500","카드"],
+              ["2026-09-17","20:41","제313회 임시회 회기 운영 관련 논의를 위한 교육위원회 위원 간담회 실시",
+               "손선장 소래포구점","교육위원장등8명","200,000","카드"],
+              ["계(2건)","321,500"]]
+        parsed,info=normalize_sheet(rows,"pdf-page-1",meta)
+        self.assertEqual(info["status"],"OK",info)
+        self.assertEqual(len(parsed),2)
+        self.assertEqual(sum(p["amount"] for p in parsed),321500)
+
+    def test_missing_clearly_printed_amount_holds(self):
+        rows=[HEADER,["2026-08-31 18:37온실가스 감축목표 달성 방안 논의를 위한 간담회비 지출", "2", "본죽&비빔밥 인천서해구청점카드"]]
+        parsed,info=normalize_sheet(rows,"pdf-page-1",META)
+        self.assertFalse(parsed)
+        self.assertEqual(info["status"],"ROW_PARSE_GAPS")
+        self.assertEqual(info["unparsed_transaction_like_rows"],1)
+
     def test_unrecognized_pdf_has_no_source_specific_inference(self):
         meta={**META,"attachment_url":FILE.replace("1320","1329")}
         _,info=normalize_sheet([HEADER,["2026-09-01 18:00 테스트 1 20,000 상호 카드"]],"pdf-page-1",meta)
