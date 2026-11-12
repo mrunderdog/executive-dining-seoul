@@ -7,6 +7,7 @@ Scanned originals with inconsistent printed totals remain HOLD.
 """
 from __future__ import annotations
 import json
+import hashlib
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -99,7 +100,19 @@ def main():
     forensic=json.loads(FORENSIC.read_text(encoding="utf-8"))
     evidence=json.loads(EVIDENCE.read_text(encoding="utf-8"))
     scan=json.loads((ROOT/"pipeline/incheon_scan_original_evidence.json").read_text(encoding="utf-8"))
+    baseline_path=ROOT/"data/raw/incheon_council_expense.json"
+    before_bytes=baseline_path.read_bytes()
+    baseline=json.loads(before_bytes)
     result=analyze(forensic,evidence,scan)
+    result["baseline_rows"]=len(baseline.get("rows",[]))
+    result["baseline_files"]=len(baseline.get("files",[]))
+    result["baseline_sha256"]=hashlib.sha256(before_bytes).hexdigest()
+    result["baseline_preserved"]=(len(baseline.get("rows",[]))==194
+                                   and len(baseline.get("files",[]))==10
+                                   and baseline_path.read_bytes()==before_bytes)
+    if not result["baseline_preserved"]:
+        result["status"]="HOLD_BASELINE_CHANGED"
+        result["source_exceptions"].append("baseline_194_rows_10_files_changed")
     OUTPUT.mkdir(parents=True,exist_ok=True)
     (OUTPUT/"audit.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({
