@@ -13,6 +13,7 @@ on:
       - 'pipeline/audit_incheon_incremental_stage.py'
       - 'pipeline/incheon_reparse_attestation.py'
       - 'pipeline/test_incheon_reparse_attestation.py'
+      - 'pipeline/prepare_incheon_source_subset.py'
       - 'pipeline/incheon_official_2026_08_09_text_evidence.json'
       - 'pipeline/test_incheon_release_qa.py'
       - '.github/workflows/incheon-pdf-forensics.yml'
@@ -132,5 +133,28 @@ jobs:
         with:
           name: incheon-append-only-qa-hold
           path: reports/recovery/incheon-incremental-qa/
+          if-no-files-found: warn
+          retention-days: 14
+
+  source-only-subset-review:
+    runs-on: ubuntu-latest
+    needs: [nonpublishing-incremental-strict-qa]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: incheon-official-pdf-forensics
+          path: reports/recovery/incheon-forensics/
+      - name: Prepare explicitly partial source-only package with 194 untouched legacy rows
+        run: PYTHONPATH=pipeline python pipeline/prepare_incheon_source_subset.py
+      - name: Upload immutable candidate, shadow attestations and quarantine manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: incheon-265-row-source-subset-not-published
+          path: reports/recovery/incheon-source-subset/
           if-no-files-found: warn
           retention-days: 14
