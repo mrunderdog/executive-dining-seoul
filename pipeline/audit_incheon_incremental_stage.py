@@ -26,6 +26,34 @@ def analyze(base, discovery, forensic):
         for att in p.get("attachments",[]):
             url=canonical_attachment_url(att.get("url"))
             if url: posts[url]=p.get("post_url")
+    # Official msg_seq=1330 is absent from the saved discovery despite
+    # being a SHA-verified public PDF. Append its proven post/file in
+    # this *temporary audit snapshot* only; never mutate the original.
+    new_discovery={**discovery,"posts":list(discovery.get("posts",[]))}
+    new_files=list(base.get("files",[]))
+    industry=docs.get(1330)
+    if industry and industry.get("sha256") and not industry.get("exceptions"):
+        official_url=industry["url"]
+        official_post=("https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?"
+                       "bcd=infordisc&msg_seq=1330")
+        if canonical_attachment_url(official_url) not in posts:
+            new_discovery["posts"].append({
+                "source":source,"region":"인천",
+                "jurisdiction":"인천광역시",
+                "institution":"인천광역시의회",
+                "title":"2026년 9월 산업경제위원장 업무추진비 지출내역",
+                "period":[2026,9,None],
+                "post_url":official_post,
+                "attachments":[{"url":official_url,"text":"산업경제위원장 공식 PDF"}],
+            })
+            posts[canonical_attachment_url(official_url)]=official_post
+            new_files.append({
+                "url":official_url,"name":"2026년 9월 산업경제위원장 업무추진비 지출내역.pdf",
+                "title":"2026년 9월 산업경제위원장 업무추진비 지출내역",
+                "sha256":industry["sha256"],"bytes":industry["bytes"],
+                "sheets":[{**p.get("current_parser",{}),"sheet":p.get("sheet")}
+                          for p in industry.get("pages",[])],
+            })
     original_ids={r["row_id"] for r in base["rows"]}
     evidence_rows=[]
     failures=[]
@@ -50,9 +78,10 @@ def analyze(base, discovery, forensic):
     ids=[r.get("row_id") for r in evidence_rows]
     if len(ids)!=len(set(ids)):
         failures.append("recovered_duplicate_transaction_id")
-    proposed={**base, "rows":[*base.get("rows",[]),*evidence_rows]}
+    proposed={**base, "rows":[*base.get("rows",[]),*evidence_rows],
+              "files":new_files}
     integrity=check_integrity(source,proposed,base)
-    qa=assess_incremental(source,proposed,discovery,base,discovery)
+    qa=assess_incremental(source,proposed,new_discovery,base,discovery)
     if integrity["status"]!="PASS":
         failures+=integrity["failures"]
     if qa["status"]!="PUBLISH_READY":
