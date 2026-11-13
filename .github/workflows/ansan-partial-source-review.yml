@@ -89,6 +89,7 @@ jobs:
           y=extract(new,",STATS=",",ORIGINS=")
           oldsource=x.get("source_health",{}).pop("ansan",{})
           newsource=y.get("source_health",{}).pop("ansan",{})
+          print(json.dumps({"ansan_source_health_before":oldsource,"ansan_source_health_after":newsource},ensure_ascii=False))
           if oldsource.get("raw_rows")!=658 or newsource.get("raw_rows")!=2991:
               raise SystemExit("FAIL: expected source counts not in site health")
           allowed={"raw_rows","discovery_posts","discovery_attachments"}
