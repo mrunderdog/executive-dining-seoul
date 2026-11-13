@@ -1,0 +1,106 @@
+name: One-shot Ansan source-only partial release
+
+on:
+  push:
+    branches: [release/ansan-2333-source-only-20261113]
+    paths: ['.github/workflows/ansan-release-once.yml']
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: ansan-partial-release-verified-20261113
+  cancel-in-progress: false
+
+jobs:
+  verify-and-commit-only-two-JSON:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: pipeline
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/ansan-2333-source-only-20261113
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing source and site dependencies
+        run: python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7' xlrd
+      - name: Fetch 2,333-row official audit only from previously successful workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ansan-source"
+          gh run download 43400362218 -R "$GITHUB_REPOSITORY" \
+            --name ansan-source-only-partial-staging-not-published \
+            --dir "$RUNNER_TEMP/ansan-source"
+          for file in ansan_expense.json capital-backfill-discovery-ansan.json source-only-hold-manifest.json; do
+            test -s "$RUNNER_TEMP/ansan-source/recovery/ansan-source-only-review/$file"
+          done
+      - name: Capture exact public baseline and site quality
+        run: |
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+          mkdir -p "$RUNNER_TEMP/ansan-baseline"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/ansan-baseline/index.html"
+      - name: Stage verified source with three original exceptions still HOLD
+        run: PYTHONPATH=pipeline python pipeline/stage_ansan_verified_release_once.py
+      - name: Recheck public site after source-only addition
+        shell: bash
+        run: |
+          set -euo pipefail
+          python pipeline/quality_gate.py
+          mkdir -p "$RUNNER_TEMP/ansan-release"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/ansan-release/index.html"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])
+          a=json.loads((root/"ansan-baseline/build-meta.json").read_text())
+          b=json.loads((root/"ansan-release/build-meta.json").read_text())
+          h1=(root/"ansan-baseline/index.html").read_text(encoding="utf-8")
+          h2=(root/"ansan-release/index.html").read_text(encoding="utf-8")
+          def field(data,left,right):
+              return json.loads(data.split(left,1)[1].split(right,1)[0])
+          old=field(h1,"const DATA=",",STATS=")
+          new=field(h2,"const DATA=",",STATS=")
+          if old!=new or len(old)!=1356 or a["dataset_total"]!=b["dataset_total"]:
+              raise SystemExit("STOP: restaurant entities/rankings changed")
+          if field(h1,",ORIGINS=",";")!=field(h2,",ORIGINS=",";"):
+              raise SystemExit("STOP: map regions changed")
+          stat1=field(h1,",STATS=",",ORIGINS=")
+          stat2=field(h2,",STATS=",",ORIGINS=")
+          ah=stat1.get("source_health",{}).pop("ansan",{})
+          bh=stat2.get("source_health",{}).pop("ansan",{})
+          if ah.get("raw_rows")!=658 or bh.get("raw_rows")!=2991:
+              raise SystemExit("STOP: source-health count not expected")
+          allow={"raw_rows","discovery_posts","discovery_attachments"}
+          if ({k:v for k,v in ah.items() if k not in allow}
+              !={k:v for k,v in bh.items() if k not in allow}
+              or stat1!=stat2):
+              raise SystemExit("STOP: unrelated site metrics changed")
+          if (bh["discovery_posts"]!=ah["discovery_posts"]+6
+              or bh["discovery_attachments"]!=ah["discovery_attachments"]+6):
+              raise SystemExit("STOP: official source disclosure count mismatch")
+          story1=field(h1,"const STORY=",";\n  const root=")
+          story2=field(h2,"const STORY=",";\n  const root=")
+          story1.pop("generated_at_utc",None)
+          story2.pop("generated_at_utc",None)
+          if story1!=story2: raise SystemExit("STOP: unrelated public data story changed")
+          print(json.dumps({"status":"SOURCE_ONLY_SAFE","entities":len(old),
+                            "ranking_records_identical":True,
+                            "source_rows_before":658,"source_rows_after":2991,
+                            "unresolved_original_expenses":3,"new_published_restaurants":0},ensure_ascii=False))
+          PY
+      - name: Commit ONLY two source files and remove temporary release scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/raw/ansan_expense.json reports/capital-backfill-discovery-ansan.json
+          git rm -- pipeline/stage_ansan_verified_release_once.py .github/workflows/ansan-release-once.yml
+          git commit -m 'data(ansan): release 2333 verified source rows, keep three official exceptions held'
+          git push origin HEAD:release/ansan-2333-source-only-20261113
