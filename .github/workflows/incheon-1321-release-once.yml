@@ -1,0 +1,140 @@
+name: One-shot Incheon 1321 verified scan source-only release
+
+on:
+  push:
+    branches: [release/incheon-1321-scanned-rowlevel-exception-20261113]
+    paths:
+      - '.github/workflows/incheon-1321-release-once.yml'
+      - 'pipeline/prepare_incheon_1321_total_exception_release.py'
+      - 'pipeline/incheon_1321_official_total_exception_evidence.json'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: incheon-source-only-scan-1321
+  cancel-in-progress: false
+
+jobs:
+  verify-and-stage-source:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: pipeline
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/incheon-1321-scanned-rowlevel-exception-20261113
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing site and source dependencies
+        run: python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7'
+      - name: Re-fetch original SHA-linked page-rendering evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/incheon1321-scanned-evidence"
+          gh run download 43138509722 --repo "$GITHUB_REPOSITORY" \
+            --name incheon-scanned-original-pages \
+            --dir "$RUNNER_TEMP/incheon1321-scanned-evidence"
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])/"incheon1321-scanned-evidence"
+          ev=json.loads(Path("pipeline/incheon_1321_official_total_exception_evidence.json").read_text(encoding="utf-8"))
+          manifest=json.loads((root/"manifest.json").read_text(encoding="utf-8"))
+          pdf=next((r for r in manifest["files"] if r["msg_seq"]==1321),None)
+          if (not pdf or pdf.get("status")!="ORIGINAL_PAGES_RENDERED_REVIEW_REQUIRED"
+              or pdf.get("observed_sha256")!=ev["official_pdf_sha256"]
+              or pdf.get("expected_sha256")!=ev["official_pdf_sha256"]
+              or pdf.get("bytes")!=ev["official_pdf_bytes"]
+              or pdf.get("pdf_pages")!=1
+              or pdf.get("page_images")!=["incheon-1321-page-1.png"]):
+              raise SystemExit("STOP: scanned official source/render is not cryptographically linked")
+          png=(root/"incheon-1321-page-1.png").read_bytes()
+          actual=hashlib.sha256(png).hexdigest()
+          if actual!=ev["render_png_sha256"]:
+              raise SystemExit("STOP: manual-transcription rendering changed")
+          print("SOURCE PROVENANCE PASS: official PDF SHA",ev["official_pdf_sha256"],"render SHA",actual)
+          PY
+      - name: Build baseline against unmodified source and current QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python pipeline/quality_gate.py
+          mkdir -p "$RUNNER_TEMP/baseline"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/baseline/index.html"
+      - name: Stage audited 10 expense rows and run incremental source QA
+        run: PYTHONPATH=pipeline python pipeline/prepare_incheon_1321_total_exception_release.py
+      - name: Verify public site has no new venues or rankings
+        shell: bash
+        run: |
+          set -euo pipefail
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+          mkdir -p "$RUNNER_TEMP/proposed"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/proposed/index.html"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          base=Path(os.environ["RUNNER_TEMP"])
+          before=json.loads((base/"baseline/build-meta.json").read_text())
+          after=json.loads((base/"proposed/build-meta.json").read_text())
+          if before["dataset_total"]!=after["dataset_total"] or before["dataset_total"]!=1356:
+              raise SystemExit("STOP: public venue count drift")
+          htmlb=(base/"baseline/index.html").read_text(encoding="utf-8")
+          htmla=(base/"proposed/index.html").read_text(encoding="utf-8")
+          def extract(t,start,stop):
+              return json.loads(t.split(start,1)[1].split(stop,1)[0])
+          olddata=extract(htmlb,"const DATA=",",STATS=")
+          newdata=extract(htmla,"const DATA=",",STATS=")
+          if olddata!=newdata:raise SystemExit("STOP: restaurant contents or rankings changed")
+          o=extract(htmlb,",ORIGINS=",";");n=extract(htmla,",ORIGINS=",";")
+          if o!=n:raise SystemExit("STOP: map regions differ")
+          s1=extract(htmlb,",STATS=",",ORIGINS=")
+          s2=extract(htmla,",STATS=",",ORIGINS=")
+          h1=s1.get("source_health",{}).get("incheon_council",{})
+          h2=s2.get("source_health",{}).get("incheon_council",{})
+          if (h1.get("raw_rows")!=274 or h2.get("raw_rows")!=284 or
+              h1.get("candidate_count")!=h2.get("candidate_count") or
+              h1.get("published_count")!=h2.get("published_count")):
+              raise SystemExit("STOP: disallowed Incheon health difference")
+          h1.pop("raw_rows",None);h2.pop("raw_rows",None)
+          if h1!=h2:raise SystemExit("STOP: other Incheon health metrics changed")
+          s1["source_health"].pop("incheon_council",None)
+          s2["source_health"].pop("incheon_council",None)
+          if s1!=s2:raise SystemExit("STOP: global site stats differ")
+          storyb=extract(htmlb,"const STORY=",";\n  const root=")
+          storya=extract(htmla,"const STORY=",";\n  const root=")
+          storyb.pop("generated_at_utc",None)
+          storya.pop("generated_at_utc",None)
+          if storyb!=storya:raise SystemExit("STOP: data story changed")
+          def normalized_html(t,meta):
+              pre,rest=t.split("const DATA=",1)
+              rest=rest.split(";\nconst $=",1)[1]
+              t=pre+"const DATA=__AUDITED_DATA__;\nconst $="+rest
+              pre,rest=t.split("const STORY=",1)
+              rest=rest.split(";\n  const root=",1)[1]
+              t=pre+"const STORY=__AUDITED_STORY__;\n  const root="+rest
+              return t.replace(meta["built_at"],"__BUILD_TIME__")
+          if normalized_html(htmlb,before)!=normalized_html(htmla,after):
+              raise SystemExit("STOP: any other static HTML difference")
+          print(json.dumps({"site_entities":1356,"unmodified_restaurant_records":True,
+                            "unchanged_rankings":True,"source_health_incheon_before":274,
+                            "source_health_incheon_after":284,"new_public_restaurants":0,
+                            "other_scanned_hold":True},ensure_ascii=False))
+          PY
+      - name: Commit ONLY the official source ledger, self-remove temporary automation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data/raw/incheon_council_expense.json
+          git rm -- pipeline/incheon_1321_official_total_exception_evidence.json \
+                    pipeline/prepare_incheon_1321_total_exception_release.py \
+                    .github/workflows/incheon-1321-release-once.yml
+          git commit -m 'data(incheon): add ten verified August scan expenses, keep dining rankings held'
+          git push origin HEAD:release/incheon-1321-scanned-rowlevel-exception-20261113
