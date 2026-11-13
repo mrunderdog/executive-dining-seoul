@@ -8932,13 +8932,6 @@
         "status": "QUARANTINE_PRINTED_TOTAL_DISCREPANCY",
         "difference_krw": 438200,
         "decision": "not_in_subset_and_not_approved_as_complete"
-      },
-      {
-        "msg_seq": 1329,
-        "period": "2026-09",
-        "status": "QUARANTINE_MERCHANT_VERIFICATION",
-        "difference_krw": 0,
-        "decision": "not_in_subset_and_not_approved_as_complete"
       }
     ],
     "september_scan_1329": "VERIFIED_9_ROWS_784000_KRW_SOURCE_ONLY",
@@ -8953,6 +8946,8 @@
         "difference_krw": 438200,
         "publish": false
       }
-    ]
+    ],
+    "september_scan_1329_exclusion_resolution": "RESOLVED_BY_SOURCE_ONLY_SHA_VERIFIED_9_ROW_TRANSCRIPTION_NOT_RANKED",
+    "scanned_documents_remaining_on_hold": 1
   }
 }
