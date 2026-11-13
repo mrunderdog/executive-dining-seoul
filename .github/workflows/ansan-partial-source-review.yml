@@ -40,3 +40,73 @@ jobs:
             reports/p1-ansan-hwaseong-qa/ansan.json
           if-no-files-found: warn
           retention-days: 14
+
+  source-only-site-dryrun:
+    runs-on: ubuntu-latest
+    needs: [ansan-official-source-audit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source and site build dependencies
+        run: python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7' xlrd
+      - uses: actions/download-artifact@v4
+        with:
+          name: ansan-source-only-partial-staging-not-published
+          path: reports/
+      - name: Site before/after data and full recommendation equality
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE=data/raw/ansan_expense.json
+          mkdir -p "$RUNNER_TEMP/ansan-baseline" "$RUNNER_TEMP/ansan-proposed"
+          python pipeline/build_site.py --output "$RUNNER_TEMP/ansan-baseline/index.html"
+          cp "$SOURCE" "$RUNNER_TEMP/ansan-historic.json"
+          trap 'cp "$RUNNER_TEMP/ansan-historic.json" "$SOURCE"' EXIT
+          cp reports/recovery/ansan-source-only-review/ansan_expense.json "$SOURCE"
+          python pipeline/quality_gate.py
+          python pipeline/build_site.py --output "$RUNNER_TEMP/ansan-proposed/index.html"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])
+          b=json.loads((p/"ansan-baseline/build-meta.json").read_text())
+          a=json.loads((p/"ansan-proposed/build-meta.json").read_text())
+          old=(p/"ansan-baseline/index.html").read_text(encoding="utf-8")
+          new=(p/"ansan-proposed/index.html").read_text(encoding="utf-8")
+          def extract(t,left,right):
+              if left not in t or right not in t.split(left,1)[1]:
+                  raise SystemExit("FAIL: static site payload boundary changed")
+              return json.loads(t.split(left,1)[1].split(right,1)[0])
+          before=extract(old,"const DATA=",",STATS=")
+          after=extract(new,"const DATA=",",STATS=")
+          if before!=after or b["dataset_total"]!=a["dataset_total"]:
+              raise SystemExit("FAIL: public restaurant names/rankings/site entities changed")
+          if extract(old,",ORIGINS=",";")!=extract(new,",ORIGINS=",";"):
+              raise SystemExit("FAIL: city or map sources changed")
+          x=extract(old,",STATS=",",ORIGINS=")
+          y=extract(new,",STATS=",",ORIGINS=")
+          oldsource=x.get("source_health",{}).pop("ansan",{})
+          newsource=y.get("source_health",{}).pop("ansan",{})
+          if oldsource.get("raw_rows")!=658 or newsource.get("raw_rows")!=2991:
+              raise SystemExit("FAIL: expected source counts not in site health")
+          allowed={"raw_rows","discovery_posts","discovery_attachments"}
+          if ({k:v for k,v in oldsource.items() if k not in allowed}
+              !={k:v for k,v in newsource.items() if k not in allowed}
+              or x!=y):
+              raise SystemExit("FAIL: unrelated source-health or global stats changed")
+          story_before=extract(old,"const STORY=",";\n  const root=")
+          story_after=extract(new,"const STORY=",";\n  const root=")
+          story_before.pop("generated_at_utc",None)
+          story_after.pop("generated_at_utc",None)
+          if story_before!=story_after:
+              raise SystemExit("FAIL: unrelated executive spending story changed")
+          print(json.dumps({"status":"PREVIEW_PASS","baseline_entities":len(before),
+                            "proposed_entities":len(after),"rankings_identical":True,
+                            "baseline_ansan_source_rows":658,
+                            "proposed_ansan_source_rows":2991,
+                            "publish":False},ensure_ascii=False))
+          PY
+          cp "$RUNNER_TEMP/ansan-historic.json" "$SOURCE"
+          cmp --silent "$SOURCE" "$RUNNER_TEMP/ansan-historic.json"
