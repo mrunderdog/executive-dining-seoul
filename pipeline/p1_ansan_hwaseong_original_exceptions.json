@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "title": "P1 source-scoped original expenditure exception ledger",
+  "purpose": "All parsed expense rows must be accounted for: valid source-only rows plus SHA-pinned explicit unresolved source exceptions; never guess dates, amount or merchants.",
+  "sources": [
+    {
+      "source": "ansan",
+      "old_rows": 658,
+      "old_files": 2,
+      "stage_rows": 2994,
+      "stage_files": 8,
+      "new_parsed": 2336,
+      "expected_valid": 2333,
+      "invalid_count": 3,
+      "exceptions": [
+        {
+          "row_id": "23df3679b893ae2c101e",
+          "file_sha256": "f725087da2cf0faf0e441cea874e68cbb109ef15f17b0712b61e1dabd1a878f8",
+          "sheet": "의회(기관운영)",
+          "source_row": 10,
+          "printed_date": "2026-02-03",
+          "amount": 100000,
+          "merchant": "",
+          "validation_error": "merchant_invalid",
+          "disposition": "CASH_CONDOLENCE_WITH_NO_RESTAURANT_PAYEE"
+        },
+        {
+          "row_id": "198c5aeadec480720c61",
+          "file_sha256": "fe291563e5d767510026f56838a27f1ffe118174c68fbfc5bf5179b24febda84",
+          "sheet": "의정운영공통경비",
+          "source_row": 90,
+          "printed_date": "24.11.25.~11.29.",
+          "amount": 200500,
+          "merchant": "고봉민김밥",
+          "validation_error": "invalid_date",
+          "disposition": "WEEKLY_RANGE_NOT_SINGLE_PAYMENT_DATE"
+        },
+        {
+          "row_id": "92d6fbb6c52941ece2b6",
+          "file_sha256": "fe291563e5d767510026f56838a27f1ffe118174c68fbfc5bf5179b24febda84",
+          "sheet": "의정운영공통경비",
+          "source_row": 98,
+          "printed_date": "24.12.2.~12.6.",
+          "amount": 196700,
+          "merchant": "고봉민김밥인(안산중외 1",
+          "validation_error": "invalid_date",
+          "disposition": "WEEKLY_RANGE_NOT_SINGLE_PAYMENT_DATE"
+        }
+      ]
+    },
+    {
+      "source": "hwaseong",
+      "old_rows": 840,
+      "old_files": 4,
+      "stage_rows": 4081,
+      "stage_files": 23,
+      "new_parsed": 3241,
+      "expected_valid": 3233,
+      "invalid_count": 8,
+      "exceptions": [
+        {
+          "row_id": "dda81c113bd90e629896",
+          "file_sha256": "116bb0eb84f0a73dae1406dadd0410ed093a873cf465cffac720da20b2446abf",
+          "sheet": "의회운영업무추진비",
+          "source_row": 32,
+          "printed_date": "2026-04-29",
+          "amount": 82000,
+          "merchant": "어부와명태",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_APRIL_TRANSACTION_IN_MAY_DISCLOSURE"
+        },
+        {
+          "row_id": "5023002cb3270745aee4",
+          "file_sha256": "116bb0eb84f0a73dae1406dadd0410ed093a873cf465cffac720da20b2446abf",
+          "sheet": "의회운영업무추진비",
+          "source_row": 33,
+          "printed_date": "2026-04-30",
+          "amount": 213000,
+          "merchant": "사강식당",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_APRIL_TRANSACTION_IN_MAY_DISCLOSURE"
+        },
+        {
+          "row_id": "ce321be8a9bd0d09ec27",
+          "file_sha256": "2dc3924be03b63660b4c14a248ba6e4ba38431e495b12b394a7c765eb6d1fd9b",
+          "sheet": "의회운영업무추진비",
+          "source_row": 75,
+          "printed_date": "2026-01-06",
+          "amount": 60000,
+          "merchant": "신의주찹쌀순대",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_JANUARY_TRANSACTION_IN_FEBRUARY_DISCLOSURE"
+        },
+        {
+          "row_id": "d4eb8075efcac1b67a4d",
+          "file_sha256": "2dc3924be03b63660b4c14a248ba6e4ba38431e495b12b394a7c765eb6d1fd9b",
+          "sheet": "의회운영업무추진비",
+          "source_row": 76,
+          "printed_date": "2026-01-23",
+          "amount": 5500,
+          "merchant": "텐퍼센트커피 동탄북광장점",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_JANUARY_TRANSACTION_IN_FEBRUARY_DISCLOSURE"
+        },
+        {
+          "row_id": "395354eb4847b9630c62",
+          "file_sha256": "2dc3924be03b63660b4c14a248ba6e4ba38431e495b12b394a7c765eb6d1fd9b",
+          "sheet": "의회운영업무추진비",
+          "source_row": 77,
+          "printed_date": "2026-01-30",
+          "amount": 378000,
+          "merchant": "주식회사선창수산향남점",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_JANUARY_TRANSACTION_IN_FEBRUARY_DISCLOSURE"
+        },
+        {
+          "row_id": "5b72e3f5d7f0abc7c213",
+          "file_sha256": "c164f3e8629d6d2321e9f827b3c6896973d152fa9bbda8bc3f01ae497be3e631",
+          "sheet": "의정운영공통경비",
+          "source_row": 68,
+          "printed_date": "2024-04-29",
+          "amount": 263320,
+          "merchant": "와마트 화성점",
+          "validation_error": "out_of_period",
+          "disposition": "PRINTED_2024_DATE_IN_2025_DISCLOSURE"
+        },
+        {
+          "row_id": "093d18b0559b1ffa7c25",
+          "file_sha256": "9a34dc764dced4cc81734a4d7cf7169c6abbe60da91047afb3df45fe128c17ec",
+          "sheet": "의정운영공통경비",
+          "source_row": 90,
+          "printed_date": "202-12-12 10:41",
+          "amount": 492800,
+          "merchant": "대일인쇄",
+          "validation_error": "invalid_date",
+          "disposition": "PRINTED_YEAR_TRUNCATED_NO_INFERENCE"
+        },
+        {
+          "row_id": "82013beffb737e4c03fa",
+          "file_sha256": "9a34dc764dced4cc81734a4d7cf7169c6abbe60da91047afb3df45fe128c17ec",
+          "sheet": "의정운영공통경비",
+          "source_row": 89,
+          "printed_date": "225-12-19 12:39",
+          "amount": 495000,
+          "merchant": "빛고을",
+          "validation_error": "invalid_date",
+          "disposition": "PRINTED_YEAR_TRUNCATED_NO_INFERENCE"
+        }
+      ]
+    }
+  ],
+  "publish": false,
+  "full_source_complete": false,
+  "recommendations_eligible": false,
+  "criterion": "Any new/additional/missing exception or mismatched SHA/row/amount/date blocks this entire staging review. Separate release approval required."
+}
