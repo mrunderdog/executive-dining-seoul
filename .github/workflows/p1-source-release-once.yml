@@ -115,9 +115,9 @@ jobs:
               raise SystemExit("STOP: public data story changed")
           def normalized(text,meta):
               prefix,rest=text.split("const DATA=",1)
-              text=prefix+"const DATA=__AUDITED_DATA__;\\nconst $="+rest.split(";\\nconst $=",1)[1]
+              text=prefix+"const DATA=__AUDITED_DATA__;\nconst $="+rest.split(";\nconst $=",1)[1]
               prefix,rest=text.split("const STORY=",1)
-              text=prefix+"const STORY=__AUDITED_STORY__;\\n  const root="+rest.split(";\\n  const root=",1)[1]
+              text=prefix+"const STORY=__AUDITED_STORY__;\n  const root="+rest.split(";\n  const root=",1)[1]
               return text.replace(meta["built_at"],"__AUDITED_BUILT_AT__")
           if normalized(oldhtml,before)!=normalized(newhtml,after):
               raise SystemExit("STOP: other public HTML changes beyond timestamp/source-health")
