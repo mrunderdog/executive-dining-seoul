@@ -55,9 +55,20 @@ def stage(baseline,discovery_baseline,candidate,discovery,initial_candidates):
         raise ValueError("Unexpected historic 658/2 baseline")
     if len(candidate.get("rows",[]))!=2994 or len(candidate.get("files",[]))!=8:
         raise ValueError("Unexpected official source 2994/8 inventory")
-    if (candidate["rows"][:658]!=baseline["rows"]
-        or candidate["files"][:2]!=baseline["files"]):
+    integrity_full=check_integrity("ansan",candidate,baseline)
+    if integrity_full["status"]!="PASS":
         raise ValueError("Immutable historical rows/files were modified")
+    # The refresh is allowed to re-order old rows/files. Build an append-only
+    # package using the original prefix; never equate position with identity.
+    old_by_id={r["row_id"]:r for r in baseline["rows"]}
+    new_by_id={r["row_id"]:r for r in candidate["rows"]}
+    if (any(new_by_id.get(key)!=row for key,row in old_by_id.items())
+        or len(new_by_id)!=len(candidate["rows"])):
+        raise ValueError("Historical transaction changed or duplicate ID")
+    previous={canonical_attachment_url(f["url"]):f for f in baseline["files"]}
+    discovered={canonical_attachment_url(f["url"]):f for f in candidate["files"]}
+    if any(discovered.get(key)!=value for key,value in previous.items()):
+        raise ValueError("Historic original attachment modified")
     old_ids={r["row_id"] for r in baseline["rows"]}
     new=[r for r in candidate["rows"] if r.get("row_id") not in old_ids]
     if len(new)!=2336:
@@ -89,7 +100,12 @@ def stage(baseline,discovery_baseline,candidate,discovery,initial_candidates):
         r["ranking_eligible"]=False
     proposed=copy.deepcopy(candidate)
     proposed["rows"]=[*baseline["rows"],*eligible]
+    proposed["files"]=[*baseline["files"],*[f for f in candidate["files"]
+                           if canonical_attachment_url(f["url"]) not in previous]]
     proposed["row_count"]=len(proposed["rows"])
+    q=copy.deepcopy(candidate.get("raw_quality") or {})
+    q["rows"]=q["transaction_rows"]=len(proposed["rows"])
+    proposed["raw_quality"]=q
     proposed["refresh_mode"]="partial_official_source_verified_not_ranking_eligible"
     proposed["source_recovery"]={
         "scope":"PARTIAL_2024Q4_2026Q1_OFFICIAL_SOURCE",
