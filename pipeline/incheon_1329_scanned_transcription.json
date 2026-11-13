@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "source": "incheon_council",
+  "msg_seq": 1329,
+  "period": [
+    2026,
+    9,
+    null
+  ],
+  "role": "문화복지위원장",
+  "official_post_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgDetail.do?msg_seq=1329&bcd=infordisc&pgno=1",
+  "official_attachment_url": "https://www.icouncil.go.kr/main/bbs/bbsMsgFileDown.do?bcd=infordisc&fileno=1&msg_seq=1329",
+  "official_pdf_sha256": "81e2d85f2dd0c5c43463da8e34fa724d38223790921f657c49a2fb480886e264",
+  "official_pdf_bytes": 58020,
+  "verified_render_sha256": "8b118761607f64cb3d15a6a197ec120801dd0af050207ebbcb3eb7bfd8b2625e",
+  "source_render_artifact_id": 13908307185,
+  "source_render_workflow_run": 43138509722,
+  "method": "Individually visually transcribed and crosschecked from SHA-matched official scanned PDF page 1; no OCR or inferred rows",
+  "grand_total_printed_krw": 784000,
+  "printed_transaction_count": 9,
+  "source_payee_card_merchant_identity_verified": false,
+  "default_scoring_eligible": false,
+  "full_source_coverage": false,
+  "record_status": "SOURCE_VERIFIED_UNRANKED",
+  "other_document_hold": {
+    "msg_seq": 1321,
+    "reason": "Official 2026-08 culture/welfare scan individual amounts 929200 versus printed 1367400, difference 438200 KRW",
+    "quarantined": true
+  },
+  "transactions": [
+    {
+      "line": 1,
+      "date": "2026-09-03",
+      "time": "19:00",
+      "merchant": "설화생갈비",
+      "printed_place": "남동구 구월로 107",
+      "purpose": "다함께 연결하는 의료용 안전망 강화를 위한 관계자와의 간담회 개최",
+      "people": 3,
+      "amount": 51000,
+      "kind": "MEAL"
+    },
+    {
+      "line": 2,
+      "date": "2026-09-07",
+      "time": "18:00",
+      "merchant": "매운향솥",
+      "printed_place": "남동구 구월로 119 304호",
+      "purpose": "경력단절여성 취업지원을 위한 관계자와의 간담회 개최",
+      "people": 4,
+      "amount": 75000,
+      "kind": "MEAL"
+    },
+    {
+      "line": 3,
+      "date": "2026-09-14",
+      "time": "12:00",
+      "merchant": "도도해",
+      "printed_place": "백범로 159",
+      "purpose": "생활문화 진흥을 위한 관계자와의 간담회 개최",
+      "people": 4,
+      "amount": 90000,
+      "kind": "MEAL"
+    },
+    {
+      "line": 4,
+      "date": "2026-09-16",
+      "time": "11:00",
+      "merchant": "금화왕돈까스 구월점",
+      "printed_place": "남동구 구월남로 153",
+      "purpose": "관광편의시설업 지정 지원사업 관계자와의 간담회 개최",
+      "people": 3,
+      "amount": 24800,
+      "kind": "MEAL"
+    },
+    {
+      "line": 5,
+      "date": "2026-09-21",
+      "time": "12:00",
+      "merchant": "금화왕돈까스 구월점",
+      "printed_place": "남동구 구월남로 153",
+      "purpose": "산모신생아 건강관리 지원사업 관계자와의 간담회 개최",
+      "people": 4,
+      "amount": 49600,
+      "kind": "MEAL"
+    },
+    {
+      "line": 6,
+      "date": "2026-09-21",
+      "time": "14:00",
+      "merchant": "안스베이커리",
+      "printed_place": "",
+      "purpose": "문화복지위원장실 내방객을 위한 다과구입",
+      "people": null,
+      "amount": 300000,
+      "kind": "REFRESHMENT_PURCHASE_NOT_DINING_VISIT"
+    },
+    {
+      "line": 7,
+      "date": "2026-09-28",
+      "time": "12:00",
+      "merchant": "삼만시 순두부집",
+      "printed_place": "남동구 구월로 115번길 22",
+      "purpose": "지역사회보장협의체 협력 활성화를 위한 관계자와의 간담회 개최",
+      "people": 6,
+      "amount": 55100,
+      "kind": "MEAL"
+    },
+    {
+      "line": 8,
+      "date": "2026-09-29",
+      "time": "12:00",
+      "merchant": "부대옥",
+      "printed_place": "남동대로 799번길 34",
+      "purpose": "응급의료기관 운영지원 사업 관련 관계자와의 간담회 개최",
+      "people": 7,
+      "amount": 110000,
+      "kind": "MEAL"
+    },
+    {
+      "line": 9,
+      "date": "2026-09-29",
+      "time": "17:00",
+      "merchant": "곰설채",
+      "printed_place": "남동구 인주대로 625",
+      "purpose": "아동보호 공적책임 강화를 위한 관계자와의 간담회 개최",
+      "people": 2,
+      "amount": 28500,
+      "kind": "MEAL"
+    }
+  ],
+  "individual_row_sum_krw": 784000,
+  "meal_row_count": 8,
+  "non_meal_amount_krw": 300000
+}
