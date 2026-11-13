@@ -3,7 +3,10 @@ name: One-shot Incheon 1329 verified scan source-only release
 on:
   push:
     branches: [release/incheon-1329-scanned-source-only-20261113]
-    paths: ['.github/workflows/incheon-1329-release-once.yml']
+    paths:
+      - '.github/workflows/incheon-1329-release-once.yml'
+      - 'pipeline/prepare_incheon_1329_scanned_release.py'
+      - 'pipeline/incheon_1329_scanned_transcription.json'
 
 permissions:
   contents: write
