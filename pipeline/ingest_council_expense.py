@@ -770,7 +770,343 @@ def normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta):
                  "unparsed_transaction_like_rows": len(failed),
                  "unparsed_examples": failed[:12]}
 
+# These digests were measured directly from the official original PDFs in the
+# 2026-11-12 forensic job or committed baseline. Unexpected versions are HOLD.
+INCH_FIXED_OFFICIAL_PDF_SHA = {
+    1320: "d85541d349a5f5e20fb4023be5c34093ad59a7e80483a3409af2c61143ef6dcb",
+    1322: "4856197cef57cff59e5ecb3825e7fad9ed1a88697222a9bdc2da7d1d03bd43f3",
+    1323: "860248268daf693651bff18e8a3c737acbeb7d123e09629f041ac4540e0d21e8",
+    1326: "e1459b54a55c040caa86af3f5fcc582a630543b79cf6030acc86f96153a97e1e",
+    1327: "44129be489aee23846fa19c4e0de465ef105164be42f74e2a1fe99c06d5b89dd",
+    1330: "a958b2f26f025d100ba3c7d7310e434e21aad4c029d2fe6f4c0c9008e1a374e3",
+}
+
+
+def incheon_attachment_sequence(source_meta):
+    if source_meta.get("source") != "incheon_council":
+        return None
+    url = source_meta.get("attachment_url") or ""
+    match = re.search(r"(?:[?&])msg_seq=(\d+)(?:&|$)", url)
+    return int(match.group(1)) if match else None
+
+
+def normalize_incheon_datefirst_pdf_rows(rows, sheet_name, source_meta):
+    """Read original Incheon date-first PDF lines with fused column boundaries.
+
+    Only SHA-pinned official attachment templates are eligible. Failed
+    date-like rows are reported; no inferred dates, amounts, or payees.
+    Scan-only PDFs and different forms are not guessed.
+    """
+    seq = incheon_attachment_sequence(source_meta)
+    if seq not in {1320, 1322, 1326, 1327}:
+        return [], {"sheet": sheet_name, "status": "UNSUPPORTED_INCHEON_LAYOUT",
+                    "parsed_rows": 0, "rows": len(rows)}
+    observed_sha = source_meta.get("attachment_sha256")
+    if observed_sha and observed_sha != INCH_FIXED_OFFICIAL_PDF_SHA[seq]:
+        return [], {"sheet": sheet_name, "status": "OFFICIAL_SOURCE_SHA_CHANGED",
+                    "parsed_rows": 0, "rows": len(rows)}
+    if seq == 1320 and sheet_name == "pdf-page-2":
+        # The second page of this specific PDF has five expense rows but NO
+        # repeated header. Prohibit headerless fallback for other documents,
+        # other pages, or unpinned fixture data.
+        header_ok = observed_sha == INCH_FIXED_OFFICIAL_PDF_SHA[1320]
+    else:
+        head = " ".join(clean_text(x) for row in rows[:15] for x in row)
+        canonical = norm_header(head)
+        header_ok = ("금액" in canonical or "지출금액" in canonical) and (
+            "장소" in canonical or "사용처" in canonical
+        ) and ("일자" in canonical or "일시" in canonical)
+    if not header_ok:
+        return [], {"sheet": sheet_name, "status": "NO_HEADER",
+                    "parsed_rows": 0, "rows": len(rows)}
+    # The original PDF has no whitespace between HH:MM and its purpose:
+    # "2026-08-31 18:37온실가스..."  Another has "2026-08-21 12:072026년도..."
+    dateline = re.compile(
+        r"^\s*(20\d{2})[.\-](\d{1,2})[.\-](\d{1,2})\.?\s*"
+        r"([01]?\d|2[0-3]):([0-5]\d)(?::([0-5]\d))?\s*(.*)$"
+    )
+    date_like = re.compile(r"^\s*20\d{2}[.\-]\d{1,2}[.\-]\d{1,2}")
+    money = re.compile(r"(?<!\d)\d{1,3}(?:,\d{3})+(?!\d)")
+    out, failed = [], []
+    for ri, row in enumerate(rows, start=1):
+        values = [clean_text(x) for x in row if clean_text(x)]
+        observed = " ".join(values)
+        if not date_like.match(observed):
+            continue
+        match = dateline.match(observed)
+        if not match:
+            failed.append({"source_row": ri, "reason": "date_or_time_unparsed",
+                           "source_cells": values})
+            continue
+        year, month, day, hr, mi, ss, remaining = match.groups()
+        try:
+            used_date = date(int(year), int(month), int(day)).isoformat()
+        except ValueError:
+            failed.append({"source_row": ri, "reason": "invalid_printed_date",
+                           "source_cells": values})
+            continue
+        matches = list(money.finditer(remaining))
+        if len(matches) != 1:
+            failed.append({"source_row": ri,
+                           "reason": "missing_or_ambiguous_original_amount",
+                           "source_cells": values})
+            continue
+        amt = matches[0]
+        amount = parse_amount(amt.group(0))
+        before = remaining[:amt.start()].strip()
+        after = remaining[amt.end():].strip()
+        # The original table's final printed column is "카드"; on some
+        # pages pypdf concatenates it directly to the payee's last syllable.
+        had_card = bool(re.search(r"(?:신용카드|법인카드|카드)\s*$", after))
+        merchant = re.sub(r"\s*(?:신용카드|법인카드|카드)\s*$", "", after).strip()
+        if not had_card or amount is None or not 0 < amount < 50_000_000 or not valid_transaction_merchant(merchant):
+            failed.append({"source_row": ri, "reason": "invalid_payment_or_merchant",
+                           "source_cells": values})
+            continue
+        # Separate explicit attendee cells when present; never turn a
+        # printed attendee count into amount or merchant data.
+        people_value = ""
+        if seq == 1326:
+            m = re.search(r"(\d{1,2})\s*명\s*$", before)
+            people_value = m.group(0) if m else ""
+        else:
+            for value in values[1:]:
+                if re.fullmatch(r"\d{1,2}(?:\s*명)?", value):
+                    people_value = value
+                    break
+        raw = {
+            "region": source_meta["region"],
+            "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"],
+            "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": source_meta.get("period"),
+            "source_sheet": sheet_name,
+            "source_row": ri,
+            "used_date": used_date,
+            "date_inferred_from_previous_row": False,
+            "used_time": f"{int(hr):02d}:{mi}" + (f":{ss}" if ss else ""),
+            "role": infer_leadership_role(source_meta.get("default_role") or ""),
+            "merchant": merchant,
+            "address": "",
+            "purpose": before,
+            "people": parse_people(people_value),
+            "amount": amount,
+            "amount_inferred_from_row": False,
+            "payment_method": "카드",
+            "parse_confidence": "high",
+            "original_pdf_transaction_line": observed,
+        }
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution", "used_date", "role", "merchant",
+                      "amount", "source_sheet", "source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    return out, {
+        "sheet": sheet_name,
+        "status": "ROW_PARSE_GAPS" if failed else ("OK" if out else "NO_ROWS"),
+        "parser": "incheon_datefirst_official_pdf_v2",
+        "parsed_rows": len(out),
+        "transaction_like_rows": len(out) + len(failed),
+        "unparsed_transaction_like_rows": len(failed),
+        "unparsed_examples": failed[:20],
+        "sha256": observed_sha or "FIXTURE_ONLY",
+    }
+
+
+def normalize_incheon_education_pdf_rows(rows, sheet_name, source_meta):
+    """Only original 2026-09 education committee: merchant column '채주'."""
+    if incheon_attachment_sequence(source_meta) != 1323:
+        return [], {"sheet": sheet_name, "status": "UNSUPPORTED_INCHEON_LAYOUT"}
+    digest = source_meta.get("attachment_sha256")
+    if digest and digest != INCH_FIXED_OFFICIAL_PDF_SHA[1323]:
+        return [], {"sheet": sheet_name, "status": "OFFICIAL_SOURCE_SHA_CHANGED"}
+    head = next((i for i, row in enumerate(rows[:12])
+                 if {"일자", "일시", "적요", "채주", "대상", "금액"}.issubset(
+                     {norm_header(v) for v in row})), None)
+    if head is None:
+        return [], {"sheet": sheet_name, "status": "NO_HEADER"}
+    columns = [norm_header(v) for v in rows[head]]
+    keys = {name: columns.index(name) for name in
+            ("일자", "일시", "적요", "채주", "대상", "금액", "집행방법") if name in columns}
+    out, failed = [], []
+    for ri, row in enumerate(rows[head + 1:], start=head + 2):
+        d = clean_text(row[keys["일자"]]) if keys["일자"] < len(row) else ""
+        if not re.match(r"^20\d{2}-\d{1,2}-\d{1,2}$", d):
+            continue
+        try:
+            used_date = date.fromisoformat(d).isoformat()
+        except ValueError:
+            failed.append({"source_row": ri, "reason": "invalid_date"})
+            continue
+        def v(field):
+            index=keys.get(field,-1)
+            return clean_text(row[index]) if 0 <= index < len(row) else ""
+        time=v("일시")
+        amt_text=v("금액")
+        merchant=v("채주")
+        amount=parse_amount(amt_text)
+        if (not re.fullmatch(r"\d{1,2}:\d{2}",time)
+            or not re.fullmatch(r"\d{1,3}(?:,\d{3})+", amt_text)
+            or amount is None or not 0 < amount < 50_000_000
+            or not valid_transaction_merchant(merchant)):
+            failed.append({"source_row": ri, "reason": "missing_explicit_columns"})
+            continue
+        raw={
+            "region":source_meta["region"],"jurisdiction":source_meta["jurisdiction"],
+            "institution":source_meta["institution"],"source_key":source_meta["source"],
+            "source_post_url":source_meta["post_url"],
+            "source_attachment_url":source_meta["attachment_url"],
+            "source_attachment_name":source_meta["attachment_name"],
+            "source_period":source_meta.get("period"),"source_sheet":sheet_name,
+            "source_row":ri,"used_date":used_date,
+            "date_inferred_from_previous_row":False,"used_time":time,
+            "role":infer_leadership_role(source_meta.get("default_role") or "교육위원장"),
+            "merchant":merchant,"address":"","purpose":v("적요"),
+            "people":parse_people(v("대상")),"amount":amount,
+            "amount_inferred_from_row":False,"payment_method":v("집행방법"),
+            "parse_confidence":"high",
+        }
+        raw["row_id"]=hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution","used_date","role","merchant",
+                      "amount","source_sheet","source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    return out,{
+        "sheet":sheet_name,
+        "status":"ROW_PARSE_GAPS" if failed else ("OK" if out else "NO_ROWS"),
+        "parser":"incheon_education_payee_column_v1",
+        "parsed_rows":len(out),"unparsed_transaction_like_rows":len(failed),
+        "unparsed_examples":failed,
+    }
+
+
+
+INCH_INDUSTRY_EXPECTED = {
+    ("2026-09-04",205000), ("2026-09-04",140000),
+    ("2026-09-07",350000), ("2026-09-10",344000),
+    ("2026-09-10",144000), ("2026-09-14",117000),
+    ("2026-09-14",219000), ("2026-09-15",91000),
+    ("2026-09-15",291000), ("2026-09-15",190000),
+    ("2026-09-22",210000), ("2026-09-22",91800),
+    ("2026-09-22",125000),
+}
+
+
+def normalize_incheon_industry_pdf_rows(rows,sheet_name,source_meta):
+    """Official 1330 repeats 13 transactions on two PDF pages.
+
+    Verify both pages have the same printed amounts; only page two has
+    payment-method column. The separate time lines can be misaligned,
+    so only times printed on the actual expense line are retained.
+    """
+    digest=source_meta.get("attachment_sha256")
+    if incheon_attachment_sequence(source_meta)!=1330 or digest!=INCH_FIXED_OFFICIAL_PDF_SHA[1330]:
+        return [],{"sheet":sheet_name,"status":"OFFICIAL_SOURCE_SHA_CHANGED",
+                   "parsed_rows":0}
+    amount_re=re.compile(r"(?<!\d)\d{1,3}(?:,\d{3})+(?!\d)")
+    expected_amounts=sorted(a for d,a in INCH_INDUSTRY_EXPECTED)
+    observed_amounts=[]
+    for row in rows:
+        line=" ".join(clean_text(x) for x in row)
+        values=amount_re.findall(line)
+        if len(values)==1 and "간담회" in line:
+            observed_amounts.append(int(values[0].replace(",","")))
+    if sorted(observed_amounts)!=expected_amounts:
+        return [],{"sheet":sheet_name,"status":"ROW_PARSE_GAPS","parsed_rows":0,
+                   "unparsed_transaction_like_rows":1,
+                   "reason":"industrial_original_page_amounts_mismatch"}
+    if sheet_name=="pdf-page-1":
+        return [],{"sheet":sheet_name,"status":"DUPLICATE_OFFICIAL_PAGE_NO_NEW_ROWS",
+                   "parsed_rows":0,"duplicate_original_amounts":13}
+    if sheet_name!="pdf-page-2":
+        return [],{"sheet":sheet_name,"status":"UNEXPECTED_ORIGINAL_PDF_PAGE",
+                   "parsed_rows":0}
+    head=norm_header(" ".join(clean_text(x) for row in rows[:5] for x in row))
+    if not all(x in head for x in ("지출금액","집행방법","사용대상")):
+        return [],{"sheet":sheet_name,"status":"NO_HEADER","parsed_rows":0}
+    date_re=re.compile(r"^(2026-\d{1,2}-\d{1,2})(?:\s|$)")
+    date_time_re=re.compile(r"^(2026-\d{1,2}-\d{1,2})(\d{2}:\d{2}:\d{2})$")
+    time_re=re.compile(r"^(\d{2}:\d{2}:\d{2})(?:\s|$)")
+    found,gaps=[],[]
+    active_date=None
+    for ri,row in enumerate(rows,1):
+        cells=[clean_text(x) for x in row if clean_text(x)]
+        if not cells: continue
+        date_time=date_time_re.match(cells[0])
+        if date_time:
+            active_date=date_time.group(1)
+            continue
+        explicit_date=date_re.match(cells[0])
+        if explicit_date:
+            active_date=explicit_date.group(1)
+        amount_cell=next((x for x in cells if amount_re.search(x)), "")
+        if not amount_cell or "간담회" not in " ".join(cells):
+            continue
+        match=amount_re.search(amount_cell)
+        amount=int(match.group(0).replace(",",""))
+        merchant=amount_cell[match.end():].strip()
+        if not merchant and match.end()==len(amount_cell):
+            pos=cells.index(amount_cell)
+            merchant=cells[pos+1] if pos+1<len(cells) else ""
+        if merchant.endswith("카드"): merchant=merchant[:-2].strip()
+        purpose=next((x for x in cells if "간담회" in x and x!=amount_cell),"")
+        attendees=next((x for x in cells if re.fullmatch(r"\d{1,2}",x)),"")
+        payment="카드" if "카드" in cells else ""
+        clock=time_re.match(cells[0])
+        if not (active_date and purpose and merchant and payment and
+                valid_transaction_merchant(merchant)):
+            gaps.append({"source_row":ri,"reason":"missing_purpose_payee_date_or_card",
+                         "original_cells":cells})
+            continue
+        rec={"region":source_meta["region"],
+             "jurisdiction":source_meta["jurisdiction"],
+             "institution":source_meta["institution"],"source_key":source_meta["source"],
+             "source_post_url":source_meta["post_url"],
+             "source_attachment_url":source_meta["attachment_url"],
+             "source_attachment_name":source_meta["attachment_name"],
+             "source_period":source_meta.get("period"),"source_sheet":sheet_name,
+             "source_row":ri,"used_date":active_date,
+             "date_inferred_from_previous_row":not bool(explicit_date),
+             "used_time":clock.group(1) if clock else "",
+             "role":infer_leadership_role(source_meta.get("default_role") or "산업경제위원장"),
+             "merchant":merchant,"address":"","purpose":purpose,
+             "people":int(attendees) if attendees else None,
+             "amount":amount,"amount_inferred_from_row":False,
+             "payment_method":payment,"parse_confidence":"medium",
+             "original_pdf_transaction_line":" ".join(cells)}
+        rec["row_id"]=hashlib.sha256("|".join(str(rec.get(k,"")) for k in
+            ("institution","used_date","role","merchant","amount","source_sheet","source_row")
+        ).encode("utf-8")).hexdigest()[:20]
+        found.append(rec)
+    actual={(x["used_date"],x["amount"]) for x in found}
+    if len(found)!=13 or actual!=INCH_INDUSTRY_EXPECTED:
+        gaps.append({"reason":"date_amount_source_ledger_mismatch",
+                     "parsed_rows":len(found),
+                     "amount_total":sum(x["amount"] for x in found)})
+    return found,{"sheet":sheet_name,
+                  "status":"ROW_PARSE_GAPS" if gaps else "OK",
+                  "parser":"incheon_industrial_duplicate_pdf_v1",
+                  "parsed_rows":len(found),
+                  "unparsed_transaction_like_rows":len(gaps),
+                  "unparsed_examples":gaps[:15],
+                  "amount_total_krw":sum(x["amount"] for x in found)}
+
+
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "incheon_council" and sheet_name.startswith("pdf-page-"):
+        seq = incheon_attachment_sequence(source_meta)
+        if seq in {1320, 1322, 1326, 1327}:
+            return normalize_incheon_datefirst_pdf_rows(rows, sheet_name, source_meta)
+        if seq == 1323:
+            return normalize_incheon_education_pdf_rows(rows, sheet_name, source_meta)
+        if seq == 1330:
+            return normalize_incheon_industry_pdf_rows(rows, sheet_name, source_meta)
+
     if source_meta.get("source") == "gapyeong" and sheet_name.startswith("pdf-page-"):
         return normalize_gapyeong_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "icheon" and sheet_name.startswith("pdf-page-"):
