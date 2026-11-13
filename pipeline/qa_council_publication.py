@@ -65,6 +65,27 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             for sheet in item.get("sheets",[])
         ):
             failures.append("official_gapyeong_pdf_unparsed_transaction_rows")
+    if source == "incheon_council":
+        for item in files:
+            sheets=item.get("sheets",[])
+            attachment=item.get("url") or ""
+            seq_match=re.search(r"(?:[?&])msg_seq=(\d+)(?:&|$)",attachment)
+            seq=int(seq_match.group(1)) if seq_match else None
+            for sheet in sheets:
+                status=sheet.get("status")
+                gaps=sheet.get("unparsed_transaction_like_rows") or 0
+                duplicate_ok=(
+                    seq==1330 and
+                    sheet.get("sheet")=="pdf-page-1" and
+                    status=="DUPLICATE_OFFICIAL_PAGE_NO_NEW_ROWS" and
+                    any(s.get("sheet")=="pdf-page-2" and s.get("status")=="OK"
+                        and s.get("parsed_rows")==13 for s in sheets)
+                )
+                if (gaps or status in {"NO_HEADER","NO_ROWS","ROW_PARSE_GAPS",
+                        "OFFICIAL_SOURCE_SHA_CHANGED","UNSUPPORTED_INCHEON_LAYOUT",
+                        "UNEXPECTED_ORIGINAL_PDF_PAGE"}
+                    or status=="DUPLICATE_OFFICIAL_PAGE_NO_NEW_ROWS" and not duplicate_ok):
+                    failures.append("official_incheon_pdf_unparsed_or_unsupported_page")
     if data.get("source") != source:
         failures.append("source_mismatch")
     if source == "gimpo":
