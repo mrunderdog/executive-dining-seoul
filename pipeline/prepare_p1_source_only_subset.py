@@ -62,16 +62,27 @@ def check(source):
         or audit.get("new_rows")!=plan["new_parsed"]
         or audit.get("new_files")!=plan["stage_files"]-plan["old_files"]):
         raise ValueError("current original official inventory diverges from audited policy")
-    if (staged["rows"][:len(old["rows"])]!=old["rows"]
-        or staged["files"][:len(old["files"])]!=old["files"]
+    # Full refresh can reorder existing rows and files. Check identity of
+    # every historical record independently, not list-prefix ordering.
+    old_rows_by_id={r["row_id"]:r for r in old["rows"]}
+    staged_rows_by_id={r["row_id"]:r for r in staged["rows"]}
+    historic_files={canonical_attachment_url(f.get("url")):f
+                    for f in old["files"]}
+    staged_files={canonical_attachment_url(f.get("url")):f
+                  for f in staged["files"]}
+    if (any(staged_rows_by_id.get(rid)!=record
+            for rid,record in old_rows_by_id.items())
+        or any(staged_files.get(url)!=record
+               for url,record in historic_files.items())
         or staged.get("errors")!=old.get("errors")):
-        raise ValueError("historical ledger changed in full refresh")
+        raise ValueError("historical row/file identity or extraction errors changed")
     old_ids={r["row_id"] for r in old["rows"]}
     fresh=[r for r in staged["rows"] if r["row_id"] not in old_ids]
     if len(fresh)!=plan["new_parsed"] or len({r["row_id"] for r in fresh})!=len(fresh):
         raise ValueError("new transactions incomplete or duplicate")
     new_file_info={canonical_attachment_url(f.get("url")):f
-                   for f in staged["files"][len(old["files"]):]}
+                   for f in staged["files"]
+                   if canonical_attachment_url(f.get("url")) not in historic_files}
     if len(new_file_info)!=plan["stage_files"]-plan["old_files"]:
         raise ValueError("missing or duplicate new official attachment")
     if len(audit.get("new_file_evidence",[]))!=len(new_file_info):
@@ -151,6 +162,9 @@ def check(source):
             or by_good_file[url]==0):
             raise ValueError("original per-file rows not fully accounted for: "+url)
     proposed=copy.deepcopy(staged)
+    # Rebuild the materialized ledger with the *exact* historical sequence.
+    # Only the newly downloaded official-file objects are appended.
+    proposed["files"]=[*old["files"],*new_file_info.values()]
     for row in good:
         row["date_quality"]="source_verified_unranked"
         row["ranking_eligible"]=False
