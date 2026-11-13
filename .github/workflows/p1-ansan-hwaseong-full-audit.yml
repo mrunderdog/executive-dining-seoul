@@ -11,6 +11,8 @@ on:
       - pipeline/qa_council_publication.py
       - pipeline/test_p1_ansan_hwaseong_full_reconcile.py
       - pipeline/audit_hwaseong_period_duplicates.py
+      - pipeline/prepare_p1_source_only_subset.py
+      - pipeline/p1_ansan_hwaseong_original_exceptions.json
 permissions:
   contents: read
 jobs:
@@ -35,6 +37,8 @@ jobs:
           python pipeline/quality_gate.py
       - name: Run original public-source reconciliation without publishing
         run: python -u pipeline/audit_ansan_hwaseong_full_reconcile.py --source ${{ matrix.source }}
+      - name: Stage SHA-attested partial source-only review with all original exceptions accounted for
+        run: python -u pipeline/prepare_p1_source_only_subset.py --source ${{ matrix.source }}
       - name: Test exact independently sourced month-boundary duplicates (Hwaseong)
         if: matrix.source == 'hwaseong'
         run: PYTHONPATH=pipeline python pipeline/audit_hwaseong_period_duplicates.py
