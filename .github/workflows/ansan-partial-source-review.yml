@@ -1,0 +1,42 @@
+name: Ansan verified source-only partial staging (NO PUBLISH)
+
+on:
+  push:
+    branches: [audit/ansan-2333-source-only-staging-20261113]
+  pull_request:
+    paths:
+      - 'pipeline/audit_ansan_partial_source_stage.py'
+      - '.github/workflows/ansan-partial-source-review.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  ansan-official-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install spreadsheet and PDF source adapters
+        run: python -m pip install 'openpyxl>=3.1,<4' 'xlrd>=2,<3' 'pypdf>=5,<7'
+      - name: Confirm existing site baseline quality before nonpublic source audit
+        run: |
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+      - name: Download authentic official files and perform immutable source audit
+        run: PYTHONPATH=pipeline python -u pipeline/audit_ansan_hwaseong_full_reconcile.py --source ansan
+      - name: Stage 2,333 verified rows and explicitly preserve 3 original anomalies as HOLD
+        run: PYTHONPATH=pipeline python -u pipeline/audit_ansan_partial_source_stage.py
+      - name: Upload source-only candidate, excluded-original ledger and strict QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ansan-source-only-partial-staging-not-published
+          path: |
+            reports/recovery/ansan-source-only-review/
+            reports/p1-ansan-hwaseong-qa/ansan.json
+          if-no-files-found: warn
+          retention-days: 14
