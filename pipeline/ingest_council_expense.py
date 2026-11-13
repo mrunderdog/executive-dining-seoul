@@ -802,7 +802,7 @@ def normalize_incheon_datefirst_pdf_rows(rows, sheet_name, source_meta):
         return [], {"sheet": sheet_name, "status": "UNSUPPORTED_INCHEON_LAYOUT",
                     "parsed_rows": 0, "rows": len(rows)}
     observed_sha = source_meta.get("attachment_sha256")
-    if observed_sha and observed_sha != INCH_FIXED_OFFICIAL_PDF_SHA[seq]:
+    if observed_sha != INCH_FIXED_OFFICIAL_PDF_SHA[seq]:
         return [], {"sheet": sheet_name, "status": "OFFICIAL_SOURCE_SHA_CHANGED",
                     "parsed_rows": 0, "rows": len(rows)}
     if seq == 1320 and sheet_name == "pdf-page-2":
@@ -922,7 +922,7 @@ def normalize_incheon_education_pdf_rows(rows, sheet_name, source_meta):
     if incheon_attachment_sequence(source_meta) != 1323:
         return [], {"sheet": sheet_name, "status": "UNSUPPORTED_INCHEON_LAYOUT"}
     digest = source_meta.get("attachment_sha256")
-    if digest and digest != INCH_FIXED_OFFICIAL_PDF_SHA[1323]:
+    if digest != INCH_FIXED_OFFICIAL_PDF_SHA[1323]:
         return [], {"sheet": sheet_name, "status": "OFFICIAL_SOURCE_SHA_CHANGED"}
     head = next((i for i, row in enumerate(rows[:12])
                  if {"일자", "일시", "적요", "채주", "대상", "금액"}.issubset(
