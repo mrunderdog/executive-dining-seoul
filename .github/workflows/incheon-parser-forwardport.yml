@@ -1,0 +1,51 @@
+name: Incheon parser forward-port regression
+
+on:
+  pull_request:
+    paths:
+      - 'pipeline/ingest_council_expense.py'
+      - 'pipeline/qa_council_publication.py'
+      - 'pipeline/test_incheon_official_pdf.py'
+      - 'pipeline/test_incheon_release_qa.py'
+      - '.github/workflows/incheon-parser-forwardport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-parser-and-unchanged-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing ingestion dependencies
+        run: python -m pip install 'openpyxl>=3.1,<4' 'pypdf>=5,<7' xlrd
+      - name: Compile and test source-pinned Incheon original fixtures
+        run: |
+          python -m py_compile pipeline/ingest_council_expense.py pipeline/qa_council_publication.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_official_pdf.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_incheon_release_qa.py
+          PYTHONPATH=pipeline python -m unittest -v pipeline/test_p1_official_file_forensics.py
+      - name: Run production regression and immutable source QA
+        run: |
+          python pipeline/regression_checks.py
+          python pipeline/quality_gate.py
+      - name: Confirm latest main source rows and recommendations not changed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("data/raw")
+          data=json.loads((root/"incheon_council_expense.json").read_text(encoding="utf-8"))
+          candidates=json.loads(Path("reports/incheon_council-executive-candidates.json").read_text(encoding="utf-8"))
+          assert len(data["rows"])==284, len(data["rows"])
+          assert len(data["files"])==13, len(data["files"])
+          assert candidates["candidate_count"]==118, candidates["candidate_count"]
+          assert data["source_recovery"]["august_1321_unexplained_gap_krw"]==438200
+          assert data["source_recovery"]["scanned_documents_remaining_on_hold"]==1
+          assert all(row.get("ranking_eligible") is False for row in data["rows"][-10:])
+          print("PASS: source 284/13, candidates 118, official 438200 KRW HOLD unchanged")
+          PY
