@@ -1,5 +1,8 @@
 name: P1 Ansan Hwaseong real Full Refresh audit
 on:
+  push:
+    branches: [audit/ansan-hwaseong-current-source-20261113]
+  workflow_dispatch:
   pull_request:
     paths:
       - pipeline/audit_ansan_hwaseong_full_reconcile.py
