@@ -61,6 +61,7 @@ jobs:
           set -euo pipefail
           SOURCE=data/raw/ansan_expense.json
           mkdir -p "$RUNNER_TEMP/ansan-baseline" "$RUNNER_TEMP/ansan-proposed"
+          python pipeline/quality_gate.py
           python pipeline/build_site.py --output "$RUNNER_TEMP/ansan-baseline/index.html"
           cp "$SOURCE" "$RUNNER_TEMP/ansan-historic.json"
           trap 'cp "$RUNNER_TEMP/ansan-historic.json" "$SOURCE"' EXIT
