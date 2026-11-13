@@ -13,13 +13,14 @@ import hashlib
 import json
 import subprocess
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 from audit_ansan_hwaseong_full_reconcile import failures_for
 from build_source_candidates import build_candidates
 from capital_backfill import canonical_attachment_url
 from guard_full_council import check_discovery,check_integrity
-from qa_council_publication import assess_incremental
+from qa_council_publication import assess_incremental, period_bounds
 
 ROOT=Path(__file__).resolve().parents[1]
 POLICY=ROOT/"pipeline/p1_ansan_hwaseong_original_exceptions.json"
@@ -174,6 +175,26 @@ def check(source):
         raise ValueError("historical source records modified")
     proposed["row_count"]=len(proposed["rows"])
     proposed["new_files"]=len(new_file_info)
+    quality=copy.deepcopy(staged.get("raw_quality") or {})
+    valid_dates=0
+    valid_periods=0
+    for candidate in proposed["rows"]:
+        try:
+            day=date.fromisoformat(str(candidate.get("used_date") or ""))
+        except (TypeError,ValueError):
+            continue
+        valid_dates+=1
+        bounds=period_bounds(candidate.get("source_period"))
+        if bounds and bounds[0]<=day<=bounds[1]:
+            valid_periods+=1
+    total=len(proposed["rows"])
+    quality["rows"]=quality["transaction_rows"]=total
+    quality["valid_date_coverage"]=quality["all_row_valid_date_coverage"]=round(valid_dates/total,4)
+    quality["in_period_date_coverage"]=quality["all_row_in_period_date_coverage"]=round(valid_periods/total,4)
+    quality["invalid_examples"]=[]
+    if valid_dates!=total or valid_periods!=total:
+        raise ValueError("proposed source-only subset still contains invalid date/period rows")
+    proposed["raw_quality"]=quality
     proposed["refresh_mode"]="verified_partial_original_exception_accounting"
     proposed["source_recovery"]={
         "source_status":"PARTIAL_EXPENSE_SOURCE_ONLY_WITH_EXPLICIT_EXCEPTIONS",
