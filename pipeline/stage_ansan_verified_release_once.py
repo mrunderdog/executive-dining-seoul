@@ -97,7 +97,8 @@ def main():
     proposed["source_recovery"]["status"]="INCOMPLETE_THREE_OFFICIAL_EXPENSES"
     proposed["source_recovery"]["release_mode"]="OFFICIAL_SOURCE_ONLY_PARTIAL_NOT_RANKED"
     proposed["source_recovery"]["audit_workflow_run"]=43400362218
-    proposed["source_recovery"]["publish"]=True  # source ledger published, exceptions still held
+    proposed["source_recovery"]["partial_source_ledger_published"]=True
+    proposed["source_recovery"]["publish"]=False  # overall original disclosure remains incomplete
     proposed["generated_at"]=datetime.now(timezone.utc).isoformat()
     sourceqa=assess_incremental("ansan",proposed,posts,old,olddisc)
     integrity=check_integrity("ansan",proposed,old)
