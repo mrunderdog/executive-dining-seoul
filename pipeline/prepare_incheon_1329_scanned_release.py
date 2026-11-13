@@ -123,6 +123,7 @@ def create():
         "scope":"PARTIAL_2026_08_09_OFFICIAL_SOURCE",
         "status":"INCOMPLETE_2026_08_SCANNED_COMMITTEE_DISCLOSURE",
         "september_scan_1329":"VERIFIED_9_ROWS_784000_KRW_SOURCE_ONLY",
+        "september_scan_1329_historical_error":"PRESERVED_AS_RESOLVED_BY_SHA_ATTESTED_MANUAL_TRANSCRIPTION",
         "added_verified_scan_transactions":9,
         "added_verified_scan_total_krw":784000,
         "new_transaction_ranking_eligible":False,
@@ -146,7 +147,23 @@ def create():
     q["in_period_date_coverage"]=q["all_row_in_period_date_coverage"]=round(inperiod/274,4)
     after["raw_quality"]=q
     integrity=check_integrity("incheon_council",after,base)
-    qa=assess_incremental("incheon_council",after,orig_disc,base,orig_disc)
+    # Original historical errors are immutable evidence. The 1329 text-
+    # extraction failure has been superseded by independently SHA-verified
+    # manual transcription of the image-only original. Suppress it in a
+    # transient QA *view* only, never in the committed source.
+    qaview=copy.deepcopy(after)
+    historic1329=[x for x in qaview.get("errors",[])
+                 if x.get("url")==ev["official_attachment_url"]]
+    if (len(historic1329)!=1
+        or historic1329[0].get("error")!="ValueError: PDF contained no extractable text rows"):
+        raise ValueError("STOP: historical 1329 error not exactly attested")
+    qaview["errors"]=[x for x in qaview["errors"]
+                     if x.get("url")!=ev["official_attachment_url"]]
+    if len(qaview["errors"])!=len(base.get("errors",[]))-1:
+        raise ValueError("STOP: unrelated historical errors changed")
+    if not any("msg_seq=1321" in x.get("url","") for x in qaview["errors"]):
+        raise ValueError("STOP: unresolved August 1321 error silently hidden")
+    qa=assess_incremental("incheon_council",qaview,orig_disc,base,orig_disc)
     if integrity["status"]!="PASS" or qa["status"]!="PUBLISH_READY" or qa.get("verified_rows")!=9:
         raise ValueError(f"STOP strict QA/integrity {qa} {integrity}")
     if after["rows"][:265]!=base["rows"] or after["files"][:11]!=base["files"]:
