@@ -248,6 +248,8 @@ def check(source):
         "ranking_changes":0,
         "baseline_source_sha256":sha(json.dumps(old,ensure_ascii=False,sort_keys=True).encode()),
         "source_candidate_sha256":sha(json.dumps(proposed,ensure_ascii=False,sort_keys=True).encode()),
+        "baseline_discovery_sha256":sha(json.dumps(old_discovery,ensure_ascii=False,sort_keys=True).encode()),
+        "discovery_candidate_sha256":sha(json.dumps(discovery,ensure_ascii=False,sort_keys=True).encode()),
         "official_file_sums_accounted_for":True,
         "full_source_complete":False,
     }
@@ -256,6 +258,8 @@ def check(source):
         json.dumps(proposed,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (folder/f"{source}-source-exceptions.json").write_text(
         json.dumps(unresolved,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (folder/f"{source}-discovery-candidate.json").write_text(
+        json.dumps(discovery,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     (folder/f"{source}-subset-manifest.json").write_text(
         json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("SOURCE_SUBSET_REVIEW",json.dumps(result,ensure_ascii=False),flush=True)
