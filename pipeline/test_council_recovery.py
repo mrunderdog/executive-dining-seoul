@@ -1,13 +1,32 @@
+import io
 import unittest
+import zipfile
 from copy import deepcopy
 from types import SimpleNamespace
 from urllib.error import URLError
 from unittest.mock import patch
 from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, curl_verified_bytes, Source, SOURCES
-from ingest_council_expense import _html_attachment_candidates, fetch_binary, normalize_sheet
+from ingest_council_expense import _html_attachment_candidates, fetch_binary, normalize_sheet, workbook_rows
 from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
+    def test_zip_attachment_without_filename_extension(self):
+        import openpyxl
+        book = openpyxl.Workbook()
+        book.active.title = "지출내역"
+        book.active.append(["집행일", "사용처", "금액"])
+        xlsx = io.BytesIO()
+        book.save(xlsx)
+
+        outer = io.BytesIO()
+        with zipfile.ZipFile(outer, "w") as archive:
+            archive.writestr("의장단/2026년1월.xlsx", xlsx.getvalue())
+        expected = [("의장단/2026년1월.xlsx::지출내역", [["집행일", "사용처", "금액"]])]
+        self.assertEqual(list(workbook_rows(outer.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역2026. 1월")), expected)
+        self.assertEqual(list(workbook_rows(outer.getvalue(), "2026년1월.zip")), expected)
+        self.assertEqual(list(workbook_rows(xlsx.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역")),
+                         [("지출내역", [["집행일", "사용처", "금액"]])])
+
     def test_html_wrapper_candidates(self):
         html=b'<a href="/kr/news/attach">fake</a><a href="#lg-download">fake</a><a href="/kr/news/bbsAttachDownload.do">empty</a><a href="/files/report.xlsx?seq=3">file</a>'
         self.assertEqual(_html_attachment_candidates("https://council.ddc.go.kr/kr/news/bbsCost.do",html),
