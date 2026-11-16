@@ -8,6 +8,7 @@ on:
       - 'pipeline/test_full_reconciliation_p0.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
+      - 'pipeline/audit_michuhol_legacy.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
 permissions:
@@ -57,6 +58,11 @@ jobs:
           done
       - name: Install parsers for real transaction QA
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Audit one legacy Michuhol month without publishing
+        if: contains(github.head_ref, 'michuhol-legacy')
+        shell: bash
+        run: |
+          python pipeline/audit_michuhol_legacy.py --month 2025-04 || true
       - name: Trial ingest each source into ephemeral runner only
         shell: bash
         run: |
