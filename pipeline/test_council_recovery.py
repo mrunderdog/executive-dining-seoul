@@ -51,21 +51,32 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertEqual(info["unparsed_transaction_like_rows"], 1)
 
     def test_zip_attachment_without_filename_extension(self):
-        import openpyxl
-        book = openpyxl.Workbook()
-        book.active.title = "지출내역"
-        book.active.append(["집행일", "사용처", "금액"])
+        # The diagnostic CI runs before optional spreadsheet dependencies are
+        # installed. OOXML signatures and the load_workbook call can be tested
+        # without requiring openpyxl on that runner.
         xlsx = io.BytesIO()
-        book.save(xlsx)
+        with zipfile.ZipFile(xlsx, "w") as workbook:
+            workbook.writestr("[Content_Types].xml", "<Types/>")
+            workbook.writestr("xl/workbook.xml", "<workbook/>")
 
         outer = io.BytesIO()
         with zipfile.ZipFile(outer, "w") as archive:
             archive.writestr("의장단/2026년1월.xlsx", xlsx.getvalue())
         expected = [("의장단/2026년1월.xlsx::지출내역", [["집행일", "사용처", "금액"]])]
-        self.assertEqual(list(workbook_rows(outer.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역2026. 1월")), expected)
-        self.assertEqual(list(workbook_rows(outer.getvalue(), "2026년1월.zip")), expected)
-        self.assertEqual(list(workbook_rows(xlsx.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역")),
-                         [("지출내역", [["집행일", "사용처", "금액"]])])
+        class Sheet:
+            title = "지출내역"
+
+            def iter_rows(self, values_only=False):
+                self.assert_values_only = values_only
+                return iter([("집행일", "사용처", "금액")])
+
+        fake_openpyxl = SimpleNamespace(load_workbook=lambda *args, **kwargs:
+                                        SimpleNamespace(worksheets=[Sheet()]))
+        with patch.dict("sys.modules", {"openpyxl": fake_openpyxl}):
+            self.assertEqual(list(workbook_rows(outer.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역2026. 1월")), expected)
+            self.assertEqual(list(workbook_rows(outer.getvalue(), "2026년1월.zip")), expected)
+            self.assertEqual(list(workbook_rows(xlsx.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역")),
+                             [("지출내역", [["집행일", "사용처", "금액"]])])
 
     def test_html_wrapper_candidates(self):
         html=b'<a href="/kr/news/attach">fake</a><a href="#lg-download">fake</a><a href="/kr/news/bbsAttachDownload.do">empty</a><a href="/files/report.xlsx?seq=3">file</a>'
