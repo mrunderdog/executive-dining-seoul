@@ -292,9 +292,14 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
 def workbook_rows(blob: bytes, filename: str):
     lower = filename.lower()
     # Some councils publish monthly disclosures as a ZIP containing one or
-    # more XLS/XLSX/PDF files. Expand those archives before treating PK bytes
-    # as an Office Open XML workbook.
-    if lower.endswith(".zip"):
+    # more XLS/XLSX/PDF files, but their attachment labels may omit ".zip".
+    # An XLSX also starts with PK; distinguish it by its internal OOXML parts.
+    is_zip_bundle = lower.endswith(".zip")
+    if blob.startswith(b"PK") and not is_zip_bundle:
+        with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+            names = set(zf.namelist())
+            is_zip_bundle = not {"[Content_Types].xml", "xl/workbook.xml"}.issubset(names)
+    if is_zip_bundle:
         with zipfile.ZipFile(io.BytesIO(blob)) as zf:
             yielded = False
             for member in zf.namelist():
