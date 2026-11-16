@@ -25,6 +25,7 @@ jobs:
       - name: Verify safe attachment handling
         run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0
       - name: Capture real board click and download markup
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           set +e
@@ -36,6 +37,7 @@ jobs:
           cat reports/recovery/board-markup.log
           echo "Probe exit: $PROBE_RC"
       - name: Discover targeted councils without publishing
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           mkdir -p reports/recovery
@@ -64,6 +66,7 @@ jobs:
         run: |
           python pipeline/audit_michuhol_legacy.py --month 2025-04 || true
       - name: Trial ingest each source into ephemeral runner only
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           set +e
@@ -90,7 +93,7 @@ jobs:
           done
           # Diagnostic only. Neither raw records nor public site are committed.
       - name: Inspect Icheon PDF table layout when ingestion is held
-        if: always()
+        if: ${{ always() && !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           PYTHONPATH=pipeline python - <<'PY'
