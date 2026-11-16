@@ -10,6 +10,46 @@ from ingest_council_expense import _html_attachment_candidates, fetch_binary, no
 from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
+    def test_michuhol_pdf_uses_real_venue_not_attendee_count(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "post_url": "https://www.michuhol.go.kr/official-post",
+            "attachment_url": "https://www.michuhol.go.kr/official.zip",
+            "attachment_name": "2026년 1월", "period": [2026, 1, None], "default_role": "",
+        }
+        sheet = "1. 의장 업무추진비 내역(2026.1월).pdf::pdf-page-1"
+        rows = [
+            ["미추홀구의회 의장 업무추진비 사용내역"],
+            ["연번", "내용", "참석자수(명)", "사용처(업소명)", "사용방법", "지출금액(단위:원)사용일자"],
+            ["1", "2026-01-05", "12:25", "직원 격려 간담회 식비", "의원 및 직원 6명", "농원숯불왕갈비", "카드", "198,000"],
+            ["2", "2026-01-07", "12:33", "직원 격려 간담회 식비", "의원 및 직원", "명4", "명품삼계탕", "카드", "76,000"],
+        ]
+        normalized, info = normalize_sheet(rows, sheet, meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual([r["merchant"] for r in normalized], ["농원숯불왕갈비", "명품삼계탕"])
+        self.assertEqual([r["amount"] for r in normalized], [198000, 76000])
+        self.assertEqual([r["people"] for r in normalized], [6, 4])
+        self.assertTrue(all(r["merchant_evidence"] == "official_pdf_usage_place_column" for r in normalized))
+        discovery = {"posts": [{"source": "michuhol", "post_url": meta["post_url"],
+                                "attachments": [{"url": meta["attachment_url"]}]}]}
+        data = {"source": "michuhol", "files": [{"url": meta["attachment_url"],
+                "bytes": 200, "sha256": "f" * 64, "sheets": [info]}], "rows": normalized}
+        self.assertEqual(assess("michuhol", data, discovery, 1)["status"], "PUBLISH_READY")
+        without_evidence = deepcopy(data)
+        without_evidence["rows"][0].pop("merchant_evidence")
+        self.assertEqual(assess("michuhol", without_evidence, discovery, 1)["status"], "HOLD")
+        incomplete = deepcopy(data)
+        incomplete["files"][0]["sheets"][0]["unparsed_transaction_like_rows"] = 1
+        self.assertEqual(assess("michuhol", incomplete, discovery, 1)["status"], "HOLD")
+
+    def test_michuhol_pdf_rejects_ambiguous_numbered_rows(self):
+        meta = {"source": "michuhol", "period": [2026, 1, None]}
+        rows = [["1", "2026-01-07", "12:33", "간담회", "의원 4명", "명품삼계탕", "76,000"]]
+        normalized, info = normalize_sheet(rows, "1. 의장.pdf::pdf-page-1", meta)
+        self.assertEqual(normalized, [])
+        self.assertEqual(info["status"], "ROW_PARSE_GAPS")
+        self.assertEqual(info["unparsed_transaction_like_rows"], 1)
+
     def test_zip_attachment_without_filename_extension(self):
         import openpyxl
         book = openpyxl.Workbook()
