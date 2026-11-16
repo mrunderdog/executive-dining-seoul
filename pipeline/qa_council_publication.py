@@ -86,6 +86,10 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
                         "UNEXPECTED_ORIGINAL_PDF_PAGE"}
                     or status=="DUPLICATE_OFFICIAL_PAGE_NO_NEW_ROWS" and not duplicate_ok):
                     failures.append("official_incheon_pdf_unparsed_or_unsupported_page")
+    if source == "michuhol":
+        if any((sheet.get("unparsed_transaction_like_rows") or 0) > 0
+               for item in files for sheet in item.get("sheets", [])):
+            failures.append("official_michuhol_pdf_unparsed_transaction_rows")
     if data.get("source") != source:
         failures.append("source_mismatch")
     if source == "gimpo":
@@ -122,6 +126,7 @@ def assess(source: str, data: dict, discovery: dict, min_rows: int = 5) -> dict:
             and 0 < amount < 50_000_000
             and used is not None and bounds is not None
             and bounds[0] <= used <= bounds[1]
+            and (source != "michuhol" or row.get("merchant_evidence") == "official_pdf_usage_place_column")
         )
         if valid:
             valid_rows += 1

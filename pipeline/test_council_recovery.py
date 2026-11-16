@@ -1,13 +1,83 @@
+import io
 import unittest
+import zipfile
 from copy import deepcopy
 from types import SimpleNamespace
 from urllib.error import URLError
 from unittest.mock import patch
 from capital_backfill import canonical_attachment_url, title_period, council_js_posts, discover_source, ansan_file_attachments, icheon_file_attachments, fetch_text, curl_verified_bytes, Source, SOURCES
-from ingest_council_expense import _html_attachment_candidates, fetch_binary, normalize_sheet
+from ingest_council_expense import _html_attachment_candidates, fetch_binary, normalize_sheet, workbook_rows
 from qa_council_publication import assess, assess_incremental
 
 class AttachmentSafetyTests(unittest.TestCase):
+    def test_michuhol_pdf_uses_real_venue_not_attendee_count(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "post_url": "https://www.michuhol.go.kr/official-post",
+            "attachment_url": "https://www.michuhol.go.kr/official.zip",
+            "attachment_name": "2026년 1월", "period": [2026, 1, None], "default_role": "",
+        }
+        sheet = "1. 의장 업무추진비 내역(2026.1월).pdf::pdf-page-1"
+        rows = [
+            ["미추홀구의회 의장 업무추진비 사용내역"],
+            ["연번", "내용", "참석자수(명)", "사용처(업소명)", "사용방법", "지출금액(단위:원)사용일자"],
+            ["1", "2026-01-05", "12:25", "직원 격려 간담회 식비", "의원 및 직원 6명", "농원숯불왕갈비", "카드", "198,000"],
+            ["2", "2026-01-07", "12:33", "직원 격려 간담회 식비", "의원 및 직원", "명4", "명품삼계탕", "카드", "76,000"],
+        ]
+        normalized, info = normalize_sheet(rows, sheet, meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual([r["merchant"] for r in normalized], ["농원숯불왕갈비", "명품삼계탕"])
+        self.assertEqual([r["amount"] for r in normalized], [198000, 76000])
+        self.assertEqual([r["people"] for r in normalized], [6, 4])
+        self.assertTrue(all(r["merchant_evidence"] == "official_pdf_usage_place_column" for r in normalized))
+        discovery = {"posts": [{"source": "michuhol", "post_url": meta["post_url"],
+                                "attachments": [{"url": meta["attachment_url"]}]}]}
+        data = {"source": "michuhol", "files": [{"url": meta["attachment_url"],
+                "bytes": 200, "sha256": "f" * 64, "sheets": [info]}], "rows": normalized}
+        self.assertEqual(assess("michuhol", data, discovery, 1)["status"], "PUBLISH_READY")
+        without_evidence = deepcopy(data)
+        without_evidence["rows"][0].pop("merchant_evidence")
+        self.assertEqual(assess("michuhol", without_evidence, discovery, 1)["status"], "HOLD")
+        incomplete = deepcopy(data)
+        incomplete["files"][0]["sheets"][0]["unparsed_transaction_like_rows"] = 1
+        self.assertEqual(assess("michuhol", incomplete, discovery, 1)["status"], "HOLD")
+
+    def test_michuhol_pdf_rejects_ambiguous_numbered_rows(self):
+        meta = {"source": "michuhol", "period": [2026, 1, None]}
+        rows = [["1", "2026-01-07", "12:33", "간담회", "의원 4명", "명품삼계탕", "76,000"]]
+        normalized, info = normalize_sheet(rows, "1. 의장.pdf::pdf-page-1", meta)
+        self.assertEqual(normalized, [])
+        self.assertEqual(info["status"], "ROW_PARSE_GAPS")
+        self.assertEqual(info["unparsed_transaction_like_rows"], 1)
+
+    def test_zip_attachment_without_filename_extension(self):
+        # The diagnostic CI runs before optional spreadsheet dependencies are
+        # installed. OOXML signatures and the load_workbook call can be tested
+        # without requiring openpyxl on that runner.
+        xlsx = io.BytesIO()
+        with zipfile.ZipFile(xlsx, "w") as workbook:
+            workbook.writestr("[Content_Types].xml", "<Types/>")
+            workbook.writestr("xl/workbook.xml", "<workbook/>")
+
+        outer = io.BytesIO()
+        with zipfile.ZipFile(outer, "w") as archive:
+            archive.writestr("의장단/2026년1월.xlsx", xlsx.getvalue())
+        expected = [("의장단/2026년1월.xlsx::지출내역", [["집행일", "사용처", "금액"]])]
+        class Sheet:
+            title = "지출내역"
+
+            def iter_rows(self, values_only=False):
+                self.assert_values_only = values_only
+                return iter([("집행일", "사용처", "금액")])
+
+        fake_openpyxl = SimpleNamespace(load_workbook=lambda *args, **kwargs:
+                                        SimpleNamespace(worksheets=[Sheet()]))
+        with patch.dict("sys.modules", {"openpyxl": fake_openpyxl}):
+            self.assertEqual(list(workbook_rows(outer.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역2026. 1월")), expected)
+            self.assertEqual(list(workbook_rows(outer.getvalue(), "2026년1월.zip")), expected)
+            self.assertEqual(list(workbook_rows(xlsx.getvalue(), "첨부파일 다운로드 의장단 업무추진비 사용내역")),
+                             [("지출내역", [["집행일", "사용처", "금액"]])])
+
     def test_html_wrapper_candidates(self):
         html=b'<a href="/kr/news/attach">fake</a><a href="#lg-download">fake</a><a href="/kr/news/bbsAttachDownload.do">empty</a><a href="/files/report.xlsx?seq=3">file</a>'
         self.assertEqual(_html_attachment_candidates("https://council.ddc.go.kr/kr/news/bbsCost.do",html),

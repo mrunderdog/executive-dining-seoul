@@ -1,26 +1,26 @@
 # michuhol expense ingestion
 
-- Normalized rows: **328**
+- Normalized rows: **398**
 - Source posts: **44**
-- Refresh mode: **full**
-- Files retained: **15**
-- New files downloaded: **15**
-- Errors: **7**
+- Refresh mode: **incremental**
+- Files retained: **17**
+- New files downloaded: **2**
+- Errors: **5**
 
 ## Rows by year
 
 - 2024: 34
-- 2025: 212
+- 2025: 282
 - 2026: 82
 
 ## Top roles / sheets
 
-- 의장: 122
-- 기획행정위원장: 61
-- 부의장: 50
-- 의회운영위원장: 38
-- 복지건설위원장: 30
-- 예산결산특별위원장: 27
+- 의장: 145
+- 기획행정위원장: 74
+- 부의장: 61
+- 의회운영위원장: 48
+- 복지건설위원장: 36
+- 예산결산특별위원장: 34
 
 ## Files
 
@@ -125,13 +125,29 @@
   - 3. 의회운영위원장 업무추진비 내역(2024.12월).pdf::pdf-page-1: OK / parsed 1 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 4. 기획행정위원장 업무추진비 내역(2024.12월).pdf::pdf-page-1: OK / parsed 5 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 5. 복지건설위원장 업무추진비 내역(2024.12월).pdf::pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
+- `첨부파일 다운로드 의장단 업무추진비 사용내역2025년 11월` — 346,887 bytes — 37 rows
+  - 6. 예산결산특별위원장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 3 / mapping michuhol_official_pdf_body
+  - 1. 의장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 13 / mapping michuhol_official_pdf_body
+  - 2. 부의장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 5 / mapping michuhol_official_pdf_body
+  - 3. 의회운영위원장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 7 / mapping michuhol_official_pdf_body
+  - 4. 기획행정위원장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 8 / mapping michuhol_official_pdf_body
+  - 5. 복지건설위원장 업무추진비 내역(2025.11월).pdf::pdf-page-1: OK / parsed 1 / mapping michuhol_official_pdf_body
+- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.3월).zip` — 197,241 bytes — 33 rows
+  - 1. 의장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 10 / mapping michuhol_official_pdf_body
+  - 2. 부의장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 6 / mapping michuhol_official_pdf_body
+  - 3. 의회운영위원장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 3 / mapping michuhol_official_pdf_body
+  - 4. 기획행정위원장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 5 / mapping michuhol_official_pdf_body
+  - 5. 복지건설위원장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 5 / mapping michuhol_official_pdf_body
+  - 6. 예산결산특별위원장 업무추진비 내역(2025.3월).pdf::pdf-page-1: OK / parsed 4 / mapping michuhol_official_pdf_body
 
 ## Errors
 
 - KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282026.1%EC%9B%94%29.zip&filepath=board_189
 - KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025.12%EC%9B%94%29.zip&filepath=board_189
-- KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025.11%EC%9B%94%29.zip&filepath=board_189
 - KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025.10%EC%9B%94%29.zip&filepath=board_189
 - KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025.9%EC%9B%94%29.zip&filepath=board_189
 - KeyError: "There is no item named '[Content_Types].xml' in the archive" — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84%282025.8%EC%9B%94%29.zip&filepath=board_189
-- URLError: <urlopen error _ssl.c:993: The handshake operation timed out> — https://www.michuhol.go.kr/ShareEtc/download.asp?filename=%EC%9D%98%EC%9E%A5%EB%8B%A8+%EC%97%85%EB%AC%B4%EC%B6%94%EC%A7%84%EB%B9%84+%EB%82%B4%EC%97%AD%282025.3%EC%9B%94%29.zip&filepath=board_189
+
+## 2026-11-16 recovery decision
+
+Only the two official ZIP attachments for 2025-03 (33 rows) and 2025-11 (37 rows) passed complete PDF row audit. Other files remain held for PDF layout, date, or source-document issues. The 328 committed historical rows are preserved without changes.

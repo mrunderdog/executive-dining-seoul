@@ -292,9 +292,14 @@ def fetch_binary(url: str, referer: str = "", _depth: int = 0) -> bytes:
 def workbook_rows(blob: bytes, filename: str):
     lower = filename.lower()
     # Some councils publish monthly disclosures as a ZIP containing one or
-    # more XLS/XLSX/PDF files. Expand those archives before treating PK bytes
-    # as an Office Open XML workbook.
-    if lower.endswith(".zip"):
+    # more XLS/XLSX/PDF files, but their attachment labels may omit ".zip".
+    # An XLSX also starts with PK; distinguish it by its internal OOXML parts.
+    is_zip_bundle = lower.endswith(".zip")
+    if blob.startswith(b"PK") and not is_zip_bundle:
+        with zipfile.ZipFile(io.BytesIO(blob)) as zf:
+            names = set(zf.namelist())
+            is_zip_bundle = not {"[Content_Types].xml", "xl/workbook.xml"}.issubset(names)
+    if is_zip_bundle:
         with zipfile.ZipFile(io.BytesIO(blob)) as zf:
             yielded = False
             for member in zf.namelist():
@@ -523,6 +528,96 @@ def resolve_role(cell_value, sheet_name, default_role, purpose=""):
     if contextual:
         return contextual
     return cell_role or clean_text(default_role) or clean_text(sheet_name)
+
+
+def normalize_michuhol_pdf_rows(rows, sheet_name, source_meta):
+    """Parse the actual Michuhol PDF body, not its inconsistently split header.
+
+    Official rows place the venue immediately before '카드' and the amount.
+    The '참석자수' header often splits into extra cells, so mapping the header
+    indices onto body rows silently turns attendee counts into venue names.
+    """
+    out, gaps = [], []
+    period = source_meta.get("period")
+    for ri, row in enumerate(rows, 1):
+        cells = [clean_text(x) for x in row]
+        if not cells or not re.fullmatch(r"\d{1,3}", cells[0]):
+            continue
+        # A numbered line in these official PDFs is an expense transaction.
+        # If its fields cannot be recovered unambiguously, hold the file.
+        reason = ""
+        if len(cells) < 8 or not re.fullmatch(r"20\d{2}-\d{2}-\d{2}", cells[1]):
+            reason = "missing_full_date_or_columns"
+        elif not re.fullmatch(r"\d{1,2}:\d{2}", cells[2]):
+            reason = "missing_time"
+        elif cells[-2] not in {"카드", "현금", "계좌이체", "신용카드"}:
+            reason = "payment_method_position_unknown"
+        elif not valid_transaction_merchant(cells[-3]):
+            reason = "missing_venue"
+        amount = parse_amount(cells[-1]) if not reason else None
+        if not reason and (amount is None or not 0 < amount < 50_000_000):
+            reason = "invalid_amount"
+        if not reason and period_bounds_for_michuhol(cells[1], period) is False:
+            reason = "date_outside_source_period"
+        if reason:
+            gaps.append({"source_row": ri, "reason": reason, "cells": cells[:10]})
+            continue
+        attendees = " ".join(cells[4:-3])
+        purpose = cells[3]
+        raw = {
+            "region": source_meta["region"],
+            "jurisdiction": source_meta["jurisdiction"],
+            "institution": source_meta["institution"],
+            "source_key": source_meta["source"],
+            "source_post_url": source_meta["post_url"],
+            "source_attachment_url": source_meta["attachment_url"],
+            "source_attachment_name": source_meta["attachment_name"],
+            "source_period": period,
+            "source_sheet": sheet_name,
+            "source_row": ri,
+            "used_date": cells[1],
+            "used_time": cells[2],
+            "role": infer_leadership_role(sheet_name) or source_meta.get("default_role") or "",
+            "merchant": cells[-3],
+            "merchant_evidence": "official_pdf_usage_place_column",
+            "address": "",
+            "purpose": purpose,
+            "people": parse_people(attendees),
+            "amount": amount,
+            "payment_method": cells[-2],
+            "parse_confidence": "high",
+        }
+        raw["row_id"] = hashlib.sha256(
+            "|".join(str(raw.get(k, "")) for k in
+                     ("institution", "used_date", "role", "merchant", "amount", "source_sheet", "source_row")).encode("utf-8")
+        ).hexdigest()[:20]
+        out.append(raw)
+    return out, {
+        "sheet": sheet_name,
+        "status": "ROW_PARSE_GAPS" if gaps else "OK" if out else "NO_ROWS",
+        "parsed_rows": len(out),
+        "unparsed_transaction_like_rows": len(gaps),
+        "unparsed_examples": gaps[:10],
+        "mapping": "michuhol_official_pdf_body",
+    }
+
+
+def period_bounds_for_michuhol(used_date, period):
+    """An optional preflight; the publication gate also validates dates."""
+    try:
+        d = date.fromisoformat(used_date)
+    except ValueError:
+        return False
+    if not isinstance(period, (tuple, list)) or len(period) != 3:
+        return False
+    year, month, quarter = period
+    if year != d.year:
+        return False
+    if month is not None:
+        return d.month == month
+    if quarter is not None:
+        return (d.month - 1) // 3 + 1 == quarter
+    return False
 
 
 def normalize_icheon_pdf_rows(rows, sheet_name, source_meta):
@@ -1098,6 +1193,8 @@ def normalize_incheon_industry_pdf_rows(rows,sheet_name,source_meta):
 
 
 def normalize_sheet(rows, sheet_name, source_meta):
+    if source_meta.get("source") == "michuhol" and "::pdf-page-" in sheet_name:
+        return normalize_michuhol_pdf_rows(rows, sheet_name, source_meta)
     if source_meta.get("source") == "incheon_council" and sheet_name.startswith("pdf-page-"):
         seq = incheon_attachment_sequence(source_meta)
         if seq in {1320, 1322, 1326, 1327}:
