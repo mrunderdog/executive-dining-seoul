@@ -4,9 +4,10 @@
 
 ## 현 단계의 결론
 
-- 대상: 이천·안산·화성시의회 공개 원자료 **1,123건**, 후보 업소 **222개**.
+- 대상: 이천·안산·화성시의회 현재 커밋된 공개 원자료 **4,017건**, 후보 업소 **291개**.
 - 거래 행에 지점 주소가 있는 건 **0건**, 가맹점 식별자가 있는 건 **0건**.
-- 우선확인 대상 **9개 상호·57건**을 `reports/council-payment-location-audit.json`에 날짜/금액/row_id/공식 링크별로 기록했다.
+- 우선확인 대상 **9개 상호·85건**을 `reports/council-payment-location-audit.json`에 날짜/금액/row_id/공식 링크별로 기록했다.
+- 안산 원자료는 2026-11-13에 기존 658건에서 **2,991건**으로 확대됐다(검증한 신규 2,333건). 날짜 또는 결제 상호가 불명확한 원본 3건은 별도 보류 상태이며, 완전한 원본 대조가 끝난 것으로 간주하지 않는다. 신규분은 공식 원자료 확인용으로만 유지하고 식당 순위에 반영하지 않는다.
 - 동일 업소명, 검색엔진 결과, 업체 홈페이지의 주소, 지도 좌표 또는 체인점 로고는 **특정 카드 결제의 지점 증거가 아니다**.
 - 추가 자료를 추정하거나 사업자등록번호·카드번호를 공개용 데이터에 임의 기록하지 않는다.
 
@@ -25,17 +26,19 @@
 
 ## 원자료 대조 대상
 
-| 기관 | 우선 상호 | 대상 거래 건수 | 공식 게시물 |
+| 기관 | 우선 상호 | 대상 거래 건수 | 공식 게시물(예시) |
 |---|---|---:|---|
-| 이천시의회 | 야반 | 6 | [원문1](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5976&pg=vv), [원문2](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv) |
+| 이천시의회 | 야반 | 7 | [원문1](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5976&pg=vv), [원문2](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv) |
 | 이천시의회 | 서경한우프라자 | 2 | [원문1](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv) |
 | 이천시의회 | 성루 | 3 | [원문1](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5942&pg=vv), [원문2](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=5976&pg=vv), [원문3](https://council.icheon.go.kr/content/information/businessOperatingExpense.html?fidx=6005&pg=vv) |
-| 안산시의회 | 다인 | 7 | [원문1](https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397) |
+| 안산시의회 | 다인 | 21 | [원문1](https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397) |
 | 안산시의회 | 다빈 | 5 | [원문1](https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397) |
-| 안산시의회 | 양평해장국 | 5 | [원문1](https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397) |
-| 화성특례시의회 | 훈장골 | 13 | [원문1](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466), [원문2](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764), [원문3](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957) |
+| 안산시의회 | 양평해장국 | 11 | [원문1](https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397) |
+| 화성특례시의회 | 훈장골 | 16 | [원문1](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466), [원문2](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764), [원문3](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957) |
 | 화성특례시의회 | 훈장골갈비집 | 5 | [원문1](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466), [원문2](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764), [원문3](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957) |
-| 화성특례시의회 | 뜰안에 | 11 | [원문1](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466), [원문2](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764), [원문3](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957) |
+| 화성특례시의회 | 뜰안에 | 15 | [원문1](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40466), [원문2](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40764), [원문3](https://council.hscity.go.kr/cnts/bbs/boardView.php?bbsCd=cns&bbsSubCd=cns08&bbsSn=40957) |
+
+공식 게시물 열은 예시 링크다. **85건 각각의 원문·첨부파일 URL은 감사 JSON에 기록**되어 있으며, 예시 링크만으로 거래 출처 전체를 대체하지 않는다.
 
 ## 증거 수준과 재검증 규칙
 
@@ -63,7 +66,7 @@ Level 3 이전에는 지점 주소로 확정 마커를 추가하거나 서로 �
 
 ## 운영 규칙
 
-- 원본 1,123건 및 원문 링크는 보존한다.
+- 현재 커밋된 원자료 4,017건과 각 거래의 원문 링크는 보존한다. 안산의 보류 원본 3건도 제외 사유와 원문 식별정보를 유지한다.
 - 추가 자료가 확보되면 `pipeline/audit_council_payment_locations.py`를 재실행한다. **현행 원자료에 새 필드가 추가됐는지**부터 확인하고, 문서 증거는 별도로 검증한다.
 - 공개 사이트에 새 장부 페이지를 만들지 않는다.
 - 외부 업체 조회로 얻은 주소는 업소 존재 참고자료이지, 과거 카드 결제 지점 증빙으로 자동 승격시키지 않는다.
