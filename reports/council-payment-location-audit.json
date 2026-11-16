@@ -128,21 +128,27 @@
     },
     {
       "source": "ansan",
-      "official_transactions": 658,
+      "official_transactions": 2991,
       "transactions_with_business_address": 0,
       "transactions_with_merchant_identifier": 0,
-      "transactions_without_branch_evidence": 658,
+      "transactions_without_branch_evidence": 2991,
       "candidate_merchants": 83,
       "reviewed_merchants": 4,
-      "source_files": 2,
+      "source_files": 8,
       "official_document_urls": [
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1616581",
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1637798",
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1646662",
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1659704",
+        "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1668779",
         "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1676503",
         "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397"
       ],
       "priority_merchants": [
         {
           "merchant": "다인",
-          "matching_source_transactions": 7,
+          "matching_source_transactions": 21,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
             {
@@ -193,6 +199,104 @@
               "amount": 29000,
               "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397",
               "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1684397&file_id=1791194526552UJ6PFYYEWJ7813RN8CIULM1NO"
+            },
+            {
+              "row_id": "47c83b98459686df9cb1",
+              "date": "2024-10-08",
+              "amount": 22000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1616581",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1616581&file_id=1737203687817CFTLNUGRHFTJT80BOWK33QBXU"
+            },
+            {
+              "row_id": "66c902a02fd0aa0e2970",
+              "date": "2024-10-18",
+              "amount": 37000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1616581",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1616581&file_id=1737203687817CFTLNUGRHFTJT80BOWK33QBXU"
+            },
+            {
+              "row_id": "44a91d4888b62daad755",
+              "date": "2024-10-29",
+              "amount": 23000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1616581",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1616581&file_id=1737203687817CFTLNUGRHFTJT80BOWK33QBXU"
+            },
+            {
+              "row_id": "10ae249fea6f5566a4b1",
+              "date": "2024-12-13",
+              "amount": 32000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1616581",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1616581&file_id=1737203687817CFTLNUGRHFTJT80BOWK33QBXU"
+            },
+            {
+              "row_id": "419739094c26351e34dc",
+              "date": "2025-02-12",
+              "amount": 55000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "5a7df9b85c04f58fe678",
+              "date": "2025-02-24",
+              "amount": 51000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "d6196f79e9b93f3a062f",
+              "date": "2025-02-26",
+              "amount": 64500,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "1864f09c75c9caad6359",
+              "date": "2025-02-27",
+              "amount": 63000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "a53cd204d9e15b9e15e9",
+              "date": "2025-03-05",
+              "amount": 49000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "9379d6e2ee37061755d5",
+              "date": "2025-03-19",
+              "amount": 15000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "a8ae0cb2570534fe0084",
+              "date": "2025-05-01",
+              "amount": 19500,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1637798",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1637798&file_id=1752136638071SZY1IA6S7MCAIZEUX93MOWMEM"
+            },
+            {
+              "row_id": "c2386a1d0db469590192",
+              "date": "2025-07-18",
+              "amount": 60000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1646662",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1646662&file_id=1759889745795RKC42K40Z1LFT4IB6IX9ABEXK"
+            },
+            {
+              "row_id": "7d778aae96a200ddff3a",
+              "date": "2025-08-07",
+              "amount": 18500,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1646662",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1646662&file_id=1759889745795RKC42K40Z1LFT4IB6IX9ABEXK"
+            },
+            {
+              "row_id": "0f77b5c809559db55650",
+              "date": "2026-01-30",
+              "amount": 28000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1668779",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1668779&file_id=17755428515161GYRGE27D0HWI7D8BAI257HVV"
             }
           ]
         },
@@ -240,7 +344,7 @@
         },
         {
           "merchant": "양평해장국",
-          "matching_source_transactions": 5,
+          "matching_source_transactions": 11,
           "payment_branch_status": "NOT_VERIFIED",
           "transactions": [
             {
@@ -277,6 +381,48 @@
               "amount": 69000,
               "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1684397",
               "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1684397&file_id=1791194526552UJ6PFYYEWJ7813RN8CIULM1NO"
+            },
+            {
+              "row_id": "5e79bb147484a1f2c2c6",
+              "date": "2025-01-13",
+              "amount": 30000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "bd107aa9c2e62bb00a2a",
+              "date": "2025-03-26",
+              "amount": 22000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1627278",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1627278&file_id=1743669082674ZLV8O8NWWKVKQLVEDGNTY30SM"
+            },
+            {
+              "row_id": "85468c1d3197fc51d169",
+              "date": "2025-06-12",
+              "amount": 33000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1637798",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1637798&file_id=1752136638071SZY1IA6S7MCAIZEUX93MOWMEM"
+            },
+            {
+              "row_id": "783e77ad8bc33631f959",
+              "date": "2026-02-12",
+              "amount": 42000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1668779",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1668779&file_id=17755428515161GYRGE27D0HWI7D8BAI257HVV"
+            },
+            {
+              "row_id": "216cad13f0acb350d8ec",
+              "date": "2026-03-06",
+              "amount": 40000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1668779",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1668779&file_id=17755428515161GYRGE27D0HWI7D8BAI257HVV"
+            },
+            {
+              "row_id": "d40433a18055e42e5fc3",
+              "date": "2026-03-31",
+              "amount": 30000,
+              "official_post_url": "https://www.ansan.go.kr/council/common/bbs/selectBbsDetail.do?bbs_code=B0406&bbs_seq=1668779",
+              "official_attachment_url": "https://www.ansan.go.kr/common/file/FileDown.do?bbs_code=B0406&bbs_seq=1668779&file_id=17755428515161GYRGE27D0HWI7D8BAI257HVV"
             }
           ]
         }
@@ -575,12 +721,12 @@
     }
   ],
   "totals": {
-    "transactions": 1684,
+    "transactions": 4017,
     "with_merchant_address": 0,
     "with_merchant_identifier": 0,
     "candidate_merchants": 291,
     "reviewed_merchants": 15,
-    "priority_transactions": 65,
+    "priority_transactions": 85,
     "confirmed_payment_branches": 0
   },
   "not_a_payment_branch_proof": [
