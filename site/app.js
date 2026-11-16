@@ -33,9 +33,23 @@ buildOriginInstitutionOptions();
 let current=[],selected=null,mapReady=false,hoverPopup=null,selectedPopup=null,styleMode='positron',bound=false;
 let lastKeyboardSelection=null;
 const STYLES={positron:'https://tiles.openfreemap.org/styles/positron',liberty:'https://tiles.openfreemap.org/styles/liberty'};
-const map=new maplibregl.Map({container:'map',style:STYLES[styleMode],center:[126.98,37.53],zoom:9.1,attributionControl:true});
-map.addControl(new maplibregl.NavigationControl(),'bottom-right');
-map.addControl(new maplibregl.FullscreenControl(),'bottom-right');
+// A blocked map library or missing WebGL must not prevent restaurant discovery.
+let map=null;
+try{
+  if(typeof maplibregl==='undefined')throw new Error('MapLibre is unavailable');
+  map=new maplibregl.Map({container:'map',style:STYLES[styleMode],center:[126.98,37.53],zoom:9.1,attributionControl:true});
+  map.addControl(new maplibregl.NavigationControl(),'bottom-right');
+  map.addControl(new maplibregl.FullscreenControl(),'bottom-right');
+}catch(error){
+  console.warn('Interactive map unavailable; restaurant explorer remains usable:',error);
+  try{map?.remove()}catch(_error){}
+  map=null;
+  const container=$('map');
+  container.classList.add('map-unavailable');
+  container.innerHTML='<div class="map-fallback-message" role="status"><strong>현재 브라우저에서 지도를 표시할 수 없습니다.</strong><span>식당 검색과 목록·상세 정보는 계속 이용할 수 있습니다. 식당 상세의 Google Maps 버튼에서 위치를 확인하세요.</span></div>';
+  $('fit').disabled=true;
+  $('fit').title='이 브라우저에서는 지도를 사용할 수 없습니다';
+}
 function esc(s){return(s??'').toString().replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
 function won(n){return Number(n||0).toLocaleString('ko-KR')+'원'}
 function shortWon(n){n=Number(n||0);if(n>=1e8)return(n/1e8).toFixed(1).replace('.0','')+'억';if(n>=1e4)return Math.round(n/1e4).toLocaleString('ko-KR')+'만';return n.toLocaleString('ko-KR')}
@@ -205,7 +219,7 @@ function bindInteractions(){
   });
 }
 function updateMap(fit=false){
-  if(!mapReady||!map.isStyleLoaded())return;
+  if(!map||!mapReady||!map.isStyleLoaded())return;
   if(!map.getSource('places'))addLayers();
   const source=map.getSource('places');
   if(source)source.setData(geojson());
@@ -214,7 +228,7 @@ function updateMap(fit=false){
   prog.textContent=`지도 표시 ${n}/${current.length}곳${missing?` · 좌표 보강 필요 ${missing}곳`:''} · 접속 시 지오코딩 0건`;
   if(fit)fitMap();
 }
-function fitMap(){const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
+function fitMap(){if(!map||!mapReady)return;const a=current.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon));if(!a.length)return;const b=new maplibregl.LngLatBounds();a.forEach(r=>b.extend([r.lon,r.lat]));map.fitBounds(b,{padding:{top:90,bottom:40,left:40,right:40},maxZoom:13.3,duration:500})}
 function selectionUrlFor(restaurantId){
   const url=new URL(window.location.href);
   if(restaurantId)url.searchParams.set('restaurant',restaurantId);
@@ -231,11 +245,11 @@ function selectRecord(r,move=true,popup=false,historyMode='push'){
   selected=key(r);
   renderDetail(r);highlight();updateMap(false);
   if(selectedPopup){selectedPopup.remove();selectedPopup=null}
-  if(Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
+  if(map&&Number.isFinite(r.lat)&&Number.isFinite(r.lon)){
     const point=mapCoordinate(r);
     if(move)map.flyTo({center:point,zoom:Math.max(map.getZoom(),15.2),duration:500});
     if(popup||move)selectedPopup=new maplibregl.Popup({offset:14}).setLngLat(point).setHTML(popupHtml(r)).addTo(map);
-  }else prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.';
+  }else if(map)prog.textContent='이 업소는 정적 좌표가 아직 없습니다. 주소 보강 후 자동 반영됩니다.';
   if(historyMode!=='none')writeSelectionUrl(key(r),historyMode);
   if(window.matchMedia('(max-width: 960px)').matches){
     // On small screens the detail follows the map in normal document flow.
@@ -300,16 +314,17 @@ function syncCrossAllButton(){
   btn.setAttribute('aria-pressed',active?'true':'false');
   btn.title=active?'전체 식당으로 돌아가기':'기관 교차 식당 전체 보기';
 }
-function switchStyle(){styleMode=styleMode==='positron'?'liberty':'positron';mapReady=false;map.setStyle(STYLES[styleMode]);map.once('style.load',()=>{mapReady=true;addLayers();updateMap(false)})}
-map.on('load',()=>{mapReady=true;addLayers();updateMap(true)});ds.onchange=ori.onchange=()=>{clearSelection();renderList(true)};q.oninput=()=>{clearSelection();renderList(true)};sort.onchange=()=>renderList(false);$('reset').onclick=resetFilters;$('fit').onclick=fitMap;
-const styleBtn=document.createElement('button');styleBtn.className='map-btn';styleBtn.textContent='지도톤';styleBtn.onclick=switchStyle;document.querySelector('.map-actions')?.prepend(styleBtn);
-updateStats();renderList(false);prog.textContent=`정적 좌표 ${STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length}/${DATA.length} · 첫 접속 추가 지오코딩 없음`;
+function switchStyle(){if(!map)return;styleMode=styleMode==='positron'?'liberty':'positron';mapReady=false;map.setStyle(STYLES[styleMode]);map.once('style.load',()=>{mapReady=true;addLayers();updateMap(false)})}
+if(map)map.on('load',()=>{mapReady=true;addLayers();updateMap(true)});ds.onchange=ori.onchange=()=>{clearSelection();renderList(true)};q.oninput=()=>{clearSelection();renderList(true)};sort.onchange=()=>renderList(false);$('reset').onclick=resetFilters;$('fit').onclick=fitMap;
+if(map){const styleBtn=document.createElement('button');styleBtn.className='map-btn';styleBtn.textContent='지도톤';styleBtn.onclick=switchStyle;document.querySelector('.map-actions')?.prepend(styleBtn)}
+updateStats();renderList(false);prog.textContent=map?`정적 좌표 ${STATS.coordinates||DATA.filter(r=>Number.isFinite(r.lat)&&Number.isFinite(r.lon)).length}/${DATA.length} · 첫 접속 추가 지오코딩 없음`:'지도 사용 불가 · 목록과 상세는 이용 가능';
 
 
 /* Stable map layer lifecycle */
 // Keep a single MapLibre source/layer renderer. Basemap style swaps destroy custom
 // sources/layers, so restore them only after style.load.
 (function(){
+  if(!map)return;
   const styleButton=[...document.querySelectorAll('.map-actions .map-btn')]
     .find(btn=>btn.textContent.trim().startsWith('지도톤'));
   let styleSwitchSeq=0;
@@ -742,7 +757,7 @@ function restoreSelectedFromUrl(){
   clearSelection(false);
   renderList(false);
   selectRecord(restaurant,mapReady,false,'none');
-  if(!mapReady&&Number.isFinite(restaurant.lat)&&Number.isFinite(restaurant.lon)){
+  if(map&&!mapReady&&Number.isFinite(restaurant.lat)&&Number.isFinite(restaurant.lon)){
     map.once('load',()=>{
       if(selected===key(restaurant))map.flyTo({
         center:mapCoordinate(restaurant),zoom:15.2,duration:0

@@ -226,6 +226,27 @@ body{
   height:100%!important;
   min-height:0!important;
 }
+#map.map-unavailable{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  box-sizing:border-box;
+}
+.map-fallback-message{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-width:360px;
+  padding:24px;
+  border:1.5px solid var(--ink);
+  border-radius:10px;
+  background:var(--paper);
+  line-height:1.6;
+  text-align:center;
+}
+.map-fallback-message strong{font-size:1.1rem}
+.map-fallback-message span{font-size:.9rem}
 .map-toolbar{
   z-index:20!important;
 }
