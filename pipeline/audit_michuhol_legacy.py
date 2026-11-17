@@ -7,6 +7,7 @@ attendee counts as merchants. This probe does not modify or publish records.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
@@ -16,7 +17,7 @@ from ingest_council_expense import fetch_binary, normalize_sheet, workbook_rows
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def audit(month: str) -> dict:
+def audit(month: str, save_attachment: str | None = None) -> dict:
     year, month_number = (int(v) for v in month.split("-"))
     if not (2024 <= year <= 2030 and 1 <= month_number <= 12):
         raise ValueError("Invalid historical month")
@@ -38,6 +39,14 @@ def audit(month: str) -> dict:
         "attachment_name": attachment.get("text", ""), "default_role": "",
     }
     blob = fetch_binary(attachment["url"], post["post_url"])
+    digest = hashlib.sha256(blob).hexdigest()
+    historical_files = [f for f in raw["files"] if f.get("url") == attachment["url"]]
+    expected_digest = historical_files[0].get("sha256", "") if len(historical_files) == 1 else ""
+    source_unchanged = bool(expected_digest and digest == expected_digest)
+    if save_attachment:
+        p = ROOT / save_attachment
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(blob)
     recovered, sheets = [], []
     for sheet_name, lines in workbook_rows(blob, attachment.get("text") or "official.zip"):
         parsed, info = normalize_sheet(lines, sheet_name, metadata)
@@ -54,18 +63,23 @@ def audit(month: str) -> dict:
     added = list((new_counts - old_counts).elements())
     gaps = sum(s.get("unparsed_transaction_like_rows", 0) for s in sheets)
     bad_sheets = [s.get("sheet") for s in sheets if s.get("status") not in {"OK", "NO_ROWS"}]
-    matching = len(original) == len(recovered) and not unaccounted and not added and not gaps and not bad_sheets
+    matching = (source_unchanged and len(recovered) >= len(original)
+                and not unaccounted and not gaps and not bad_sheets
+                and len({ledger(r) for r in recovered}) == len(recovered))
     return {
-        "month": month, "status": "RECONCILED" if matching else "HOLD",
+        "month": month, "status": ("RECONCILED_WITH_ADDITIONS" if added else "RECONCILED") if matching else "HOLD",
         "official_post": post["post_url"], "official_attachment": attachment["url"],
         "official_attachment_bytes": len(blob),
+        "official_attachment_sha256": digest,
+        "committed_attachment_sha256": expected_digest,
+        "official_attachment_sha256_matches_committed": source_unchanged,
         "legacy_rows": len(original), "recovered_rows": len(recovered),
         "unparsed_transaction_like_rows": gaps, "bad_sheets": bad_sheets,
         "unaccounted_legacy": unaccounted[:30], "new_unmatched": added[:30],
         "legacy_false_merchants": sum(r.get("merchant", "").startswith(("의원", "의장", "직원", "위원장")) for r in original),
         "sheets": sheets,
         "legacy": [{k: r.get(k) for k in (*keys, "merchant", "row_id")} for r in original],
-        "recovered": [{k: r.get(k) for k in (*keys, "merchant", "row_id", "merchant_evidence", "purpose", "people", "payment_method")} for r in recovered],
+        "recovered": [{k: r.get(k) for k in (*keys, "merchant", "row_id", "merchant_evidence", "purpose", "people", "payment_method", "used_time")} for r in recovered],
     }
 
 
@@ -73,8 +87,9 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--month", default="2025-04")
     ap.add_argument("--report", default="reports/recovery/michuhol-legacy-audit.json")
+    ap.add_argument("--save-attachment", help="Optional official ZIP copy for PDF visual QA")
     args = ap.parse_args()
-    report = audit(args.month)
+    report = audit(args.month, args.save_attachment)
     destination = ROOT / args.report
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
