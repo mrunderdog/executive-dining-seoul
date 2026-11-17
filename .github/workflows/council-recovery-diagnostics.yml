@@ -64,7 +64,8 @@ jobs:
         if: contains(github.head_ref, 'michuhol-legacy')
         shell: bash
         run: |
-          python pipeline/audit_michuhol_legacy.py --month 2025-04 || true
+          python pipeline/audit_michuhol_legacy.py --month 2025-04 \
+            --save-attachment reports/recovery/michuhol-2025-04-official.zip || true
       - name: Trial ingest each source into ephemeral runner only
         if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
