@@ -1,6 +1,6 @@
 # michuhol expense ingestion
 
-- Normalized rows: **400**
+- Normalized rows: **402**
 - Source posts: **44**
 - Refresh mode: **incremental**
 - Files retained: **17**
@@ -10,15 +10,15 @@
 ## Rows by year
 
 - 2024: 34
-- 2025: 284
+- 2025: 286
 - 2026: 82
 
 ## Top roles / sheets
 
 - 의장: 145
-- 기획행정위원장: 74
+- 기획행정위원장: 75
 - 부의장: 61
-- 의회운영위원장: 49
+- 의회운영위원장: 50
 - 복지건설위원장: 37
 - 예산결산특별위원장: 34
 
@@ -90,13 +90,13 @@
   - 2. 부의장 업무추진비 내역(2025.6월).pdf::pdf-page-1: OK / parsed 4 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 3. 의회운영위원장 업무추진비 내역(2025.6월).pdf::pdf-page-1: OK / parsed 5 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 4. 기획행정위원장 업무추진비 내역(2025.6월).pdf::pdf-page-1: OK / parsed 6 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.5월).zip` — 199,337 bytes — 37 rows
-  - 6. 예산결산특별위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 1. 의장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 14 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 2. 부의장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 4 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 3. 의회운영위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 4. 기획행정위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 11 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 5. 복지건설위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 4 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
+- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.5월).zip` — 199,337 bytes — 39 rows (official PDF re-audit)
+  - 6. 예산결산특별위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 2 / mapping michuhol_official_pdf_body
+  - 1. 의장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 14 / mapping michuhol_official_pdf_body
+  - 2. 부의장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 4 / mapping michuhol_official_pdf_body
+  - 3. 의회운영위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 3 / mapping michuhol_official_pdf_body
+  - 4. 기획행정위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 12 / mapping michuhol_official_pdf_body
+  - 5. 복지건설위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 4 / mapping michuhol_official_pdf_body
 - `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.4월).zip` — 222,568 bytes — 54 rows (official PDF re-audit)
   - 1. 의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 17 / mapping michuhol_official_pdf_body
   - 2. 부의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 7 / mapping michuhol_official_pdf_body
@@ -158,3 +158,10 @@ Only the two official ZIP attachments for 2025-03 (33 rows) and 2025-11 (37 rows
 - All 52 previously published April transactions were matched by sheet, source row, date, amount and role. Their stable `row_id` identifiers were preserved; 52 merchant fields were corrected from the actual PDF usage-place column.
 - Two previously omitted transactions (198,000 KRW each, `소나무 디자인`, business card printing) were restored to the transaction ledger. These are non-dining expenditures and are excluded from restaurant candidates.
 - April total: 54 verified original transactions; source total: 400. Unparsed transaction-like rows: 0. Existing March and November official-PDF additions remain unchanged.
+
+## 2026-11-19 official May PDF reconciliation
+
+- The archived 2025-05 official ZIP was checked against SHA-256 `915e2a7dddef687b8e4c8112fb69628d4a79901f2e9a2c4e2361818352e84446`.
+- All 37 previously published May transactions matched source sheet, row, date, amount and role. Their stable `row_id` identifiers were retained; 37 merchant fields were corrected from the official PDF usage-place column.
+- Two missing 2025-05-09 transactions were recovered: `명가아구해물찜` (171,000 KRW, council meeting meal) and `아리곳간` (150,000 KRW, office refreshments; not evidence of a restaurant visit).
+- May total: 39 verified official transactions; total source ledger: 402. Unparsed transaction-like rows: 0. Prior verified months remain unchanged.

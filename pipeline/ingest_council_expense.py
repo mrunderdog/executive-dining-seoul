@@ -543,6 +543,31 @@ def normalize_michuhol_pdf_rows(rows, sheet_name, source_meta):
         cells = [clean_text(x) for x in row]
         if not cells or not re.fullmatch(r"\d{1,3}", cells[0]):
             continue
+        # Some PDF extractors merge the time and long purpose into one cell.
+        # Split only an explicit leading HH:MM followed by nonempty purpose;
+        # leave ambiguous numbered rows for the strict HOLD gate.
+        if len(cells) >= 7 and len(cells) > 2:
+            merged_time = re.fullmatch(r"(\d{1,2}:\d{2})\s+(.+)", cells[2])
+            if merged_time:
+                cells[2:3] = [merged_time.group(1), merged_time.group(2)]
+        # The official 2025-05 PDFs sometimes move the numeral in "제288회"
+        # to the end of the next extracted cell. Restore the purpose before
+        # interpreting any numbers as attendee counts.
+        if len(cells) >= 9 and cells[3] == "제":
+            detached_ordinal = re.fullmatch(r"(회\s+.+?)(\d{2,3})", cells[4])
+            if detached_ordinal:
+                cells[3:5] = [f"제{detached_ordinal.group(2)}{detached_ordinal.group(1)}"]
+        # Another font-positioning anomaly glues the attendee count to the
+        # venue ("7명가아구해물찜", "8 은식당학익점"). Only split when the
+        # preceding cells explicitly say "직원 총 ... 명"; preserve merchants
+        # beginning with digits elsewhere.
+        if len(cells) >= 9 and re.fullmatch(r"명\s*,?", cells[-4]) and "직원 총" in cells[-5]:
+            joined_attendee = re.fullmatch(r"(\d{1,2})\s*(\S.+)", cells[-3])
+            if joined_attendee:
+                cells[-4] = f"{cells[-4]} {joined_attendee.group(1)}"
+                cells[-3] = joined_attendee.group(2)
+        if len(cells) >= 9 and cells[3].endswith("(") and cells[4] == ")":
+            cells[3:5] = [cells[3] + ")"]
         # A numbered line in these official PDFs is an expense transaction.
         # If its fields cannot be recovered unambiguously, hold the file.
         reason = ""
