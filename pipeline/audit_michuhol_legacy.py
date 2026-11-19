@@ -17,7 +17,7 @@ from ingest_council_expense import fetch_binary, normalize_sheet, workbook_rows
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def audit(month: str, save_attachment: str | None = None) -> dict:
+def audit(month: str, save_attachment: str | None = None, attachment_file: str | None = None) -> dict:
     year, month_number = (int(v) for v in month.split("-"))
     if not (2024 <= year <= 2030 and 1 <= month_number <= 12):
         raise ValueError("Invalid historical month")
@@ -38,7 +38,8 @@ def audit(month: str, save_attachment: str | None = None) -> dict:
         "post_url": post["post_url"], "attachment_url": attachment["url"],
         "attachment_name": attachment.get("text", ""), "default_role": "",
     }
-    blob = fetch_binary(attachment["url"], post["post_url"])
+    blob = (Path(attachment_file).read_bytes() if attachment_file else
+            fetch_binary(attachment["url"], post["post_url"]))
     digest = hashlib.sha256(blob).hexdigest()
     historical_files = [f for f in raw["files"] if f.get("url") == attachment["url"]]
     expected_digest = historical_files[0].get("sha256", "") if len(historical_files) == 1 else ""
@@ -88,8 +89,9 @@ def main() -> None:
     ap.add_argument("--month", default="2025-04")
     ap.add_argument("--report", default="reports/recovery/michuhol-legacy-audit.json")
     ap.add_argument("--save-attachment", help="Optional official ZIP copy for PDF visual QA")
+    ap.add_argument("--attachment-file", help="Read an already downloaded official ZIP (still checks original SHA-256)")
     args = ap.parse_args()
-    report = audit(args.month, args.save_attachment)
+    report = audit(args.month, args.save_attachment, args.attachment_file)
     destination = ROOT / args.report
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
