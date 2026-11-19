@@ -104,13 +104,13 @@
   - 4. 기획행정위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 12 / mapping michuhol_official_pdf_body
   - 5. 복지건설위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 10 / mapping michuhol_official_pdf_body
   - 6. 예산결산특별위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 3 / mapping michuhol_official_pdf_body
-- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.2월).zip` — 211,225 bytes — 39 rows
-  - 6. 예산결산특별위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 1. 의장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 7 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 2. 부의장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 9 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 3. 의회운영위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 5 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 4. 기획행정위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 9 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 5. 복지건설위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 7 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
+- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.2월).zip` — 211,225 bytes — 39 rows (official PDF re-audit)
+  - 6. 예산결산특별위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 2 / mapping michuhol_official_pdf_body
+  - 1. 의장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 7 / mapping michuhol_official_pdf_body
+  - 2. 부의장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 9 / mapping michuhol_official_pdf_body
+  - 3. 의회운영위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 5 / mapping michuhol_official_pdf_body
+  - 4. 기획행정위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 9 / mapping michuhol_official_pdf_body
+  - 5. 복지건설위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 7 / mapping michuhol_official_pdf_body
 - `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.1월).zip` — 207,407 bytes — 36 rows
   - 1. 의장 업무추진비 내역(2025.1월).pdf::pdf-page-1: OK / parsed 11 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 2. 부의장 업무추진비 내역(2025.1월).pdf::pdf-page-1: OK / parsed 10 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
@@ -165,3 +165,10 @@ Only the two official ZIP attachments for 2025-03 (33 rows) and 2025-11 (37 rows
 - All 37 previously published May transactions matched source sheet, row, date, amount and role. Their stable `row_id` identifiers were retained; 37 merchant fields were corrected from the official PDF usage-place column.
 - Two missing 2025-05-09 transactions were recovered: `명가아구해물찜` (171,000 KRW, council meeting meal) and `아리곳간` (150,000 KRW, office refreshments; not evidence of a restaurant visit).
 - May total: 39 verified official transactions; total source ledger: 402. Unparsed transaction-like rows: 0. Prior verified months remain unchanged.
+
+## 2026-11-19 official February PDF reconciliation
+
+- The archived 2025-02 official ZIP matched SHA-256 `526aa68ed4eba8a7fd6a0aafa85b98b537efdde20aaf83a97d271e9acb181f7e`.
+- All six PDFs were visually reviewed. Every one of the 39 original February transactions matched its sheet, source row, date, amount and role. Original `row_id` values were retained and **39 attendee-label merchants were corrected** to the official usage-place column.
+- PDF font extraction had joined attendee numbers to merchant names, sometimes with the card payment field. The parser now separates these only with explicit attendee-count delimiters. Where segmented attendance cannot yield one reliable total, `people` is left unspecified.
+- February total: 39 verified original transactions; no omitted transactions and no unparsed transaction-like rows. Total source ledger remains 402. Exploratory restaurant candidates increased from 52 to 62; public listing rules were not changed.
