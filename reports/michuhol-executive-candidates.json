@@ -1,19 +1,45 @@
 {
   "source": "michuhol",
-  "candidate_count": 27,
+  "candidate_count": 41,
   "candidates": [
     {
       "merchant": "한우마을",
+      "visits": 5,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 3,
+      "spend": 1123000,
+      "people": 35,
+      "evening_ratio": 0.0,
+      "score": 56.2
+    },
+    {
+      "merchant": "명품삼계탕",
       "visits": 3,
       "roles": [
         "부의장",
         "의장"
       ],
       "months": 2,
-      "spend": 514000,
-      "people": 22,
+      "spend": 454000,
+      "people": 21,
       "evening_ratio": 0.0,
-      "score": 42.2
+      "score": 42.0
+    },
+    {
+      "merchant": "오늘은 초밥데이",
+      "visits": 2,
+      "roles": [
+        "부의장",
+        "의장"
+      ],
+      "months": 2,
+      "spend": 168500,
+      "people": 10,
+      "evening_ratio": 0.0,
+      "score": 37.6
     },
     {
       "merchant": "오리창고",
@@ -27,6 +53,18 @@
       "people": 12,
       "evening_ratio": 0.0,
       "score": 33.0
+    },
+    {
+      "merchant": "숭의가든",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 2,
+      "spend": 816000,
+      "people": 20,
+      "evening_ratio": 0.0,
+      "score": 29.7
     },
     {
       "merchant": "정성횟집",
@@ -53,6 +91,42 @@
       "score": 29.4
     },
     {
+      "merchant": "대구반야월막창",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 226000,
+      "people": 5,
+      "evening_ratio": 1.0,
+      "score": 29.3
+    },
+    {
+      "merchant": "명가아구해물찜",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 2,
+      "spend": 317000,
+      "people": 18,
+      "evening_ratio": 0.0,
+      "score": 28.1
+    },
+    {
+      "merchant": "꾸아",
+      "visits": 2,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 149000,
+      "people": 7,
+      "evening_ratio": 0.0,
+      "score": 22.5
+    },
+    {
       "merchant": "묵은지삼겹살",
       "visits": 2,
       "roles": [
@@ -65,16 +139,16 @@
       "score": 22.5
     },
     {
-      "merchant": "숭의가든",
+      "merchant": "스시진",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 323000,
-      "people": 10,
+      "spend": 280000,
+      "people": 7,
       "evening_ratio": 0.0,
-      "score": 19.6
+      "score": 19.4
     },
     {
       "merchant": "경복궁",
@@ -89,14 +163,14 @@
       "score": 19.4
     },
     {
-      "merchant": "명품삼계탕",
+      "merchant": "파파존스",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 260000,
-      "people": 14,
+      "spend": 272400,
+      "people": 10,
       "evening_ratio": 0.0,
       "score": 19.4
     },
@@ -113,16 +187,16 @@
       "score": 19.4
     },
     {
-      "merchant": "명가아구해물찜",
+      "merchant": "장수흑염소",
       "visits": 1,
       "roles": [
         "의장"
       ],
       "months": 1,
-      "spend": 218000,
-      "people": 12,
+      "spend": 241000,
+      "people": 6,
       "evening_ratio": 0.0,
-      "score": 19.2
+      "score": 19.3
     },
     {
       "merchant": "철판불막곱창",
@@ -209,6 +283,18 @@
       "score": 18.9
     },
     {
+      "merchant": "두부와쭈꾸미",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 106000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.9
+    },
+    {
       "merchant": "푸른바다",
       "visits": 1,
       "roles": [
@@ -217,18 +303,6 @@
       "months": 1,
       "spend": 104000,
       "people": 7,
-      "evening_ratio": 0.0,
-      "score": 18.8
-    },
-    {
-      "merchant": "오늘은 초밥데이",
-      "visits": 1,
-      "roles": [
-        "의장"
-      ],
-      "months": 1,
-      "spend": 103500,
-      "people": 6,
       "evening_ratio": 0.0,
       "score": 18.8
     },
@@ -245,6 +319,18 @@
       "score": 18.8
     },
     {
+      "merchant": "고려왕족발",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 94000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
       "merchant": "명함제작",
       "visits": 1,
       "roles": [
@@ -257,6 +343,18 @@
       "score": 18.8
     },
     {
+      "merchant": "명가촌",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 87000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
       "merchant": "두찜 주안점",
       "visits": 1,
       "roles": [
@@ -265,6 +363,18 @@
       "months": 1,
       "spend": 83100,
       "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "정드림흑염서",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 80000,
+      "people": 4,
       "evening_ratio": 0.0,
       "score": 18.8
     },
@@ -305,6 +415,42 @@
       "score": 18.8
     },
     {
+      "merchant": "정동진 순대국",
+      "visits": 1,
+      "roles": [
+        "부의장"
+      ],
+      "months": 1,
+      "spend": 76000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "명가푸드",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 75000,
+      "people": 20,
+      "evening_ratio": 0.0,
+      "score": 18.8
+    },
+    {
+      "merchant": "홍대돈까스",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 72000,
+      "people": 6,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
       "merchant": "부영선지국",
       "visits": 1,
       "roles": [
@@ -327,6 +473,30 @@
       "people": 3,
       "evening_ratio": 0.0,
       "score": 18.7
+    },
+    {
+      "merchant": "산골감자탕",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 62000,
+      "people": 4,
+      "evening_ratio": 0.0,
+      "score": 18.7
+    },
+    {
+      "merchant": "튀겨볶아",
+      "visits": 1,
+      "roles": [
+        "의장"
+      ],
+      "months": 1,
+      "spend": 25000,
+      "people": 5,
+      "evening_ratio": 0.0,
+      "score": 18.6
     }
   ]
 }
