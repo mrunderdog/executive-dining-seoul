@@ -66,8 +66,10 @@ jobs:
         if: contains(github.head_ref, 'michuhol-legacy')
         shell: bash
         run: |
-          python pipeline/audit_michuhol_legacy.py --month 2025-04 \
-            --save-attachment reports/recovery/michuhol-2025-04-official.zip || true
+          AUDIT_MONTH="$(printf '%s' "${GITHUB_HEAD_REF:-}" | grep -oE '20[0-9]{2}-[0-9]{2}' | head -n 1 || true)"
+          AUDIT_MONTH="${AUDIT_MONTH:-2025-04}"
+          python pipeline/audit_michuhol_legacy.py --month "$AUDIT_MONTH" \
+            --save-attachment "reports/recovery/michuhol-${AUDIT_MONTH}-official.zip" || true
       - name: Trial ingest each source into ephemeral runner only
         if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
