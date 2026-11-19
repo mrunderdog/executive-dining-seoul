@@ -9,6 +9,8 @@ on:
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
       - 'pipeline/audit_michuhol_legacy.py'
+      - 'pipeline/apply_michuhol_legacy_audit.py'
+      - 'pipeline/test_michuhol_legacy_audit.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
 permissions:
@@ -23,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify safe attachment handling
-        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_michuhol_legacy_audit
       - name: Capture real board click and download markup
         if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
