@@ -2,8 +2,8 @@
 
 **Evidence rule:** Visits in legacy JSON are disclosed office usage-event counts, not a named person’s proven attendance. Cross-institution scores rank independently published usage by different agencies; they do not prove shared individual visits.
 
-- Generated: 2026-11-16T02:49:16
-- Published restaurant entities: **1356**
+- Generated: 2026-11-19T02:00:22
+- Published restaurant entities: **1357**
 - Cross-institution restaurants: **198**
 - Cross-origin restaurants: **27**
 - Central top-official restaurants: **473**
