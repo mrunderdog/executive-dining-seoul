@@ -557,11 +557,20 @@ def normalize_michuhol_pdf_rows(rows, sheet_name, source_meta):
             detached_ordinal = re.fullmatch(r"(회\s+.+?)(\d{2,3})", cells[4])
             if detached_ordinal:
                 cells[3:5] = [f"제{detached_ordinal.group(2)}{detached_ordinal.group(1)}"]
-        # Another font-positioning anomaly glues the attendee count to the
-        # venue ("7명가아구해물찜", "8 은식당학익점"). Only split when the
-        # preceding cells explicitly say "직원 총 ... 명"; preserve merchants
-        # beginning with digits elsewhere.
-        if len(cells) >= 9 and re.fullmatch(r"명\s*,?", cells[-4]) and "직원 총" in cells[-5]:
+        # February PDFs sometimes join the last attendee count, venue and
+        # payment method: "6감성등갈비카드", "8새우물식당 카드".
+        # Only split after an explicit attendee-count delimiter, never an
+        # arbitrary numeric-leading business name.
+        if len(cells) >= 9 and re.fullmatch(r"(?:명\s*,?|,)", cells[-3]):
+            merged_payment = re.fullmatch(r"(\d{1,2})(.+?)\s*(카드)", cells[-2])
+            if merged_payment and ("명" in cells[-3] or any("명" in s for s in cells[4:-3])):
+                venue = clean_text(merged_payment.group(2))
+                if valid_transaction_merchant(venue):
+                    cells[-3] = f"{cells[-3]} {merged_payment.group(1)}"
+                    cells[-2:-1] = [venue, merged_payment.group(3)]
+        # The attendee count may also stick to the venue while the payment
+        # method is separate: "7명가아구해물찜", "2고향한정식".
+        if len(cells) >= 9 and re.fullmatch(r"(?:명\s*,?|,)", cells[-4]) and ("명" in cells[-4] or any("명" in s for s in cells[4:-4])):
             joined_attendee = re.fullmatch(r"(\d{1,2})\s*(\S.+)", cells[-3])
             if joined_attendee:
                 cells[-4] = f"{cells[-4]} {joined_attendee.group(1)}"
@@ -588,6 +597,11 @@ def normalize_michuhol_pdf_rows(rows, sheet_name, source_meta):
             gaps.append({"source_row": ri, "reason": reason, "cells": cells[:10]})
             continue
         attendees = " ".join(cells[4:-3])
+        # A split participant list such as "의원 1명, 직원 3명" has no
+        # unambiguous single headcount; do not report its first numeral as
+        # the total or invent a count inclusive of the chair.
+        attendee_numbers = re.findall(r"\d+", attendees)
+        people = parse_people(attendees) if len(attendee_numbers) <= 1 else None
         purpose = cells[3]
         raw = {
             "region": source_meta["region"],
@@ -607,7 +621,7 @@ def normalize_michuhol_pdf_rows(rows, sheet_name, source_meta):
             "merchant_evidence": "official_pdf_usage_place_column",
             "address": "",
             "purpose": purpose,
-            "people": parse_people(attendees),
+            "people": people,
             "amount": amount,
             "payment_method": cells[-2],
             "parse_confidence": "high",
