@@ -50,6 +50,38 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertEqual(info["status"], "ROW_PARSE_GAPS")
         self.assertEqual(info["unparsed_transaction_like_rows"], 1)
 
+    def test_michuhol_pdf_splits_merged_time_and_purpose(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "period": [2025, 5, None],
+            "post_url": "https://official.test/post", "attachment_url": "https://official.test/file.zip",
+            "attachment_name": "2025년 5월", "default_role": "",
+        }
+        row = ["3", "2025-05-09", "12:22", "제",
+               "회 정례회 의회운영위원회 운영 논의를 위한 간담회 식비 지출288",
+               "위원장 및 의원", "직원 총", "명 ,", "7명가아구해물찜", "카드", "171,000"]
+        rows, info = normalize_sheet([row], "3. 의회운영위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1", meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual(info["unparsed_transaction_like_rows"], 0)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual((rows[0]["used_time"], rows[0]["merchant"], rows[0]["amount"]),
+                         ("12:22", "명가아구해물찜", 171000))
+        self.assertEqual(rows[0]["people"], 7)
+        self.assertTrue(rows[0]["purpose"].startswith("제288회 정례회"))
+
+    def test_michuhol_pdf_attendee_number_does_not_pollute_venue(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "period": [2025, 5, None],
+            "post_url": "https://official.test/post", "attachment_url": "https://official.test/file.zip",
+            "attachment_name": "2025년 5월", "default_role": "",
+        }
+        row = ["1", "2025-05-02", "13:02", "의정 관련 정보 교류를 위한 간담회 식비 지출",
+               "위원장 및 의원", "직원 총", "명 ,", "8 은식당학익점", "카드", "162,000"]
+        rows, info = normalize_sheet([row], "3. 의회운영위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1", meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual((rows[0]["merchant"], rows[0]["people"]), ("은식당학익점", 8))
+
     def test_zip_attachment_without_filename_extension(self):
         # The diagnostic CI runs before optional spreadsheet dependencies are
         # installed. OOXML signatures and the load_workbook call can be tested
