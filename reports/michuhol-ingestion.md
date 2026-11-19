@@ -1,6 +1,6 @@
 # michuhol expense ingestion
 
-- Normalized rows: **398**
+- Normalized rows: **400**
 - Source posts: **44**
 - Refresh mode: **incremental**
 - Files retained: **17**
@@ -10,7 +10,7 @@
 ## Rows by year
 
 - 2024: 34
-- 2025: 282
+- 2025: 284
 - 2026: 82
 
 ## Top roles / sheets
@@ -18,8 +18,8 @@
 - 의장: 145
 - 기획행정위원장: 74
 - 부의장: 61
-- 의회운영위원장: 48
-- 복지건설위원장: 36
+- 의회운영위원장: 49
+- 복지건설위원장: 37
 - 예산결산특별위원장: 34
 
 ## Files
@@ -97,13 +97,13 @@
   - 3. 의회운영위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 4. 기획행정위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 11 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 5. 복지건설위원장 업무추진비 내역(2025.5월).pdf::pdf-page-1: OK / parsed 4 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.4월).zip` — 222,568 bytes — 52 rows
-  - 1. 의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 17 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 2. 부의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 7 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 3. 의회운영위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 4 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 4. 기획행정위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 12 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 5. 복지건설위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 9 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
-  - 6. 예산결산특별위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 3 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
+- `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비 내역(2025.4월).zip` — 222,568 bytes — 54 rows (official PDF re-audit)
+  - 1. 의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 17 / mapping michuhol_official_pdf_body
+  - 2. 부의장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 7 / mapping michuhol_official_pdf_body
+  - 3. 의회운영위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 5 / mapping michuhol_official_pdf_body
+  - 4. 기획행정위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 12 / mapping michuhol_official_pdf_body
+  - 5. 복지건설위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 10 / mapping michuhol_official_pdf_body
+  - 6. 예산결산특별위원장 업무추진비 내역(2025.4월).pdf::pdf-page-1: OK / parsed 3 / mapping michuhol_official_pdf_body
 - `새창에서 첨부파일 다운로드(보기) 의장단 업무추진비(2025.2월).zip` — 211,225 bytes — 39 rows
   - 6. 예산결산특별위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 2 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
   - 1. 의장 업무추진비 내역(2025.2월).pdf::pdf-page-1: OK / parsed 7 / mapping {'date': 1, 'purpose': 2, 'merchant': 4, 'amount': 6}
@@ -151,3 +151,10 @@
 ## 2026-11-16 recovery decision
 
 Only the two official ZIP attachments for 2025-03 (33 rows) and 2025-11 (37 rows) passed complete PDF row audit. Other files remain held for PDF layout, date, or source-document issues. The 328 committed historical rows are preserved without changes.
+
+## 2026-11-17 official April PDF reconciliation
+
+- The exact archived 2025-04 official ZIP was re-downloaded and SHA-256 matched (`26c72c9a524cb650bdb3bb88b177ecfcf4c58430b3150aa0b9812ff0372d8e23`).
+- All 52 previously published April transactions were matched by sheet, source row, date, amount and role. Their stable `row_id` identifiers were preserved; 52 merchant fields were corrected from the actual PDF usage-place column.
+- Two previously omitted transactions (198,000 KRW each, `소나무 디자인`, business card printing) were restored to the transaction ledger. These are non-dining expenditures and are excluded from restaurant candidates.
+- April total: 54 verified original transactions; source total: 400. Unparsed transaction-like rows: 0. Existing March and November official-PDF additions remain unchanged.

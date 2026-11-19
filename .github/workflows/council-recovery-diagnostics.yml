@@ -8,6 +8,9 @@ on:
       - 'pipeline/test_full_reconciliation_p0.py'
       - 'pipeline/qa_council_publication.py'
       - 'pipeline/probe_council_board_markup.py'
+      - 'pipeline/audit_michuhol_legacy.py'
+      - 'pipeline/apply_michuhol_legacy_audit.py'
+      - 'pipeline/test_michuhol_legacy_audit.py'
       - '.github/workflows/council-recovery-diagnostics.yml'
   workflow_dispatch:
 permissions:
@@ -22,8 +25,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify safe attachment handling
-        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0
+        run: PYTHONPATH=pipeline python -m unittest -v test_council_recovery test_full_reconciliation_p0 test_michuhol_legacy_audit
       - name: Capture real board click and download markup
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           set +e
@@ -35,6 +39,7 @@ jobs:
           cat reports/recovery/board-markup.log
           echo "Probe exit: $PROBE_RC"
       - name: Discover targeted councils without publishing
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           mkdir -p reports/recovery
@@ -57,7 +62,14 @@ jobs:
           done
       - name: Install parsers for real transaction QA
         run: pip install --disable-pip-version-check openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.1.1
+      - name: Audit one legacy Michuhol month without publishing
+        if: contains(github.head_ref, 'michuhol-legacy')
+        shell: bash
+        run: |
+          python pipeline/audit_michuhol_legacy.py --month 2025-04 \
+            --save-attachment reports/recovery/michuhol-2025-04-official.zip || true
       - name: Trial ingest each source into ephemeral runner only
+        if: ${{ !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           set +e
@@ -84,7 +96,7 @@ jobs:
           done
           # Diagnostic only. Neither raw records nor public site are committed.
       - name: Inspect Icheon PDF table layout when ingestion is held
-        if: always()
+        if: ${{ always() && !contains(github.head_ref, 'michuhol-legacy') }}
         shell: bash
         run: |
           PYTHONPATH=pipeline python - <<'PY'
