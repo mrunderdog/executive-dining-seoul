@@ -7,9 +7,9 @@
       "ArcGIS World Geocoding Service",
       "OpenStreetMap Nominatim"
     ],
-    "record_count": 1791,
-    "success_count": 1387,
-    "updated_at": "2026-11-16T02:49:19+00:00"
+    "record_count": 1792,
+    "success_count": 1388,
+    "updated_at": "2026-11-19T02:00:28+00:00"
   },
   "records": {
     "(주) 뚜리삼|서울시청": {
@@ -27069,6 +27069,24 @@
         "arcgis:서울 중구 남대문로5길 7"
       ],
       "updated_at": "2026-09-17T23:04:09+00:00"
+    },
+    "한우마을|미추홀구": {
+      "addr_type": "POI",
+      "display_name": "한우마을",
+      "fingerprint": "3dba01a45605a27f",
+      "geocoder_version": 4,
+      "lat": 37.450645274,
+      "lon": 126.686372287,
+      "match_mode": "name",
+      "policy_version": 3,
+      "query": "한우마을 인천광역시 미추홀구",
+      "result_name": "한우마을",
+      "score": 100.0,
+      "source": "arcgis",
+      "tried_queries": [
+        "arcgis:한우마을 인천광역시 미추홀구"
+      ],
+      "updated_at": "2026-11-19T02:00:28+00:00"
     },
     "한우만|군포시": {
       "addr_type": "POI",
