@@ -82,6 +82,40 @@ class AttachmentSafetyTests(unittest.TestCase):
         self.assertEqual(info["status"], "OK")
         self.assertEqual((rows[0]["merchant"], rows[0]["people"]), ("은식당학익점", 8))
 
+    def test_michuhol_february_joined_payment_method_and_ordinal(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "period": [2025, 2, None],
+            "post_url": "https://official.test/post", "attachment_url": "https://official.test/file.zip",
+            "attachment_name": "2025년 2월", "default_role": "",
+        }
+        row = ["2", "2025-02-14", "20:35", "제",
+               "회 임시회 안건 심사 논의를 위한 간담회 식비 지출286",
+               "운영위원장 및 의원", "의회사무국 직원 총", "명,", "6감성등갈비카드", "278,000"]
+        rows, info = normalize_sheet([row], "3. 의회운영위원장 업무추진비 내역(2025.2월).pdf::pdf-page-1", meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual((rows[0]["merchant"], rows[0]["people"], rows[0]["payment_method"]),
+                         ("감성등갈비", 6, "카드"))
+        self.assertTrue(rows[0]["purpose"].startswith("제286회 임시회"))
+
+    def test_michuhol_february_split_attendees_are_not_invented_totals(self):
+        meta = {
+            "source": "michuhol", "region": "인천", "jurisdiction": "미추홀구",
+            "institution": "미추홀구의회", "period": [2025, 2, None],
+            "post_url": "https://official.test/post", "attachment_url": "https://official.test/file.zip",
+            "attachment_name": "2025년 2월", "default_role": "",
+        }
+        rows = [
+            ["3", "2025-02-06", "19:44", "의정 운영방향 논의 간담회 식비", "의장 및 동료의원",
+             "명", "의정지원팀 직원", "명4", ",", "2농원숯불왕갈비카드", "155,000"],
+            ["6", "2025-02-21", "13:14", "주민자치협의회 임원 간담회 식비", "의장 및 주민자치협의회 임원진",
+             "명", "수행직원", "명7", ",", "2흥남면옥", "카드", "289,000"],
+        ]
+        parsed, info = normalize_sheet(rows, "1. 의장 업무추진비 내역(2025.2월).pdf::pdf-page-1", meta)
+        self.assertEqual(info["status"], "OK")
+        self.assertEqual([r["merchant"] for r in parsed], ["농원숯불왕갈비", "흥남면옥"])
+        self.assertTrue(all(r["people"] is None for r in parsed))
+
     def test_zip_attachment_without_filename_extension(self):
         # The diagnostic CI runs before optional spreadsheet dependencies are
         # installed. OOXML signatures and the load_workbook call can be tested
