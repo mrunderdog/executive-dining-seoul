@@ -3,6 +3,7 @@ import argparse
 import json
 import re
 import subprocess
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -176,6 +177,14 @@ def main():
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
+
+    # Include curated editorial pages in the same GitHub Pages artifact.
+    story_dir = ROOT / "site" / "stories"
+    if story_dir.is_dir():
+        story_out = out.parent / "stories"
+        story_out.mkdir(parents=True, exist_ok=True)
+        for story_file in sorted(story_dir.glob("*.html")):
+            shutil.copyfile(story_file, story_out / story_file.name)
 
     try:
         git_commit = subprocess.check_output(
